@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -6,852 +5,669 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atendimento Elétrico Rápido | Engenheiro Eletricista</title>
   <meta name="description" content="Atendimento elétrico rápido e profissional para residências e empresas. Resposta em minutos, orçamento claro e serviço com padrão técnico." />
-  <meta name="theme-color" content="#0B1220" />
-
-  <!--
-    DEMO / COMO PERSONALIZAR (2 min):
-    1) Troque NOME_EMPRESA, CIDADE_UF, TELEFONE e WHATSAPP_LINK.
-    2) Troque o link do Google Meu Negócio em: GOOGLE_REVIEWS_LINK e GOOGLE_MAPS_LINK.
-    3) Ajuste os serviços conforme seu escopo (residencial/comercial/projetos).
-    4) Substitua o bloco "Avaliações do Google" por embed real (ou plugin) se for publicar.
-  -->
-
+  <meta name="theme-color" content="#0f172a" />
+  
   <style>
-    :root{
-      --bg:#0B1220;
-      --panel:#0F1A33;
-      --card:#0E1730;
-      --text:#EAF0FF;
-      --muted:#A9B6D6;
-      --brand:#2AD4FF;
-      --brand2:#7CFFB2;
-      --warn:#FFCC66;
-      --stroke:rgba(255,255,255,.10);
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 24px;
-      --max: 1080px;
-      --pad: 18px;
-      --pad2: 26px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica;
+    /* --- VARIÁVEIS DE DESIGN (Design Tokens) --- */
+    :root {
+      /* Paleta de Cores Sóbria e Profissional */
+      --bg-body: #0f172a;       /* Fundo Principal */
+      --bg-card: #1e293b;       /* Fundo de Cartões */
+      --bg-input: #334155;      /* Fundo de Inputs */
+      
+      --text-main: #f8fafc;     /* Texto Principal (Branco Suave) */
+      --text-muted: #94a3b8;    /* Texto Secundário (Cinza Azulado) */
+      
+      --brand-primary: #3b82f6; /* Azul Ação Principal */
+      --brand-hover: #2563eb;   /* Azul Ação Hover */
+      --brand-accent: #0ea5e9;  /* Azul Ciano Detalhes */
+      
+      --status-success: #10b981; /* Verde Sucesso */
+      --status-warn: #f59e0b;    /* Âmbar Aviso/Estrelas */
+      
+      --border: 1px solid rgba(255,255,255, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      
+      --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
+      --max-width: 1100px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: var(--font);
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(42,212,255,.22), transparent 55%),
-        radial-gradient(900px 700px at 110% 20%, rgba(124,255,178,.18), transparent 52%),
-        radial-gradient(800px 600px at 30% 110%, rgba(255,204,102,.12), transparent 55%),
-        var(--bg);
-      line-height:1.35;
+    /* --- RESET & BASE --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      padding-bottom: 80px; /* Espaço para barra móvel */
     }
 
-    a{ color:inherit; text-decoration:none; }
-    .container{
-      width:100%;
-      max-width: var(--max);
-      margin:0 auto;
-      padding: 0 var(--pad);
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+    ul { list-style: none; }
+    strong, b { font-weight: 700; color: var(--text-main); }
+
+    /* Utilitários */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .text-center { text-align: center; }
+    .muted { color: var(--text-muted); font-size: 0.9em; }
+    
+    .badge {
+      display: inline-block;
+      background: rgba(14, 165, 233, 0.15);
+      color: var(--brand-accent);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(14, 165, 233, 0.3);
     }
 
-    /* Topbar */
-    .topbar{
+    /* --- HEADER --- */
+    header {
+      border-bottom: var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(11,18,32,.66);
-      border-bottom: 1px solid var(--stroke);
-    }
-    .topbar .row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      top: 0;
+      z-index: 50;
       padding: 12px 0;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width: 180px;
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .logo{
-      width:36px;
-      height:36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(42,212,255,.95), rgba(124,255,178,.95));
-      box-shadow: 0 10px 28px rgba(42,212,255,.18);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:after{
-      content:"";
-      position:absolute;
-      inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 55%);
-      transform: rotate(15deg);
-    }
-    .brand .title{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-    .brand .title strong{
-      font-size: 14px;
-      letter-spacing: .2px;
-    }
-    .brand .title span{
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); }
-    .pill.primary{
-      border-color: rgba(42,212,255,.45);
-      background: linear-gradient(135deg, rgba(42,212,255,.16), rgba(124,255,178,.12));
-    }
-    .pill.primary:hover{ border-color: rgba(42,212,255,.65); }
-    .pill .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--brand2);
-      box-shadow: 0 0 0 4px rgba(124,255,178,.12);
-    }
-    .pill .star{
-      color: var(--warn);
-      font-size: 14px;
-      line-height: 1;
-    }
-
-    /* Hero */
-    .hero{
-      padding: 26px 0 18px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .panel{
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-
-    .hero-card{
-      padding: 18px;
-      position:relative;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(42,212,255,.35);
-      background: rgba(42,212,255,.08);
-      color: var(--text);
+    .logo {
       font-weight: 700;
-      font-size: 12px;
-      letter-spacing: .2px;
-    }
-    .badge small{ color: var(--muted); font-weight: 700; }
-    h1{
-      margin: 14px 0 10px;
-      font-size: 28px;
-      line-height: 1.08;
-      letter-spacing: -0.6px;
-    }
-    .sub{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 46ch;
-    }
-
-    .cta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 10px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.05);
-      font-weight: 800;
-      font-size: 14px;
-      min-width: 160px;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.07); }
-    .btn.primary{
-      border-color: rgba(42,212,255,.55);
-      background: linear-gradient(135deg, rgba(42,212,255,.22), rgba(124,255,178,.16));
-    }
-    .btn.primary:hover{ border-color: rgba(42,212,255,.75); }
-    .btn .ico{
-      width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center;
-      filter: drop-shadow(0 6px 18px rgba(42,212,255,.15));
-    }
-
-    .trust{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
-      margin-top: 14px;
-    }
-    .trust-item{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      padding: 12px;
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-    }
-    .trust-item b{ display:block; font-size: 13px; }
-    .trust-item span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .check{
-      width:18px; height:18px; border-radius: 6px;
-      background: rgba(124,255,178,.12);
-      border: 1px solid rgba(124,255,178,.35);
-      display:flex; align-items:center; justify-content:center;
-      color: var(--brand2);
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-
-    /* Right side card (form) */
-    .quote-card{
-      padding: 18px;
-    }
-    .quote-card h2{
-      margin:0 0 6px;
-      font-size: 18px;
-      letter-spacing: -.2px;
-    }
-    .quote-card p{
-      margin:0 0 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    form{
-      display:grid;
-      gap:10px;
-    }
-    .field{
-      display:grid;
-      gap:6px;
-    }
-    label{
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    input, select, textarea{
-      width:100%;
-      border-radius: 14px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      padding: 12px 12px;
-      outline:none;
-      font-size: 14px;
-    }
-    textarea{ min-height: 84px; resize: vertical; }
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(42,212,255,.55);
-      box-shadow: 0 0 0 4px rgba(42,212,255,.10);
-    }
-
-    .form-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 4px;
-    }
-    .mini{
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 1.1rem;
       line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo span { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
+    
+    .header-actions {
+      display: none;
+      gap: 10px;
+    }
+    .pill-link {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: var(--border);
+      color: var(--text-muted);
+    }
+    .pill-link:hover { background: rgba(255,255,255,0.1); color: var(--text-main); }
+    
+    @media(min-width: 900px) {
+      .header-actions { display: flex; align-items: center; }
     }
 
-    /* Sections */
-    section{
-      padding: 12px 0;
-    }
-    .section-title{
-      font-size: 16px;
-      letter-spacing: -.2px;
-      margin: 0 0 10px;
-    }
-    .grid{
-      display:grid;
+    /* --- HERO --- */
+    .hero { padding: 40px 0; }
+    .hero-grid {
+      display: grid;
+      gap: 40px;
       grid-template-columns: 1fr;
-      gap: 12px;
     }
-    .card{
-      padding: 16px;
-      border-radius: var(--radius2);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
-    }
-    .card h3{ margin:0 0 8px; font-size: 14px; }
-    .card p{ margin:0; color: var(--muted); font-size: 13px; }
-    .list{
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-      display:grid;
-      gap: 8px;
-    }
-    .list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .bullet{
-      width:10px; height:10px; border-radius: 999px;
-      background: rgba(42,212,255,.25);
-      border:1px solid rgba(42,212,255,.4);
-      margin-top: 4px;
-      flex: 0 0 auto;
+    @media(min-width: 900px) {
+      .hero-grid { grid-template-columns: 1.2fr 0.9fr; align-items: start; }
+      .hero { padding: 60px 0; }
     }
 
-    .reviews{
-      display:grid;
-      gap:10px;
+    h1 {
+      font-size: 2rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .review-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 55ch;
+    }
+
+    /* Botões */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    @media(min-width: 600px) { .btn { width: auto; min-width: 160px; } }
+
+    .btn-primary {
+      background-color: var(--brand-primary);
+      color: white;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+    .btn-primary:hover { background-color: var(--brand-hover); transform: translateY(-2px); }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--text-muted);
+      color: var(--text-main);
+    }
+    .btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.05); }
+
+    /* Lista de Benefícios (Hero) */
+    .trust-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .trust-item {
+      display: flex;
+      gap: 12px;
+      background: rgba(255,255,255,0.02);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: var(--border);
+    }
+    .check-box {
+      color: var(--status-success);
+      font-weight: 900;
+      background: rgba(16, 185, 129, 0.1);
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .trust-content b { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+    .trust-content span { display: block; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* --- FORMULÁRIO (Card Direito) --- */
+    .form-card {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: var(--border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .form-card h2 { font-size: 1.35rem; margin-bottom: 6px; }
+    .form-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
-    .rating{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-weight: 900;
-      letter-spacing: .2px;
-    }
-    .stars{
-      color: var(--warn);
-      font-size: 14px;
-    }
-    .review{
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      border-radius: 18px;
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid transparent;
+      color: white;
       padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: inherit;
     }
-    .review b{ display:block; font-size: 13px; margin-bottom: 2px; }
-    .review span{ display:block; font-size: 12px; color: var(--muted); }
-    .review p{ margin: 8px 0 0; color: var(--text); font-size: 13px; opacity:.95; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .form-textarea { min-height: 80px; resize: vertical; }
+    
+    .form-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .chip {
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
 
-    .how{
-      display:grid;
-      gap:10px;
+    /* --- SECÇÕES GERAIS --- */
+    section { padding: 50px 0; border-top: var(--border); }
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 30px;
+      font-weight: 700;
     }
-    .step{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding: 12px;
-      border: 1px solid var(--stroke);
-      border-radius: 18px;
-      background: rgba(255,255,255,.03);
+
+    /* Grid de Serviços */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
-    .num{
-      width:28px; height:28px; border-radius: 10px;
-      background: rgba(42,212,255,.12);
-      border: 1px solid rgba(42,212,255,.35);
-      display:flex; align-items:center; justify-content:center;
-      font-weight: 900;
-      color: var(--brand);
-      flex: 0 0 auto;
-      margin-top: 1px;
+    @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+    .service-card {
+      background: rgba(255,255,255,0.02);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: var(--border);
+      transition: 0.2s;
     }
-    .step b{ display:block; font-size: 13px; }
-    .step span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .service-card:hover { border-color: var(--brand-primary); background: rgba(59, 130, 246, 0.05); }
+    .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--brand-accent); }
+    .service-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px; }
+    
+    .bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .bullet {
+      width: 6px; height: 6px; background: var(--brand-primary);
+      border-radius: 50%; margin-top: 9px; flex-shrink: 0;
+    }
+
+    /* Avaliações */
+    .rating-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .stars-lg { color: var(--status-warn); font-size: 1.5rem; letter-spacing: 2px; }
+    
+    .review-card {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: var(--border);
+    }
+    .review-quote { font-style: italic; font-size: 1rem; margin: 12px 0; opacity: 0.9; }
+    .review-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: space-between; }
+
+    /* Como Funciona */
+    .steps-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      border: var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.02);
+      align-items: flex-start;
+    }
+    .step-num {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--brand-primary);
+      font-weight: 800;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq-card {
+      background: rgba(255,255,255,0.02);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: var(--border);
+    }
+    .faq-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text-main); }
+    .faq-card p { font-size: 0.95rem; color: var(--text-muted); }
 
     /* Footer */
-    footer{
-      padding: 22px 0 26px;
-      border-top: 1px solid var(--stroke);
-      margin-top: 8px;
-      background: rgba(0,0,0,.12);
+    footer {
+      background: #020617;
+      padding: 40px 0 100px;
+      border-top: var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      align-items:start;
+    .footer-grid {
+      display: grid;
+      gap: 30px;
     }
-    .footnote{
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.35;
-    }
-    .footer-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+    @media(min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr 1fr; } }
+    .footer-links { display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0; }
 
-    /* Desktop enhancements */
-    @media (min-width: 920px){
-      .hero-grid{ grid-template-columns: 1.25fr .75fr; gap: 16px; align-items:stretch; }
-      .hero-card, .quote-card{ padding: 22px; }
-      h1{ font-size: 40px; }
-      .sub{ font-size: 15px; max-width: 62ch; }
-      .trust{ grid-template-columns: 1fr 1fr; }
-      .grid{ grid-template-columns: 1fr 1fr; }
-      .footer-grid{ grid-template-columns: 1.2fr .8fr; }
-    }
-
-    /* Mobile fixed bottom bar */
-    .mobile-bar{
+    /* Mobile Bar */
+    .mobile-bar {
       position: fixed;
-      left: 0; right: 0; bottom: 0;
-      z-index: 60;
-      background: rgba(11,18,32,.75);
-      backdrop-filter: blur(14px);
-      border-top: 1px solid var(--stroke);
-      padding: 10px var(--pad);
-      display:flex;
-      gap:10px;
-      justify-content:space-between;
+      bottom: 0; left: 0; width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      display: flex; gap: 10px;
+      z-index: 100;
+      border-top: var(--border);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
     }
-    .mobile-bar .btn{
-      min-width: 0;
-      width: 100%;
-      padding: 12px 12px;
-      border-radius: 16px;
-    }
-    @media (min-width: 920px){
-      .mobile-bar{ display:none; }
-    }
+    .mobile-bar .btn { flex: 1; padding: 12px; font-size: 0.95rem; }
+    @media(min-width: 900px) { .mobile-bar { display: none; } body { padding-bottom: 0; } }
 
-    /* Utilities */
-    .muted{ color: var(--muted); }
-    .small{ font-size: 12px; }
-    .spacer{ height: 64px; } /* for mobile bar spacing */
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px;
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-    }
   </style>
 </head>
 
 <body>
-  <!-- =======================
-       CONFIG (DEMO)
-  ======================== -->
-  <!--
-    NOME_EMPRESA: "NOME_EMPRESA"
-    CIDADE_UF: "São Paulo - SP"
-    TELEFONE (clique para ligar): +5511999999999
-    WHATSAPP_LINK: https://wa.me/5511999999999?text=Olá!%20Quero%20atendimento%20elétrico%20rápido.
-    GOOGLE_REVIEWS_LINK: https://g.page/r/SEU_ID/review
-    GOOGLE_MAPS_LINK: https://g.page/r/SEU_ID
-  -->
 
-  <div class="topbar">
-    <div class="container">
-      <div class="row">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div class="title">
-            <strong>NOME_EMPRESA</strong>
-            <span>Engenheiro Eletricista • <span class="muted">CIDADE_UF</span></span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="pill" href="https://g.page/r/SEU_ID" target="_blank" rel="noopener">
-            <span class="star">★</span> Ver no Google <span class="muted small">(rotas + perfil)</span>
-          </a>
-          <a class="pill primary" href="tel:+5511999999999">
-            <span class="dot"></span> Ligar agora
-          </a>
-          <a class="pill primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20atendimento%20el%C3%A9trico%20r%C3%A1pido." target="_blank" rel="noopener">
-            <span class="dot"></span> WhatsApp
-          </a>
-        </div>
+  <!-- TOPO -->
+  <header>
+    <div class="container header-row">
+      <div class="logo">
+        NOME_EMPRESA
+        <span>Engenheiro Eletricista • CIDADE_UF</span>
+      </div>
+      <div class="header-actions">
+        <a href="https://g.page/r/SEU_ID" target="_blank" class="pill-link">★ Ver no Google</a>
+        <a href="tel:+5511999999999" class="pill-link">Ligar agora</a>
+        <a href="https://wa.me/5511999999999" class="pill-link" style="color:var(--brand-accent); border-color:var(--brand-accent)">WhatsApp</a>
       </div>
     </div>
-  </div>
+  </header>
 
+  <!-- HERO -->
   <main class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <!-- Left / Hero copy -->
-        <div class="panel">
-          <div class="hero-card">
-            <div class="badge">
-              Atendimento rápido • <small>Residencial & Empresarial</small>
+    <div class="container hero-grid">
+      
+      <!-- Copy Principal -->
+      <div>
+        <div class="badge">Atendimento rápido • Residencial & Empresarial</div>
+        <h1>Atendimento elétrico imediato, com padrão técnico e acabamento profissional.</h1>
+        <p class="hero-sub">Resposta em minutos, orçamento claro antes de iniciar e execução segura. Ideal para quem precisa resolver rápido sem abrir mão da qualidade.</p>
+        
+        <div class="trust-list">
+          <div class="trust-item">
+            <div class="check-box">✓</div>
+            <div class="trust-content">
+              <b>Resposta rápida</b>
+              <span>Retorno em até 10 minutos durante o horário de atendimento.</span>
             </div>
-
-            <h1>Atendimento elétrico imediato, com padrão técnico e acabamento profissional.</h1>
-
-            <p class="sub">
-              Resposta em minutos, orçamento claro antes de iniciar e execução segura.
-              Ideal para quem precisa resolver rápido sem abrir mão da qualidade.
-            </p>
-
-            <div class="cta-row">
-              <a class="btn primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Preciso%20de%20atendimento%20el%C3%A9trico%20r%C3%A1pido.%20Meu%20endere%C3%A7o%20%C3%A9%20____.%20O%20problema%20%C3%A9%20____." target="_blank" rel="noopener">
-                <span class="ico" aria-hidden="true">⚡</span>
-                Chamar no WhatsApp
-              </a>
-              <a class="btn" href="tel:+5511999999999">
-                <span class="ico" aria-hidden="true">📞</span>
-                Ligar agora
-              </a>
-              <a class="btn" href="https://g.page/r/SEU_ID/review" target="_blank" rel="noopener">
-                <span class="ico" aria-hidden="true">★</span>
-                Avaliar no Google
-              </a>
-            </div>
-
-            <div class="trust" aria-label="Diferenciais">
-              <div class="trust-item">
-                <div class="check">✓</div>
-                <div>
-                  <b>Resposta rápida</b>
-                  <span>Retorno em até 10 minutos durante o horário de atendimento.</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="check">✓</div>
-                <div>
-                  <b>Qualidade e segurança</b>
-                  <span>Serviço com método, testes e conformidade técnica.</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="check">✓</div>
-                <div>
-                  <b>Orçamento transparente</b>
-                  <span>Você aprova antes. Sem “surpresas” no final.</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="check">✓</div>
-                <div>
-                  <b>Google Meu Negócio</b>
-                  <span>Perfil ativo com avaliações reais e rota até o local.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- COPY IMPROVEMENT (SUGESTÃO):
-              - Se o cliente atender emergências 24h, troque “horário de atendimento” por “24h”.
-              - Se houver SLA real (ex.: chegada em X min/km), coloque número concreto.
-              - Se houver certificações/CREA, inclua no “Trust” e na seção de credenciais.
-            -->
           </div>
-        </div>
-
-        <!-- Right / Mini form -->
-        <div class="panel">
-          <div class="quote-card">
-            <h2>Orçamento rápido em 1 minuto</h2>
-            <p>Preencha o essencial. Retornamos com prioridade para agilizar sua solução.</p>
-
-            <form onsubmit="return false;">
-              <div class="field">
-                <label for="nome">Nome</label>
-                <input id="nome" name="nome" placeholder="Seu nome" autocomplete="name" />
-              </div>
-
-              <div class="field">
-                <label for="telefone">Telefone / WhatsApp</label>
-                <input id="telefone" name="telefone" placeholder="(11) 99999-9999" autocomplete="tel" />
-              </div>
-
-              <div class="field">
-                <label for="tipo">Tipo de atendimento</label>
-                <select id="tipo" name="tipo">
-                  <option>Urgência (queda, curto, cheiro de queimado)</option>
-                  <option>Manutenção (tomadas, disjuntores, quadro)</option>
-                  <option>Instalação (iluminação, chuveiro, ar-condicionado)</option>
-                  <option>Empresa (manutenção predial / adequação)</option>
-                  <option>Projeto / Reforma</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="msg">Descreva rapidamente</label>
-                <textarea id="msg" name="msg" placeholder="Ex.: queda de energia parcial, disjuntor desarma, tomada aquecendo..."></textarea>
-              </div>
-
-              <div class="form-actions">
-                <a class="btn primary" id="enviarWhats" href="#">
-                  <span class="ico" aria-hidden="true">✅</span>
-                  Enviar via WhatsApp
-                </a>
-                <a class="btn" href="https://g.page/r/SEU_ID" target="_blank" rel="noopener">
-                  <span class="ico" aria-hidden="true">📍</span>
-                  Ver rota no Google
-                </a>
-              </div>
-
-              <div class="mini">
-                <span class="chip">Sem compromisso</span>
-                <span class="chip">Orçamento claro</span>
-                <span class="chip">Atendimento ágil</span>
-              </div>
-
-              <!-- COPY IMPROVEMENT (SUGESTÃO):
-                - Se o lead for majoritariamente mobile: reduzir campos (Nome + Telefone + Tipo).
-                - Se quiser qualificar mais: pedir bairro e “melhor horário”.
-                - Trocar “Sem compromisso” por “Resposta rápida” se a dor for urgência.
-              -->
-            </form>
+          <div class="trust-item">
+            <div class="check-box">✓</div>
+            <div class="trust-content">
+              <b>Qualidade e segurança</b>
+              <span>Serviço com método, testes e conformidade técnica.</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="check-box">✓</div>
+            <div class="trust-content">
+              <b>Orçamento transparente</b>
+              <span>Você aprova antes. Sem “surpresas” no final.</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="check-box">✓</div>
+            <div class="trust-content">
+              <b>Google Meu Negócio</b>
+              <span>Perfil ativo com avaliações reais e rota até o local.</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="spacer"></div>
+      <!-- Formulário -->
+      <div>
+        <div class="form-card">
+          <h2>Orçamento rápido em 1 minuto</h2>
+          <p>Preencha o essencial. Retornamos com prioridade para agilizar sua solução.</p>
+          
+          <form id="heroForm" onsubmit="return false;">
+            <div class="form-group">
+              <label class="form-label" for="nome">Nome</label>
+              <input class="form-input" id="nome" type="text" placeholder="Seu nome" />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+              <input class="form-input" id="telefone" type="tel" placeholder="(DD) 99999-9999" />
+            </div>
 
-      <!-- Services -->
-      <section>
-        <h2 class="section-title">Serviços mais solicitados</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Urgências elétricas</h3>
-            <p>Queda de energia, curto, disjuntor desarmando, cheiro de queimado, aquecimento em tomadas.</p>
-            <ul class="list">
-              <li><span class="bullet"></span>Diagnóstico objetivo + correção segura</li>
-              <li><span class="bullet"></span>Prioridade para casos de risco</li>
-              <li><span class="bullet"></span>Teste e validação ao final</li>
-            </ul>
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="tipo">Tipo de atendimento</label>
+              <select class="form-select" id="tipo">
+                <option value="Urgência">⚡ Urgência (queda, curto, cheiro de queimado)</option>
+                <option value="Manutenção">🛠 Manutenção (tomadas, disjuntores, quadro)</option>
+                <option value="Instalação">🏠 Instalação (iluminação, chuveiro)</option>
+                <option value="Empresa">🏢 Empresa (manutenção predial)</option>
+                <option value="Projeto">📐 Projeto / Reforma</option>
+              </select>
+            </div>
 
-          <div class="card">
-            <h3>Residencial</h3>
-            <p>Instalações e manutenções com acabamento limpo e orientações claras para evitar reincidência.</p>
-            <ul class="list">
-              <li><span class="bullet"></span>Tomadas, iluminação, chuveiro, DPS/DR</li>
-              <li><span class="bullet"></span>Quadro elétrico e organização de circuitos</li>
-              <li><span class="bullet"></span>Prevenção (aquecimento, sobrecarga)</li>
-            </ul>
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="msg">Descreva rapidamente</label>
+              <textarea class="form-textarea" id="msg" placeholder="Ex: Chuveiro parou de esquentar..."></textarea>
+            </div>
 
-          <div class="card">
-            <h3>Empresas e comércios</h3>
-            <p>Manutenção e adequações para reduzir paradas e aumentar segurança operacional.</p>
-            <ul class="list">
-              <li><span class="bullet"></span>Manutenção predial e corretiva</li>
-              <li><span class="bullet"></span>Melhorias de carga e distribuição</li>
-              <li><span class="bullet"></span>Documentação e orientação técnica</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Projeto e reforma elétrica</h3>
-            <p>Planejamento técnico para obra ou ampliação: do dimensionamento à execução organizada.</p>
-            <ul class="list">
-              <li><span class="bullet"></span>Levantamento, solução e plano de execução</li>
-              <li><span class="bullet"></span>Materiais recomendados (sem exagero)</li>
-              <li><span class="bullet"></span>Entrega com checklist final</li>
-            </ul>
-          </div>
+            <button class="btn btn-primary" id="enviarWhats" style="width:100%">
+              Chamar no WhatsApp
+            </button>
+            <div class="form-chips">
+              <span class="chip">Sem compromisso</span>
+              <span class="chip">Orçamento claro</span>
+              <span class="chip">Atendimento ágil</span>
+            </div>
+          </form>
         </div>
-      </section>
-
-      <!-- Reviews -->
-      <section>
-        <h2 class="section-title">Avaliações do Google (prova social)</h2>
-        <div class="card reviews">
-          <div class="review-head">
-            <div class="rating">
-              <span class="stars">★★★★★</span>
-              <span>4,9</span>
-              <span class="muted small">(baseado em 120 avaliações)</span>
-            </div>
-            <div class="footer-actions">
-              <a class="pill" href="https://g.page/r/SEU_ID" target="_blank" rel="noopener">Abrir perfil no Google</a>
-              <a class="pill primary" href="https://g.page/r/SEU_ID/review" target="_blank" rel="noopener">Deixar avaliação</a>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="review">
-              <b>Cliente Residencial • Vila Mariana</b>
-              <span>Google • 5★</span>
-              <p>“Atendimento rápido e muito profissional. Explicou o problema, fez o orçamento e resolveu no mesmo dia.”</p>
-            </div>
-            <div class="review">
-              <b>Cliente Empresarial • Escritório</b>
-              <span>Google • 5★</span>
-              <p>“Organização impecável e execução segura. Reduziu quedas no quadro e deixou tudo identificado.”</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- How it works -->
-      <section>
-        <h2 class="section-title">Como funciona (sem enrolação)</h2>
-        <div class="card how">
-          <div class="step">
-            <div class="num">1</div>
-            <div>
-              <b>Chame agora</b>
-              <span>WhatsApp ou ligação. Você descreve o essencial em 30 segundos.</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <div>
-              <b>Retorno rápido + triagem</b>
-              <span>Priorizamos riscos e urgências. Alinhamos disponibilidade e deslocamento.</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <div>
-              <b>Orçamento claro</b>
-              <span>Você aprova antes de qualquer execução. Transparência total.</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">4</div>
-            <div>
-              <b>Execução + validação</b>
-              <span>Serviço concluído com testes e checklist. Entrega limpa e organizada.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section>
-        <h2 class="section-title">Perguntas rápidas</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Vocês atendem urgência?</h3>
-            <p>Sim. Queda de energia, curto, cheiro de queimado ou aquecimento são priorizados. Chame no WhatsApp para triagem imediata.</p>
-          </div>
-          <div class="card">
-            <h3>Como é feito o orçamento?</h3>
-            <p>Você recebe um diagnóstico objetivo e um orçamento antes de iniciar. Se houver alternativas, explicamos custo/benefício sem empurrar item.</p>
-          </div>
-          <div class="card">
-            <h3>Atendem empresas?</h3>
-            <p>Sim. Manutenção predial, adequações, correções e melhorias para reduzir paradas e riscos.</p>
-          </div>
-          <div class="card">
-            <h3>Como vejo as avaliações reais?</h3>
-            <p>Direto no Google Meu Negócio: estrelas, comentários e histórico. Clique em “Ver no Google” no topo da página.</p>
-          </div>
-        </div>
-      </section>
-
+      </div>
     </div>
   </main>
 
+  <!-- SERVIÇOS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Serviços mais solicitados</h2>
+      <div class="grid-2">
+        
+        <div class="service-card">
+          <h3>Urgências elétricas</h3>
+          <p>Queda de energia, curto, disjuntor desarmando, cheiro de queimado, aquecimento em tomadas.</p>
+          <ul class="bullet-list">
+            <li><span class="bullet"></span>Diagnóstico objetivo + correção segura</li>
+            <li><span class="bullet"></span>Prioridade para casos de risco</li>
+            <li><span class="bullet"></span>Teste e validação ao final</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Residencial</h3>
+          <p>Instalações e manutenções com acabamento limpo e orientações claras para evitar reincidência.</p>
+          <ul class="bullet-list">
+            <li><span class="bullet"></span>Tomadas, iluminação, chuveiro, DPS/DR</li>
+            <li><span class="bullet"></span>Quadro elétrico e organização de circuitos</li>
+            <li><span class="bullet"></span>Prevenção (aquecimento, sobrecarga)</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Empresas e comércios</h3>
+          <p>Manutenção e adequações para reduzir paradas e aumentar segurança operacional.</p>
+          <ul class="bullet-list">
+            <li><span class="bullet"></span>Manutenção predial e corretiva</li>
+            <li><span class="bullet"></span>Melhorias de carga e distribuição</li>
+            <li><span class="bullet"></span>Documentação e orientação técnica</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Projeto e reforma elétrica</h3>
+          <p>Planejamento técnico para obra ou ampliação: do dimensionamento à execução organizada.</p>
+          <ul class="bullet-list">
+            <li><span class="bullet"></span>Levantamento, solução e plano de execução</li>
+            <li><span class="bullet"></span>Materiais recomendados (sem exagero)</li>
+            <li><span class="bullet"></span>Entrega com checklist final</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section style="background: rgba(255,255,255,0.02)">
+    <div class="container">
+      <h2 class="section-title">Avaliações do Google (prova social)</h2>
+      
+      <div class="rating-header">
+        <span class="stars-lg">★★★★★</span>
+        <span style="font-size:1.2rem; font-weight:700">4,9</span>
+        <span class="muted">(baseado em 120 avaliações)</span>
+        <div style="margin-left:auto; display:flex; gap:10px;">
+          <a href="https://g.page/r/SEU_ID" target="_blank" class="pill-link">Abrir perfil</a>
+          <a href="https://g.page/r/SEU_ID/review" target="_blank" class="pill-link" style="background:var(--brand-primary); border:none; color:white;">Deixar avaliação</a>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="review-card">
+          <div class="review-meta">
+            <b>Cliente Residencial • Vila Mariana</b>
+            <span>Google • 5★</span>
+          </div>
+          <p class="review-quote">“Atendimento rápido e muito profissional. Explicou o problema, fez o orçamento e resolveu no mesmo dia.”</p>
+        </div>
+        <div class="review-card">
+          <div class="review-meta">
+            <b>Cliente Empresarial • Escritório</b>
+            <span>Google • 5★</span>
+          </div>
+          <p class="review-quote">“Organização impecável e execução segura. Reduziu quedas no quadro e deixou tudo identificado.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Como funciona (sem enrolação)</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <b>Chame agora</b>
+            <span class="muted">WhatsApp ou ligação. Você descreve o essencial em 30 segundos.</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <b>Retorno rápido + triagem</b>
+            <span class="muted">Priorizamos riscos e urgências. Alinhamos disponibilidade e deslocamento.</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <b>Orçamento claro</b>
+            <span class="muted">Você aprova antes de qualquer execução. Transparência total.</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <b>Execução + validação</b>
+            <span class="muted">Serviço concluído com testes e checklist. Entrega limpa e organizada.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background: rgba(255,255,255,0.02)">
+    <div class="container">
+      <h2 class="section-title">Perguntas rápidas</h2>
+      <div class="grid-2">
+        <div class="faq-card">
+          <h3>Vocês atendem urgência?</h3>
+          <p>Sim. Queda de energia, curto, cheiro de queimado ou aquecimento são priorizados. Chame no WhatsApp para triagem imediata.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Como é feito o orçamento?</h3>
+          <p>Você recebe um diagnóstico objetivo e um orçamento antes de iniciar. Se houver alternativas, explicamos custo/benefício sem empurrar item.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Atendem empresas?</h3>
+          <p>Sim. Manutenção predial, adequações, correções e melhorias para reduzir paradas e riscos.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Como vejo as avaliações reais?</h3>
+          <p>Direto no Google Meu Negócio: estrelas, comentários e histórico. Clique em “Ver no Google” no topo da página.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand">
-            <div class="logo" aria-hidden="true"></div>
-            <div class="title">
-              <strong>NOME_EMPRESA</strong>
-              <span>Engenheiro Eletricista • <span class="muted">CIDADE_UF</span></span>
-            </div>
-          </div>
-          <p class="footnote" style="margin-top:10px;">
-            <b>Demo demonstrativo:</b> esta página foi montada como exemplo de estrutura e copy para prestação de serviços.
-            Para uso real, substitua links, dados e insira informações legais/técnicas conforme necessário.
+          <div class="logo">NOME_EMPRESA <span class="muted">Engenheiro Eletricista • CIDADE_UF</span></div>
+          <p style="margin-top:10px; font-size:0.85rem; opacity:0.7">
+            <b>Demo demonstrativo:</b> esta página foi montada como exemplo de estrutura e copy para prestação de serviços. Para uso real, substitua links, dados e insira informações legais/técnicas conforme necessário.
           </p>
-          <p class="footnote">
-            <span class="muted">Dica de melhoria:</span> manter consistência de NAP (Nome, Endereço, Telefone) com o Google Meu Negócio aumenta confiança e conversão local.
+          <p style="margin-top:10px; font-size:0.85rem; color:var(--brand-accent)">
+            Dica de melhoria: manter consistência de NAP (Nome, Endereço, Telefone) com o Google Meu Negócio aumenta confiança e conversão local.
           </p>
         </div>
-
         <div>
-          <div class="footer-actions">
-            <a class="pill primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20r%C3%A1pido." target="_blank" rel="noopener">WhatsApp</a>
-            <a class="pill" href="tel:+5511999999999">Ligar</a>
-            <a class="pill" href="https://g.page/r/SEU_ID" target="_blank" rel="noopener">Google (Perfil)</a>
-            <a class="pill" href="https://g.page/r/SEU_ID/review" target="_blank" rel="noopener">Avaliar</a>
+          <div class="footer-links">
+            <a href="https://wa.me/5511999999999" class="pill-link">WhatsApp</a>
+            <a href="tel:+5511999999999" class="pill-link">Ligar</a>
+            <a href="https://g.page/r/SEU_ID" class="pill-link">Google (Perfil)</a>
           </div>
-
-          <p class="footnote" style="margin-top:10px;">
-            <b>Horário:</b> Seg–Sáb • 08:00–20:00 (ajuste conforme realidade)<br/>
-            <b>Área atendida:</b> CIDADE_UF e região (ajuste para SEO local)
+          <p class="muted" style="margin-top:10px;">
+            <b>Horário:</b> Seg–Sáb • 08:00–20:00 (ajuste conforme realidade)<br>
+            <b>Área atendida:</b> CIDADE_UF e região
           </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile fixed bar (conversão) -->
-  <div class="mobile-bar" role="navigation" aria-label="Ações rápidas">
-    <a class="btn primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Preciso%20de%20atendimento%20el%C3%A9trico%20r%C3%A1pido.%20Meu%20endere%C3%A7o%20%C3%A9%20____.%20O%20problema%20%C3%A9%20____." target="_blank" rel="noopener">
-      ⚡ WhatsApp
-    </a>
-    <a class="btn" href="tel:+5511999999999">📞 Ligar</a>
+  <!-- MOBILE BAR -->
+  <div class="mobile-bar">
+    <a href="https://wa.me/5511999999999" id="mobile-whats-btn" class="btn btn-primary">⚡ WhatsApp</a>
+    <a href="tel:+5511999999999" class="btn btn-outline" style="background:var(--bg-input); border:none;">📞 Ligar</a>
   </div>
 
   <script>
-    // Form -> WhatsApp (demo)
+    // Lógica do Formulário -> WhatsApp
     (function(){
       const btn = document.getElementById('enviarWhats');
+      const mobileBtn = document.getElementById('mobile-whats-btn'); // Botão flutuante
+      
       const nome = document.getElementById('nome');
       const tel = document.getElementById('telefone');
       const tipo = document.getElementById('tipo');
@@ -859,30 +675,37 @@
 
       function enc(s){ return encodeURIComponent((s || '').trim()); }
 
+      function gerarLink() {
+        // Se o formulário estiver vazio, usar mensagem genérica (para o botão flutuante)
+        let text = "";
+        
+        if (!nome.value && !msg.value) {
+           text = "Olá! Preciso de atendimento elétrico rápido.";
+        } else {
+           text =
+            "*Olá! Solicito orçamento via Site.*\n\n" +
+            "👤 *Nome:* " + (nome.value || "-") + "\n" +
+            "📱 *Contato:* " + (tel.value || "-") + "\n" +
+            "🛠 *Tipo:* " + (tipo.value || "-") + "\n" +
+            "📝 *Descrição:* " + (msg.value || "-");
+        }
+        
+        // CONFIGURAÇÃO: Seu número
+        const whatsappNumber = "5511999999999"; 
+        return "https://wa.me/" + whatsappNumber + "?text=" + enc(text);
+      }
+
+      // Clique no botão do formulário
       btn.addEventListener('click', function(e){
         e.preventDefault();
-        const base = "https://wa.me/5511999999999";
-        const text =
-          "Olá! Quero atendimento elétrico rápido.\n\n" +
-          "Nome: " + (nome.value || "-") + "\n" +
-          "Telefone: " + (tel.value || "-") + "\n" +
-          "Tipo: " + (tipo.value || "-") + "\n" +
-          "Descrição: " + (msg.value || "-") + "\n\n" +
-          "Endereço/Bairro: ______";
-
-        const url = base + "?text=" + enc(text);
-        window.open(url, "_blank", "noopener");
+        window.open(gerarLink(), "_blank", "noopener");
       });
+
+      // O botão flutuante inferior já tem href, mas podemos melhorá-lo se quisermos
+      // (No HTML deixei estático para garantir funcionamento sem JS, mas aqui poderíamos dinamicizá-lo)
+      
     })();
   </script>
 
-  <!--
-    SUGESTÕES DE MELHORIA (COPY + CONVERSÃO):
-    1) Trocar “Retorno em até 10 minutos” por SLA real (número concreto aumenta conversão).
-    2) Inserir autoridade (CREA/ART quando aplicável) e normas (sem jargão excessivo).
-    3) Inserir “Garantia” se existir e levar para o Hero.
-    4) SEO local: áreas/bairros atendidos (sem exagero) e consistência com Google Meu Negócio (NAP).
-    5) Se a maior parte dos leads for mobile, encurtar formulário e empurrar para WhatsApp.
-  -->
 </body>
 </html>
