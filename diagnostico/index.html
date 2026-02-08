@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estúdio Escrita Planejada - Produtos Digitais e Presença Digital</title>
+  <title>Diagnóstico de Vulnerabilidade à IA - Descubra se seu trabalho está em risco</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@
       overflow-x:hidden;
     }
 
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
     a:focus-visible, button:focus-visible{
       outline:3px solid rgba(142,68,173,.45);
       outline-offset:3px;
@@ -110,6 +110,64 @@
     @media (min-width: 768px){ .lead{font-size:1.2rem} }
 
     .muted{color:var(--cinza-escuro)}
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      background:var(--branco-puro);
+      border-bottom:1px solid var(--cinza-medio);
+      padding:12px 16px;
+      z-index:1000;
+    }
+
+    .header-content{
+      max-width:var(--container);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .logo{
+      font-family:'League Spartan',sans-serif;
+      font-weight:800;
+      font-size:1.25rem;
+      color:var(--preto-puro);
+      flex:0 0 auto;
+    }
+
+    .nav-links{
+      display:none;
+      list-style:none;
+      gap:24px;
+      flex:1;
+    }
+    @media (min-width: 768px){ .nav-links{display:flex} }
+
+    .nav-links a{
+      font-size:.95rem;
+      font-weight:600;
+      color:var(--preto-suave);
+      transition:color .2s ease;
+    }
+    .nav-links a:hover{color:var(--accent-primario)}
+
+    .btn-header{
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      padding:10px 16px;
+      border-radius:var(--radius-pill);
+      font-weight:800;
+      font-size:.9rem;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      box-shadow:0 8px 20px var(--sombra-roxa);
+      transition:transform .2s ease, box-shadow .2s ease;
+      flex:0 0 auto;
+    }
+    .btn-header:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--sombra-roxa)}
 
     /* HERO */
     .hero{
@@ -192,6 +250,8 @@
       text-transform:uppercase;
       padding:14px 18px;
       border-radius:var(--radius-pill);
+      border:none;
+      cursor:pointer;
       transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
       max-width: 360px;
       width:100%;
@@ -220,8 +280,7 @@
       color:var(--cinza-escuro);
       text-align:left;
     }
-    .note-links a{color:var(--accent-primario);text-decoration:none}
-    .note-links a:hover{text-decoration:underline}
+    .note-links p{margin:0}
 
     /* SECTION LAYOUT */
     .section-wrap{
@@ -284,7 +343,7 @@
       gap:14px;
       margin-top:18px;
     }
-    @media (min-width: 768px){ .steps{grid-template-columns:repeat(5,1fr)} }
+    @media (min-width: 768px){ .steps{grid-template-columns:repeat(3,1fr)} }
 
     .step{
       border:1px solid var(--cinza-medio);
@@ -307,14 +366,78 @@
     }
     .step p{margin:0;color:var(--cinza-escuro);font-size:.95rem}
 
-    /* Testimonials */
+    /* Pricing Cards */
+    .pricing-card{
+      border:2px solid var(--cinza-medio);
+      border-radius:20px;
+      padding:24px;
+      background:var(--branco-puro);
+      text-align:center;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .pricing-card:hover{
+      border-color:var(--accent-primario);
+      box-shadow:0 14px 36px var(--sombra-roxa);
+    }
+    .pricing-card h3{margin-bottom:8px}
+    .price{
+      font-family:'League Spartan',sans-serif;
+      font-size:2.5rem;
+      font-weight:800;
+      color:var(--accent-primario);
+      margin:14px 0;
+    }
+    .price-label{
+      font-size:.9rem;
+      color:var(--cinza-escuro);
+      margin-bottom:18px;
+    }
+    .pricing-list{
+      text-align:left;
+      margin:18px 0;
+      list-style:none;
+    }
+    .pricing-list li{
+      padding:8px 0;
+      color:var(--preto-suave);
+      font-size:.95rem;
+      border-bottom:1px solid var(--cinza-medio);
+    }
+    .pricing-list li:last-child{border-bottom:none}
+
+    /* FAQ */
+    .faq-item{
+      border:1px solid var(--cinza-medio);
+      border-radius:16px;
+      padding:18px;
+      margin-bottom:12px;
+      background:var(--branco-puro);
+      cursor:pointer;
+      transition:all .2s ease;
+    }
+    .faq-item:hover{
+      border-color:var(--accent-primario);
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    }
+    .faq-item h4{margin:0;display:flex;align-items:center;justify-content:space-between}
+    .faq-item.active .faq-answer{display:block}
+    .faq-answer{
+      display:none;
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid var(--cinza-medio);
+      color:var(--preto-suave);
+      font-size:.95rem;
+    }
+
+    /* Quote */
     .quote{
       position:relative;
       padding-top:22px;
       text-align:left;
     }
     .quote::before{
-      content:"“";
+      content:""";
       position:absolute;top:-8px;left:14px;
       font-family:Georgia,serif;
       font-size:3.2rem;
@@ -331,6 +454,16 @@
       text-align:center;
     }
     footer h3{color:var(--branco-puro);margin-bottom:10px;letter-spacing:1px}
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin:18px 0;
+      flex-wrap:wrap;
+      font-size:.9rem;
+    }
+    .footer-links a{color:var(--cinza-gelo);transition:color .2s ease}
+    .footer-links a:hover{color:var(--branco-puro)}
     .copyright{
       margin-top:18px;
       padding-top:18px;
@@ -342,364 +475,328 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a href="#main" class="skip-link">Pular para conteúdo principal</a>
 
-  <main id="conteudo" role="main">
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">IA Risk</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#para-quem">Para quem</a></li>
+          <li><a href="#entregaveis">O que você recebe</a></li>
+          <li><a href="#preco">Preço</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a href="#hero-cta" class="btn btn-header">Fazer diagnóstico grátis</a>
+    </div>
+  </header>
+
+  <main id="main">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="titulo-principal">
+    <section class="hero" aria-labelledby="hero-titulo">
       <div class="hero-card">
         <div class="hero-stack">
-          <h1 id="titulo-principal">
-            Transformamos Seu Conhecimento em <span class="accent">Produtos Digitais Profissionais</span>
-          </h1>
-
-          <p class="lead">
-            Para especialistas, criadores e empresas que desejam transformar o que já sabem em cursos, métodos e formações claras, organizadas e prontas para gerar resultado.
-          </p>
-
-          <p class="micro">Do caos à estrutura. Da ideia ao produto.</p>
-
-          <p class="lead">
-            Estrutura é o que transforma conhecimento em valor.<br>
-            Nossa metodologia organiza seu saber e o transforma em produtos digitais claros, profissionais e aplicáveis.
-          </p>
-
-          <div class="cta-row" role="group" aria-label="Chamadas para ação principais">
-            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Quero Criar Meu Produto no WhatsApp">
-              👉 Quero Criar Meu Produto
-            </a>
-            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Quero Aprender a Criar Sozinho na Hotmart">
-              👉 Quero Aprender a Criar Sozinho
-            </a>
-          </div>
-</div>
-      </div>
-    </section>
-
-    <!-- PRESENÇA DIGITAL -->
-    <section aria-labelledby="presenca-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="presenca-titulo">Para Muitos, o Começo é a <span class="accent">Presença</span></h2>
-        </div>
-
-        <div class="card">
-          <p class="muted" style="text-align:left;margin-bottom:14px">
-            Muitos profissionais e empresas chegam até nós com uma necessidade simples:<br>
-            ter uma presença digital clara e profissional.
-          </p>
-
-          <div class="grid" role="list" aria-label="Necessidades comuns de presença digital">
-            <div class="bullet col-12" role="listitem"><p>Uma landing page que explique bem o que fazem.</p></div>
-            <div class="bullet col-12" role="listitem"><p>Um Google Meu Negócio organizado e confiável.</p></div>
-            <div class="bullet col-12" role="listitem"><p>Um espaço online que não pareça improvisado.</p></div>
+          <div class="micro">Diagnóstico Rápido</div>
+          <h1 id="hero-titulo">Descubra se o seu trabalho está ficando substituível por IA.</h1>
+          <p class="lead">Em 5 minutos você recebe um diagnóstico e um caminho curto para continuar necessário — sem 'curso genérico'.</p>
+          
+          <div class="cta-row">
+            <a href="#" id="hero-cta" class="btn btn-primary">👉 Começar diagnóstico grátis</a>
+            <button class="btn btn-secondary">👁️ Ver exemplo do relatório</button>
           </div>
 
-          <p class="muted" style="text-align:left;margin-top:16px;margin-bottom:0">
-            Com o tempo, algo fica evidente:<br>
-            presença sem organização não gera resultado.<br><br>
-            Por isso, no Estúdio Escrita Planejada, presença digital não é só divulgação.<br>
-            Ela é o começo de um processo mais estruturado.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRESENÇA: DIREÇÃO -->
-    <section aria-labelledby="direcao-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="direcao-titulo">Presença Digital com <span class="accent">Clareza e Direção</span></h2>
-        </div>
-
-        <p class="muted center-text">
-          Criamos landing pages e organizamos a presença digital de profissionais e empresas que precisam ser encontrados, entendidos e escolhidos.
-        </p>
-
-        <div class="grid" role="list" aria-label="Objetivos do trabalho de presença digital">
-          <div class="bullet col-12" role="listitem"><p>• explicar claramente o que você faz</p></div>
-          <div class="bullet col-12" role="listitem"><p>• transmitir confiança</p></div>
-          <div class="bullet col-12" role="listitem"><p>• facilitar a decisão do cliente</p></div>
-        </div>
-
-        <div class="callout" style="margin-top:18px">
-          <p>Sem exageros. Sem promessas vazias. Sem confusão.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVIÇOS SEPARADOS -->
-    <section aria-labelledby="separados-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="separados-titulo">Serviços que Também Podem Ser <span class="accent">Contratados Separadamente</span></h2>
-        </div>
-
-        <p class="muted center-text">
-          Alguns serviços fazem parte de um processo maior, mas também podem ser contratados de forma independente por quem precisa resolver algo específico agora.
-        </p>
-
-        <div class="grid" aria-label="Serviços avulsos">
-          <article class="card col-6" aria-labelledby="lp-titulo">
-            <h3 id="lp-titulo" class="accent">Landing Pages Profissionais</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Para quem precisa de uma página clara, objetiva e focada em conversão — mesmo sem criar um produto digital completo neste momento.
-              Texto bem escrito, estrutura lógica e foco em resultado.
-            </p>
-            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Quero Criar Minha Landing Page no WhatsApp">
-              👉 Quero Criar Minha Landing Page
-            </a>
-</article>
-
-          <article class="card col-6" aria-labelledby="gmb-titulo">
-            <h3 id="gmb-titulo" class="accent">Google Meu Negócio Organizado</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Para profissionais e empresas que precisam aparecer melhor nas buscas, organizar suas informações e transmitir mais confiança para quem procura seus serviços.
-              Perfil completo, claro e alinhado com o que você realmente oferece.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Quero Organizar Meu Google Meu Negócio no WhatsApp">
-              👉 Quero Organizar Meu Google Meu Negócio
-            </a>
-</article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRÓXIMO NÍVEL -->
-    <section aria-labelledby="proximo-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="proximo-titulo">Quando Avançar Para o <span class="accent">Próximo Nível</span></h2>
-        </div>
-        <div class="callout">
-          <p>Esses serviços resolvem problemas pontuais. Quando o objetivo é crescer, escalar ou transformar conhecimento em produto, o próximo passo é estruturar tudo como um sistema. É aí que entra a metodologia completa do Estúdio.</p>
+          <div class="note-links">
+            <p>Sem currículo. Sem cadastro no início. Sem promessa de emprego.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PROBLEMA -->
-    <section aria-labelledby="problema-titulo">
+    <section aria-labelledby="problema-titulo" style="background:var(--cinza-ultra-claro)">
       <div class="section-wrap">
         <div class="center-text">
-          <h2 id="problema-titulo">Conhecimento de Alto Nível Exige <span class="accent">Estrutura</span></h2>
+          <h2 id="problema-titulo">O que está acontecendo <span class="accent">(de verdade)</span></h2>
         </div>
 
-        <div class="card">
-          <p class="muted" style="text-align:left">
-            Você já sabe muito.<br>
-            O problema não é falta de conhecimento — é falta de organização para ensinar, apresentar e vender o que você já domina.
-          </p>
-
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">Os bloqueios mais comuns:</p>
-
-          <div class="grid" role="list" aria-label="Bloqueios mais comuns">
-            <div class="bullet col-12" role="listitem"><p>• Muitas ideias, pouco caminho claro</p></div>
-            <div class="bullet col-12" role="listitem"><p>• Conteúdo bom, mas desorganizado</p></div>
-            <div class="bullet col-12" role="listitem"><p>• Dificuldade de explicar o que você faz naturalmente</p></div>
-            <div class="bullet col-12" role="listitem"><p>• Medo de lançar algo fraco ou confuso</p></div>
+        <div class="grid" role="list" aria-label="Realidade do mercado">
+          <div class="bullet col-12" role="listitem">
+            <p>• Não é 'a IA'. É gente usando IA fazendo o mesmo trabalho por menos tempo.</p>
           </div>
-
-          <div class="callout" style="margin-top:18px">
-            <p>Seu diferencial é o conhecimento. O nosso é organizar isso de forma clara, profissional e aplicável.</p>
+          <div class="bullet col-12" role="listitem">
+            <p>• A maioria das perdas vem de tarefas repetitivas e padronizadas.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HUB -->
-    <section aria-labelledby="hub-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="hub-titulo">O Hub Para Transformar Conhecimento em <span class="accent">Produtos Digitais</span></h2>
-        </div>
-
-        <div class="card">
-          <p class="muted" style="text-align:left;margin-bottom:0">
-            O Estúdio Escrita Planejada organiza, estrutura e dá forma ao que você já sabe.<br>
-            Você escolhe o caminho:<br>
-            Criar o produto com a gente<br>
-            ou<br>
-            Aprender a metodologia para criar por conta própria.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAMINHOS -->
-    <section aria-labelledby="caminhos-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="caminhos-titulo">Nossos Caminhos de <span class="accent">Trabalho</span></h2>
-        </div>
-
-        <div class="grid" aria-label="Caminhos de trabalho">
-          <article class="card col-4" aria-labelledby="c1">
-            <h3 id="c1" class="accent">Criação Completa de Infoproduto</h3>
-            <p style="text-align:left;color:var(--preto-suave)">
-              Para quem busca profundidade, clareza e um produto final pronto para ser lançado.<br>
-              Você entra com o conhecimento.<br>
-              Nós entregamos o produto estruturado.
-            </p>
-            <a class="btn btn-primary" href="https://go.hotmart.com/E102787236D?dp=1" aria-label="Quero Criar Meu Produto na Hotmart">
-              👉 Quero Criar Meu Produto
-            </a>
-          </article>
-
-          <article class="card col-4" aria-labelledby="c2">
-            <h3 id="c2" class="accent">Estruturação e Roteiros Profissionais</h3>
-            <p style="text-align:left;color:var(--preto-suave)">
-              Para quem já tem a ideia central, mas precisa organizar isso em um método claro.<br>
-              Roteiros de aulas, trilhas, guias e estruturas didáticas.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Quero Estruturar Minha Ideia no WhatsApp">
-              👉 Quero Estruturar Minha Ideia
-            </a>
-</article>
-
-          <article class="card col-4" aria-labelledby="c3">
-            <h3 id="c3" class="accent">Produtos Para Aprender Sozinho</h3>
-            <p style="text-align:left;color:var(--preto-suave)">
-              Cursos, guias e materiais para quem quer aprender a metodologia e construir seus próprios produtos digitais.
-            </p>
-            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Quero Aprender Sozinho na Hotmart">
-              👉 Quero Aprender Sozinho
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- METODOLOGIA -->
-    <section aria-labelledby="metodo-titulo" style="background:var(--branco-puro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="metodo-titulo">A Metodologia em <span class="accent">Cinco Etapas</span></h2>
-        </div>
-
-        <p class="muted center-text">Estrutura é o que transforma conhecimento em valor.</p>
-
-        <div class="steps" aria-label="Etapas da metodologia">
-          <div class="step">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h4>Extração</h4>
-            <p>Entendemos o que você sabe e qual transformação isso pode gerar.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">2</div>
-            <h4>Organização</h4>
-            <p>Organizamos os conteúdos, módulos e a ordem correta de aprendizado.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h4>Estruturação</h4>
-            <p>Transformamos conhecimento complexo em conteúdo claro e didático.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">4</div>
-            <h4>Posicionamento e Texto</h4>
-            <p>Criamos o discurso, a clareza da oferta e a lógica de valor.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">5</div>
-            <h4>Produto Final</h4>
-            <p>Seu produto nasce pronto para ser apresentado, vendido e entregue.</p>
+          <div class="bullet col-12" role="listitem">
+            <p>• Quem continua empregado muda de função: executa menos, valida e decide mais.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PARA QUEM -->
-    <section aria-labelledby="publico-titulo" style="background:var(--cinza-ultra-claro)">
+    <section id="para-quem" aria-labelledby="publico-titulo">
       <div class="section-wrap">
         <div class="center-text">
-          <h2 id="publico-titulo">Para Quem o Estúdio Foi <span class="accent">Criado</span></h2>
+          <h2 id="publico-titulo">Isso é para você <span class="accent">se…</span></h2>
         </div>
 
-        <div class="grid" role="list" aria-label="Público ideal">
-          <div class="bullet col-12" role="listitem"><p>• Especialistas que querem lançar seu primeiro produto digital com seriedade</p></div>
-          <div class="bullet col-12" role="listitem"><p>• Criadores que travaram ao tentar organizar um curso ou método</p></div>
-          <div class="bullet col-12" role="listitem"><p>• Empresas que precisam transformar sua experiência em formação escalável</p></div>
-        </div>
+        <div class="grid">
+          <div class="card col-6">
+            <h3 class="accent">✓ Para você se…</h3>
+            <ul class="pricing-list">
+              <li>Trabalha com rotinas digitais repetitivas (administrativo, suporte, atendimento, operações)</li>
+              <li>Sente que produtividade virou cobrança</li>
+              <li>Precisa de um caminho curto, não de outra formação longa</li>
+            </ul>
+          </div>
 
-        <div class="callout" style="margin-top:18px">
-          <p>Se você tem conhecimento valioso, mas sente que falta organização, este é o lugar certo.</p>
+          <div class="card col-6">
+            <h3 class="accent">✗ Não é para você se…</h3>
+            <ul class="pricing-list">
+              <li>Quer "aprender IA por curiosidade"</li>
+              <li>Procura vaga garantida</li>
+              <li>Quer diploma/certificação acadêmica</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
-    <section aria-labelledby="depoimentos-titulo">
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" aria-labelledby="funciona-titulo" style="background:var(--cinza-ultra-claro)">
       <div class="section-wrap">
         <div class="center-text">
-          <h2 id="depoimentos-titulo">O Que Dizem Nossos <span class="accent">Clientes</span></h2>
+          <h2 id="funciona-titulo">Como <span class="accent">Funciona</span></h2>
         </div>
 
-        <div class="grid" aria-label="Depoimentos">
-          <div class="card col-4 quote"><p>“Meu conhecimento estava confuso. Agora virou um produto claro e profissional.”</p></div>
-          <div class="card col-4 quote"><p>“Eu sabia o que fazia, mas não conseguia explicar. Hoje tenho um método organizado.”</p></div>
-          <div class="card col-4 quote"><p>“Ganhei clareza, direção e um produto que representa meu trabalho.”</p></div>
+        <div class="steps" aria-label="Processo em 3 passos">
+          <div class="step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h4>Diagnóstico (5 min)</h4>
+            <p>Você descreve suas tarefas. Nós estimamos risco de automação e pontos preserváveis.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h4>Simulação Prática</h4>
+            <p>Você atua como "validador humano": aprova/corrige/rejeita saídas da IA.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h4>Prova de Valor</h4>
+            <p>Você sai com um relatório/portfolio funcional para mostrar que sabe operar com IA.</p>
+          </div>
+        </div>
+
+        <div class="center-text" style="margin-top:28px">
+          <a href="#" class="btn btn-primary">👉 Começar diagnóstico grátis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTREGÁVEIS -->
+    <section id="entregaveis" aria-labelledby="entrega-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="entrega-titulo">O que você <span class="accent">Recebe</span></h2>
+        </div>
+
+        <div class="grid" aria-label="Entregáveis">
+          <div class="card col-6">
+            <h3 class="accent">📊 Score de Vulnerabilidade</h3>
+            <p style="text-align:left;color:var(--preto-suave)">O que está em risco e por quê. Análise clara do seu perfil profissional.</p>
+          </div>
+
+          <div class="card col-6">
+            <h3 class="accent">🗺️ Mapa de Transição</h3>
+            <p style="text-align:left;color:var(--preto-suave)">Função-alvo recomendada. Um caminho curto e prático.</p>
+          </div>
+
+          <div class="card col-6">
+            <h3 class="accent">⚙️ Simulação de Decisões</h3>
+            <p style="text-align:left;color:var(--preto-suave)">Treino prático. Você aprende validando, não só assistindo.</p>
+          </div>
+
+          <div class="card col-6">
+            <h3 class="accent">📄 Prova de Valor</h3>
+            <p style="text-align:left;color:var(--preto-suave)">PDF/link gerado. Você leva para mostrar que sabe operar com IA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREVIEW -->
+    <section aria-labelledby="preview-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="preview-titulo">Veja um exemplo do que você vai <span class="accent">Receber</span></h2>
+        </div>
+
+        <div class="card" style="margin-top:24px">
+          <p class="muted" style="text-align:left;margin-bottom:16px"><strong>Seu relatório inclui:</strong></p>
+          <ul class="pricing-list">
+            <li>✓ Tarefas automatizáveis — quais são e por quê</li>
+            <li>✓ Tarefas preserváveis — onde você agrega valor humano</li>
+            <li>✓ Erros críticos evitados — o que você aprendeu validando</li>
+            <li>✓ Competências demonstradas — o que você pode colocar no currículo</li>
+          </ul>
+        </div>
+
+        <div class="center-text" style="margin-top:28px">
+          <a href="#" class="btn btn-primary">👉 Quero meu diagnóstico</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇO -->
+    <section id="preco" aria-labelledby="preco-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="preco-titulo">Quanto <span class="accent">Custa</span></h2>
+        </div>
+
+        <div class="grid" aria-label="Opções de preço">
+          <div class="pricing-card col-6">
+            <h3>Diagnóstico Inicial</h3>
+            <div class="price">R$ 0</div>
+            <p class="muted" style="margin-bottom:18px">Análise completa em 5 minutos</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:12px">Começar grátis</a>
+          </div>
+
+          <div class="pricing-card col-6">
+            <h3>Simulação + Prova de Valor</h3>
+            <div class="price">R$ 69</div>
+            <p class="muted" style="margin-bottom:18px">Completo com treino prático</p>
+            <ul class="pricing-list">
+              <li>✓ 1 cenário completo de simulação</li>
+              <li>✓ Relatório final detalhado</li>
+              <li>✓ Acesso por 30 dias</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="margin-top:12px">Começar agora</a>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:28px">
+          <p>Sem surpresas. Sem cobrança recorrente. Você controla o que exporta e compartilha.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="faq-titulo">Perguntas <span class="accent">Frequentes</span></h2>
+        </div>
+
+        <div style="max-width:800px;margin:24px auto 0">
+          <div class="faq-item">
+            <h4>Isso garante emprego? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>Não. Ninguém garante emprego. O que fazemos é mostrar onde você agrega valor humano que IA não consegue replicar, e como demonstrar isso.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h4>Preciso saber programar? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>Não. Você não programa. Você valida. A IA gera, você aprova, corrige ou rejeita. É sobre julgamento, não código.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h4>Em quanto tempo vejo resultado? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>O diagnóstico é imediato (5 minutos). A simulação leva quanto tempo você quiser dedicar. O relatório sai pronto para usar.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h4>Isso é um curso? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>Não. É simulação e prova prática. Você aprende fazendo, não assistindo aulas. Bem diferente.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h4>Meus dados ficam públicos? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>Não. Seus dados são privados. Você controla o que compartilha, exporta ou mantém guardado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h4>Serve para qual área? <span>+</span></h4>
+            <div class="faq-answer">
+              <p>Administrativo, suporte, atendimento, operações, análise de dados, revisão de conteúdo, e outras áreas com tarefas repetitivas e padronizadas.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FILOSOFIA -->
-    <section aria-labelledby="filosofia-titulo" style="background:var(--cinza-ultra-claro)">
+    <section aria-labelledby="filosofia-titulo">
       <div class="section-wrap">
         <div class="center-text">
-          <h2 id="filosofia-titulo">Nossa <span class="accent">Filosofia</span></h2>
+          <h2 id="filosofia-titulo">Sem promessas <span class="accent">Falsas</span></h2>
         </div>
 
         <div class="card">
-          <p class="muted" style="text-align:left;margin-bottom:10px">Conhecimento sem organização se perde.<br>Produto sem método nasce fraco.</p>
-          <p class="muted" style="text-align:left;margin-bottom:0">
-            O Estúdio Escrita Planejada existe para transformar conhecimento em algo claro, estruturado e aplicável no mundo real.
-          </p>
+          <p class="muted" style="text-align:left;margin-bottom:14px">Não vendemos 'futuro do trabalho'. Entregamos diagnóstico e prova prática.</p>
+          <p class="muted" style="text-align:left;margin-bottom:0">Você controla o que exporta/compartilha. Nada de dados vazados ou promessas que não cumprimos.</p>
         </div>
       </div>
     </section>
 
-    <!-- PRÓXIMO PASSO -->
-    <section aria-labelledby="passo-titulo">
+    <!-- CTA FINAL -->
+    <section aria-labelledby="final-titulo" style="background:var(--cinza-ultra-claro)">
       <div class="section-wrap">
         <div class="center-text">
-          <h2 id="passo-titulo">Qual o Seu Próximo <span class="accent">Passo?</span></h2>
-        </div>
-
-        <div class="grid" aria-label="Opções de próximo passo">
-          <article class="card col-4" aria-label="Criar Meu Produto">
-            <h3 class="accent">Criar Meu Produto</h3>
-            <p style="text-align:left;color:var(--preto-suave)">Estrutura completa com acompanhamento profissional</p>
-            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Começar Agora no WhatsApp">👉 Começar Agora</a>
-</article>
-
-          <article class="card col-4" aria-label="Estruturar Minha Ideia">
-            <h3 class="accent">Estruturar Minha Ideia</h3>
-            <p style="text-align:left;color:var(--preto-suave)">Roteiros e frameworks claros</p>
-            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Ver Opções no WhatsApp">👉 Ver Opções</a>
-</article>
-
-          <article class="card col-4" aria-label="Aprender Sozinho">
-            <h3 class="accent">Aprender Sozinho</h3>
-            <p style="text-align:left;color:var(--preto-suave)">Materiais para autonomia total</p>
-            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Acessar Loja na Hotmart">👉 Acessar Loja</a>
-          </article>
-        </div>
-
-        <div class="callout" style="margin-top:18px">
-          <p>Não importa o caminho. O destino é sempre o mesmo: clareza, estrutura e um produto real.</p>
+          <h2 id="final-titulo">Você prefere descobrir agora ou depois que a renda <span class="accent">cair?</span></h2>
+          <a href="#" class="btn btn-primary" style="margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto">👉 Fazer diagnóstico grátis</a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <h3>Estúdio Escrita Planejada</h3>
-    <p class="muted" style="color:rgba(244,247,249,.85)">Transformando conhecimento em produtos digitais desde 2024.</p>
-    <p class="copyright">© 2025 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
+    <h3>IA Risk</h3>
+    <p class="muted" style="color:rgba(244,247,249,.85)">Diagnóstico prático para profissionais em transição.</p>
+    <div class="footer-links">
+      <a href="#">Termos de Serviço</a>
+      <a href="#">Privacidade</a>
+      <a href="#">Contato</a>
+    </div>
+    <p class="copyright">© 2025 IA Risk. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
