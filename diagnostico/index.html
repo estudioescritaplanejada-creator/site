@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estúdio Escrita Planejada - Produtos Digitais e Presença Digital</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-petroleo:#2A7F98;
+      --roxo-tecnologico:#8E44AD;
+      --amarelo-solar:#FDC316;
+      --verde-menta:#5CB579;
+      --verde-crescimento:#4F8246;
+      --coral:#FF9F43;
+      --rosa-digital:#DE2F74;
+
+      --branco-puro:#FFFFFF;
+      --cinza-ultra-claro:#FAFBFC;
+      --cinza-gelo:#F4F7F9;
+      --cinza-medio:#E1E8ED;
+      --cinza-escuro:#657786;
+      --preto-suave:#2C3E50;
+      --preto-puro:#1A1A1A;
+
+      --accent-primario:var(--roxo-tecnologico);
+      --accent-secundario:var(--coral);
+      --accent-sucesso:var(--verde-crescimento);
+
+      --sombra-roxa:rgba(142,68,173,.15);
+      --sombra-coral:rgba(255,159,67,.15);
+      --sombra-azul:rgba(42,127,152,.15);
+
+      --radius:16px;
+      --radius-pill:999px;
+      --container:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--branco-puro);
+      color:var(--preto-suave);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    a:focus-visible, button:focus-visible{
+      outline:3px solid rgba(142,68,173,.45);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    .skip-link{
+      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      left:16px;top:16px;width:auto;height:auto;
+      padding:10px 14px;background:var(--preto-puro);color:var(--branco-puro);
+      border-radius:10px;z-index:9999;
+    }
+
+    main{max-width:var(--container);margin:0 auto;padding:0 16px;position:relative}
+
+    section{padding:56px 0;border-bottom:1px solid var(--cinza-medio)}
+    @media (min-width: 768px){ section{padding:76px 0} }
+
+    h1,h2,h3,h4{
+      font-family:'League Spartan',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--preto-puro);
+      line-height:1.08;
+    }
+    h1{font-weight:800;font-size:2.1rem;letter-spacing:-.4px;text-align:left}
+    @media (min-width: 768px){ h1{font-size:3rem} }
+    @media (min-width: 1024px){ h1{font-size:3.4rem} }
+
+    h2{
+      font-weight:800;
+      font-size:1.75rem;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      text-align:center;
+      margin-bottom:18px;
+    }
+    @media (min-width: 768px){ h2{font-size:2.5rem} }
+
+    h3{font-weight:800;font-size:1.35rem;margin-bottom:12px}
+    h4{font-weight:700;font-size:1.05rem;margin-bottom:10px}
+
+    .accent{
+      background:linear-gradient(45deg,var(--accent-primario),var(--accent-secundario));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .lead{
+      font-size:1.05rem;
+      color:var(--preto-suave);
+      text-align:left;
+      margin-top:14px;
+    }
+    @media (min-width: 768px){ .lead{font-size:1.2rem} }
+
+    .muted{color:var(--cinza-escuro)}
+
+    /* HERO */
+    .hero{
+      border-bottom:none;
+      padding:26px 0 44px;
+      min-height:calc(100vh - 40px);
+      display:flex;
+      align-items:center;
+      position:relative;
+    }
+    @media (min-width: 768px){ .hero{padding:44px 0 70px;min-height:auto} }
+
+    .hero-card{
+      width:100%;
+      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
+      border:1px solid rgba(225,232,237,.9);
+      border-radius:calc(var(--radius) + 6px);
+      padding:22px 18px;
+      box-shadow:0 14px 40px var(--sombra-roxa);
+      overflow:hidden;
+      position:relative;
+    }
+    @media (min-width: 768px){ .hero-card{padding:40px 42px} }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      top:-80px;right:-80px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .hero-stack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      max-width: 920px;
+    }
+
+    .micro{
+      font-family:'Inter',sans-serif;
+      font-weight:600;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--accent-primario);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+    }
+    .micro::before{
+      content:"";
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent-secundario);
+      box-shadow:0 0 0 6px rgba(255,159,67,.18);
+      flex:0 0 auto;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+    @media (min-width: 768px){
+      .cta-row{flex-direction:row;align-items:center;gap:16px}
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-family:'League Spartan',sans-serif;
+      font-weight:800;
+      font-size:1rem;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      padding:14px 18px;
+      border-radius:var(--radius-pill);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      max-width: 360px;
+      width:100%;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      box-shadow:0 10px 26px var(--sombra-roxa);
+      border:1px solid transparent;
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--sombra-roxa)}
+    .btn-secondary{
+      background:transparent;
+      color:var(--accent-primario);
+      border:2px solid var(--accent-primario);
+    }
+    .btn-secondary:hover{
+      background:var(--accent-primario);
+      color:var(--branco-puro);
+      transform:translateY(-1px);
+    }
+
+    .note-links{
+      margin-top:10px;
+      font-size:.95rem;
+      color:var(--cinza-escuro);
+      text-align:left;
+    }
+    .note-links a{color:var(--accent-primario);text-decoration:none}
+    .note-links a:hover{text-decoration:underline}
+
+    /* SECTION LAYOUT */
+    .section-wrap{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .center-text{ text-align:center }
+    .center-text p{ text-align:center }
+
+    .card{
+      background:var(--branco-puro);
+      border:1px solid var(--cinza-medio);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 8px 22px rgba(0,0,0,.05);
+    }
+    @media (min-width: 768px){ .card{padding:24px} }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (min-width: 768px){ .grid{grid-template-columns:repeat(12,1fr);gap:18px} }
+
+    .col-12{grid-column:span 12}
+    .col-6{grid-column:span 12}
+    .col-4{grid-column:span 12}
+    @media (min-width: 768px){
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+    }
+
+    .bullet{
+      border-left:4px solid var(--accent-primario);
+      padding:14px 14px 14px 16px;
+      border-radius:0 14px 14px 0;
+      background:var(--branco-puro);
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    }
+    .bullet p{margin:0;text-align:left;color:var(--preto-suave);font-weight:400}
+
+    .callout{
+      border:2px solid var(--accent-primario);
+      background:linear-gradient(135deg, rgba(142,68,173,.06), rgba(255,159,67,.05));
+      padding:18px;
+      border-radius:20px;
+      box-shadow:0 14px 36px var(--sombra-roxa);
+    }
+    .callout p{margin:0;color:var(--preto-suave);font-weight:600;text-align:center}
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:18px;
+    }
+    @media (min-width: 768px){ .steps{grid-template-columns:repeat(5,1fr)} }
+
+    .step{
+      border:1px solid var(--cinza-medio);
+      border-radius:18px;
+      padding:16px 14px;
+      background:var(--branco-puro);
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      text-align:center;
+    }
+    .step-num{
+      width:44px;height:44px;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      font-family:'League Spartan',sans-serif;
+      font-weight:900;
+      font-size:1.25rem;
+      margin-bottom:10px;
+      box-shadow:0 8px 22px var(--sombra-roxa);
+    }
+    .step p{margin:0;color:var(--cinza-escuro);font-size:.95rem}
+
+    /* Testimonials */
+    .quote{
+      position:relative;
+      padding-top:22px;
+      text-align:left;
+    }
+    .quote::before{
+      content:"“";
+      position:absolute;top:-8px;left:14px;
+      font-family:Georgia,serif;
+      font-size:3.2rem;
+      color:rgba(142,68,173,.22);
+      line-height:1;
+    }
+    .quote p{margin:0;color:var(--preto-suave);font-style:italic;text-align:left}
+
+    /* Footer */
+    footer{
+      background:var(--preto-puro);
+      color:var(--cinza-gelo);
+      padding:44px 16px 28px;
+      text-align:center;
+    }
+    footer h3{color:var(--branco-puro);margin-bottom:10px;letter-spacing:1px}
+    .copyright{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:rgba(244,247,249,.7);
+      font-size:.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <main id="conteudo" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-card">
+        <div class="hero-stack">
+          <h1 id="titulo-principal">
+            Transformamos Seu Conhecimento em <span class="accent">Produtos Digitais Profissionais</span>
+          </h1>
+
+          <p class="lead">
+            Para especialistas, criadores e empresas que desejam transformar o que já sabem em cursos, métodos e formações claras, organizadas e prontas para gerar resultado.
+          </p>
+
+          <p class="micro">Do caos à estrutura. Da ideia ao produto.</p>
+
+          <p class="lead">
+            Estrutura é o que transforma conhecimento em valor.<br>
+            Nossa metodologia organiza seu saber e o transforma em produtos digitais claros, profissionais e aplicáveis.
+          </p>
+
+          <div class="cta-row" role="group" aria-label="Chamadas para ação principais">
+            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Quero Criar Meu Produto no WhatsApp">
+              👉 Quero Criar Meu Produto
+            </a>
+            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Quero Aprender a Criar Sozinho na Hotmart">
+              👉 Quero Aprender a Criar Sozinho
+            </a>
+          </div>
+</div>
+      </div>
+    </section>
+
+    <!-- PRESENÇA DIGITAL -->
+    <section aria-labelledby="presenca-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="presenca-titulo">Para Muitos, o Começo é a <span class="accent">Presença</span></h2>
+        </div>
+
+        <div class="card">
+          <p class="muted" style="text-align:left;margin-bottom:14px">
+            Muitos profissionais e empresas chegam até nós com uma necessidade simples:<br>
+            ter uma presença digital clara e profissional.
+          </p>
+
+          <div class="grid" role="list" aria-label="Necessidades comuns de presença digital">
+            <div class="bullet col-12" role="listitem"><p>Uma landing page que explique bem o que fazem.</p></div>
+            <div class="bullet col-12" role="listitem"><p>Um Google Meu Negócio organizado e confiável.</p></div>
+            <div class="bullet col-12" role="listitem"><p>Um espaço online que não pareça improvisado.</p></div>
+          </div>
+
+          <p class="muted" style="text-align:left;margin-top:16px;margin-bottom:0">
+            Com o tempo, algo fica evidente:<br>
+            presença sem organização não gera resultado.<br><br>
+            Por isso, no Estúdio Escrita Planejada, presença digital não é só divulgação.<br>
+            Ela é o começo de um processo mais estruturado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENÇA: DIREÇÃO -->
+    <section aria-labelledby="direcao-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="direcao-titulo">Presença Digital com <span class="accent">Clareza e Direção</span></h2>
+        </div>
+
+        <p class="muted center-text">
+          Criamos landing pages e organizamos a presença digital de profissionais e empresas que precisam ser encontrados, entendidos e escolhidos.
+        </p>
+
+        <div class="grid" role="list" aria-label="Objetivos do trabalho de presença digital">
+          <div class="bullet col-12" role="listitem"><p>• explicar claramente o que você faz</p></div>
+          <div class="bullet col-12" role="listitem"><p>• transmitir confiança</p></div>
+          <div class="bullet col-12" role="listitem"><p>• facilitar a decisão do cliente</p></div>
+        </div>
+
+        <div class="callout" style="margin-top:18px">
+          <p>Sem exageros. Sem promessas vazias. Sem confusão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS SEPARADOS -->
+    <section aria-labelledby="separados-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="separados-titulo">Serviços que Também Podem Ser <span class="accent">Contratados Separadamente</span></h2>
+        </div>
+
+        <p class="muted center-text">
+          Alguns serviços fazem parte de um processo maior, mas também podem ser contratados de forma independente por quem precisa resolver algo específico agora.
+        </p>
+
+        <div class="grid" aria-label="Serviços avulsos">
+          <article class="card col-6" aria-labelledby="lp-titulo">
+            <h3 id="lp-titulo" class="accent">Landing Pages Profissionais</h3>
+            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
+              Para quem precisa de uma página clara, objetiva e focada em conversão — mesmo sem criar um produto digital completo neste momento.
+              Texto bem escrito, estrutura lógica e foco em resultado.
+            </p>
+            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Quero Criar Minha Landing Page no WhatsApp">
+              👉 Quero Criar Minha Landing Page
+            </a>
+</article>
+
+          <article class="card col-6" aria-labelledby="gmb-titulo">
+            <h3 id="gmb-titulo" class="accent">Google Meu Negócio Organizado</h3>
+            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
+              Para profissionais e empresas que precisam aparecer melhor nas buscas, organizar suas informações e transmitir mais confiança para quem procura seus serviços.
+              Perfil completo, claro e alinhado com o que você realmente oferece.
+            </p>
+            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Quero Organizar Meu Google Meu Negócio no WhatsApp">
+              👉 Quero Organizar Meu Google Meu Negócio
+            </a>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÓXIMO NÍVEL -->
+    <section aria-labelledby="proximo-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="proximo-titulo">Quando Avançar Para o <span class="accent">Próximo Nível</span></h2>
+        </div>
+        <div class="callout">
+          <p>Esses serviços resolvem problemas pontuais. Quando o objetivo é crescer, escalar ou transformar conhecimento em produto, o próximo passo é estruturar tudo como um sistema. É aí que entra a metodologia completa do Estúdio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section aria-labelledby="problema-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="problema-titulo">Conhecimento de Alto Nível Exige <span class="accent">Estrutura</span></h2>
+        </div>
+
+        <div class="card">
+          <p class="muted" style="text-align:left">
+            Você já sabe muito.<br>
+            O problema não é falta de conhecimento — é falta de organização para ensinar, apresentar e vender o que você já domina.
+          </p>
+
+          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">Os bloqueios mais comuns:</p>
+
+          <div class="grid" role="list" aria-label="Bloqueios mais comuns">
+            <div class="bullet col-12" role="listitem"><p>• Muitas ideias, pouco caminho claro</p></div>
+            <div class="bullet col-12" role="listitem"><p>• Conteúdo bom, mas desorganizado</p></div>
+            <div class="bullet col-12" role="listitem"><p>• Dificuldade de explicar o que você faz naturalmente</p></div>
+            <div class="bullet col-12" role="listitem"><p>• Medo de lançar algo fraco ou confuso</p></div>
+          </div>
+
+          <div class="callout" style="margin-top:18px">
+            <p>Seu diferencial é o conhecimento. O nosso é organizar isso de forma clara, profissional e aplicável.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HUB -->
+    <section aria-labelledby="hub-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="hub-titulo">O Hub Para Transformar Conhecimento em <span class="accent">Produtos Digitais</span></h2>
+        </div>
+
+        <div class="card">
+          <p class="muted" style="text-align:left;margin-bottom:0">
+            O Estúdio Escrita Planejada organiza, estrutura e dá forma ao que você já sabe.<br>
+            Você escolhe o caminho:<br>
+            Criar o produto com a gente<br>
+            ou<br>
+            Aprender a metodologia para criar por conta própria.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMINHOS -->
+    <section aria-labelledby="caminhos-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="caminhos-titulo">Nossos Caminhos de <span class="accent">Trabalho</span></h2>
+        </div>
+
+        <div class="grid" aria-label="Caminhos de trabalho">
+          <article class="card col-4" aria-labelledby="c1">
+            <h3 id="c1" class="accent">Criação Completa de Infoproduto</h3>
+            <p style="text-align:left;color:var(--preto-suave)">
+              Para quem busca profundidade, clareza e um produto final pronto para ser lançado.<br>
+              Você entra com o conhecimento.<br>
+              Nós entregamos o produto estruturado.
+            </p>
+            <a class="btn btn-primary" href="https://go.hotmart.com/E102787236D?dp=1" aria-label="Quero Criar Meu Produto na Hotmart">
+              👉 Quero Criar Meu Produto
+            </a>
+          </article>
+
+          <article class="card col-4" aria-labelledby="c2">
+            <h3 id="c2" class="accent">Estruturação e Roteiros Profissionais</h3>
+            <p style="text-align:left;color:var(--preto-suave)">
+              Para quem já tem a ideia central, mas precisa organizar isso em um método claro.<br>
+              Roteiros de aulas, trilhas, guias e estruturas didáticas.
+            </p>
+            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Quero Estruturar Minha Ideia no WhatsApp">
+              👉 Quero Estruturar Minha Ideia
+            </a>
+</article>
+
+          <article class="card col-4" aria-labelledby="c3">
+            <h3 id="c3" class="accent">Produtos Para Aprender Sozinho</h3>
+            <p style="text-align:left;color:var(--preto-suave)">
+              Cursos, guias e materiais para quem quer aprender a metodologia e construir seus próprios produtos digitais.
+            </p>
+            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Quero Aprender Sozinho na Hotmart">
+              👉 Quero Aprender Sozinho
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section aria-labelledby="metodo-titulo" style="background:var(--branco-puro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="metodo-titulo">A Metodologia em <span class="accent">Cinco Etapas</span></h2>
+        </div>
+
+        <p class="muted center-text">Estrutura é o que transforma conhecimento em valor.</p>
+
+        <div class="steps" aria-label="Etapas da metodologia">
+          <div class="step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h4>Extração</h4>
+            <p>Entendemos o que você sabe e qual transformação isso pode gerar.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h4>Organização</h4>
+            <p>Organizamos os conteúdos, módulos e a ordem correta de aprendizado.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h4>Estruturação</h4>
+            <p>Transformamos conhecimento complexo em conteúdo claro e didático.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">4</div>
+            <h4>Posicionamento e Texto</h4>
+            <p>Criamos o discurso, a clareza da oferta e a lógica de valor.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-num" aria-hidden="true">5</div>
+            <h4>Produto Final</h4>
+            <p>Seu produto nasce pronto para ser apresentado, vendido e entregue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM -->
+    <section aria-labelledby="publico-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="publico-titulo">Para Quem o Estúdio Foi <span class="accent">Criado</span></h2>
+        </div>
+
+        <div class="grid" role="list" aria-label="Público ideal">
+          <div class="bullet col-12" role="listitem"><p>• Especialistas que querem lançar seu primeiro produto digital com seriedade</p></div>
+          <div class="bullet col-12" role="listitem"><p>• Criadores que travaram ao tentar organizar um curso ou método</p></div>
+          <div class="bullet col-12" role="listitem"><p>• Empresas que precisam transformar sua experiência em formação escalável</p></div>
+        </div>
+
+        <div class="callout" style="margin-top:18px">
+          <p>Se você tem conhecimento valioso, mas sente que falta organização, este é o lugar certo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section aria-labelledby="depoimentos-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="depoimentos-titulo">O Que Dizem Nossos <span class="accent">Clientes</span></h2>
+        </div>
+
+        <div class="grid" aria-label="Depoimentos">
+          <div class="card col-4 quote"><p>“Meu conhecimento estava confuso. Agora virou um produto claro e profissional.”</p></div>
+          <div class="card col-4 quote"><p>“Eu sabia o que fazia, mas não conseguia explicar. Hoje tenho um método organizado.”</p></div>
+          <div class="card col-4 quote"><p>“Ganhei clareza, direção e um produto que representa meu trabalho.”</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILOSOFIA -->
+    <section aria-labelledby="filosofia-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="filosofia-titulo">Nossa <span class="accent">Filosofia</span></h2>
+        </div>
+
+        <div class="card">
+          <p class="muted" style="text-align:left;margin-bottom:10px">Conhecimento sem organização se perde.<br>Produto sem método nasce fraco.</p>
+          <p class="muted" style="text-align:left;margin-bottom:0">
+            O Estúdio Escrita Planejada existe para transformar conhecimento em algo claro, estruturado e aplicável no mundo real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÓXIMO PASSO -->
+    <section aria-labelledby="passo-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="passo-titulo">Qual o Seu Próximo <span class="accent">Passo?</span></h2>
+        </div>
+
+        <div class="grid" aria-label="Opções de próximo passo">
+          <article class="card col-4" aria-label="Criar Meu Produto">
+            <h3 class="accent">Criar Meu Produto</h3>
+            <p style="text-align:left;color:var(--preto-suave)">Estrutura completa com acompanhamento profissional</p>
+            <a class="btn btn-primary" href="https://wa.me/5511964502997" aria-label="Começar Agora no WhatsApp">👉 Começar Agora</a>
+</article>
+
+          <article class="card col-4" aria-label="Estruturar Minha Ideia">
+            <h3 class="accent">Estruturar Minha Ideia</h3>
+            <p style="text-align:left;color:var(--preto-suave)">Roteiros e frameworks claros</p>
+            <a class="btn btn-secondary" href="https://wa.me/5511964502997" aria-label="Ver Opções no WhatsApp">👉 Ver Opções</a>
+</article>
+
+          <article class="card col-4" aria-label="Aprender Sozinho">
+            <h3 class="accent">Aprender Sozinho</h3>
+            <p style="text-align:left;color:var(--preto-suave)">Materiais para autonomia total</p>
+            <a class="btn btn-secondary" href="https://go.hotmart.com/K102690772K?dp=1" aria-label="Acessar Loja na Hotmart">👉 Acessar Loja</a>
+          </article>
+        </div>
+
+        <div class="callout" style="margin-top:18px">
+          <p>Não importa o caminho. O destino é sempre o mesmo: clareza, estrutura e um produto real.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h3>Estúdio Escrita Planejada</h3>
+    <p class="muted" style="color:rgba(244,247,249,.85)">Transformando conhecimento em produtos digitais desde 2024.</p>
+    <p class="copyright">© 2025 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
