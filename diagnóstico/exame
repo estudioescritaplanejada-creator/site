@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico de Risco de Substituição por IA | IA Risk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-petroleo:#2A7F98;
+      --roxo-tecnologico:#8E44AD;
+      --amarelo-solar:#FDC316;
+      --verde-menta:#5CB579;
+      --verde-crescimento:#4F8246;
+      --coral:#FF9F43;
+      --rosa-digital:#DE2F74;
+
+      --branco-puro:#FFFFFF;
+      --cinza-ultra-claro:#FAFBFC;
+      --cinza-gelo:#F4F7F9;
+      --cinza-medio:#E1E8ED;
+      --cinza-escuro:#657786;
+      --preto-suave:#2C3E50;
+      --preto-puro:#1A1A1A;
+
+      --accent-primario:var(--roxo-tecnologico);
+      --accent-secundario:var(--coral);
+      --accent-sucesso:var(--verde-crescimento);
+
+      --sombra-roxa:rgba(142,68,173,.15);
+      --sombra-coral:rgba(255,159,67,.15);
+      --sombra-azul:rgba(42,127,152,.15);
+
+      --radius:16px;
+      --radius-pill:999px;
+      --container:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:
+      'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--branco-puro);
+      color:var(--preto-suave);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:focus-visible, button:focus-visible, input[type="checkbox"]:focus-visible, input[type="radio"]:focus-visible{
+      outline:3px solid rgba(142,68,173,.45);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    .skip-link{
+      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      left:16px;top:16px;width:auto;height:auto;
+      padding:10px 14px;background:var(--preto-puro);color:var(--branco-puro);
+      border-radius:10px;z-index:9999;
+    }
+
+    main{max-width:var(--container);margin:0 auto;padding:0 16px;position:relative}
+
+    section{padding:56px 0;border-bottom:1px solid var(--cinza-medio)}
+    @media (min-width: 768px){ section{padding:76px 0} }
+
+    h1,h2,h3,h4{
+      font-family:
+      'League Spartan',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--preto-puro);
+      line-height:1.08;
+    }
+    h1{font-weight:800;font-size:2.1rem;letter-spacing:-.4px;text-align:left}
+    @media (min-width: 768px){ h1{font-size:3rem} }
+    @media (min-width: 1024px){ h1{font-size:3.4rem} }
+
+    h2{
+      font-weight:800;
+      font-size:1.75rem;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      text-align:center;
+      margin-bottom:18px;
+    }
+    @media (min-width: 768px){ h2{font-size:2.5rem} }
+
+    h3{font-weight:800;font-size:1.35rem;margin-bottom:12px}
+    h4{font-weight:700;font-size:1.05rem;margin-bottom:10px}
+
+    .accent{
+      background:linear-gradient(45deg,var(--accent-primario),var(--accent-secundario));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .lead{
+      font-size:1.05rem;
+      color:var(--preto-suave);
+      text-align:left;
+      margin-top:14px;
+    }
+    @media (min-width: 768px){ .lead{font-size:1.2rem} }
+
+    .muted{color:var(--cinza-escuro)}
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      background:var(--branco-puro);
+      border-bottom:1px solid var(--cinza-medio);
+      padding:12px 16px;
+      z-index:1000;
+    }
+
+    .header-content{
+      max-width:var(--container);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .logo{
+      font-family:
+      'League Spartan',sans-serif;
+      font-weight:800;
+      font-size:1.25rem;
+      color:var(--preto-puro);
+      flex:0 0 auto;
+    }
+
+    .nav-links{
+      display:none;
+      list-style:none;
+      gap:24px;
+      flex:1;
+    }
+    @media (min-width: 768px){ .nav-links{display:flex} }
+
+    .nav-links a{
+      font-size:.95rem;
+      font-weight:600;
+      color:var(--preto-suave);
+      transition:color .2s ease;
+    }
+    .nav-links a:hover{color:var(--accent-primario)}
+
+    .btn-header{
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      padding:10px 16px;
+      border-radius:var(--radius-pill);
+      font-weight:800;
+      font-size:.9rem;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      box-shadow:0 8px 20px var(--sombra-roxa);
+      transition:transform .2s ease, box-shadow .2s ease;
+      flex:0 0 auto;
+    }
+    .btn-header:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--sombra-roxa)}
+
+    /* HERO */
+    .hero{
+      border-bottom:none;
+      padding:26px 0 44px;
+      min-height:calc(100vh - 40px);
+      display:flex;
+      align-items:center;
+      position:relative;
+    }
+    @media (min-width: 768px){ .hero{padding:44px 0 70px;min-height:auto} }
+
+    .hero-card{
+      width:100%;
+      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
+      border:1px solid rgba(225,232,237,.9);
+      border-radius:calc(var(--radius) + 6px);
+      padding:22px 18px;
+      box-shadow:0 14px 40px var(--sombra-roxa);
+      overflow:hidden;
+      position:relative;
+    }
+    @media (min-width: 768px){ .hero-card{padding:40px 42px} }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      top:-80px;right:-80px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .hero-stack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      max-width: 920px;
+    }
+
+    .micro{
+      font-family:
+      'Inter',sans-serif;
+      font-weight:600;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--accent-primario);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+    }
+    .micro::before{
+      content:"";
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent-secundario);
+      box-shadow:0 0 0 6px rgba(255,159,67,.18);
+      flex:0 0 auto;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+    @media (min-width: 768px){
+      .cta-row{flex-direction:row;align-items:center;gap:16px}
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-family:
+      'League Spartan',sans-serif;
+      font-weight:800;
+      font-size:1rem;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      padding:14px 18px;
+      border-radius:var(--radius-pill);
+      border:none;
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      max-width: 360px;
+      width:100%;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      box-shadow:0 10px 26px var(--sombra-roxa);
+      border:1px solid transparent;
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--sombra-roxa)}
+    .btn-secondary{
+      background:transparent;
+      color:var(--accent-primario);
+      border:2px solid var(--accent-primario);
+    }
+    .btn-secondary:hover{
+      background:var(--accent-primario);
+      color:var(--branco-puro);
+      transform:translateY(-1px);
+    }
+
+    .note-links{
+      margin-top:10px;
+      font-size:.95rem;
+      color:var(--cinza-escuro);
+      text-align:left;
+    }
+    .note-links p{margin:0}
+
+    /* SECTION LAYOUT */
+    .section-wrap{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .center-text{ text-align:center }
+    .center-text p{ text-align:center }
+
+    .card{
+      background:var(--branco-puro);
+      border:1px solid var(--cinza-medio);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 8px 22px rgba(0,0,0,.05);
+    }
+    @media (min-width: 768px){ .card{padding:24px} }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (min-width: 768px){ .grid{grid-template-columns:repeat(12,1fr);gap:18px} }
+
+    .col-12{grid-column:span 12}
+    .col-6{grid-column:span 12}
+    .col-4{grid-column:span 12}
+    @media (min-width: 768px){
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+    }
+
+    .bullet{
+      border-left:4px solid var(--accent-primario);
+      padding:14px 14px 14px 16px;
+      border-radius:0 14px 14px 0;
+      background:var(--branco-puro);
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    }
+    .bullet p{margin:0;text-align:left;color:var(--preto-suave);font-weight:400}
+
+    .callout{
+      border:2px solid var(--accent-primario);
+      background:linear-gradient(135deg, rgba(142,68,173,.06), rgba(255,159,67,.05));
+      padding:18px;
+      border-radius:20px;
+      box-shadow:0 14px 36px var(--sombra-roxa);
+    }
+    .callout p{margin:0;color:var(--preto-suave);font-weight:600;text-align:center}
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:18px;
+    }
+    @media (min-width: 768px){ .steps{grid-template-columns:repeat(3,1fr)} }
+
+    .step{
+      border:1px solid var(--cinza-medio);
+      border-radius:18px;
+      padding:16px 14px;
+      background:var(--branco-puro);
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      text-align:center;
+    }
+    .step-num{
+      width:44px;height:44px;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
+      color:var(--branco-puro);
+      font-family:
+      'League Spartan',sans-serif;
+      font-weight:900;
+      font-size:1.25rem;
+      margin-bottom:10px;
+      box-shadow:0 8px 22px var(--sombra-roxa);
+    }
+    .step p{margin:0;color:var(--cinza-escuro);font-size:.95rem}
+
+    /* Form Specific */
+    .form-section{
+      display:none; /* Hidden by default, controlled by JS */
+    }
+    .form-section.active{
+      display:block;
+    }
+
+    .progress-indicator{
+      text-align:center;
+      margin-bottom:24px;
+      font-weight:600;
+      color:var(--accent-primario);
+    }
+
+    .form-group{
+      margin-bottom:20px;
+    }
+
+    .form-group label{
+      display:block;
+      font-weight:600;
+      margin-bottom:8px;
+      color:var(--preto-puro);
+    }
+
+    .checkbox-group, .radio-group{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .checkbox-item, .radio-item{
+      display:flex;
+      align-items:center;
+      background:var(--cinza-ultra-claro);
+      border:1px solid var(--cinza-medio);
+      border-radius:10px;
+      padding:12px 16px;
+      cursor:pointer;
+      transition:all .2s ease;
+    }
+    .checkbox-item:hover, .radio-item:hover{
+      border-color:var(--accent-primario);
+      box-shadow:0 4px 12px rgba(0,0,0,.05);
+    }
+
+    .checkbox-item input[type="checkbox"], .radio-item input[type="radio"]{
+      margin-right:12px;
+      min-width:18px;
+      min-height:18px;
+      accent-color:var(--accent-primario);
+    }
+
+    .checkbox-item label, .radio-item label{
+      margin-bottom:0;
+      cursor:pointer;
+      font-weight:400;
+      color:var(--preto-suave);
+      flex:1;
+    }
+
+    input[type="text"]{
+      width:100%;
+      padding:12px 16px;
+      border:1px solid var(--cinza-medio);
+      border-radius:10px;
+      font-family:inherit;
+      font-size:1rem;
+      color:var(--preto-suave);
+      background:var(--cinza-ultra-claro);
+      transition:border-color .2s ease;
+    }
+    input[type="text"]:focus{
+      outline:none;
+      border-color:var(--accent-primario);
+    }
+
+    .form-navigation{
+      display:flex;
+      justify-content:space-between;
+      margin-top:30px;
+      gap:16px;
+    }
+    .form-navigation .btn{
+      max-width:none;
+    }
+
+    .error-message{
+      color:var(--rosa-digital);
+      font-size:.9rem;
+      margin-top:8px;
+      text-align:center;
+      display:none;
+    }
+
+    .tooltip-text{
+      font-size:.85rem;
+      color:var(--cinza-escuro);
+      margin-top:8px;
+      text-align:left;
+    }
+
+    /* Processing Screen */
+    .processing-screen{
+      display:none;
+      text-align:center;
+      padding:60px 0;
+    }
+    .processing-screen h2{margin-bottom:16px}
+    .processing-screen p{font-size:1.1rem;color:var(--preto-suave)}
+
+    /* Footer */
+    footer{
+      background:var(--preto-puro);
+      color:var(--cinza-gelo);
+      padding:44px 16px 28px;
+      text-align:center;
+    }
+    footer h3{color:var(--branco-puro);margin-bottom:10px;letter-spacing:1px}
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin:18px 0;
+      flex-wrap:wrap;
+      font-size:.9rem;
+    }
+    .footer-links a{color:var(--cinza-gelo);transition:color .2s ease}
+    .footer-links a:hover{color:var(--branco-puro)}
+    .copyright{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:rgba(244,247,249,.7);
+      font-size:.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Pular para conteúdo principal</a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">IA Risk</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#privacidade-section">Privacidade</a></li>
+        </ul>
+      </nav>
+      <a href="https://www.estudioescritaplanejada.com.br/diagnóstico/" class="btn btn-header">Voltar</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO / INTRODUÇÃO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-card">
+        <div class="hero-stack">
+          <h1 id="hero-titulo">Diagnóstico de Risco de Substituição por IA</h1>
+          <p class="lead">Em 5–7 minutos, você descobre quanto do seu trabalho atual já pode ser automatizado e onde você ainda gera valor humano.</p>
+          
+          <ul class="note-links" style="margin-top:0;margin-bottom:16px;">
+            <li><p>• Sem currículo e sem perguntas pessoais.</p></li>
+            <li><p>• Avalia tarefas reais, não “talento”.</p></li>
+            <li><p>• Resultado imediato.</p></li>
+          </ul>
+
+          <div class="cta-row">
+            <button id="start-diagnosis" class="btn btn-primary">👉 Iniciar diagnóstico</button>
+          </div>
+
+          <div class="note-links">
+            <p>Se preferir, você pode sair a qualquer momento. Suas respostas não ficam públicas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE ESTE TESTE FAZ -->
+    <section aria-labelledby="oque-mede-titulo" style="background:var(--cinza-ultra-claro)">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="oque-mede-titulo">O que este diagnóstico <span class="accent">mede</span></h2>
+        </div>
+
+        <div class="card">
+          <p style="text-align:left;margin-bottom:16px;">Este diagnóstico estima sua exposição à automação com base em 4 fatores:</p>
+          <ul class="pricing-list">
+            <li>Repetição das tarefas</li>
+            <li>Regras fixas vs exceções</li>
+            <li>Nível de decisão envolvido</li>
+            <li>Responsabilidade por erro (impacto real)</li>
+          </ul>
+          <p class="muted" style="margin-top:16px;text-align:left;">Ele não determina seu valor como profissional. Ele mede o risco do formato atual do trabalho virar “commodity”.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACIDADE -->
+    <section id="privacidade-section" aria-labelledby="privacidade-titulo">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="privacidade-titulo">Privacidade e uso das <span class="accent">respostas</span></h2>
+        </div>
+
+        <div class="card">
+          <ul class="pricing-list">
+            <li>Suas respostas são usadas para gerar seu diagnóstico.</li>
+            <li>Você controla o que exporta/compartilha depois.</li>
+            <li>Não vendemos seus dados.</li>
+          </ul>
+          <p class="muted" style="margin-top:16px;text-align:left;"><a href="#">Ler política de privacidade</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DO DIAGNÓSTICO -->
+    <section id="form-diagnostico" aria-labelledby="form-titulo" style="background:var(--cinza-ultra-claro); display:none;">
+      <div class="section-wrap">
+        <div class="center-text">
+          <h2 id="form-titulo">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
+          <p class="progress-indicator">Etapa <span id="current-step">1</span> de <span id="total-steps">5</span></p>
+          <p class="muted">Responda pensando no seu dia a dia das últimas 2 semanas.</p>
+        </div>
+
+        <form id="diagnosis-form">
+          <!-- ETAPA 1 — Mapeamento de tarefas -->
+          <div class="form-section active" data-step="1">
+            <div class="card">
+              <h3>Quais atividades você executa com mais frequência?</h3>
+              <p class="muted" style="margin-bottom:16px;">Marque todas as que fazem parte da sua rotina.</p>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="mensagens">
+                  <span>Responder mensagens/solicitações (WhatsApp, e-mail, chat)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="organizar">
+                  <span>Organizar informações (planilhas, documentos, sistemas)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="procedimentos">
+                  <span>Seguir procedimentos e checklists</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="cadastros">
+                  <span>Preencher cadastros e atualizar registros</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="textos">
+                  <span>Criar textos ou materiais simples (comunicados, posts, descrições)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="revisar">
+                  <span>Conferir dados, revisar e corrigir</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="excecoes">
+                  <span>Resolver exceções (casos fora do padrão)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="decisoes">
+                  <span>Tomar decisões finais (aprovação/reprovação)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="atendimento">
+                  <span>Atender clientes/usuários e lidar com reclamações</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="task" value="followup">
+                  <span>Acompanhar prazos e status (follow-up)</span>
+                </label>
+              </div>
+              <div class="form-group" style="margin-top:20px;">
+                <label for="other-task">Outro (descreva em poucas palavras)</label>
+                <input type="text" id="other-task" name="other_task" placeholder="Ex.: conciliar pagamentos, emitir notas, agendar entregas…">
+              </div>
+              <p class="error-message" id="error-step1">Selecione pelo menos 1 atividade para continuar.</p>
+              <div class="form-navigation">
+                <button type="button" class="btn btn-primary next-step">Continuar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPA 2 — Grau de repetição -->
+          <div class="form-section" data-step="2">
+            <div class="card">
+              <h3>Com que frequência suas tarefas seguem o mesmo padrão?</h3>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="repetition" value="quase-sempre">
+                  <span>Quase sempre iguais (rotina padronizada)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="repetition" value="geralmente-iguais">
+                  <span>Geralmente iguais, com pequenas variações</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="repetition" value="variam-bastante">
+                  <span>Variam bastante conforme o caso</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="repetition" value="quase-nunca">
+                  <span>Quase nunca iguais (cada caso é único)</span>
+                </label>
+              </div>
+              <p class="tooltip-text">Quanto mais previsível, maior a chance de automação.</p>
+              <p class="error-message" id="error-step2">Escolha uma opção para continuar.</p>
+              <div class="form-navigation">
+                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                <button type="button" class="btn btn-primary next-step">Continuar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPA 3 — Regras vs julgamento -->
+          <div class="form-section" data-step="3">
+            <div class="card">
+              <h3>Seu trabalho depende principalmente de regras claras?</h3>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="rules" value="sim-regras">
+                  <span>Sim, sigo regras definidas</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="rules" value="sim-excecoes">
+                  <span>Sim, mas lido com exceções com frequência</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="rules" value="depende">
+                  <span>Depende: às vezes regras, às vezes julgamento</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="rules" value="nao-julgamento">
+                  <span>Não: exige julgamento humano na maior parte do tempo</span>
+                </label>
+              </div>
+              <p class="tooltip-text">IA funciona muito bem com regras. O humano faz diferença em exceções e contexto.</p>
+              <p class="error-message" id="error-step3">Escolha uma opção para continuar.</p>
+              <div class="form-navigation">
+                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                <button type="button" class="btn btn-primary next-step">Continuar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPA 4 — Responsabilidade por erro -->
+          <div class="form-section" data-step="4">
+            <div class="card">
+              <h3>Se algo der errado, qual é o impacto?</h3>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="impact" value="baixo">
+                  <span>Baixo: quase sempre dá para corrigir sem consequência</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="impact" value="medio">
+                  <span>Médio: gera retrabalho, atraso ou reclamação</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="impact" value="alto">
+                  <span>Alto: envolve dinheiro, reputação ou risco para pessoas</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="impact" value="muito-alto">
+                  <span>Muito alto: envolve risco legal, financeiro relevante ou segurança</span>
+                </label>
+              </div>
+              <p class="tooltip-text">Onde há impacto alto, normalmente existe necessidade de validação humana.</p>
+              <p class="error-message" id="error-step4">Escolha uma opção para continuar.</p>
+              <div class="form-navigation">
+                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                <button type="button" class="btn btn-primary next-step">Continuar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPA 5 — Posição na cadeia de decisão -->
+          <div class="form-section" data-step="5">
+            <div class="card">
+              <h3>Hoje, seu papel principal é mais…</h3>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="role" value="executar">
+                  <span>Executar tarefas (fazer acontecer)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="role" value="conferir">
+                  <span>Conferir/validar o que foi feito</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="role" value="ajustar">
+                  <span>Ajustar decisões e resolver exceções</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="role" value="decidir">
+                  <span>Tomar decisões finais e responder pelo resultado</span>
+                </label>
+              </div>
+              <p class="tooltip-text">A tendência é: menos execução manual, mais supervisão e decisão.</p>
+              <p class="muted" style="margin-top:20px;text-align:center;">Risco alto não significa ‘fim’. Significa que o formato atual do trabalho precisa migrar para supervisão, validação e decisão.</p>
+              <p class="error-message" id="error-step5">Escolha uma opção para ver o resultado.</p>
+              <div class="form-navigation">
+                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                <button type="submit" class="btn btn-primary">Ver meu diagnóstico</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- TELA DE PROCESSAMENTO -->
+        <div class="processing-screen" id="processing-screen">
+          <h2>Analisando suas respostas…</h2>
+          <p>Estamos estimando seu risco de automação e identificando pontos preserváveis do seu trabalho.</p>
+          <p class="muted" style="margin-top:10px;">Isso leva alguns segundos.</p>
+        </div>
+
+        <!-- MENSAGENS DE ERRO GENÉRICAS -->
+        <div class="callout" id="generic-error" style="display:none; margin-top:28px;">
+          <p>Algo não saiu como esperado. Tente novamente em instantes.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>IA Risk</h3>
+    <p class="muted" style="color:rgba(244,247,249,.85)">Diagnóstico prático para profissionais em transição.</p>
+    <div class="footer-links">
+      <a href="#">Termos de Serviço</a>
+      <a href="#">Privacidade</a>
+      <a href="#">Contato</a>
+    </div>
+    <p class="copyright">© 2025 IA Risk. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const formSections = document.querySelectorAll(".form-section");
+    const diagnosisForm = document.getElementById("diagnosis-form");
+    const startDiagnosisBtn = document.getElementById("start-diagnosis");
+    const formDiagnosticoSection = document.getElementById("form-diagnostico");
+    const heroSection = document.querySelector(".hero");
+    const currentStepSpan = document.getElementById("current-step");
+    const totalStepsSpan = document.getElementById("total-steps");
+    const processingScreen = document.getElementById("processing-screen");
+    const genericError = document.getElementById("generic-error");
+
+    let currentStep = 0;
+    totalStepsSpan.textContent = formSections.length;
+
+    function showStep(stepIndex) {
+      formSections.forEach((section, index) => {
+        section.classList.toggle("active", index === stepIndex);
+      });
+      currentStep = stepIndex;
+      currentStepSpan.textContent = currentStep + 1;
+      hideAllErrors();
+    }
+
+    function hideAllErrors() {
+      document.querySelectorAll(".error-message").forEach(error => {
+        error.style.display = "none";
+      });
+      genericError.style.display = "none";
+    }
+
+    function validateStep(stepIndex) {
+      let isValid = true;
+      const currentFormSection = formSections[stepIndex];
+      const errorMessage = currentFormSection.querySelector(".error-message");
+
+      if (stepIndex === 0) { // Step 1: Checkboxes
+        const checkboxes = currentFormSection.querySelectorAll('input[name="task"]:checked');
+        const otherTaskInput = currentFormSection.querySelector('input[name="other_task"]');
+        if (checkboxes.length === 0 && otherTaskInput.value.trim() === '') {
+          isValid = false;
+        }
+      } else { // Other steps: Radio buttons
+        const radioButtons = currentFormSection.querySelectorAll('input[type="radio"]:checked');
+        if (radioButtons.length === 0) {
+          isValid = false;
+        }
+      }
+
+      if (!isValid) {
+        errorMessage.style.display = "block";
+      } else {
+        errorMessage.style.display = "none";
+      }
+      return isValid;
+    }
+
+    startDiagnosisBtn.addEventListener("click", () => {
+      heroSection.style.display = "none";
+      formDiagnosticoSection.style.display = "block";
+      showStep(0);
+    });
+
+    diagnosisForm.addEventListener("click", (event) => {
+      if (event.target.classList.contains("next-step")) {
+        if (validateStep(currentStep)) {
+          if (currentStep < formSections.length - 1) {
+            showStep(currentStep + 1);
+          }
+        }
+      } else if (event.target.classList.contains("prev-step")) {
+        if (currentStep > 0) {
+          showStep(currentStep - 1);
+        }
+      }
+    });
+
+    diagnosisForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (validateStep(currentStep)) {
+        formDiagnosticoSection.style.display = "none";
+        processingScreen.style.display = "block";
+        // Simulate API call or processing
+        setTimeout(() => {
+          // In a real scenario, you'd redirect to a results page or display results here
+          // For now, we'll just show a generic error or success message
+          console.log("Diagnóstico concluído!");
+          // For demonstration, let's show the generic error after processing
+          // genericError.style.display = "block";
+          alert("Diagnóstico concluído! (Este é um placeholder. Em uma aplicação real, você veria seu relatório aqui.)");
+          processingScreen.style.display = "none";
+          heroSection.style.display = "block"; // Go back to hero for demo
+          formDiagnosticoSection.style.display = "none";
+        }, 3000);
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
