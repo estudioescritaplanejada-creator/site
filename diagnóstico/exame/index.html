@@ -793,6 +793,8 @@
           <p class="muted" style="margin-top:10px;">Isso leva alguns segundos.</p>
         </div>
 
+
+
         <!-- MENSAGENS DE ERRO GENÉRICAS -->
         <div class="callout" id="generic-error" style="display:none; margin-top:28px;">
           <p>Algo não saiu como esperado. Tente novamente em instantes.</p>
@@ -815,6 +817,94 @@
   </footer>
 
   <script>
+    const taskWeights = {
+      mensagens: 2,
+      organizar: 2,
+      procedimentos: 3,
+      cadastros: 3,
+      textos: 2,
+      revisar: 2,
+      excecoes: -2,
+      decisoes: -3,
+      atendimento: -1,
+      followup: 1
+    };
+
+    const repetitionScore = {
+      "quase-sempre": 3,
+      "geralmente-iguais": 2,
+      "variam-bastante": 1,
+      "quase-nunca": 0
+    };
+
+    const rulesScore = {
+      "sim-regras": 3,
+      "sim-excecoes": 2,
+      "depende": 1,
+      "nao-julgamento": 0
+    };
+
+    const impactScore = {
+      "baixo": 3,
+      "medio": 2,
+      "alto": 1,
+      "muito-alto": 0
+    };
+
+    const roleScore = {
+      "executar": 3,
+      "conferir": 2,
+      "ajustar": 1,
+      "decidir": 0
+    };
+
+    function calculateDiagnosis() {
+      let score = 0;
+
+      // Etapa 1 – tarefas
+      document.querySelectorAll('input[name="task"]:checked').forEach(cb => {
+        score += taskWeights[cb.value] || 0;
+      });
+
+      // Etapas rádio
+      const repetition = document.querySelector('input[name="repetition"]:checked')?.value;
+      const rules = document.querySelector('input[name="rules"]:checked')?.value;
+      const impact = document.querySelector('input[name="impact"]:checked')?.value;
+      const role = document.querySelector('input[name="role"]:checked')?.value;
+
+      score += repetitionScore[repetition] ?? 0;
+      score += rulesScore[rules] ?? 0;
+      score += impactScore[impact] ?? 0;
+      score += roleScore[role] ?? 0;
+
+      return score;
+    }
+
+    function classifyRisk(score) {
+      if (score <= 4) return "baixo";
+      if (score <= 8) return "medio";
+      if (score <= 12) return "alto";
+      return "critico";
+    }
+
+    function showResult(risk, score) {
+      const messages = {
+        baixo: "Seu trabalho tem baixo risco de substituição direta por IA. Você está bem posicionado para o futuro do trabalho com IA.",
+        medio: "Parte do seu trabalho pode ser automatizada, mas há espaço estratégico para você se adaptar e se tornar um validador humano essencial.",
+        alto: "Seu formato atual de trabalho está sob forte pressão de automação. É crucial buscar novas habilidades e focar em validação e decisão.",
+        critico: "Seu trabalho, como está hoje, tende a virar commodity rapidamente. É urgente migrar para funções de supervisão, validação e decisão para manter sua relevância."
+      };
+
+      document.getElementById("result-risk-level").textContent = risk.toUpperCase();
+      document.getElementById("result-score").textContent = score;
+      document.getElementById("result-message").textContent = messages[risk];
+
+      formDiagnosticoSection.style.display = "none";
+      processingScreen.style.display = "none";
+      resultScreen.style.display = "block";
+    }
+
+
     const formSections = document.querySelectorAll(".form-section");
     const diagnosisForm = document.getElementById("diagnosis-form");
     const startDiagnosisBtn = document.getElementById("start-diagnosis");
@@ -823,6 +913,7 @@
     const currentStepSpan = document.getElementById("current-step");
     const totalStepsSpan = document.getElementById("total-steps");
     const processingScreen = document.getElementById("processing-screen");
+
     const genericError = document.getElementById("generic-error");
 
     let currentStep = 0;
@@ -902,7 +993,9 @@
           console.log("Diagnóstico concluído!");
           // For demonstration, let's show the generic error after processing
           // genericError.style.display = "block";
-          alert("Diagnóstico concluído! (Este é um placeholder. Em uma aplicação real, você veria seu relatório aqui.)");
+          const score = calculateDiagnosis();
+          const risk = classifyRisk(score);
+          window.location.href = `/diagnostico/exame/resultado/?risco=${risk}&score=${score}`;
           processingScreen.style.display = "none";
           heroSection.style.display = "block"; // Go back to hero for demo
           formDiagnosticoSection.style.display = "none";
