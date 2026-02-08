@@ -995,7 +995,7 @@
           // genericError.style.display = "block";
           const score = calculateDiagnosis();
           const risk = classifyRisk(score);
-          window.location.href = `/diagnostico/exame/resultado/?risco=${risk}&score=${score}`;
+          window.location.href = `resultado/index.html?risco=${risk}&score=${score}`;
           processingScreen.style.display = "none";
           heroSection.style.display = "block"; // Go back to hero for demo
           formDiagnosticoSection.style.display = "none";
