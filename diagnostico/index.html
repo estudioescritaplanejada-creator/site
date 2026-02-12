@@ -117,7 +117,7 @@
       top:0;
       background:var(--branco-puro);
       border-bottom:1px solid var(--cinza-medio);
-      padding:12px 16px;
+      padding:10px 12px;
       z-index:1000;
     }
 
@@ -127,13 +127,13 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:24px;
+      gap:12px;
     }
 
     .logo{
       font-family:'League Spartan',sans-serif;
       font-weight:800;
-      font-size:1.25rem;
+      font-size:1.1rem;
       color:var(--preto-puro);
       flex:0 0 auto;
     }
@@ -141,46 +141,65 @@
     .nav-links{
       display:none;
       list-style:none;
-      gap:24px;
+      gap:16px;
       flex:1;
     }
-    @media (min-width: 768px){ .nav-links{display:flex} }
+    @media (min-width: 768px){ 
+      .nav-links{display:flex}
+      .nav-links{
+        gap:24px;
+      }
+    }
 
     .nav-links a{
-      font-size:.95rem;
+      font-size:.85rem;
       font-weight:600;
       color:var(--preto-suave);
       transition:color .2s ease;
+    }
+    @media (min-width: 768px){
+      .nav-links a{
+        font-size:.95rem;
+      }
     }
     .nav-links a:hover{color:var(--accent-primario)}
 
     .btn-header{
       background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
       color:var(--branco-puro);
-      padding:10px 16px;
+      padding:8px 12px;
       border-radius:var(--radius-pill);
       font-weight:800;
-      font-size:.9rem;
-      letter-spacing:.8px;
+      font-size:.75rem;
+      letter-spacing:.5px;
       text-transform:uppercase;
-      box-shadow:0 8px 20px var(--sombra-roxa);
+      box-shadow:0 4px 12px var(--sombra-roxa);
       transition:transform .2s ease, box-shadow .2s ease;
       flex:0 0 auto;
       cursor:pointer;
       border:none;
+    }
+    @media (min-width: 768px){
+      .btn-header{
+        padding:10px 16px;
+        font-size:.9rem;
+        letter-spacing:.8px;
+        box-shadow:0 8px 20px var(--sombra-roxa);
+      }
+    }
     }
     .btn-header:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--sombra-roxa)}
 
     /* HERO */
     .hero{
       border-bottom:none;
-      padding:26px 0 44px;
-      min-height:calc(100vh - 40px);
+      padding:20px 0 30px;
+      min-height:auto;
       display:flex;
       align-items:center;
       position:relative;
     }
-    @media (min-width: 768px){ .hero{padding:44px 0 70px;min-height:auto} }
+    @media (min-width: 768px){ .hero{padding:44px 0 70px} }
 
     .hero-card{
       width:100%;
@@ -231,32 +250,45 @@
     .cta-row{
       display:flex;
       flex-direction:column;
-      gap:12px;
+      gap:10px;
       margin-top:16px;
       align-items:stretch;
     }
-    @media (min-width: 768px){
-      .cta-row{flex-direction:row;align-items:center;gap:16px}
+    @media (min-width: 480px){
+      .cta-row{
+        flex-direction:row;
+        align-items:center;
+        gap:12px;
+      }
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
+      gap:8px;
       text-decoration:none;
       font-family:'League Spartan',sans-serif;
       font-weight:800;
-      font-size:1rem;
-      letter-spacing:.8px;
+      font-size:0.9rem;
+      letter-spacing:.5px;
       text-transform:uppercase;
-      padding:14px 18px;
+      padding:12px 16px;
       border-radius:var(--radius-pill);
       border:none;
       cursor:pointer;
       transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      max-width: 360px;
+      max-width:100%;
       width:100%;
+      text-align:center;
+    }
+    @media (min-width: 480px){
+      .btn{
+        max-width:360px;
+        font-size:1rem;
+        padding:14px 18px;
+        letter-spacing:.8px;
+      }
     }
     .btn-primary{
       background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
@@ -307,10 +339,22 @@
     .grid{
       display:grid;
       grid-template-columns:1fr;
-      gap:16px;
+      gap:12px;
       margin-top:18px;
     }
-    @media (min-width: 768px){ .grid{grid-template-columns:repeat(12,1fr);gap:18px} }
+    @media (min-width: 600px){
+      .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:16px;
+      }
+    }
+    @media (min-width: 768px){
+      .grid{
+        grid-template-columns:repeat(12,1fr);
+        gap:18px;
+        margin-top:18px;
+      }
+    }
 
     .col-12{grid-column:span 12}
     .col-6{grid-column:span 12}
@@ -456,6 +500,47 @@
       display:block;
     }
 
+    /* Container para o formulário do diagnóstico */
+    .diagnosis-container{
+      max-width:600px;
+      margin:0 auto;
+      padding:16px;
+    }
+    @media (min-width: 768px){
+      .diagnosis-container{
+        padding:40px 24px;
+      }
+    }
+
+    .diagnosis-box{
+      background:var(--branco-puro);
+      border:1px solid var(--cinza-medio);
+      border-radius:20px;
+      box-shadow:0 14px 40px var(--sombra-roxa);
+      overflow:hidden;
+    }
+
+    .diagnosis-header{
+      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
+      padding:20px;
+      border-bottom:1px solid var(--cinza-medio);
+      text-align:center;
+    }
+    @media (min-width: 768px){
+      .diagnosis-header{
+        padding:30px;
+      }
+    }
+
+    .diagnosis-body{
+      padding:16px;
+    }
+    @media (min-width: 768px){
+      .diagnosis-body{
+        padding:24px;
+      }
+    }
+
     .progress-indicator{
       text-align:center;
       margin-bottom:24px;
@@ -482,13 +567,18 @@
 
     .checkbox-item, .radio-item{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       background:var(--cinza-ultra-claro);
       border:1px solid var(--cinza-medio);
       border-radius:10px;
-      padding:12px 16px;
+      padding:12px;
       cursor:pointer;
       transition:all .2s ease;
+    }
+    @media (min-width: 768px){
+      .checkbox-item, .radio-item{
+        padding:12px 16px;
+      }
     }
     .checkbox-item:hover, .radio-item:hover{
       border-color:var(--accent-primario);
@@ -496,10 +586,12 @@
     }
 
     .checkbox-item input[type="checkbox"], .radio-item input[type="radio"]{
-      margin-right:12px;
+      margin-right:10px;
       min-width:18px;
       min-height:18px;
       accent-color:var(--accent-primario);
+      flex-shrink:0;
+      margin-top:2px;
     }
 
     .checkbox-item label, .radio-item label{
@@ -508,6 +600,13 @@
       font-weight:400;
       color:var(--preto-suave);
       flex:1;
+      font-size:0.9rem;
+      line-height:1.4;
+    }
+    @media (min-width: 768px){
+      .checkbox-item label, .radio-item label{
+        font-size:1rem;
+      }
     }
 
     input[type="text"]{
@@ -528,12 +627,24 @@
 
     .form-navigation{
       display:flex;
-      justify-content:space-between;
-      margin-top:30px;
-      gap:16px;
+      flex-direction:column;
+      gap:10px;
+      margin-top:24px;
+    }
+    @media (min-width: 480px){
+      .form-navigation{
+        flex-direction:row;
+        justify-content:space-between;
+        gap:16px;
+      }
     }
     .form-navigation .btn{
-      max-width:none;
+      max-width:100%;
+    }
+    @media (min-width: 480px){
+      .form-navigation .btn{
+        max-width:none;
+      }
     }
 
     .error-message{
@@ -551,10 +662,15 @@
       text-align:left;
     }
 
-    /* Result Section */
+    /* Result optimization */
     .result-section{
       text-align:center;
-      padding:60px 0;
+      padding:30px 16px;
+    }
+    @media (min-width: 768px){
+      .result-section{
+        padding:60px 0;
+      }
     }
     .result-section h1{margin-bottom:20px;text-align:center;}
     .result-section p{font-size:1.1rem;color:var(--preto-suave);margin-bottom:10px;}
@@ -829,7 +945,7 @@
       <section class="hero" aria-labelledby="diagnosis-hero-titulo">
         <div class="hero-card">
           <div class="hero-stack">
-            <h1 id="diagnosis-hero-titulo">Diagnóstico de Risco de Substituição por IA</h1>
+            <h1 id="diagnosis-hero-titulo" style="font-size:1.8rem;">Diagnóstico de Risco de Substituição por IA</h1>
             <p class="lead">Em 5–7 minutos, você descobre quanto do seu trabalho atual já pode ser automatizado e onde você ainda gera valor humano.</p>
 
             <ul class="note-links" style="margin-top:0;margin-bottom:16px;">
@@ -850,30 +966,30 @@
       </section>
 
       <!-- O QUE ESTE TESTE FAZ -->
-      <section aria-labelledby="oque-mede-titulo" style="background:var(--cinza-ultra-claro)">
+      <section aria-labelledby="oque-mede-titulo" style="background:var(--cinza-ultra-claro);padding:30px 0;">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="oque-mede-titulo">O que este diagnóstico <span class="accent">mede</span></h2>
+            <h2 id="oque-mede-titulo" style="font-size:1.3rem;">O que este diagnóstico <span class="accent">mede</span></h2>
           </div>
 
           <div class="card">
-            <p style="text-align:left;margin-bottom:16px;">Este diagnóstico estima sua exposição à automação com base em 4 fatores:</p>
+            <p style="text-align:left;margin-bottom:12px;font-size:0.95rem;">Este diagnóstico estima sua exposição à automação com base em 4 fatores:</p>
             <ul class="pricing-list">
               <li>Repetição das tarefas</li>
               <li>Regras fixas vs exceções</li>
               <li>Nível de decisão envolvido</li>
               <li>Responsabilidade por erro (impacto real)</li>
             </ul>
-            <p class="muted" style="margin-top:16px;text-align:left;">Ele não determina seu valor como profissional. Ele mede o risco do formato atual do trabalho virar "commodity".</p>
+            <p class="muted" style="margin-top:12px;text-align:left;font-size:0.9rem;">Ele não determina seu valor como profissional. Ele mede o risco do formato atual do trabalho virar "commodity".</p>
           </div>
         </div>
       </section>
 
       <!-- PRIVACIDADE -->
-      <section id="privacidade-section" aria-labelledby="privacidade-titulo">
+      <section id="privacidade-section" aria-labelledby="privacidade-titulo" style="padding:30px 0;">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="privacidade-titulo">Privacidade e uso das <span class="accent">respostas</span></h2>
+            <h2 id="privacidade-titulo" style="font-size:1.3rem;">Privacidade e uso das <span class="accent">respostas</span></h2>
           </div>
 
           <div class="card">
@@ -888,19 +1004,20 @@
 
       <!-- FORMULÁRIO DO DIAGNÓSTICO -->
       <section id="form-diagnostico" aria-labelledby="form-titulo" style="background:var(--cinza-ultra-claro); display:none;">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="form-titulo">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
-            <p class="progress-indicator">Etapa <span id="current-step">1</span> de <span id="total-steps">5</span></p>
-            <p class="muted">Responda pensando no seu dia a dia das últimas 2 semanas.</p>
-          </div>
-
-          <form id="diagnosis-form">
-            <!-- ETAPA 1 — Mapeamento de tarefas -->
-            <div class="form-section active" data-step="1">
-              <div class="card">
-                <h3>Quais atividades você executa com mais frequência?</h3>
-                <p class="muted" style="margin-bottom:16px;">Marque todas as que fazem parte da sua rotina.</p>
+        <div class="diagnosis-container">
+          <div class="diagnosis-box">
+            <div class="diagnosis-header">
+              <h2 id="form-titulo" style="margin-bottom:12px;font-size:1.5rem;">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
+              <p class="progress-indicator" style="margin-bottom:8px;">Etapa <span id="current-step">1</span> de <span id="total-steps">5</span></p>
+              <p class="muted" style="font-size:0.9rem;">Responda pensando no seu dia a dia das últimas 2 semanas.</p>
+            </div>
+            <div class="diagnosis-body">
+              <form id="diagnosis-form">
+                <!-- ETAPA 1 — Mapeamento de tarefas -->
+                <div class="form-section active" data-step="1">
+                  <div class="card">
+                    <h3>Quais atividades você executa com mais frequência?</h3>
+                    <p class="muted" style="margin-bottom:16px;">Marque todas as que fazem parte da sua rotina.</p>
                 <div class="checkbox-group">
                   <label class="checkbox-item">
                     <input type="checkbox" name="task" value="mensagens">
@@ -1081,10 +1198,12 @@
           </form>
 
           <!-- TELA DE PROCESSAMENTO -->
-          <div class="processing-screen" id="processing-screen" style="display:none;text-align:center;padding:60px 0;">
-            <h2>Analisando suas respostas…</h2>
-            <p>Estamos estimando seu risco de automação e identificando pontos preserváveis do seu trabalho.</p>
-            <p class="muted" style="margin-top:10px;">Isso leva alguns segundos.</p>
+          <div class="processing-screen" id="processing-screen" style="display:none;text-align:center;padding:40px 20px;">
+            <h2 style="font-size:1.3rem;">Analisando suas respostas…</h2>
+            <p style="font-size:0.95rem;">Estamos estimando seu risco de automação e identificando pontos preserváveis do seu trabalho.</p>
+            <p class="muted" style="margin-top:10px;font-size:0.85rem;">Isso leva alguns segundos.</p>
+          </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1093,24 +1212,24 @@
     <!-- RESULTADO PAGE -->
     <div id="result-page" class="page-section">
       <section class="result-section">
-        <h1>Seu diagnóstico está pronto</h1>
-        <p class="risk-level">Nível de Risco: <span class="accent" id="result-risco"></span></p>
-        <p class="score">Pontuação: <span id="result-score"></span> de 12</p>
-        <p id="result-message"></p>
+        <h1 style="font-size:1.6rem;">Seu diagnóstico está pronto</h1>
+        <p class="risk-level" style="font-size:1.8rem;">Nível de Risco: <span class="accent" id="result-risco"></span></p>
+        <p class="score" style="font-size:1.1rem;">Pontuação: <span id="result-score"></span> de 12</p>
+        <p id="result-message" style="font-size:0.95rem;padding:0 10px;"></p>
 
         <!-- BLOCO 2 — INTERPRETAÇÃO DIRETA -->
-        <div class="card" style="max-width:600px;margin:30px auto;text-align:left;">
-          <h3 style="text-align:center;margin-bottom:16px;">O que isso significa</h3>
-          <p id="result-interpretation"></p>
+        <div class="card" style="max-width:600px;margin:20px auto;text-align:left;padding:16px;">
+          <h3 style="text-align:center;margin-bottom:12px;font-size:1.1rem;">O que isso significa</h3>
+          <p id="result-interpretation" style="font-size:0.9rem;line-height:1.6;"></p>
         </div>
 
         <!-- BLOCO 3 — EXPLICAÇÃO DOS NÍVEIS -->
-        <div class="card" style="max-width:600px;margin:0 auto 30px;text-align:left;">
-          <h3 style="text-align:center;margin-bottom:16px;">Entenda seu nível de risco</h3>
-          <div id="result-level-explanation"></div>
+        <div class="card" style="max-width:600px;margin:0 auto 20px;text-align:left;padding:16px;">
+          <h3 style="text-align:center;margin-bottom:12px;font-size:1.1rem;">Entenda seu nível de risco</h3>
+          <div id="result-level-explanation" style="font-size:0.9rem;line-height:1.6;"></div>
         </div>
 
-        <div class="cta-row" style="justify-content:center; max-width:600px; margin:30px auto;">
+        <div class="cta-row" style="justify-content:center; max-width:600px; margin:20px auto;gap:10px;">
           <a href="https://wa.me/5541988245710?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profiss%C3%A3o" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Agendar Sessão de Diagnóstico</a>
           <button class="btn btn-secondary" onclick="restartDiagnosis()">Refazer diagnóstico</button>
         </div>
@@ -1135,12 +1254,19 @@
     function showPage(page) {
       document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
       document.getElementById(page + '-page').classList.add('active');
-      window.scrollTo(0, 0);
+      // Removido o scroll automático para o topo para permitir melhor UX no mobile
     }
 
     function startDiagnosis() {
       showPage('diagnosis');
       document.getElementById('form-diagnostico').style.display = 'block';
+      // Scroll para o início do formulário, não para o topo da página
+      setTimeout(() => {
+        const formSection = document.getElementById('form-diagnostico');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
 
     function restartDiagnosis() {
@@ -1151,6 +1277,13 @@
       showPage('diagnosis');
       document.getElementById('form-diagnostico').style.display = 'block';
       document.getElementById('processing-screen').style.display = 'none';
+      // Scroll para o início do formulário
+      setTimeout(() => {
+        const formSection = document.getElementById('form-diagnostico');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
 
     function scrollToSection(sectionId) {
