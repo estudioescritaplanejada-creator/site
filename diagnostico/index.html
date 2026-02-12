@@ -3,7 +3,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="Descubra se seu trabalho está em risco de substituição por IA. Diagnóstico gratuito em 5 minutos." />
   <title>Diagnóstico de Vulnerabilidade à IA - Descubra se seu trabalho está em risco</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,732 +12,1123 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --azul-petroleo:#2A7F98;
-      --roxo-tecnologico:#8E44AD;
-      --amarelo-solar:#FDC316;
-      --verde-menta:#5CB579;
-      --verde-crescimento:#4F8246;
-      --coral:#FF9F43;
-      --rosa-digital:#DE2F74;
+    :root {
+      --azul-petroleo: #2A7F98;
+      --roxo-tecnologico: #8E44AD;
+      --amarelo-solar: #FDC316;
+      --verde-menta: #5CB579;
+      --verde-crescimento: #4F8246;
+      --coral: #FF9F43;
+      --rosa-digital: #DE2F74;
 
-      --branco-puro:#FFFFFF;
-      --cinza-ultra-claro:#FAFBFC;
-      --cinza-gelo:#F4F7F9;
-      --cinza-medio:#E1E8ED;
-      --cinza-escuro:#657786;
-      --preto-suave:#2C3E50;
-      --preto-puro:#1A1A1A;
+      --branco-puro: #FFFFFF;
+      --cinza-ultra-claro: #FAFBFC;
+      --cinza-gelo: #F4F7F9;
+      --cinza-medio: #E1E8ED;
+      --cinza-escuro: #657786;
+      --preto-suave: #2C3E50;
+      --preto-puro: #1A1A1A;
 
-      --accent-primario:var(--roxo-tecnologico);
-      --accent-secundario:var(--coral);
-      --accent-sucesso:var(--verde-crescimento);
+      --accent-primario: var(--roxo-tecnologico);
+      --accent-secundario: var(--coral);
+      --accent-sucesso: var(--verde-crescimento);
 
-      --sombra-roxa:rgba(142,68,173,.15);
-      --sombra-coral:rgba(255,159,67,.15);
-      --sombra-azul:rgba(42,127,152,.15);
+      --sombra-roxa: rgba(142, 68, 173, .15);
+      --sombra-coral: rgba(255, 159, 67, .15);
+      --sombra-azul: rgba(42, 127, 152, .15);
 
-      --radius:16px;
-      --radius-pill:999px;
-      --container:1200px;
+      --radius: 16px;
+      --radius-pill: 999px;
+      --container: 1200px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:var(--branco-puro);
-      color:var(--preto-suave);
-      line-height:1.65;
-      overflow-x:hidden;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    a{color:inherit;text-decoration:none}
-    a:focus-visible, button:focus-visible, input[type="checkbox"]:focus-visible, input[type="radio"]:focus-visible{
-      outline:3px solid rgba(142,68,173,.45);
-      outline-offset:3px;
-      border-radius:10px;
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
-    .skip-link{
-      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
-    }
-    .skip-link:focus{
-      left:16px;top:16px;width:auto;height:auto;
-      padding:10px 14px;background:var(--preto-puro);color:var(--branco-puro);
-      border-radius:10px;z-index:9999;
-    }
-
-    main{max-width:var(--container);margin:0 auto;padding:0 16px;position:relative}
-
-    section{padding:56px 0;border-bottom:1px solid var(--cinza-medio)}
-    @media (min-width: 768px){ section{padding:76px 0} }
-
-    h1,h2,h3,h4{
-      font-family:'League Spartan',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--preto-puro);
-      line-height:1.08;
-    }
-    h1{font-weight:800;font-size:2.1rem;letter-spacing:-.4px;text-align:left}
-    @media (min-width: 768px){ h1{font-size:3rem} }
-    @media (min-width: 1024px){ h1{font-size:3.4rem} }
-
-    h2{
-      font-weight:800;
-      font-size:1.75rem;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      text-align:center;
-      margin-bottom:18px;
-    }
-    @media (min-width: 768px){ h2{font-size:2.5rem} }
-
-    h3{font-weight:800;font-size:1.35rem;margin-bottom:12px}
-    h4{font-weight:700;font-size:1.05rem;margin-bottom:10px}
-
-    .accent{
-      background:linear-gradient(45deg,var(--accent-primario),var(--accent-secundario));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--branco-puro);
+      color: var(--preto-suave);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      width: 100%;
     }
 
-    .lead{
-      font-size:1.05rem;
-      color:var(--preto-suave);
-      text-align:left;
-      margin-top:14px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    @media (min-width: 768px){ .lead{font-size:1.2rem} }
 
-    .muted{color:var(--cinza-escuro)}
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(142, 68, 173, .45);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      background: var(--preto-puro);
+      color: var(--branco-puro);
+      border-radius: 10px;
+      z-index: 9999;
+    }
+
+    main {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+      width: 100%;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--cinza-medio);
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 76px 0;
+      }
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'League Spartan', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--preto-puro);
+      line-height: 1.15;
+      word-wrap: break-word;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(1.75rem, 5vw, 3.4rem);
+      letter-spacing: -.4px;
+      text-align: left;
+    }
+
+    h2 {
+      font-weight: 800;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-weight: 800;
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .accent {
+      background: linear-gradient(45deg, var(--accent-primario), var(--accent-secundario));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--preto-suave);
+      text-align: left;
+      margin-top: 14px;
+    }
+
+    .muted {
+      color: var(--cinza-escuro);
+    }
 
     /* HEADER */
-    header{
-      position:sticky;
-      top:0;
-      background:var(--branco-puro);
-      border-bottom:1px solid var(--cinza-medio);
-      padding:10px 12px;
-      z-index:1000;
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--branco-puro);
+      border-bottom: 1px solid var(--cinza-medio);
+      padding: 10px 12px;
+      z-index: 1000;
+      width: 100%;
     }
 
-    .header-content{
-      max-width:var(--container);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+    .header-content {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
     }
 
-    .logo{
-      font-family:'League Spartan',sans-serif;
-      font-weight:800;
-      font-size:1.1rem;
-      color:var(--preto-puro);
-      flex:0 0 auto;
+    .logo {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--preto-puro);
+      flex: 0 0 auto;
     }
 
-    .nav-links{
-      display:none;
-      list-style:none;
-      gap:16px;
-      flex:1;
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 16px;
+      flex: 1;
     }
-    @media (min-width: 768px){ 
-      .nav-links{display:flex}
-      .nav-links{
-        gap:24px;
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 24px;
       }
     }
 
-    .nav-links a{
-      font-size:.85rem;
-      font-weight:600;
-      color:var(--preto-suave);
-      transition:color .2s ease;
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--preto-suave);
+      transition: color .2s ease;
     }
-    @media (min-width: 768px){
-      .nav-links a{
-        font-size:.95rem;
-      }
-    }
-    .nav-links a:hover{color:var(--accent-primario)}
 
-    .btn-header{
-      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
-      color:var(--branco-puro);
-      padding:8px 12px;
-      border-radius:var(--radius-pill);
-      font-weight:800;
-      font-size:.75rem;
-      letter-spacing:.5px;
-      text-transform:uppercase;
-      box-shadow:0 4px 12px var(--sombra-roxa);
-      transition:transform .2s ease, box-shadow .2s ease;
-      flex:0 0 auto;
-      cursor:pointer;
-      border:none;
-    }
-    @media (min-width: 768px){
-      .btn-header{
-        padding:10px 16px;
-        font-size:.9rem;
-        letter-spacing:.8px;
-        box-shadow:0 8px 20px var(--sombra-roxa);
+    @media (min-width: 768px) {
+      .nav-links a {
+        font-size: .95rem;
       }
     }
+
+    .nav-links a:hover {
+      color: var(--accent-primario);
     }
-    .btn-header:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--sombra-roxa)}
+
+    .btn-header {
+      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
+      color: var(--branco-puro);
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: .7rem;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px var(--sombra-roxa);
+      transition: transform .2s ease, box-shadow .2s ease;
+      flex: 0 0 auto;
+      cursor: pointer;
+      border: none;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .btn-header {
+        padding: 12px 18px;
+        font-size: .85rem;
+        letter-spacing: .8px;
+        box-shadow: 0 8px 20px var(--sombra-roxa);
+      }
+    }
+
+    .btn-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px var(--sombra-roxa);
+    }
 
     /* HERO */
-    .hero{
-      border-bottom:none;
-      padding:20px 0 30px;
-      min-height:auto;
-      display:flex;
-      align-items:center;
-      position:relative;
-    }
-    @media (min-width: 768px){ .hero{padding:44px 0 70px} }
-
-    .hero-card{
-      width:100%;
-      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
-      border:1px solid rgba(225,232,237,.9);
-      border-radius:calc(var(--radius) + 6px);
-      padding:22px 18px;
-      box-shadow:0 14px 40px var(--sombra-roxa);
-      overflow:hidden;
-      position:relative;
-    }
-    @media (min-width: 768px){ .hero-card{padding:40px 42px} }
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      top:-80px;right:-80px;
-      width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
-      pointer-events:none;
+    .hero {
+      border-bottom: none;
+      padding: 20px 0 30px;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      position: relative;
     }
 
-    .hero-stack{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    @media (min-width: 768px) {
+      .hero {
+        padding: 44px 0 70px;
+      }
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(142, 68, 173, .08) 0%, rgba(255, 159, 67, .06) 100%);
+      border: 1px solid rgba(225, 232, 237, .9);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 20px 16px;
+      box-shadow: 0 14px 40px var(--sombra-roxa);
+      overflow: hidden;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: 40px 42px;
+      }
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
       max-width: 920px;
     }
 
-    .micro{
-      font-family:'Inter',sans-serif;
-      font-weight:600;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:var(--accent-primario);
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-top:6px;
-    }
-    .micro::before{
-      content:"";
-      width:10px;height:10px;border-radius:50%;
-      background:var(--accent-secundario);
-      box-shadow:0 0 0 6px rgba(255,159,67,.18);
-      flex:0 0 auto;
+    .micro {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-primario);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
     }
 
-    .cta-row{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:16px;
-      align-items:stretch;
+    .micro::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-secundario);
+      box-shadow: 0 0 0 6px rgba(255, 159, 67, .18);
+      flex: 0 0 auto;
     }
-    @media (min-width: 480px){
-      .cta-row{
-        flex-direction:row;
-        align-items:center;
-        gap:12px;
+
+    .cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    @media (min-width: 480px) {
+      .cta-row {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
       }
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      text-decoration:none;
-      font-family:'League Spartan',sans-serif;
-      font-weight:800;
-      font-size:0.9rem;
-      letter-spacing:.5px;
-      text-transform:uppercase;
-      padding:12px 16px;
-      border-radius:var(--radius-pill);
-      border:none;
-      cursor:pointer;
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      max-width:100%;
-      width:100%;
-      text-align:center;
-    }
-    @media (min-width: 480px){
-      .btn{
-        max-width:360px;
-        font-size:1rem;
-        padding:14px 18px;
-        letter-spacing:.8px;
-      }
-    }
-    .btn-primary{
-      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
-      color:var(--branco-puro);
-      box-shadow:0 10px 26px var(--sombra-roxa);
-      border:1px solid transparent;
-    }
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--sombra-roxa)}
-    .btn-secondary{
-      background:transparent;
-      color:var(--accent-primario);
-      border:2px solid var(--accent-primario);
-    }
-    .btn-secondary:hover{
-      background:var(--accent-primario);
-      color:var(--branco-puro);
-      transform:translateY(-1px);
+    /* BOTOES - Mobile First com altura minima de 48px */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      min-height: 48px;
+      line-height: 1.2;
     }
 
-    .note-links{
-      margin-top:10px;
-      font-size:.95rem;
-      color:var(--cinza-escuro);
-      text-align:left;
+    @media (min-width: 480px) {
+      .btn {
+        max-width: 360px;
+        font-size: 1rem;
+        padding: 14px 20px;
+        letter-spacing: .8px;
+        width: auto;
+      }
     }
-    .note-links p{margin:0}
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
+      color: var(--branco-puro);
+      box-shadow: 0 10px 26px var(--sombra-roxa);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px var(--sombra-roxa);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-primario);
+      border: 2px solid var(--accent-primario);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-primario);
+      color: var(--branco-puro);
+      transform: translateY(-1px);
+    }
+
+    .note-links {
+      margin-top: 10px;
+      font-size: .9rem;
+      color: var(--cinza-escuro);
+      text-align: left;
+    }
+
+    .note-links p {
+      margin: 0;
+    }
 
     /* SECTION LAYOUT */
-    .section-wrap{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      align-items:stretch;
+    .section-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: stretch;
+      width: 100%;
     }
 
-    .center-text{ text-align:center }
-    .center-text p{ text-align:center }
+    .center-text {
+      text-align: center;
+    }
 
-    .card{
-      background:var(--branco-puro);
-      border:1px solid var(--cinza-medio);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:0 8px 22px rgba(0,0,0,.05);
+    .center-text p {
+      text-align: center;
     }
-    @media (min-width: 768px){ .card{padding:24px} }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:18px;
+    .card {
+      background: var(--branco-puro);
+      border: 1px solid var(--cinza-medio);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .05);
+      width: 100%;
     }
-    @media (min-width: 600px){
-      .grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:16px;
-      }
-    }
-    @media (min-width: 768px){
-      .grid{
-        grid-template-columns:repeat(12,1fr);
-        gap:18px;
-        margin-top:18px;
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 24px;
       }
     }
 
-    .col-12{grid-column:span 12}
-    .col-6{grid-column:span 12}
-    .col-4{grid-column:span 12}
-    @media (min-width: 768px){
-      .col-6{grid-column:span 6}
-      .col-4{grid-column:span 4}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 18px;
+      width: 100%;
     }
 
-    .bullet{
-      border-left:4px solid var(--accent-primario);
-      padding:14px 14px 14px 16px;
-      border-radius:0 14px 14px 0;
-      background:var(--branco-puro);
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
     }
-    .bullet p{margin:0;text-align:left;color:var(--preto-suave);font-weight:400}
 
-    .callout{
-      border:2px solid var(--accent-primario);
-      background:linear-gradient(135deg, rgba(142,68,173,.06), rgba(255,159,67,.05));
-      padding:18px;
-      border-radius:20px;
-      box-shadow:0 14px 36px var(--sombra-roxa);
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px;
+      }
     }
-    .callout p{margin:0;color:var(--preto-suave);font-weight:600;text-align:center}
+
+    .col-12 {
+      grid-column: span 1;
+    }
+
+    .col-6 {
+      grid-column: span 1;
+    }
+
+    .col-4 {
+      grid-column: span 1;
+    }
+
+    @media (min-width: 600px) {
+      .col-12 {
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .col-12 {
+        grid-column: span 12;
+      }
+      .col-6 {
+        grid-column: span 6;
+      }
+      .col-4 {
+        grid-column: span 4;
+      }
+    }
+
+    .bullet {
+      border-left: 4px solid var(--accent-primario);
+      padding: 14px 14px 14px 16px;
+      border-radius: 0 14px 14px 0;
+      background: var(--branco-puro);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    }
+
+    .bullet p {
+      margin: 0;
+      text-align: left;
+      color: var(--preto-suave);
+      font-weight: 400;
+      font-size: 0.95rem;
+    }
+
+    .callout {
+      border: 2px solid var(--accent-primario);
+      background: linear-gradient(135deg, rgba(142, 68, 173, .06), rgba(255, 159, 67, .05));
+      padding: 18px;
+      border-radius: 20px;
+      box-shadow: 0 14px 36px var(--sombra-roxa);
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--preto-suave);
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.95rem;
+    }
 
     /* Steps */
-    .steps{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:18px;
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
     }
-    @media (min-width: 768px){ .steps{grid-template-columns:repeat(3,1fr)} }
 
-    .step{
-      border:1px solid var(--cinza-medio);
-      border-radius:18px;
-      padding:16px 14px;
-      background:var(--branco-puro);
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
-      text-align:center;
+    @media (min-width: 768px) {
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
-    .step-num{
-      width:44px;height:44px;border-radius:50%;
-      display:inline-flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
-      color:var(--branco-puro);
-      font-family:'League Spartan',sans-serif;
-      font-weight:900;
-      font-size:1.25rem;
-      margin-bottom:10px;
-      box-shadow:0 8px 22px var(--sombra-roxa);
+
+    .step {
+      border: 1px solid var(--cinza-medio);
+      border-radius: 18px;
+      padding: 18px 16px;
+      background: var(--branco-puro);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+      text-align: center;
     }
-    .step p{margin:0;color:var(--cinza-escuro);font-size:.95rem}
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
+      color: var(--branco-puro);
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px var(--sombra-roxa);
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--cinza-escuro);
+      font-size: .95rem;
+    }
 
     /* Pricing Cards */
-    .pricing-card{
-      border:2px solid var(--cinza-medio);
-      border-radius:20px;
-      padding:24px;
-      background:var(--branco-puro);
-      text-align:center;
-      transition:border-color .2s ease, box-shadow .2s ease;
+    .pricing-card {
+      border: 2px solid var(--cinza-medio);
+      border-radius: 20px;
+      padding: 20px;
+      background: var(--branco-puro);
+      text-align: center;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
-    .pricing-card:hover{
-      border-color:var(--accent-primario);
-      box-shadow:0 14px 36px var(--sombra-roxa);
+
+    @media (min-width: 768px) {
+      .pricing-card {
+        padding: 24px;
+      }
     }
-    .pricing-card h3{margin-bottom:8px}
-    .price{
-      font-family:'League Spartan',sans-serif;
-      font-size:2.5rem;
-      font-weight:800;
-      color:var(--accent-primario);
-      margin:14px 0;
+
+    .pricing-card:hover {
+      border-color: var(--accent-primario);
+      box-shadow: 0 14px 36px var(--sombra-roxa);
     }
-    .price-label{
-      font-size:.9rem;
-      color:var(--cinza-escuro);
-      margin-bottom:18px;
+
+    .pricing-card h3 {
+      margin-bottom: 8px;
     }
-    .pricing-list{
-      text-align:left;
-      margin:18px 0;
-      list-style:none;
+
+    .price {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-primario);
+      margin: 14px 0;
     }
-    .pricing-list li{
-      padding:8px 0;
-      color:var(--preto-suave);
-      font-size:.95rem;
-      border-bottom:1px solid var(--cinza-medio);
+
+    @media (min-width: 768px) {
+      .price {
+        font-size: 2.5rem;
+      }
     }
-    .pricing-list li:last-child{border-bottom:none}
+
+    .price-label {
+      font-size: .9rem;
+      color: var(--cinza-escuro);
+      margin-bottom: 18px;
+    }
+
+    .pricing-list {
+      text-align: left;
+      margin: 18px 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    .pricing-list li {
+      padding: 10px 0;
+      color: var(--preto-suave);
+      font-size: .95rem;
+      border-bottom: 1px solid var(--cinza-medio);
+    }
+
+    .pricing-list li:last-child {
+      border-bottom: none;
+    }
 
     /* FAQ */
-    .faq-item{
-      border:1px solid var(--cinza-medio);
-      border-radius:16px;
-      padding:18px;
-      margin-bottom:12px;
-      background:var(--branco-puro);
-      cursor:pointer;
-      transition:all .2s ease;
+    .faq-item {
+      border: 1px solid var(--cinza-medio);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 12px;
+      background: var(--branco-puro);
+      cursor: pointer;
+      transition: all .2s ease;
     }
-    .faq-item:hover{
-      border-color:var(--accent-primario);
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    .faq-item:hover {
+      border-color: var(--accent-primario);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
     }
-    .faq-item h4{margin:0;display:flex;align-items:center;justify-content:space-between}
-    .faq-item.active .faq-answer{display:block}
-    .faq-answer{
-      display:none;
-      margin-top:12px;
-      padding-top:12px;
-      border-top:1px solid var(--cinza-medio);
-      color:var(--preto-suave);
-      font-size:.95rem;
+
+    .faq-item h4 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .faq-item h4 span {
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      color: var(--accent-primario);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active h4 span {
+      transform: rotate(45deg);
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--cinza-medio);
+      color: var(--preto-suave);
+      font-size: .95rem;
     }
 
     /* Quote */
-    .quote{
-      position:relative;
-      padding-top:22px;
-      text-align:left;
+    .quote {
+      position: relative;
+      padding-top: 22px;
+      text-align: left;
     }
-    .quote::before{
-      content:"";
-      position:absolute;top:-8px;left:14px;
-      font-family:Georgia,serif;
-      font-size:3.2rem;
-      color:rgba(142,68,173,.22);
-      line-height:1;
+
+    .quote::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 14px;
+      font-family: Georgia, serif;
+      font-size: 3.2rem;
+      color: rgba(142, 68, 173, .22);
+      line-height: 1;
     }
-    .quote p{margin:0;color:var(--preto-suave);font-style:italic;text-align:left}
+
+    .quote p {
+      margin: 0;
+      color: var(--preto-suave);
+      font-style: italic;
+      text-align: left;
+    }
 
     /* Form Specific */
-    .form-section{
-      display:none;
-    }
-    .form-section.active{
-      display:block;
+    .form-section {
+      display: none;
     }
 
-    /* Container para o formulário do diagnóstico */
-    .diagnosis-container{
-      max-width:600px;
-      margin:0 auto;
-      padding:16px;
+    .form-section.active {
+      display: block;
     }
-    @media (min-width: 768px){
-      .diagnosis-container{
-        padding:40px 24px;
+
+    /* Container para o formulario do diagnostico */
+    .diagnosis-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .diagnosis-container {
+        padding: 40px 24px;
       }
     }
 
-    .diagnosis-box{
-      background:var(--branco-puro);
-      border:1px solid var(--cinza-medio);
-      border-radius:20px;
-      box-shadow:0 14px 40px var(--sombra-roxa);
-      overflow:hidden;
+    .diagnosis-box {
+      background: var(--branco-puro);
+      border: 1px solid var(--cinza-medio);
+      border-radius: 20px;
+      box-shadow: 0 14px 40px var(--sombra-roxa);
+      overflow: hidden;
+      width: 100%;
     }
 
-    .diagnosis-header{
-      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
-      padding:20px;
-      border-bottom:1px solid var(--cinza-medio);
-      text-align:center;
+    .diagnosis-header {
+      background: linear-gradient(135deg, rgba(142, 68, 173, .08) 0%, rgba(255, 159, 67, .06) 100%);
+      padding: 20px 16px;
+      border-bottom: 1px solid var(--cinza-medio);
+      text-align: center;
     }
-    @media (min-width: 768px){
-      .diagnosis-header{
-        padding:30px;
+
+    @media (min-width: 768px) {
+      .diagnosis-header {
+        padding: 30px;
       }
     }
 
-    .diagnosis-body{
-      padding:16px;
+    .diagnosis-body {
+      padding: 16px;
     }
-    @media (min-width: 768px){
-      .diagnosis-body{
-        padding:24px;
+
+    @media (min-width: 768px) {
+      .diagnosis-body {
+        padding: 24px;
       }
     }
 
-    .progress-indicator{
-      text-align:center;
-      margin-bottom:24px;
-      font-weight:600;
-      color:var(--accent-primario);
+    .progress-indicator {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 600;
+      color: var(--accent-primario);
+      font-size: 1rem;
     }
 
-    .form-group{
-      margin-bottom:20px;
+    .form-group {
+      margin-bottom: 20px;
     }
 
-    .form-group label{
-      display:block;
-      font-weight:600;
-      margin-bottom:8px;
-      color:var(--preto-puro);
+    .form-group > label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--preto-puro);
     }
 
-    .checkbox-group, .radio-group{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .checkbox-group,
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .checkbox-item, .radio-item{
-      display:flex;
-      align-items:flex-start;
-      background:var(--cinza-ultra-claro);
-      border:1px solid var(--cinza-medio);
-      border-radius:10px;
-      padding:12px;
-      cursor:pointer;
-      transition:all .2s ease;
-    }
-    @media (min-width: 768px){
-      .checkbox-item, .radio-item{
-        padding:12px 16px;
-      }
-    }
-    .checkbox-item:hover, .radio-item:hover{
-      border-color:var(--accent-primario);
-      box-shadow:0 4px 12px rgba(0,0,0,.05);
+    /* Area de toque inclui o container inteiro */
+    .checkbox-item,
+    .radio-item {
+      display: flex;
+      align-items: flex-start;
+      background: var(--cinza-ultra-claro);
+      border: 1px solid var(--cinza-medio);
+      border-radius: 12px;
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: all .2s ease;
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .checkbox-item input[type="checkbox"], .radio-item input[type="radio"]{
-      margin-right:10px;
-      min-width:18px;
-      min-height:18px;
-      accent-color:var(--accent-primario);
-      flex-shrink:0;
-      margin-top:2px;
-    }
-
-    .checkbox-item label, .radio-item label{
-      margin-bottom:0;
-      cursor:pointer;
-      font-weight:400;
-      color:var(--preto-suave);
-      flex:1;
-      font-size:0.9rem;
-      line-height:1.4;
-    }
-    @media (min-width: 768px){
-      .checkbox-item label, .radio-item label{
-        font-size:1rem;
+    @media (min-width: 768px) {
+      .checkbox-item,
+      .radio-item {
+        padding: 14px 16px;
       }
     }
 
-    input[type="text"]{
-      width:100%;
-      padding:12px 16px;
-      border:1px solid var(--cinza-medio);
-      border-radius:10px;
-      font-family:inherit;
-      font-size:1rem;
-      color:var(--preto-suave);
-      background:var(--cinza-ultra-claro);
-      transition:border-color .2s ease;
-    }
-    input[type="text"]:focus{
-      outline:none;
-      border-color:var(--accent-primario);
+    .checkbox-item:hover,
+    .radio-item:hover,
+    .checkbox-item:focus-within,
+    .radio-item:focus-within {
+      border-color: var(--accent-primario);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+      background: var(--cinza-gelo);
     }
 
-    .form-navigation{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:24px;
+    .checkbox-item input[type="checkbox"],
+    .radio-item input[type="radio"] {
+      margin-right: 12px;
+      min-width: 20px;
+      min-height: 20px;
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-primario);
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
     }
-    @media (min-width: 480px){
-      .form-navigation{
-        flex-direction:row;
-        justify-content:space-between;
-        gap:16px;
+
+    .checkbox-item span,
+    .radio-item span {
+      cursor: pointer;
+      font-weight: 400;
+      color: var(--preto-suave);
+      flex: 1;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    @media (min-width: 768px) {
+      .checkbox-item span,
+      .radio-item span {
+        font-size: 1rem;
       }
     }
-    .form-navigation .btn{
-      max-width:100%;
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--cinza-medio);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--preto-suave);
+      background: var(--cinza-ultra-claro);
+      transition: border-color .2s ease;
+      min-height: 48px;
     }
-    @media (min-width: 480px){
-      .form-navigation .btn{
-        max-width:none;
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent-primario);
+      box-shadow: 0 0 0 3px rgba(142, 68, 173, .15);
+    }
+
+    .form-navigation {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 480px) {
+      .form-navigation {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
       }
     }
 
-    .error-message{
-      color:var(--rosa-digital);
-      font-size:.9rem;
-      margin-top:8px;
-      text-align:center;
-      display:none;
+    .form-navigation .btn {
+      flex: 1;
     }
 
-    .tooltip-text{
-      font-size:.85rem;
-      color:var(--cinza-escuro);
-      margin-top:8px;
-      text-align:left;
-    }
-
-    /* Result optimization */
-    .result-section{
-      text-align:center;
-      padding:30px 16px;
-    }
-    @media (min-width: 768px){
-      .result-section{
-        padding:60px 0;
+    @media (min-width: 480px) {
+      .form-navigation .btn {
+        flex: 0 1 auto;
+        min-width: 140px;
       }
     }
-    .result-section h1{margin-bottom:20px;text-align:center;}
-    .result-section p{font-size:1.1rem;color:var(--preto-suave);margin-bottom:10px;}
-    .result-section .risk-level{
-      font-size:2.5rem;
-      font-weight:800;
-      margin:20px 0;
+
+    .error-message {
+      color: var(--rosa-digital);
+      font-size: .9rem;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+      padding: 10px;
+      background: rgba(222, 47, 116, .08);
+      border-radius: 8px;
     }
-    .result-section .score{
-      font-size:1.5rem;
-      color:var(--cinza-escuro);
-      margin-bottom:30px;
+
+    .tooltip-text {
+      font-size: .85rem;
+      color: var(--cinza-escuro);
+      margin-top: 12px;
+      text-align: left;
+      padding: 10px;
+      background: var(--cinza-gelo);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-primario);
+    }
+
+    /* Result section */
+    .result-section {
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    @media (min-width: 768px) {
+      .result-section {
+        padding: 60px 0;
+      }
+    }
+
+    .result-section h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+    }
+
+    .result-section p {
+      font-size: 1rem;
+      color: var(--preto-suave);
+      margin-bottom: 10px;
+    }
+
+    .result-section .risk-level {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-weight: 800;
+      margin: 20px 0;
+      line-height: 1.3;
+    }
+
+    .result-section .score {
+      font-size: 1.1rem;
+      color: var(--cinza-escuro);
+      margin-bottom: 30px;
     }
 
     /* Sections visibility control */
-    .page-section{
-      display:none;
+    .page-section {
+      display: none;
     }
-    .page-section.active{
-      display:block;
+
+    .page-section.active {
+      display: block;
     }
 
     /* Footer */
-    footer{
-      background:var(--preto-puro);
-      color:var(--cinza-gelo);
-      padding:44px 16px 28px;
-      text-align:center;
+    footer {
+      background: var(--preto-puro);
+      color: var(--cinza-gelo);
+      padding: 44px 16px 28px;
+      text-align: center;
+      width: 100%;
     }
-    footer h3{color:var(--branco-puro);margin-bottom:10px;letter-spacing:1px}
-    .footer-links{
-      display:flex;
-      justify-content:center;
-      gap:24px;
-      margin:18px 0;
-      flex-wrap:wrap;
-      font-size:.9rem;
+
+    footer h3 {
+      color: var(--branco-puro);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
     }
-    .footer-links a{color:var(--cinza-gelo);transition:color .2s ease}
-    .footer-links a:hover{color:var(--branco-puro)}
-    .copyright{
-      margin-top:18px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:rgba(244,247,249,.7);
-      font-size:.9rem;
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 480px) {
+      .footer-links {
+        gap: 24px;
+      }
+    }
+
+    .footer-links a {
+      color: var(--cinza-gelo);
+      transition: color .2s ease;
+      padding: 8px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--branco-puro);
+    }
+
+    .copyright {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(244, 247, 249, .7);
+      font-size: .9rem;
+    }
+
+    /* Processing Screen */
+    .processing-screen {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .processing-screen h2 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .processing-screen p {
+      font-size: 0.95rem;
+    }
+
+    /* Result Cards */
+    .result-card {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+      padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .result-card {
+        padding: 24px;
+      }
+    }
+
+    .result-card h3 {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: clamp(1rem, 3vw, 1.1rem);
+    }
+
+    .result-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    /* CTA Final - Estilos especificos */
+    .cta-final-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+      margin: 24px auto;
+      gap: 12px;
+      padding: 0 16px;
+    }
+
+    @media (min-width: 480px) {
+      .cta-final-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    .cta-final-row .btn {
+      flex: 1 1 100%;
+    }
+
+    @media (min-width: 480px) {
+      .cta-final-row .btn {
+        flex: 1 1 auto;
+        max-width: 280px;
+      }
+    }
+
+    /* Utilities para mobile */
+    @media (max-width: 479px) {
+      .hide-mobile {
+        display: none !important;
+      }
+    }
+
+    /* Garantir que nenhum elemento ultrapasse a viewport */
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 
 <body>
-  <a href="#main" class="skip-link">Pular para conteúdo principal</a>
+  <a href="#main" class="skip-link">Pular para conteudo principal</a>
 
   <!-- HEADER -->
   <header>
     <div class="header-content">
       <div class="logo">IA Risk</div>
-      <nav>
+      <nav aria-label="Menu principal">
         <ul class="nav-links">
           <li><a href="#como-funciona" onclick="showPage('landing')">Como funciona</a></li>
-          <li><a href="#entregaveis" onclick="showPage('landing')">O que você recebe</a></li>
-          <li><a href="#preco" onclick="showPage('landing')">Preço</a></li>
+          <li><a href="#entregaveis" onclick="showPage('landing')">O que voce recebe</a></li>
+          <li><a href="#preco" onclick="showPage('landing')">Preco</a></li>
           <li><a href="#faq" onclick="showPage('landing')">FAQ</a></li>
         </ul>
       </nav>
-      <button class="btn btn-header" onclick="startDiagnosis()">Fazer diagnóstico grátis</button>
+      <button class="btn-header" onclick="startDiagnosis()" type="button" aria-label="Iniciar diagnostico gratuito">Diagnostico gratis</button>
     </div>
   </header>
 
@@ -747,17 +1139,17 @@
       <section class="hero" aria-labelledby="hero-titulo">
         <div class="hero-card">
           <div class="hero-stack">
-            <div class="micro">Diagnóstico Rápido</div>
-            <h1 id="hero-titulo">Descubra se o seu trabalho está ficando substituível por IA.</h1>
-            <p class="lead">Em 5 minutos você recebe um diagnóstico e um caminho curto para continuar necessário — sem 'curso genérico'.</p>
+            <div class="micro">Diagnostico Rapido</div>
+            <h1 id="hero-titulo">Descubra se o seu trabalho esta ficando substituivel por IA.</h1>
+            <p class="lead">Em 5 minutos voce recebe um diagnostico e um caminho curto para continuar necessario — sem 'curso generico'.</p>
 
             <div class="cta-row">
-              <button onclick="startDiagnosis()" class="btn btn-primary">👉 Começar diagnóstico grátis</button>
-              <button class="btn btn-secondary" onclick="scrollToSection('como-funciona')">👁️ Ver como funciona</button>
+              <button onclick="startDiagnosis()" class="btn btn-primary" type="button">Comecar diagnostico gratis</button>
+              <button class="btn btn-secondary" onclick="scrollToSection('como-funciona')" type="button">Ver como funciona</button>
             </div>
 
             <div class="note-links">
-              <p>Sem currículo. Sem cadastro no início. Sem promessa de emprego.</p>
+              <p>Sem curriculo. Sem cadastro no inicio. Sem promessa de emprego.</p>
             </div>
           </div>
         </div>
@@ -767,18 +1159,18 @@
       <section aria-labelledby="problema-titulo" style="background:var(--cinza-ultra-claro)">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="problema-titulo">O que está acontecendo <span class="accent">(de verdade)</span></h2>
+            <h2 id="problema-titulo">O que esta acontecendo <span class="accent">(de verdade)</span></h2>
           </div>
 
           <div class="grid" role="list" aria-label="Realidade do mercado">
             <div class="bullet col-12" role="listitem">
-              <p>• Não é 'a IA'. É gente usando IA fazendo o mesmo trabalho por menos tempo.</p>
+              <p>Nao e 'a IA'. E gente usando IA fazendo o mesmo trabalho por menos tempo.</p>
             </div>
             <div class="bullet col-12" role="listitem">
-              <p>• A maioria das perdas vem de tarefas repetitivas e padronizadas.</p>
+              <p>A maioria das perdas vem de tarefas repetitivas e padronizadas.</p>
             </div>
             <div class="bullet col-12" role="listitem">
-              <p>• Quem continua emprego muda de função: executa menos, valida e decide mais.</p>
+              <p>Quem continua emprego muda de funcao: executa menos, valida e decide mais.</p>
             </div>
           </div>
         </div>
@@ -794,90 +1186,90 @@
           <div class="steps" aria-label="Processo em 3 passos">
             <div class="step">
               <div class="step-num" aria-hidden="true">1</div>
-              <h4>Diagnóstico (5 min)</h4>
-              <p>Você descreve suas tarefas. Nós estimamos risco de automação e pontos preserváveis.</p>
+              <h4>Diagnostico (5 min)</h4>
+              <p>Voce descreve suas tarefas. Nos estimamos risco de automacao e pontos preservaveis.</p>
             </div>
 
             <div class="step">
               <div class="step-num" aria-hidden="true">2</div>
-              <h4>Simulação Prática</h4>
-              <p>Você atua como "validador humano": aprova/corrige/rejeita saídas da IA.</p>
+              <h4>Simulacao Pratica</h4>
+              <p>Voce atua como "validador humano": aprova/corrige/rejeita saidas da IA.</p>
             </div>
 
             <div class="step">
               <div class="step-num" aria-hidden="true">3</div>
               <h4>Prova de Valor</h4>
-              <p>Você sai com um relatório/portfolio funcional para mostrar que sabe operar com IA.</p>
+              <p>Voce sai com um relatorio/portfolio funcional para mostrar que sabe operar com IA.</p>
             </div>
           </div>
 
           <div class="center-text" style="margin-top:28px">
-            <button onclick="startDiagnosis()" class="btn btn-primary">👉 Começar diagnóstico grátis</button>
+            <button onclick="startDiagnosis()" class="btn btn-primary" type="button">Comecar diagnostico gratis</button>
           </div>
         </div>
       </section>
 
-      <!-- ENTREGÁVEIS -->
+      <!-- ENTREGAVEIS -->
       <section id="entregaveis" aria-labelledby="entrega-titulo">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="entrega-titulo">O que você <span class="accent">Recebe</span></h2>
+            <h2 id="entrega-titulo">O que voce <span class="accent">Recebe</span></h2>
           </div>
 
-          <div class="grid" aria-label="Entregáveis">
+          <div class="grid" aria-label="Entregaveis">
             <div class="card col-6">
-              <h3 class="accent">📊 Score de Vulnerabilidade</h3>
-              <p style="text-align:left;color:var(--preto-suave)">O que está em risco e por quê. Análise clara do seu perfil profissional.</p>
+              <h3 class="accent">Score de Vulnerabilidade</h3>
+              <p style="text-align:left;color:var(--preto-suave)">O que esta em risco e por que. Analise clara do seu perfil profissional.</p>
             </div>
 
             <div class="card col-6">
-              <h3 class="accent">🗺️ Mapa de Transição</h3>
-              <p style="text-align:left;color:var(--preto-suave)">Função-alvo recomendada. Um caminho curto e prático.</p>
+              <h3 class="accent">Mapa de Transicao</h3>
+              <p style="text-align:left;color:var(--preto-suave)">Funcao-alvo recomendada. Um caminho curto e pratico.</p>
             </div>
 
             <div class="card col-6">
-              <h3 class="accent">⚙️ Simulação de Decisões</h3>
-              <p style="text-align:left;color:var(--preto-suave)">Treino prático. Você aprende validando, não só assistindo.</p>
+              <h3 class="accent">Simulacao de Decisoes</h3>
+              <p style="text-align:left;color:var(--preto-suave)">Treino pratico. Voce aprende validando, nao so assistindo.</p>
             </div>
 
             <div class="card col-6">
-              <h3 class="accent">📄 Prova de Valor</h3>
-              <p style="text-align:left;color:var(--preto-suave)">PDF/link gerado. Você leva para mostrar que sabe operar com IA.</p>
+              <h3 class="accent">Prova de Valor</h3>
+              <p style="text-align:left;color:var(--preto-suave)">PDF/link gerado. Voce leva para mostrar que sabe operar com IA.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PREÇO -->
+      <!-- PRECO -->
       <section id="preco" aria-labelledby="preco-titulo">
         <div class="section-wrap">
           <div class="center-text">
             <h2 id="preco-titulo">Quanto <span class="accent">Custa</span></h2>
           </div>
 
-          <div class="grid" aria-label="Opções de preço">
+          <div class="grid" aria-label="Opcoes de preco">
             <div class="pricing-card col-6">
-              <h3>Diagnóstico Inicial</h3>
+              <h3>Diagnostico Inicial</h3>
               <div class="price">R$ 0</div>
-              <p class="muted" style="margin-bottom:18px">Análise completa em 5 minutos</p>
-              <button onclick="startDiagnosis()" class="btn btn-secondary" style="margin-top:12px">Começar grátis</button>
+              <p class="muted" style="margin-bottom:18px">Analise completa em 5 minutos</p>
+              <button onclick="startDiagnosis()" class="btn btn-secondary" type="button" style="margin-top:12px">Comecar gratis</button>
             </div>
 
             <div class="pricing-card col-6">
-              <h3>Simulação + Prova de Valor</h3>
+              <h3>Simulacao + Prova de Valor</h3>
               <div class="price">R$ 69</div>
-              <p class="muted" style="margin-bottom:18px">Completo com treino prático</p>
+              <p class="muted" style="margin-bottom:18px">Completo com treino pratico</p>
               <ul class="pricing-list">
-                <li>✓ 1 cenário completo de simulação</li>
-                <li>✓ Relatório final detalhado</li>
-                <li>✓ Acesso por 30 dias</li>
+                <li>1 cenario completo de simulacao</li>
+                <li>Relatorio final detalhado</li>
+                <li>Acesso por 30 dias</li>
               </ul>
-              <a href="https://wa.me/5541988245710?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profiss%C3%A3o" target="_blank" class="btn btn-primary" style="margin-top:12px">Começar agora</a>
+              <a href="https://www.estudioescritaplanejada.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:12px">Acessar o Estudio</a>
             </div>
           </div>
 
           <div class="callout" style="margin-top:28px">
-            <p>Sem surpresas. Sem cobrança recorrente. Você controla o que exporta e compartilha.</p>
+            <p>Sem surpresas. Sem cobranca recorrente. Voce controla o que exporta e compartilha.</p>
           </div>
         </div>
       </section>
@@ -890,38 +1282,38 @@
           </div>
 
           <div style="max-width:800px;margin:24px auto 0">
-            <div class="faq-item">
-              <h4>Isso garante emprego? <span>+</span></h4>
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
+              <h4>Isso garante emprego? <span aria-hidden="true">+</span></h4>
               <div class="faq-answer">
-                <p>Não. Ninguém garante emprego. O que fazemos é mostrar onde você agrega valor humano que IA não consegue replicar, e como demonstrar isso.</p>
+                <p>Nao. Ninguem garante emprego. O que fazemos e mostrar onde voce agrega valor humano que IA nao consegue replicar, e como demonstrar isso.</p>
               </div>
             </div>
 
-            <div class="faq-item">
-              <h4>Preciso saber programar? <span>+</span></h4>
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
+              <h4>Preciso saber programar? <span aria-hidden="true">+</span></h4>
               <div class="faq-answer">
-                <p>Não. Você não programa. Você valida. A IA gera, você aprova, corrige ou rejeita. É sobre julgamento, não código.</p>
+                <p>Nao. Voce nao programa. Voce valida. A IA gera, voce aprova, corrige ou rejeita. E sobre julgamento, nao codigo.</p>
               </div>
             </div>
 
-            <div class="faq-item">
-              <h4>Em quanto tempo vejo resultado? <span>+</span></h4>
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
+              <h4>Em quanto tempo vejo resultado? <span aria-hidden="true">+</span></h4>
               <div class="faq-answer">
-                <p>O diagnóstico é imediato (5 minutos). A simulação leva quanto tempo você quiser dedicar. O relatório sai pronto para usar.</p>
+                <p>O diagnostico e imediato (5 minutos). A simulacao leva quanto tempo voce quiser dedicar. O relatorio sai pronto para usar.</p>
               </div>
             </div>
 
-            <div class="faq-item">
-              <h4>Isso é um curso? <span>+</span></h4>
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
+              <h4>Isso e um curso? <span aria-hidden="true">+</span></h4>
               <div class="faq-answer">
-                <p>Não. É simulação e prova prática. Você aprende fazendo, não assistindo aulas. Bem diferente.</p>
+                <p>Nao. E simulacao e prova pratica. Voce aprende fazendo, nao assistindo aulas. Bem diferente.</p>
               </div>
             </div>
 
-            <div class="faq-item">
-              <h4>Meus dados ficam públicos? <span>+</span></h4>
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
+              <h4>Meus dados ficam publicos? <span aria-hidden="true">+</span></h4>
               <div class="faq-answer">
-                <p>Não. Seus dados são privados. Você controla o que compartilha, exporta ou mantém guardado.</p>
+                <p>Nao. Seus dados sao privados. Voce controla o que compartilha, exporta ou mantem guardado.</p>
               </div>
             </div>
           </div>
@@ -932,34 +1324,34 @@
       <section aria-labelledby="final-titulo" style="background:var(--cinza-ultra-claro)">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="final-titulo">Você prefere descobrir agora ou depois que a renda <span class="accent">cair?</span></h2>
-            <button onclick="startDiagnosis()" class="btn btn-primary" style="margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto">👉 Fazer diagnóstico grátis</button>
+            <h2 id="final-titulo">Voce prefere descobrir agora ou depois que a renda <span class="accent">cair?</span></h2>
+            <button onclick="startDiagnosis()" class="btn btn-primary" type="button" style="margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto">Fazer diagnostico gratis</button>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- DIAGNÓSTICO PAGE -->
+    <!-- DIAGNOSTICO PAGE -->
     <div id="diagnosis-page" class="page-section">
-      <!-- HERO / INTRODUÇÃO -->
+      <!-- HERO / INTRODUCAO -->
       <section class="hero" aria-labelledby="diagnosis-hero-titulo">
         <div class="hero-card">
           <div class="hero-stack">
-            <h1 id="diagnosis-hero-titulo" style="font-size:1.8rem;">Diagnóstico de Risco de Substituição por IA</h1>
-            <p class="lead">Em 5–7 minutos, você descobre quanto do seu trabalho atual já pode ser automatizado e onde você ainda gera valor humano.</p>
+            <h1 id="diagnosis-hero-titulo" style="font-size:clamp(1.5rem, 4vw, 1.8rem);">Diagnostico de Risco de Substituicao por IA</h1>
+            <p class="lead">Em 5–7 minutos, voce descobre quanto do seu trabalho atual ja pode ser automatizado e onde voce ainda gera valor humano.</p>
 
-            <ul class="note-links" style="margin-top:0;margin-bottom:16px;">
-              <li><p>• Sem currículo e sem perguntas pessoais.</p></li>
-              <li><p>• Avalia tarefas reais, não "talento".</p></li>
-              <li><p>• Resultado imediato.</p></li>
+            <ul class="note-links" style="margin-top:0;margin-bottom:16px;list-style:none;padding:0;">
+              <li><p>Sem curriculo e sem perguntas pessoais.</p></li>
+              <li><p>Avalia tarefas reais, nao "talento".</p></li>
+              <li><p>Resultado imediato.</p></li>
             </ul>
 
             <div class="cta-row">
-              <button id="start-diagnosis-btn" class="btn btn-primary">👉 Iniciar diagnóstico</button>
+              <button id="start-diagnosis-btn" class="btn btn-primary" type="button">Iniciar diagnostico</button>
             </div>
 
             <div class="note-links">
-              <p>Se preferir, você pode sair a qualquer momento. Suas respostas não ficam públicas.</p>
+              <p>Se preferir, voce pode sair a qualquer momento. Suas respostas nao ficam publicas.</p>
             </div>
           </div>
         </div>
@@ -969,18 +1361,18 @@
       <section aria-labelledby="oque-mede-titulo" style="background:var(--cinza-ultra-claro);padding:30px 0;">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="oque-mede-titulo" style="font-size:1.3rem;">O que este diagnóstico <span class="accent">mede</span></h2>
+            <h2 id="oque-mede-titulo" style="font-size:clamp(1.1rem, 3vw, 1.3rem);">O que este diagnostico <span class="accent">mede</span></h2>
           </div>
 
           <div class="card">
-            <p style="text-align:left;margin-bottom:12px;font-size:0.95rem;">Este diagnóstico estima sua exposição à automação com base em 4 fatores:</p>
+            <p style="text-align:left;margin-bottom:12px;font-size:0.95rem;">Este diagnostico estima sua exposicao a automacao com base em 4 fatores:</p>
             <ul class="pricing-list">
-              <li>Repetição das tarefas</li>
-              <li>Regras fixas vs exceções</li>
-              <li>Nível de decisão envolvido</li>
+              <li>Repeticao das tarefas</li>
+              <li>Regras fixas vs excecoes</li>
+              <li>Nivel de decisao envolvido</li>
               <li>Responsabilidade por erro (impacto real)</li>
             </ul>
-            <p class="muted" style="margin-top:12px;text-align:left;font-size:0.9rem;">Ele não determina seu valor como profissional. Ele mede o risco do formato atual do trabalho virar "commodity".</p>
+            <p class="muted" style="margin-top:12px;text-align:left;font-size:0.9rem;">Ele nao determina seu valor como profissional. Ele mede o risco do formato atual do trabalho virar "commodity".</p>
           </div>
         </div>
       </section>
@@ -989,220 +1381,220 @@
       <section id="privacidade-section" aria-labelledby="privacidade-titulo" style="padding:30px 0;">
         <div class="section-wrap">
           <div class="center-text">
-            <h2 id="privacidade-titulo" style="font-size:1.3rem;">Privacidade e uso das <span class="accent">respostas</span></h2>
+            <h2 id="privacidade-titulo" style="font-size:clamp(1.1rem, 3vw, 1.3rem);">Privacidade e uso das <span class="accent">respostas</span></h2>
           </div>
 
           <div class="card">
             <ul class="pricing-list">
-              <li>Suas respostas são usadas para gerar seu diagnóstico.</li>
-              <li>Você controla o que exporta/compartilha depois.</li>
-              <li>Não vendemos seus dados.</li>
+              <li>Suas respostas sao usadas para gerar seu diagnostico.</li>
+              <li>Voce controla o que exporta/compartilha depois.</li>
+              <li>Nao vendemos seus dados.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- FORMULÁRIO DO DIAGNÓSTICO -->
+      <!-- FORMULARIO DO DIAGNOSTICO -->
       <section id="form-diagnostico" aria-labelledby="form-titulo" style="background:var(--cinza-ultra-claro); display:none;">
         <div class="diagnosis-container">
           <div class="diagnosis-box">
             <div class="diagnosis-header">
-              <h2 id="form-titulo" style="margin-bottom:12px;font-size:1.5rem;">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
+              <h2 id="form-titulo" style="margin-bottom:12px;font-size:clamp(1.2rem, 3vw, 1.5rem);">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
               <p class="progress-indicator" style="margin-bottom:8px;">Etapa <span id="current-step">1</span> de <span id="total-steps">5</span></p>
-              <p class="muted" style="font-size:0.9rem;">Responda pensando no seu dia a dia das últimas 2 semanas.</p>
+              <p class="muted" style="font-size:0.9rem;">Responda pensando no seu dia a dia das ultimas 2 semanas.</p>
             </div>
             <div class="diagnosis-body">
-              <form id="diagnosis-form">
+              <form id="diagnosis-form" novalidate>
                 <!-- ETAPA 1 — Mapeamento de tarefas -->
                 <div class="form-section active" data-step="1">
                   <div class="card">
-                    <h3>Quais atividades você executa com mais frequência?</h3>
+                    <h3>Quais atividades voce executa com mais frequencia?</h3>
                     <p class="muted" style="margin-bottom:16px;">Marque todas as que fazem parte da sua rotina.</p>
-                <div class="checkbox-group">
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="mensagens">
-                    <span>Responder mensagens/solicitações (WhatsApp, e-mail, chat)</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="organizar">
-                    <span>Organizar informações (planilhas, documentos, sistemas)</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="procedimentos">
-                    <span>Seguir procedimentos e checklists</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="cadastros">
-                    <span>Preencher cadastros e atualizar registros</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="textos">
-                    <span>Criar textos ou materiais simples (comunicados, posts, descrições)</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="revisar">
-                    <span>Conferir dados, revisar e corrigir</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="excecoes">
-                    <span>Resolver exceções (casos fora do padrão)</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="decisoes">
-                    <span>Tomar decisões finais (aprovação/reprovação)</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="atendimento">
-                    <span>Atender clientes/usuários e lidar com reclamações</span>
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="task" value="followup">
-                    <span>Acompanhar prazos e status (follow-up)</span>
-                  </label>
+                    <div class="checkbox-group">
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="mensagens">
+                        <span>Responder mensagens/solicitacoes (WhatsApp, e-mail, chat)</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="organizar">
+                        <span>Organizar informacoes (planilhas, documentos, sistemas)</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="procedimentos">
+                        <span>Seguir procedimentos e checklists</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="cadastros">
+                        <span>Preencher cadastros e atualizar registros</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="textos">
+                        <span>Criar textos ou materiais simples (comunicados, posts, descricoes)</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="revisar">
+                        <span>Conferir dados, revisar e corrigir</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="excecoes">
+                        <span>Resolver excecoes (casos fora do padrao)</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="decisoes">
+                        <span>Tomar decisoes finais (aprovacao/reprovacao)</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="atendimento">
+                        <span>Atender clientes/usuarios e lidar com reclamacoes</span>
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="task" value="followup">
+                        <span>Acompanhar prazos e status (follow-up)</span>
+                      </label>
+                    </div>
+                    <div class="form-group" style="margin-top:20px;">
+                      <label for="other-task">Outro (descreva em poucas palavras)</label>
+                      <input type="text" id="other-task" name="other_task" placeholder="Ex.: conciliar pagamentos, emitir notas, agendar entregas...">
+                    </div>
+                    <p class="error-message" id="error-step1">Selecione pelo menos 1 atividade para continuar.</p>
+                    <div class="form-navigation">
+                      <button type="button" class="btn btn-primary next-step">Continuar</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group" style="margin-top:20px;">
-                  <label for="other-task">Outro (descreva em poucas palavras)</label>
-                  <input type="text" id="other-task" name="other_task" placeholder="Ex.: conciliar pagamentos, emitir notas, agendar entregas…">
-                </div>
-                <p class="error-message" id="error-step1">Selecione pelo menos 1 atividade para continuar.</p>
-                <div class="form-navigation">
-                  <button type="button" class="btn btn-primary next-step">Continuar</button>
-                </div>
-              </div>
-            </div>
 
-            <!-- ETAPA 2 — Grau de repetição -->
-            <div class="form-section" data-step="2">
-              <div class="card">
-                <h3>Com que frequência suas tarefas seguem o mesmo padrão?</h3>
-                <div class="radio-group">
-                  <label class="radio-item">
-                    <input type="radio" name="repetition" value="quase-sempre">
-                    <span>Quase sempre iguais (rotina padronizada)</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="repetition" value="geralmente-iguais">
-                    <span>Geralmente iguais, com pequenas variações</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="repetition" value="variam-bastante">
-                    <span>Variam bastante conforme o caso</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="repetition" value="quase-nunca">
-                    <span>Quase nunca iguais (cada caso é único)</span>
-                  </label>
+                <!-- ETAPA 2 — Grau de repeticao -->
+                <div class="form-section" data-step="2">
+                  <div class="card">
+                    <h3>Com que frequencia suas tarefas seguem o mesmo padrao?</h3>
+                    <div class="radio-group">
+                      <label class="radio-item">
+                        <input type="radio" name="repetition" value="quase-sempre">
+                        <span>Quase sempre iguais (rotina padronizada)</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="repetition" value="geralmente-iguais">
+                        <span>Geralmente iguais, com pequenas variacoes</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="repetition" value="variam-bastante">
+                        <span>Variam bastante conforme o caso</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="repetition" value="quase-nunca">
+                        <span>Quase nunca iguais (cada caso e unico)</span>
+                      </label>
+                    </div>
+                    <p class="tooltip-text">Quanto mais previsivel, maior a chance de automacao.</p>
+                    <p class="error-message" id="error-step2">Escolha uma opcao para continuar.</p>
+                    <div class="form-navigation">
+                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                      <button type="button" class="btn btn-primary next-step">Continuar</button>
+                    </div>
+                  </div>
                 </div>
-                <p class="tooltip-text">Quanto mais previsível, maior a chance de automação.</p>
-                <p class="error-message" id="error-step2">Escolha uma opção para continuar.</p>
-                <div class="form-navigation">
-                  <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                  <button type="button" class="btn btn-primary next-step">Continuar</button>
-                </div>
-              </div>
-            </div>
 
-            <!-- ETAPA 3 — Regras vs julgamento -->
-            <div class="form-section" data-step="3">
-              <div class="card">
-                <h3>Seu trabalho depende principalmente de regras claras?</h3>
-                <div class="radio-group">
-                  <label class="radio-item">
-                    <input type="radio" name="rules" value="sim-regras">
-                    <span>Sim, sigo regras definidas</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="rules" value="sim-excecoes">
-                    <span>Sim, mas lido com exceções com frequência</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="rules" value="depende">
-                    <span>Depende: às vezes regras, às vezes julgamento</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="rules" value="nao-julgamento">
-                    <span>Não: exige julgamento humano na maior parte do tempo</span>
-                  </label>
+                <!-- ETAPA 3 — Regras vs julgamento -->
+                <div class="form-section" data-step="3">
+                  <div class="card">
+                    <h3>Seu trabalho depende principalmente de regras claras?</h3>
+                    <div class="radio-group">
+                      <label class="radio-item">
+                        <input type="radio" name="rules" value="sim-regras">
+                        <span>Sim, sigo regras definidas</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="rules" value="sim-excecoes">
+                        <span>Sim, mas lido com excecoes com frequencia</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="rules" value="depende">
+                        <span>Depende: as vezes regras, as vezes julgamento</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="rules" value="nao-julgamento">
+                        <span>Nao: exige julgamento humano na maior parte do tempo</span>
+                      </label>
+                    </div>
+                    <p class="tooltip-text">IA funciona muito bem com regras. O humano faz diferenca em excecoes e contexto.</p>
+                    <p class="error-message" id="error-step3">Escolha uma opcao para continuar.</p>
+                    <div class="form-navigation">
+                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                      <button type="button" class="btn btn-primary next-step">Continuar</button>
+                    </div>
+                  </div>
                 </div>
-                <p class="tooltip-text">IA funciona muito bem com regras. O humano faz diferença em exceções e contexto.</p>
-                <p class="error-message" id="error-step3">Escolha uma opção para continuar.</p>
-                <div class="form-navigation">
-                  <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                  <button type="button" class="btn btn-primary next-step">Continuar</button>
-                </div>
-              </div>
-            </div>
 
-            <!-- ETAPA 4 — Responsabilidade por erro -->
-            <div class="form-section" data-step="4">
-              <div class="card">
-                <h3>Se algo der errado, qual é o impacto?</h3>
-                <div class="radio-group">
-                  <label class="radio-item">
-                    <input type="radio" name="impact" value="baixo">
-                    <span>Baixo: quase sempre dá para corrigir sem consequência</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="impact" value="medio">
-                    <span>Médio: gera retrabalho, atraso ou reclamação</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="impact" value="alto">
-                    <span>Alto: envolve dinheiro, reputação ou risco para pessoas</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="impact" value="muito-alto">
-                    <span>Muito alto: envolve risco legal, financeiro relevante ou segurança</span>
-                  </label>
+                <!-- ETAPA 4 — Responsabilidade por erro -->
+                <div class="form-section" data-step="4">
+                  <div class="card">
+                    <h3>Se algo der errado, qual e o impacto?</h3>
+                    <div class="radio-group">
+                      <label class="radio-item">
+                        <input type="radio" name="impact" value="baixo">
+                        <span>Baixo: quase sempre da para corrigir sem consequencia</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="impact" value="medio">
+                        <span>Medio: gera retrabalho, atraso ou reclamacao</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="impact" value="alto">
+                        <span>Alto: envolve dinheiro, reputacao ou risco para pessoas</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="impact" value="muito-alto">
+                        <span>Muito alto: envolve risco legal, financeiro relevante ou seguranca</span>
+                      </label>
+                    </div>
+                    <p class="tooltip-text">Onde ha impacto alto, normalmente existe necessidade de validacao humana.</p>
+                    <p class="error-message" id="error-step4">Escolha uma opcao para continuar.</p>
+                    <div class="form-navigation">
+                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                      <button type="button" class="btn btn-primary next-step">Continuar</button>
+                    </div>
+                  </div>
                 </div>
-                <p class="tooltip-text">Onde há impacto alto, normalmente existe necessidade de validação humana.</p>
-                <p class="error-message" id="error-step4">Escolha uma opção para continuar.</p>
-                <div class="form-navigation">
-                  <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                  <button type="button" class="btn btn-primary next-step">Continuar</button>
-                </div>
-              </div>
-            </div>
 
-            <!-- ETAPA 5 — Posição na cadeia de decisão -->
-            <div class="form-section" data-step="5">
-              <div class="card">
-                <h3>Hoje, seu papel principal é mais…</h3>
-                <div class="radio-group">
-                  <label class="radio-item">
-                    <input type="radio" name="role" value="executar">
-                    <span>Executar tarefas (fazer acontecer)</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="role" value="conferir">
-                    <span>Conferir/validar o que foi feito</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="role" value="ajustar">
-                    <span>Ajustar decisões e resolver exceções</span>
-                  </label>
-                  <label class="radio-item">
-                    <input type="radio" name="role" value="decidir">
-                    <span>Tomar decisões finais e responder pelo resultado</span>
-                  </label>
+                <!-- ETAPA 5 — Posicao na cadeia de decisao -->
+                <div class="form-section" data-step="5">
+                  <div class="card">
+                    <h3>Hoje, seu papel principal e mais...</h3>
+                    <div class="radio-group">
+                      <label class="radio-item">
+                        <input type="radio" name="role" value="executar">
+                        <span>Executar tarefas (fazer acontecer)</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="role" value="conferir">
+                        <span>Conferir/validar o que foi feito</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="role" value="ajustar">
+                        <span>Ajustar decisoes e resolver excecoes</span>
+                      </label>
+                      <label class="radio-item">
+                        <input type="radio" name="role" value="decidir">
+                        <span>Tomar decisoes finais e responder pelo resultado</span>
+                      </label>
+                    </div>
+                    <p class="tooltip-text">A tendencia e: menos execucao manual, mais supervisao e decisao.</p>
+                    <p class="muted" style="margin-top:20px;text-align:center;font-size:0.9rem;">Risco alto nao significa 'fim'. Significa que o formato atual do trabalho precisa migrar para supervisao, validacao e decisao.</p>
+                    <p class="error-message" id="error-step5">Escolha uma opcao para ver o resultado.</p>
+                    <div class="form-navigation">
+                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                      <button type="submit" class="btn btn-primary">Ver meu diagnostico</button>
+                    </div>
+                  </div>
                 </div>
-                <p class="tooltip-text">A tendência é: menos execução manual, mais supervisão e decisão.</p>
-                <p class="muted" style="margin-top:20px;text-align:center;">Risco alto não significa 'fim'. Significa que o formato atual do trabalho precisa migrar para supervisão, validação e decisão.</p>
-                <p class="error-message" id="error-step5">Escolha uma opção para ver o resultado.</p>
-                <div class="form-navigation">
-                  <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                  <button type="submit" class="btn btn-primary">Ver meu diagnóstico</button>
-                </div>
-              </div>
-            </div>
-          </form>
+              </form>
 
-          <!-- TELA DE PROCESSAMENTO -->
-          <div class="processing-screen" id="processing-screen" style="display:none;text-align:center;padding:40px 20px;">
-            <h2 style="font-size:1.3rem;">Analisando suas respostas…</h2>
-            <p style="font-size:0.95rem;">Estamos estimando seu risco de automação e identificando pontos preserváveis do seu trabalho.</p>
-            <p class="muted" style="margin-top:10px;font-size:0.85rem;">Isso leva alguns segundos.</p>
-          </div>
+              <!-- TELA DE PROCESSAMENTO -->
+              <div class="processing-screen" id="processing-screen" style="display:none;">
+                <h2>Analisando suas respostas...</h2>
+                <p>Estamos estimando seu risco de automacao e identificando pontos preservaveis do seu trabalho.</p>
+                <p class="muted" style="margin-top:10px;font-size:0.85rem;">Isso leva alguns segundos.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1212,26 +1604,27 @@
     <!-- RESULTADO PAGE -->
     <div id="result-page" class="page-section">
       <section class="result-section">
-        <h1 style="font-size:1.6rem;">Seu diagnóstico está pronto</h1>
-        <p class="risk-level" style="font-size:1.8rem;">Nível de Risco: <span class="accent" id="result-risco"></span></p>
-        <p class="score" style="font-size:1.1rem;">Pontuação: <span id="result-score"></span> de 12</p>
-        <p id="result-message" style="font-size:0.95rem;padding:0 10px;"></p>
+        <h1>Seu diagnostico esta pronto</h1>
+        <p class="risk-level">Nivel de Risco: <span class="accent" id="result-risco"></span></p>
+        <p class="score">Pontuacao: <span id="result-score"></span> de 12</p>
+        <p id="result-message" style="font-size:0.95rem;padding:0 16px;max-width:600px;margin:0 auto 20px;"></p>
 
-        <!-- BLOCO 2 — INTERPRETAÇÃO DIRETA -->
-        <div class="card" style="max-width:600px;margin:20px auto;text-align:left;padding:16px;">
-          <h3 style="text-align:center;margin-bottom:12px;font-size:1.1rem;">O que isso significa</h3>
-          <p id="result-interpretation" style="font-size:0.9rem;line-height:1.6;"></p>
+        <!-- BLOCO 2 — INTERPRETACAO DIRETA -->
+        <div class="card result-card">
+          <h3>O que isso significa</h3>
+          <p id="result-interpretation"></p>
         </div>
 
-        <!-- BLOCO 3 — EXPLICAÇÃO DOS NÍVEIS -->
-        <div class="card" style="max-width:600px;margin:0 auto 20px;text-align:left;padding:16px;">
-          <h3 style="text-align:center;margin-bottom:12px;font-size:1.1rem;">Entenda seu nível de risco</h3>
-          <div id="result-level-explanation" style="font-size:0.9rem;line-height:1.6;"></div>
+        <!-- BLOCO 3 — EXPLICACAO DOS NIVEIS -->
+        <div class="card result-card" style="margin-bottom:20px;">
+          <h3>Entenda seu nivel de risco</h3>
+          <div id="result-level-explanation"></div>
         </div>
 
-        <div class="cta-row" style="justify-content:center; max-width:600px; margin:20px auto;gap:10px;">
-          <a href="https://wa.me/5541988245710?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profiss%C3%A3o" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Agendar Sessão de Diagnóstico</a>
-          <button class="btn btn-secondary" onclick="restartDiagnosis()">Refazer diagnóstico</button>
+        <!-- CTA FINAL - APONTA EXCLUSIVAMENTE PARA O SITE -->
+        <div class="cta-final-row">
+          <a href="https://www.estudioescritaplanejada.com.br/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Aplicar este diagnostico na pratica</a>
+          <button class="btn btn-secondary" onclick="restartDiagnosis()" type="button">Refazer diagnostico</button>
         </div>
       </section>
     </div>
@@ -1240,29 +1633,37 @@
   <!-- FOOTER -->
   <footer>
     <h3>IA Risk</h3>
-    <p class="muted" style="color:rgba(244,247,249,.85)">Diagnóstico prático para profissionais em transição.</p>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('landing'); return false;">Termos de Serviço</a>
-      <a href="#" onclick="showPage('landing'); return false;">Privacidade</a>
-      <a href="#" onclick="showPage('landing'); return false;">Contato</a>
-    </div>
+    <p class="muted" style="color:rgba(244,247,249,.85)">Diagnostico pratico para profissionais em transicao.</p>
+    <nav aria-label="Links do rodape">
+      <div class="footer-links">
+        <a href="#" onclick="showPage('landing'); return false;">Termos de Servico</a>
+        <a href="#" onclick="showPage('landing'); return false;">Privacidade</a>
+        <a href="#" onclick="showPage('landing'); return false;">Contato</a>
+      </div>
+    </nav>
     <p class="copyright">© 2025 IA Risk. Todos os direitos reservados.</p>
   </footer>
 
   <script>
     // Page navigation
     function showPage(page) {
-      document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
-      document.getElementById(page + '-page').classList.add('active');
-      // Removido o scroll automático para o topo para permitir melhor UX no mobile
+      document.querySelectorAll('.page-section').forEach(function(p) {
+        p.classList.remove('active');
+      });
+      var pageElement = document.getElementById(page + '-page');
+      if (pageElement) {
+        pageElement.classList.add('active');
+      }
     }
 
     function startDiagnosis() {
       showPage('diagnosis');
-      document.getElementById('form-diagnostico').style.display = 'block';
-      // Scroll para o início do formulário, não para o topo da página
-      setTimeout(() => {
-        const formSection = document.getElementById('form-diagnostico');
+      var formSection = document.getElementById('form-diagnostico');
+      if (formSection) {
+        formSection.style.display = 'block';
+      }
+      // Scroll suave para o inicio do formulario
+      setTimeout(function() {
         if (formSection) {
           formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -1271,15 +1672,23 @@
 
     function restartDiagnosis() {
       // Reset form
-      document.getElementById('diagnosis-form').reset();
+      var form = document.getElementById('diagnosis-form');
+      if (form) {
+        form.reset();
+      }
       currentStep = 0;
       showStep(0);
       showPage('diagnosis');
-      document.getElementById('form-diagnostico').style.display = 'block';
-      document.getElementById('processing-screen').style.display = 'none';
-      // Scroll para o início do formulário
-      setTimeout(() => {
-        const formSection = document.getElementById('form-diagnostico');
+      var formSection = document.getElementById('form-diagnostico');
+      var processingScreen = document.getElementById('processing-screen');
+      if (formSection) {
+        formSection.style.display = 'block';
+      }
+      if (processingScreen) {
+        processingScreen.style.display = 'none';
+      }
+      // Scroll para o inicio do formulario
+      setTimeout(function() {
         if (formSection) {
           formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -1288,20 +1697,33 @@
 
     function scrollToSection(sectionId) {
       showPage('landing');
-      setTimeout(() => {
-        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function() {
+        var section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 100);
     }
 
-    // FAQ Toggle
-    document.querySelectorAll('.faq-item').forEach(item => {
+    // FAQ Toggle com suporte a teclado
+    document.querySelectorAll('.faq-item').forEach(function(item) {
       item.addEventListener('click', function() {
+        var isActive = this.classList.contains('active');
         this.classList.toggle('active');
+        this.setAttribute('aria-expanded', !isActive);
+      });
+      item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var isActive = this.classList.contains('active');
+          this.classList.toggle('active');
+          this.setAttribute('aria-expanded', !isActive);
+        }
       });
     });
 
     // Diagnosis Logic
-    const taskWeights = {
+    var taskWeights = {
       mensagens: 2,
       organizar: 2,
       procedimentos: 3,
@@ -1314,28 +1736,28 @@
       followup: 1
     };
 
-    const repetitionScore = {
+    var repetitionScore = {
       "quase-sempre": 3,
       "geralmente-iguais": 2,
       "variam-bastante": 1,
       "quase-nunca": 0
     };
 
-    const rulesScore = {
+    var rulesScore = {
       "sim-regras": 3,
       "sim-excecoes": 2,
       "depende": 1,
       "nao-julgamento": 0
     };
 
-    const impactScore = {
+    var impactScore = {
       "baixo": 3,
       "medio": 2,
       "alto": 1,
       "muito-alto": 0
     };
 
-    const roleScore = {
+    var roleScore = {
       "executar": 3,
       "conferir": 2,
       "ajustar": 1,
@@ -1343,23 +1765,28 @@
     };
 
     function calculateDiagnosis() {
-      let score = 0;
+      var score = 0;
 
       // Etapa 1 – tarefas
-      document.querySelectorAll('input[name="task"]:checked').forEach(cb => {
+      document.querySelectorAll('input[name="task"]:checked').forEach(function(cb) {
         score += taskWeights[cb.value] || 0;
       });
 
-      // Etapas rádio
-      const repetition = document.querySelector('input[name="repetition"]:checked')?.value;
-      const rules = document.querySelector('input[name="rules"]:checked')?.value;
-      const impact = document.querySelector('input[name="impact"]:checked')?.value;
-      const role = document.querySelector('input[name="role"]:checked')?.value;
+      // Etapas radio
+      var repetitionEl = document.querySelector('input[name="repetition"]:checked');
+      var rulesEl = document.querySelector('input[name="rules"]:checked');
+      var impactEl = document.querySelector('input[name="impact"]:checked');
+      var roleEl = document.querySelector('input[name="role"]:checked');
 
-      score += repetitionScore[repetition] ?? 0;
-      score += rulesScore[rules] ?? 0;
-      score += impactScore[impact] ?? 0;
-      score += roleScore[role] ?? 0;
+      var repetition = repetitionEl ? repetitionEl.value : null;
+      var rules = rulesEl ? rulesEl.value : null;
+      var impact = impactEl ? impactEl.value : null;
+      var role = roleEl ? roleEl.value : null;
+
+      score += repetitionScore[repetition] !== undefined ? repetitionScore[repetition] : 0;
+      score += rulesScore[rules] !== undefined ? rulesScore[rules] : 0;
+      score += impactScore[impact] !== undefined ? impactScore[impact] : 0;
+      score += roleScore[role] !== undefined ? roleScore[role] : 0;
 
       return Math.max(0, Math.min(12, score));
     }
@@ -1372,127 +1799,164 @@
     }
 
     // Form navigation
-    const formSections = document.querySelectorAll(".form-section");
-    const diagnosisForm = document.getElementById("diagnosis-form");
-    const startDiagnosisBtn = document.getElementById("start-diagnosis-btn");
-    const formDiagnosticoSection = document.getElementById("form-diagnostico");
-    const currentStepSpan = document.getElementById("current-step");
-    const totalStepsSpan = document.getElementById("total-steps");
-    const processingScreen = document.getElementById("processing-screen");
+    var formSections = document.querySelectorAll(".form-section");
+    var diagnosisForm = document.getElementById("diagnosis-form");
+    var startDiagnosisBtn = document.getElementById("start-diagnosis-btn");
+    var formDiagnosticoSection = document.getElementById("form-diagnostico");
+    var currentStepSpan = document.getElementById("current-step");
+    var totalStepsSpan = document.getElementById("total-steps");
+    var processingScreen = document.getElementById("processing-screen");
 
-    let currentStep = 0;
-    totalStepsSpan.textContent = formSections.length;
+    var currentStep = 0;
+    if (totalStepsSpan) {
+      totalStepsSpan.textContent = formSections.length;
+    }
 
     function showStep(stepIndex) {
-      formSections.forEach((section, index) => {
-        section.classList.toggle("active", index === stepIndex);
+      formSections.forEach(function(section, index) {
+        if (index === stepIndex) {
+          section.classList.add("active");
+        } else {
+          section.classList.remove("active");
+        }
       });
       currentStep = stepIndex;
-      currentStepSpan.textContent = currentStep + 1;
+      if (currentStepSpan) {
+        currentStepSpan.textContent = currentStep + 1;
+      }
       hideAllErrors();
+      // Scroll para o topo do card atual
+      var activeSection = formSections[stepIndex];
+      if (activeSection) {
+        setTimeout(function() {
+          activeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 50);
+      }
     }
 
     function hideAllErrors() {
-      document.querySelectorAll(".error-message").forEach(error => {
+      document.querySelectorAll(".error-message").forEach(function(error) {
         error.style.display = "none";
       });
     }
 
     function validateStep(stepIndex) {
-      let isValid = true;
-      const currentFormSection = formSections[stepIndex];
-      const errorMessage = currentFormSection.querySelector(".error-message");
+      var isValid = true;
+      var currentFormSection = formSections[stepIndex];
+      var errorMessage = currentFormSection.querySelector(".error-message");
 
       if (stepIndex === 0) { // Step 1: Checkboxes
-        const checkboxes = currentFormSection.querySelectorAll('input[name="task"]:checked');
-        const otherTaskInput = currentFormSection.querySelector('input[name="other_task"]');
-        if (checkboxes.length === 0 && otherTaskInput.value.trim() === '') {
+        var checkboxes = currentFormSection.querySelectorAll('input[name="task"]:checked');
+        var otherTaskInput = currentFormSection.querySelector('input[name="other_task"]');
+        if (checkboxes.length === 0 && otherTaskInput && otherTaskInput.value.trim() === '') {
           isValid = false;
         }
       } else { // Other steps: Radio buttons
-        const radioButtons = currentFormSection.querySelectorAll('input[type="radio"]:checked');
+        var radioButtons = currentFormSection.querySelectorAll('input[type="radio"]:checked');
         if (radioButtons.length === 0) {
           isValid = false;
         }
       }
 
-      if (!isValid) {
+      if (!isValid && errorMessage) {
         errorMessage.style.display = "block";
-      } else {
+      } else if (errorMessage) {
         errorMessage.style.display = "none";
       }
       return isValid;
     }
 
-    startDiagnosisBtn.addEventListener("click", () => {
-      formDiagnosticoSection.style.display = "block";
-      showStep(0);
-    });
+    if (startDiagnosisBtn) {
+      startDiagnosisBtn.addEventListener("click", function() {
+        if (formDiagnosticoSection) {
+          formDiagnosticoSection.style.display = "block";
+        }
+        showStep(0);
+      });
+    }
 
-    diagnosisForm.addEventListener("click", (event) => {
-      if (event.target.classList.contains("next-step")) {
-        if (validateStep(currentStep)) {
-          if (currentStep < formSections.length - 1) {
-            showStep(currentStep + 1);
+    if (diagnosisForm) {
+      diagnosisForm.addEventListener("click", function(event) {
+        if (event.target.classList.contains("next-step")) {
+          if (validateStep(currentStep)) {
+            if (currentStep < formSections.length - 1) {
+              showStep(currentStep + 1);
+            }
+          }
+        } else if (event.target.classList.contains("prev-step")) {
+          if (currentStep > 0) {
+            showStep(currentStep - 1);
           }
         }
-      } else if (event.target.classList.contains("prev-step")) {
-        if (currentStep > 0) {
-          showStep(currentStep - 1);
+      });
+
+      diagnosisForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (validateStep(currentStep)) {
+          // Esconder formulario e mostrar processamento
+          formSections.forEach(function(section) {
+            section.style.display = "none";
+          });
+          if (processingScreen) {
+            processingScreen.style.display = "block";
+          }
+
+          setTimeout(function() {
+            var score = calculateDiagnosis();
+            var risk = classifyRisk(score);
+            showResult(risk, score);
+          }, 2000);
         }
-      }
-    });
-
-    diagnosisForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (validateStep(currentStep)) {
-        formDiagnosticoSection.style.display = "none";
-        processingScreen.style.display = "block";
-
-        setTimeout(() => {
-          const score = calculateDiagnosis();
-          const risk = classifyRisk(score);
-          showResult(risk, score);
-        }, 2000);
-      }
-    });
+      });
+    }
 
     // Result display
     function showResult(risk, score) {
-      const messages = {
-        baixo: "Seu trabalho tem baixo risco de substituição direta por IA. Você está bem posicionado para o futuro do trabalho com IA.",
-        medio: "Parte do seu trabalho pode ser automatizada, mas há espaço estratégico para você se adaptar e se tornar um validador humano essencial.",
-        alto: "Seu formato atual de trabalho está sob forte pressão de automação. É crucial buscar novas habilidades e focar em validação e decisão.",
-        critico: "Seu trabalho, como está hoje, tende a virar commodity rapidamente. É urgente migrar para funções de supervisão, validação e decisão para manter sua relevância."
+      var messages = {
+        baixo: "Seu trabalho tem baixo risco de substituicao direta por IA. Voce esta bem posicionado para o futuro do trabalho com IA.",
+        medio: "Parte do seu trabalho pode ser automatizada, mas ha espaco estrategico para voce se adaptar e se tornar um validador humano essencial.",
+        alto: "Seu formato atual de trabalho esta sob forte pressao de automacao. E crucial buscar novas habilidades e focar em validacao e decisao.",
+        critico: "Seu trabalho, como esta hoje, tende a virar commodity rapidamente. E urgente migrar para funcoes de supervisao, validacao e decisao para manter sua relevancia."
       };
 
-      const interpretations = {
-        baixo: "Isso significa que parte significativa do seu trabalho depende de julgamento humano, contexto e tomada de decisão. A inteligência artificial atua como ferramenta de apoio e amplificação, não substituição. Profissionais neste nível se beneficiam ao usar IA para aumentar eficiência e clareza.",
-        medio: "Isso significa que parte significativa do seu trabalho depende de estruturas previsíveis, regras claras ou tarefas que podem ser assistidas por inteligência artificial. Isso não significa que sua função deixará de existir. Significa que o formato atual tende a evoluir. Profissionais que aprendem a usar essas ferramentas ampliam sua capacidade. Profissionais que não aprendem tendem a perder eficiência com o tempo.",
-        alto: "Isso significa que grande parte das suas tarefas pode ser executada por sistemas de inteligência artificial. Neste cenário, o diferencial deixa de ser executar tarefas e passa a ser operar, supervisionar e direcionar essas ferramentas. Profissionais que fazem essa transição permanecem relevantes e ampliam sua capacidade.",
-        critico: "Isso significa que a maioria das suas tarefas pode ser facilmente automatizada. Seu formato atual de trabalho está sob pressão extrema. É urgente migrar para funções de supervisão, validação e decisão para manter sua relevância no mercado."
+      var interpretations = {
+        baixo: "Isso significa que parte significativa do seu trabalho depende de julgamento humano, contexto e tomada de decisao. A inteligencia artificial atua como ferramenta de apoio e amplificacao, nao substituicao. Profissionais neste nivel se beneficiam ao usar IA para aumentar eficiencia e clareza.",
+        medio: "Isso significa que parte significativa do seu trabalho depende de estruturas previsiveis, regras claras ou tarefas que podem ser assistidas por inteligencia artificial. Isso nao significa que sua funcao deixara de existir. Significa que o formato atual tende a evoluir. Profissionais que aprendem a usar essas ferramentas ampliam sua capacidade. Profissionais que nao aprendem tendem a perder eficiencia com o tempo.",
+        alto: "Isso significa que grande parte das suas tarefas pode ser executada por sistemas de inteligencia artificial. Neste cenario, o diferencial deixa de ser executar tarefas e passa a ser operar, supervisionar e direcionar essas ferramentas. Profissionais que fazem essa transicao permanecem relevantes e ampliam sua capacidade.",
+        critico: "Isso significa que a maioria das suas tarefas pode ser facilmente automatizada. Seu formato atual de trabalho esta sob pressao extrema. E urgente migrar para funcoes de supervisao, validacao e decisao para manter sua relevancia no mercado."
       };
 
-      const levelExplanations = {
-        baixo: "<p><strong>Baixo risco (0 a 4 pontos):</strong> Seu trabalho depende fortemente de julgamento humano, contexto e tomada de decisão. A inteligência artificial atua como ferramenta de apoio e amplificação, não substituição. Profissionais neste nível se beneficiam ao usar IA para aumentar eficiência e clareza.</p>",
-        medio: "<p><strong>Risco moderado (5 a 8 pontos):</strong> Parte significativa do trabalho pode ser assistida ou automatizada por sistemas baseados em inteligência artificial. Isso não elimina a função, mas muda o papel do profissional. A tendência é migrar da execução manual para supervisão, validação e decisão.</p>",
-        alto: "<p><strong>Alto risco (9 a 12 pontos):</strong> Grande parte das tarefas pode ser executada por sistemas de inteligência artificial. Neste cenário, o diferencial deixa de ser executar tarefas e passa a ser operar, supervisionar e direcionar essas ferramentas. Profissionais que fazem essa transição permanecem relevantes e ampliam sua capacidade.</p>"
+      var levelExplanations = {
+        baixo: "<p><strong>Baixo risco (0 a 4 pontos):</strong> Seu trabalho depende fortemente de julgamento humano, contexto e tomada de decisao. A inteligencia artificial atua como ferramenta de apoio e amplificacao, nao substituicao. Profissionais neste nivel se beneficiam ao usar IA para aumentar eficiencia e clareza.</p>",
+        medio: "<p><strong>Risco moderado (5 a 8 pontos):</strong> Parte significativa do trabalho pode ser assistida ou automatizada por sistemas baseados em inteligencia artificial. Isso nao elimina a funcao, mas muda o papel do profissional. A tendencia e migrar da execucao manual para supervisao, validacao e decisao.</p>",
+        alto: "<p><strong>Alto risco (9 a 12 pontos):</strong> Grande parte das tarefas pode ser executada por sistemas de inteligencia artificial. Neste cenario, o diferencial deixa de ser executar tarefas e passa a ser operar, supervisionar e direcionar essas ferramentas. Profissionais que fazem essa transicao permanecem relevantes e ampliam sua capacidade.</p>"
       };
 
-      document.getElementById("result-risco").textContent = risk.toUpperCase();
-      document.getElementById("result-score").textContent = score;
-      document.getElementById("result-message").textContent = messages[risk];
-      document.getElementById("result-interpretation").textContent = interpretations[risk];
-      document.getElementById("result-level-explanation").innerHTML = levelExplanations[risk];
+      var resultRisco = document.getElementById("result-risco");
+      var resultScore = document.getElementById("result-score");
+      var resultMessage = document.getElementById("result-message");
+      var resultInterpretation = document.getElementById("result-interpretation");
+      var resultLevelExplanation = document.getElementById("result-level-explanation");
 
-      processingScreen.style.display = "none";
+      if (resultRisco) resultRisco.textContent = risk.toUpperCase();
+      if (resultScore) resultScore.textContent = score;
+      if (resultMessage) resultMessage.textContent = messages[risk];
+      if (resultInterpretation) resultInterpretation.textContent = interpretations[risk];
+      if (resultLevelExplanation) resultLevelExplanation.innerHTML = levelExplanations[risk];
+
+      if (processingScreen) {
+        processingScreen.style.display = "none";
+      }
       showPage('result');
+
+      // Scroll para o topo do resultado
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
+        var href = this.getAttribute('href');
         if (href !== '#' && document.querySelector(href)) {
           e.preventDefault();
           document.querySelector(href).scrollIntoView({
