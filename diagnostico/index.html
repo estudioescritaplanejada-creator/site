@@ -119,7 +119,7 @@
 
     .explanation-box { text-align: left; background: var(--cinza-gelo); padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; }
 
-    /* Bloco de Conversão (Upsell) */
+    /* Bloco de Conversão (Direcionamento Home) */
     .conversion-card {
       background: var(--branco-puro);
       border-radius: 24px;
@@ -128,40 +128,39 @@
       border: 1px solid var(--cinza-medio);
     }
     .conv-header {
-      background: var(--preto-suave);
+      background: var(--rosa-digital);
       color: white;
       padding: 2rem;
       text-align: center;
     }
     .conv-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .conv-body { padding: 2.5rem 2rem; }
+    .conv-body { padding: 2.5rem 2rem; text-align: center; }
+
+    .warning-text {
+      color: var(--rosa-digital);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
 
     .promise-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin-bottom: 2rem;
+      text-align: left;
     }
     @media (max-width: 600px) { .promise-grid { grid-template-columns: 1fr; } }
 
     .promise-item { display: flex; gap: 12px; align-items: flex-start; }
     .promise-item .icon { 
-      width: 24px; height: 24px; background: var(--verde-crescimento); 
+      width: 24px; height: 24px; background: var(--preto-suave); 
       color: white; border-radius: 6px; display: flex; align-items: center; 
       justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 14px;
     }
     .promise-item h4 { font-size: 1.05rem; margin-bottom: 0.2rem; color: var(--preto-suave); }
     .promise-item p { font-size: 0.9rem; color: var(--cinza-escuro); line-height: 1.4; }
-
-    .price-box {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--cinza-gelo);
-      border-radius: 16px;
-      margin-bottom: 1.5rem;
-    }
-    .price-box .old { text-decoration: line-through; color: var(--cinza-escuro); font-size: 1.1rem; }
-    .price-box .new { display: block; font-size: 2.4rem; font-weight: 900; color: var(--preto-suave); }
 
     .btn-cta {
       display: block;
@@ -260,53 +259,53 @@
 
     <div class="conversion-card">
       <div class="conv-header">
-        <h2>Sua Nova Rotina Profissional</h2>
-        <p>Saia da vulnerabilidade e assuma o controle técnico com a IA.</p>
+        <h2>O Tempo Está Esgotando</h2>
+        <p>A ignorância técnica é hoje o seu maior risco financeiro.</p>
       </div>
       <div class="conv-body">
-        <p style="margin-bottom: 1.5rem; text-align: center; color: var(--cinza-escuro);">
-          O diagnóstico aponta o risco, mas a <strong>Sessão Individual de Aplicação</strong> entrega o sistema para eliminá-lo. 
-          Em 60 minutos, construiremos a sua estrutura de trabalho personalizada:
+        <span class="warning-text">Não é sobre ser substituído por robôs. É sobre ser substituído por profissionais que sabem o que você ignora.</span>
+        
+        <p style="margin-bottom: 2rem; color: var(--preto-suave); font-size: 1.05rem;">
+          Enquanto você hesita, o mercado está reduzindo custos e cortando quem não domina a <strong>Escrita Planejada com IA</strong>. 
+          Sua renda e estabilidade dependem da sua capacidade de se tornar indispensável agora.
         </p>
 
         <div class="promise-grid">
           <div class="promise-item">
-            <div class="icon">✓</div>
+            <div class="icon">!</div>
             <div>
-              <h4>Mapeamento de Fluxo</h4>
-              <p>Desenhamos o passo a passo exato da sua rotina integrada à IA.</p>
+              <h4>Blindagem de Cargo</h4>
+              <p>Saiba exatamente onde a IA falha e onde seu julgamento é insubstituível.</p>
             </div>
           </div>
           <div class="promise-item">
-            <div class="icon">✓</div>
+            <div class="icon">!</div>
             <div>
-              <h4>Biblioteca de Prompts</h4>
-              <p>Prompts personalizados para sua voz e necessidades profissionais.</p>
+              <h4>Escala de Renda</h4>
+              <p>Aprenda a produzir 5x mais sem aumentar um minuto da sua carga horária.</p>
             </div>
           </div>
           <div class="promise-item">
-            <div class="icon">✓</div>
+            <div class="icon">!</div>
             <div>
-              <h4>Autonomia Técnica</h4>
-              <p>Você aprende a operar o sistema sozinho, sem depender de ninguém.</p>
+              <h4>Controle do Sistema</h4>
+              <p>Pare de "pedir" coisas à IA e comece a comandar resultados previsíveis.</p>
             </div>
           </div>
           <div class="promise-item">
-            <div class="icon">✓</div>
+            <div class="icon">!</div>
             <div>
-              <h4>Guia de Validação</h4>
-              <p>Como revisar e garantir que o resultado da IA é profissional e seguro.</p>
+              <h4>Futuro Garantido</h4>
+              <p>Migre do papel de executor para o de estrategista híbrido.</p>
             </div>
           </div>
         </div>
 
-        <div class="price-box">
-          <span class="old">De R$ 197,00</span>
-          <span class="new">Por R$ 97,00</span>
-          <small style="color: var(--cinza-escuro)">Sessão Individual (1:1) • 60 Minutos</small>
-        </div>
+        <p style="margin-bottom: 1.5rem; font-weight: 600; color: var(--roxo-tecnologico);">
+          Entenda o método que está salvando carreiras da obsolescência digital:
+        </p>
 
-        <a id="wa-link" href="#" class="btn-cta">Agendar minha Sessão de Aplicação</a>
+        <a href="index_novo.html" class="btn-cta">Ver Solução para Minha Carreira</a>
       </div>
     </div>
   </div>
@@ -369,10 +368,6 @@
       }
 
       riskTag.textContent = levelName;
-
-      // WhatsApp Link Dinâmico
-      const waMsg = `Olá! Fiz o diagnóstico de IA (Resultado: ${levelName} - ${totalScore}%) e quero agendar minha Sessão Individual de Aplicação por R$97 para estruturar meu fluxo de trabalho.`;
-      document.getElementById('wa-link').href = `https://wa.me/5541988245710?text=${encodeURIComponent(waMsg)}`;
     }
   </script>
 </body>
