@@ -36,12 +36,22 @@
 
     header {
       background: var(--branco-puro);
-      padding: 1.2rem;
+      padding: 1rem;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
       top: 0; z-index: 100;
     }
+
+    .brand-logo {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--preto-suave);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .brand-logo span { color: var(--roxo-tecnologico); }
 
     .container { max-width: 800px; margin: 2rem auto; padding: 0 1.2rem; }
 
@@ -175,7 +185,7 @@
 <body>
 
   <header>
-    <img src="https://www.estudioescritaplanejada.com.br/wp-content/uploads/2024/12/logo-estudio-escrita-planejada.png" alt="Estúdio Escrita Planejada" style="height: 40px;">
+    <div class="brand-logo">Estúdio <span>Escrita Planejada</span></div>
   </header>
 
   <div class="container" id="quiz-wrapper">
@@ -219,6 +229,7 @@
     </div>
 
     <div class="question-card" id="q4">
+      <span class="q-number">Pergunta 04/05</span>
       <h3>Qual o formato da "entrega final" do seu trabalho?</h3>
       <div class="options">
         <div class="option" onclick="next(4, 25)">Textos, códigos ou dados que a IA já gera com alta precisão hoje.</div>
@@ -228,6 +239,7 @@
     </div>
 
     <div class="question-card" id="q5">
+      <span class="q-number">Pergunta 05/05</span>
       <h3>Como você utiliza a IA hoje na sua profissão?</h3>
       <div class="options">
         <div class="option" onclick="finish(0)">Diariamente (já tenho fluxos estruturados e ganho tempo).</div>
