@@ -1,359 +1,241 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estúdio Escrita Planejada - IA Aplicada com Clareza e Estrutura</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estúdio Escrita Planejada - Sessão de Diagnóstico e Aplicação</title>
+  <meta name="description" content="Em uma sessão individual de 40 minutos, você sai com um fluxo estruturado, prompts personalizados e um sistema replicável para aplicar IA na sua rotina." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0B0F19" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="IA aplicada à sua profissão — com clareza e resultado na prática" />
+  <meta property="og:description" content="Sessão individual de 40 minutos para estruturar fluxo, criar prompts aplicáveis e sair com um sistema replicável." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --azul-petroleo:#2A7F98;
-      --roxo-tecnologico:#8E44AD;
-      --amarelo-solar:#FDC316;
-      --verde-menta:#5CB579;
-      --verde-crescimento:#4F8246;
-      --coral:#FF9F43;
-      --rosa-digital:#DE2F74;
-
-      --branco-puro:#FFFFFF;
-      --cinza-ultra-claro:#FAFBFC;
-      --cinza-gelo:#F4F7F9;
-      --cinza-medio:#E1E8ED;
-      --cinza-escuro:#657786;
-      --preto-suave:#2C3E50;
-      --preto-puro:#1A1A1A;
-
-      --accent-primario:var(--roxo-tecnologico);
-      --accent-secundario:var(--coral);
-      --accent-sucesso:var(--verde-crescimento);
-
-      --sombra-roxa:rgba(142,68,173,.15);
-      --sombra-coral:rgba(255,159,67,.15);
-      --sombra-azul:rgba(42,127,152,.15);
-
+      --bg:#0B0F19;
+      --card:#111827;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --line:rgba(255,255,255,.10);
+      --accent:#7C3AED;   /* Roxo */
+      --accent2:#F97316;  /* Laranja */
+      --white:#FFFFFF;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
       --radius:16px;
-      --radius-pill:999px;
-      --container:1200px;
+      --max:1040px;
     }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    html{scroll-behavior: smooth;}
     body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:var(--branco-puro);
-      color:var(--preto-suave);
-      line-height:1.65;
-      overflow-x:hidden;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 30% -10%, rgba(124,58,237,.35), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(249,115,22,.25), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      overflow-x: hidden;
     }
-
-    a{color:inherit;text-decoration:none}
-    a:focus-visible, button:focus-visible{
-      outline:3px solid rgba(142,68,173,.45);
-      outline-offset:3px;
-      border-radius:10px;
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px; position: relative; z-index: 1;}
+    
+    /* Header */
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0 0;
     }
-
-    .skip-link{
-      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:.2px;
     }
-    .skip-link:focus{
-      left:16px;top:16px;width:auto;height:auto;
-      padding:10px 14px;background:var(--preto-puro);color:var(--branco-puro);
-      border-radius:10px;z-index:9999;
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,58,237,.15);
     }
-
-    main{max-width:var(--container);margin:0 auto;padding:0 16px;position:relative}
-
-    section{padding:56px 0;border-bottom:1px solid var(--cinza-medio)}
-    @media (min-width: 768px){ section{padding:76px 0} }
-
-    h1,h2,h3,h4{
-      font-family:'League Spartan',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--preto-puro);
-      line-height:1.08;
+    .nav{
+      display:flex; gap:14px; flex-wrap:wrap;
+      color:var(--muted); font-size:14px;
     }
-    h1{font-weight:800;font-size:1.85rem;letter-spacing:-.4px;text-align:left;line-height:1.2}
-    @media (min-width: 480px){ h1{font-size:2.2rem} }
-    @media (min-width: 768px){ h1{font-size:3rem} }
-    @media (min-width: 1024px){ h1{font-size:3.4rem} }
+    .nav a{padding:8px 10px; border:1px solid transparent; border-radius:999px; transition: 0.2s;}
+    .nav a:hover{border-color:var(--line); color:var(--text); background: rgba(255,255,255,0.05);}
 
-    h2{
-      font-weight:800;
-      font-size:1.75rem;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      text-align:center;
-      margin-bottom:18px;
-    }
-    @media (min-width: 768px){ h2{font-size:2.5rem} }
-
-    h3{font-weight:800;font-size:1.35rem;margin-bottom:12px}
-    h4{font-weight:700;font-size:1.05rem;margin-bottom:10px}
-
-    .accent{
-      background:linear-gradient(45deg,var(--accent-primario),var(--accent-secundario));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
-
-    .lead{
-      font-size:1rem;
-      color:var(--preto-suave);
-      text-align:left;
-      margin-top:14px;
-    }
-    @media (min-width: 480px){ .lead{font-size:1.1rem} }
-    @media (min-width: 768px){ .lead{font-size:1.2rem} }
-
-    .muted{color:var(--cinza-escuro)}
-
-    /* HERO */
+    /* Hero Section */
     .hero{
-      border-bottom:none;
-      padding:20px 0 32px;
-      min-height:auto;
-      display:flex;
-      align-items:center;
-      position:relative;
+      padding:44px 0 20px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:stretch;
     }
-    @media (min-width: 480px){ .hero{padding:26px 0 40px} }
-    @media (min-width: 768px){ .hero{padding:44px 0 70px;min-height:auto} }
-
-    .hero-card{
-      width:100%;
-      background:linear-gradient(135deg, rgba(142,68,173,.08) 0%, rgba(255,159,67,.06) 100%);
-      border:1px solid rgba(225,232,237,.9);
-      border-radius:calc(var(--radius) + 6px);
-      padding:18px 16px;
-      box-shadow:0 14px 40px var(--sombra-roxa);
-      overflow:hidden;
-      position:relative;
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr; padding-top:28px}
     }
-    @media (min-width: 480px){ .hero-card{padding:22px 20px} }
-    @media (min-width: 768px){ .hero-card{padding:40px 42px} }
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      top:-80px;right:-80px;
-      width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
-      pointer-events:none;
+    .h-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow: var(--shadow);
     }
-
-    .hero-stack{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      max-width: 920px;
+    h1{
+      margin:0 0 12px;
+      font-size:40px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    .micro{
-      font-family:'Inter',sans-serif;
-      font-weight:600;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:var(--accent-primario);
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-top:6px;
+    @media (max-width: 520px){
+      h1{font-size:32px}
     }
-    .micro::before{
-      content:"";
-      width:10px;height:10px;border-radius:50%;
-      background:var(--accent-secundario);
-      box-shadow:0 0 0 6px rgba(255,159,67,.18);
-      flex:0 0 auto;
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16.5px;
     }
-
     .cta-row{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:16px;
-      align-items:stretch;
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      margin-top:18px;
     }
-    @media (min-width: 768px){
-      .cta-row{flex-direction:row;align-items:center;gap:16px}
-    }
-
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      text-decoration:none;
-      font-family:'League Spartan',sans-serif;
-      font-weight:800;
-      font-size:0.9rem;
-      letter-spacing:.8px;
-      text-transform:uppercase;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:12px 16px;
-      border-radius:var(--radius-pill);
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      max-width:100%;
-      width:100%;
-      text-align:center;
+      border-radius:12px;
+      font-weight:650;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      min-height:44px;
+      cursor: pointer;
+    }
+    .btn:hover{transform: translateY(-1px); border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.08);}
+    .btn.primary{
       border:none;
-      cursor:pointer;
-      min-height:48px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(124,58,237,.25);
     }
-    @media (min-width: 480px){
-      .btn{
-        font-size:1rem;
-        padding:14px 18px;
-        max-width:360px;
-      }
+    .btn.primary:hover{
+      box-shadow: 0 14px 30px rgba(124,58,237,.4);
     }
-    .btn-primary{
-      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
-      color:var(--branco-puro);
-      box-shadow:0 10px 26px var(--sombra-roxa);
-      border:1px solid transparent;
-    }
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--sombra-roxa)}
-    .btn-secondary{
-      background:transparent;
-      color:var(--accent-primario);
-      border:2px solid var(--accent-primario);
-    }
-    .btn-secondary:hover{
-      background:var(--accent-primario);
-      color:var(--branco-puro);
-      transform:translateY(-1px);
-    }
-
-    .note-links{
+    .micro{
       margin-top:10px;
-      font-size:.95rem;
-      color:var(--cinza-escuro);
-      text-align:left;
-    }
-    .note-links a{color:var(--accent-primario);text-decoration:none}
-    .note-links a:hover{text-decoration:underline}
-
-    /* SECTION LAYOUT */
-    .section-wrap{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      align-items:stretch;
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .center-text{ text-align:center }
-    .center-text p{ text-align:center }
-
-    .card{
-      background:var(--branco-puro);
-      border:1px solid var(--cinza-medio);
-      border-radius:20px;
-      padding:16px;
-      box-shadow:0 8px 22px rgba(0,0,0,.05);
+    .side{
+      display:flex; flex-direction:column; gap:12px;
     }
-    @media (min-width: 480px){ .card{padding:18px} }
-    @media (min-width: 768px){ .card{padding:24px} }
+    .mini{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .mini h3{
+      margin:0 0 8px;
+      font-size:14px;
+      color:var(--muted);
+      font-weight:650;
+      text-transform: uppercase;
+      letter-spacing:.9px;
+    }
+    .mini p{margin:0; font-size:15px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-top:10px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      font-size:13px; color:var(--muted);
+      width: fit-content;
+    }
+    .badge span{
+      width:7px;height:7px;border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
 
+    /* Sections */
+    section{padding:14px 0}
     .grid{
       display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:18px;
-    }
-    @media (min-width: 480px){ .grid{gap:14px} }
-    @media (min-width: 768px){
-      .grid{grid-template-columns:repeat(12,1fr);gap:18px}
-    }
-
-    .col-12{grid-column:span 12}
-    .col-6{grid-column:span 12}
-    .col-4{grid-column:span 12}
-    @media (min-width: 768px){
-      .col-6{grid-column:span 6}
-      .col-4{grid-column:span 4}
-    }
-
-    .bullet{
-      border-left:4px solid var(--accent-primario);
-      padding:12px 12px 12px 14px;
-      border-radius:0 14px 14px 0;
-      background:var(--branco-puro);
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-    }
-    .bullet p{margin:0;text-align:left;color:var(--preto-suave);font-weight:400;font-size:0.95rem}
-    @media (min-width: 480px){
-      .bullet{padding:14px 14px 14px 16px}
-      .bullet p{font-size:1rem}
-    }
-
-    .callout{
-      border:2px solid var(--accent-primario);
-      background:linear-gradient(135deg, rgba(142,68,173,.06), rgba(255,159,67,.05));
-      padding:14px;
-      border-radius:20px;
-      box-shadow:0 14px 36px var(--sombra-roxa);
-    }
-    @media (min-width: 480px){ .callout{padding:18px} }
-    .callout p{margin:0;color:var(--preto-suave);font-weight:600;text-align:center;font-size:0.95rem}
-    @media (min-width: 480px){ .callout p{font-size:1rem} }
-
-    /* Steps */
-    .steps{
-      display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns: 1fr 1fr;
       gap:14px;
-      margin-top:18px;
     }
-    @media (min-width: 768px){ .steps{grid-template-columns:repeat(3,1fr)} }
-
-    .step{
-      border:1px solid var(--cinza-medio);
-      border-radius:18px;
-      padding:16px 14px;
-      background:var(--branco-puro);
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
-      text-align:center;
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
     }
-    .step-num{
-      width:44px;height:44px;border-radius:50%;
-      display:inline-flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,var(--accent-primario),var(--accent-secundario));
-      color:var(--branco-puro);
-      font-family:'League Spartan',sans-serif;
-      font-weight:900;
-      font-size:1.25rem;
-      margin-bottom:10px;
-      box-shadow:0 8px 22px var(--sombra-roxa);
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
     }
-    .step p{margin:0;color:var(--cinza-escuro);font-size:.95rem}
-
-    /* Lists */
-    ul{list-style:none;padding:0;margin:0}
-    li{margin-bottom:8px;text-align:left;color:var(--preto-suave);font-size:0.95rem}
-    li::before{content:"•";margin-right:8px;color:var(--accent-primario);font-weight:600}
-    @media (min-width: 480px){ li{font-size:1rem} }
-
+    .kicker{
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.9px;
+      text-transform: uppercase;
+      margin:0 0 8px;
+      font-weight:650;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.2px;
+      color: var(--white);
+    }
+    .list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .list li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:var(--text);
+    }
+    .check{
+      width:20px; height:20px; flex:0 0 20px;
+      border-radius:7px;
+      background: rgba(124,58,237,.18);
+      border:1px solid rgba(124,58,237,.35);
+      display:flex; align-items:center; justify-content:center;
+      margin-top:1px;
+    }
+    .check:before{
+      content:"✓";
+      font-size:13px;
+      color: var(--text);
+      opacity:.95;
+    }
+    .muted{color:var(--muted)}
+    .divider{
+      height:1px; background:var(--line);
+      margin:18px 0;
+    }
+    
     /* Footer */
     footer{
-      background:var(--preto-puro);
-      color:var(--branco-puro);
-      padding:40px 16px;
-      text-align:center;
-      border-top:1px solid rgba(225,232,237,.2);
+      padding:24px 0 40px;
+      color:var(--muted);
+      font-size:13px;
     }
-    footer h3{color:var(--branco-puro);margin-bottom:12px}
-    footer p{margin:6px 0;font-size:0.95rem}
-    footer .copyright{font-size:0.85rem;color:rgba(244,247,249,.6);margin-top:16px}
-    footer a{color:var(--accent-primario);text-decoration:none}
-    footer a:hover{text-decoration:underline}
+    .footer-row{
+      display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+    .small-links a{color:var(--muted); margin-right:12px}
+    .small-links a:hover{color:var(--text)}
 
     /* WhatsApp Float */
     .whatsapp-float{
@@ -363,307 +245,196 @@
       background:linear-gradient(135deg,#25D366,#20BA5E);
       border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      box-shadow:0 8px 24px rgba(0,0,0,.2);
+      box-shadow:0 8px 24px rgba(0,0,0,.5);
       z-index:999;
       transition:transform .2s ease, box-shadow .2s ease;
       text-decoration:none;
+      border: 2px solid rgba(255,255,255,0.1);
     }
-    .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+    .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(0,0,0,.6)}
     .whatsapp-float svg{width:28px;height:28px;fill:white}
-
-    /* Micro text */
-    .micro-text{
-      font-size:0.85rem;
-      color:var(--cinza-escuro);
-      margin-top:8px;
-      text-align:center;
-    }
   </style>
+
+  <!-- JSON-LD (serviço) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Sessão de Diagnóstico e Aplicação (40 min) — Estúdio Escrita Planejada",
+    "serviceType":"Consultoria aplicada em IA para rotina profissional",
+    "areaServed":"BR",
+    "description":"Sessão individual de 40 minutos para estruturar fluxo, criar prompts aplicáveis e organizar um sistema replicável.",
+    "provider":{"@type":"Organization","name":"Estúdio Escrita Planejada"}
+  }
+  </script>
 </head>
+
 <body>
-  <a href="#main" class="skip-link">Ir para conteúdo principal</a>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Estúdio Escrita Planejada</span>
+      </div>
+      <nav class="nav">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sessao">A sessão</a>
+        <a href="#entregaveis">Entregáveis</a>
+        <a href="#para-quem">Para quem é</a>
+      </nav>
+    </header>
 
-  <main id="main">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="hero-card">
-        <div class="hero-stack">
-          <h1 id="hero-titulo">IA aplicada à sua profissão — com clareza, estrutura e resultado na prática.</h1>
-          
-          <p class="lead">Em uma sessão individual, a gente traduz o seu contexto real em um sistema simples: fluxo, prompts e decisões que você consegue repetir sozinho.</p>
+    <div class="hero">
+      <div class="h-card">
+        <h1>IA aplicada à sua profissão — com clareza e resultado na prática.</h1>
+        <p class="lead">
+          Em uma sessão individual de <strong>40 minutos</strong>, você sai com um <strong>fluxo estruturado</strong>,
+          <strong>prompts personalizados</strong> e um <strong>sistema</strong> que consegue repetir sozinho.
+        </p>
 
-          <div class="grid" role="list" aria-label="Benefícios da sessão">
-            <div class="bullet col-12" role="listitem"><p>Diagnóstico rápido do seu cenário e objetivo</p></div>
-            <div class="bullet col-12" role="listitem"><p>Aplicação na tela (sem teoria solta)</p></div>
-            <div class="bullet col-12" role="listitem"><p>Você sai com entregáveis + autonomia</p></div>
-          </div>
+        <div class="cta-row">
+          <!-- Link do WhatsApp Principal -->
+          <a class="btn primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20agendar%20a%20sessão%20de%20aplicação">Aplicar na minha rotina</a>
+          <!-- Link do Diagnóstico via WhatsApp -->
+          <a class="btn" href="https://wa.me/5541988245710?text=Olá,%20quero%20fazer%20o%20diagnóstico%20gratuito">Fazer o diagnóstico gratuito</a>
+        </div>
 
+        <div class="micro">
+          Sem teoria. Sem pacote. Uma decisão: <strong>sessão aplicada</strong>.
+        </div>
+      </div>
+
+      <div class="side">
+        <div class="mini">
+          <h3>O que você leva</h3>
+          <p>Estrutura + prompts + organização em um formato que você consegue repetir sem depender de “inspiração”.</p>
+          <div class="badge"><span></span> Foco em execução</div>
+        </div>
+        <div class="mini">
+          <h3>Formato</h3>
+          <p><strong>1:1</strong> (individual) • <strong>40 min</strong> • aplicado na sua rotina real.</p>
+          <div class="badge"><span></span> Resultado no dia</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCO DE REALIDADE -->
+    <section id="realidade">
+      <div class="card">
+        <p class="kicker">Realidade</p>
+        <h2>O problema não é falta de ferramentas. É falta de estrutura.</h2>
+        <p class="muted">
+          A maioria dos profissionais está testando IA de forma fragmentada: sem clareza, sem sistema e sem repetição.
+          A sessão resolve isso diretamente no seu caso real.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCO PRINCIPAL — A SESSÃO -->
+    <section id="sessao">
+      <div class="grid">
+        <div class="card">
+          <p class="kicker">A sessão</p>
+          <h2>Sessão de Diagnóstico e Aplicação — 40 minutos</h2>
+          <ul class="list">
+            <li><span class="check"></span><span>Analisamos sua rotina real (o que você faz, onde perde tempo, onde erra).</span></li>
+            <li><span class="check"></span><span>Estruturamos um fluxo claro (entrada → processamento → saída).</span></li>
+            <li><span class="check"></span><span>Criamos prompts aplicáveis (no seu contexto, não genéricos).</span></li>
+            <li><span class="check"></span><span>Organizamos um sistema replicável (para você repetir sozinho).</span></li>
+          </ul>
+          <div class="divider"></div>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profissão" aria-label="Fale com um consultor">
-              👉 Fale com um consultor
-            </a>
+            <a class="btn primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20agendar%20a%20sessão%20de%20aplicação">Aplicar na minha rotina</a>
+            <a class="btn" href="https://wa.me/5541988245710?text=Olá,%20quero%20fazer%20o%20diagnóstico%20gratuito">Começar pelo diagnóstico</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- O QUE ESTÁ ACONTECENDO -->
-    <section aria-labelledby="contexto-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="contexto-titulo">O trabalho não está "acabando". O formato está mudando.</h2>
-          <p class="muted" style="margin-top:16px;max-width:800px;margin-left:auto;margin-right:auto">
-            Com IA, tarefas viram commodity rápido — e a diferença passa a ser clareza de processo, decisão e responsabilidade. Quem tem orientação aplicada sai do "conteúdo sobre IA" e entra em capacidade real.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- OFERTA PRINCIPAL -->
-    <section aria-labelledby="oferta-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="oferta-titulo">Sessão de Diagnóstico e Aplicação (40 min)</h2>
         </div>
 
         <div class="card">
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:14px;font-size:1.05rem">
-            Para quem quer parar de testar ferramenta aleatória e construir um jeito de usar IA que funciona no próprio dia a dia.
-          </p>
-
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">Para quem é:</p>
-          <ul style="margin-bottom:18px">
-            <li>Profissionais e criadores que já trabalham com informação, atendimento, conteúdo ou operação</li>
-            <li>Quem tem demanda real e precisa de um fluxo repetível</li>
-            <li>Quem quer aplicar IA sem "revolução", com segurança e previsibilidade</li>
+          <p class="kicker">O que muda</p>
+          <h2>Você para de “testar IA” e passa a operar um processo.</h2>
+          <ul class="list">
+            <li><span class="check"></span><span>Menos improviso e retrabalho.</span></li>
+            <li><span class="check"></span><span>Mais previsibilidade: você sabe o que pedir e como validar.</span></li>
+            <li><span class="check"></span><span>Um fluxo que vira rotina, não tentativa.</span></li>
+            <li><span class="check"></span><span>Autonomia: você não depende de mim para continuar evoluindo.</span></li>
           </ul>
-
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">O que você sai com:</p>
-          <ul style="margin-bottom:18px">
-            <li>Um fluxo do seu processo (entrada → decisão → saída)</li>
-            <li>Prompts personalizados e critérios de uso (quando usar / quando não usar)</li>
-            <li>Um modelo de rotina: como repetir sem depender de mim</li>
-            <li>Próximos passos recomendados (se fizer sentido: serviço complementar)</li>
-          </ul>
-
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">Como funciona:</p>
-          <ul style="margin-bottom:24px">
-            <li>Você responde um diagnóstico rápido (link)</li>
-            <li>Eu chego na sessão já com hipóteses e estrutura inicial</li>
-            <li>A gente aplica na tela no seu caso real</li>
-            <li>Você sai com material organizado (copiar/colar) + plano simples de execução</li>
-          </ul>
-
-          <div class="cta-row" style="justify-content:center">
-            <a class="btn btn-primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profissão" aria-label="Fale com um consultor">
-              👉 Fale com um consultor
-            </a>
-          </div>
-          <p class="micro-text">Não precisa preparar nada complexo. Traga um exemplo real do seu trabalho.</p>
+          <div class="badge" style="margin-top:14px;"><span></span> Conversão: 1 oferta, 1 caminho</div>
         </div>
       </div>
     </section>
 
-    <!-- SERVIÇOS COMPLEMENTARES -->
-    <section id="servicos" aria-labelledby="servicos-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="servicos-titulo">Serviços <span class="accent">Complementares</span></h2>
-        </div>
-
-        <div class="grid" aria-label="Serviços disponíveis">
-          <article class="card col-4" aria-labelledby="s1">
-            <h3 id="s1" class="accent">Configuração Personalizada</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Ajuste de ferramentas, templates e rotinas para o seu fluxo — com foco em reduzir fricção e aumentar consistência.
-            </p>
-            <p style="text-align:left;color:var(--cinza-escuro);font-size:0.9rem;margin-bottom:14px">
-              Entrega típica: estrutura de pastas/arquivos + modelos + padrão de uso.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20sobre%20configuração%20personalizada" aria-label="Saiba mais sobre configuração personalizada">
-              Saiba mais
-            </a>
-          </article>
-
-          <article class="card col-4" aria-labelledby="s2">
-            <h3 id="s2" class="accent">Aula Particular</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Treino prático para você dominar a lógica — sem excesso de teoria, com exercícios no seu caso.
-            </p>
-            <p style="text-align:left;color:var(--cinza-escuro);font-size:0.9rem;margin-bottom:14px">
-              Melhor para: quem quer autonomia rápido.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20sobre%20aula%20particular" aria-label="Saiba mais sobre aula particular">
-              Saiba mais
-            </a>
-          </article>
-
-          <article class="card col-4" aria-labelledby="s3">
-            <h3 id="s3" class="accent">Prompts e Biblioteca</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Conjunto de prompts prontos + regras de decisão (input, tom, checagens, critérios de qualidade).
-            </p>
-            <p style="text-align:left;color:var(--cinza-escuro);font-size:0.9rem;margin-bottom:14px">
-              Melhor para: rotina repetitiva com variações.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20sobre%20prompts%20personalizados" aria-label="Saiba mais sobre prompts personalizados">
-              Saiba mais
-            </a>
-          </article>
-
-          <article class="card col-6" aria-labelledby="s4">
-            <h3 id="s4" class="accent">Consultoria Individual</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:14px">
-              Para estruturar um sistema maior: conteúdo, atendimento, produto, operação — com métricas e governança leve.
-            </p>
-            <p style="text-align:left;color:var(--cinza-escuro);font-size:0.9rem;margin-bottom:14px">
-              Melhor para: quem precisa de visão + execução guiada.
-            </p>
-            <a class="btn btn-secondary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20sobre%20consultoria%20individual" aria-label="Saiba mais sobre consultoria individual">
-              Saiba mais
-            </a>
-          </article>
-        </div>
-
-        <div class="card" style="margin-top:18px;background:linear-gradient(135deg, rgba(142,68,173,.04), rgba(255,159,67,.03));border:1px solid rgba(142,68,173,.1)">
-          <p style="text-align:center;color:var(--preto-suave);font-size:0.95rem;margin:0">
-            <strong>Nota:</strong> A sessão de diagnóstico indica qual desses caminhos faz mais sentido — ou se você não precisa de nada agora.
-          </p>
-        </div>
+    <!-- PARA QUEM É -->
+    <section id="para-quem">
+      <div class="card">
+        <p class="kicker">Para quem é</p>
+        <h2>Para profissionais que precisam de clareza + execução</h2>
+        <ul class="list">
+          <li><span class="check"></span><span>Trabalham com informação, atendimento ou conteúdo.</span></li>
+          <li><span class="check"></span><span>Querem reduzir esforço e aumentar clareza.</span></li>
+          <li><span class="check"></span><span>Buscam aplicar IA de forma segura, prática e repetível.</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- COMO FUNCIONA -->
-    <section aria-labelledby="processo-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="processo-titulo">Como Funciona <span class="accent">(sem fricção)</span></h2>
-        </div>
-
-        <div class="steps" aria-label="Etapas do processo">
-          <div class="step">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h4>Diagnóstico do contexto</h4>
-            <p>Você mapeia sua rotina e objetivo em poucos minutos.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">2</div>
-            <h4>Aplicação prática na tela</h4>
-            <p>Ajustamos fluxo, prompts e decisões no seu caso real.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h4>Sistema pronto + autonomia</h4>
-            <p>Você sai com estrutura replicável — e sabe manter sozinho.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROVA / CREDIBILIDADE -->
-    <section aria-labelledby="resolve-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="resolve-titulo">O que a gente resolve aqui</h2>
-        </div>
-
+    <section id="como-funciona">
+      <div class="grid">
         <div class="card">
-          <ul style="margin-bottom:24px">
-            <li>Transformar intenção em processo (começar, repetir, manter)</li>
-            <li>Reduzir retrabalho, indecisão e "tentativa e erro"</li>
-            <li>Padronizar qualidade com critérios simples</li>
-            <li>Colocar IA como parte do sistema — não como gambiarra</li>
-          </ul>
-
-          <p style="text-align:left;color:var(--preto-suave);font-weight:600;margin-bottom:12px">Para quem NÃO é:</p>
-          <ul>
-            <li>Se você quer "prompt mágico" sem contexto</li>
-            <li>Se você não pretende aplicar nada na rotina</li>
-            <li>Se você busca só consumo de conteúdo sobre IA</li>
+          <p class="kicker">Como funciona</p>
+          <h2>3 passos</h2>
+          <ul class="list">
+            <li><span class="check"></span><span><strong>Passo 1:</strong> você faz o diagnóstico gratuito (WhatsApp ou Formulário).</span></li>
+            <li><span class="check"></span><span><strong>Passo 2:</strong> realizamos a sessão aplicada ao seu trabalho.</span></li>
+            <li><span class="check"></span><span><strong>Passo 3:</strong> você sai com sistema estruturado e autonomia.</span></li>
           </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- FAQ -->
-    <section aria-labelledby="faq-titulo">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="faq-titulo">Perguntas <span class="accent">Frequentes</span></h2>
-        </div>
-
-        <div class="grid" aria-label="Perguntas frequentes">
-          <article class="card col-12" style="margin-bottom:12px">
-            <h3 class="accent">Preciso entender de IA para fazer a sessão?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">Não. A sessão é feita para transformar seu contexto em um uso prático e simples.</p>
-          </article>
-
-          <article class="card col-12" style="margin-bottom:12px">
-            <h3 class="accent">Isso serve para qualquer profissão?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">Serve quando existe processo, informação e decisão. O diagnóstico ajuda a confirmar fit.</p>
-          </article>
-
-          <article class="card col-12" style="margin-bottom:12px">
-            <h3 class="accent">O que eu preciso levar para a sessão?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">Um exemplo real (mensagem, tarefa, texto, planilha, rotina). Sem preparo complexo.</p>
-          </article>
-
-          <article class="card col-12" style="margin-bottom:12px">
-            <h3 class="accent">Vou receber algo por escrito?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">Sim: estrutura, prompts e organização do que foi aplicado (pronto para copiar e usar).</p>
-          </article>
-
-          <article class="card col-12" style="margin-bottom:12px">
-            <h3 class="accent">É consultoria ou aula?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">É aplicação orientada. Se o melhor caminho for aula/consultoria, isso fica claro no final.</p>
-          </article>
-
-          <article class="card col-12">
-            <h3 class="accent">E se eu fizer o diagnóstico e não fizer sentido?</h3>
-            <p style="text-align:left;color:var(--preto-suave);margin-bottom:0">Ótimo: você evita gastar tempo e dinheiro. O objetivo é clareza.</p>
-          </article>
+        <div class="card" id="entregaveis">
+          <p class="kicker">Entregáveis</p>
+          <h2>Você recebe</h2>
+          <ul class="list">
+            <li><span class="check"></span><span>Fluxo estruturado (processo claro do início ao fim).</span></li>
+            <li><span class="check"></span><span>Prompts personalizados (no seu formato e no seu nível).</span></li>
+            <li><span class="check"></span><span>Organização aplicável (para você operar sem fricção).</span></li>
+            <li><span class="check"></span><span>Plano claro de uso (o que fazer primeiro, o que manter, o que medir).</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- CTA FINAL -->
-    <section aria-labelledby="cta-final-titulo" style="background:var(--cinza-ultra-claro)">
-      <div class="section-wrap">
-        <div class="center-text">
-          <h2 id="cta-final-titulo">O diagnóstico mostra sua posição. A sessão transforma isso em capacidade.</h2>
-          
-          <p class="muted" style="margin-top:16px;max-width:800px;margin-left:auto;margin-right:auto">
-            Se você já sente que "assistir IA" não resolve, o próximo passo é aplicar no seu fluxo real — com estrutura.
-          </p>
-        </div>
-
-        <div class="cta-row" style="justify-content:center;margin-top:24px">
-          <a class="btn btn-primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profissão" aria-label="Fale com um consultor">
-            👉 Fale com um consultor
-          </a>
+    <section id="cta">
+      <div class="card">
+        <p class="kicker">Pronto</p>
+        <h2>O diagnóstico mostra sua posição. A sessão transforma isso em capacidade.</h2>
+        <p class="muted">Se você quer aplicar IA na sua rotina com previsibilidade, esta é a entrada certa.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20agendar%20a%20sessão%20de%20aplicação">Aplicar na minha rotina</a>
+          <a class="btn" href="https://wa.me/5541988245710?text=Olá,%20quero%20fazer%20o%20diagnóstico%20gratuito">Fazer o diagnóstico gratuito</a>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <h3>Estúdio Escrita Planejada</h3>
-    <p class="muted">IA aplicada com clareza e estrutura.</p>
-    <p style="margin-top:16px;font-size:0.9rem">
-      <a href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profissão">Fale com um consultor</a>
-    </p>
-    <p class="muted" style="margin-top:12px;font-size:0.85rem">Resposta em horário comercial.</p>
-    <p class="copyright">© 2025 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
-  </footer>
+    <footer>
+      <div class="footer-row">
+        <div>© <span id="y">2025</span> • Estúdio Escrita Planejada</div>
+        <div class="small-links">
+          <a href="#realidade">Topo</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-  <!-- WhatsApp Flutuante -->
+  <!-- WhatsApp Flutuante (Mantido do arquivo original) -->
   <a href="https://wa.me/5541988245710?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20como%20usar%20IA%20na%20minha%20profissão" class="whatsapp-float" target="_blank" aria-label="Fale com um consultor">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
