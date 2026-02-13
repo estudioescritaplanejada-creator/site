@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="description" content="Descubra se seu trabalho está em risco de substituição por IA. Diagnóstico gratuito em 5 minutos." />
-  <title>Diagnóstico de Vulnerabilidade à IA - Descubra se seu trabalho está em risco</title>
+  <meta name="description" content="Descubra o nível de vulnerabilidade da sua função atual e como a IA pode ser sua aliada na produtividade." />
+  <title>Diagnóstico de Vulnerabilidade à IA - Estúdio Escrita Planejada</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,1847 +15,352 @@
       --azul-petroleo: #2A7F98;
       --roxo-tecnologico: #8E44AD;
       --amarelo-solar: #FDC316;
-      --verde-menta: #5CB579;
       --verde-crescimento: #4F8246;
-      --coral: #FF9F43;
       --rosa-digital: #DE2F74;
-
       --branco-puro: #FFFFFF;
-      --cinza-ultra-claro: #FAFBFC;
       --cinza-gelo: #F4F7F9;
       --cinza-medio: #E1E8ED;
       --cinza-escuro: #657786;
       --preto-suave: #2C3E50;
-      --preto-puro: #1A1A1A;
-
-      --accent-primario: var(--roxo-tecnologico);
-      --accent-secundario: var(--coral);
-      --accent-sucesso: var(--verde-crescimento);
-
-      --sombra-roxa: rgba(142, 68, 173, .15);
-      --sombra-coral: rgba(255, 159, 67, .15);
-      --sombra-azul: rgba(42, 127, 152, .15);
-
-      --radius: 16px;
-      --radius-pill: 999px;
-      --container: 1200px;
+      --sombra: 0 15px 35px rgba(0,0,0,0.1);
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--branco-puro);
-      color: var(--preto-suave);
-      line-height: 1.65;
-      overflow-x: hidden;
-      min-height: 100vh;
-      width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
-      outline: 3px solid rgba(142, 68, 173, .45);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .skip-link:focus {
-      left: 16px;
-      top: 16px;
-      width: auto;
-      height: auto;
-      padding: 10px 14px;
-      background: var(--preto-puro);
-      color: var(--branco-puro);
-      border-radius: 10px;
-      z-index: 9999;
-    }
-
-    main {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 16px;
-      position: relative;
-      width: 100%;
-    }
-
-    section {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--cinza-medio);
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      section {
-        padding: 76px 0;
-      }
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'League Spartan', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--preto-puro);
-      line-height: 1.15;
-      word-wrap: break-word;
-    }
-
-    h1 {
-      font-weight: 800;
-      font-size: clamp(1.75rem, 5vw, 3.4rem);
-      letter-spacing: -.4px;
-      text-align: left;
-    }
-
-    h2 {
-      font-weight: 800;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    h3 {
-      font-weight: 800;
-      font-size: clamp(1.15rem, 3vw, 1.35rem);
-      margin-bottom: 12px;
-    }
-
-    h4 {
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-    }
-
-    .accent {
-      background: linear-gradient(45deg, var(--accent-primario), var(--accent-secundario));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .lead {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--preto-suave);
-      text-align: left;
-      margin-top: 14px;
-    }
-
-    .muted {
-      color: var(--cinza-escuro);
-    }
-
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      background: var(--branco-puro);
-      border-bottom: 1px solid var(--cinza-medio);
-      padding: 10px 12px;
-      z-index: 1000;
-      width: 100%;
-    }
-
-    .header-content {
-      max-width: var(--container);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .logo {
-      font-family: 'League Spartan', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--preto-puro);
-      flex: 0 0 auto;
-    }
-
-    .nav-links {
-      display: none;
-      list-style: none;
-      gap: 16px;
-      flex: 1;
-    }
-
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-        gap: 24px;
-      }
-    }
-
-    .nav-links a {
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--preto-suave);
-      transition: color .2s ease;
-    }
-
-    @media (min-width: 768px) {
-      .nav-links a {
-        font-size: .95rem;
-      }
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-primario);
-    }
-
-    .btn-header {
-      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
-      color: var(--branco-puro);
-      padding: 10px 14px;
-      border-radius: var(--radius-pill);
-      font-weight: 800;
-      font-size: .7rem;
-      letter-spacing: .3px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px var(--sombra-roxa);
-      transition: transform .2s ease, box-shadow .2s ease;
-      flex: 0 0 auto;
-      cursor: pointer;
-      border: none;
-      min-height: 44px;
-      white-space: nowrap;
-    }
-
-    @media (min-width: 768px) {
-      .btn-header {
-        padding: 12px 18px;
-        font-size: .85rem;
-        letter-spacing: .8px;
-        box-shadow: 0 8px 20px var(--sombra-roxa);
-      }
-    }
-
-    .btn-header:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px var(--sombra-roxa);
-    }
-
-    /* HERO */
-    .hero {
-      border-bottom: none;
-      padding: 20px 0 30px;
-      min-height: auto;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        padding: 44px 0 70px;
-      }
-    }
-
-    .hero-card {
-      width: 100%;
-      background: linear-gradient(135deg, rgba(142, 68, 173, .08) 0%, rgba(255, 159, 67, .06) 100%);
-      border: 1px solid rgba(225, 232, 237, .9);
-      border-radius: calc(var(--radius) + 6px);
-      padding: 20px 16px;
-      box-shadow: 0 14px 40px var(--sombra-roxa);
-      overflow: hidden;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .hero-card {
-        padding: 40px 42px;
-      }
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--sombra-coral) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 920px;
-    }
-
-    .micro {
       font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--accent-primario);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .micro::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-secundario);
-      box-shadow: 0 0 0 6px rgba(255, 159, 67, .18);
-      flex: 0 0 auto;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 16px;
-      align-items: stretch;
-      width: 100%;
-    }
-
-    @media (min-width: 480px) {
-      .cta-row {
-        flex-direction: row;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-    }
-
-    /* BOTOES - Mobile First com altura minima de 48px */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      font-family: 'League Spartan', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      padding: 14px 18px;
-      border-radius: var(--radius-pill);
-      border: none;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      width: 100%;
-      max-width: 100%;
-      text-align: center;
-      min-height: 48px;
-      line-height: 1.2;
-    }
-
-    @media (min-width: 480px) {
-      .btn {
-        max-width: 360px;
-        font-size: 1rem;
-        padding: 14px 20px;
-        letter-spacing: .8px;
-        width: auto;
-      }
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
-      color: var(--branco-puro);
-      box-shadow: 0 10px 26px var(--sombra-roxa);
-      border: 1px solid transparent;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px var(--sombra-roxa);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent-primario);
-      border: 2px solid var(--accent-primario);
-    }
-
-    .btn-secondary:hover {
-      background: var(--accent-primario);
-      color: var(--branco-puro);
-      transform: translateY(-1px);
-    }
-
-    .note-links {
-      margin-top: 10px;
-      font-size: .9rem;
-      color: var(--cinza-escuro);
-      text-align: left;
-    }
-
-    .note-links p {
-      margin: 0;
-    }
-
-    /* SECTION LAYOUT */
-    .section-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      align-items: stretch;
-      width: 100%;
-    }
-
-    .center-text {
-      text-align: center;
-    }
-
-    .center-text p {
-      text-align: center;
-    }
-
-    .card {
-      background: var(--branco-puro);
-      border: 1px solid var(--cinza-medio);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .05);
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .card {
-        padding: 24px;
-      }
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 18px;
-      width: 100%;
-    }
-
-    @media (min-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 18px;
-      }
-    }
-
-    .col-12 {
-      grid-column: span 1;
-    }
-
-    .col-6 {
-      grid-column: span 1;
-    }
-
-    .col-4 {
-      grid-column: span 1;
-    }
-
-    @media (min-width: 600px) {
-      .col-12 {
-        grid-column: span 2;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .col-12 {
-        grid-column: span 12;
-      }
-      .col-6 {
-        grid-column: span 6;
-      }
-      .col-4 {
-        grid-column: span 4;
-      }
-    }
-
-    .bullet {
-      border-left: 4px solid var(--accent-primario);
-      padding: 14px 14px 14px 16px;
-      border-radius: 0 14px 14px 0;
-      background: var(--branco-puro);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    }
-
-    .bullet p {
-      margin: 0;
-      text-align: left;
+      background-color: var(--cinza-gelo);
       color: var(--preto-suave);
-      font-weight: 400;
-      font-size: 0.95rem;
+      line-height: 1.6;
     }
+    h1, h2, h3, h4 { font-family: 'League Spartan', sans-serif; }
 
-    .callout {
-      border: 2px solid var(--accent-primario);
-      background: linear-gradient(135deg, rgba(142, 68, 173, .06), rgba(255, 159, 67, .05));
-      padding: 18px;
-      border-radius: 20px;
-      box-shadow: 0 14px 36px var(--sombra-roxa);
-    }
-
-    .callout p {
-      margin: 0;
-      color: var(--preto-suave);
-      font-weight: 600;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    /* Steps */
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    @media (min-width: 768px) {
-      .steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .step {
-      border: 1px solid var(--cinza-medio);
-      border-radius: 18px;
-      padding: 18px 16px;
+    header {
       background: var(--branco-puro);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+      padding: 1.2rem;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0; z-index: 100;
     }
 
-    .step-num {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--accent-primario), var(--accent-secundario));
-      color: var(--branco-puro);
-      font-family: 'League Spartan', sans-serif;
-      font-weight: 900;
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-      box-shadow: 0 8px 22px var(--sombra-roxa);
-    }
+    .container { max-width: 800px; margin: 2rem auto; padding: 0 1.2rem; }
 
-    .step p {
-      margin: 0;
-      color: var(--cinza-escuro);
-      font-size: .95rem;
+    /* Hero do Diagnóstico */
+    .hero-quiz {
+      background: var(--branco-puro);
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      box-shadow: var(--sombra);
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 6px solid var(--roxo-tecnologico);
     }
+    .hero-quiz h1 { font-size: 2.4rem; line-height: 1.1; margin-bottom: 1rem; color: var(--preto-suave); }
+    .hero-quiz p { font-size: 1.1rem; color: var(--cinza-escuro); max-width: 600px; margin: 0 auto; }
 
-    /* Pricing Cards */
-    .pricing-card {
+    /* Cards de Perguntas */
+    .question-card {
+      background: var(--branco-puro);
+      padding: 2.2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      margin-bottom: 1.5rem;
+      display: none; /* Controlado via JS */
+    }
+    .question-card.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .q-number { color: var(--roxo-tecnologico); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+    .question-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--azul-petroleo); line-height: 1.3; }
+
+    .options { display: grid; gap: 0.8rem; }
+    .option {
+      padding: 1.2rem;
       border: 2px solid var(--cinza-medio);
-      border-radius: 20px;
-      padding: 20px;
-      background: var(--branco-puro);
-      text-align: center;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    @media (min-width: 768px) {
-      .pricing-card {
-        padding: 24px;
-      }
-    }
-
-    .pricing-card:hover {
-      border-color: var(--accent-primario);
-      box-shadow: 0 14px 36px var(--sombra-roxa);
-    }
-
-    .pricing-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--accent-primario);
-      margin: 14px 0;
-    }
-
-    @media (min-width: 768px) {
-      .price {
-        font-size: 2.5rem;
-      }
-    }
-
-    .price-label {
-      font-size: .9rem;
-      color: var(--cinza-escuro);
-      margin-bottom: 18px;
-    }
-
-    .pricing-list {
-      text-align: left;
-      margin: 18px 0;
-      list-style: none;
-      padding: 0;
-    }
-
-    .pricing-list li {
-      padding: 10px 0;
-      color: var(--preto-suave);
-      font-size: .95rem;
-      border-bottom: 1px solid var(--cinza-medio);
-    }
-
-    .pricing-list li:last-child {
-      border-bottom: none;
-    }
-
-    /* FAQ */
-    .faq-item {
-      border: 1px solid var(--cinza-medio);
-      border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 12px;
-      background: var(--branco-puro);
+      border-radius: 14px;
       cursor: pointer;
-      transition: all .2s ease;
-    }
-
-    .faq-item:hover {
-      border-color: var(--accent-primario);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    }
-
-    .faq-item h4 {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .faq-item h4 span {
-      flex-shrink: 0;
-      font-size: 1.2rem;
-      color: var(--accent-primario);
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.active h4 span {
-      transform: rotate(45deg);
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    .faq-answer {
-      display: none;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--cinza-medio);
-      color: var(--preto-suave);
-      font-size: .95rem;
-    }
-
-    /* Quote */
-    .quote {
+      transition: all 0.2s ease;
+      font-weight: 500;
       position: relative;
-      padding-top: 22px;
-      text-align: left;
+    }
+    .option:hover { border-color: var(--roxo-tecnologico); background: var(--cinza-gelo); }
+    .option.selected { border-color: var(--roxo-tecnologico); background: rgba(142, 68, 173, 0.05); color: var(--roxo-tecnologico); }
+
+    .progress-bar {
+      height: 8px; background: var(--cinza-medio); border-radius: 10px; margin-bottom: 2rem; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0%; background: var(--roxo-tecnologico); transition: width 0.3s ease;
     }
 
-    .quote::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 14px;
-      font-family: Georgia, serif;
-      font-size: 3.2rem;
-      color: rgba(142, 68, 173, .22);
-      line-height: 1;
-    }
-
-    .quote p {
-      margin: 0;
-      color: var(--preto-suave);
-      font-style: italic;
-      text-align: left;
-    }
-
-    /* Form Specific */
-    .form-section {
-      display: none;
-    }
-
-    .form-section.active {
-      display: block;
-    }
-
-    /* Container para o formulário do diagnóstico */
-    .diagnosis-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 16px;
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .diagnosis-container {
-        padding: 40px 24px;
-      }
-    }
-
-    .diagnosis-box {
+    /* Área de Resultado */
+    #result-area { display: none; }
+    .result-header {
       background: var(--branco-puro);
-      border: 1px solid var(--cinza-medio);
-      border-radius: 20px;
-      box-shadow: 0 14px 40px var(--sombra-roxa);
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      box-shadow: var(--sombra);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .risk-tag { text-transform: uppercase; font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; }
+    .risk-title { font-size: 2.8rem; font-weight: 900; margin: 0.5rem 0 1.5rem; line-height: 1; }
+    .score-box { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--cinza-escuro); }
+
+    .explanation-box { text-align: left; background: var(--cinza-gelo); padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; }
+
+    /* Bloco de Conversão (Upsell) */
+    .conversion-card {
+      background: var(--branco-puro);
+      border-radius: 24px;
+      box-shadow: var(--sombra);
       overflow: hidden;
-      width: 100%;
+      border: 1px solid var(--cinza-medio);
     }
-
-    .diagnosis-header {
-      background: linear-gradient(135deg, rgba(142, 68, 173, .08) 0%, rgba(255, 159, 67, .06) 100%);
-      padding: 20px 16px;
-      border-bottom: 1px solid var(--cinza-medio);
+    .conv-header {
+      background: var(--preto-suave);
+      color: white;
+      padding: 2rem;
       text-align: center;
     }
+    .conv-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .conv-body { padding: 2.5rem 2rem; }
 
-    @media (min-width: 768px) {
-      .diagnosis-header {
-        padding: 30px;
-      }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
+    @media (max-width: 600px) { .promise-grid { grid-template-columns: 1fr; } }
 
-    .diagnosis-body {
-      padding: 16px;
+    .promise-item { display: flex; gap: 12px; align-items: flex-start; }
+    .promise-item .icon { 
+      width: 24px; height: 24px; background: var(--verde-crescimento); 
+      color: white; border-radius: 6px; display: flex; align-items: center; 
+      justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 14px;
     }
+    .promise-item h4 { font-size: 1.05rem; margin-bottom: 0.2rem; color: var(--preto-suave); }
+    .promise-item p { font-size: 0.9rem; color: var(--cinza-escuro); line-height: 1.4; }
 
-    @media (min-width: 768px) {
-      .diagnosis-body {
-        padding: 24px;
-      }
-    }
-
-    .progress-indicator {
+    .price-box {
       text-align: center;
-      margin-bottom: 24px;
-      font-weight: 600;
-      color: var(--accent-primario);
-      font-size: 1rem;
+      padding: 1.5rem;
+      background: var(--cinza-gelo);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
     }
+    .price-box .old { text-decoration: line-through; color: var(--cinza-escuro); font-size: 1.1rem; }
+    .price-box .new { display: block; font-size: 2.4rem; font-weight: 900; color: var(--preto-suave); }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group > label {
+    .btn-cta {
       display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--preto-puro);
-    }
-
-    .checkbox-group,
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    /* Área de toque inclui o container inteiro */
-    .checkbox-item,
-    .radio-item {
-      display: flex;
-      align-items: flex-start;
-      background: var(--cinza-ultra-claro);
-      border: 1px solid var(--cinza-medio);
-      border-radius: 12px;
-      padding: 14px 12px;
-      cursor: pointer;
-      transition: all .2s ease;
-      min-height: 48px;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (min-width: 768px) {
-      .checkbox-item,
-      .radio-item {
-        padding: 14px 16px;
-      }
-    }
-
-    .checkbox-item:hover,
-    .radio-item:hover,
-    .checkbox-item:focus-within,
-    .radio-item:focus-within {
-      border-color: var(--accent-primario);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
-      background: var(--cinza-gelo);
-    }
-
-    .checkbox-item input[type="checkbox"],
-    .radio-item input[type="radio"] {
-      margin-right: 12px;
-      min-width: 20px;
-      min-height: 20px;
-      width: 20px;
-      height: 20px;
-      accent-color: var(--accent-primario);
-      flex-shrink: 0;
-      margin-top: 1px;
-      cursor: pointer;
-    }
-
-    .checkbox-item span,
-    .radio-item span {
-      cursor: pointer;
-      font-weight: 400;
-      color: var(--preto-suave);
-      flex: 1;
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    @media (min-width: 768px) {
-      .checkbox-item span,
-      .radio-item span {
-        font-size: 1rem;
-      }
-    }
-
-    input[type="text"] {
       width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--cinza-medio);
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 1rem;
-      color: var(--preto-suave);
-      background: var(--cinza-ultra-claro);
-      transition: border-color .2s ease;
-      min-height: 48px;
-    }
-
-    input[type="text"]:focus {
-      outline: none;
-      border-color: var(--accent-primario);
-      box-shadow: 0 0 0 3px rgba(142, 68, 173, .15);
-    }
-
-    .form-navigation {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    @media (min-width: 480px) {
-      .form-navigation {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 16px;
-      }
-    }
-
-    .form-navigation .btn {
-      flex: 1;
-    }
-
-    @media (min-width: 480px) {
-      .form-navigation .btn {
-        flex: 0 1 auto;
-        min-width: 140px;
-      }
-    }
-
-    .error-message {
-      color: var(--rosa-digital);
-      font-size: .9rem;
-      margin-top: 12px;
+      padding: 1.2rem;
+      background: linear-gradient(135deg, var(--roxo-tecnologico), var(--rosa-digital));
+      color: white;
       text-align: center;
-      display: none;
-      padding: 10px;
-      background: rgba(222, 47, 116, .08);
-      border-radius: 8px;
-    }
-
-    .tooltip-text {
-      font-size: .85rem;
-      color: var(--cinza-escuro);
-      margin-top: 12px;
-      text-align: left;
-      padding: 10px;
-      background: var(--cinza-gelo);
-      border-radius: 8px;
-      border-left: 3px solid var(--accent-primario);
-    }
-
-    /* Result section */
-    .result-section {
-      text-align: center;
-      padding: 30px 0;
-    }
-
-    @media (min-width: 768px) {
-      .result-section {
-        padding: 60px 0;
-      }
-    }
-
-    .result-section h1 {
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
-    }
-
-    .result-section p {
-      font-size: 1rem;
-      color: var(--preto-suave);
-      margin-bottom: 10px;
-    }
-
-    .result-section .risk-level {
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      text-decoration: none;
       font-weight: 800;
-      margin: 20px 0;
-      line-height: 1.3;
+      font-size: 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 20px rgba(142,68,173,0.3);
+      transition: transform 0.2s ease;
     }
+    .btn-cta:hover { transform: scale(1.02); }
 
-    .result-section .score {
-      font-size: 1.1rem;
-      color: var(--cinza-escuro);
-      margin-bottom: 30px;
-    }
-
-    /* Sections visibility control */
-    .page-section {
-      display: none;
-    }
-
-    .page-section.active {
-      display: block;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--preto-puro);
-      color: var(--cinza-gelo);
-      padding: 44px 16px 28px;
-      text-align: center;
-      width: 100%;
-    }
-
-    footer h3 {
-      color: var(--branco-puro);
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin: 18px 0;
-      flex-wrap: wrap;
-      font-size: .9rem;
-    }
-
-    @media (min-width: 480px) {
-      .footer-links {
-        gap: 24px;
-      }
-    }
-
-    .footer-links a {
-      color: var(--cinza-gelo);
-      transition: color .2s ease;
-      padding: 8px;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .footer-links a:hover {
-      color: var(--branco-puro);
-    }
-
-    .copyright {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, .12);
-      color: rgba(244, 247, 249, .7);
-      font-size: .9rem;
-    }
-
-    /* Processing Screen */
-    .processing-screen {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .processing-screen h2 {
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-    }
-
-    .processing-screen p {
-      font-size: 0.95rem;
-    }
-
-    /* Result Cards */
-    .result-card {
-      max-width: 600px;
-      margin: 20px auto;
-      text-align: left;
-      padding: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .result-card {
-        padding: 24px;
-      }
-    }
-
-    .result-card h3 {
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: clamp(1rem, 3vw, 1.1rem);
-    }
-
-    .result-card p {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      text-align: left;
-    }
-
-    /* CTA Final - Estilos específicos */
-    .cta-final-row {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 600px;
-      margin: 24px auto;
-      gap: 12px;
-      padding: 0 16px;
-    }
-
-    @media (min-width: 480px) {
-      .cta-final-row {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-    }
-
-    .cta-final-row .btn {
-      flex: 1 1 100%;
-    }
-
-    @media (min-width: 480px) {
-      .cta-final-row .btn {
-        flex: 1 1 auto;
-        max-width: 280px;
-      }
-    }
-
-    /* Utilities para mobile */
-    @media (max-width: 479px) {
-      .hide-mobile {
-        display: none !important;
-      }
-    }
-
-    /* Garantir que nenhum elemento ultrapasse a viewport */
-    img, video, iframe {
-      max-width: 100%;
-      height: auto;
-    }
+    footer { text-align: center; padding: 3rem 1rem; color: var(--cinza-escuro); font-size: 0.9rem; }
   </style>
 </head>
-
 <body>
-  <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
-  <!-- HEADER -->
   <header>
-    <div class="header-content">
-      <div class="logo">IA Risk</div>
-      <nav aria-label="Menu principal">
-        <ul class="nav-links">
-          <li><a href="#como-funciona" onclick="showPage('landing')">Como funciona</a></li>
-          <li><a href="#entregaveis" onclick="showPage('landing')">O que você recebe</a></li>
-          <li><a href="#preco" onclick="showPage('landing')">Preço</a></li>
-          <li><a href="#faq" onclick="showPage('landing')">FAQ</a></li>
-        </ul>
-      </nav>
-      <button class="btn-header" onclick="startDiagnosis()" type="button" aria-label="Iniciar diagnóstico gratuito">Diagnóstico grátis</button>
-    </div>
+    <img src="https://www.estudioescritaplanejada.com.br/wp-content/uploads/2024/12/logo-estudio-escrita-planejada.png" alt="Estúdio Escrita Planejada" style="height: 40px;">
   </header>
 
-  <main id="main">
-    <!-- LANDING PAGE -->
-    <div id="landing-page" class="page-section active">
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-titulo">
-        <div class="hero-card">
-          <div class="hero-stack">
-            <div class="micro">Diagnóstico Rápido</div>
-            <h1 id="hero-titulo">Descubra se o seu trabalho está ficando substituível por IA.</h1>
-            <p class="lead">Em 5 minutos você recebe um diagnóstico e um caminho curto para continuar necessário — sem "curso genérico".</p>
+  <div class="container" id="quiz-wrapper">
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 
-            <div class="cta-row">
-              <button onclick="startDiagnosis()" class="btn btn-primary" type="button">Começar diagnóstico grátis</button>
-              <button class="btn btn-secondary" onclick="scrollToSection('como-funciona')" type="button">Ver como funciona</button>
-            </div>
-
-            <div class="note-links">
-              <p>Sem currículo. Sem cadastro no início. Sem promessa de emprego.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROBLEMA -->
-      <section aria-labelledby="problema-titulo" style="background:var(--cinza-ultra-claro)">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="problema-titulo">O que está acontecendo <span class="accent">(de verdade)</span></h2>
-          </div>
-
-          <div class="grid" role="list" aria-label="Realidade do mercado">
-            <div class="bullet col-12" role="listitem">
-              <p>Não é "a IA". É gente usando IA fazendo o mesmo trabalho em menos tempo.</p>
-            </div>
-            <div class="bullet col-12" role="listitem">
-              <p>A maioria das perdas vem de tarefas repetitivas e padronizadas.</p>
-            </div>
-            <div class="bullet col-12" role="listitem">
-              <p>Quem continua empregado muda de função: executa menos, valida e decide mais.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMO FUNCIONA -->
-      <section id="como-funciona" aria-labelledby="funciona-titulo" style="background:var(--cinza-ultra-claro)">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="funciona-titulo">Como <span class="accent">Funciona</span></h2>
-          </div>
-
-          <div class="steps" aria-label="Processo em 3 passos">
-            <div class="step">
-              <div class="step-num" aria-hidden="true">1</div>
-              <h4>Diagnóstico (5 min)</h4>
-              <p>Você descreve suas tarefas. Nós estimamos o risco de automação e pontos preserváveis.</p>
-            </div>
-
-            <div class="step">
-              <div class="step-num" aria-hidden="true">2</div>
-              <h4>Simulação Prática</h4>
-              <p>Você atua como "validador humano": aprova, corrige ou rejeita saídas da IA.</p>
-            </div>
-
-            <div class="step">
-              <div class="step-num" aria-hidden="true">3</div>
-              <h4>Prova de Valor</h4>
-              <p>Você sai com um relatório/portfólio funcional para mostrar que sabe operar com IA.</p>
-            </div>
-          </div>
-
-          <div class="center-text" style="margin-top:28px">
-            <button onclick="startDiagnosis()" class="btn btn-primary" type="button">Começar diagnóstico grátis</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- ENTREGÁVEIS -->
-      <section id="entregaveis" aria-labelledby="entrega-titulo">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="entrega-titulo">O que você <span class="accent">Recebe</span></h2>
-          </div>
-
-          <div class="grid" aria-label="Entregáveis">
-            <div class="card col-6">
-              <h3 class="accent">Score de Vulnerabilidade</h3>
-              <p style="text-align:left;color:var(--preto-suave)">O que está em risco e por quê. Análise clara do seu perfil profissional.</p>
-            </div>
-
-            <div class="card col-6">
-              <h3 class="accent">Mapa de Transição</h3>
-              <p style="text-align:left;color:var(--preto-suave)">Função-alvo recomendada. Um caminho curto e prático.</p>
-            </div>
-
-            <div class="card col-6">
-              <h3 class="accent">Simulação de Decisões</h3>
-              <p style="text-align:left;color:var(--preto-suave)">Treino prático. Você aprende validando, não só assistindo.</p>
-            </div>
-
-            <div class="card col-6">
-              <h3 class="accent">Prova de Valor</h3>
-              <p style="text-align:left;color:var(--preto-suave)">PDF/link gerado. Você leva para mostrar que sabe operar com IA.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PREÇO -->
-      <section id="preco" aria-labelledby="preco-titulo">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="preco-titulo">Quanto <span class="accent">Custa</span></h2>
-          </div>
-
-          <div class="grid" aria-label="Opções de preço">
-            <div class="pricing-card col-6">
-              <h3>Diagnóstico Inicial</h3>
-              <div class="price">R$ 0</div>
-              <p class="muted" style="margin-bottom:18px">Análise completa em 5 minutos</p>
-              <button onclick="startDiagnosis()" class="btn btn-secondary" type="button" style="margin-top:12px">Começar grátis</button>
-            </div>
-
-            <div class="pricing-card col-6">
-              <h3>Simulação + Prova de Valor</h3>
-              <div class="price">R$ 69</div>
-              <p class="muted" style="margin-bottom:18px">Completo com treino prático</p>
-              <ul class="pricing-list">
-                <li>1 cenário completo de simulação</li>
-                <li>Relatório final detalhado</li>
-                <li>Acesso por 30 dias</li>
-              </ul>
-              <a href="https://www.estudioescritaplanejada.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:12px">Acessar o Estúdio</a>
-            </div>
-          </div>
-
-          <div class="callout" style="margin-top:28px">
-            <p>Sem surpresas. Sem cobrança recorrente. Você controla o que exporta e compartilha.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" aria-labelledby="faq-titulo" style="background:var(--cinza-ultra-claro)">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="faq-titulo">Perguntas <span class="accent">Frequentes</span></h2>
-          </div>
-
-          <div style="max-width:800px;margin:24px auto 0">
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-              <h4>Isso garante emprego? <span aria-hidden="true">+</span></h4>
-              <div class="faq-answer">
-                <p>Não. Ninguém garante emprego. O que fazemos é mostrar onde você agrega valor humano que a IA não consegue replicar, e como demonstrar isso.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-              <h4>Preciso saber programar? <span aria-hidden="true">+</span></h4>
-              <div class="faq-answer">
-                <p>Não. O diagnóstico e a simulação são feitos para quem usa a tecnologia no dia a dia, não para quem a constrói.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-              <h4>Em quanto tempo vejo resultado? <span aria-hidden="true">+</span></h4>
-              <div class="faq-answer">
-                <p>O diagnóstico é imediato (5 minutos). A simulação leva quanto tempo você quiser dedicar. O relatório sai pronto para usar.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-              <h4>Isso é um curso? <span aria-hidden="true">+</span></h4>
-              <div class="faq-answer">
-                <p>Não. É simulação e prova prática. Você aprende fazendo, não assistindo a aulas. Bem diferente.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-              <h4>Meus dados ficam públicos? <span aria-hidden="true">+</span></h4>
-              <div class="faq-answer">
-                <p>Não. Seus dados são privados. Você controla o que compartilha, exporta ou mantém guardado.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA FINAL -->
-      <section aria-labelledby="final-titulo" style="background:var(--cinza-ultra-claro)">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="final-titulo">Você prefere descobrir agora ou depois que a renda <span class="accent">cair?</span></h2>
-            <button onclick="startDiagnosis()" class="btn btn-primary" type="button" style="margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto">Fazer diagnóstico grátis</button>
-          </div>
-        </div>
-      </section>
+    <div id="q-intro" class="hero-quiz">
+      <h1>Seu trabalho está seguro ou a IA vai assumir seu lugar?</h1>
+      <p>Este diagnóstico analisa a natureza das suas tarefas e determina o seu nível de exposição à automação nos próximos 12 meses.</p>
+      <button class="btn-cta" style="margin-top: 1.5rem; max-width: 300px; margin-left: auto; margin-right: auto;" onclick="startQuiz()">Começar Diagnóstico</button>
     </div>
 
-    <!-- DIAGNÓSTICO PAGE -->
-    <div id="diagnosis-page" class="page-section">
-      <!-- HERO / INTRODUÇÃO -->
-      <section class="hero" aria-labelledby="diagnosis-hero-titulo">
-        <div class="hero-card">
-          <div class="hero-stack">
-            <h1 id="diagnosis-hero-titulo" style="font-size:clamp(1.5rem, 4vw, 1.8rem);">Diagnóstico de Risco de Substituição por IA</h1>
-            <p class="lead">Em 5–7 minutos, você descobre quanto do seu trabalho atual já pode ser automatizado e onde você ainda gera valor humano.</p>
-
-            <ul class="note-links" style="margin-top:0;margin-bottom:16px;list-style:none;padding:0;">
-              <li><p>Sem currículo e sem perguntas pessoais.</p></li>
-              <li><p>Avalia tarefas reais, não "talento".</p></li>
-              <li><p>Resultado imediato.</p></li>
-            </ul>
-
-            <div class="cta-row">
-              <button id="start-diagnosis-btn" class="btn btn-primary" type="button">Iniciar diagnóstico</button>
-            </div>
-
-            <div class="note-links">
-              <p>Se preferir, você pode sair a qualquer momento. Suas respostas não ficam públicas.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- O QUE ESTE TESTE FAZ -->
-      <section aria-labelledby="oque-mede-titulo" style="background:var(--cinza-ultra-claro);padding:30px 0;">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="oque-mede-titulo" style="font-size:clamp(1.1rem, 3vw, 1.3rem);">O que este diagnóstico <span class="accent">mede</span></h2>
-          </div>
-
-          <div class="card">
-            <p style="text-align:left;margin-bottom:12px;font-size:0.95rem;">Este diagnóstico estima sua exposição à automação com base em 4 fatores:</p>
-            <ul class="pricing-list">
-              <li>Repetição das tarefas</li>
-              <li>Regras fixas vs. exceções</li>
-              <li>Nível de decisão envolvido</li>
-              <li>Responsabilidade por erro (impacto real)</li>
-            </ul>
-            <p class="muted" style="margin-top:12px;text-align:left;font-size:0.9rem;">Ele não determina seu valor como profissional. Ele mede o risco de o formato atual do trabalho virar "commodity".</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRIVACIDADE -->
-      <section id="privacidade-section" aria-labelledby="privacidade-titulo" style="padding:30px 0;">
-        <div class="section-wrap">
-          <div class="center-text">
-            <h2 id="privacidade-titulo" style="font-size:clamp(1.1rem, 3vw, 1.3rem);">Privacidade e uso das <span class="accent">respostas</span></h2>
-          </div>
-
-          <div class="card">
-            <ul class="pricing-list">
-              <li>Suas respostas são usadas para gerar seu diagnóstico.</li>
-              <li>Você controla o que exporta ou compartilha depois.</li>
-              <li>Não vendemos seus dados.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- FORMULÁRIO DO DIAGNÓSTICO -->
-      <section id="form-diagnostico" aria-labelledby="form-titulo" style="background:var(--cinza-ultra-claro); display:none;">
-        <div class="diagnosis-container">
-          <div class="diagnosis-box">
-            <div class="diagnosis-header">
-              <h2 id="form-titulo" style="margin-bottom:12px;font-size:clamp(1.2rem, 3vw, 1.5rem);">Vamos mapear seu trabalho <span class="accent">atual</span></h2>
-              <p class="progress-indicator" style="margin-bottom:8px;">Etapa <span id="current-step">1</span> de <span id="total-steps">5</span></p>
-              <p class="muted" style="font-size:0.9rem;">Responda pensando no seu dia a dia das últimas 2 semanas.</p>
-            </div>
-            <div class="diagnosis-body">
-              <form id="diagnosis-form" novalidate>
-                <!-- ETAPA 1 — Mapeamento de tarefas -->
-                <div class="form-section active" data-step="1">
-                  <div class="card">
-                    <h3>Quais atividades você executa com mais frequência?</h3>
-                    <p class="muted" style="margin-bottom:16px;">Marque todas as que fazem parte da sua rotina.</p>
-                    <div class="checkbox-group">
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="mensagens">
-                        <span>Responder mensagens/solicitações (WhatsApp, e-mail, chat)</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="organizar">
-                        <span>Organizar informações (planilhas, documentos, sistemas)</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="procedimentos">
-                        <span>Seguir procedimentos e checklists</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="cadastros">
-                        <span>Preencher cadastros e atualizar registros</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="textos">
-                        <span>Criar textos ou materiais simples (comunicados, posts, descrições)</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="revisar">
-                        <span>Conferir dados, revisar e corrigir</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="excecoes">
-                        <span>Resolver exceções (casos fora do padrão)</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="decisoes">
-                        <span>Tomar decisões finais (aprovação/reprovação)</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="atendimento">
-                        <span>Atender clientes/usuários e lidar com reclamações</span>
-                      </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="task" value="followup">
-                        <span>Acompanhar prazos e status (follow-up)</span>
-                      </label>
-                    </div>
-                    <div class="form-group" style="margin-top:20px;">
-                      <label for="other-task">Outro (descreva em poucas palavras)</label>
-                      <input type="text" id="other-task" name="other_task" placeholder="Ex.: conciliar pagamentos, emitir notas, agendar entregas...">
-                    </div>
-                    <p class="error-message" id="error-step1">Selecione pelo menos 1 atividade para continuar.</p>
-                    <div class="form-navigation">
-                      <button type="button" class="btn btn-primary next-step">Continuar</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ETAPA 2 — Grau de repetição -->
-                <div class="form-section" data-step="2">
-                  <div class="card">
-                    <h3>Com que frequência suas tarefas seguem o mesmo padrão?</h3>
-                    <div class="radio-group">
-                      <label class="radio-item">
-                        <input type="radio" name="repetition" value="quase-sempre">
-                        <span>Quase sempre (80% do tempo ou mais)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="repetition" value="muito">
-                        <span>Muito (cerca de 60% do tempo)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="repetition" value="metade">
-                        <span>Metade do tempo (50%)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="repetition" value="pouco">
-                        <span>Pouco (raramente se repetem)</span>
-                      </label>
-                    </div>
-                    <p class="error-message" id="error-step2">Selecione uma opção para continuar.</p>
-                    <div class="form-navigation">
-                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                      <button type="button" class="btn btn-primary next-step">Continuar</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ETAPA 3 — Regras vs. Exceções -->
-                <div class="form-section" data-step="3">
-                  <div class="card">
-                    <h3>Para realizar seu trabalho, você consulta manuais ou regras fixas?</h3>
-                    <div class="radio-group">
-                      <label class="radio-item">
-                        <input type="radio" name="rules" value="rigidas">
-                        <span>Sim, as regras são rígidas e claras</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="rules" value="maioria">
-                        <span>Na maioria das vezes, mas há exceções</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="rules" value="depende">
-                        <span>Depende muito de cada caso</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="rules" value="subjetivo">
-                        <span>É subjetivo, não há um manual exato</span>
-                      </label>
-                    </div>
-                    <p class="error-message" id="error-step3">Selecione uma opção para continuar.</p>
-                    <div class="form-navigation">
-                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                      <button type="button" class="btn btn-primary next-step">Continuar</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ETAPA 4 — Tomada de decisão -->
-                <div class="form-section" data-step="4">
-                  <div class="card">
-                    <h3>Qual o nível de decisão que você tem no dia a dia?</h3>
-                    <div class="radio-group">
-                      <label class="radio-item">
-                        <input type="radio" name="decision" value="baixo">
-                        <span>Baixo (apenas executo o que foi pedido)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="decision" value="medio">
-                        <span>Médio (decido como fazer, mas não o que fazer)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="decision" value="alto">
-                        <span>Alto (sou responsável pela decisão final)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="decision" value="total">
-                        <span>Total (sou o responsável último pelo resultado)</span>
-                      </label>
-                    </div>
-                    <p class="error-message" id="error-step4">Selecione uma opção para continuar.</p>
-                    <div class="form-navigation">
-                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                      <button type="button" class="btn btn-primary next-step">Continuar</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ETAPA 5 — Impacto do erro -->
-                <div class="form-section" data-step="5">
-                  <div class="card">
-                    <h3>Se você cometer um erro, qual o impacto imediato?</h3>
-                    <div class="radio-group">
-                      <label class="radio-item">
-                        <input type="radio" name="impact" value="irrelevante">
-                        <span>Irrelevante (fácil de corrigir sem danos)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="impact" value="operacional">
-                        <span>Operacional (gera retrabalho para a equipe)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="impact" value="financeiro">
-                        <span>Financeiro/Reputacional (prejuízo direto)</span>
-                      </label>
-                      <label class="radio-item">
-                        <input type="radio" name="impact" value="critico">
-                        <span>Crítico (pode inviabilizar o negócio ou causar danos graves)</span>
-                      </label>
-                    </div>
-                    <p class="error-message" id="error-step5">Selecione uma opção para finalizar.</p>
-                    <div class="form-navigation">
-                      <button type="button" class="btn btn-secondary prev-step">Voltar</button>
-                      <button type="button" class="btn btn-primary" id="finish-diagnosis">Finalizar Diagnóstico</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TELA DE PROCESSAMENTO -->
-      <section id="processing-section" style="display:none; padding:60px 0;">
-        <div class="diagnosis-container">
-          <div class="diagnosis-box processing-screen">
-            <h2 class="accent">Analisando seu perfil...</h2>
-            <p>Cruzando suas respostas com padrões de automação por IA.</p>
-            <div style="margin:30px auto; width:50px; height:50px; border:5px solid var(--cinza-medio); border-top-color:var(--accent-primario); border-radius:50%; animation:spin 1s linear infinite;"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESULTADO DO DIAGNÓSTICO -->
-      <section id="result-section" style="display:none; background:var(--cinza-ultra-claro); padding:40px 0;">
-        <div class="diagnosis-container">
-          <div class="diagnosis-box result-section">
-            <div class="diagnosis-header">
-              <h2 class="accent">Seu Diagnóstico está pronto</h2>
-            </div>
-            <div class="diagnosis-body">
-              <p>Nível de risco de substituição atual:</p>
-              <div id="risk-level-display" class="risk-level">Calculando...</div>
-              <p id="score-display" class="score">Score: --/100</p>
-
-              <div id="risk-explanation" class="result-card card">
-                <h3>O que isso significa?</h3>
-                <p id="risk-text">Aguarde a análise...</p>
-              </div>
-
-              <div class="result-card card" style="background:var(--branco-puro); border-top: 4px solid var(--accent-primario);">
-                <h3 class="accent">Próximo Passo Recomendado</h3>
-                <p id="next-step-text">Com base no seu perfil, o caminho mais seguro é...</p>
-              </div>
-
-              <div class="cta-final-row">
-                <button onclick="showPage('landing')" class="btn btn-secondary" type="button">Voltar ao Início</button>
-                <a href="https://www.estudioescritaplanejada.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Acessar o Estúdio</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- Perguntas -->
+    <div class="question-card" id="q1">
+      <span class="q-number">Pergunta 01/05</span>
+      <h3>Qual a natureza predominante das suas tarefas diárias?</h3>
+      <div class="options">
+        <div class="option" onclick="next(1, 25)">Altamente repetitivas (processamento de dados, preenchimento de planilhas).</div>
+        <div class="option" onclick="next(1, 15)">Mistas (parte técnica repetitiva, parte análise crítica ou reuniões).</div>
+        <div class="option" onclick="next(1, 5)">Altamente criativas ou estratégicas (resolução de problemas únicos e complexos).</div>
+      </div>
     </div>
-  </main>
+
+    <div class="question-card" id="q2">
+      <span class="q-number">Pergunta 02/05</span>
+      <h3>Quanto do seu valor profissional depende de julgamento subjetivo ou empatia?</h3>
+      <div class="options">
+        <div class="option" onclick="next(2, 5)">Muito (faço gestão de pessoas, crises e relacionamentos complexos).</div>
+        <div class="option" onclick="next(2, 15)">Moderado (uso regras claras, mas interpreto nuances de cada caso).</div>
+        <div class="option" onclick="next(2, 25)">Pouco (meu trabalho é técnico e baseado em fatos/instruções diretas).</div>
+      </div>
+    </div>
+
+    <div class="question-card" id="q3">
+      <span class="q-number">Pergunta 03/05</span>
+      <h3>Qual o nível de previsibilidade do seu ambiente de trabalho?</h3>
+      <div class="options">
+        <div class="option" onclick="next(3, 25)">Previsível (as demandas seguem um padrão fixo e rotineiro).</div>
+        <div class="option" onclick="next(3, 15)">Dinâmico (existem padrões, mas lido com imprevistos frequentes).</div>
+        <div class="option" onclick="next(3, 5)">Caótico/Estratégico (cada dia exige uma abordagem completamente nova).</div>
+      </div>
+    </div>
+
+    <div class="question-card" id="q4">
+      <h3>Qual o formato da "entrega final" do seu trabalho?</h3>
+      <div class="options">
+        <div class="option" onclick="next(4, 25)">Textos, códigos ou dados que a IA já gera com alta precisão hoje.</div>
+        <div class="option" onclick="next(4, 15)">Projetos integrados que exigem validação de diferentes áreas.</div>
+        <div class="option" onclick="next(4, 5)">Ações físicas, decisões jurídicas ou responsabilidades de alto risco.</div>
+      </div>
+    </div>
+
+    <div class="question-card" id="q5">
+      <h3>Como você utiliza a IA hoje na sua profissão?</h3>
+      <div class="options">
+        <div class="option" onclick="finish(0)">Diariamente (já tenho fluxos estruturados e ganho tempo).</div>
+        <div class="option" onclick="finish(10)">Ocasionalmente (uso o ChatGPT como um Google melhorado).</div>
+        <div class="option" onclick="finish(20)">Nunca (ou apenas testei sem aplicar em processos reais).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="container" id="result-area">
+    <div class="result-header">
+      <span class="risk-tag" id="risk-tag">Calculando...</span>
+      <h2 class="risk-title" id="risk-title">---</h2>
+      <div class="score-box" id="score-box">Vulnerabilidade: 0%</div>
+      <div class="explanation-box" id="explanation-text">---</div>
+    </div>
+
+    <div class="conversion-card">
+      <div class="conv-header">
+        <h2>Sua Nova Rotina Profissional</h2>
+        <p>Saia da vulnerabilidade e assuma o controle técnico com a IA.</p>
+      </div>
+      <div class="conv-body">
+        <p style="margin-bottom: 1.5rem; text-align: center; color: var(--cinza-escuro);">
+          O diagnóstico aponta o risco, mas a <strong>Sessão Individual de Aplicação</strong> entrega o sistema para eliminá-lo. 
+          Em 60 minutos, construiremos a sua estrutura de trabalho personalizada:
+        </p>
+
+        <div class="promise-grid">
+          <div class="promise-item">
+            <div class="icon">✓</div>
+            <div>
+              <h4>Mapeamento de Fluxo</h4>
+              <p>Desenhamos o passo a passo exato da sua rotina integrada à IA.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="icon">✓</div>
+            <div>
+              <h4>Biblioteca de Prompts</h4>
+              <p>Prompts personalizados para sua voz e necessidades profissionais.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="icon">✓</div>
+            <div>
+              <h4>Autonomia Técnica</h4>
+              <p>Você aprende a operar o sistema sozinho, sem depender de ninguém.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="icon">✓</div>
+            <div>
+              <h4>Guia de Validação</h4>
+              <p>Como revisar e garantir que o resultado da IA é profissional e seguro.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <span class="old">De R$ 197,00</span>
+          <span class="new">Por R$ 97,00</span>
+          <small style="color: var(--cinza-escuro)">Sessão Individual (1:1) • 60 Minutos</small>
+        </div>
+
+        <a id="wa-link" href="#" class="btn-cta">Agendar minha Sessão de Aplicação</a>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    <h3>IA Risk - Estúdio Escrita Planejada</h3>
-    <div class="footer-links">
-      <a href="https://www.estudioescritaplanejada.com.br/" target="_blank" rel="noopener noreferrer">O Estúdio</a>
-      <a href="https://wa.me/5511964502997" target="_blank" rel="noopener noreferrer">Contato</a>
-      <a href="#" onclick="alert('Página de Termos em construção.')">Termos de Uso</a>
-    </div>
-    <p class="copyright">© 2025 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Estúdio Escrita Planejada • Todos os direitos reservados.</p>
   </footer>
 
-  <style>
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
-
   <script>
-    // Navegação entre Landing e Diagnóstico
-    function showPage(pageId) {
-      document.querySelectorAll('.page-section').forEach(section => {
-        section.classList.remove('active');
-      });
+    let totalScore = 0;
+    const progress = document.getElementById('progress');
 
-      if (pageId === 'landing') {
-        document.getElementById('landing-page').classList.add('active');
-        window.scrollTo(0, 0);
-      } else if (pageId === 'diagnosis') {
-        document.getElementById('diagnosis-page').classList.add('active');
-        window.scrollTo(0, 0);
-      }
+    function startQuiz() {
+      document.getElementById('q-intro').style.display = 'none';
+      document.getElementById('q1').classList.add('active');
+      progress.style.width = '20%';
     }
 
-    function startDiagnosis() {
-      showPage('diagnosis');
-      // Resetar o formulário se necessário
-      resetDiagnosis();
+    function next(current, value) {
+      totalScore += value;
+      document.getElementById('q' + current).classList.remove('active');
+      const nextQ = current + 1;
+      document.getElementById('q' + nextQ).classList.add('active');
+      progress.style.width = (nextQ * 20) + '%';
     }
 
-    function resetDiagnosis() {
-      document.getElementById('privacidade-section').style.display = 'block';
-      document.getElementById('form-diagnostico').style.display = 'none';
-      document.getElementById('processing-section').style.display = 'none';
-      document.getElementById('result-section').style.display = 'none';
-      document.getElementById('start-diagnosis-btn').parentElement.parentElement.parentElement.parentElement.style.display = 'flex';
-
-      // Reset form steps
-      currentStep = 1;
-      updateStepVisibility();
-    }
-
-    function scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    // FAQ Accordion
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-        const span = item.querySelector('h4 span');
-        if (item.classList.contains('active')) {
-          span.textContent = '×';
-        } else {
-          span.textContent = '+';
-        }
-      });
-    });
-
-    // Lógica do Formulário de Diagnóstico
-    let currentStep = 1;
-    const totalSteps = 5;
-
-    document.getElementById('start-diagnosis-btn').addEventListener('click', function() {
-      // Esconder hero e seções de texto
-      this.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
-      document.getElementById('privacidade-section').style.display = 'none';
-      document.getElementById('oque-mede-titulo').parentElement.parentElement.style.display = 'none';
-
-      // Mostrar formulário
-      document.getElementById('form-diagnostico').style.display = 'block';
+    function finish(value) {
+      totalScore += value;
+      document.getElementById('quiz-wrapper').style.display = 'none';
+      document.getElementById('result-area').style.display = 'block';
       window.scrollTo(0, 0);
-    });
 
-    function updateStepVisibility() {
-      document.querySelectorAll('.form-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.add('active');
-      document.getElementById('current-step').textContent = currentStep;
-      window.scrollTo(0, 0);
-    }
+      const riskTag = document.getElementById('risk-tag');
+      const riskTitle = document.getElementById('risk-title');
+      const riskText = document.getElementById('explanation-text');
+      const scoreBox = document.getElementById('score-box');
 
-    document.querySelectorAll('.next-step').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (validateStep(currentStep)) {
-          currentStep++;
-          updateStepVisibility();
-        }
-      });
-    });
+      scoreBox.textContent = `Vulnerabilidade Estimada: ${totalScore}%`;
 
-    document.querySelectorAll('.prev-step').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentStep--;
-        updateStepVisibility();
-      });
-    });
+      let levelName = "";
 
-    function validateStep(step) {
-      const currentSection = document.querySelector(`.form-section[data-step="${step}"]`);
-      const errorMsg = document.getElementById(`error-step${step}`);
-
-      if (step === 1) {
-        const checkboxes = currentSection.querySelectorAll('input[name="task"]:checked');
-        if (checkboxes.length === 0) {
-          errorMsg.style.display = 'block';
-          return false;
-        }
+      if (totalScore >= 75) {
+        levelName = "Alta Vulnerabilidade";
+        riskTag.style.color = "var(--rosa-digital)";
+        riskTitle.style.color = "var(--rosa-digital)";
+        riskTitle.textContent = "ALERTA CRÍTICO";
+        riskText.innerHTML = "<strong>Cenário:</strong> Sua função atual possui uma altíssima concentração de tarefas que a IA já executa melhor e mais rápido. Nos próximos meses, a pressão por eficiência pode tornar seu cargo obsoleto se você não mudar sua forma de operar agora.";
+      } else if (totalScore >= 45) {
+        levelName = "Risco Moderado";
+        riskTag.style.color = "var(--amarelo-solar)";
+        riskTitle.style.color = "var(--amarelo-solar)";
+        riskTitle.textContent = "EXPOSIÇÃO PARCIAL";
+        riskText.innerHTML = "<strong>Cenário:</strong> Você tem um 'escudo' de subjetividade, mas o núcleo técnico do seu trabalho está sendo erodido pela automação. O mercado exigirá que você produza o dobro no mesmo tempo. A IA não vai te substituir, mas um profissional que usa IA vai.";
       } else {
-        const radio = currentSection.querySelector('input:checked');
-        if (!radio) {
-          errorMsg.style.display = 'block';
-          return false;
-        }
+        levelName = "Baixa Vulnerabilidade";
+        riskTag.style.color = "var(--verde-crescimento)";
+        riskTitle.style.color = "var(--verde-crescimento)";
+        riskTitle.textContent = "POTENCIAL ESTRATÉGICO";
+        riskText.innerHTML = "<strong>Cenário:</strong> Seu trabalho é blindado por decisões complexas e responsabilidade humana. Para você, a IA não é uma ameaça, mas o 'exosqueleto' que permitirá você escalar sua consultoria ou entrega sem aumentar sua carga horária.";
       }
 
-      if (errorMsg) errorMsg.style.display = 'none';
-      return true;
-    }
+      riskTag.textContent = levelName;
 
-    // Finalizar Diagnóstico
-    document.getElementById('finish-diagnosis').addEventListener('click', function() {
-      if (validateStep(5)) {
-        processResults();
-      }
-    });
-
-    function processResults() {
-      document.getElementById('form-diagnostico').style.display = 'none';
-      document.getElementById('processing-section').style.display = 'block';
-      window.scrollTo(0, 0);
-
-      // Simular processamento
-      setTimeout(() => {
-        calculateAndDisplayScore();
-        document.getElementById('processing-section').style.display = 'none';
-        document.getElementById('result-section').style.display = 'block';
-        window.scrollTo(0, 0);
-      }, 2500);
-    }
-
-    function calculateAndDisplayScore() {
-      const form = document.getElementById('diagnosis-form');
-      const formData = new FormData(form);
-
-      // Lógica simplificada de cálculo
-      let score = 0;
-
-      // Fator 1: Tarefas (mais tarefas repetitivas = mais risco)
-      const tasks = formData.getAll('task');
-      const highRiskTasks = ['organizar', 'cadastros', 'procedimentos', 'revisar'];
-      tasks.forEach(t => {
-        if (highRiskTasks.includes(t)) score += 10;
-        else score += 5;
-      });
-
-      // Fator 2: Repetição
-      const rep = formData.get('repetition');
-      if (rep === 'quase-sempre') score += 25;
-      else if (rep === 'muito') score += 15;
-      else if (rep === 'metade') score += 10;
-
-      // Fator 3: Regras
-      const rules = formData.get('rules');
-      if (rules === 'rigidas') score += 20;
-      else if (rules === 'maioria') score += 10;
-
-      // Fator 4: Decisão (menos decisão = mais risco)
-      const decision = formData.get('decision');
-      if (decision === 'baixo') score += 15;
-      else if (decision === 'medio') score += 5;
-      else if (decision === 'alto' || decision === 'total') score -= 10;
-
-      // Fator 5: Impacto (menos impacto = mais risco)
-      const impact = formData.get('impact');
-      if (impact === 'irrelevante') score += 10;
-      else if (impact === 'operacional') score += 5;
-      else if (impact === 'financeiro' || impact === 'critico') score -= 15;
-
-      // Normalizar score entre 0 e 100
-      score = Math.max(10, Math.min(95, score));
-
-      // Determinar Nível e Textos
-      let level = "";
-      let explanation = "";
-      let nextStep = "";
-      let color = "";
-
-      if (score >= 75) {
-        level = "RISCO ALTO";
-        color = "var(--rosa-digital)";
-        explanation = "Seu trabalho atual possui alta densidade de tarefas padronizadas e baseadas em regras. Isso o torna um alvo direto para automação imediata por ferramentas de IA generativa e sistemas de RPA.";
-        nextStep = "O caminho é a Transição de Papel. Você deve parar de ser o 'executor' da tarefa e passar a ser o 'validador' ou 'estrategista' que opera a IA. Foque em aprender a auditar e refinar o que a IA produz.";
-      } else if (score >= 45) {
-        level = "RISCO MODERADO";
-        color = "var(--amarelo-solar)";
-        explanation = "Você lida com um misto de tarefas repetitivas e decisões que exigem contexto. A IA não vai substituir você inteiramente agora, mas vai reduzir a necessidade de pessoas na sua função atual.";
-        nextStep = "O caminho é a Especialização Híbrida. Identifique as tarefas chatas que a IA já faz e use o tempo ganho para focar na resolução de exceções e no atendimento consultivo, onde a confiança humana é a chave.";
-      } else {
-        level = "RISCO BAIXO";
-        color = "var(--verde-crescimento)";
-        explanation = "Seu trabalho exige alto nível de julgamento subjetivo, lida com muitas exceções ou tem um impacto crítico onde a responsabilidade humana não pode ser delegada a um algoritmo.";
-        nextStep = "O caminho é a Ampliação de Escala. A IA é sua aliada para aumentar sua produtividade, não uma ameaça. Use-a para automatizar sua parte administrativa e foque 100% na estratégia e no relacionamento de alto nível.";
-      }
-
-      // Exibir
-      const levelEl = document.getElementById('risk-level-display');
-      levelEl.textContent = level;
-      levelEl.style.color = color;
-
-      document.getElementById('score-display').textContent = `Vulnerabilidade Estimada: ${score}%`;
-      document.getElementById('risk-text').textContent = explanation;
-      document.getElementById('next-step-text').textContent = nextStep;
+      // WhatsApp Link Dinâmico
+      const waMsg = `Olá! Fiz o diagnóstico de IA (Resultado: ${levelName} - ${totalScore}%) e quero agendar minha Sessão Individual de Aplicação por R$97 para estruturar meu fluxo de trabalho.`;
+      document.getElementById('wa-link').href = `https://wa.me/5541988245710?text=${encodeURIComponent(waMsg)}`;
     }
   </script>
 </body>
