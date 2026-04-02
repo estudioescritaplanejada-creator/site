@@ -1,0 +1,1769 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idea to Video System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+--paper: #F7F4EF;
+--paper-dark: #EDE9E2;
+--ink: #1A1714;
+--ink-mid: #4A4540;
+--ink-light: #9A948C;
+--accent: #C8401A;
+--accent-pale:#F5EBE6;
+--accent-mid: #E8956A;
+--rule: #D4CEC6;
+
+--serif: 'Playfair Display', Georgia, serif;
+--sans: 'Barlow', sans-serif;
+--cond: 'Barlow Condensed', sans-serif;
+--mono: 'DM Mono', monospace;
+
+--page-w: 794px;
+--page-h: 1123px;
+--margin-out: 64px;
+--margin-in: 56px;
+--col-label: 48px;
+}
+
+html { background: #D0CBC2; }
+
+body {
+font-family: var(--sans);
+font-weight: 300;
+color: var(--ink);
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ── PAGE SYSTEM ──────────────────────────────────────────── */
+.page {
+width: var(--page-w);
+min-height: var(--page-h);
+background: var(--paper);
+margin: 32px auto;
+position: relative;
+overflow: hidden;
+box-shadow: 0 4px 40px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.12);
+page-break-after: always;
+}
+
+@media print {
+html { background: white; }
+.page { margin: 0; box-shadow: none; page-break-after: always; }
+}
+
+/* ── PAGE INNER ───────────────────────────────────────────── */
+.page-inner {
+padding: var(--margin-out) var(--margin-out) var(--margin-out) var(--margin-in);
+height: 100%;
+display: flex;
+flex-direction: column;
+}
+
+/* ── RUNNING HEADER ───────────────────────────────────────── */
+.running-head {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-bottom: 14px;
+border-bottom: 1px solid var(--ink);
+margin-bottom: 48px;
+flex-shrink: 0;
+}
+
+.running-head .rh-left {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.12em;
+color: var(--ink-light);
+text-transform: uppercase;
+}
+
+.running-head .rh-right {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.12em;
+color: var(--ink-light);
+text-transform: uppercase;
+}
+
+.running-head .rh-accent {
+color: var(--accent);
+font-weight: 500;
+}
+
+/* ── PAGE FOOTER ──────────────────────────────────────────── */
+.page-foot {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-top: 16px;
+border-top: 1px solid var(--rule);
+margin-top: auto;
+flex-shrink: 0;
+}
+
+.page-foot .pf-num {
+font-family: var(--mono);
+font-size: 9px;
+color: var(--ink-light);
+letter-spacing: 0.1em;
+}
+
+.page-foot .pf-title {
+font-family: var(--mono);
+font-size: 9px;
+color: var(--ink-light);
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+/* ── SECTION LABEL SYSTEM ─────────────────────────────────── */
+.section-label {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+margin-bottom: 32px;
+}
+
+.sec-num {
+font-family: var(--cond);
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 0.2em;
+color: var(--accent);
+text-transform: uppercase;
+padding-top: 6px;
+white-space: nowrap;
+min-width: 36px;
+}
+
+.sec-title-group { flex: 1; }
+
+.sec-tag {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.18em;
+color: var(--ink-light);
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+
+.sec-title {
+font-family: var(--serif);
+font-size: 36px;
+font-weight: 700;
+line-height: 1.05;
+color: var(--ink);
+letter-spacing: -0.01em;
+}
+
+.sec-rule {
+width: 100%;
+height: 1px;
+background: var(--ink);
+margin-top: 16px;
+margin-bottom: 28px;
+}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────── */
+.body-text {
+font-family: var(--sans);
+font-size: 11.5px;
+font-weight: 300;
+line-height: 1.75;
+color: var(--ink);
+margin-bottom: 16px;
+}
+
+.body-text + .body-text { margin-top: -4px; }
+
+.subhead {
+font-family: var(--serif);
+font-size: 17px;
+font-weight: 700;
+font-style: italic;
+color: var(--ink);
+margin-bottom: 10px;
+margin-top: 24px;
+line-height: 1.3;
+}
+
+.subhead-sans {
+font-family: var(--cond);
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--ink-mid);
+margin-bottom: 8px;
+margin-top: 22px;
+}
+
+.label {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--ink-light);
+}
+
+/* ── CALLOUT ──────────────────────────────────────────────── */
+.callout {
+border-left: 3px solid var(--accent);
+padding: 16px 20px;
+background: var(--accent-pale);
+margin: 20px 0;
+}
+
+.callout p {
+font-family: var(--serif);
+font-size: 13.5px;
+font-style: italic;
+line-height: 1.6;
+color: var(--ink);
+}
+
+.callout-dark {
+border-left: 3px solid var(--ink);
+padding: 18px 22px;
+background: var(--ink);
+margin: 20px 0;
+}
+
+.callout-dark p {
+font-family: var(--serif);
+font-size: 14px;
+font-style: italic;
+line-height: 1.6;
+color: var(--paper);
+text-align: center;
+}
+
+/* ── FLOW DIAGRAM ─────────────────────────────────────────── */
+.flow {
+display: flex;
+align-items: center;
+gap: 0;
+margin: 24px 0;
+border: 1px solid var(--rule);
+}
+
+.flow-node {
+flex: 1;
+padding: 18px 12px;
+text-align: center;
+border-right: 1px solid var(--rule);
+}
+
+.flow-node:last-child { border-right: none; }
+
+.flow-node-label {
+font-family: var(--cond);
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--accent);
+display: block;
+margin-bottom: 4px;
+}
+
+.flow-node-desc {
+font-family: var(--sans);
+font-size: 9.5px;
+color: var(--ink-light);
+line-height: 1.4;
+}
+
+.flow-arrow {
+padding: 0 4px;
+color: var(--ink-light);
+font-size: 14px;
+flex-shrink: 0;
+}
+
+/* ── DO / DON'T TABLE ─────────────────────────────────────── */
+.do-dont {
+display: grid;
+grid-template-columns: 1fr 1fr;
+border: 1px solid var(--rule);
+margin: 16px 0;
+}
+
+.do-col, .dont-col { padding: 0; }
+
+.do-dont-header {
+padding: 10px 16px;
+font-family: var(--cond);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+border-bottom: 1px solid var(--rule);
+}
+
+.do-col .do-dont-header { color: #2A6B45; background: #EBF5EF; border-right: 1px solid var(--rule); }
+.dont-col .do-dont-header { color: #8B2020; background: #F5EBEB; }
+
+.do-dont-items { padding: 12px 16px; }
+.do-col .do-dont-items { border-right: 1px solid var(--rule); }
+
+.do-dont-item {
+font-family: var(--sans);
+font-size: 10.5px;
+font-weight: 300;
+line-height: 1.6;
+color: var(--ink);
+padding: 5px 0;
+border-bottom: 1px solid var(--paper-dark);
+display: flex;
+gap: 8px;
+align-items: flex-start;
+}
+
+.do-dont-item:last-child { border-bottom: none; }
+
+.do-mark { color: #2A6B45; font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+.dont-mark { color: #8B2020; font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+
+/* ── STEP BLOCK ───────────────────────────────────────────── */
+.step-block {
+border: 1px solid var(--rule);
+margin-bottom: 20px;
+overflow: hidden;
+}
+
+.step-header {
+display: flex;
+align-items: center;
+gap: 16px;
+padding: 14px 20px;
+border-bottom: 1px solid var(--rule);
+background: var(--paper-dark);
+}
+
+.step-num {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.14em;
+color: var(--accent);
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+.step-name {
+font-family: var(--cond);
+font-size: 18px;
+font-weight: 700;
+letter-spacing: 0.06em;
+color: var(--ink);
+text-transform: uppercase;
+}
+
+.step-tagline {
+font-family: var(--sans);
+font-size: 10.5px;
+color: var(--ink-mid);
+font-style: italic;
+margin-left: auto;
+text-align: right;
+max-width: 240px;
+line-height: 1.4;
+}
+
+.step-body { padding: 16px 20px; }
+
+.step-objective {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 6px;
+}
+
+.step-obj-text {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 500;
+color: var(--ink);
+margin-bottom: 14px;
+padding-bottom: 14px;
+border-bottom: 1px solid var(--rule);
+}
+
+/* ── CHECKLIST ────────────────────────────────────────────── */
+.checklist-item {
+display: flex;
+gap: 14px;
+align-items: flex-start;
+padding: 14px 0;
+border-bottom: 1px solid var(--rule);
+}
+
+.checklist-item:last-child { border-bottom: none; }
+
+.check-box {
+width: 18px;
+height: 18px;
+border: 1.5px solid var(--rule);
+flex-shrink: 0;
+margin-top: 2px;
+}
+
+.check-content { flex: 1; }
+
+.check-label {
+font-family: var(--cond);
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 3px;
+}
+
+.check-desc {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 300;
+line-height: 1.65;
+color: var(--ink-mid);
+}
+
+/* ── TEMPLATE BLOCK ───────────────────────────────────────── */
+.template-row {
+display: grid;
+grid-template-columns: 80px 1fr 1fr;
+border-bottom: 1px solid var(--rule);
+min-height: 64px;
+}
+
+.template-row:first-child { border-top: 1px solid var(--rule); }
+
+.tmpl-step {
+padding: 14px 16px;
+border-right: 1px solid var(--rule);
+display: flex;
+align-items: center;
+background: var(--paper-dark);
+}
+
+.tmpl-step span {
+font-family: var(--cond);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--accent);
+}
+
+.tmpl-hint {
+padding: 14px 16px;
+border-right: 1px solid var(--rule);
+font-family: var(--sans);
+font-size: 9.5px;
+color: var(--ink-light);
+line-height: 1.5;
+font-style: italic;
+display: flex;
+align-items: center;
+}
+
+.tmpl-write {
+padding: 14px 16px;
+font-family: var(--sans);
+font-size: 9.5px;
+color: var(--ink-light);
+line-height: 1.5;
+display: flex;
+align-items: center;
+}
+
+/* ── EXAMPLE BLOCK ────────────────────────────────────────── */
+.example-step {
+display: grid;
+grid-template-columns: 80px 1fr;
+border-bottom: 1px solid var(--rule);
+}
+
+.ex-label {
+padding: 14px 16px;
+background: var(--paper-dark);
+border-right: 1px solid var(--rule);
+display: flex;
+align-items: flex-start;
+padding-top: 16px;
+}
+
+.ex-label span {
+font-family: var(--cond);
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--accent);
+}
+
+.ex-text {
+padding: 14px 18px;
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 300;
+line-height: 1.7;
+color: var(--ink);
+}
+
+/* ── QUICK USE STEP ───────────────────────────────────────── */
+.quick-step {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+padding: 16px 0;
+border-bottom: 1px solid var(--rule);
+}
+
+.quick-num {
+font-family: var(--serif);
+font-size: 32px;
+font-weight: 900;
+color: var(--paper-dark);
+line-height: 1;
+flex-shrink: 0;
+width: 32px;
+text-align: right;
+margin-top: -2px;
+-webkit-text-stroke: 1px var(--rule);
+}
+
+.quick-content { flex: 1; }
+
+.quick-action {
+font-family: var(--cond);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(--ink);
+margin-bottom: 4px;
+}
+
+.quick-desc {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 300;
+line-height: 1.65;
+color: var(--ink-mid);
+}
+
+.quick-time {
+font-family: var(--mono);
+font-size: 9px;
+color: var(--accent);
+letter-spacing: 0.1em;
+margin-top: 4px;
+}
+
+/* ── MISTAKE BLOCK ────────────────────────────────────────── */
+.mistake-block {
+margin-bottom: 24px;
+padding-bottom: 24px;
+border-bottom: 1px solid var(--rule);
+}
+
+.mistake-block:last-child { border-bottom: none; }
+
+.mistake-header {
+display: flex;
+align-items: baseline;
+gap: 14px;
+margin-bottom: 10px;
+}
+
+.mistake-num {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.14em;
+color: var(--accent);
+text-transform: uppercase;
+flex-shrink: 0;
+}
+
+.mistake-title {
+font-family: var(--serif);
+font-size: 15px;
+font-weight: 700;
+color: var(--ink);
+line-height: 1.3;
+}
+
+/* ── TWO COLUMN ───────────────────────────────────────────── */
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 32px;
+}
+
+.three-col {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 24px;
+}
+
+/* ── PULL QUOTE ───────────────────────────────────────────── */
+.pull-quote {
+border-top: 2px solid var(--ink);
+border-bottom: 1px solid var(--rule);
+padding: 20px 0 16px;
+margin: 28px 0;
+}
+
+.pull-quote p {
+font-family: var(--serif);
+font-size: 20px;
+font-weight: 700;
+font-style: italic;
+line-height: 1.35;
+color: var(--ink);
+}
+
+.pull-quote .pq-attr {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.14em;
+color: var(--accent);
+text-transform: uppercase;
+margin-top: 10px;
+display: block;
+}
+
+/* ── COVER SPECIFIC ───────────────────────────────────────── */
+.cover-page {
+background: var(--ink);
+color: var(--paper);
+}
+
+.cover-inner {
+padding: 64px;
+height: 100%;
+display: flex;
+flex-direction: column;
+position: relative;
+}
+
+.cover-rule-h {
+width: 100%;
+height: 1px;
+background: rgba(255,255,255,0.15);
+}
+
+.cover-rule-accent {
+width: 48px;
+height: 3px;
+background: var(--accent);
+margin-bottom: 48px;
+}
+
+.cover-tag {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 20px;
+}
+
+.cover-title {
+font-family: var(--serif);
+font-size: 72px;
+font-weight: 900;
+line-height: 0.95;
+letter-spacing: -0.02em;
+color: var(--paper);
+margin-bottom: 6px;
+}
+
+.cover-title-alt {
+font-family: var(--serif);
+font-size: 72px;
+font-weight: 400;
+font-style: italic;
+line-height: 0.95;
+letter-spacing: -0.02em;
+color: rgba(247,244,239,0.35);
+margin-bottom: 32px;
+}
+
+.cover-promise {
+font-family: var(--sans);
+font-size: 14px;
+font-weight: 300;
+line-height: 1.7;
+color: rgba(247,244,239,0.6);
+max-width: 420px;
+margin-bottom: 48px;
+padding-top: 24px;
+border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.cover-flow {
+display: flex;
+align-items: center;
+gap: 16px;
+margin-bottom: auto;
+}
+
+.cover-flow-node {
+font-family: var(--cond);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--paper);
+}
+
+.cover-flow-arrow {
+color: rgba(247,244,239,0.3);
+font-size: 12px;
+}
+
+.cover-bottom {
+padding-top: 32px;
+border-top: 1px solid rgba(255,255,255,0.12);
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+}
+
+.cover-version {
+font-family: var(--mono);
+font-size: 9px;
+letter-spacing: 0.14em;
+color: rgba(247,244,239,0.3);
+text-transform: uppercase;
+}
+
+.cover-toc {
+display: flex;
+flex-direction: column;
+gap: 6px;
+text-align: right;
+}
+
+.cover-toc-item {
+font-family: var(--mono);
+font-size: 8.5px;
+letter-spacing: 0.1em;
+color: rgba(247,244,239,0.3);
+text-transform: uppercase;
+}
+
+.cover-toc-item span {
+color: var(--accent);
+margin-right: 8px;
+}
+
+/* ── BIG NUMBER ACCENT ────────────────────────────────────── */
+.big-accent-num {
+font-family: var(--serif);
+font-size: 120px;
+font-weight: 900;
+color: var(--paper-dark);
+line-height: 1;
+-webkit-text-stroke: 1px var(--rule);
+position: absolute;
+right: 40px;
+top: 40px;
+pointer-events: none;
+user-select: none;
+}
+
+/* ── PRINCIPLE ROW ────────────────────────────────────────── */
+.principle-row {
+display: flex;
+gap: 20px;
+padding: 18px 0;
+border-bottom: 1px solid var(--rule);
+align-items: flex-start;
+}
+
+.principle-num {
+font-family: var(--serif);
+font-size: 28px;
+font-weight: 900;
+color: var(--accent);
+line-height: 1;
+flex-shrink: 0;
+width: 28px;
+}
+
+.principle-content { flex: 1; }
+
+.principle-title {
+font-family: var(--cond);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--ink);
+margin-bottom: 6px;
+}
+
+.principle-text {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 300;
+line-height: 1.7;
+color: var(--ink-mid);
+}
+
+/* ── GUIDE QUESTION ───────────────────────────────────────── */
+.guide-q {
+padding: 10px 0;
+border-bottom: 1px solid var(--paper-dark);
+display: flex;
+gap: 12px;
+align-items: flex-start;
+}
+
+.guide-q:last-child { border-bottom: none; }
+
+.guide-mark {
+font-family: var(--mono);
+font-size: 9px;
+color: var(--accent);
+flex-shrink: 0;
+margin-top: 2px;
+letter-spacing: 0.1em;
+}
+
+.guide-text {
+font-family: var(--sans);
+font-size: 10.5px;
+font-weight: 300;
+line-height: 1.65;
+color: var(--ink);
+}
+
+/* ── CONTENT WRAPPER ──────────────────────────────────────── */
+.content { flex: 1; }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+PAGE 01 — COVER
+══════════════════════════════════════════════ -->
+<div class="page cover-page">
+<div class="cover-inner">
+<div class="cover-tag">Execution Guide &nbsp;·&nbsp; v1.0</div>
+<div class="cover-title">Idea to</div>
+<div class="cover-title">Video</div>
+<div class="cover-title-alt">System</div>
+
+<div class="cover-promise">
+Turn any idea into a structured, engaging video in minutes — even if you don't know what to say.
+</div>
+
+<div class="cover-flow">
+<div class="cover-flow-node">Idea</div>
+<div class="cover-flow-arrow">→</div>
+<div class="cover-flow-node">Structure</div>
+<div class="cover-flow-arrow">→</div>
+<div class="cover-flow-node">Video</div>
+</div>
+
+<div class="cover-bottom">
+<div class="cover-version">excorepatterns &nbsp;·&nbsp; All rights reserved</div>
+<div class="cover-toc">
+<div class="cover-toc-item"><span>01</span> The Problem</div>
+<div class="cover-toc-item"><span>02</span> Core Principle</div>
+<div class="cover-toc-item"><span>03</span> The 4-Step System</div>
+<div class="cover-toc-item"><span>04</span> How to Apply</div>
+<div class="cover-toc-item"><span>05</span> Attention Rules</div>
+<div class="cover-toc-item"><span>06</span> The Template</div>
+<div class="cover-toc-item"><span>07</span> Full Example</div>
+<div class="cover-toc-item"><span>08</span> Common Mistakes</div>
+<div class="cover-toc-item"><span>09</span> Checklist</div>
+<div class="cover-toc-item"><span>10</span> Quick Use</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 02 — THE PROBLEM
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">01</span> &nbsp;The Problem</div>
+</div>
+<div class="content">
+<div class="section-label">
+<div class="sec-num">01</div>
+<div class="sec-title-group">
+<div class="sec-tag">Introduction</div>
+<div class="sec-title">The Problem</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text">Most people who want to make videos already have the ideas. That's not the bottleneck. The bottleneck is the gap between having an idea and knowing how to turn it into something a viewer can actually follow.</p>
+
+<p class="body-text">The most common experience looks like this: you have a topic you care about, you sit down to record or write, and somewhere between the first sentence and the end you lose the thread. The video becomes too long, or too vague, or it simply never gets made. You blame yourself — your confidence, your delivery, your lack of experience. But the real problem is almost never any of those things.</p>
+
+<div class="pull-quote">
+<p>The real problem is that you started without a structure.</p>
+<span class="pq-attr">The single cause behind most content that doesn't work</span>
+</div>
+
+<p class="body-text">Structure is not a creative constraint. It's the opposite. Structure is what makes creativity possible, because it gives your idea a shape the viewer can hold. Without it, even a strong idea becomes noise. With it, even a simple idea becomes compelling.</p>
+
+<div class="subhead-sans" style="margin-top:24px;">Three patterns that appear in content that doesn't work</div>
+
+<div class="do-dont" style="margin-top:12px;">
+<div class="do-col">
+<div class="do-dont-header" style="color: var(--ink-mid); background: var(--paper-dark);">Pattern</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="do-mark">—</span>Starting without direction</div>
+<div class="do-dont-item"><span class="do-mark">—</span>Trying to say everything at once</div>
+<div class="do-dont-item"><span class="do-mark">—</span>Losing momentum midway</div>
+</div>
+</div>
+<div class="dont-col">
+<div class="do-dont-header" style="color: var(--ink-mid); background: var(--paper-dark);">What happens</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="dont-mark">→</span>The viewer doesn't know where the video is going either</div>
+<div class="do-dont-item"><span class="dont-mark">→</span>Too much information without sequence creates confusion</div>
+<div class="do-dont-item"><span class="dont-mark">→</span>The viewer leaves with nothing to take away</div>
+</div>
+</div>
+</div>
+
+<p class="body-text" style="margin-top:18px;">None of these are talent problems. They are structure problems. And structure can be learned.</p>
+
+<div class="callout-dark" style="margin-top:20px;">
+<p>Turn any idea into a structured, engaging video in minutes — even if you don't know what to say.</p>
+</div>
+</div>
+<div class="page-foot">
+<div class="pf-num">02</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 03 — CORE PRINCIPLE
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">02</span> &nbsp;The Core Principle</div>
+</div>
+<div class="content" style="position:relative;">
+<div class="big-accent-num">02</div>
+<div class="section-label">
+<div class="sec-num">02</div>
+<div class="sec-title-group">
+<div class="sec-tag">Foundation</div>
+<div class="sec-title">The Core<br>Principle</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text">Before learning the four steps, you need to understand the single principle that makes all of them work. Everything in this system is built on one idea.</p>
+
+<div class="flow" style="margin: 28px 0;">
+<div class="flow-node" style="background: #F5EBEB;">
+<span class="flow-node-label" style="color:#8B2020;">Bad Content</span>
+<div class="flow-node-desc">No structure</div>
+</div>
+<div class="flow-node" style="background: var(--paper-dark); flex: 0; padding: 18px 24px;">
+<span style="font-family:var(--serif); font-size:18px; color:var(--ink-light);">≠</span>
+</div>
+<div class="flow-node" style="background: #EBF5EF;">
+<span class="flow-node-label" style="color:#2A6B45;">Good Content</span>
+<div class="flow-node-desc">Clear structure</div>
+</div>
+</div>
+
+<p class="body-text">Structure isn't what you apply to an idea once it's ready. Structure is what makes the idea communicable in the first place. It's the difference between knowing something and being able to transfer that knowledge to another person in a way they can actually receive.</p>
+
+<p class="body-text">When structure works, it's invisible. The viewer experiences clarity, momentum, and a sense of payoff at the end. What they're actually experiencing is a well-executed sequence.</p>
+
+<div class="subhead-sans">The mental model</div>
+
+<div class="flow" style="margin-top: 14px;">
+<div class="flow-node">
+<span class="flow-node-label">Idea</span>
+<div class="flow-node-desc">Raw material</div>
+</div>
+<div class="flow-node" style="flex:0; padding: 18px 20px; background: var(--paper-dark);">
+<span style="color:var(--ink-light); font-size:16px;">→</span>
+</div>
+<div class="flow-node">
+<span class="flow-node-label">Structure</span>
+<div class="flow-node-desc">The process</div>
+</div>
+<div class="flow-node" style="flex:0; padding: 18px 20px; background: var(--paper-dark);">
+<span style="color:var(--ink-light); font-size:16px;">→</span>
+</div>
+<div class="flow-node">
+<span class="flow-node-label">Video</span>
+<div class="flow-node-desc">The output</div>
+</div>
+</div>
+
+<p class="body-text" style="margin-top:20px;">You cannot skip the middle step. Jumping directly from idea to video — which is what most people try to do — is why most videos don't work. The structure is what transforms an idea from something you understand into something your viewer understands.</p>
+
+<div class="callout" style="margin-top:24px;">
+<p>The system is idea-agnostic. The underlying mechanics of how humans receive and process information don't change based on topic. The four steps work because they follow that sequence — not because they were designed for a specific type of content.</p>
+</div>
+
+<p class="body-text" style="margin-top: 16px;">The structure provides the architecture. What you build inside it is yours. The system guarantees shape — it doesn't constrain voice.</p>
+</div>
+<div class="page-foot">
+<div class="pf-num">03</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 04 — 4-STEP OVERVIEW + STEP 1
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">03</span> &nbsp;The 4-Step System</div>
+</div>
+<div class="content">
+<div class="section-label">
+<div class="sec-num">03</div>
+<div class="sec-title-group">
+<div class="sec-tag">Core</div>
+<div class="sec-title">The 4-Step System</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text">Four steps, applied in sequence, every time. The steps are not interchangeable — the order matters. Each one creates the conditions for the next to work.</p>
+
+<div class="flow" style="margin: 20px 0 28px;">
+<div class="flow-node"><span class="flow-node-label">Start</span><div class="flow-node-desc">Capture attention</div></div>
+<div class="flow-node" style="flex:0;padding:18px 16px;background:var(--paper-dark);"><span style="color:var(--ink-light);">→</span></div>
+<div class="flow-node"><span class="flow-node-label">Build</span><div class="flow-node-desc">Deliver the idea</div></div>
+<div class="flow-node" style="flex:0;padding:18px 16px;background:var(--paper-dark);"><span style="color:var(--ink-light);">→</span></div>
+<div class="flow-node"><span class="flow-node-label">Shift</span><div class="flow-node-desc">Change perspective</div></div>
+<div class="flow-node" style="flex:0;padding:18px 16px;background:var(--paper-dark);"><span style="color:var(--ink-light);">→</span></div>
+<div class="flow-node"><span class="flow-node-label">End</span><div class="flow-node-desc">Close the loop</div></div>
+</div>
+
+<!-- STEP 1 -->
+<div class="step-block">
+<div class="step-header">
+<div class="step-num">Step 01</div>
+<div class="step-name">Start</div>
+<div class="step-tagline">The first few seconds decide everything.</div>
+</div>
+<div class="step-body">
+<div class="step-objective">Objective</div>
+<div class="step-obj-text">Make the viewer decide to stay — before they have a reason to leave.</div>
+<p class="body-text" style="font-size:11px;">The START is not an introduction. It has one job: create immediate tension or interest strong enough that the viewer feels they need to keep going. There are three reliable mechanisms: a bold counterintuitive statement, a direct personal question, or a concrete specific scenario. What all three have in common is that they create a gap — a space between what the viewer knows now and what they sense the video is about to tell them.</p>
+<div class="do-dont" style="margin-top: 14px;">
+<div class="do-col">
+<div class="do-dont-header">Do</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="do-mark">✓</span>Open with tension, a bold statement, or a direct question</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Name what's at stake immediately</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Make the viewer feel they need to keep watching</div>
+</div>
+</div>
+<div class="dont-col">
+<div class="do-dont-header">Don't</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="dont-mark">✗</span>Start with a slow introduction or background</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Open with context before the hook</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Ask a question the viewer can answer without watching</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">04</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 05 — STEPS 2 & 3
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">03</span> &nbsp;The 4-Step System</div>
+</div>
+<div class="content">
+
+<!-- STEP 2 -->
+<div class="step-block">
+<div class="step-header">
+<div class="step-num">Step 02</div>
+<div class="step-name">Build</div>
+<div class="step-tagline">Make the idea make sense.</div>
+</div>
+<div class="step-body">
+<div class="step-objective">Objective</div>
+<div class="step-obj-text">Develop the idea with enough clarity that the viewer can follow without effort.</div>
+<p class="body-text" style="font-size:11px;">The BUILD fails in two directions: overloading — too much information — or underbuilding — moving too fast because the creator already understands. The standard to aim for: after this section, the viewer should be able to explain the core idea to someone else in one or two sentences. Each step of the BUILD should leave the viewer in a different epistemic position than the step before it — not just with more examples, but with deeper understanding. Work backwards from your SHIFT: include only what the viewer needs to arrive ready for the change in perspective.</p>
+<div class="do-dont" style="margin-top: 14px;">
+<div class="do-col">
+<div class="do-dont-header">Do</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="do-mark">✓</span>Explain your idea in plain, direct language</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Anchor every abstract claim with one concrete example</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Keep the sequence moving forward — each part deeper than the last</div>
+</div>
+</div>
+<div class="dont-col">
+<div class="do-dont-header">Don't</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="dont-mark">✗</span>Overload with details or multiple parallel ideas</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Add examples that widen rather than deepen</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Include content that doesn't lead toward the SHIFT</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-block">
+<div class="step-header">
+<div class="step-num">Step 03</div>
+<div class="step-name">Shift</div>
+<div class="step-tagline">The most powerful step. The one most people skip.</div>
+</div>
+<div class="step-body">
+<div class="step-objective">Objective</div>
+<div class="step-obj-text">Change the viewer's perspective — not add to it.</div>
+<p class="body-text" style="font-size:11px;">A SHIFT is the moment where the viewer realizes what they understood in the BUILD was true but incomplete. Three primary mechanisms: <strong>Contrast</strong> — place the idea next to its opposite or failure case. <strong>Contradiction</strong> — introduce information that appears to contradict the BUILD, generating cognitive tension whose resolution is the insight. <strong>Recontextualization</strong> — return to something from the START or BUILD and reveal it means something different. The test: does the viewer see the topic differently after this moment? If yes, the SHIFT worked. If not, it hasn't happened yet.</p>
+<div class="do-dont" style="margin-top: 14px;">
+<div class="do-col">
+<div class="do-dont-header">Do</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="do-mark">✓</span>Push past the comfortable first answer</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Arrive at the SHIFT without announcing it</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Let the sentence before it create pressure</div>
+</div>
+</div>
+<div class="dont-col">
+<div class="do-dont-header">Don't</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="dont-mark">✗</span>Extend the BUILD and call it a SHIFT</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Telegraph the change two sentences before it arrives</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Explain the SHIFT after it has already landed</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">05</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 06 — STEP 4 + HOW TO APPLY
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">03 → 04</span> &nbsp;System &amp; Application</div>
+</div>
+<div class="content">
+
+<!-- STEP 4 -->
+<div class="step-block" style="margin-bottom:28px;">
+<div class="step-header">
+<div class="step-num">Step 04</div>
+<div class="step-name">End</div>
+<div class="step-tagline">Weak endings destroy good videos.</div>
+</div>
+<div class="step-body">
+<div class="step-objective">Objective</div>
+<div class="step-obj-text">Close the loop. Leave one clear, lasting impression.</div>
+<p class="body-text" style="font-size:11px;">The END has two components: a restatement of the single most important message — not a summary of everything, but the crystallized core — followed by a final line strong enough to stand alone. If someone quoted only the last sentence of your video, would it carry the essence of the whole? If yes, the END is working. Stop at the moment the arc genuinely completes. Everything added after that moment dilutes the strongest point in the video.</p>
+<div class="do-dont" style="margin-top: 14px;">
+<div class="do-col">
+<div class="do-dont-header">Do</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="do-mark">✓</span>State the single core message in one or two sentences</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Close with a final line that stands alone</div>
+<div class="do-dont-item"><span class="do-mark">✓</span>Stop exactly when the arc completes</div>
+</div>
+</div>
+<div class="dont-col">
+<div class="do-dont-header">Don't</div>
+<div class="do-dont-items">
+<div class="do-dont-item"><span class="dont-mark">✗</span>Introduce new information at the end</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Trail off or cut abruptly without closure</div>
+<div class="do-dont-item"><span class="dont-mark">✗</span>Continue past the moment the video already ended</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- HOW TO APPLY header -->
+<div class="section-label" style="margin-bottom:12px;">
+<div class="sec-num">04</div>
+<div class="sec-title-group">
+<div class="sec-tag">Execution</div>
+<div class="sec-title">How to Apply</div>
+</div>
+</div>
+<div class="sec-rule" style="margin-bottom:16px;"></div>
+
+<div class="three-col">
+<div>
+<div class="subhead-sans" style="margin-top:0; color:var(--accent);">Input</div>
+<p class="body-text" style="font-size:10.5px;">One sentence. Not a topic area — a specific idea with a point of view already in it. If you can't write it in one sentence, narrow it until you can. The sentence should be close to a statement, not a category.</p>
+</div>
+<div>
+<div class="subhead-sans" style="margin-top:0; color:var(--accent);">Transformation</div>
+<p class="body-text" style="font-size:10.5px;">Answer the four guiding questions in sequence. Don't write the script before the decisions are made. Work backwards from your SHIFT to determine what the BUILD needs to contain.</p>
+</div>
+<div>
+<div class="subhead-sans" style="margin-top:0; color:var(--accent);">Output</div>
+<p class="body-text" style="font-size:10.5px;">Expand each answer into its full section. Write knowing the function of the section, not just its content. Let the idea determine the length — not the other way around.</p>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">06</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 07 — ATTENTION RULES
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">05</span> &nbsp;Attention Rules</div>
+</div>
+<div class="content" style="position:relative;">
+<div class="big-accent-num">05</div>
+<div class="section-label">
+<div class="sec-num">05</div>
+<div class="sec-title-group">
+<div class="sec-tag">Retention</div>
+<div class="sec-title">Attention Rules</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text">Structure creates the shape of your video. Attention rules determine whether anyone stays long enough to experience it. You can have a perfectly structured video that loses people at minute two because the pacing is wrong. Attention is not automatic — it requires active management.</p>
+
+<div class="principle-row">
+<div class="principle-num">1</div>
+<div class="principle-content">
+<div class="principle-title">Attention drops without movement</div>
+<p class="principle-text">Every time something new enters the viewer's experience — a new idea, a shift in tone, a specific detail — attention resets and holds. Every time nothing changes, it decays. The practical threshold: within every sixty to ninety seconds, something in the content must change. Not dramatically — enough that the viewer's brain receives a new signal. No explanation runs longer than ninety seconds without an anchor, an example, or a change in rhythm.</p>
+</div>
+</div>
+
+<div class="principle-row">
+<div class="principle-num">2</div>
+<div class="principle-content">
+<div class="principle-title">Every part must have a function</div>
+<p class="principle-text">There is no neutral content. Every sentence either earns its place or costs the viewer's attention without returning value. The three most common violations: redundancy — saying the same thing twice in different words; hedging — excessive qualification that slows the content without adding precision; transitional filler — sentences that exist only to connect two sections without adding anything. The criterion for every sentence is not "is this true?" but "what does this do for the viewer right now?"</p>
+</div>
+</div>
+
+<div class="principle-row">
+<div class="principle-num">3</div>
+<div class="principle-content">
+<div class="principle-title">Content must always progress</div>
+<p class="principle-text">At every point, the viewer should be further along than they were. The specific failure mode to watch for is horizontal extension — a section that gets wider instead of deeper. Each new example of the same point feels like repetition even though the content is technically different. Depth is what creates progress. One example that genuinely advances the understanding is worth more than three examples that illustrate the same thing from slightly different angles.</p>
+</div>
+</div>
+
+<div class="callout" style="margin-top: 20px;">
+<p>The transition from BUILD to SHIFT is the most mechanically difficult point in the structure. The last sentence of the BUILD should bring the viewer to the edge of the question the SHIFT will answer — close enough to feel it, not close enough to see the answer.</p>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">07</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 08 — THE TEMPLATE
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">06</span> &nbsp;The Template</div>
+</div>
+<div class="content">
+<div class="section-label">
+<div class="sec-num">06</div>
+<div class="sec-title-group">
+<div class="sec-tag">Copy &amp; Use</div>
+<div class="sec-title">The Template</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text">Use this template every time you have an idea, before you write a single line of script. The guiding questions are decisions that make the content coherent — once made, the writing is fast. Work through them in sequence.</p>
+
+<div class="template-row">
+<div class="tmpl-step"><span>Idea</span></div>
+<div class="tmpl-hint">One sentence. Specific point of view already in it. Close to a statement, not a category.</div>
+<div class="tmpl-write"><span style="color:var(--rule); font-size:10px; font-style:italic;">Write your idea here →</span></div>
+</div>
+
+<div style="margin-top: 16px; margin-bottom: 8px;">
+<div class="template-row">
+<div class="tmpl-step"><span>Start</span></div>
+<div class="tmpl-hint">
+<div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">What creates the most tension for this specific idea in the first two sentences?</span></div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">Bold statement, direct question, or concrete scenario — which fits?</span></div>
+<div class="guide-q" style="border:none; padding-bottom:0;"><span class="guide-mark">Q→</span><span class="guide-text">Does it open a gap, or close one?</span></div>
+</div>
+</div>
+<div class="tmpl-write"><span style="color:var(--rule); font-size:10px; font-style:italic;">2–4 sentences. Tension first.</span></div>
+</div>
+<div class="template-row">
+<div class="tmpl-step"><span>Build</span></div>
+<div class="tmpl-hint">
+<div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">What does the viewer need to understand for the SHIFT to land? (Work backwards.)</span></div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">What's the one analogy or example that makes the most abstract part concrete?</span></div>
+<div class="guide-q" style="border:none; padding-bottom:0;"><span class="guide-mark">Q→</span><span class="guide-text">Does every paragraph advance the idea, or does any of it widen rather than deepen?</span></div>
+</div>
+</div>
+<div class="tmpl-write"><span style="color:var(--rule); font-size:10px; font-style:italic;">Each part deeper than the last.</span></div>
+</div>
+<div class="template-row">
+<div class="tmpl-step"><span>Shift</span></div>
+<div class="tmpl-hint">
+<div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">What do I know that a viewer who just finished the BUILD would not yet see?</span></div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">Contrast, contradiction, or recontextualization — which mechanism fits?</span></div>
+<div class="guide-q" style="border:none; padding-bottom:0;"><span class="guide-mark">Q→</span><span class="guide-text">Is this the comfortable first answer, or the real one? Push past the obvious.</span></div>
+</div>
+</div>
+<div class="tmpl-write"><span style="color:var(--rule); font-size:10px; font-style:italic;">One concentrated movement. No preamble.</span></div>
+</div>
+<div class="template-row">
+<div class="tmpl-step"><span>End</span></div>
+<div class="tmpl-hint">
+<div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">If the viewer takes only one thing, what is it? Write it as one sentence first.</span></div>
+<div class="guide-q"><span class="guide-mark">Q→</span><span class="guide-text">Does the final line stand alone outside the context of the whole video?</span></div>
+<div class="guide-q" style="border:none; padding-bottom:0;"><span class="guide-mark">Q→</span><span class="guide-text">Did you stop at the moment the arc completed, or did you continue past it?</span></div>
+</div>
+</div>
+<div class="tmpl-write"><span style="color:var(--rule); font-size:10px; font-style:italic;">One message. One final line. Nothing after.</span></div>
+</div>
+</div>
+
+<div class="callout" style="margin-top: 20px;">
+<p>When using AI with this template: the AI must answer the guiding questions before generating any draft content. Structure is a function, not a label — the test is never "does it have the four sections?" but whether each section genuinely does its job.</p>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">08</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 09 — FULL EXAMPLE (1 of 2)
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">07</span> &nbsp;Full Example</div>
+</div>
+<div class="content">
+<div class="section-label">
+<div class="sec-num">07</div>
+<div class="sec-title-group">
+<div class="sec-tag">See It In Action</div>
+<div class="sec-title">Full Example</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text" style="margin-bottom:20px;">Three ideas across three different topic areas — one behavioral, one technological, one financial. Each example shows the complete decision-making process before the script. Read them as demonstrations of logic, not as templates to replicate.</p>
+
+<!-- EXAMPLE 01 -->
+<div class="subhead-sans" style="margin-top:0;">Example 01 &nbsp;—&nbsp; Behavioral</div>
+<div class="callout" style="margin-bottom: 14px;">
+<p>Idea: The reason most people can't focus has nothing to do with distraction — it has to do with how they start.</p>
+</div>
+
+<div style="border: 1px solid var(--rule); margin-bottom: 4px;">
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Start</span></div>
+<div class="ex-text">Most advice about focus tells you to fix your environment. Remove the distractions. Put your phone in another room. Block the websites. And yet the people who follow all of that advice still find themselves not working. The problem was never the distraction. The problem is what happens in the three seconds before you reach for it.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Build</span></div>
+<div class="ex-text">The standard model of focus failure positions distraction as the cause and attention management as the solution. This model is incomplete. There is a specific moment, familiar to almost everyone, where the task is in front of you and the first action hasn't happened yet. That moment doesn't feel like resistance. It feels like a small, sourceless hesitation. That hesitation is not distraction. It's avoidance. And it happens before the phone appears.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Shift</span></div>
+<div class="ex-text">Distraction doesn't cause the loss of focus. It fills the space that avoidance already created. This reframes the entire problem. If distraction is the cause, the solution is environmental. But if distraction is a symptom — filling a space that will be filled regardless — then the intervention isn't the environment. It's the entry point. The three seconds after you sit down are where focus is won or lost. Everything else is downstream of that.</div>
+</div>
+<div class="example-step">
+<div class="ex-label"><span>End</span></div>
+<div class="ex-text">You don't have a distraction problem. You have a starting problem. Fix the first three seconds, and the rest of the hour takes care of itself.</div>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">09</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 10 — FULL EXAMPLE (2 of 2)
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">07</span> &nbsp;Full Example — cont.</div>
+</div>
+<div class="content">
+
+<!-- EXAMPLE 02 -->
+<div class="subhead-sans" style="margin-top:0;">Example 02 &nbsp;—&nbsp; Technological</div>
+<div class="callout" style="margin-bottom: 14px;">
+<p>Idea: The most consequential AI decisions today are not made by the AI — they are made by the people who designed the data it learned from.</p>
+</div>
+<div style="border: 1px solid var(--rule); margin-bottom: 24px;">
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Start</span></div>
+<div class="ex-text">Every time an AI system makes a decision about your loan, your medical scan, or the content you see — someone tells you the algorithm did it. That framing is technically accurate and functionally misleading. The algorithm executed a decision. The decision itself was made years earlier, by people you've never heard of, about data you've never seen.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Build</span></div>
+<div class="ex-text">Before training data exists as data, someone decided what to include, what to exclude, how to label it, and what outcomes to treat as correct. These decisions reflect the categories those people worked with, the cases they treated as representative, the edge cases they considered too rare to include. By the time a system is deployed and audited, those choices are embedded in the model's weights — invisible in the output, unreachable by conventional review.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Shift</span></div>
+<div class="ex-text">The standard model of AI accountability positions human oversight at the deployment end: humans monitor outputs and intervene when the system errs. This model assumes the machine is the source of the problem. But if the problem is in the training data — introduced before the model existed — end-stage oversight is auditing the consequence of a decision already made. The machine is not making biased decisions. It is faithfully reproducing the judgments of people who made biased decisions about data.</div>
+</div>
+<div class="example-step">
+<div class="ex-label"><span>End</span></div>
+<div class="ex-text">The right question to ask about any AI system is not how it makes decisions. It is whose judgments it was built to reproduce — and whether those people knew, when they made them, that the decisions would matter this much.</div>
+</div>
+</div>
+
+<!-- EXAMPLE 03 — condensed -->
+<div class="subhead-sans" style="margin-top:0;">Example 03 &nbsp;—&nbsp; Financial</div>
+<div class="callout" style="margin-bottom: 14px;">
+<p>Idea: Inflation doesn't affect everyone equally — it functions as a wealth transfer mechanism, and the direction of the transfer is almost never discussed.</p>
+</div>
+<div style="border: 1px solid var(--rule);">
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Start</span></div>
+<div class="ex-text">Inflation is described as rising prices. That description is accurate and almost completely uninformative. What inflation actually does — as a mechanism, not a weather event — is move value from one group of people to another. The direction of that movement is not random. It follows the structure of asset ownership.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Build</span></div>
+<div class="ex-text">While cash loses purchasing power during an inflationary period, real assets typically increase in nominal value — not because they became more productive, but because the unit of measurement lost value. The asset holder ends the period with the same asset, now denominated in more dollars. The cash holder ends with the same dollars, now worth fewer assets.</div>
+</div>
+<div class="example-step" style="border-bottom: 1px solid var(--rule);">
+<div class="ex-label"><span>Shift</span></div>
+<div class="ex-text">The capacity to hold wealth in real assets rather than cash is not a behavioral choice available equally to everyone — it is a function of prior wealth. The same mechanism, operating simultaneously, produces opposite outcomes. That is not a coincidence. It is how the mechanism works.</div>
+</div>
+<div class="example-step">
+<div class="ex-label"><span>End</span></div>
+<div class="ex-text">Inflation is a pump — and it moves value in a direction determined not by the market, but by the structure of who owns what.</div>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">10</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 11 — COMMON MISTAKES
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">08</span> &nbsp;Common Mistakes</div>
+</div>
+<div class="content">
+<div class="section-label">
+<div class="sec-num">08</div>
+<div class="sec-title-group">
+<div class="sec-tag">Diagnostic</div>
+<div class="sec-title">Common Mistakes</div>
+</div>
+</div>
+<div class="sec-rule"></div>
+
+<p class="body-text" style="margin-bottom:20px;">Every mistake in video content can be traced back to a specific point in the four-step structure. When a video isn't working, the problem is almost always one of these.</p>
+
+<div class="mistake-block">
+<div class="mistake-header">
+<div class="mistake-num">01 — Start</div>
+<div class="mistake-title">Starting with context instead of tension</div>
+</div>
+<p class="body-text" style="font-size:11px;">Context relaxes the viewer. Tension holds them. A viewer who receives context before the hook has been given everything they need to decide the video isn't for them. The fix is almost always structural: the strong opening is already in the video — it's just not at the beginning. Move the tension to the first line. Move the context to the BUILD.</p>
+</div>
+
+<div class="mistake-block">
+<div class="mistake-header">
+<div class="mistake-num">02 — Build</div>
+<div class="mistake-title">Building too wide instead of too deep</div>
+</div>
+<p class="body-text" style="font-size:11px;">Multiple examples of the same point feel like coverage from inside the topic and feel like stagnation from outside it. The viewer already received the point and is waiting for something to develop. Test each paragraph: did the viewer's understanding genuinely advance, or do they simply have more evidence for something they understood two paragraphs ago?</p>
+</div>
+
+<div class="mistake-block">
+<div class="mistake-header">
+<div class="mistake-num">03 — Shift</div>
+<div class="mistake-title">The shift that isn't one</div>
+</div>
+<p class="body-text" style="font-size:11px;">New information doesn't produce a SHIFT. A change in the frame through which existing information is seen produces a SHIFT. The most common version: the video explains an idea, then at the SHIFT point explains more of the same idea — more deeply, but without changing the angle. The viewer learned more. They did not see differently. Finding the real SHIFT requires pushing past the first answer — the one that extends the BUILD comfortably.</p>
+</div>
+
+<div class="mistake-block">
+<div class="mistake-header">
+<div class="mistake-num">04 — End</div>
+<div class="mistake-title">Ending after the video is already over</div>
+</div>
+<p class="body-text" style="font-size:11px;">Most weak endings share one feature: the video ended one or two sentences before the creator stopped. There was a moment where the arc completed — and then the creator continued, adding a summary or restatement. The viewer's final impression is not the strong moment. It's whatever diluted it. Identify where the arc genuinely completes. Stop there.</p>
+</div>
+
+<div class="mistake-block" style="border-bottom:none; padding-bottom:0;">
+<div class="mistake-header">
+<div class="mistake-num">05 — Build → Shift</div>
+<div class="mistake-title">Losing momentum in the middle</div>
+</div>
+<p class="body-text" style="font-size:11px;">The BUILD has a natural tendency to decelerate as it completes. The creator begins to summarize rather than maintain forward pressure. The SHIFT then arrives into a lower state of engagement. Treat the final movement of the BUILD as an acceleration, not a landing. The last sentence of the BUILD should bring the viewer to the edge of the question the SHIFT will answer — close enough to feel it, not close enough to see the answer.</p>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">11</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+PAGE 12 — CHECKLIST + QUICK USE
+══════════════════════════════════════════════ -->
+<div class="page">
+<div class="page-inner">
+<div class="running-head">
+<div class="rh-left">Idea to Video System</div>
+<div class="rh-right"><span class="rh-accent">09 → 10</span> &nbsp;Checklist &amp; Quick Use</div>
+</div>
+<div class="content">
+
+<div class="two-col" style="gap:40px;">
+<div>
+<div class="section-label" style="margin-bottom:10px;">
+<div class="sec-num">09</div>
+<div class="sec-title-group">
+<div class="sec-tag">Validate</div>
+<div class="sec-title" style="font-size:26px;">Final<br>Checklist</div>
+</div>
+</div>
+<div class="sec-rule" style="margin-bottom:14px;"></div>
+<p class="body-text" style="font-size:10.5px; margin-bottom:16px;">Eight questions. The test is not whether the sections exist — it's whether they work. All yes: publish.</p>
+
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">Start — Tension</div>
+<div class="check-desc">Does the opening create a gap in the first two sentences — not context, not summary?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">Build — Depth</div>
+<div class="check-desc">Does every paragraph advance the viewer's understanding toward the SHIFT, or does any part widen rather than deepen?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">Build → Shift — Pressure</div>
+<div class="check-desc">Does the final sentence of the BUILD bring the viewer to the edge of the SHIFT without revealing it?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">Shift — Perspective</div>
+<div class="check-desc">Does it change how the viewer sees the topic — not just add to what they know?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">Shift — Center</div>
+<div class="check-desc">Can you identify the specific sentence where the change happens?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">End — Clean</div>
+<div class="check-desc">Does the END introduce any new information? If yes, it doesn't belong there.</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">End — Final Line</div>
+<div class="check-desc">Is the last sentence strong enough to stand alone, outside context?</div>
+</div>
+</div>
+<div class="checklist-item">
+<div class="check-box"></div>
+<div class="check-content">
+<div class="check-label">End — Stop Point</div>
+<div class="check-desc">Did you stop at the moment the arc completed, or did you continue past it?</div>
+</div>
+</div>
+</div>
+
+<div>
+<div class="section-label" style="margin-bottom:10px;">
+<div class="sec-num">10</div>
+<div class="sec-title-group">
+<div class="sec-tag">5-Minute Flow</div>
+<div class="sec-title" style="font-size:26px;">Quick<br>Use</div>
+</div>
+</div>
+<div class="sec-rule" style="margin-bottom:14px;"></div>
+<p class="body-text" style="font-size:10.5px; margin-bottom:16px;">No time to overthink. Use the system fast. The sequence applied directly to the idea in front of you.</p>
+
+<div class="quick-step">
+<div class="quick-num">1</div>
+<div class="quick-content">
+<div class="quick-action">Write the Idea</div>
+<div class="quick-desc">One sentence. Point of view already in it. Not a topic — a claim.</div>
+<div class="quick-time">~1 min</div>
+</div>
+</div>
+<div class="quick-step">
+<div class="quick-num">2</div>
+<div class="quick-content">
+<div class="quick-action">Write the Start</div>
+<div class="quick-desc">Two to four sentences. Open the gap. Stop.</div>
+<div class="quick-time">~1 min</div>
+</div>
+</div>
+<div class="quick-step">
+<div class="quick-num">3</div>
+<div class="quick-content">
+<div class="quick-action">Build toward the Shift</div>
+<div class="quick-desc">Know where the BUILD is going before writing. Each step deeper. Stop at the edge.</div>
+<div class="quick-time">~2 min</div>
+</div>
+</div>
+<div class="quick-step">
+<div class="quick-num">4</div>
+<div class="quick-content">
+<div class="quick-action">Find the real Shift</div>
+<div class="quick-desc">Not the comfortable answer. Arrive at it without announcing it. Stop when the change has landed.</div>
+<div class="quick-time">~2 min</div>
+</div>
+</div>
+<div class="quick-step">
+<div class="quick-num">5</div>
+<div class="quick-content">
+<div class="quick-action">Write the End</div>
+<div class="quick-desc">One message. One final line strong enough to stand alone. Nothing after it.</div>
+<div class="quick-time">~1 min</div>
+</div>
+</div>
+<div class="quick-step" style="border-bottom:none;">
+<div class="quick-num">6</div>
+<div class="quick-content">
+<div class="quick-action">Run the Checklist</div>
+<div class="quick-desc">Eight questions. All yes — publish. Any no — go back to that section only.</div>
+<div class="quick-time">~30 sec</div>
+</div>
+</div>
+
+<div class="callout-dark" style="margin-top:20px;">
+<p>The goal was never to give you a template. It was to give you a logic.</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="page-foot">
+<div class="pf-num">12</div>
+<div class="pf-title">Idea to Video System</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
+
