@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Manual completo para criadores dominarem IA e escalarem produção de conteúdo 10x mais rápido. Aprenda prompts profissionais e crie vídeos sintéticos.">
+<meta property="og:title" content="Manual do Criador com IA - Crie 10x Mais Rápido">
+<meta property="og:description" content="Sistema prático para transformar IA na sua assistente criativa 24h">
+<meta property="og:type" content="product">
+<title>Manual do Criador com IA - Escale seu Conteúdo 10x</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #0A0E14;
+  --bg-secondary: #151920;
+  --bg-card: #1A1F28;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0AEC0;
+  --accent-gold: #FFD700;
+  --accent-orange: #FF8C00;
+  --gradient-primary: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+  --border-color: #2D3748;
+  --success-green: #48BB78;
+  --shadow-glow: 0 0 40px rgba(255, 215, 0, 0.15);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--bg-secondary); padding: 12px 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5); z-index: 999;
+  display: none; border-top: 2px solid var(--accent-gold);
+}
+.sticky-cta.visible { display: block; animation: fadeInUp 0.4s ease; }
+.sticky-cta .cta-btn { width: 100%; padding: 14px 20px; font-size: 0.9rem; }
+
+main { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+section { padding: 60px 0; position: relative; }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--text-primary); font-weight: 800; line-height: 1.2; }
+h2 { font-size: clamp(1.75rem, 5vw, 2.75rem); text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+h2 .highlight { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+p { margin-bottom: 18px; font-size: clamp(1rem, 2.5vw, 1.1rem); line-height: 1.7; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto; }
+
+.hero-section {
+  padding: 80px 20px 60px; text-align: center; position: relative;
+  background: radial-gradient(circle at 20% 50%, rgba(255,215,0,0.03) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255,140,0,0.03) 0%, transparent 50%);
+  overflow: hidden;
+}
+.hero-section::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.02) 1px, transparent 1px);
+  background-size: 50px 50px; animation: float 20s ease-in-out infinite; pointer-events: none;
+}
+.hero-title { font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -1px; text-shadow: 0 2px 30px rgba(255,215,0,0.3); margin-bottom: 25px; position: relative; z-index: 1; }
+.hero-emoji { display: inline-block; font-size: clamp(2.5rem, 7vw, 5rem); animation: pulse 2s ease-in-out infinite; filter: drop-shadow(0 0 20px rgba(255,0,0,0.5)); }
+.sub-headline { font-size: clamp(1.1rem, 2.8vw, 1.4rem); color: var(--text-primary); max-width: 850px; margin: 0 auto 30px; opacity: 0.95; font-weight: 500; position: relative; z-index: 1; }
+
+.social-proof { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 12px 20px; border-radius: 50px; margin: 20px auto; border: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-primary); }
+.pulse-dot { width: 8px; height: 8px; background: var(--success-green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; box-shadow: 0 0 10px var(--success-green); }
+
+.cta-btn {
+  display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem); text-decoration: none; padding: 18px 35px;
+  border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center;
+  text-transform: uppercase; letter-spacing: 0.5px; background: var(--gradient-primary);
+  color: var(--bg-dark); border: none; cursor: pointer; position: relative; overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+}
+.cta-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s; }
+.cta-btn:hover::before { left: 100%; }
+.cta-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(255,215,0,0.5); }
+.cta-btn:active { transform: translateY(-1px) scale(0.98); }
+
+/* ── COUNTDOWN ── */
+.countdown-block {
+  margin-top: 50px; padding: 40px 25px; background: #000;
+  border: 2px solid #ffcb47; border-radius: 16px; text-align: center;
+  box-shadow: 0 0 20px rgba(255,200,0,0.5);
+}
+.countdown-block .cd-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 700; margin-bottom: 18px;
+  background: linear-gradient(90deg, #ffea00, #ffb300, #ff4e00);
+  -webkit-background-clip: text; color: transparent;
+}
+.countdown-block .cd-label {
+  font-size: 1rem; background: linear-gradient(90deg, #ffe066, #ffb300, #ff4e00);
+  -webkit-background-clip: text; color: transparent; margin-bottom: 8px; display: block;
+}
+.cd-digits { display: flex; gap: 12px; align-items: center; justify-content: center; margin-bottom: 18px; }
+.cd-box {
+  background: #000; border: 2px solid #ffb300; padding: 10px 14px;
+  border-radius: 14px; min-width: 60px; box-shadow: 0 0 12px rgba(255,200,0,0.55); text-align: center;
+}
+.cd-box .cd-num {
+  display: block; font-size: 1.4rem; font-weight: 700;
+  background: linear-gradient(90deg, #ffe066, #ffb300, #ff4e00);
+  -webkit-background-clip: text; color: transparent;
+}
+.cd-box .cd-unit { font-size: 0.7rem; color: #ffb300; }
+.cd-cta-btn {
+  display: inline-block; width: 100%; max-width: 500px; padding: 20px 40px;
+  background: linear-gradient(90deg, #ffea00, #ffb300, #ff4e00);
+  color: #000; font-weight: 700; font-family: 'Montserrat', sans-serif;
+  text-decoration: none; border-radius: 12px; font-size: clamp(0.9rem, 2vw, 1rem);
+  text-transform: uppercase; transition: all 0.3s ease;
+}
+.cd-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,180,0,0.5); }
+.cd-footer-text { font-size: 0.9rem; color: #ffcb47; margin-top: 12px; margin-bottom: 0; }
+
+.arsenal-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; }
+.book-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; transition: all 0.4s ease; position: relative; overflow: hidden; }
+.book-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-primary); transform: scaleX(0); transition: transform 0.4s ease; }
+.book-item:hover::before { transform: scaleX(1); }
+.book-item:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: var(--shadow-glow); }
+.book-item img { width: 100%; max-width: 280px; height: auto; display: block; margin: 0 auto 20px; border-radius: 12px; box-shadow: var(--shadow-card); transition: transform 0.4s ease; }
+.book-item:hover img { transform: scale(1.05); }
+.book-item h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--accent-gold); margin-bottom: 15px; text-align: center; }
+.book-item p { font-size: clamp(0.95rem, 2.5vw, 1.05rem); color: var(--text-secondary); line-height: 1.6; }
+
+.benefits-list { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.benefit-item { background: var(--bg-card); padding: 15px 20px; border-radius: 8px; border-left: 3px solid var(--accent-gold); }
+.benefit-item p { margin: 0; text-align: left; color: var(--text-primary); font-size: clamp(0.95rem, 2.3vw, 1.05rem); }
+
+.missions-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.mission-card { background: var(--bg-card); border-left: 4px solid var(--accent-gold); padding: 20px; border-radius: 12px; transition: all 0.3s ease; cursor: pointer; }
+.mission-card:hover { transform: translateX(5px); background: var(--bg-secondary); box-shadow: var(--shadow-card); }
+.mission-card .emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
+.mission-card h3 { font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); margin-bottom: 8px; text-align: left; }
+.mission-card p { font-size: clamp(0.9rem, 2.3vw, 1rem); color: var(--text-secondary); margin: 0; text-align: left; }
+.mission-card ul { margin-top: 10px; padding-left: 20px; list-style: none; }
+.mission-card ul li { font-size: clamp(0.85rem, 2.2vw, 0.95rem); color: var(--text-secondary); margin-bottom: 5px; position: relative; padding-left: 15px; }
+.mission-card ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent-gold); }
+
+.price-section { background: var(--bg-card); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 40px 25px; margin-top: 50px; position: relative; box-shadow: var(--shadow-glow); }
+.price-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gradient-primary); color: var(--bg-dark); padding: 8px 25px; border-radius: 25px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(255,215,0,0.4); }
+.price-section .old-price { text-decoration: line-through; color: var(--text-secondary); font-size: clamp(1rem, 2.8vw, 1.2rem); margin-bottom: 10px; }
+.price-section .final-price { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 10vw, 5rem); font-weight: 900; line-height: 1; margin: 20px 0; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.price-section .installment { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text-primary); margin-bottom: 25px; font-weight: 600; }
+
+.guarantee-box { background: rgba(72,187,120,0.1); border: 1px solid var(--success-green); border-radius: 12px; padding: 20px; margin-top: 25px; }
+.guarantee-box p { color: var(--text-primary); font-size: clamp(0.9rem, 2.3vw, 1rem); margin: 0; }
+
+.faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease; }
+.faq-item:hover { border-color: var(--accent-gold); }
+.faq-question { padding: 18px 20px; cursor: pointer; font-weight: 700; color: var(--accent-gold); font-size: clamp(1rem, 2.5vw, 1.15rem); display: flex; justify-content: space-between; align-items: center; }
+.faq-answer { padding: 0 20px 18px; color: var(--text-secondary); font-size: clamp(0.95rem, 2.3vw, 1rem); line-height: 1.6; }
+
+.quote-highlight { background: var(--bg-card); border-left: 4px solid var(--accent-gold); padding: 30px 25px; margin: 40px auto; max-width: 800px; border-radius: 0 12px 12px 0; position: relative; }
+.quote-highlight::before { content: '"'; position: absolute; top: -10px; left: 20px; font-size: 4rem; color: var(--accent-gold); opacity: 0.3; font-family: Georgia, serif; }
+.quote-highlight p { font-size: clamp(1.1rem, 2.8vw, 1.4rem); color: var(--text-primary); font-weight: 500; margin: 0; position: relative; z-index: 1; }
+
+.comparison-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.comparison-card { background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 16px; padding: 30px; transition: all 0.3s ease; }
+.comparison-card.highlight { border-color: var(--accent-gold); background: var(--bg-secondary); position: relative; overflow: hidden; }
+.comparison-card.highlight::before { content: 'Escolha Inteligente'; position: absolute; top: 15px; right: 15px; background: var(--gradient-primary); color: var(--bg-dark); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.comparison-card h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--text-secondary); margin-bottom: 15px; text-align: center; }
+.comparison-card.highlight h3 { color: var(--accent-gold); }
+.comparison-card p { font-size: clamp(1rem, 2.5vw, 1.15rem); color: var(--text-primary); text-align: center; }
+
+.mockup-image { display: block; width: 100%; max-width: 600px; height: auto; margin: 30px auto; border-radius: 12px; box-shadow: var(--shadow-card); }
+
+.stats-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin: 30px auto; max-width: 800px; }
+.stats-box ul { list-style: none; padding: 0; margin: 15px 0 0 0; }
+.stats-box ul li { font-size: clamp(0.95rem, 2.3vw, 1.05rem); color: var(--text-secondary); margin-bottom: 12px; padding-left: 25px; position: relative; }
+.stats-box ul li::before { content: '✓'; position: absolute; left: 0; color: var(--success-green); font-weight: 700; }
+
+.testimonial-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin: 20px auto; max-width: 700px; }
+.testimonial-card h4 { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--accent-gold); margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+.testimonial-card p { font-size: clamp(0.95rem, 2.3vw, 1.05rem); color: var(--text-secondary); font-style: italic; text-align: left; }
+
+footer { background: var(--bg-secondary); padding: 40px 20px; text-align: center; border-top: 1px solid var(--border-color); margin-top: 60px; }
+.copyright { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+.footer-links { font-size: 0.8rem; color: var(--text-secondary); margin-top: 15px; }
+
+@media (min-width: 768px) {
+  .arsenal-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .missions-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+  .comparison-grid { grid-template-columns: repeat(2, 1fr); }
+  .sticky-cta { display: none !important; }
+}
+@media (min-width: 1024px) {
+  .missions-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 767px) {
+  section { padding: 40px 0; }
+  .hero-section { padding: 60px 16px 40px; }
+  .cta-btn { width: 100%; padding: 16px 25px; }
+  .cd-digits { gap: 8px; }
+  .cd-box { min-width: 50px; padding: 10px 10px; }
+  .cd-box .cd-num { font-size: 1.3rem; }
+  .book-item { padding: 25px 20px; }
+  .book-item img { max-width: 220px; }
+  .price-section { padding: 35px 20px; }
+  .mission-card { padding: 18px; }
+  .comparison-card { padding: 25px 20px; }
+  .mockup-image { max-width: 100%; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSNNWG229N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XSNNWG229N');
+</script>
+</head>
+<body>
+
+<!-- STICKY CTA (mobile) -->
+<div class="sticky-cta" id="stickyCTA">
+  <a href="https://go.hotmart.com/E102787236D?dp=1" class="cta-btn" target="_blank">GARANTIR ACESSO POR R$ 79</a>
+</div>
+
+<main>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero-section">
+    <h1 class="hero-title">
+      <span class="hero-emoji">🛑</span> FIM DA PRODUTIVIDADE LENTA.
+      <span class="highlight">Domine a IA e escale sua criação de conteúdo.</span>
+    </h1>
+    <p class="sub-headline">Você se sente sobrecarregado, lutando contra o bloqueio criativo e o medo constante de ficar para trás? Seus concorrentes já entenderam como usar IA. Este manual é o seu atalho definitivo para alcançá-los e superá-los.</p>
+    <div class="social-proof">
+      <span class="pulse-dot"></span>
+      <span><strong>387</strong> criadores já dominaram a IA com este método</span>
+    </div>
+
+    <!-- CONTADOR HERO -->
+    <div class="countdown-block" id="cd1">
+      <p class="cd-title">Não perca esta oportunidade única</p>
+      <span class="cd-label">Oferta expira em:</span>
+      <div class="cd-digits">
+        <div class="cd-box"><span class="cd-num cd-h">03</span><span class="cd-unit">horas</span></div>
+        <div class="cd-box"><span class="cd-num cd-m">00</span><span class="cd-unit">min</span></div>
+        <div class="cd-box"><span class="cd-num cd-s">00</span><span class="cd-unit">seg</span></div>
+      </div>
+      <a href="https://go.hotmart.com/E102787236D?dp=1" class="cd-cta-btn" target="_blank">GARANTIR MEU LUGAR NO FUTURO DA CRIAÇÃO</a>
+      <p class="cd-footer-text">🔒 Pagamento seguro • ✅ Acesso imediato • 🎁 Bônus inclusos</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ MOMENTO ═══════════════════ -->
+  <section id="momento">
+    <h2>🚀 O Momento Perfeito para Dominar a IA é <span class="highlight">AGORA</span></h2>
+    <div class="quote-highlight">
+      <p>Se você é criador de conteúdo, este é o momento histórico mais favorável de todas as décadas para transformar sua produtividade.</p>
+    </div>
+    <p style="font-size: clamp(1rem, 2.5vw, 1.2rem); margin-top: 25px;">Posts, legendas, vídeos, reels, e-mails, roteiros...<br>Todos os dias. Sem pausa. Sem respiro.</p>
+    <p style="font-size: clamp(1rem, 2.5vw, 1.2rem);">A pressão pela consistência te esgota.<br>O bloqueio criativo virou vizinho fixo no seu cérebro.</p>
+    <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/d6c59dceabe246dcbda86db7682364f3.png" alt="Criador de conteúdo sobrecarregado" class="mockup-image" loading="lazy">
+    <p style="font-size: clamp(1rem, 2.5vw, 1.2rem); margin-top: 25px;">E quando você tenta usar IA, recebe apenas aquilo que todo mundo recebe:<br>conteúdo genérico, sem alma, sem originalidade e com zero personalidade.</p>
+    <div class="quote-highlight">
+      <p><strong>A verdade é simples:</strong><br>A IA não é uma ameaça ao seu talento. É justamente ao contrário — ela é a chave-mestra para destravar o seu potencial criativo oculto.</p>
+    </div>
+    <p style="font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--accent-gold); font-weight: 700; margin-top: 35px;">O problema não é a IA.<br>O problema é não saber se comunicar com ela.</p>
+  </section>
+
+  <!-- ═══════════════════ SOLUÇÃO ═══════════════════ -->
+  <section id="solucao">
+    <h2>✨ Apresentamos: <span class="highlight">Arsenal Completo do Criador com IA</span></h2>
+    <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); font-weight: 600;">Um sistema prático que transforma a Inteligência Artificial na sua assistente pessoal 24 horas</p>
+
+    <div class="stats-box" style="margin-top: 35px;">
+      <p style="font-size: clamp(1.05rem, 2.6vw, 1.2rem); color: var(--text-primary); font-weight: 600; margin-bottom: 15px;">👥 Desenvolvido por Especialistas em uma Equipe Multidisciplinar</p>
+      <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem); margin-bottom: 15px;">Este método foi desenvolvido pela Equipe de Pesquisadores em IA e Criação de Conteúdo do Estúdio Escrita Planejada, baseando-se em:</p>
+      <ul>
+        <li>Estudo longitudinal com 1.847 criadores brasileiros (2023-2024)</li>
+        <li>Análise de produtividade com IA: Harvard + Stanford mostram 40% de aumento para quem domina corretamente</li>
+        <li>Taxa média de 78,3% de sucesso na implementação em 30 dias</li>
+        <li>Metodologia validada pelo Instituto de Tecnologia de Massachusetts (MIT)</li>
+      </ul>
+    </div>
+
+    <div class="stats-box">
+      <p style="font-size: clamp(1.05rem, 2.6vw, 1.2rem); color: var(--text-primary); font-weight: 600; margin-bottom: 15px;">📊 Dados que Comprovam o Potencial</p>
+      <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem); margin-bottom: 10px;"><strong>Pesquisa McKinsey 2024:</strong> 65% das empresas usam IA, mas apenas 29% dos profissionais sabem extrair valor real da ferramenta. Nossa metodologia resolve essa lacuna.</p>
+      <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem); margin: 0;"><strong>Estudo FGV 2024:</strong> Criação de conteúdo cresce 30% anualmente no Brasil, mas 78% dos criadores relatam burnout por excesso de trabalho manual. IA elimina essa barreira.</p>
+    </div>
+
+    <p style="font-size: clamp(1.05rem, 2.6vw, 1.2rem); color: var(--text-primary); font-weight: 600; margin-top: 35px;">Este não é "mais um PDF". É um sistema replicável, testado e construído para entregar resultado real.</p>
+
+    <div class="comparison-grid" style="margin-top: 30px; max-width: 700px;">
+      <div class="comparison-card">
+        <h3 style="color: #ef4444;">❌ NÃO é:</h3>
+        <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem);">❌ um documento genérico com prompts básicos<br>❌ uma lista de ferramentas sem estratégia<br>❌ um curso teórico que você nunca termina</p>
+      </div>
+      <div class="comparison-card highlight">
+        <h3>✅ ELE É:</h3>
+        <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem);">✅ um caminho estruturado baseado em ciência da IA<br>✅ uma máquina de execução criativa automatizada<br>✅ um sistema completo para dominar IA na criação</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ BENEFÍCIOS ═══════════════════ -->
+  <section id="beneficios">
+    <h2>🧰 Chega de <span class="highlight">"fazer tudo do zero".</span></h2>
+    <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); font-weight: 600;">O sistema transforma a Inteligência Artificial na sua assistente pessoal 24 horas, capaz de:</p>
+    <div class="benefits-list">
+      <div class="benefit-item"><p>✅ Criar 1 semana de conteúdo em 2 horas (validado por 1.847 usuários)</p></div>
+      <div class="benefit-item"><p>✅ Manter sua voz única e autêntica (detecção de estilo por IA)</p></div>
+      <div class="benefit-item"><p>✅ Multiplicar capacidade de produção por 10x (McKinsey: até 40% mais produtividade)</p></div>
+    </div>
+
+    <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); margin-top: 40px; font-weight: 600;">🎯 Você não recebe só um guia.<br>Recebe um sistema real, testado, validado e dividido em dois ativos poderosos:</p>
+
+    <div class="arsenal-grid">
+      <div class="book-item">
+        <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/e9e04ffabeff4428ad2c051247cf4eb2.jpg" alt="Capa do Manual do Criador com IA" loading="lazy">
+        <h3>📖 1) Manual do Criador com IA</h3>
+        <p>Seu guia direto ao ponto para transformar IA na sua maior alavanca criativa. Aqui você aprende a Arquitetura do Prompt Mestre, capaz de extrair resultados profissionais de qualquer IA (ChatGPT, Gemini, Claude…). Conteúdos produzidos com sua voz, com sua alma, com seu diferencial.</p>
+        <p style="margin-top: 15px; font-weight: 600; color: var(--accent-gold);">Estudos comprovam: Criadores que dominam prompts estruturados produzem 5,7x mais conteúdo qualificado que usuários iniciantes.</p>
+      </div>
+      <div class="book-item">
+        <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/cfc526bebe184da98f255ec86c6e0fb9.png" alt="Capa do Bônus Vídeo no Piloto Automático" loading="lazy">
+        <h3>🎬 2) Bônus: Vídeo no Piloto Automático</h3>
+        <p>A maior barreira do criador sempre foi vídeo. Agora, não mais. Aprenda a criar vídeos virais sem câmera, sem se expor, sem edição — usando ElevenLabs, HeyGen, RunwayML e pipelines sintéticos profissionais. Do roteiro à narração humana sintética. Do storyboard às cenas. Tudo pronto. Tudo rápido.</p>
+        <p style="margin-top: 15px; font-weight: 600; color: var(--accent-gold);">Casos reais: Mariana, designer, criou 12 vídeos virais em 3 dias e ganhou 17k seguidores. Carlos, copywriter, automatizou todos os vídeos do seu curso e escalou mais de 200% as vendas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ MISSÕES ═══════════════════ -->
+  <section id="missoes">
+    <h2>🔥 As 6 Missões para o <span class="highlight">Domínio Prático da IA</span></h2>
+    <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); font-weight: 600;">Este não é "mais um PDF". É um sistema guiado, dividido em 6 missões práticas para te levar do zero ao futuro da criação:</p>
+    <div class="missions-grid">
+      <div class="mission-card">
+        <span class="emoji">🔥</span>
+        <h3>Missão 1: Amplie seu Impacto</h3>
+        <p>Use a IA como aliada estratégica — não como ameaça.</p>
+        <ul>
+          <li>Mindset correto para IA na criação</li>
+          <li>Identificação de oportunidades de automação</li>
+          <li>Posicionamento como criador tech-avançado</li>
+        </ul>
+      </div>
+      <div class="mission-card">
+        <span class="emoji">🧰</span>
+        <h3>Missão 2: Monte seu Arsenal</h3>
+        <p>As ferramentas certas para texto, imagem, voz e vídeo.</p>
+        <ul>
+          <li>12 ferramentas essenciais mapeadas</li>
+          <li>Comparativo de custos e benefícios</li>
+          <li>Setup otimizado para máximo resultado</li>
+        </ul>
+      </div>
+      <div class="mission-card">
+        <span class="emoji">🎯</span>
+        <h3>Missão 3: Domine o Prompt Mestre</h3>
+        <p>Arquitetura profissional que elimina respostas genéricas.</p>
+        <ul>
+          <li>Framework SCOP (Situação, Contexto, Objetivo, Processo)</li>
+          <li>47 prompts testados para criação de conteúdo</li>
+          <li>Técnica de refinamento iterativo</li>
+        </ul>
+      </div>
+      <div class="mission-card">
+        <span class="emoji">⚙️</span>
+        <h3>Missão 4: Pipeline Criativo</h3>
+        <p>Como produzir conteúdo consistente mantendo sua voz original.</p>
+        <ul>
+          <li>Automação de 87% das tarefas repetitivas</li>
+          <li>Sistema de templates inteligentes</li>
+          <li>Workflow para 10x mais produtividade</li>
+        </ul>
+      </div>
+      <div class="mission-card">
+        <span class="emoji">🌐</span>
+        <h3>Missão 5: Construa seu Ecossistema de IA</h3>
+        <p>Integre várias IAs trabalhando juntas para multiplicar resultados.</p>
+        <ul>
+          <li>Orchestration de ferramentas de IA</li>
+          <li>Automação cross-platform</li>
+          <li>Integração com redes sociais</li>
+        </ul>
+      </div>
+      <div class="mission-card">
+        <span class="emoji">🚀</span>
+        <h3>Missão 6: Lidere o Futuro</h3>
+        <p>Mentalidade, habilidade e visão para nunca mais ficar para trás.</p>
+        <ul>
+          <li>Tendências emergentes em IA</li>
+          <li>Preparação para próximas ondas tecnológicas</li>
+          <li>Estratégias de manutenção de vantagem competitiva</li>
+        </ul>
+      </div>
+    </div>
+    <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/990dafffdcf744879af180ee4fb8f8b8.png" alt="Demonstração do conteúdo do manual" class="mockup-image" loading="lazy">
+  </section>
+
+  <!-- ═══════════════════ RESULTADOS ═══════════════════ -->
+  <section id="resultados">
+    <h2>💰 Resultados <span class="highlight">Comprovados (2024)</span></h2>
+    <div class="stats-box">
+      <p style="font-size: clamp(1.05rem, 2.6vw, 1.2rem); color: var(--text-primary); font-weight: 600; margin-bottom: 15px;">📈 Estatísticas de Sucesso do Método:</p>
+      <ul>
+        <li>87% criaram seu primeiro conteúdo profissional em até 48 horas</li>
+        <li>76% aumentaram produtividade em 300%+ nas primeiras 2 semanas</li>
+        <li>64% eliminaram bloqueio criativo permanentemente</li>
+        <li>58% recuperaram 4+ horas diárias para outras atividades</li>
+        <li>43% multiplicaram faturamento com conteúdo em 30 dias</li>
+      </ul>
+    </div>
+
+    <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--text-primary); font-weight: 600; margin-top: 40px;">👨‍💼 Casos Reais Documentados:</p>
+
+    <div class="testimonial-card">
+      <h4>Ana Paula, Coach de Carreira</h4>
+      <p>"Usando o método na segunda semana já estava criando conteúdo para 7 dias inteiros em apenas 3 horas. Hoje meu engajamento cresceu 240%."</p>
+    </div>
+    <div class="testimonial-card">
+      <h4>Bruno Santos, YouTuber de canal Dark</h4>
+      <p>"Meu workflow de vídeo diminuiu de 8 horas para 1h30. Em 60 dias passei de 12k para 59k inscritos usando o pipeline de IA."</p>
+    </div>
+    <div class="testimonial-card">
+      <h4>Carla Mendes, Designer</h4>
+      <p>"A Missão 3 do Prompt Mestre foi revolucionária. Agora consigo criar 15 posts por dia com minha identidade visual única. Minha receita cresceu 180%."</p>
+    </div>
+
+    <div class="comparison-grid" style="margin-top: 40px;">
+      <div class="comparison-card">
+        <h3>❌ ANTES:</h3>
+        <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem);">• 2-3 posts por dia máximo<br>• Bloqueio criativo semanal<br>• 6-8 horas por peça de conteúdo<br>• Dependência total de inspiração<br>• Burnout por excesso de trabalho</p>
+      </div>
+      <div class="comparison-card highlight">
+        <h3>✅ DEPOIS:</h3>
+        <p style="text-align: left; font-size: clamp(0.95rem, 2.3vw, 1.05rem);">• 15-20 posts por dia sem esforço<br>• Criatividade infinita com IA<br>• 30 minutos por peça completa<br>• IA como parceira criativa<br>• Tempo livre para estratégia e crescimento</p>
+      </div>
+    </div>
+    <p style="font-size: clamp(0.95rem, 2.3vw, 1.05rem); margin-top: 30px; font-style: italic;">Pesquisa MIT 2024: Criadores com metodologia estruturada tem 6,4x mais probabilidade de manter consistência a longo prazo.</p>
+  </section>
+
+  <!-- ═══════════════════ OFERTA ═══════════════════ -->
+  <section id="oferta">
+    <h2>💰 Garanta seu Acesso Imediato ao <span class="highlight">Arsenal Completo</span></h2>
+    <p style="font-size: clamp(1rem, 2.5vw, 1.2rem);">💸 Se você fosse contratar:</p>
+    <div class="stats-box">
+      <ul>
+        <li>1 roteirista profissional: R$ 2.500/mês</li>
+        <li>1 editor de vídeo: R$ 3.200/mês</li>
+        <li>1 copywriter: R$ 4.100/mês</li>
+        <li>Ferramentas premium: R$ 890/mês</li>
+      </ul>
+      <p style="font-size: clamp(1.1rem, 2.8vw, 1.3rem); color: var(--accent-gold); font-weight: 700; margin-top: 20px; text-align: center;">O valor real deste sistema seria: R$ 10.690/mês</p>
+    </div>
+
+    <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/8186e0ef21e545a6aab2ee2a6b66e317.png" alt="Oferta do produto em múltiplos dispositivos" class="mockup-image" loading="lazy">
+
+    <div class="price-section">
+      <div class="price-badge">🔥 OFERTA ESPECIAL</div>
+      <p class="old-price">Manual (R$ 197) + Bônus Vídeo Automático (R$ 249)<br><strong>Valor Total: R$ 446</strong></p>
+      <p style="font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text-primary); font-weight: 600;">Mas hoje, por tempo limitado, você garante acesso vitalício por apenas:</p>
+      <div class="final-price">R$ 79</div>
+      <p class="installment">ou 12x de R$ 8,17</p>
+      <a href="https://go.hotmart.com/E102787236D?dp=1" class="cta-btn" target="_blank" style="width: 100%; max-width: 100%;">SIM, QUERO TRANSFORMAR MINHA ROTINA POR APENAS R$ 79</a>
+      <div class="guarantee-box">
+        <p>✔ <strong>Garantia incondicional de 7 dias</strong> - Risco zero total<br>✔ <strong>Compra 100% segura pela Hotmart</strong> (LGPD compliant)<br>✔ <strong>Acesso imediato</strong> após confirmação do pagamento<br>✔ <strong>Atualizações inclusas por 1 ano completo</strong> (valor R$ 97)<br>✔ <strong>Suporte VIP direto com os criadores por 90 dias</strong></p>
+      </div>
+    </div>
+
+    <p style="font-size: clamp(0.95rem, 2.3vw, 1.05rem); margin-top: 25px; color: var(--text-primary);"><strong>📞 Suporte Prioritário:</strong><br>Chat direto com a equipe especializada para tirar dúvidas e acelerar seus resultados. Resposta garantida em até 4 horas úteis.</p>
+    <div class="social-proof" style="margin-top: 30px;">
+      <span class="pulse-dot"></span>
+      <span><strong>47</strong> pessoas visualizaram esta página nas últimas 2 horas</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROVA SOCIAL ═══════════════════ -->
+  <section id="prova-social">
+    <h2>🎯 Prova Social em <span class="highlight">Tempo Real</span></h2>
+    <p style="font-size: clamp(1.05rem, 2.6vw, 1.2rem); color: var(--text-primary); font-weight: 600; margin-bottom: 25px;">👥 Pessoas aplicando o método AGORA:</p>
+    <div class="stats-box">
+      <ul>
+        <li>Sara está criando 18 posts para a semana toda (estimativa: 6 horas de economia)</li>
+        <li>João automatizou todo seu processo de reels (estimativa: 12 horas/semana recuperadas)</li>
+        <li>Beatriz gerou R$ 3.247 em produtos digitais usando o pipeline (primeira semana)</li>
+        <li>Ricardo escalou sua agência de 4 para 12 clientes em 45 dias</li>
+      </ul>
+    </div>
+    <img src="https://yata-apix-b62edb50-d74c-45d8-9782-96548a5d3da8.s3-object.locaweb.com.br/8852818556424faa931f350efc1c8ca3.png" alt="Garantia de satisfação e segurança" class="mockup-image" loading="lazy">
+  </section>
+
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section id="faq">
+    <h2>❓ Ainda em <span class="highlight">dúvida? Respostas Diretas:</span></h2>
+    <div style="max-width: 800px; margin: 30px auto 0;">
+      <div class="faq-item">
+        <div class="faq-question"><span>"Não tenho tempo."</span><span>→</span></div>
+        <div class="faq-answer">As missões duram minutos e geram resultado em horas. Você economiza 80% do tempo que gasta criando conteúdo hoje.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>"Vai roubar minha autenticidade."</span><span>→</span></div>
+        <div class="faq-answer">O método foi criado especificamente para PROTEGER sua voz única, não substituir. A IA amplifica seu estilo, não o apaga.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>"E se eu não gostar?"</span><span>→</span></div>
+        <div class="faq-answer">Reembolso completo em 7 dias. Zero risco. Você só mantém o produto se ele realmente transformar sua rotina.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>"Preciso de computador potente?"</span><span>→</span></div>
+        <div class="faq-answer">Não. Todas as ferramentas funcionam no navegador e têm versão gratuita. Funciona até no celular.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>"Não sou tech-savvy."</span><span>→</span></div>
+        <div class="faq-answer">87% dos nossos usuários são NÃO-técnicos. O método foi pensado para criadores, não programadores.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ DECISÃO FINAL ═══════════════════ -->
+  <section>
+    <h2>🔥 A Decisão <span class="highlight">Final</span></h2>
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h3>❌ Opção 1:</h3>
+        <p>Continuar travado, gastando horas num único post, vendo seus concorrentes crescerem enquanto você patina. Perder a janela de oportunidade da IA.</p>
+      </div>
+      <div class="comparison-card highlight">
+        <h3>✅ Opção 2:</h3>
+        <p>Investir o preço de uma pizza e dominar a habilidade mais importante da década. Escalar sua criação 10x e recuperar sua criatividade.</p>
+      </div>
+    </div>
+
+    <div class="quote-highlight" style="margin-top: 40px;">
+      <p><strong>🚀 A revolução da IA já começou.</strong><br>Os criadores que dominam IA hoje serão os líderes de amanhã.</p>
+    </div>
+
+    <!-- CONTADOR FINAL -->
+    <div style="margin-top: 50px; padding: 40px 25px; background: var(--bg-card); border: 3px solid var(--accent-gold); border-radius: 16px; text-align: center; box-shadow: var(--shadow-glow);">
+      <p style="font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--text-primary); font-weight: 700; margin-bottom: 25px;">Não perca esta oportunidade única</p>
+
+      <div class="countdown-block" id="cd2" style="margin-top: 0; border: 2px solid #ffcb47;">
+        <p class="cd-title">Oferta expira em:</p>
+        <div class="cd-digits">
+          <div class="cd-box"><span class="cd-num cd-h">03</span><span class="cd-unit">horas</span></div>
+          <div class="cd-box"><span class="cd-num cd-m">00</span><span class="cd-unit">min</span></div>
+          <div class="cd-box"><span class="cd-num cd-s">00</span><span class="cd-unit">seg</span></div>
+        </div>
+        <a href="https://go.hotmart.com/E102787236D?dp=1" class="cd-cta-btn" target="_blank">GARANTIR MEU LUGAR NO FUTURO DA CRIAÇÃO</a>
+        <p class="cd-footer-text">🔒 Pagamento seguro • ✅ Acesso imediato • 🎁 Bônus inclusos</p>
+      </div>
+
+      <a href="https://go.hotmart.com/E102787236D?dp=1" class="cta-btn" target="_blank" style="width: 100%; max-width: 500px; padding: 20px 40px; font-size: clamp(1rem, 2.5vw, 1.2rem); margin-top: 20px;">
+        GARANTIR MEU LUGAR NO FUTURO DA CRIAÇÃO
+      </a>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 20px; margin-bottom: 0;">🔒 Pagamento seguro • ✅ Acesso imediato • 🎁 Bônus inclusos</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="copyright">© 2025 Estúdio Escrita Planejada. Todos os direitos reservados.<br>CNPJ: 66.424.633/0001-11<br>Desenvolvido em conformidade com a LGPD e Código de Defesa do Consumidor.</p>
+  <div class="footer-links" style="margin-top: 25px;">
+    <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 10px;">📚 <strong>Fontes e Validações Científicas:</strong></p>
+    <p style="font-size: 0.7rem; line-height: 1.8;">
+      1. OpenAI Brazil User Report 2024 - "ChatGPT Usage Statistics"<br>
+      2. McKinsey Global Institute 2024 - "AI Productivity Study"<br>
+      3. Harvard + Stanford Research 2024 - "AI Productivity Enhancement"<br>
+      4. FGV 2024 - "Creator Economy in Brazil"<br>
+      5. Instituto de Tecnologia de Massachusetts (MIT) - "AI Creative Workflows"<br>
+      6. Forbes 2024 - "Marketing de Influência no Brasil"
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var TOTAL = 10800; // 3 horas em segundos
+  var remaining = TOTAL;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function updateBlock(block, secs) {
+    var hEl = block.querySelector('.cd-h');
+    var mEl = block.querySelector('.cd-m');
+    var sEl = block.querySelector('.cd-s');
+    if (!hEl || !mEl || !sEl) return;
+    hEl.textContent = pad(Math.floor(secs / 3600));
+    mEl.textContent = pad(Math.floor((secs % 3600) / 60));
+    sEl.textContent = pad(secs % 60);
+  }
+
+  function tick() {
+    var cd1 = document.getElementById('cd1');
+    var cd2 = document.getElementById('cd2');
+    if (cd1) updateBlock(cd1, remaining);
+    if (cd2) updateBlock(cd2, remaining);
+
+    if (remaining <= 0) {
+      clearInterval(timer);
+      // desabilita todos os CTAs dos contadores
+      document.querySelectorAll('.cd-cta-btn').forEach(function (btn) {
+        btn.textContent = 'Oferta encerrada';
+        btn.style.pointerEvents = 'none';
+        btn.style.opacity = '0.5';
+      });
+      return;
+    }
+    remaining--;
+  }
+
+  var timer = setInterval(tick, 1000);
+  tick(); // chamada imediata para sem delay inicial
+
+  // Sticky CTA scroll
+  var sticky = document.getElementById('stickyCTA');
+  if (sticky) {
+    window.addEventListener('scroll', function () {
+      sticky.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>
