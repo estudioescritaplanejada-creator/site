@@ -540,12 +540,6 @@
     </script>
 </head>
 <body>
-    <div id="hotmart-sales-funnel"></div>
-
-    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-    <script>
-    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-    </script>
     <main>
 
         <section class="hero-section">
@@ -640,7 +634,7 @@
                 <div class="dados-card">
                     <div class="dados-stat">Foco</div>
                     <div class="dados-descricao">Você aprende o que realmente importa no digital.</div>
-                    <div class="dados-fonte">Because ferramentas mudam… Mas quem entende o processo evolui.</div>
+                    <div class="dados-fonte">Porque ferramentas mudam… Mas quem entende o processo evolui.</div>
                 </div>
             </div>
 
@@ -816,5 +810,11 @@
         Desenvolvido em conformidade com a LGPD e Código de Defesa do Consumidor.</p>
         <script>lucide.createIcons();</script>
     </footer>
+
+    <div id="hotmart-sales-funnel" style="display: none !important;"></div>
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <script>
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+    </script>
 </body>
 </html>
