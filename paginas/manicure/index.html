@@ -1,160 +1,563 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>30 Conteúdos para Manicures que Querem Mais Clientes</title>
-    <meta name="description" content="30 conteúdos prontos para manicures atraírem mais clientes e transformarem o Instagram em vitrine de agendamentos.">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Barlow:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* ── RESET ── */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 18px; -webkit-text-size-adjust: 100%; }
-        
-        /* ── TOKENS ── */
-        :root {  
-            --neon:        #e8187c;  
-            --neon-bright: #ff3fa4;  
-            --neon-glow:   #ff82cc;  
-            --bg:          #0d070f;  
-            --bg-mid:      #180c15;  
-            --bg-card:     #211019;  
-            --border:      rgba(232,24,124,0.22);  
-            --white:       #ffffff;  
-            --soft:        rgba(255,255,255,0.72);  
-            --muted:       rgba(255,255,255,0.45);  
-            --r:           14px;  
-            --rr:          22px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>30 Conteúdos para Manicures — Chega de Travar no Instagram</title>
+  <meta name="description" content="30 posts prontos com legenda e orientação visual para manicures atraírem mais clientes e lotarem a agenda pelo Instagram.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Bebas+Neue&family=Barlow:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-        /* ── BASE ── */
-        body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--white); line-height: 1.7; overflow-x: hidden; }
-        .w { width: 100%; max-width: 640px; margin: 0 auto; padding: 0 20px; }
-        .div { height: 1px; background: linear-gradient(90deg, transparent, rgba(232,24,124,0.38), transparent); }
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-        /* ── TIPOGRAFIA ── */
-        .t-display { font-weight: 900; font-size: clamp(2.2rem, 10vw, 3.4rem); line-height: 1.0; text-transform: uppercase; }
-        .t-display .pink { color: var(--neon-bright); }
-        .t-display .stroke { -webkit-text-stroke: 2px var(--neon-bright); color: transparent; }
-        .t-serif { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.6rem, 6vw, 2.2rem); line-height: 1.25; }
-        .t-serif em { font-style: italic; color: var(--neon-bright); }
-        .t-section { font-weight: 800; font-size: clamp(1.3rem, 5.5vw, 1.7rem); text-transform: uppercase; line-height: 1.2; }
-        .t-section .pink { color: var(--neon-bright); }
-        p { font-size: clamp(1rem, 4vw, 1.1rem); color: var(--soft); }
-        p strong { color: var(--white); font-weight: 700; }
+    :root {
+      --neon:        #e8187c;
+      --neon-bright: #ff3fa4;
+      --neon-glow:   #ff82cc;
+      --neon-dim:    rgba(232,24,124,0.18);
+      --bg:          #0a050d;
+      --bg-mid:      #130a17;
+      --bg-card:     #1c0e1f;
+      --border:      rgba(232,24,124,0.22);
+      --white:       #ffffff;
+      --soft:        rgba(255,255,255,0.72);
+      --muted:       rgba(255,255,255,0.42);
+      --r:           14px;
+      --rr:          24px;
+    }
 
-        /* ── ELEMENTOS ── */
-        .eye { display: inline-flex; align-items: center; gap: 7px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--neon-glow); border: 1px solid rgba(255,130,204,0.3); background: rgba(255,130,204,0.07); padding: 5px 14px; border-radius: 30px; margin-bottom: 18px; }
-        .eye-dot { width: 20px; height: 20px; background: var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #fff; }
-        .img-wrap { width: 100%; border-radius: var(--r); overflow: hidden; margin: 28px 0; }
-        .img-wrap img { width: 100%; height: auto; display: block; }
-        
-        /* ── BOTÕES ── */
-        .btn { display: block; width: 100%; background: var(--neon); color: #fff; font-weight: 900; font-size: clamp(1rem, 4.5vw, 1.15rem); padding: 20px 24px; border-radius: 50px; text-align: center; text-decoration: none; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s; }
-        .btn:active { transform: scale(0.98); }
-        .btn-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 20px; margin-top: 20px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--muted); }
-        .btn-trust span::before { content: '✦ '; color: var(--neon); }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-        /* ── CARDS & LISTS ── */
-        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 22px 20px; margin-bottom: 14px; }
-        .card .num { font-weight: 900; font-size: 2.2rem; color: var(--neon); opacity: 0.45; }
-        .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
-        .checklist li { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
-        .checklist li .ck { width: 24px; height: 24px; flex-shrink: 0; background: var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: #fff; }
-        
-        /* ── OUTROS ── */
-        .garantia-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--rr); padding: 36px 24px; text-align: center; }
-        .garantia-box .g-num { font-weight: 900; font-size: 5rem; color: var(--neon); line-height: 1; }
-        section { padding: 60px 0; }
-        .alt { background: var(--bg-mid); }
-        footer { background: #08040a; padding: 40px 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.22); border-top: 1px solid rgba(255,255,255,0.06); }
-    </style>
+    /* ── NOISE GRAIN ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.032;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .w { width: 100%; max-width: 640px; margin: 0 auto; padding: 0 22px; }
+
+    /* ── DIVIDERS ── */
+    .div {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,24,124,0.5), transparent);
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neon-glow);
+      border: 1px solid rgba(255,130,204,0.35);
+      background: rgba(255,130,204,0.07);
+      padding: 6px 16px 6px 8px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+    .badge-dot {
+      width: 22px; height: 22px;
+      background: var(--neon);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.55rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .t-display {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 14vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+    .t-display .pink  { color: var(--neon-bright); }
+    .t-display .stroke {
+      -webkit-text-stroke: 2px var(--neon-bright);
+      color: transparent;
+    }
+
+    .t-serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.55rem, 6vw, 2.1rem);
+      line-height: 1.25;
+    }
+    .t-serif em { font-style: italic; color: var(--neon-bright); }
+
+    .t-section {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.9rem, 7vw, 2.8rem);
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+    .t-section .pink { color: var(--neon-bright); }
+
+    p { font-size: clamp(0.95rem, 3.8vw, 1.05rem); color: var(--soft); }
+    p strong { color: var(--white); font-weight: 700; }
+
+    /* ── SECTIONS ── */
+    section { padding: 64px 0; }
+    .alt { background: var(--bg-mid); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 72px 0 56px;
+      text-align: center;
+      position: relative;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,24,124,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 360px;
+      margin: 32px auto;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(232,24,124,0.18);
+    }
+    .hero-img img { width: 100%; height: auto; display: block; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: block;
+      width: 100%;
+      background: var(--neon);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.2rem, 5vw, 1.4rem);
+      letter-spacing: 0.08em;
+      padding: 18px 24px;
+      border-radius: 50px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 28px rgba(232,24,124,0.38);
+    }
+    .btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(232,24,124,0.52); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-purple {
+      background: linear-gradient(135deg, #8E44AD 0%, #2A7F98 100%);
+      box-shadow: 0 4px 28px rgba(142,68,173,0.35);
+    }
+    .btn-purple:hover { box-shadow: 0 8px 36px rgba(142,68,173,0.5); }
+
+    .btn-trust {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 18px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .btn-trust span::before { content: '✦ '; color: var(--neon); }
+
+    /* ── DOR / IDENT ── */
+    .pain-list {
+      list-style: none;
+      margin: 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 15px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      font-size: clamp(0.9rem, 3.6vw, 1rem);
+      color: var(--soft);
+    }
+    .pain-list li .x {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      background: rgba(232,24,124,0.15);
+      border: 1px solid var(--neon);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem;
+      color: var(--neon-bright);
+      margin-top: 2px;
+    }
+
+    /* ── CARDS ── */
+    .cards-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--neon), transparent);
+    }
+    .card-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--neon);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .card h3 {
+      font-weight: 800;
+      font-size: clamp(1rem, 4vw, 1.1rem);
+      margin-bottom: 6px;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px 18px;
+    }
+    .ck {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
+      background: var(--neon);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      color: #fff;
+      margin-top: 1px;
+      box-shadow: 0 0 12px rgba(232,24,124,0.4);
+    }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      width: 100%;
+      max-width: 320px;
+      margin: 32px auto;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 30px rgba(232,24,124,0.15);
+    }
+    .video-ratio { position: relative; padding-bottom: 177.77%; height: 0; }
+    .video-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* ── GARANTIA ── */
+    .garantia-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--rr);
+      padding: 48px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .garantia-box::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(232,24,124,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .g-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 7rem;
+      color: var(--neon);
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(232,24,124,0.4);
+    }
+    .g-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--neon-glow);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .garantia-box h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    /* ── PRICE SECTION ── */
+    #price { text-align: center; }
+    .price-img {
+      max-width: 300px;
+      margin: 0 auto 36px;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(232,24,124,0.2);
+    }
+    .price-img img { width: 100%; height: auto; display: block; }
+
+    /* ── UPSELL ── */
+    .upsell-card {
+      background: linear-gradient(135deg, rgba(142,68,173,0.12), rgba(42,127,152,0.12));
+      border: 1px solid rgba(142,68,173,0.3);
+      border-radius: var(--rr);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060308;
+      padding: 44px 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      line-height: 2;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.22s; }
+    .fade-up-d3 { animation-delay: 0.36s; }
+    .fade-up-d4 { animation-delay: 0.5s; }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 4px 28px rgba(232,24,124,0.38); }
+      50%       { box-shadow: 0 4px 44px rgba(232,24,124,0.65); }
+    }
+    .btn-pulse { animation: pulse-glow 2.4s ease-in-out infinite; }
+  </style>
 </head>
 <body>
 
-<div style="padding: 64px 0 52px; position: relative;">
-    <div class="w" style="text-align:center;">
-        <div class="eye"><span class="eye-dot">✦</span> Série Prática · 30 Dias de Conteúdo</div>
-        <div class="t-display" style="margin-bottom:20px;">
-            Pare de travar<br><span class="pink">no Instagram</span><br>
-            e transforme seu perfil em uma <span class="stroke">vitrine de agendamentos</span>
-        </div>
-        <p style="margin-bottom: 28px;">Receba pack de mais de 50 imagens e 30 posts prontos com legenda e orientação visual para atrair clientes hoje.</p>
-        
-        <div class="img-wrap">
-            <img src="imagens/img-01-hero.png" alt="30 Conteúdos para Manicures">
-        </div>
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="w">
+    <div class="badge fade-up"><span class="badge-dot">✦</span> Série Prática · 30 Dias de Conteúdo</div>
 
-        <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO MEUS 30 POSTS PRONTOS</a>
+    <div class="t-display fade-up fade-up-d1" style="margin-bottom:22px;">
+      Pare de travar<br>
+      <span class="pink">no Instagram</span><br>
+      e lote sua<br>
+      <span class="stroke">agenda</span>
     </div>
-</div>
 
-<div class="div"></div>
+    <p class="fade-up fade-up-d2" style="max-width:480px; margin:0 auto 32px;">
+      Receba <strong>30 posts prontos com legenda</strong> e orientação visual — mais de <strong>50 imagens de apoio</strong> — para transformar seu perfil em vitrine de agendamentos.
+    </p>
 
-<section>
-    <div class="w">
-        <div class="eye"><span class="eye-dot">✦</span>Você se identifica?</div>
-        <h2 class="t-serif" style="margin-bottom:24px;">Se você atende bem, mas seu Instagram não traz clientes, <em>esse guia é para você.</em></h2>
-        <p>Você já tem o talento. O que falta é a **direção certa** para mostrar seu valor e lotar a agenda.</p>
-        <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:28px;">QUERO ACESSO IMEDIATO</a>
+    <div class="hero-img fade-up fade-up-d3">
+      <img src="imagens/img-01-hero.png" alt="Pack 30 Conteúdos para Manicures">
     </div>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn btn-pulse fade-up fade-up-d4">
+      ✦ QUERO MEUS 30 POSTS PRONTOS
+    </a>
+    <div class="btn-trust fade-up fade-up-d4">
+      <span>Acesso Imediato</span>
+      <span>Garantia de 7 dias</span>
+      <span>Compra Segura</span>
+    </div>
+  </div>
 </section>
 
 <div class="div"></div>
 
+<!-- ══════════ DOR ══════════ -->
+<section>
+  <div class="w">
+    <div class="badge"><span class="badge-dot">✦</span> Você se identifica?</div>
+    <h2 class="t-serif" style="margin-bottom:24px;">
+      Se você atende bem, mas o Instagram não traz clientes,<br>
+      <em>esse guia é para você.</em>
+    </h2>
+
+    <ul class="pain-list">
+      <li><span class="x">✕</span> Fica horas sem saber o que postar</li>
+      <li><span class="x">✕</span> Posta fotos do trabalho mas ninguém agenda</li>
+      <li><span class="x">✕</span> Copia post de concorrente e não funciona</li>
+      <li><span class="x">✕</span> Sente que seu perfil não passa confiança</li>
+      <li><span class="x">✕</span> Já pensou em desistir das redes sociais</li>
+    </ul>
+
+    <p>Você já tem o talento. O que falta é a <strong>direção certa</strong> para mostrar seu valor e lotar a agenda.</p>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:32px;">QUERO ACESSO IMEDIATO</a>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════ O QUE VEM ══════════ -->
 <section class="alt">
-    <div class="w">
-        <h2 class="t-section">Conteúdo pronto com <span class="pink">estratégia</span></h2>
-        <div style="margin-top:24px;">
-            <div class="card"><div class="num">01</div><h3>Legendas prontas</h3><p>Economize tempo e nunca mais trave no texto.</p></div>
-            <div class="card"><div class="num">02</div><h3>Orientação Visual</h3><p>Saiba exatamente como montar o post para parecer profissional.</p></div>
-            <div class="card"><div class="num">03</div><h3>Pack de Imagens</h3><p>Mais de 50 fotos de apoio para deixar seu feed impecável.</p></div>
-        </div>
-        <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:20px;">QUERO BAIXAR AGORA</a>
+  <div class="w">
+    <div class="badge"><span class="badge-dot">✦</span> O que você recebe</div>
+    <h2 class="t-section">Conteúdo pronto com <span class="pink">estratégia</span></h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>30 Legendas Prontas</h3>
+        <p>Um post para cada dia. Economize tempo e nunca mais trave no texto. É só copiar, personalizar e postar.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Orientação Visual Completa</h3>
+        <p>Saiba exatamente como montar cada post para parecer profissional — cores, imagem sugerida, chamada para ação.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Pack com +50 Imagens</h3>
+        <p>Fotos de apoio selecionadas para deixar seu feed impecável e atrair o perfil certo de cliente.</p>
+      </div>
     </div>
+
+    <div class="video-wrap">
+      <div class="video-ratio">
+        <iframe
+          src="https://www.youtube.com/embed/4FAU00104EE?rel=0"
+          title="Conteúdo para Manicures"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO BAIXAR AGORA</a>
+  </div>
 </section>
 
 <div class="div"></div>
 
+<!-- ══════════ BENEFÍCIOS ══════════ -->
 <section>
-    <div class="w">
-        <div class="garantia-box">
-            <div class="g-num">7</div>
-            <span style="text-transform:uppercase; font-weight:700; color:var(--neon-glow);">Dias de Garantia</span>
-            <h2 style="margin: 15px 0;">Risco Zero</h2>
-            <p>Conheça o material. Se não gostar, devolvemos seu investimento dentro do prazo de 7 dias.</p>
-        </div>
-    </div>
+  <div class="w">
+    <div class="badge"><span class="badge-dot">✦</span> Resultados esperados</div>
+    <h2 class="t-section" style="margin-bottom:8px;">Por que funciona</h2>
+    <p style="margin-bottom:4px;">Cada post foi pensado para três objetivos simultâneos:</p>
+
+    <ul class="checklist">
+      <li><span class="ck">✓</span><span><strong>Gerar confiança</strong> — mostrar que você é profissional antes mesmo do contato</span></li>
+      <li><span class="ck">✓</span><span><strong>Atrair agendamentos</strong> — chamadas de ação naturais que incentivam a DM</span></li>
+      <li><span class="ck">✓</span><span><strong>Fidelizar clientes</strong> — conteúdo que cria relacionamento e voltam sempre</span></li>
+      <li><span class="ck">✓</span><span><strong>Economizar seu tempo</strong> — posts prontos para aplicar em minutos, não horas</span></li>
+      <li><span class="ck">✓</span><span><strong>Posicionar seu preço</strong> — linguagem que valoriza seu trabalho e atrai quem paga bem</span></li>
+    </ul>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO COMEÇAR AGORA</a>
+  </div>
 </section>
 
-<section style="background:var(--bg); text-align:center;">
-    <div class="w">
-        <div class="t-display" style="font-size: 2rem; margin-bottom:20px;">Seu perfil pronto<br><span class="pink">em minutos</span></div>
-        <div class="img-wrap" style="max-width:320px; margin: 0 auto 32px;">
-            <img src="imagens/img-08-produto-preco.png" alt="Preço promocional">
-        </div>
-        <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">✦ QUERO MEUS 30 POSTS PRONTOS</a>
-        <div class="btn-trust">
-            <span>Acesso Imediato</span>
-            <span>Garantia de 7 dias</span>
-            <span>Compra Segura</span>
-        </div>
+<div class="div"></div>
+
+<!-- ══════════ GARANTIA ══════════ -->
+<section class="alt">
+  <div class="w">
+    <div class="garantia-box">
+      <div class="g-num">7</div>
+      <span class="g-label">Dias de Garantia Total</span>
+      <h2>Risco Zero</h2>
+      <p style="max-width:380px; margin:0 auto;">Acesse o material completo. Se em 7 dias você não ficar satisfeita com o conteúdo, devolvemos 100% do seu investimento — sem perguntas, sem burocracia.</p>
     </div>
+  </div>
 </section>
 
-<section class="alt" style="text-align:center;">
-    <div class="w">
-        <h2 class="t-section">Quer avançar no Digital?</h2>
-        <p style="margin: 15px 0;">Conheça o sistema completo para criar conteúdo com IA.</p>
-        <a href="https://pay.hotmart.com/K102690772K?dp=1" class="btn" style="background: linear-gradient(135deg, #8E44AD 0%, #2A7F98 100%);" target="_blank">
-            ✦ CONHECER CRIADOR DIGITAL COM IA
-        </a>
+<div class="div"></div>
+
+<!-- ══════════ PREÇO / CTA FINAL ══════════ -->
+<section id="price">
+  <div class="w">
+    <div class="t-display" style="margin-bottom:24px;">
+      Seu perfil pronto<br><span class="pink">em minutos</span>
     </div>
+
+    <div class="price-img">
+      <img src="imagens/img-08-produto-preco.png" alt="Preço promocional — 30 Conteúdos para Manicures">
+    </div>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn btn-pulse">
+      ✦ QUERO MEUS 30 POSTS PRONTOS
+    </a>
+    <div class="btn-trust">
+      <span>Acesso Imediato</span>
+      <span>Garantia de 7 dias</span>
+      <span>Compra Segura Hotmart</span>
+    </div>
+  </div>
 </section>
 
+<div class="div"></div>
+
+<!-- ══════════ UPSELL ══════════ -->
+<section class="alt">
+  <div class="w">
+    <div class="upsell-card">
+      <div class="badge" style="margin:0 auto 18px;"><span class="badge-dot" style="background:#8E44AD; box-shadow:0 0 10px #8E44AD;">✦</span> Quer avançar no Digital?</div>
+      <h2 class="t-section" style="margin-bottom:14px;">Sistema Completo de<br><span class="pink">Conteúdo com IA</span></h2>
+      <p style="max-width:420px; margin:0 auto 28px;">Conheça o método completo para criar, escalar e monetizar conteúdo usando Inteligência Artificial — para qualquer nicho.</p>
+      <a href="https://pay.hotmart.com/K102690772K?dp=1" class="btn btn-purple" target="_blank" rel="noopener">
+        ✦ CONHECER CRIADOR DIGITAL COM IA
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
 <footer>
-    <p>© 2025 · 30 Conteúdos para Manicures</p>
-    <p>Produto digital via Hotmart</p>
+  <p>© 2025 · 30 Conteúdos para Manicures</p>
+  <p>Produto digital distribuído via Hotmart</p>
+  <p style="margin-top:10px;">
+    Ao realizar a compra você concorda com os termos da plataforma Hotmart.
+  </p>
 </footer>
 
 </body>
