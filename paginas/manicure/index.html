@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -249,6 +250,28 @@
       margin-bottom: 6px;
     }
 
+    /* ── FULL-WIDTH SECTION IMAGES ── */
+    .section-img {
+      width: 100%;
+      margin: 32px 0 0;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(232,24,124,0.15);
+    }
+    .section-img img { width: 100%; height: auto; display: block; }
+
+    /* ── DEPOIMENTOS ── */
+    .depo-img {
+      width: 100%;
+      margin: 32px 0;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(232,24,124,0.15);
+    }
+    .depo-img img { width: 100%; height: auto; display: block; }
+
     /* ── CHECKLIST ── */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
     .checklist li {
@@ -328,6 +351,13 @@
 
     /* ── PRICE SECTION ── */
     #price { text-align: center; }
+    .price-anchor {
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      color: var(--neon-glow);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
     .price-img {
       max-width: 300px;
       margin: 0 auto 36px;
@@ -381,30 +411,29 @@
 <!-- ══════════ HERO ══════════ -->
 <section id="hero">
   <div class="w">
-    <div class="badge fade-up"><span class="badge-dot">✦</span> Série Prática · 30 Dias de Conteúdo</div>
+    <div class="badge fade-up"><span class="badge-dot">✦</span> Kit Prático · 30 Dias de Conteúdo</div>
 
     <div class="t-display fade-up fade-up-d1" style="margin-bottom:22px;">
-      Pare de travar<br>
-      <span class="pink">no Instagram</span><br>
-      e lote sua<br>
-      <span class="stroke">agenda</span>
+      Tenha um perfil<br>
+      <span class="pink">profissional</span><br>
+      em 5 minutos
     </div>
 
     <p class="fade-up fade-up-d2" style="max-width:480px; margin:0 auto 32px;">
-      Receba <strong>30 posts prontos com legenda</strong> e orientação visual — mais de <strong>50 imagens de apoio</strong> — para transformar seu perfil em vitrine de agendamentos.
+      Receba <strong>30 postagens completas com legendas prontas</strong> e um banco de <strong>+50 imagens</strong> — é só Copiar e Postar. Sem criar nada do zero, sem travar, sem perder tempo.
     </p>
 
     <div class="hero-img fade-up fade-up-d3">
-      <img src="imagens/img-01-hero.png" alt="Pack 30 Conteúdos para Manicures">
+      <img src="imagens/img-01-hero.png" alt="Kit Prático 30 Conteúdos para Manicures">
     </div>
 
     <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn btn-pulse fade-up fade-up-d4">
-      ✦ QUERO MEUS 30 POSTS PRONTOS
+      ✦ QUERO MEUS 30 POSTS PRONTOS AGORA
     </a>
     <div class="btn-trust fade-up fade-up-d4">
       <span>Acesso Imediato</span>
+      <span>Menos de R$1,00 por dia</span>
       <span>Garantia de 7 dias</span>
-      <span>Compra Segura</span>
     </div>
   </div>
 </section>
@@ -416,19 +445,19 @@
   <div class="w">
     <div class="badge"><span class="badge-dot">✦</span> Você se identifica?</div>
     <h2 class="t-serif" style="margin-bottom:24px;">
-      Se você atende bem, mas o Instagram não traz clientes,<br>
-      <em>esse guia é para você.</em>
+      Se você atende bem, mas o Instagram não traz ninguém,<br>
+      <em>o problema não é o seu trabalho — é a sua vitrine.</em>
     </h2>
 
     <ul class="pain-list">
-      <li><span class="x">✕</span> Fica horas sem saber o que postar</li>
-      <li><span class="x">✕</span> Posta fotos do trabalho mas ninguém agenda</li>
+      <li><span class="x">✕</span> Fica travada sem saber o que escrever</li>
+      <li><span class="x">✕</span> Posta e não vê ninguém chamando no WhatsApp</li>
       <li><span class="x">✕</span> Copia post de concorrente e não funciona</li>
       <li><span class="x">✕</span> Sente que seu perfil não passa confiança</li>
       <li><span class="x">✕</span> Já pensou em desistir das redes sociais</li>
     </ul>
 
-    <p>Você já tem o talento. O que falta é a <strong>direção certa</strong> para mostrar seu valor e lotar a agenda.</p>
+    <p>Este kit foi criado para manicures que querem um perfil bonito e organizado — <strong>sem precisar entender nada de marketing.</strong></p>
 
     <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:32px;">QUERO ACESSO IMEDIATO</a>
   </div>
@@ -439,26 +468,86 @@
 <!-- ══════════ O QUE VEM ══════════ -->
 <section class="alt">
   <div class="w">
-    <div class="badge"><span class="badge-dot">✦</span> O que você recebe</div>
-    <h2 class="t-section">Conteúdo pronto com <span class="pink">estratégia</span></h2>
+    <div class="badge"><span class="badge-dot">✦</span> Tudo o que você precisa em um só lugar</div>
+    <h2 class="t-section">O Kit Prático da <span class="pink">Manicure</span></h2>
 
     <div class="cards-grid">
       <div class="card">
         <div class="card-num">01</div>
         <h3>30 Legendas Prontas</h3>
-        <p>Um post para cada dia. Economize tempo e nunca mais trave no texto. É só copiar, personalizar e postar.</p>
+        <p>Textos que passam confiança e fazem a cliente te chamar no WhatsApp. É só copiar, personalizar com seu nome e postar.</p>
       </div>
       <div class="card">
         <div class="card-num">02</div>
-        <h3>Orientação Visual Completa</h3>
-        <p>Saiba exatamente como montar cada post para parecer profissional — cores, imagem sugerida, chamada para ação.</p>
+        <h3>Calendário Visual de 30 Dias</h3>
+        <p>Saiba exatamente o que postar a cada dia — tema, imagem e texto. Sem improvisar, sem travar.</p>
       </div>
       <div class="card">
         <div class="card-num">03</div>
-        <h3>Pack com +50 Imagens</h3>
-        <p>Fotos de apoio selecionadas para deixar seu feed impecável e atrair o perfil certo de cliente.</p>
+        <h3>Banco de +50 Imagens Profissionais</h3>
+        <p>Fotos de apoio selecionadas para deixar seu feed impecável, mesmo nos dias em que você não teve tempo de tirar uma foto boa.</p>
       </div>
     </div>
+
+    <!-- Exemplos dos posts prontos -->
+    <div class="section-img">
+      <img src="imagens/img-03-exemplos-posts.png" alt="Posts prontos que atraem clientes">
+    </div>
+
+    <!-- Páginas internas do material -->
+    <div class="section-img" style="margin-top:16px;">
+      <img src="imagens/img-05-paginas-internas.png" alt="Estrutura completa do conteúdo">
+    </div>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:32px;">QUERO BAIXAR AGORA</a>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════ BENEFÍCIOS ══════════ -->
+<section>
+  <div class="w">
+    <div class="badge"><span class="badge-dot">✦</span> Por que funciona</div>
+    <h2 class="t-section" style="margin-bottom:16px;">Quando o perfil passa <span class="pink">confiança</span>, a cliente não pergunta o preço — ela agenda.</h2>
+
+    <ul class="checklist">
+      <li><span class="ck">✓</span><span><strong>Aparência profissional</strong> — mostra que você leva seu negócio a sério, antes mesmo do primeiro contato</span></li>
+      <li><span class="ck">✓</span><span><strong>Perfil confiável</strong> — atrai as clientes que valorizam e pagam bem pelo seu serviço</span></li>
+      <li><span class="ck">✓</span><span><strong>Ganho de tempo</strong> — resolva o marketing do dia em minutos e foque nos atendimentos</span></li>
+      <li><span class="ck">✓</span><span><strong>Mais agendamentos</strong> — quando você posta com consistência, o Instagram começa a te indicar para quem ainda não te conhece</span></li>
+      <li><span class="ck">✓</span><span><strong>Posicione seu preço</strong> — quando o feed está organizado, você cobra mais e recebe</span></li>
+    </ul>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO COMEÇAR AGORA</a>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════ DEPOIMENTOS ══════════ -->
+<section class="alt">
+  <div class="w">
+    <div class="badge"><span class="badge-dot">✦</span> O que estão dizendo</div>
+    <h2 class="t-section" style="margin-bottom:8px;">Manicures que já <span class="pink">usaram o kit</span></h2>
+    <p style="margin-bottom:4px;">Resultados reais de quem colocou em prática:</p>
+
+    <div class="depo-img">
+      <img src="imagens/img-depoimentos.png" alt="Depoimentos de manicures que usaram o kit">
+    </div>
+
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn" style="margin-top:8px;">QUERO O MEU KIT AGORA</a>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════ VÍDEO ══════════ -->
+<section>
+  <div class="w" style="text-align:center;">
+    <div class="badge" style="margin:0 auto 20px;"><span class="badge-dot">✦</span> Veja como funciona</div>
+    <h2 class="t-section" style="margin-bottom:16px;">Veja o que você <span class="pink">recebe</span></h2>
+    <p style="max-width:420px; margin:0 auto 8px;">Uma olhada rápida no material para você entender exatamente o que está levando para casa.</p>
 
     <div class="video-wrap">
       <div class="video-ratio">
@@ -472,28 +561,12 @@
       </div>
     </div>
 
-    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO BAIXAR AGORA</a>
-  </div>
-</section>
-
-<div class="div"></div>
-
-<!-- ══════════ BENEFÍCIOS ══════════ -->
-<section>
-  <div class="w">
-    <div class="badge"><span class="badge-dot">✦</span> Resultados esperados</div>
-    <h2 class="t-section" style="margin-bottom:8px;">Por que funciona</h2>
-    <p style="margin-bottom:4px;">Cada post foi pensado para três objetivos simultâneos:</p>
-
-    <ul class="checklist">
-      <li><span class="ck">✓</span><span><strong>Gerar confiança</strong> — mostrar que você é profissional antes mesmo do contato</span></li>
-      <li><span class="ck">✓</span><span><strong>Atrair agendamentos</strong> — chamadas de ação naturais que incentivam a DM</span></li>
-      <li><span class="ck">✓</span><span><strong>Fidelizar clientes</strong> — conteúdo que cria relacionamento e voltam sempre</span></li>
-      <li><span class="ck">✓</span><span><strong>Economizar seu tempo</strong> — posts prontos para aplicar em minutos, não horas</span></li>
-      <li><span class="ck">✓</span><span><strong>Posicionar seu preço</strong> — linguagem que valoriza seu trabalho e atrai quem paga bem</span></li>
-    </ul>
-
-    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO COMEÇAR AGORA</a>
+    <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn">QUERO ACESSO IMEDIATO</a>
+    <div class="btn-trust">
+      <span>Acesso Imediato</span>
+      <span>Garantia de 7 dias</span>
+      <span>Compra Segura</span>
+    </div>
   </div>
 </section>
 
@@ -505,8 +578,8 @@
     <div class="garantia-box">
       <div class="g-num">7</div>
       <span class="g-label">Dias de Garantia Total</span>
-      <h2>Risco Zero</h2>
-      <p style="max-width:380px; margin:0 auto;">Acesse o material completo. Se em 7 dias você não ficar satisfeita com o conteúdo, devolvemos 100% do seu investimento — sem perguntas, sem burocracia.</p>
+      <h2>🔒 Risco Zero</h2>
+      <p style="max-width:380px; margin:0 auto;">Acesse tudo agora. Se em 7 dias você não sentir que seu perfil está mais bonito e profissional, é só me chamar e eu devolvo <strong>100% do seu dinheiro</strong> — sem burocracia, sem perguntas.</p>
     </div>
   </div>
 </section>
@@ -516,37 +589,23 @@
 <!-- ══════════ PREÇO / CTA FINAL ══════════ -->
 <section id="price">
   <div class="w">
-    <div class="t-display" style="margin-bottom:24px;">
+    <div class="t-display" style="margin-bottom:16px;">
       Seu perfil pronto<br><span class="pink">em minutos</span>
     </div>
+
+    <p class="price-anchor">Menos de R$1,00 por dia para nunca mais travar no Instagram</p>
 
     <div class="price-img">
       <img src="imagens/img-08-produto-preco.png" alt="Preço promocional — 30 Conteúdos para Manicures">
     </div>
 
     <a href="https://pay.hotmart.com/X105294702U?checkoutMode=10" class="btn btn-pulse">
-      ✦ QUERO MEUS 30 POSTS PRONTOS
+      ✦ QUERO ACESSO IMEDIATO AO MEU KIT
     </a>
     <div class="btn-trust">
       <span>Acesso Imediato</span>
       <span>Garantia de 7 dias</span>
       <span>Compra Segura Hotmart</span>
-    </div>
-  </div>
-</section>
-
-<div class="div"></div>
-
-<!-- ══════════ UPSELL ══════════ -->
-<section class="alt">
-  <div class="w">
-    <div class="upsell-card">
-      <div class="badge" style="margin:0 auto 18px;"><span class="badge-dot" style="background:#8E44AD; box-shadow:0 0 10px #8E44AD;">✦</span> Quer avançar no Digital?</div>
-      <h2 class="t-section" style="margin-bottom:14px;">Sistema Completo de<br><span class="pink">Conteúdo com IA</span></h2>
-      <p style="max-width:420px; margin:0 auto 28px;">Conheça o método completo para criar, escalar e monetizar conteúdo usando Inteligência Artificial — para qualquer nicho.</p>
-      <a href="https://pay.hotmart.com/K102690772K?dp=1" class="btn btn-purple" target="_blank" rel="noopener">
-        ✦ CONHECER CRIADOR DIGITAL COM IA
-      </a>
     </div>
   </div>
 </section>
