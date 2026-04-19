@@ -13,17 +13,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Open Graph -->
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Estúdio Escrita Planejada | Infoprodutos, Conteúdo Digital e Estrutura Editorial">
   <meta property="og:description" content="Projetos com foco em infoprodutos, materiais digitais, organização editorial, conteúdo e presença online com mais clareza e estrutura.">
   <meta property="og:url" content="https://www.estudioescritaplanejada.com.br/">
   <meta property="og:site_name" content="Estúdio Escrita Planejada">
+  <meta property="og:image" content="https://www.estudioescritaplanejada.com.br/assets/images/og-cover.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Estúdio Escrita Planejada — Infoprodutos, Conteúdo Digital e Estrutura Editorial">
 
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Estúdio Escrita Planejada | Infoprodutos, Conteúdo Digital e Estrutura Editorial">
   <meta name="twitter:description" content="Infoprodutos, conteúdo digital e organização editorial para projetos com mais clareza, estrutura e presença online.">
+  <meta name="twitter:image" content="https://www.estudioescritaplanejada.com.br/assets/images/og-cover.webp">
 
+  <!-- Schema: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,24 +39,84 @@
     "name": "Estúdio Escrita Planejada",
     "url": "https://www.estudioescritaplanejada.com.br/",
     "inLanguage": "pt-BR",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.estudioescritaplanejada.com.br/content.html?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "dateModified": "2026-04-19"
   }
   </script>
 
+  <!-- Schema: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Estúdio Escrita Planejada",
     "url": "https://www.estudioescritaplanejada.com.br/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.estudioescritaplanejada.com.br/assets/images/logo.webp",
+      "width": 400,
+      "height": 100
+    },
+    "description": "Estúdio especializado em infoprodutos, materiais digitais, conteúdo editorial e organização de presença online. Transforma ideias e conhecimento em ativos digitais com clareza, estrutura e consistência comercial.",
     "email": "estudioescritaplanejada@gmail.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "estudioescritaplanejada@gmail.com",
+      "contactType": "customer support",
+      "availableLanguage": "Portuguese"
+    },
     "sameAs": [
       "https://www.youtube.com/@EXCOREPATTERNS",
       "https://www.youtube.com/@enquantoeleage"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que é o Estúdio Escrita Planejada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O Estúdio Escrita Planejada é um estúdio especializado em infoprodutos, materiais digitais e organização editorial. Atua na criação e estruturação de produtos digitais, conteúdo para canais no YouTube, redação e revisão de materiais, e desenvolvimento de páginas de apresentação para projetos que precisam de mais clareza e presença online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quais serviços o Estúdio Escrita Planejada oferece?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O estúdio oferece: criação e estruturação de infoprodutos educacionais e comerciais; planejamento e organização de canais faceless no YouTube; produção de materiais digitais e páginas de apresentação; redação, revisão e adaptação de linguagem; organização editorial; e uso de ferramentas digitais e IA como apoio à produtividade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o processo de trabalho do estúdio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O processo passa por quatro etapas: diagnóstico (leitura do tema e necessidade de comunicação), estruturação (organização do conteúdo e definição do formato), produção e revisão (desenvolvimento com atenção à clareza e coerência), e publicação e apresentação (organização dos ativos para portfólio, página ou produto)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como entrar em contato com o Estúdio Escrita Planejada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O contato pode ser feito pelo e-mail estudioescritaplanejada@gmail.com ou pelo WhatsApp disponível no site. O estúdio atende projetos relacionados a infoprodutos, conteúdo digital, organização editorial e presença online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O Estúdio Escrita Planejada trabalha com canais do YouTube?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O estúdio aplica posicionamento, narrativa, pauta e organização editorial em canais digitais, incluindo canais faceless no YouTube. Os canais EX | COREPATTERNS e Enquanto Ele Age são exemplos práticos de aplicação dessa metodologia."
+        }
+      }
     ]
   }
   </script>
@@ -346,6 +414,21 @@
     .hero-support {
       font-size: 1.12rem;
       max-width: 880px;
+    }
+
+    /* Parágrafo-âncora para IAs: destaque visual sutil, extração facilitada */
+    .hero-ancora {
+      background: var(--branco-puro);
+      border-left: 4px solid var(--azul-petroleo);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin: 28px auto 0;
+      max-width: 860px;
+      text-align: left;
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--texto-principal);
+      box-shadow: var(--sombra-leve);
     }
 
     .hero-actions,
@@ -700,6 +783,45 @@
 
     .secondary-links a:hover { text-decoration: underline; }
 
+    /* FAQ section */
+    .faq-lista {
+      max-width: 860px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    .faq-item {
+      background: var(--branco-puro);
+      border: 1px solid var(--cinza-medio);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 14px;
+      box-shadow: var(--sombra-leve);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover { box-shadow: var(--sombra-media); }
+
+    .faq-pergunta {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 10px;
+      text-transform: none;
+      letter-spacing: 0;
+      text-align: left;
+    }
+
+    .faq-resposta {
+      font-size: 1rem;
+      color: var(--texto-secundario);
+      line-height: 1.65;
+      margin: 0;
+      text-align: left;
+      max-width: none;
+    }
+
     footer {
       background: var(--preto-puro);
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -840,6 +962,7 @@
         width: 30px;
         height: 30px;
       }
+      .hero-ancora { padding: 16px 18px; }
     }
 
     @media (max-width: 500px) {
@@ -897,19 +1020,21 @@
       <div class="hero-content">
         <div class="hero-kicker">Estrutura, linguagem e presença digital</div>
 
+        <!-- H1 reformado: proposta de valor com keywords, não apenas nome de marca -->
         <h1 class="hero-title">
-          Estúdio Escrita <span>Planejada</span>
+          Infoprodutos, Conteúdo Digital e <span>Estrutura Editorial</span>
         </h1>
 
         <p class="sub-headline">
-          Infoprodutos, conteúdo digital e organização editorial para transformar ideias, conhecimento e experiência em materiais mais claros, apresentáveis e publicáveis.
+          Transforme ideias, conhecimento e experiência em materiais mais claros, apresentáveis e publicáveis.
         </p>
 
-        <p class="hero-support">
-          O Estúdio Escrita Planejada desenvolve infoprodutos, materiais digitais, páginas de apresentação, conteúdos editoriais e estruturas de publicação para projetos que precisam de mais clareza, forma e direção no ambiente online.
-        </p>
+        <!-- Parágrafo-âncora: bloco concentrado e extraível por IAs generativas -->
+        <div class="hero-ancora">
+          O <strong>Estúdio Escrita Planejada</strong> é um estúdio especializado em infoprodutos, materiais digitais e organização editorial. Desenvolve produtos digitais próprios, conteúdo para canais no YouTube, páginas de apresentação e estruturas de publicação para projetos que precisam de mais clareza, forma e presença no ambiente online. A proposta central é unir linguagem, estrutura, utilidade e apresentação para transformar repertório em ativo digital com consistência comercial e editorial.
+        </div>
 
-        <p class="hero-support">
+        <p class="hero-support" style="margin-top: 28px;">
           A proposta do estúdio é unir linguagem, estrutura, utilidade e apresentação para transformar repertório em ativo digital com mais consistência comercial e editorial.
         </p>
 
@@ -931,7 +1056,7 @@
       </p>
 
       <div class="grid-hubs">
-        <article class="hub-card">
+        <div class="hub-card">
           <div>
             <h3>Produtos</h3>
             <p>
@@ -939,9 +1064,9 @@
             </p>
           </div>
           <a class="hub-link" href="produtos.html">Abrir produtos →</a>
-        </article>
+        </div>
 
-        <article class="hub-card">
+        <div class="hub-card">
           <div>
             <h3>Conteúdo</h3>
             <p>
@@ -949,9 +1074,9 @@
             </p>
           </div>
           <a class="hub-link" href="content.html">Abrir conteúdo →</a>
-        </article>
+        </div>
 
-        <article class="hub-card">
+        <div class="hub-card">
           <div>
             <h3>Contato</h3>
             <p>
@@ -959,7 +1084,7 @@
             </p>
           </div>
           <a class="hub-link" href="mailto:estudioescritaplanejada@gmail.com">Falar com o estúdio →</a>
-        </article>
+        </div>
       </div>
 
       <div class="quote-box">
@@ -1001,36 +1126,36 @@
       </p>
 
       <div class="grid-pesquisa">
-        <article class="pesquisa-card">
+        <div class="pesquisa-card">
           <div class="pesquisa-numero">01</div>
           <div class="pesquisa-texto">Infoprodutos<br>e materiais digitais</div>
-        </article>
-        <article class="pesquisa-card">
+        </div>
+        <div class="pesquisa-card">
           <div class="pesquisa-numero">02</div>
           <div class="pesquisa-texto">Canais digitais<br>e presença editorial</div>
-        </article>
-        <article class="pesquisa-card">
+        </div>
+        <div class="pesquisa-card">
           <div class="pesquisa-numero">03</div>
           <div class="pesquisa-texto">Conteúdo<br>e adaptação de linguagem</div>
-        </article>
-        <article class="pesquisa-card">
+        </div>
+        <div class="pesquisa-card">
           <div class="pesquisa-numero">04</div>
           <div class="pesquisa-texto">Organização editorial<br>e apresentação</div>
-        </article>
+        </div>
       </div>
 
       <div class="grid-dados" style="margin-top: 40px;">
-        <article class="dados-card destaque">
+        <div class="dados-card destaque">
           <div class="dados-badge">Foco do estúdio</div>
           <div class="dados-stat">Estrutura</div>
           <div class="dados-descricao">Conteúdo com forma, coerência e direção</div>
           <div class="dados-fonte">Projetos digitais funcionam melhor quando a mensagem encontra uma estrutura clara.</div>
-        </article>
-        <article class="dados-card">
+        </div>
+        <div class="dados-card">
           <div class="dados-stat">Processo</div>
           <div class="dados-descricao">Ferramentas como apoio, não como substituto</div>
           <div class="dados-fonte">Tecnologia entra para acelerar e organizar, sem substituir critério editorial.</div>
-        </article>
+        </div>
       </div>
 
       <div class="destaque-metodo">
@@ -1047,7 +1172,7 @@
       </p>
 
       <div class="antes-depois">
-        <article class="card">
+        <div class="card">
           <h3>Infoprodutos</h3>
           <p>
             Desenvolvimento de produtos digitais próprios com foco educacional e comercial, incluindo estrutura do conteúdo, proposta de valor, organização dos materiais e lógica de apresentação.
@@ -1057,9 +1182,9 @@
             <a href="criador-digital-com-ia.html">Sistema Criador Digital com IA</a>
             <a href="manicure.html">30 Conteúdos para Manicures</a>
           </div>
-        </article>
+        </div>
 
-        <article class="card">
+        <div class="card">
           <h3>YouTube</h3>
           <p>
             Aplicação prática de posicionamento, narrativa, pauta e organização editorial em canais digitais próprios, usados como exemplos reais de presença e construção de linguagem.
@@ -1068,7 +1193,7 @@
             <a href="https://www.youtube.com/@EXCOREPATTERNS" target="_blank" rel="noopener noreferrer">EX | COREPATTERNS</a>
             <a href="https://www.youtube.com/@enquantoeleage" target="_blank" rel="noopener noreferrer">Enquanto Ele Age</a>
           </div>
-        </article>
+        </div>
       </div>
 
       <p style="font-size: 1.18rem; color: var(--texto-principal); margin-top: 35px; font-weight: 700;">
@@ -1089,22 +1214,22 @@
       </p>
 
       <div class="grid-beneficios">
-        <article class="card">
+        <div class="card">
           <h3>Diagnóstico</h3>
           <p>Leitura do tema, da necessidade de comunicação ou do material que precisa ganhar forma, direção e melhor apresentação.</p>
-        </article>
-        <article class="card">
+        </div>
+        <div class="card">
           <h3>Estruturação</h3>
           <p>Organização do conteúdo, definição do formato e alinhamento da linguagem com o objetivo do projeto.</p>
-        </article>
-        <article class="card">
+        </div>
+        <div class="card">
           <h3>Produção e revisão</h3>
           <p>Desenvolvimento do material com atenção à clareza, coerência e função prática de cada ativo digital.</p>
-        </article>
-        <article class="card">
+        </div>
+        <div class="card">
           <h3>Publicação e apresentação</h3>
           <p>Organização dos ativos para portfólio, página, produto ou canal, com foco em consistência visual e editorial.</p>
-        </article>
+        </div>
       </div>
 
       <div class="quote-box">
@@ -1112,21 +1237,56 @@
       </div>
     </section>
 
-    <section class="section-dark" aria-labelledby="cta-final" style="border-bottom: none;">
+    <!-- Seção FAQ: visível para usuários e extraível por IAs generativas -->
+    <section class="section-dark" aria-labelledby="faq-titulo">
+      <h2 id="faq-titulo">Perguntas <span>frequentes</span></h2>
+      <p>
+        Dúvidas comuns sobre o estúdio, os serviços e a forma de trabalho.
+      </p>
+
+      <div class="faq-lista">
+        <div class="faq-item">
+          <h3 class="faq-pergunta">O que é o Estúdio Escrita Planejada?</h3>
+          <p class="faq-resposta">O Estúdio Escrita Planejada é um estúdio especializado em infoprodutos, materiais digitais e organização editorial. Atua na criação e estruturação de produtos digitais, conteúdo para canais no YouTube, redação e revisão de materiais, e desenvolvimento de páginas de apresentação para projetos que precisam de mais clareza e presença online.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-pergunta">Quais serviços o estúdio oferece?</h3>
+          <p class="faq-resposta">O estúdio oferece criação e estruturação de infoprodutos educacionais e comerciais, planejamento de canais faceless no YouTube, produção de materiais digitais e páginas de apresentação, redação, revisão e adaptação de linguagem, organização editorial e uso de ferramentas digitais e IA como apoio à produtividade criativa.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-pergunta">Como funciona o processo de trabalho?</h3>
+          <p class="faq-resposta">O processo passa por quatro etapas: diagnóstico (leitura do tema e necessidade), estruturação (organização do conteúdo e formato), produção e revisão (desenvolvimento com atenção à clareza e coerência), e publicação e apresentação (organização dos ativos para portfólio, página ou produto).</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-pergunta">O estúdio trabalha com canais do YouTube?</h3>
+          <p class="faq-resposta">Sim. O estúdio aplica posicionamento, narrativa, pauta e organização editorial em canais digitais, incluindo canais faceless no YouTube. Os canais EX | COREPATTERNS e Enquanto Ele Age são exemplos práticos dessa metodologia em uso real.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-pergunta">Como entrar em contato com o estúdio?</h3>
+          <p class="faq-resposta">O contato pode ser feito pelo e-mail <a href="mailto:estudioescritaplanejada@gmail.com" style="color: var(--azul-petroleo); font-weight: 700;">estudioescritaplanejada@gmail.com</a> ou pelo WhatsApp disponível no site. O estúdio atende projetos relacionados a infoprodutos, conteúdo digital, organização editorial e presença online.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cta-final" style="border-bottom: none;">
       <h2 id="cta-final">Projetos que precisam de <span>clareza e forma</span></h2>
       <p>
         Se o seu projeto precisa sair do rascunho, ganhar estrutura ou melhorar sua presença digital, o estúdio pode ajudar a organizar conteúdo, materiais e caminhos de publicação.
       </p>
 
       <div class="antes-depois">
-        <article class="card" style="border: 2px solid var(--coral);">
+        <div class="card" style="border: 2px solid var(--coral);">
           <h3 style="color: var(--coral);">Quando falta estrutura</h3>
           <p>• ideias sem forma clara<br>• excesso de material disperso<br>• comunicação sem coerência<br>• dificuldade para publicar com consistência</p>
-        </article>
-        <article class="card" style="border: 2px solid var(--azul-petroleo);">
+        </div>
+        <div class="card" style="border: 2px solid var(--azul-petroleo);">
           <h3>Quando o projeto ganha organização</h3>
           <p>• mais clareza de mensagem<br>• melhor leitura e apresentação<br>• conteúdo mais funcional<br>• presença digital mais consistente</p>
-        </article>
+        </div>
       </div>
 
       <div class="cta-box">
@@ -1142,7 +1302,8 @@
         </p>
 
         <div class="secondary-links">
-          <a href="portfolio.html" rel="nofollow">Portfólio</a>
+          <!-- rel="nofollow" removido: portfólio é página interna do próprio site -->
+          <a href="portfolio.html">Portfólio</a>
         </div>
       </div>
     </section>
