@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Quando o Conteúdo Até Existe, mas o Projeto Ainda Não Comunica Valor com Clareza | Estúdio Escrita Planejada</title>
+  <meta name="description" content="Entenda por que um projeto pode ter conteúdo, esforço e repertório, mas ainda assim não comunicar valor com clareza no ambiente digital.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Estúdio Escrita Planejada">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="canonical" href="https://www.estudioescritaplanejada.com.br/comunica-valor.html">
+
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quando o Conteúdo Até Existe, mas o Projeto Ainda Não Comunica Valor com Clareza">
+  <meta property="og:description" content="Um artigo sobre promessa, posicionamento, coerência de mensagem e os sinais que fazem um projeto parecer confuso, genérico ou mal estruturado.">
+  <meta property="og:url" content="https://www.estudioescritaplanejada.com.br/comunica-valor.html">
+  <meta property="og:site_name" content="Estúdio Escrita Planejada">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quando o Conteúdo Até Existe, mas o Projeto Ainda Não Comunica Valor com Clareza">
+  <meta name="twitter:description" content="Veja por que alguns projetos produzem, publicam e ainda assim não conseguem comunicar valor com nitidez.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Quando o Conteúdo Até Existe, mas o Projeto Ainda Não Comunica Valor com Clareza",
+    "description": "Entenda por que um projeto pode ter conteúdo, esforço e repertório, mas ainda assim não comunicar valor com clareza no ambiente digital.",
+    "author": {
+      "@type": "Organization",
+      "name": "Estúdio Escrita Planejada"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Estúdio Escrita Planejada"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.estudioescritaplanejada.com.br/comunica-valor.html"
+    },
+    "inLanguage": "pt-BR"
+  }
+  </script>
+
+  <style>
+    :root {
+      --azul-petroleo: #2A7F98;
+      --roxo-tecnologico: #8E44AD;
+      --coral: #FF9F43;
+      --rosa-digital: #DE2F74;
+      --branco-puro: #FFFFFF;
+      --cinza-gelo: #F8FAFC;
+      --cinza-suave: #E2E8F0;
+      --cinza-medio: #CBD5E1;
+      --cinza-escuro: #475569;
+      --preto-suave: #1E293B;
+      --preto-puro: #0F172A;
+      --gradiente-suave: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+      --gradiente-destaque: linear-gradient(135deg, #FF9F43 0%, #DE2F74 100%);
+      --texto-principal: var(--preto-puro);
+      --texto-secundario: var(--preto-suave);
+      --texto-terciario: var(--cinza-escuro);
+      --sombra-leve: 0 1px 3px rgba(15, 23, 42, 0.08);
+      --sombra-media: 0 6px 18px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+      --header-h: 74px;
+      --content-w: 820px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texto-secundario);
+      background: var(--branco-puro);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--cinza-suave);
+    }
+
+    .header-inner {
+      min-height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--texto-principal);
+      line-height: 1;
+    }
+
+    .brand-title span {
+      background: var(--gradiente-destaque);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-sub {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--texto-terciario);
+      line-height: 1.2;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--cinza-medio);
+      background: var(--branco-puro);
+      color: var(--texto-principal);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: var(--sombra-leve);
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      font-weight: 700;
+      color: var(--texto-principal);
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: var(--cinza-gelo);
+      color: var(--azul-petroleo);
+      outline: none;
+    }
+
+    .nav-cta {
+      background: var(--gradiente-destaque);
+      color: var(--branco-puro) !important;
+      box-shadow: var(--sombra-media);
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background: var(--roxo-tecnologico) !important;
+      color: var(--branco-puro) !important;
+    }
+
+    .hero {
+      background: var(--gradiente-suave);
+      padding: 78px 18px 62px;
+      margin: 0 calc(50% - 50vw);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(142, 68, 173, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: float 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      border: 1px solid var(--cinza-medio);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.66);
+      color: var(--texto-principal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    h1, h2, h3 {
+      font-family: 'League Spartan', sans-serif;
+      color: var(--texto-principal);
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 4.6rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin: 58px 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: clamp(1.28rem, 3vw, 1.7rem);
+      margin: 34px 0 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: 0 auto 18px;
+      font-size: 1.12rem;
+    }
+
+    .article-shell {
+      width: 100%;
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 44px 18px 84px;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      color: var(--texto-terciario);
+      font-size: 0.92rem;
+      margin-bottom: 34px;
+    }
+
+    .toc {
+      background: var(--cinza-gelo);
+      border: 1px solid var(--cinza-suave);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 34px;
+      box-shadow: var(--sombra-leve);
+    }
+
+    .toc-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.2rem;
+      color: var(--texto-principal);
+      margin-bottom: 14px;
+    }
+
+    .toc ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .toc a {
+      color: var(--azul-petroleo);
+      font-weight: 600;
+    }
+
+    .toc a:hover { text-decoration: underline; }
+
+    article p,
+    article li {
+      font-size: 1.08rem;
+      color: var(--texto-secundario);
+    }
+
+    article p { margin-bottom: 22px; }
+
+    article ul {
+      margin: 0 0 24px 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    article strong { color: var(--texto-principal); }
+
+    .callout {
+      background: var(--cinza-gelo);
+      border-left: 4px solid var(--roxo-tecnologico);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px;
+      margin: 30px 0;
+      box-shadow: var(--sombra-leve);
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    .mid-cta {
+      background: var(--branco-puro);
+      border: 2px solid var(--roxo-tecnologico);
+      border-radius: 18px;
+      padding: 30px 24px;
+      margin: 42px 0;
+      box-shadow: 0 10px 30px rgba(142, 68, 173, 0.12);
+      text-align: center;
+    }
+
+    .mid-cta h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.7rem;
+    }
+
+    .mid-cta p { margin-bottom: 18px; }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 16px 24px;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: var(--sombra-media);
+    }
+
+    .btn-primary {
+      background: var(--gradiente-destaque);
+      color: var(--branco-puro);
+    }
+
+    .btn-primary:hover {
+      background: var(--roxo-tecnologico);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--cinza-medio);
+      background: var(--branco-puro);
+      color: var(--texto-principal);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--azul-petroleo);
+      color: var(--azul-petroleo);
+      transform: translateY(-2px);
+    }
+
+    .closing-box {
+      background: var(--cinza-gelo);
+      border: 1px solid var(--cinza-suave);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 42px;
+      box-shadow: var(--sombra-leve);
+    }
+
+    footer {
+      background: var(--preto-puro);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--branco-puro);
+      padding: 56px 18px 34px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px 22px;
+      margin-bottom: 18px;
+    }
+
+    .footer-nav a {
+      color: var(--branco-puro);
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .footer-nav a:hover { text-decoration: underline; }
+
+    .footer-note {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .copyright {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: max(14px, env(safe-area-inset-right));
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      z-index: 2147483000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #FFFFFF;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .whatsapp-float:hover,
+    .whatsapp-float:focus-visible {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.26);
+      outline: none;
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 860px) {
+      .menu-toggle { display: inline-flex; align-items: center; gap: 8px; }
+
+      .main-nav {
+        position: fixed;
+        inset: var(--header-h) 0 auto 0;
+        background: rgba(255,255,255,0.98);
+        border-bottom: 1px solid var(--cinza-suave);
+        padding: 14px 18px 18px;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        box-shadow: var(--sombra-media);
+      }
+
+      .main-nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .main-nav a { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      .article-shell { padding-top: 36px; padding-bottom: 72px; }
+      article p, article li { font-size: 1rem; }
+      .hero { padding-top: 64px; padding-bottom: 50px; background: var(--branco-puro); }
+      .whatsapp-float {
+        right: max(12px, env(safe-area-inset-right));
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        width: 60px;
+        height: 60px;
+      }
+      .whatsapp-float svg { width: 30px; height: 30px; }
+    }
+
+    @media (max-width: 500px) {
+      .container, .article-shell { padding-left: 14px; padding-right: 14px; }
+      .hero { padding-left: 14px; padding-right: 14px; }
+      .brand-title { font-size: 1.1rem; }
+      .brand-sub { font-size: 0.74rem; }
+      .whatsapp-float { width: 58px; height: 58px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Voltar para a página inicial do Estúdio Escrita Planejada">
+        <div class="brand-title">Estúdio Escrita <span>Planejada</span></div>
+        <div class="brand-sub">Infoprodutos, conteúdo digital e estrutura editorial</div>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">Menu</button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="mailto:estudioescritaplanejada@gmail.com" class="nav-cta">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Artigo editorial</div>
+        <h1>Quando o Conteúdo Até Existe, mas o Projeto Ainda Não Comunica Valor com Clareza</h1>
+        <p>Muitos projetos produzem, publicam e se esforçam. Têm conteúdo, têm intenção, têm alguma base. Mesmo assim, continuam parecendo genéricos, confusos ou pouco memoráveis. O problema nem sempre está na ausência de trabalho. Muitas vezes, está na forma como o valor do projeto é comunicado.</p>
+      </div>
+    </section>
+
+    <div class="article-shell">
+      <div class="article-meta">
+        <span>03 de abril de 2026</span>
+        <span>Estúdio Escrita Planejada</span>
+        <span>Posicionamento, mensagem e valor percebido</span>
+      </div>
+
+      <nav class="toc" aria-label="Sumário do artigo">
+        <div class="toc-title">Neste artigo</div>
+        <ul>
+          <li><a href="#quando-o-projeto-nao-se-explica-bem">Quando o projeto não se explica bem</a></li>
+          <li><a href="#ter-conteudo-nao-significa-comunicar-valor">Ter conteúdo não significa comunicar valor</a></li>
+          <li><a href="#como-a-confusao-aparece-na-pratica">Como a confusão aparece na prática</a></li>
+          <li><a href="#por-que-o-valor-fica-nebuloso">Por que o valor fica nebuloso</a></li>
+          <li><a href="#quatro-pontos-que-esclarecem-a-mensagem">Quatro pontos que esclarecem a mensagem</a></li>
+          <li><a href="#quando-a-comunicacao-comeca-a-funcionar">Quando a comunicação começa a funcionar</a></li>
+          <li><a href="#o-que-realmente-ajuda">O que realmente ajuda</a></li>
+          <li><a href="#conclusao">Conclusão</a></li>
+        </ul>
+      </nav>
+
+      <article>
+        <h2 id="quando-o-projeto-nao-se-explica-bem">Quando o projeto não se explica bem</h2>
+        <p>Existem projetos que até produzem bastante. Publicam conteúdo, criam páginas, organizam ofertas, escrevem textos, estruturam produtos e tentam manter presença digital. Ainda assim, quando alguém entra em contato com esse universo, a sensação não é de clareza. É de ruído.</p>
+        <p>A pessoa até percebe que há esforço. Percebe que existe conteúdo. Percebe que alguma coisa está sendo construída. Mas não entende com nitidez o valor do projeto, o que ele realmente entrega, para quem foi feito ou por que deveria prestar atenção naquilo.</p>
+        <p>Esse tipo de problema é mais comum do que parece.</p>
+        <p>Nem todo projeto que parece fraco está sem substância. Às vezes, ele apenas não consegue comunicar com clareza o valor que já existe nele.</p>
+
+        <div class="callout">
+          <p><strong>Valor mal comunicado costuma parecer ausência de valor, mesmo quando existe trabalho, repertório e utilidade real por trás do projeto.</strong></p>
+        </div>
+
+        <h2 id="ter-conteudo-nao-significa-comunicar-valor">Ter conteúdo não significa comunicar valor</h2>
+        <p>Muita gente acredita que produzir conteúdo já é suficiente para sustentar presença digital e transmitir valor. Mas produzir não é o mesmo que comunicar bem.</p>
+        <p>Conteúdo, por si só, não garante entendimento. Não garante posicionamento. Não garante percepção clara do que aquele projeto é, faz ou resolve.</p>
+        <p>Para comunicar valor, não basta ter material disponível. É preciso que esse material esteja organizado de um jeito que revele função, direção e utilidade.</p>
+        <p>Sem isso, o público percebe volume, mas não percebe proposta. Vê esforço, mas não enxerga eixo. Entra em contato com a produção, mas não entende por que aquilo importa.</p>
+
+        <h2 id="como-a-confusao-aparece-na-pratica">Como a confusão aparece na prática</h2>
+        <p>Quando um projeto não comunica valor com clareza, isso costuma aparecer em sinais como:</p>
+        <ul>
+          <li>mensagem institucional vaga</li>
+          <li>páginas que falam muito, mas definem pouco</li>
+          <li>conteúdo que não se conecta entre si</li>
+          <li>ofertas difíceis de explicar</li>
+          <li>promessa fraca ou genérica</li>
+          <li>tom inconsistente</li>
+          <li>falta de eixo visível</li>
+          <li>sensação de que o projeto faz várias coisas, mas não se posiciona com nitidez em nenhuma</li>
+        </ul>
+        <p>O resultado disso é um projeto que até existe, mas não se fixa com força na cabeça de quem lê, visita ou acompanha.</p>
+
+        <h2 id="por-que-o-valor-fica-nebuloso">Por que o valor fica nebuloso</h2>
+        <p>Isso pode acontecer por vários motivos, mas alguns são especialmente frequentes.</p>
+
+        <h3>Excesso de abstração</h3>
+        <p>Projetos que falam apenas em “transformação”, “crescimento”, “clareza”, “presença”, “potencial” ou “solução” sem ancorar essas ideias em algo concreto tendem a soar vagos.</p>
+
+        <h3>Falta de recorte</h3>
+        <p>Quando o projeto tenta atender muitos públicos, muitas dores ou muitos formatos ao mesmo tempo, a comunicação perde firmeza.</p>
+
+        <h3>Inconsistência entre conteúdo e oferta</h3>
+        <p>Se o conteúdo aponta para uma direção e a oferta aponta para outra, o projeto parece desalinhado. Falta coerência de mensagem.</p>
+
+        <h3>Ausência de hierarquia</h3>
+        <p>Nem toda informação deve ter o mesmo peso. Quando tudo parece igualmente importante, o valor principal se dilui.</p>
+
+        <section class="mid-cta" aria-labelledby="cta-infoprodutos">
+          <h3 id="cta-infoprodutos">Quer organizar melhor sua mensagem, seu conteúdo e sua direção digital?</h3>
+          <p>Os infoprodutos do Estúdio Escrita Planejada foram criados para ajudar quem precisa transformar excesso de informação, esforço disperso e repertório acumulado em algo mais claro, organizável e útil.</p>
+          <p>O <strong>Sistema Criador Digital com IA</strong> e o <strong>Manual do Criador com IA</strong> ajudam justamente quem quer estruturar melhor processo, criação e comunicação sem continuar preso à sensação de ruído.</p>
+          <div class="cta-row">
+            <a href="criador-digital-com-ia.html" class="btn-primary">Ver Sistema Criador Digital com IA</a>
+            <a href="manual.html" class="btn-secondary">Ver Manual do Criador com IA</a>
+          </div>
+        </section>
+
+        <h2 id="quatro-pontos-que-esclarecem-a-mensagem">Quatro pontos que esclarecem a mensagem</h2>
+
+        <h3>1. Deixar claro o que o projeto realmente é</h3>
+        <p>O público precisa entender rapidamente o que está diante dele. É um estúdio? Um projeto editorial? Um negócio digital? Um canal? Uma plataforma de produtos? Uma marca pessoal?</p>
+        <p>Quando isso não fica claro, todo o restante perde força.</p>
+
+        <h3>2. Explicitar para quem aquilo foi feito</h3>
+        <p>Projetos que tentam falar com todo mundo geralmente enfraquecem a percepção de valor. Quando existe clareza de público, a mensagem ganha foco e consistência.</p>
+
+        <h3>3. Nomear a utilidade principal</h3>
+        <p>Qual valor o projeto entrega de forma mais nítida? Organização? Clareza? Aplicação prática? Economia de tempo? Melhor posicionamento? Direção? Estrutura?</p>
+        <p>Sem essa resposta visível, o projeto pode parecer interessante, mas pouco necessário.</p>
+
+        <h3>4. Alinhar conteúdo, páginas e oferta</h3>
+        <p>Quando o conteúdo, a estrutura do site e os produtos apontam na mesma direção, o valor começa a aparecer com mais nitidez. O projeto deixa de parecer um conjunto de peças soltas e começa a parecer um sistema coerente.</p>
+
+        <div class="callout">
+          <p><strong>Comunicar valor com clareza não significa gritar promessas. Significa tornar compreensível a utilidade real do projeto.</strong></p>
+        </div>
+
+        <h2 id="quando-a-comunicacao-comeca-a-funcionar">Quando a comunicação começa a funcionar</h2>
+        <p>Quando a mensagem fica mais clara, o projeto começa a mudar de percepção.</p>
+        <p>Não necessariamente porque ficou maior, mais sofisticado ou mais visualmente impressionante. Mas porque ficou mais inteligível.</p>
+        <p>Fica mais fácil entender:</p>
+        <ul>
+          <li>o que o projeto oferece</li>
+          <li>quem ele ajuda</li>
+          <li>que problema tenta resolver</li>
+          <li>por que aquele conteúdo existe</li>
+          <li>qual lógica conecta páginas, artigos e produtos</li>
+        </ul>
+        <p>Quando isso acontece, o valor deixa de ficar escondido atrás do ruído.</p>
+
+        <h2 id="o-que-realmente-ajuda">O que realmente ajuda</h2>
+        <p>Se a intenção é comunicar valor com mais clareza, algumas práticas ajudam muito mais do que apenas continuar produzindo no mesmo ritmo.</p>
+
+        <h3>Reduzir a linguagem vaga</h3>
+        <p>Quanto mais concreto o projeto consegue ser, mais fácil fica entender seu valor.</p>
+
+        <h3>Melhorar a abertura das páginas</h3>
+        <p>Os primeiros blocos precisam explicar melhor o que está sendo oferecido, para quem e com que utilidade.</p>
+
+        <h3>Criar coerência entre os materiais</h3>
+        <p>Quando páginas, artigos e produtos se reforçam mutuamente, a mensagem do projeto fica mais forte.</p>
+
+        <h3>Assumir um eixo mais nítido</h3>
+        <p>Projetos com eixo claro parecem mais maduros, mais confiáveis e mais memoráveis.</p>
+
+        <h3>Trocar volume por legibilidade</h3>
+        <p>Nem sempre o problema é produzir pouco. Às vezes, o problema é produzir muito sem tornar o valor legível.</p>
+
+        <h2 id="conclusao">Conclusão</h2>
+        <p>Um projeto pode ter conteúdo, esforço, repertório e até bons materiais. Mesmo assim, continuar sem comunicar valor com clareza.</p>
+        <p>Isso não significa que não exista substância. Significa que a substância ainda não está aparecendo de forma nítida para quem chega.</p>
+        <p>Comunicar valor melhor não depende apenas de produzir mais. Depende de organizar melhor a mensagem, reduzir ruído, alinhar conteúdo e reforçar a utilidade real do projeto.</p>
+
+        <div class="closing-box">
+          <p>Quando o valor fica mais claro, o projeto deixa de parecer apenas ativo e começa a parecer realmente coerente, confiável e necessário.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <nav class="footer-nav" aria-label="Links do rodapé">
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:estudioescritaplanejada@gmail.com">Contato</a>
+    </nav>
+    <p class="footer-note">Página editorial do Estúdio Escrita Planejada sobre posicionamento, mensagem, coerência e valor percebido no ambiente digital.</p>
+    <p class="copyright">© 2026 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5541988245710" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M19.11 17.27c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.49-1.86-.16-.27-.02-.41.12-.54.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.81.14.18 1.91 2.92 4.62 4.09.64.27 1.14.43 1.53.55.64.2 1.22.17 1.68.1.51-.08 1.6-.65 1.83-1.27.23-.62.23-1.15.16-1.27-.07-.11-.25-.18-.52-.32z"/>
+      <path d="M16.03 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.47 1.72 6.4L3 29l6.77-1.78c1.86 1.02 3.95 1.56 6.09 1.56h.01c7.07 0 12.8-5.73 12.8-12.8S23.1 3.2 16.03 3.2zm0 23.28h-.01c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.02 1.06 1.08-3.92-.25-.4a10.42 10.42 0 0 1-1.6-5.51c0-5.76 4.68-10.44 10.44-10.44 2.79 0 5.4 1.09 7.37 3.06a10.36 10.36 0 0 1 3.06 7.38c0 5.76-4.68 10.44-10.44 10.44z"/>
+    </svg>
+  </a>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('menu-open', open);
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
