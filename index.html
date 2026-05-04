@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -195,6 +196,75 @@
       background: var(--cinza-gelo);
       color: var(--azul-petroleo);
       outline: none;
+    }
+
+    .main-nav li { position: relative; }
+
+    .nav-dropdown details {
+      position: relative;
+    }
+
+    .nav-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--texto-principal);
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+
+    .nav-dropdown summary::after {
+      content: "▾";
+      display: inline-block;
+      margin-left: 7px;
+      font-size: 0.72rem;
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown details[open] summary,
+    .nav-dropdown summary:hover,
+    .nav-dropdown summary:focus-visible {
+      background: var(--cinza-gelo);
+      color: var(--azul-petroleo);
+      outline: none;
+    }
+
+    .nav-submenu {
+      display: none !important;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 285px;
+      max-height: 70vh;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid var(--cinza-suave);
+      border-radius: 14px;
+      padding: 10px;
+      box-shadow: var(--sombra-forte);
+      z-index: 1200;
+      list-style: none;
+      flex-direction: column;
+      gap: 4px;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-dropdown details[open] .nav-submenu {
+      display: flex !important;
+    }
+
+    .nav-submenu a {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.25;
+      white-space: normal;
     }
 
     .nav-cta {
@@ -791,6 +861,8 @@
         pointer-events: none;
         transition: transform 0.25s ease, opacity 0.25s ease;
         box-shadow: var(--sombra-media);
+        max-height: calc(100vh - var(--header-h));
+        overflow-y: auto;
       }
 
       .main-nav.open {
@@ -806,6 +878,30 @@
       }
 
       .main-nav a { display: block; }
+
+      .nav-dropdown details { width: 100%; }
+
+      .nav-dropdown summary { display: block; }
+
+      .nav-submenu {
+        position: static;
+        min-width: 0;
+        max-height: none;
+        overflow: visible;
+        border: 0;
+        border-left: 3px solid var(--cinza-suave);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 6px 0 0 12px;
+        margin-top: 4px;
+        background: transparent;
+        backdrop-filter: none;
+      }
+
+      .nav-submenu a {
+        background: var(--cinza-gelo);
+        padding: 10px 14px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -886,6 +982,31 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="produtos.html">Produtos</a></li>
+          <li class="nav-dropdown">
+            <details>
+              <summary>Serviços</summary>
+              <ul class="nav-submenu" aria-label="Páginas de serviços do Estúdio">
+                <li><a href="diagnostico-editorial.html">Diagnóstico Editorial</a></li>
+                <li><a href="mapa-produto-digital.html">Mapa do Produto Digital</a></li>
+                <li><a href="arquitetura-enxuta-infoproduto.html">Arquitetura Enxuta</a></li>
+                <li><a href="produto-digital-enxuto.html">Produto Digital Enxuto</a></li>
+                <li><a href="reestruturacao-express.html">Reestruturação Express</a></li>
+                <li><a href="produto-pagina-oferta.html">Produto + Página de Oferta</a></li>
+                <li><a href="parceria-white-label.html">Parceria White Label</a></li>
+                <li><a href="servico-criacao-infoproduto-sob-medida.html">Criação de Infoproduto</a></li>
+              </ul>
+            </details>
+          </li>
+          <li class="nav-dropdown">
+            <details>
+              <summary>Guias</summary>
+              <ul class="nav-submenu" aria-label="Guias editoriais do Estúdio">
+                <li><a href="como-organizar-um-curso-online.html">Como Organizar um Curso Online</a></li>
+                <li><a href="como-transformar-consultoria-em-produto-digital.html">Transformar Consultoria em Produto Digital</a></li>
+                <li><a href="como-criar-infoproduto-a-partir-de-aulas.html">Criar Infoproduto a partir de Aulas</a></li>
+              </ul>
+            </details>
+          </li>
           <li><a href="content.html">Conteúdo</a></li>
           <li><a href="https://www.estudioescritaplanejada.com.br/sobre.html">Sobre</a></li>
           <li><a href="mailto:estudioescritaplanejada@gmail.com" class="nav-cta">Contato</a></li>
@@ -1152,7 +1273,7 @@
     <p class="copyright">© 2026 Estúdio Escrita Planejada. Todos os direitos reservados.</p>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5541988245710" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/5511964502997" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M19.11 17.27c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.49-1.86-.16-.27-.02-.41.12-.54.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.81.14.18 1.91 2.92 4.62 4.09.64.27 1.14.43 1.53.55.64.2 1.22.17 1.68.1.51-.08 1.6-.65 1.83-1.27.23-.62.23-1.15.16-1.27-.07-.11-.25-.18-.52-.32z"/>
       <path d="M16.03 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.47 1.72 6.4L3 29l6.77-1.78c1.86 1.02 3.95 1.56 6.09 1.56h.01c7.07 0 12.8-5.73 12.8-12.8S23.1 3.2 16.03 3.2zm0 23.28h-.01c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.02 1.06 1.08-3.92-.25-.4a10.42 10.42 0 0 1-1.6-5.51c0-5.76 4.68-10.44 10.44-10.44 2.79 0 5.4 1.09 7.37 3.06a10.36 10.36 0 0 1 3.06 7.38c0 5.76-4.68 10.44-10.44 10.44z"/>
