@@ -218,7 +218,7 @@
       content:"";position:absolute;right:-8%;top:8%;width:44vw;height:44vw;max-width:720px;max-height:720px;
       background:radial-gradient(circle, rgba(46,118,255,.22), transparent 62%);filter:blur(16px);pointer-events:none;z-index:0;
     }
-    .hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:34px;align-items:stretch}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(560px,1.22fr);gap:46px;align-items:stretch}
     .hero-copy{
       position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;
       min-height:100%;padding:18px 0 18px 0;
@@ -243,24 +243,13 @@
     .hero-proof li{display:flex;align-items:center;gap:8px}
     .hero-proof svg{width:17px;height:17px;color:var(--green)}
 
-    .hero-visual{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .78fr;grid-template-rows:auto auto;gap:18px;align-content:start}
-    .visual-card{
-      position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:28px;background:#0f1824;box-shadow:var(--shadow);
+    .hero-visual{
+      position:relative;z-index:1;overflow:hidden;min-height:100%;
+      border-radius:30px;border:1px solid rgba(255,255,255,.13);box-shadow:var(--shadow);
+      background:#0f1824;
     }
-    .visual-card img{width:100%;height:100%;object-fit:cover}
-    .visual-main{grid-column:1 / -1;min-height:430px}
-    .visual-main img{aspect-ratio:1672/941}
-    .visual-small{min-height:220px}
-    .visual-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 52%, rgba(5,9,14,.72) 100%);pointer-events:none}
-    .visual-caption{
-      position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:end;gap:12px;
-    }
-    .visual-caption .label{padding:10px 14px;border-radius:14px;background:rgba(7,12,19,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
-    .visual-caption strong{display:block;font-size:1rem;font-family:var(--font-display);line-height:1.02;letter-spacing:.02em;text-transform:uppercase}
-    .visual-caption span{display:block;font-size:.78rem;color:#d0d9e3;margin-top:4px}
-    .floating-note{
-      position:absolute;right:18px;top:18px;padding:10px 14px;border-radius:999px;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-      background:rgba(7,12,19,.8);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(12px);color:#fff;
+    .hero-visual img{
+      width:100%;height:100%;min-height:690px;object-fit:cover;object-position:50% 50%;
     }
 
     .trust-strip{border-block:1px solid var(--line);background:rgba(255,255,255,.018)}
@@ -285,20 +274,33 @@
     .problem-overlay strong{display:block;color:#fff;font-size:.9rem;margin-bottom:4px}
     .problem-overlay span{font-size:.78rem;color:#cad2dc}
 
-    .demo-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
-    .demo-large,.gallery-item,.showcase-card,.portfolio-image,.owner-card,.price-card,.faq-item,.panel{
+    .demo-gallery{display:grid;gap:22px}
+    .demo-primary{display:grid;grid-template-columns:minmax(0,3.15fr) minmax(230px,.85fr);gap:22px;align-items:stretch}
+    .demo-secondary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .demo-card,.gallery-item,.showcase-card,.portfolio-image,.owner-card,.price-card,.faq-item,.panel{
       border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);
     }
-    .demo-large{position:relative;overflow:hidden;min-height:520px}
-    .demo-large img{width:100%;height:100%;object-fit:cover}
-    .demo-large .demo-copy{position:absolute;left:18px;right:18px;bottom:18px;padding:18px 20px;border-radius:18px;background:rgba(7,12,19,.78);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(14px)}
-    .demo-large .demo-copy strong{display:block;font-size:1.3rem;font-family:var(--font-display);margin-bottom:6px}
-    .demo-side{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .gallery-item{position:relative;overflow:hidden;cursor:zoom-in;min-height:250px}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-    .gallery-item.mobile img{object-position:top center}
-    .gallery-item:hover img{transform:scale(1.035)}
-    .gallery-item .zoom{position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:12px;background:rgba(5,9,14,.78);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;backdrop-filter:blur(10px)}
+    .demo-card{
+      overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0;
+      background:linear-gradient(145deg,rgba(18,31,47,.96),rgba(10,18,28,.96));
+    }
+    .demo-card-header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:2px 4px 0}
+    .demo-card-header strong{font:700 1.15rem/1 var(--font-display);letter-spacing:.01em;color:#fff}
+    .demo-card-header span{font-size:.78rem;color:var(--muted-2)}
+    .demo-media{
+      position:relative;overflow:hidden;display:grid;place-items:center;min-height:0;
+      border-radius:18px;border:1px solid rgba(255,255,255,.08);background:#07111d;
+    }
+    .demo-card.desktop .demo-media{aspect-ratio:1899/920}
+    .demo-card.mobile .demo-media{height:100%;min-height:460px;padding:14px}
+    .demo-card.secondary .demo-media{aspect-ratio:1672/941}
+    .demo-card img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+    .demo-card.desktop img,.demo-card.secondary img{width:100%;height:100%;object-fit:contain}
+    .demo-card.mobile img{height:100%;width:auto;max-width:100%;object-fit:contain}
+    .demo-card button,.demo-card.gallery-item{cursor:zoom-in;text-align:left;color:inherit}
+    .gallery-item{padding:16px;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .gallery-item:hover{transform:translateY(-3px);border-color:rgba(75,224,255,.28)}
+    .gallery-item .zoom{position:absolute;right:28px;bottom:28px;width:42px;height:42px;border-radius:12px;background:rgba(5,9,14,.82);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;backdrop-filter:blur(10px)}
     .gallery-item .zoom svg{width:19px;height:19px}
     .demo-note{margin-top:18px;font-size:.84rem;color:var(--muted-2)}
     .demo-button-wrap{margin-top:20px}
@@ -403,10 +405,11 @@
     .dialog-body{padding:24px;display:grid;gap:16px}
 
     @media (max-width: 1180px){
-      .hero-grid,.problem-grid,.delivery-grid,.audience-grid,.owner-grid,.invest-grid,.demo-grid{grid-template-columns:1fr}
-      .hero-visual{grid-template-columns:1fr 1fr}
+      .hero-grid,.problem-grid,.delivery-grid,.audience-grid,.owner-grid,.invest-grid{grid-template-columns:1fr}
       .hero-copy{padding-top:0}
-      .visual-main{min-height:380px}
+      .hero-visual{min-height:auto}
+      .hero-visual img{height:auto;min-height:0;aspect-ratio:1672/941;object-fit:cover}
+      .demo-primary{grid-template-columns:minmax(0,2.5fr) minmax(220px,.8fr)}
       .problem-image{min-height:500px}
       .portfolio-image{grid-template-columns:1fr}
       .trust-grid{grid-template-columns:repeat(2,1fr)}
@@ -424,10 +427,8 @@
       .menu-button{display:block}
       .nav-wrap .button-small{display:none}
       .hero-grid{gap:26px}
-      .hero-visual{grid-template-columns:1fr}
-      .visual-main{grid-column:auto;min-height:320px}
-      .visual-small{min-height:240px}
-      .demo-side,.stacked-showcase,.installments{grid-template-columns:1fr}
+      .demo-primary,.demo-secondary,.stacked-showcase,.installments{grid-template-columns:1fr}
+      .demo-card.mobile .demo-media{min-height:520px}
       .audience-list{grid-template-columns:1fr}
       .problem-overlay{grid-template-columns:1fr}
       .panel,.owner-card,.price-card,.final-card{padding:28px}
@@ -448,8 +449,10 @@
       .hero-price-wrap{padding:18px 18px 16px}
       .hero-proof{display:grid;grid-template-columns:1fr;gap:8px}
       .problem-image{min-height:420px}
-      .demo-large{min-height:360px}
-      .gallery-item,.visual-small,.showcase-card,.showcase-card.wide{min-height:220px}
+      .hero-visual img{aspect-ratio:4/3;object-position:56% 50%}
+      .demo-card{padding:12px}
+      .demo-card.mobile .demo-media{min-height:430px}
+      .showcase-card,.showcase-card.wide{min-height:220px}
       .trust-grid,.process-grid{grid-template-columns:1fr}
       .trust-item{border-right:0!important;border-bottom:1px solid var(--line)}
       .trust-item:last-child{border-bottom:0}
@@ -516,34 +519,7 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="visual-card visual-main">
-            <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
-            <div class="floating-note">Exemplo aplicado em desktop e celular</div>
-            <div class="visual-caption">
-              <div class="label">
-                <strong>Página profissional aplicada</strong>
-                <span>Estrutura pronta para apresentar o serviço com clareza</span>
-              </div>
-            </div>
-          </div>
-          <div class="visual-card visual-small">
-            <img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, segurando celular e maleta de ferramentas em frente a uma residência" width="1672" height="941">
-            <div class="visual-caption">
-              <div class="label">
-                <strong>Profissional em ação</strong>
-                <span>O tipo de negócio que precisa transmitir confiança</span>
-              </div>
-            </div>
-          </div>
-          <div class="visual-card visual-small">
-            <img src="assets/img/mockup-contabilidade.png" alt="Outro exemplo de mockup de site profissional exibido em notebook e celular" width="1672" height="941">
-            <div class="visual-caption">
-              <div class="label">
-                <strong>Outro modelo possível</strong>
-                <span>Textos, visual e informações adaptados a cada cliente</span>
-              </div>
-            </div>
-          </div>
+          <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
         </div>
       </div>
     </section>
@@ -591,26 +567,36 @@
           <h2>Veja como seu serviço pode ser apresentado</h2>
           <p class="lead">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
         </div>
-        <div class="demo-grid">
-          <div class="demo-large reveal">
-            <img src="assets/img/exemplo-desktop.png" alt="Exemplo de versão desktop de uma página profissional para prestador de serviços" width="1899" height="920">
-            <div class="demo-copy"><strong>Exemplo em desktop</strong><p>Uma estrutura pensada para explicar o serviço com clareza, mostrar diferenciais e levar o cliente ao contato.</p></div>
+        <div class="demo-gallery">
+          <div class="demo-primary">
+            <button class="demo-card desktop gallery-item reveal" type="button" aria-label="Ampliar exemplo completo no computador">
+              <div class="demo-card-header"><strong>Versão para computador</strong><span>Layout completo</span></div>
+              <div class="demo-media">
+                <img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920">
+              </div>
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+            </button>
+            <button class="demo-card mobile gallery-item reveal" type="button" aria-label="Ampliar exemplo completo no celular">
+              <div class="demo-card-header"><strong>Versão para celular</strong><span>Responsiva</span></div>
+              <div class="demo-media">
+                <img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551">
+              </div>
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+            </button>
           </div>
-          <div class="demo-side">
-            <button class="gallery-item mobile reveal" type="button" aria-label="Ampliar exemplo no celular">
-              <img src="assets/img/exemplo-mobile.jpg" alt="Exemplo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551">
+          <div class="demo-secondary" aria-label="Outras possibilidades visuais">
+            <button class="demo-card secondary gallery-item reveal" type="button" aria-label="Ampliar outro exemplo de direção visual">
+              <div class="demo-card-header"><strong>Outra direção visual</strong><span>Identidade adaptada ao negócio</span></div>
+              <div class="demo-media">
+                <img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941">
+              </div>
               <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
             </button>
-            <button class="gallery-item reveal" type="button" aria-label="Ampliar outro mockup profissional">
-              <img src="assets/img/mockup-enquanto-ele-age.png" alt="Outro mockup de site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941">
-              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
-            </button>
-            <button class="gallery-item reveal" type="button" aria-label="Ampliar mockup de outra página">
-              <img src="assets/img/mockup-contabilidade.png" alt="Mockup de outro site profissional exibido em notebook e celular" width="1672" height="941">
-              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
-            </button>
-            <button class="gallery-item reveal" type="button" aria-label="Ampliar imagem do profissional em ação">
-              <img src="assets/img/profissional-em-acao.png" alt="Profissional de serviços em ação, com maleta de ferramentas e celular" width="1672" height="941">
+            <button class="demo-card secondary gallery-item reveal" type="button" aria-label="Ampliar outro exemplo de página profissional">
+              <div class="demo-card-header"><strong>Outro projeto aplicado</strong><span>Composição e conteúdo próprios</span></div>
+              <div class="demo-media">
+                <img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941">
+              </div>
               <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
             </button>
           </div>
