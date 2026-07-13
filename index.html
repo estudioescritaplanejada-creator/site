@@ -7,8 +7,8 @@
 <meta name="description" content="Criamos sites de uma página para autônomos, MEIs e pequenas empresas apresentarem serviços, portfólio e avaliações e receberem orçamentos pelo WhatsApp.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Estúdio Escrita Planejada">
-<meta name="theme-color" content="#09111f">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#f6f1ea">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://www.estudioescritaplanejada.com.br/">
 
 <meta property="og:locale" content="pt_BR">
@@ -29,8 +29,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23081422'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='22' font-weight='800' fill='%234BE0FF'%3EEEP%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231a1815'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='22' font-weight='800' fill='%23f2d5a7'%3EEEP%3C/text%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
@@ -84,40 +84,37 @@
 
 <style>
 :root{
-  --bg:#09111f;
-  --bg-soft:#0e1728;
-  --bg-card:#101b2e;
-  --bg-card-2:#0c1626;
-  --surface:rgba(255,255,255,.04);
-  --surface-2:rgba(255,255,255,.06);
-  --line:rgba(255,255,255,.09);
-  --line-strong:rgba(255,255,255,.14);
-  --text:#f4f7fb;
-  --muted:#b8c1ce;
-  --muted-2:#8c97a8;
-  --accent:#69ddff;
-  --accent-2:#7aa6ff;
-  --success:#35d0a0;
-  --radius:26px;
+  --bg:#f6f1ea;
+  --bg-soft:#fcfaf7;
+  --card:#fffdfa;
+  --card-2:#f2ebe1;
+  --text:#1d1a17;
+  --muted:#655f58;
+  --muted-2:#867e75;
+  --line:rgba(29,26,23,.10);
+  --line-strong:rgba(29,26,23,.18);
+  --accent:#9b6a3a;
+  --accent-soft:#ead8c2;
+  --accent-deep:#2d3f52;
+  --success:#2f7f68;
+  --shadow:0 22px 60px rgba(48,37,23,.08);
+  --radius:28px;
   --radius-sm:18px;
-  --shadow:0 22px 70px rgba(0,0,0,.28);
-  --shadow-soft:0 16px 50px rgba(0,0,0,.22);
-  --max:1240px;
-  --font-display:'Barlow Condensed', Arial, sans-serif;
-  --font-body:'Inter', Arial, sans-serif;
+  --max:1220px;
+  --font-display:'DM Serif Display', Georgia, serif;
+  --font-body:'Manrope', Arial, sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{
   margin:0;
   min-width:320px;
-  color:var(--text);
   font-family:var(--font-body);
-  line-height:1.65;
+  color:var(--text);
+  line-height:1.7;
   background:
-    radial-gradient(circle at top left, rgba(122,166,255,.17), transparent 32rem),
-    radial-gradient(circle at top right, rgba(105,221,255,.09), transparent 24rem),
-    linear-gradient(180deg, #09111f 0%, #0a1221 40%, #08101d 100%);
+    radial-gradient(circle at top left, rgba(234,216,194,.55), transparent 26rem),
+    linear-gradient(180deg, #fbf7f2 0%, #f6f1ea 42%, #f7f2ec 100%);
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
@@ -128,485 +125,303 @@ body::before{
   inset:0;
   pointer-events:none;
   z-index:-1;
-  background:
-    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
-  background-size:44px 44px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 92%);
+  opacity:.35;
+  background-image:
+    linear-gradient(rgba(29,26,23,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,26,23,.025) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.8), transparent 92%);
 }
 img{display:block;max-width:100%}
 a{color:inherit}
 button,input,textarea,select{font:inherit}
 button{color:inherit}
-::selection{background:rgba(105,221,255,.35);color:#fff}
+::selection{background:rgba(155,106,58,.18);color:#1d1a17}
 
 .skip-link{
-  position:fixed;left:16px;top:16px;z-index:9999;transform:translateY(-200%);
-  background:#fff;color:#09111f;padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:800;
+  position:fixed;left:16px;top:16px;z-index:9999;transform:translateY(-180%);
+  background:#1d1a17;color:#fff;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800;
 }
 .skip-link:focus{transform:none}
 
 .container{width:min(var(--max), calc(100% - 28px));margin-inline:auto}
-.section{padding:88px 0}
-.section-tight{padding:36px 0}
-.section-shell{
-  display:grid;
-  grid-template-columns:minmax(0, 220px) minmax(0,1fr);
-  gap:32px;
-  align-items:start;
-}
-.section-label{
-  position:sticky;
-  top:108px;
-}
+.section{padding:92px 0}
+.section:first-of-type{padding-top:34px}
+.section-head{max-width:760px;margin-bottom:34px}
+.section-head.center{text-align:center;margin-inline:auto}
 .eyebrow{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  margin:0 0 14px;
+  margin:0 0 16px;
   color:var(--accent);
   font-size:.78rem;
   font-weight:800;
   letter-spacing:.18em;
   text-transform:uppercase;
 }
-.eyebrow::before{
-  content:"";
-  width:32px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent-2),var(--accent));
-}
-.section-index{
-  color:rgba(255,255,255,.3);
-  font:800 clamp(1.8rem,3vw,2.5rem)/1 var(--font-display);
-  letter-spacing:.02em;
-  margin-top:8px;
-}
-.section-body{
-  min-width:0;
-}
-.hero-shell,
-.panel,
-.image-frame,
-.trust-item,
-.problem-box,
-.demo-panel,
-.delivery-card,
-.list-card,
-.process-card,
-.owner-card,
-.side-card,
-.price-card,
-.faq-item,
-.final-card{
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
-  box-shadow:var(--shadow-soft);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-
-h1,h2,h3,h4{
-  margin:0;
-  color:#fff;
-  font-family:var(--font-display);
-  line-height:.96;
-  letter-spacing:-.03em;
-}
-h1{font-size:clamp(3rem,8vw,6.1rem);text-transform:uppercase;max-width:9ch}
-h2{font-size:clamp(2.2rem,5vw,4.3rem);text-transform:uppercase;max-width:12ch}
-h3{font-size:clamp(1.45rem,2.2vw,1.9rem);line-height:1.04}
+.eyebrow::before{content:"";width:28px;height:2px;border-radius:999px;background:var(--accent)}
+h1,h2,h3,h4{margin:0;color:var(--text);letter-spacing:-.03em}
+h1,h2{font-family:var(--font-display);line-height:.95}
+h3,h4{font-family:var(--font-body);line-height:1.18}
+h1{font-size:clamp(3rem,8vw,5.8rem);max-width:8.8ch}
+h2{font-size:clamp(2.3rem,5vw,4rem);max-width:12ch}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:800}
 p{margin:0;color:var(--muted)}
-.lead{font-size:clamp(1.02rem,1.5vw,1.18rem);line-height:1.78;max-width:60ch}
-.text-white{color:#fff}
+.lead{font-size:clamp(1.04rem,1.6vw,1.18rem);line-height:1.8;max-width:62ch}
+.text-white{color:var(--text)}
 
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(9,17,31,.72);
+  position:sticky;top:0;z-index:1000;
+  background:rgba(251,247,242,.84);
   border-bottom:1px solid var(--line);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 }
-.header-inner{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:22px;
-}
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-  min-width:0;
-  text-decoration:none;
-}
+.header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
 .brand-mark{
   width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto;
-  background:linear-gradient(135deg, rgba(122,166,255,.95), rgba(105,221,255,.9));
-  color:#09111f;font:800 1rem/1 var(--font-display);letter-spacing:.05em;
-  box-shadow:0 14px 32px rgba(105,221,255,.18);
+  background:#1d1a17;color:#f1d7b1;font-weight:800;font-size:1rem;letter-spacing:.05em;
+  box-shadow:0 14px 28px rgba(29,26,23,.12);
 }
-.brand-name{
-  font:700 1.02rem/1 var(--font-display);
-  letter-spacing:.05em;
-  text-transform:uppercase;
-}
-.nav-wrap{display:flex;align-items:center;gap:20px}
+.brand-name{font:800 1rem/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:#221f1b}
+.nav-wrap{display:flex;align-items:center;gap:18px}
 .nav{display:flex;align-items:center;gap:18px}
-.nav a{font-size:.9rem;font-weight:600;color:#d8dee8;text-decoration:none;transition:.2s ease}
-.nav a:hover,.nav a:focus-visible{color:#fff}
+.nav a{font-size:.92rem;font-weight:700;color:#4b443d;text-decoration:none;transition:.2s ease}
+.nav a:hover,.nav a:focus-visible{color:#1d1a17}
 .menu-button{display:none;background:none;border:0;padding:8px;cursor:pointer}
-.menu-button span{display:block;width:24px;height:2px;background:#fff;margin:5px;border-radius:999px}
+.menu-button span{display:block;width:24px;height:2px;background:#1d1a17;margin:5px;border-radius:999px}
 
 .button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  min-height:50px;
-  padding:0 22px;
-  border-radius:999px;
-  border:1px solid transparent;
-  text-decoration:none;
-  text-align:center;
-  font-weight:800;
-  cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 24px;border-radius:999px;border:1px solid transparent;
+  font-weight:800;text-decoration:none;text-align:center;cursor:pointer;
   transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 .button:hover{transform:translateY(-2px)}
-.button:focus-visible{outline:3px solid rgba(105,221,255,.35);outline-offset:3px}
-.button-primary{
-  color:#08101d;
-  background:linear-gradient(135deg, #9eeeff 0%, #74dbff 52%, #7aa6ff 100%);
-  box-shadow:0 18px 46px rgba(105,221,255,.2);
-}
-.button-secondary{
-  background:rgba(255,255,255,.035);
-  border-color:var(--line-strong);
-  color:#fff;
-}
-.button-dark{background:#152134;border-color:var(--line-strong);color:#fff}
+.button:focus-visible{outline:3px solid rgba(155,106,58,.24);outline-offset:3px}
+.button-primary{background:#1d1a17;color:#fff;box-shadow:0 14px 28px rgba(29,26,23,.12)}
+.button-secondary{background:transparent;border-color:var(--line-strong);color:#1d1a17}
+.button-dark{background:#2d3f52;color:#fff}
 .button-small{min-height:44px;padding:0 18px;font-size:.88rem}
 .button svg{width:18px;height:18px;flex:0 0 auto}
 
-.hero{padding:42px 0 72px}
-.hero-shell{padding:26px}
-.hero-grid{
-  display:grid;
-  grid-template-columns:minmax(0, 1.02fr) minmax(0, .98fr);
-  gap:22px;
-  align-items:stretch;
-}
-.hero-copy{padding:24px;display:flex;flex-direction:column;justify-content:center}
-.hero-copy h1{margin-top:10px}
-.hero-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:26px;
-}
-.mini-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  min-height:38px;
-  padding:0 14px;
-  border-radius:999px;
+.card,
+.hero-stage,
+.trust-item,
+.problem-card,
+.demo-card,
+.delivery-card,
+.info-card,
+.audience-card,
+.process-card,
+.owner-card,
+.price-card,
+.side-card,
+.faq-item,
+.final-card,
+.image-card{
+  background:var(--card);
   border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-  font-size:.84rem;
-  color:#dce4ef;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
-.hero-subtext{margin-top:18px;max-width:55ch}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+.hero-stage{padding:22px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:stretch}
+.hero-copy{padding:26px 18px 26px 8px;display:flex;flex-direction:column;justify-content:center}
+.hero-copy h1{margin-top:6px}
+.hero-subtext{margin-top:16px;max-width:56ch}
 .hero-price{
-  margin-top:28px;
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:18px;
-  align-items:end;
-  padding:20px 22px;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:linear-gradient(145deg, rgba(122,166,255,.14), rgba(255,255,255,.03));
+  margin-top:26px;padding:18px 20px;border-radius:22px;
+  background:var(--card-2);border:1px solid var(--line);
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:end;max-width:520px;
 }
-.hero-price p{font-size:.92rem;color:#d1d9e3}
-.hero-price strong{font:800 clamp(3.2rem,5vw,4.4rem)/.9 var(--font-display);letter-spacing:-.04em;text-align:right;color:#fff}
-.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0 0;padding:0;list-style:none}
+.hero-price p{font-size:.95rem;color:#554e48}
+.hero-price strong{font:400 clamp(3.3rem,5vw,4.4rem)/.88 var(--font-display);text-align:right;color:#1d1a17}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 0;padding:0;list-style:none}
 .hero-proof li{
-  padding:15px 16px;
-  border-radius:18px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.025);
-  color:#d7dee7;
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  min-height:100%;
+  padding:16px;border-radius:18px;background:#faf6f1;border:1px solid var(--line);
+  display:flex;align-items:flex-start;gap:10px;color:#4f4943;
 }
 .hero-proof svg{width:18px;height:18px;color:var(--success);flex:0 0 auto;margin-top:3px}
-.hero-visual{display:grid;gap:16px}
-.image-frame{overflow:hidden;background:var(--bg-card-2)}
-.image-frame img{width:100%;height:100%;object-fit:cover}
-.hero-visual .image-frame:first-child{min-height:420px}
-.hero-visual-split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.hero-visual-split .image-frame{min-height:190px}
+.hero-visual{display:grid;grid-template-rows:1fr auto;gap:16px;min-width:0}
+.hero-visual .image-card{overflow:hidden}
+.hero-visual .image-card.main{min-height:430px}
+.hero-visual .image-card.main img{width:100%;height:100%;object-fit:cover}
+.hero-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-stat{
+  padding:20px;border-radius:22px;background:#f8f3ed;border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-stat strong{font:400 2rem/1 var(--font-display);color:#1d1a17;margin-bottom:8px}
+.hero-stat span{color:#635d56}
 
-.trust-strip{padding-top:0}
+.trust-strip{padding-top:22px}
 .trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.trust-item{padding:18px 18px 17px}
-.trust-item strong{display:block;color:#fff;font-size:1rem;margin-bottom:4px}
-.trust-item span{display:block;color:var(--muted-2);font-size:.86rem;line-height:1.5}
+.trust-item{padding:20px}
+.trust-item strong{display:block;font-size:1rem;color:#1d1a17;margin-bottom:6px}
+.trust-item span{display:block;font-size:.88rem;color:#766f67;line-height:1.55}
 
 .problem-grid,
 .delivery-grid,
 .audience-grid,
 .owner-grid,
-.invest-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;align-items:start}
-.problem-box,
+.invest-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.problem-card,
 .delivery-card,
-.list-card,
+.info-card,
 .owner-card,
-.side-card,
-.price-card{padding:32px}
-.problem-points,
-.check-list,
-.plain-list,
-.owner-points{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.problem-points li,
-.check-list li,
-.owner-points li{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:14px 15px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:rgba(255,255,255,.025);
-  color:#d9e0ea;
+.price-card,
+.side-card{padding:34px}
+.problem-list,.check-list,.owner-points,.plain-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.problem-list li,.check-list li,.owner-points li{
+  display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border-radius:18px;
+  background:#fbf7f2;border:1px solid var(--line);color:#4f4943;
 }
-.problem-points i,
-.check-list i,
-.owner-points i{
+.problem-list i,.check-list i,.owner-points i{
   width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
-  background:rgba(105,221,255,.12);color:var(--accent);font-style:normal;font-weight:800;font-size:.78rem;margin-top:1px;
+  background:#ead8c2;color:var(--accent);font-style:normal;font-weight:800;font-size:.78rem;margin-top:1px;
 }
-.plain-list li{display:flex;align-items:flex-start;gap:12px;color:#d7dee8}
-.plain-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;margin-top:.7em}
-
-.problem-images,
-.delivery-images,
-.demo-grid{display:grid;gap:16px}
-.problem-images{grid-template-columns:1fr 1fr}
-.problem-images .image-frame:first-child{grid-column:1 / -1;min-height:320px}
-.problem-images .image-frame:nth-child(2),
-.problem-images .image-frame:nth-child(3){min-height:220px}
-
-.demo-panel{padding:22px}
-.demo-grid{
-  grid-template-columns:1.18fr .62fr;
-  grid-template-areas:
-    "a b"
-    "c d";
+.plain-list li{display:flex;gap:12px;align-items:flex-start;color:#4f4943}
+.plain-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:.72em;flex:0 0 auto}
+.image-card{overflow:hidden}
+.image-card img{width:100%;height:100%;object-fit:cover}
+.image-card.soft{background:#f5eee5}
+.problem-visual{min-height:100%;display:flex;flex-direction:column;gap:16px}
+.problem-visual .image-card{min-height:500px}
+.problem-note{
+  padding:18px 20px;border-radius:18px;background:#2d3f52;color:#eef2f5;
 }
-.demo-grid .gallery-item{cursor:zoom-in;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#0b1524;min-height:0}
-.demo-grid .gallery-item:nth-child(1){grid-area:a;min-height:360px}
-.demo-grid .gallery-item:nth-child(2){grid-area:b;min-height:360px}
-.demo-grid .gallery-item:nth-child(3){grid-area:c;min-height:240px}
-.demo-grid .gallery-item:nth-child(4){grid-area:d;min-height:240px}
-.demo-grid img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.demo-grid .gallery-item:hover img{transform:scale(1.03)}
+.problem-note p{color:#eef2f5}
+
+.demo-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:18px}
+.demo-card{padding:16px;overflow:hidden}
+.demo-image{overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#f5efe8;cursor:zoom-in}
+.demo-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.demo-image:hover img{transform:scale(1.02)}
+.demo-image.desktop{min-height:420px}
+.demo-image.mobile{min-height:420px}
 .demo-note{margin-top:18px;font-size:.88rem;color:var(--muted-2)}
 
-.delivery-images{grid-template-columns:repeat(3, minmax(0,1fr))}
-.delivery-images .image-frame{min-height:190px}
-.delivery-images .image-frame:first-child{grid-column:1 / -1;min-height:280px}
-.list-card{margin-top:22px}
-.list-card .plain-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px}
-
-.service-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.service-tags span{
-  padding:8px 11px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(105,221,255,.05);
-  color:#c8effa;
-  font-size:.8rem;
-}
-.audience-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.audience-item{
-  padding:18px;
-  border-radius:18px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.025);
-}
-.audience-item strong{display:block;color:#fff;font-size:1rem;margin-bottom:4px}
-.audience-item span{display:block;color:var(--muted)}
-.audience-visual{margin-top:16px;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#0b1524}
-.audience-visual img{width:100%;height:auto;object-fit:cover}
-.audience-visual-copy{padding:24px;background:linear-gradient(180deg, rgba(122,166,255,.14), rgba(255,255,255,.025))}
+.delivery-side{display:grid;gap:18px}
+.info-card h3,.side-card h3{margin-bottom:14px}
+.info-card{padding:0;overflow:hidden}
+.info-card .image-card{min-height:300px;border:none;border-radius:0}
+.info-card .content{padding:28px}
+.audience-right{display:grid;gap:18px}
+.audience-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.audience-tags span{padding:8px 11px;border-radius:999px;background:#f1e6d9;border:1px solid var(--line);font-size:.8rem;color:#5d5348}
+.audience-grid-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.audience-card{padding:20px}
+.audience-card strong{display:block;color:#1d1a17;margin-bottom:4px}
+.audience-card span{display:block;color:#6a635c}
 
 .process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .process-card{padding:26px;position:relative;overflow:hidden}
-.process-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(122,166,255,.08), transparent 55%);
-  pointer-events:none;
-}
+.process-card::after{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--accent),#d1b38e)}
 .process-step{
-  display:grid;place-items:center;width:54px;height:54px;border-radius:16px;
-  border:1px solid rgba(105,221,255,.18);background:rgba(105,221,255,.08);
-  color:var(--accent);font:800 1.4rem/1 var(--font-display);margin-bottom:18px;
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:#f1e5d8;color:var(--accent);font-weight:800;
 }
-.process-card p{font-size:.95rem}
+.process-card p{font-size:.95rem;color:#665f58}
 
 .side-stack{display:grid;gap:18px}
-.side-card h3{margin-bottom:12px}
-.price-card{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg, rgba(122,166,255,.14), rgba(255,255,255,.03))}
-.price-card .price{font:800 clamp(4rem,7vw,5.6rem)/.88 var(--font-display);letter-spacing:-.04em;margin:12px 0 0;color:#fff}
-.installments{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
-.installment{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
-.installment strong{display:block;color:#fff;font:800 1.4rem/1 var(--font-display);letter-spacing:-.02em;margin-bottom:6px}
-.price-note{margin-top:16px;font-size:.86rem;color:var(--muted-2)}
+.price-card{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#fffdfa 0%, #f8f2ea 100%)}
+.price-card .price{font:400 clamp(4.1rem,7vw,5.6rem)/.88 var(--font-display);color:#1d1a17;margin:10px 0 0}
+.installments{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.installment{padding:18px;border-radius:18px;background:#faf5ee;border:1px solid var(--line)}
+.installment strong{display:block;font:400 1.8rem/1 var(--font-display);color:#1d1a17;margin-bottom:4px}
+.price-note{margin-top:18px;font-size:.86rem;color:#7b736a}
+.side-card{background:#fffdf9}
 
-.faq-list{display:grid;gap:14px}
+.faq-list{display:grid;gap:14px;max-width:980px;margin-inline:auto}
 .faq-item{padding:0;overflow:hidden}
-.faq-item summary{
-  list-style:none;
-  cursor:pointer;
-  padding:20px 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  font-weight:800;
-  color:#fff;
-}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 24px;font-weight:800;color:#1d1a17;display:flex;justify-content:space-between;align-items:center;gap:20px}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{
-  content:'+';
-  font:800 1.55rem/1 var(--font-display);
-  color:var(--accent);
-  transition:transform .2s ease;
-}
+.faq-item summary::after{content:'+';font:400 1.9rem/1 var(--font-display);color:var(--accent);transition:transform .2s ease}
 .faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item p{padding:0 22px 22px;color:#d2d9e4}
+.faq-item p{padding:0 24px 24px;color:#6a625b}
 
 .final-cta{padding-top:0;padding-bottom:108px}
-.final-card{padding:40px;background:linear-gradient(145deg, rgba(122,166,255,.16), rgba(105,221,255,.05) 35%, rgba(255,255,255,.025) 100%)}
+.final-card{
+  padding:42px;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:24px;align-items:center;
+  background:linear-gradient(135deg, #fffdf9 0%, #f3ebdf 100%);
+}
+.final-card .image-card{min-height:320px}
 .final-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
-.site-footer{padding:34px 0 110px;border-top:1px solid var(--line);background:rgba(255,255,255,.015)}
-.footer-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.footer-brand{font:700 1.05rem/1 var(--font-display);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
-.footer-copy{max-width:680px;color:#97a3b1;font-size:.9rem}
+.site-footer{padding:34px 0 112px;border-top:1px solid var(--line);background:rgba(255,255,255,.48)}
+.footer-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.footer-brand{font:800 1.02rem/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:#1d1a17;margin-bottom:12px}
+.footer-copy{max-width:680px;color:#797168;font-size:.9rem}
 .footer-links{display:flex;flex-wrap:wrap;gap:14px}
-.footer-links a,.footer-links button{background:none;border:0;padding:0;color:#d1d9e3;font-size:.89rem;cursor:pointer;text-decoration:none}
+.footer-links a,.footer-links button{background:none;border:0;padding:0;color:#605850;font-size:.89rem;cursor:pointer;text-decoration:none}
 
 .mobile-cta{
-  display:none;
-  position:fixed;
-  left:0;right:0;bottom:0;z-index:999;
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-  background:linear-gradient(180deg, rgba(9,17,31,0), rgba(9,17,31,.92) 38%, rgba(9,17,31,1));
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg, rgba(246,241,234,0), rgba(246,241,234,.95) 40%, rgba(246,241,234,1));
 }
 .mobile-cta .button{width:100%;min-height:54px}
 
-.lightbox{position:fixed;inset:0;background:rgba(4,8,14,.88);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:24px;z-index:2000}
+.lightbox{position:fixed;inset:0;background:rgba(18,16,14,.82);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px;z-index:2000}
 .lightbox.open{display:flex}
-.lightbox img{max-width:min(1200px,96vw);max-height:86vh;border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.5)}
-.lightbox-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(10,15,24,.72);color:#fff;font-size:1.6rem;cursor:pointer}
+.lightbox img{max-width:min(1200px,96vw);max-height:86vh;border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.3)}
+.lightbox-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;cursor:pointer}
 
-dialog{
-  width:min(720px,calc(100% - 30px));
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:0;
-  background:#0d1724;
-  color:#fff;
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
-}
-dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
+dialog{width:min(720px,calc(100% - 30px));border:1px solid var(--line);border-radius:24px;padding:0;background:#fff;color:#1d1a17;box-shadow:0 30px 80px rgba(0,0,0,.18)}
+dialog::backdrop{background:rgba(18,16,14,.48);backdrop-filter:blur(6px)}
 .dialog-head{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 24px 18px;border-bottom:1px solid var(--line)}
 .dialog-head h2{font-size:2rem;max-width:none}
-.dialog-close{background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+.dialog-close{background:none;border:0;color:#1d1a17;font-size:1.8rem;cursor:pointer}
 .dialog-body{padding:24px;display:grid;gap:16px}
+.dialog-body p{color:#605850}
 
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease, transform .65s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease, transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 
 @media (max-width: 1180px){
-  .section-shell{grid-template-columns:1fr}
-  .section-label{position:static}
-  .hero-grid,
-  .problem-grid,
-  .delivery-grid,
-  .audience-grid,
-  .owner-grid,
-  .invest-grid{grid-template-columns:1fr}
+  .hero-grid,.problem-grid,.delivery-grid,.audience-grid,.owner-grid,.invest-grid,.final-card{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .demo-grid{grid-template-columns:1fr 1fr;grid-template-areas:"a b" "c d"}
+  .demo-layout{grid-template-columns:1fr}
+  .final-card .image-card{min-height:280px}
 }
-
 @media (max-width: 920px){
   .nav{
-    position:absolute;
-    left:14px;right:14px;top:72px;
-    display:none;
-    flex-direction:column;
-    align-items:stretch;
-    gap:6px;
-    padding:14px;
-    border-radius:20px;
-    background:#0d1724;
-    border:1px solid var(--line);
-    box-shadow:0 18px 34px rgba(0,0,0,.3);
+    position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:6px;
+    padding:14px;border-radius:18px;background:#fffdf9;border:1px solid var(--line);box-shadow:0 18px 34px rgba(0,0,0,.1)
   }
   .nav-wrap.open .nav{display:flex}
   .nav a{padding:10px 8px}
   .menu-button{display:block}
   .nav-wrap .button-small{display:none}
-  .hero-shell{padding:18px}
-  .hero-copy{padding:10px}
-  .hero-proof{grid-template-columns:1fr}
-  .problem-images,.delivery-images,.audience-cards,.installments,.list-card .plain-list,.hero-visual-split{grid-template-columns:1fr}
-  .problem-images .image-frame:first-child,
-  .delivery-images .image-frame:first-child{grid-column:auto}
-  .demo-grid{grid-template-columns:1fr;grid-template-areas:"a" "b" "c" "d"}
-  .demo-grid .gallery-item:nth-child(1),
-  .demo-grid .gallery-item:nth-child(2),
-  .demo-grid .gallery-item:nth-child(3),
-  .demo-grid .gallery-item:nth-child(4){min-height:260px}
+  .hero-stage{padding:16px}
+  .hero-copy{padding:10px 4px}
+  .hero-proof,.trust-grid,.audience-grid-cards,.installments{grid-template-columns:1fr}
 }
-
 @media (max-width: 720px){
-  html{scroll-padding-top:80px}
+  html{scroll-padding-top:76px}
   .container{width:min(var(--max), calc(100% - 20px))}
+  .section{padding:76px 0}
   .header-inner{min-height:70px}
-  .brand-name{font-size:.95rem}
-  .section{padding:72px 0}
-  .hero{padding:28px 0 60px}
-  h1{font-size:clamp(2.4rem,15vw,4.2rem)}
-  h2{font-size:clamp(2rem,11vw,3.2rem)}
-  .hero-price{grid-template-columns:1fr;align-items:start;gap:10px}
+  .brand-name{font-size:.94rem}
+  h1{font-size:clamp(2.45rem,14vw,4.2rem)}
+  h2{font-size:clamp(2rem,10vw,3.1rem)}
+  .hero-price{grid-template-columns:1fr;align-items:start}
   .hero-price strong{text-align:left}
-  .trust-grid,.process-grid{grid-template-columns:1fr}
-  .problem-box,.delivery-card,.list-card,.owner-card,.side-card,.price-card,.final-card{padding:24px}
-  .final-actions,.hero-actions{flex-direction:column}
-  .final-actions .button,.hero-actions .button{width:100%}
+  .hero-mini-grid,.process-grid{grid-template-columns:1fr}
+  .demo-image.desktop,.demo-image.mobile{min-height:260px}
+  .problem-card,.delivery-card,.info-card .content,.owner-card,.price-card,.side-card,.final-card{padding:24px}
+  .hero-actions,.final-actions{flex-direction:column}
+  .hero-actions .button,.final-actions .button{width:100%}
   .footer-grid{flex-direction:column}
   .mobile-cta{display:block}
-  .site-footer{padding-bottom:98px}
+  .site-footer{padding-bottom:100px}
 }
-
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
@@ -621,7 +436,6 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
       <span class="brand-mark" aria-hidden="true">EEP</span>
       <span class="brand-name">Estúdio Escrita Planejada</span>
     </a>
-
     <div class="nav-wrap">
       <button class="menu-button" type="button" aria-expanded="false" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -639,21 +453,19 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
 </header>
 
 <main id="conteudo">
-  <section class="hero" id="inicio">
+  <section class="section" id="inicio">
     <div class="container">
-      <div class="hero-shell reveal">
+      <div class="hero-stage reveal">
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Páginas profissionais para prestadores de serviços</p>
             <h1>Mostre seu trabalho antes mesmo do primeiro contato</h1>
             <p class="lead" style="margin-top:22px">Reúna seus serviços, fotos, avaliações e áreas atendidas em uma página própria, pronta para apresentar seu negócio e levar o cliente diretamente ao WhatsApp.</p>
             <p class="hero-subtext">Você envia as informações. O Estúdio organiza, escreve, cria e publica.</p>
-
             <div class="hero-price">
               <p>Página profissional completa por</p>
               <strong>R$ 700</strong>
             </div>
-
             <div class="hero-actions">
               <a class="button button-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12.04c0 4.64-3.76 8.4-8.4 8.4-1.46 0-2.83-.38-4.01-1.04L4 20l.67-3.39A8.36 8.36 0 0 1 3.6 12c0-4.64 3.76-8.4 8.4-8.4 4.64 0 8.4 3.76 8.4 8.44Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.55 9.4c.2-.45.42-.46.62-.47.16-.01.34-.01.52-.01s.46.07.7.33c.23.26.88.86.88 2.1s-.91 2.44-1.03 2.61c-.13.17-.25.37-.05.58.2.21.88 1.45 2.13 1.96 1.25.5 1.25.34 1.48.32.23-.02.74-.3.84-.6.1-.3.1-.55.07-.6-.03-.05-.12-.08-.25-.14-.13-.06-.74-.37-.86-.42-.12-.05-.2-.08-.29.08-.08.16-.34.42-.42.5-.08.08-.16.1-.3.03-.14-.07-.59-.22-1.13-.71-.42-.38-.71-.86-.8-1.01-.08-.15-.01-.23.06-.31.06-.06.14-.16.21-.24.07-.08.09-.14.14-.24.05-.1.03-.19 0-.27-.03-.08-.29-.71-.4-.97-.1-.24-.2-.2-.28-.2h-.24c-.08 0-.21.03-.32.15-.11.12-.42.42-.42 1.02s.43 1.19.49 1.27c.06.08.85 1.3 2.06 1.83 1.21.52 1.21.35 1.43.33.22-.02.72-.29.82-.57.1-.28.1-.53.07-.58-.03-.05-.12-.08-.25-.14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -661,25 +473,19 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
               </a>
               <a class="button button-secondary" href="#demonstracao">Ver demonstração</a>
             </div>
-
-            <div class="hero-meta" aria-label="Pontos principais da oferta">
-              <span class="mini-pill">Uma página completa</span>
-              <span class="mini-pill">Celular e computador</span>
-              <span class="mini-pill">Uma rodada de ajustes</span>
-            </div>
-
-            <ul class="hero-proof">
-              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Informações organizadas em um único endereço profissional.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Visual profissional para apresentar seu serviço com mais clareza.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Contato direto pelo WhatsApp para facilitar o pedido de orçamento.</span></li>
+            <ul class="hero-proof" aria-label="Pontos principais da oferta">
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Uma página completa</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Celular e computador</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Uma rodada de ajustes</span></li>
             </ul>
           </div>
-
           <div class="hero-visual">
-            <div class="image-frame"><img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941"></div>
-            <div class="hero-visual-split">
-              <div class="image-frame"><img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941"></div>
-              <div class="image-frame"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941"></div>
+            <div class="image-card main">
+              <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
+            </div>
+            <div class="hero-mini-grid">
+              <div class="hero-stat"><strong>Apresentação clara</strong><span>Serviços, fotos e contato direto em um único lugar.</span></div>
+              <div class="hero-stat"><strong>Visual profissional</strong><span>Uma presença mais séria para reforçar confiança antes do orçamento.</span></div>
             </div>
           </div>
         </div>
@@ -687,7 +493,7 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
     </div>
   </section>
 
-  <section class="trust-strip section-tight" aria-label="Benefícios resumidos">
+  <section class="trust-strip section" aria-label="Benefícios resumidos" style="padding-top:0">
     <div class="container">
       <div class="trust-grid reveal">
         <div class="trust-item"><strong>Informação organizada</strong><span>Serviços, fotos e contato em um único endereço</span></div>
@@ -699,282 +505,187 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
   </section>
 
   <section class="section" id="problema">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container problem-grid">
+      <div class="problem-card reveal">
         <p class="eyebrow">Problema</p>
-        <div class="section-index">01</div>
+        <h2>Seu serviço pode ser excelente. A apresentação também precisa ser.</h2>
+        <p class="lead" style="margin:22px 0 20px">Quando alguém recebe sua indicação ou pesquisa pelo seu negócio, talvez encontre apenas:</p>
+        <ul class="problem-list">
+          <li><i>•</i><span>um número de WhatsApp;</span></li>
+          <li><i>•</i><span>fotos espalhadas;</span></li>
+          <li><i>•</i><span>uma rede social desatualizada;</span></li>
+          <li><i>•</i><span>informações incompletas sobre seus serviços.</span></li>
+        </ul>
+        <p style="margin-top:18px">Sua página reúne tudo em um único endereço profissional.</p>
+        <p style="margin-top:18px">O cliente entende o que você faz, vê trabalhos realizados, conhece sua área de atendimento e chega ao WhatsApp mais preparado para pedir um orçamento.</p>
       </div>
-      <div class="section-body">
-        <div class="problem-grid reveal">
-          <div class="problem-box">
-            <h2>Seu serviço pode ser excelente. A apresentação também precisa ser.</h2>
-            <p class="lead" style="margin:22px 0 20px">Quando alguém recebe sua indicação ou pesquisa pelo seu negócio, talvez encontre apenas:</p>
-            <ul class="problem-points">
-              <li><i>•</i><span>um número de WhatsApp;</span></li>
-              <li><i>•</i><span>fotos espalhadas;</span></li>
-              <li><i>•</i><span>uma rede social desatualizada;</span></li>
-              <li><i>•</i><span>informações incompletas sobre seus serviços.</span></li>
-            </ul>
-            <p style="margin-top:18px">Sua página reúne tudo em um único endereço profissional.</p>
-            <p style="margin-top:18px">O cliente entende o que você faz, vê trabalhos realizados, conhece sua área de atendimento e chega ao WhatsApp mais preparado para pedir um orçamento.</p>
-          </div>
-          <div class="problem-images">
-            <div class="image-frame"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941"></div>
-            <div class="image-frame"><img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941"></div>
-            <div class="image-frame"><img src="assets/img/hero-mockup-principal.png" alt="Exemplo de site profissional aplicado em notebook e celular" width="1672" height="941"></div>
-          </div>
-        </div>
+      <div class="problem-visual reveal">
+        <div class="image-card soft"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941"></div>
+        <div class="problem-note"><p>O problema não é só ter informação. É como ela chega ao cliente.</p></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="demonstracao">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container">
+      <div class="section-head reveal">
         <p class="eyebrow">Demonstração</p>
-        <div class="section-index">02</div>
+        <h2>Veja como seu serviço pode ser apresentado</h2>
+        <p class="lead" style="margin-top:18px">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
       </div>
-      <div class="section-body">
-        <div class="demo-panel reveal">
-          <h2>Veja como seu serviço pode ser apresentado</h2>
-          <p class="lead" style="margin-top:22px">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
-          <div class="demo-grid" style="margin-top:26px">
-            <button class="gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop">
-              <img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920">
-            </button>
-            <button class="gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile">
-              <img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551">
-            </button>
-            <button class="gallery-item" type="button" aria-label="Ampliar outro exemplo de direção visual">
-              <img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941">
-            </button>
-            <button class="gallery-item" type="button" aria-label="Ampliar outro exemplo de página profissional">
-              <img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941">
-            </button>
-          </div>
-          <div class="demo-note">Exemplo demonstrativo. Empresa e informações fictícias.</div>
+      <div class="demo-layout reveal">
+        <div class="demo-card">
+          <button class="demo-image desktop gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop">
+            <img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920">
+          </button>
+        </div>
+        <div class="demo-card">
+          <button class="demo-image mobile gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile">
+            <img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551">
+          </button>
         </div>
       </div>
+      <div class="demo-note reveal">Exemplo demonstrativo. Empresa e informações fictícias.</div>
     </div>
   </section>
 
   <section class="section" id="entrega">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container delivery-grid">
+      <div class="delivery-card reveal">
         <p class="eyebrow">Entrega</p>
-        <div class="section-index">03</div>
+        <h2>Você fornece as informações. Nós entregamos a página pronta.</h2>
+        <p class="lead" style="margin:22px 0 26px">Sua página pode incluir:</p>
+        <ul class="check-list">
+          <li><i>✓</i><span>apresentação do profissional ou da empresa;</span></li>
+          <li><i>✓</i><span>descrição dos serviços;</span></li>
+          <li><i>✓</i><span>cidades e regiões atendidas;</span></li>
+          <li><i>✓</i><span>fotos de trabalhos realizados;</span></li>
+          <li><i>✓</i><span>avaliações de clientes;</span></li>
+          <li><i>✓</i><span>diferenciais;</span></li>
+          <li><i>✓</i><span>perguntas frequentes;</span></li>
+          <li><i>✓</i><span>botão direto para o WhatsApp.</span></li>
+        </ul>
       </div>
-      <div class="section-body">
-        <div class="delivery-grid reveal">
-          <div class="delivery-card">
-            <h2>Você fornece as informações. Nós entregamos a página pronta.</h2>
-            <p class="lead" style="margin:22px 0 26px">Sua página pode incluir:</p>
-            <ul class="check-list">
-              <li><i>✓</i><span>apresentação do profissional ou da empresa;</span></li>
-              <li><i>✓</i><span>descrição dos serviços;</span></li>
-              <li><i>✓</i><span>cidades e regiões atendidas;</span></li>
-              <li><i>✓</i><span>fotos de trabalhos realizados;</span></li>
-              <li><i>✓</i><span>avaliações de clientes;</span></li>
-              <li><i>✓</i><span>diferenciais;</span></li>
-              <li><i>✓</i><span>perguntas frequentes;</span></li>
-              <li><i>✓</i><span>botão direto para o WhatsApp.</span></li>
+      <div class="delivery-side reveal">
+        <div class="info-card">
+          <div class="image-card"><img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941"></div>
+          <div class="content">
+            <h3>Também estão incluídos</h3>
+            <ul class="plain-list" style="margin-top:16px;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px">
+              <li>organização das informações;</li>
+              <li>redação e revisão dos textos;</li>
+              <li>design da página;</li>
+              <li>adaptação para celular e computador;</li>
+              <li>publicação;</li>
+              <li>uma rodada de ajustes.</li>
             </ul>
+            <p style="margin-top:18px" class="text-white"><strong>Você não precisa escrever os textos nem saber criar um site.</strong></p>
           </div>
-          <div class="delivery-images">
-            <div class="image-frame"><img src="assets/img/hero-mockup-principal.png" alt="Exemplo de site profissional aplicado em notebook e celular" width="1672" height="941"></div>
-            <div class="image-frame"><img src="assets/img/mockup-contabilidade.png" alt="Exemplo de outro modelo de página profissional para escritório de contabilidade" width="1672" height="941"></div>
-            <div class="image-frame"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Exemplo de outro site profissional exibido em notebook" width="1672" height="941"></div>
-          </div>
-        </div>
-        <div class="list-card reveal">
-          <h3>Também estão incluídos</h3>
-          <ul class="plain-list" style="margin-top:20px">
-            <li>organização das informações;</li>
-            <li>redação e revisão dos textos;</li>
-            <li>design da página;</li>
-            <li>adaptação para celular e computador;</li>
-            <li>publicação;</li>
-            <li>uma rodada de ajustes.</li>
-          </ul>
-          <p style="margin-top:22px" class="text-white"><strong>Você não precisa escrever os textos nem saber criar um site.</strong></p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="para-quem-e">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container audience-grid">
+      <div class="delivery-card reveal">
         <p class="eyebrow">Para quem é</p>
-        <div class="section-index">04</div>
-      </div>
-      <div class="section-body">
-        <div class="audience-grid reveal">
-          <div class="delivery-card">
-            <h2>Feito para quem trabalha por orçamento e precisa transmitir confiança</h2>
-            <p class="lead" style="margin:24px 0 18px">Este serviço é indicado para autônomos, MEIs e pequenas empresas que atendem residências, empresas ou condomínios e já possuem experiência e trabalhos realizados.</p>
-            <div class="service-tags" aria-label="Exemplos de serviços atendidos">
-              <span>Eletricistas</span><span>Pintores</span><span>Técnicos de ar-condicionado</span><span>Empresas de manutenção</span><span>Profissionais de reforma</span><span>Marcenarias</span><span>Vidraçarias</span><span>Serralherias</span><span>Dedetizadoras</span><span>Empresas de limpeza</span><span>Fotógrafos</span><span>Contadores</span>
-            </div>
-          </div>
-          <div>
-            <div class="audience-cards">
-              <div class="audience-item"><strong>Autônomos e MEIs</strong><span>Que dependem de indicação, pesquisa e WhatsApp para receber novos contatos.</span></div>
-              <div class="audience-item"><strong>Pequenas empresas</strong><span>Que precisam apresentar seus serviços com mais clareza e organização.</span></div>
-              <div class="audience-item"><strong>Atendimento por orçamento</strong><span>Ideal para negócios que precisam explicar o serviço antes da conversa comercial.</span></div>
-              <div class="audience-item"><strong>Quem já tem material real</strong><span>Fotos, avaliações e experiência prática para transformar em uma boa apresentação.</span></div>
-            </div>
-            <div class="audience-visual">
-              <img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941">
-              <div class="audience-visual-copy">
-                <h3>Uma boa página ajuda a profissionalizar a primeira impressão</h3>
-                <p style="margin-top:12px">Em vez de enviar apenas um telefone ou um perfil desatualizado, você passa a enviar um endereço próprio, com suas informações organizadas e contato direto.</p>
-              </div>
-            </div>
-          </div>
+        <h2>Feito para quem trabalha por orçamento e precisa transmitir confiança</h2>
+        <p class="lead" style="margin:24px 0 18px">Este serviço é indicado para autônomos, MEIs e pequenas empresas que atendem residências, empresas ou condomínios e já possuem experiência e trabalhos realizados.</p>
+        <div class="audience-tags" aria-label="Exemplos de serviços atendidos">
+          <span>Eletricistas</span><span>Pintores</span><span>Técnicos de ar-condicionado</span><span>Empresas de manutenção</span><span>Profissionais de reforma</span><span>Marcenarias</span><span>Vidraçarias</span><span>Serralherias</span><span>Dedetizadoras</span><span>Empresas de limpeza</span><span>Fotógrafos</span><span>Contadores</span>
         </div>
+      </div>
+      <div class="audience-right reveal">
+        <div class="audience-grid-cards">
+          <div class="audience-card"><strong>Autônomos e MEIs</strong><span>Que dependem de indicação, pesquisa e WhatsApp para receber novos contatos.</span></div>
+          <div class="audience-card"><strong>Pequenas empresas</strong><span>Que precisam apresentar seus serviços com mais clareza e organização.</span></div>
+          <div class="audience-card"><strong>Atendimento por orçamento</strong><span>Ideal para negócios que precisam explicar o serviço antes da conversa comercial.</span></div>
+          <div class="audience-card"><strong>Quem já tem material real</strong><span>Fotos, avaliações e experiência prática para transformar em uma boa apresentação.</span></div>
+        </div>
+        <div class="image-card"><img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941"></div>
+        <div class="audience-card"><strong>Uma boa página ajuda a profissionalizar a primeira impressão</strong><span>Em vez de enviar apenas um telefone ou um perfil desatualizado, você passa a enviar um endereço próprio, com suas informações organizadas e contato direto.</span></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="como-funciona">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container">
+      <div class="section-head center reveal">
         <p class="eyebrow">Como funciona</p>
-        <div class="section-index">05</div>
+        <h2>Da informação bruta à página publicada</h2>
       </div>
-      <div class="section-body">
-        <h2 class="reveal" style="margin-bottom:28px">Da informação bruta à página publicada</h2>
-        <div class="process-grid">
-          <article class="process-card reveal">
-            <div class="process-step">1</div>
-            <h3>Você envia</h3>
-            <p style="margin-top:12px">Responde a um questionário simples e encaminha fotos, serviços, avaliações e contatos.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-step">2</div>
-            <h3>O Estúdio cria</h3>
-            <p style="margin-top:12px">Organizamos as informações, escrevemos os textos e montamos a página.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-step">3</div>
-            <h3>Você aprova</h3>
-            <p style="margin-top:12px">Recebe uma prévia e envia uma lista com os ajustes previstos.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-step">4</div>
-            <h3>A página é publicada</h3>
-            <p style="margin-top:12px">Depois da aprovação, concluímos a configuração e entregamos o endereço pronto para divulgar.</p>
-          </article>
-        </div>
+      <div class="process-grid">
+        <article class="process-card reveal"><div class="process-step">1</div><h3>Você envia</h3><p style="margin-top:12px">Responde a um questionário simples e encaminha fotos, serviços, avaliações e contatos.</p></article>
+        <article class="process-card reveal"><div class="process-step">2</div><h3>O Estúdio cria</h3><p style="margin-top:12px">Organizamos as informações, escrevemos os textos e montamos a página.</p></article>
+        <article class="process-card reveal"><div class="process-step">3</div><h3>Você aprova</h3><p style="margin-top:12px">Recebe uma prévia e envia uma lista com os ajustes previstos.</p></article>
+        <article class="process-card reveal"><div class="process-step">4</div><h3>A página é publicada</h3><p style="margin-top:12px">Depois da aprovação, concluímos a configuração e entregamos o endereço pronto para divulgar.</p></article>
       </div>
     </div>
   </section>
 
   <section class="section" id="propriedade">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container owner-grid">
+      <div class="owner-card reveal">
         <p class="eyebrow">Propriedade e custos</p>
-        <div class="section-index">06</div>
+        <h2>A página fica em seu nome</h2>
+        <p class="lead" style="margin-top:22px">Depois da aprovação e do pagamento final:</p>
+        <ul class="owner-points" style="margin-top:20px">
+          <li><i>✓</i><span>a página é transferida para sua conta;</span></li>
+          <li><i>✓</i><span>o endereço fica vinculado ao cliente;</span></li>
+          <li><i>✓</i><span>os pagamentos anuais ficam sob seu controle;</span></li>
+          <li><i>✓</i><span>você pode manter ou trocar de profissional no futuro.</span></li>
+        </ul>
+        <p style="margin-top:22px">Não existe mensalidade obrigatória do Estúdio.</p>
       </div>
-      <div class="section-body">
-        <div class="owner-grid reveal">
-          <div class="owner-card">
-            <h2>A página fica em seu nome</h2>
-            <p class="lead" style="margin-top:22px">Depois da aprovação e do pagamento final:</p>
-            <ul class="owner-points" style="margin-top:20px">
-              <li><i>✓</i><span>a página é transferida para sua conta;</span></li>
-              <li><i>✓</i><span>o endereço fica vinculado ao cliente;</span></li>
-              <li><i>✓</i><span>os pagamentos anuais ficam sob seu controle;</span></li>
-              <li><i>✓</i><span>você pode manter ou trocar de profissional no futuro.</span></li>
-            </ul>
-            <p style="margin-top:22px">Não existe mensalidade obrigatória do Estúdio.</p>
-          </div>
-          <div class="side-stack">
-            <div class="side-card">
-              <h3>Custos anuais</h3>
-              <p>Os custos anuais necessários para manter a página ativa são pagos diretamente pelo cliente e informados antes da contratação.</p>
-            </div>
-            <div class="side-card">
-              <h3>Alterações futuras</h3>
-              <p>Se precisar de mudanças após a entrega, elas podem ser contratadas separadamente, conforme a demanda.</p>
-            </div>
-            <div class="side-card">
-              <h3>Sem dependência obrigatória</h3>
-              <p>Depois da conclusão, o cliente mantém o controle da página, da conta e das renovações.</p>
-            </div>
-          </div>
-        </div>
+      <div class="side-stack reveal">
+        <div class="side-card"><h3>Custos anuais</h3><p>Os custos anuais necessários para manter a página ativa são pagos diretamente pelo cliente e informados antes da contratação.</p></div>
+        <div class="side-card"><h3>Alterações futuras</h3><p>Se precisar de mudanças após a entrega, elas podem ser contratadas separadamente, conforme a demanda.</p></div>
+        <div class="side-card"><h3>Sem dependência obrigatória</h3><p>Depois da conclusão, o cliente mantém o controle da página, da conta e das renovações.</p></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="investimento">
-    <div class="container section-shell">
-      <div class="section-label reveal">
-        <p class="eyebrow">Investimento</p>
-        <div class="section-index">07</div>
-      </div>
-      <div class="section-body">
-        <div class="invest-grid reveal">
-          <div class="price-card">
-            <div>
-              <h2>Página profissional completa</h2>
-              <div class="price">R$ 700</div>
-              <div class="installments">
-                <div class="installment"><strong>R$ 350</strong><span>para iniciar</span></div>
-                <div class="installment"><strong>R$ 350</strong><span>depois da aprovação</span></div>
-              </div>
-              <p>Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
-            </div>
-            <div>
-              <a class="button button-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer" style="margin-top:24px;width:100%">Quero minha página por R$ 700</a>
-              <div class="price-note">Plano anual, domínio e futuras renovações não estão incluídos no valor.</div>
-            </div>
+    <div class="container invest-grid">
+      <div class="price-card reveal">
+        <div>
+          <p class="eyebrow">Investimento</p>
+          <h2>Página profissional completa</h2>
+          <div class="price">R$ 700</div>
+          <div class="installments">
+            <div class="installment"><strong>R$ 350</strong><span>para iniciar</span></div>
+            <div class="installment"><strong>R$ 350</strong><span>depois da aprovação</span></div>
           </div>
-          <div class="side-stack">
-            <div class="side-card">
-              <h3>Entrega em até 7 dias úteis</h3>
-              <ul class="plain-list" style="margin-top:14px">
-                <li>confirmação do pagamento inicial;</li>
-                <li>envio completo das informações;</li>
-                <li>recebimento das fotos e demais materiais.</li>
-              </ul>
-            </div>
-            <div class="side-card">
-              <h3>O que você recebe</h3>
-              <ul class="plain-list" style="margin-top:14px">
-                <li>redação e organização do conteúdo;</li>
-                <li>design com visual profissional;</li>
-                <li>adaptação para computador e celular;</li>
-                <li>publicação da página;</li>
-                <li>uma rodada de ajustes.</li>
-              </ul>
-            </div>
-          </div>
+          <p>Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
         </div>
+        <div>
+          <a class="button button-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer" style="width:100%;margin-top:18px">Quero minha página por R$ 700</a>
+          <div class="price-note">Plano anual, domínio e futuras renovações não estão incluídos no valor.</div>
+        </div>
+      </div>
+      <div class="side-stack reveal">
+        <div class="side-card"><h3>Entrega em até 7 dias úteis</h3><ul class="plain-list" style="margin-top:14px"><li>confirmação do pagamento inicial;</li><li>envio completo das informações;</li><li>recebimento das fotos e demais materiais.</li></ul></div>
+        <div class="side-card"><h3>O que você recebe</h3><ul class="plain-list" style="margin-top:14px"><li>redação e organização do conteúdo;</li><li>design com visual profissional;</li><li>adaptação para computador e celular;</li><li>publicação da página;</li><li>uma rodada de ajustes.</li></ul></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="faq">
-    <div class="container section-shell">
-      <div class="section-label reveal">
+    <div class="container">
+      <div class="section-head center reveal">
         <p class="eyebrow">FAQ</p>
-        <div class="section-index">08</div>
+        <h2>Dúvidas frequentes</h2>
       </div>
-      <div class="section-body">
-        <h2 class="reveal" style="margin-bottom:28px">Dúvidas frequentes</h2>
-        <div class="faq-list">
-          <details class="faq-item reveal"><summary>Preciso escrever os textos?</summary><p>Não. Você envia as informações e o Estúdio organiza e escreve o conteúdo.</p></details>
-          <details class="faq-item reveal"><summary>Preciso saber criar ou administrar um site?</summary><p>Não. O processo é acompanhado do início à publicação.</p></details>
-          <details class="faq-item reveal"><summary>Posso usar as fotos que já tenho?</summary><p>Sim. Fotos reais de trabalhos realizados são recomendadas.</p></details>
-          <details class="faq-item reveal"><summary>A página funciona no celular?</summary><p>Sim. Ela é preparada para celulares e computadores.</p></details>
-          <details class="faq-item reveal"><summary>O site será meu?</summary><p>Sim. Depois da conclusão, a página e o endereço ficam vinculados ao cliente.</p></details>
-          <details class="faq-item reveal"><summary>Existe custo anual?</summary><p>Sim. Toda página publicada depende de serviços anuais. Esses custos são informados previamente e pagos diretamente pelo cliente.</p></details>
-          <details class="faq-item reveal"><summary>Posso pedir alterações depois?</summary><p>Sim. Alterações futuras podem ser contratadas separadamente.</p></details>
-          <details class="faq-item reveal"><summary>O serviço atende lojas?</summary><p>Não. A oferta é exclusiva para apresentação de serviços. Não inclui loja virtual, blog, sistemas ou várias páginas.</p></details>
-        </div>
+      <div class="faq-list">
+        <details class="faq-item reveal"><summary>Preciso escrever os textos?</summary><p>Não. Você envia as informações e o Estúdio organiza e escreve o conteúdo.</p></details>
+        <details class="faq-item reveal"><summary>Preciso saber criar ou administrar um site?</summary><p>Não. O processo é acompanhado do início à publicação.</p></details>
+        <details class="faq-item reveal"><summary>Posso usar as fotos que já tenho?</summary><p>Sim. Fotos reais de trabalhos realizados são recomendadas.</p></details>
+        <details class="faq-item reveal"><summary>A página funciona no celular?</summary><p>Sim. Ela é preparada para celulares e computadores.</p></details>
+        <details class="faq-item reveal"><summary>O site será meu?</summary><p>Sim. Depois da conclusão, a página e o endereço ficam vinculados ao cliente.</p></details>
+        <details class="faq-item reveal"><summary>Existe custo anual?</summary><p>Sim. Toda página publicada depende de serviços anuais. Esses custos são informados previamente e pagos diretamente pelo cliente.</p></details>
+        <details class="faq-item reveal"><summary>Posso pedir alterações depois?</summary><p>Sim. Alterações futuras podem ser contratadas separadamente.</p></details>
+        <details class="faq-item reveal"><summary>O serviço atende lojas?</summary><p>Não. A oferta é exclusiva para apresentação de serviços. Não inclui loja virtual, blog, sistemas ou várias páginas.</p></details>
       </div>
     </div>
   </section>
@@ -982,17 +693,20 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
   <section class="final-cta" id="contato">
     <div class="container">
       <div class="final-card reveal">
-        <p class="eyebrow">CTA final</p>
-        <h2>Seu trabalho já existe. Agora ele precisa ser bem apresentado.</h2>
-        <p class="lead" style="margin-top:22px">Tenha uma página própria para mostrar seus serviços, seus trabalhos e suas avaliações — e levar o cliente direto para o WhatsApp.</p>
-        <div class="hero-price" style="margin-top:26px;max-width:560px">
-          <p>Página profissional completa por</p>
-          <strong>R$ 700</strong>
+        <div>
+          <p class="eyebrow">CTA final</p>
+          <h2>Seu trabalho já existe. Agora ele precisa ser bem apresentado.</h2>
+          <p class="lead" style="margin-top:22px">Tenha uma página própria para mostrar seus serviços, seus trabalhos e suas avaliações — e levar o cliente direto para o WhatsApp.</p>
+          <div class="hero-price" style="margin-top:24px;max-width:520px">
+            <p>Página profissional completa por</p>
+            <strong>R$ 700</strong>
+          </div>
+          <div class="final-actions">
+            <a class="button button-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
+          </div>
+          <p style="margin-top:18px;color:#6d655d;font-size:.92rem">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
         </div>
-        <div class="final-actions">
-          <a class="button button-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
-        </div>
-        <p style="margin-top:20px;color:#b2bfce;font-size:.9rem">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
+        <div class="image-card"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941"></div>
       </div>
     </div>
   </section>
@@ -1088,9 +802,7 @@ dialog::backdrop{background:rgba(4,8,14,.76);backdrop-filter:blur(8px)}
   lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
 
   const privacy = document.getElementById('privacidade');
-  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button => {
-    button.addEventListener('click', () => privacy.showModal());
-  });
+  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button => button.addEventListener('click', () => privacy.showModal()));
   privacy.querySelector('.dialog-close').addEventListener('click', () => privacy.close());
   privacy.addEventListener('click', event => {
     const box = privacy.getBoundingClientRect();
