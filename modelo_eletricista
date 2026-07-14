@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>João Eletricista • Serviços elétricos residenciais e comerciais</title>
+<meta name="description" content="Eletricista em Cidade Exemplo e região. Instalações, reparos e manutenção elétrica com diagnóstico responsável e atendimento organizado.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="João Eletricista">
+<meta name="theme-color" content="#17191B">
+<meta name="color-scheme" content="dark light">
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+</noscript>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%2317191B'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='central' font-family='monospace' font-size='20' font-weight='700' fill='%23F3C623'%3EJE%3C/text%3E%3C/svg%3E">
+
+<style>
+/* ============================================================
+   VARIÁVEIS E RESET
+   ============================================================ */
+:root{
+  --white-tech: #F3F1EB;
+  --graphite: #17191B;
+  --yellow-safe: #F3C623;
+  --blue-project: #255D87;
+  --gray-metal: #A9AFB3;
+  --line-light: rgba(23,25,27,0.12);
+  --line-medium: rgba(23,25,27,0.25);
+  --max-width: 1280px;
+  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-body: 'IBM Plex Sans', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --header-height: 72px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 20px)}
+body{
+  font-family:var(--font-body);
+  background:var(--white-tech);
+  color:var(--graphite);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+::selection{background:var(--yellow-safe);color:var(--graphite)}
+
+/* SKIP LINK */
+.skip-link{
+  position:fixed;left:12px;top:12px;z-index:9999;
+  transform:translateY(-160%);
+  background:#fff;color:#000;padding:12px 16px;font-weight:700;
+}
+.skip-link:focus{transform:none}
+
+/* CONTAINER */
+.container{width:min(var(--max-width), calc(100% - 48px));margin-inline:auto}
+.section{padding:clamp(60px,8vw,100px) 0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============================================================
+   TIPOGRAFIA
+   ============================================================ */
+h1,h2,h3{
+  font-family:var(--font-display);
+  text-transform:uppercase;
+  letter-spacing:-0.03em;
+  line-height:0.95;
+  margin:0;
+}
+h1{font-size:clamp(2.8rem,8vw,4.8rem)}
+h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+h3{font-size:clamp(1.4rem,2.5vw,2rem)}
+.lead{font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.65;color:rgba(23,25,27,0.8)}
+.mono{font-family:var(--font-mono);font-weight:400;letter-spacing:0.02em}
+.label{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-weight:600;
+  color:var(--blue-project);
+}
+.kicker{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  text-transform:uppercase;
+  letter-spacing:0.15em;
+  font-weight:600;
+  color:var(--gray-metal);
+  margin-bottom:16px;
+}
+.text-muted{color:rgba(23,25,27,0.6)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:var(--white-tech);
+  border-bottom:1px solid var(--line-light);
+  height:var(--header-height);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:100%;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-display);
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+  line-height:1;
+}
+.brand strong{font-size:1.2rem;color:var(--graphite)}
+.brand span{font-size:0.7rem;font-family:var(--font-mono);color:var(--gray-metal);font-weight:400}
+
+.nav{
+  display:flex;
+  gap:24px;
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  font-weight:600;
+}
+.nav a{
+  border-bottom:2px solid transparent;
+  padding:4px 0;
+  transition:border-color .2s;
+}
+.nav a:hover,.nav a:focus-visible{
+  border-bottom-color:var(--yellow-safe);
+  color:var(--graphite);
+}
+.header-cta{
+  background:var(--yellow-safe);
+  color:var(--graphite);
+  padding:8px 18px;
+  font-weight:700;
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  transition:background .2s, transform .1s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.header-cta::after{
+  content:'↗';
+  font-size:1.1rem;
+}
+.header-cta:hover{
+  background:#dbb41e;
+  transform:translateY(-1px);
+}
+.menu-button{
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  padding:4px;
+}
+.menu-button span{
+  display:block;
+  width:24px;height:2px;
+  background:var(--graphite);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - var(--header-height));
+  background:var(--white-tech);
+}
+.hero-content{
+  padding:clamp(48px,8vw,80px) clamp(32px,5vw,64px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.hero-content .kicker{color:var(--blue-project);margin-bottom:12px}
+.hero-content h1{max-width:12ch;margin-bottom:20px}
+.hero-content .lead{max-width:50ch;margin-bottom:28px}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:32px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 24px;
+  font-weight:700;
+  font-size:0.85rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  transition:all .2s;
+  border:1px solid var(--graphite);
+  background:transparent;
+}
+.btn-primary{
+  background:var(--yellow-safe);
+  border-color:var(--yellow-safe);
+  color:var(--graphite);
+}
+.btn-primary:hover{
+  background:#dbb41e;
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(243,198,35,0.3);
+}
+.btn-secondary{
+  border-color:var(--graphite);
+  color:var(--graphite);
+}
+.btn-secondary:hover{
+  background:var(--graphite);
+  color:var(--white-tech);
+  transform:translateY(-2px);
+}
+.hero-stats{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  font-family:var(--font-mono);
+  font-size:0.85rem;
+  border-top:1px solid var(--line-light);
+  padding-top:24px;
+}
+.hero-stats span{color:rgba(23,25,27,0.6)}
+.hero-stats strong{font-weight:600}
+
+.hero-image{
+  background:#E5E1D6;
+  position:relative;
+  overflow:hidden;
+  min-height:400px;
+}
+.hero-image .img-placeholder{
+  width:100%;height:100%;
+  object-fit:cover;
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23D9D4C8" width="800" height="600"/><rect x="320" y="180" width="160" height="240" fill="%23B8B2A4" rx="4"/><circle cx="400" cy="300" r="30" fill="%23F3C623"/><rect x="260" y="180" width="40" height="40" fill="%23255D87"/><rect x="500" y="180" width="40" height="40" fill="%23255D87"/><rect x="350" y="440" width="100" height="8" fill="%23A9AFB3"/></svg>') center/cover no-repeat;
+}
+.hero-image .hero-badge{
+  position:absolute;
+  bottom:32px;left:32px;
+  background:var(--yellow-safe);
+  padding:8px 18px;
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  font-weight:600;
+}
+.hero-line{
+  grid-column:1/-1;
+  height:4px;
+  background:var(--yellow-safe);
+  width:100%;
+  position:relative;
+}
+.hero-line::after{
+  content:'ATENDIMENTO • CIDADE EXEMPLO';
+  position:absolute;
+  right:24px;top:50%;
+  transform:translateY(-50%);
+  background:var(--white-tech);
+  padding:0 12px;
+  font-family:var(--font-mono);
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  font-weight:600;
+}
+
+/* ============================================================
+   SEÇÃO PROBLEMA (POSICIONAMENTO)
+   ============================================================ */
+.problem{
+  background:var(--white-tech);
+  position:relative;
+}
+.problem-grid{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:start;
+}
+.problem-grid h2{max-width:12ch}
+.problem-grid .lead{margin-top:16px}
+.problem-signals{
+  list-style:none;
+  padding:0;
+  margin-top:28px;
+  border-left:2px solid var(--yellow-safe);
+  padding-left:24px;
+}
+.problem-signals li{
+  font-family:var(--font-mono);
+  font-size:0.9rem;
+  padding:8px 0;
+  border-bottom:1px solid var(--line-light);
+  display:flex;
+  justify-content:space-between;
+}
+.problem-signals li::after{
+  content:'SINAL 0' attr(data-code);
+  font-size:0.7rem;
+  color:var(--gray-metal);
+}
+.problem-side{
+  background:var(--white-tech);
+  padding:24px;
+  border:1px solid var(--line-light);
+}
+.problem-side .mono{font-size:0.85rem;display:block;margin-bottom:12px}
+.problem-side .mono strong{color:var(--blue-project)}
+
+/* ============================================================
+   SEÇÃO SERVIÇOS
+   ============================================================ */
+.services{
+  background:var(--graphite);
+  color:var(--white-tech);
+}
+.services .kicker{color:var(--yellow-safe)}
+.services .lead{color:rgba(255,255,255,0.7)}
+.services-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px 60px;
+  margin-top:40px;
+}
+.service-item{
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding-bottom:18px;
+}
+.service-item .mono{
+  color:var(--yellow-safe);
+  font-size:0.8rem;
+  display:block;
+  margin-bottom:4px;
+}
+.service-item h3{
+  font-size:1.2rem;
+  font-family:var(--font-display);
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+}
+.service-item p{
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.6);
+  margin-top:6px;
+}
+.service-note{
+  grid-column:1/-1;
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.5);
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:24px;
+}
+
+/* ============================================================
+   SEÇÃO SINAIS (situações que atendemos)
+   ============================================================ */
+.signs{
+  background:var(--white-tech);
+}
+.signs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:30px;
+}
+.signs-grid ul{
+  list-style:none;
+  padding:0;
+  font-family:var(--font-mono);
+  font-size:0.95rem;
+}
+.signs-grid ul li{
+  padding:10px 0;
+  border-bottom:1px solid var(--line-light);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.signs-grid ul li::before{
+  content:'▸';
+  color:var(--yellow-safe);
+  font-weight:700;
+}
+.signs-close{
+  margin-top:28px;
+  font-size:1rem;
+  border-top:1px solid var(--line-light);
+  padding-top:24px;
+  color:rgba(23,25,27,0.7);
+}
+
+/* ============================================================
+   GALERIA DE TRABALHOS
+   ============================================================ */
+.gallery{
+  background:var(--white-tech);
+}
+.gallery .kicker{color:var(--blue-project)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:16px;
+  margin-top:32px;
+}
+.gallery-item{
+  background:#D9D4C8;
+  min-height:200px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .3s;
+  border:0;
+  padding:0;
+}
+.gallery-item:hover{transform:scale(1.01)}
+.gallery-item .label{
+  position:absolute;
+  bottom:12px;left:12px;
+  background:rgba(23,25,27,0.8);
+  color:var(--white-tech);
+  padding:4px 12px;
+  font-size:0.7rem;
+  font-family:var(--font-mono);
+  letter-spacing:0.05em;
+}
+.gallery-item.vert{grid-row:span 2;min-height:400px}
+.gallery-item.wide{grid-column:span 2}
+.gallery-item .img-placeholder{
+  width:100%;height:100%;
+  object-fit:cover;
+  background:linear-gradient(135deg, #D9D4C8 0%, #C5BFB2 100%);
+}
+.gallery-note{
+  margin-top:16px;
+  font-size:0.8rem;
+  color:var(--gray-metal);
+  font-family:var(--font-mono);
+}
+
+/* ============================================================
+   PROCESSO (como funciona)
+   ============================================================ */
+.process{
+  background:#EAE7E0;
+}
+.process-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin-top:32px;
+  border-top:1px solid var(--line-light);
+}
+.process-step{
+  display:grid;
+  grid-template-columns:80px 1fr 1.5fr;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px solid var(--line-light);
+  align-items:center;
+}
+.process-step .mono{
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--yellow-safe);
+  line-height:1;
+}
+.process-step h3{font-size:1.2rem;font-family:var(--font-display);text-transform:uppercase}
+.process-step p{color:rgba(23,25,27,0.7);font-size:0.95rem}
+
+/* ============================================================
+   DIFERENCIAIS (fundo azul)
+   ============================================================ */
+.differentials{
+  background:var(--blue-project);
+  color:var(--white-tech);
+}
+.differentials .kicker{color:var(--yellow-safe)}
+.diff-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:32px;
+}
+.diff-item{
+  border-left:3px solid var(--yellow-safe);
+  padding-left:20px;
+}
+.diff-item h3{
+  font-size:1.4rem;
+  font-family:var(--font-display);
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+  margin-bottom:6px;
+}
+.diff-item p{color:rgba(255,255,255,0.7);font-size:0.95rem}
+
+/* ============================================================
+   ÁREA DE ATENDIMENTO
+   ============================================================ */
+.area{
+  background:var(--white-tech);
+}
+.area-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.area-list{
+  list-style:none;
+  padding:0;
+  font-family:var(--font-mono);
+  font-size:1rem;
+}
+.area-list li{
+  padding:10px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.area-highlight{
+  background:var(--graphite);
+  color:var(--white-tech);
+  padding:40px;
+  text-align:center;
+}
+.area-highlight strong{
+  display:block;
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,3rem);
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+}
+.area-highlight .mono{
+  color:var(--yellow-safe);
+  margin-top:12px;
+  font-size:1rem;
+}
+
+/* ============================================================
+   AVALIAÇÕES (formato ordem de serviço)
+   ============================================================ */
+.reviews{
+  background:#EAE7E0;
+}
+.reviews-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:24px;
+  margin-top:32px;
+}
+.review-card{
+  background:var(--white-tech);
+  padding:24px;
+  border-left:3px solid var(--yellow-safe);
+  position:relative;
+}
+.review-card .os{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  color:var(--gray-metal);
+  letter-spacing:0.05em;
+}
+.review-card .os strong{color:var(--graphite)}
+.review-card blockquote{
+  margin:12px 0;
+  font-size:0.95rem;
+  line-height:1.6;
+  font-weight:500;
+}
+.review-card footer{
+  font-size:0.8rem;
+  font-family:var(--font-mono);
+  color:rgba(23,25,27,0.6);
+  border-top:1px solid var(--line-light);
+  padding-top:12px;
+  display:flex;
+  justify-content:space-between;
+}
+.review-card .stamp{
+  display:inline-block;
+  background:var(--yellow-safe);
+  color:var(--graphite);
+  font-size:0.6rem;
+  font-weight:700;
+  padding:2px 10px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.review-note{
+  margin-top:24px;
+  font-size:0.8rem;
+  color:var(--gray-metal);
+  font-family:var(--font-mono);
+  text-align:center;
+}
+
+/* ============================================================
+   ORÇAMENTO (sem preço fixo)
+   ============================================================ */
+.budget{
+  background:var(--white-tech);
+}
+.budget-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.budget-grid .lead{margin:16px 0 24px}
+.budget-info{
+  background:var(--graphite);
+  color:var(--white-tech);
+  padding:32px;
+}
+.budget-info .mono{color:var(--yellow-safe);font-weight:600}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{
+  background:var(--white-tech);
+}
+.faq-list{
+  border-top:1px solid var(--line-light);
+  margin-top:32px;
+}
+.faq-item{
+  border-bottom:1px solid var(--line-light);
+}
+.faq-item summary{
+  list-style:none;
+  padding:20px 0;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  font-family:var(--font-mono);
+  font-size:0.95rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:'+';
+  font-size:1.4rem;
+  color:var(--yellow-safe);
+  transition:transform .3s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{
+  padding-bottom:20px;
+  max-width:60ch;
+  color:rgba(23,25,27,0.7);
+}
+.faq-item .mono{color:var(--gray-metal);font-size:0.7rem;display:block;margin-bottom:4px}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta-final{
+  background:var(--yellow-safe);
+  color:var(--graphite);
+  padding:clamp(60px,8vw,100px) 0;
+}
+.cta-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.cta-grid h2{
+  font-size:clamp(2.4rem,5vw,4.2rem);
+  max-width:12ch;
+}
+.cta-grid .lead{color:rgba(23,25,27,0.7);margin-bottom:20px}
+.cta-footer-bar{
+  grid-column:1/-1;
+  background:var(--graphite);
+  color:var(--white-tech);
+  padding:16px 24px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-family:var(--font-mono);
+  font-size:0.85rem;
+  margin-top:20px;
+}
+.cta-footer-bar span{color:var(--gray-metal)}
+.cta-footer-bar strong{color:var(--yellow-safe)}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.site-footer{
+  background:var(--graphite);
+  color:var(--white-tech);
+  padding:48px 0 80px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+}
+.footer-brand{font-family:var(--font-display);font-size:1.4rem;text-transform:uppercase}
+.footer-brand small{font-family:var(--font-body);font-size:0.8rem;font-weight:400;display:block;color:var(--gray-metal);margin-top:4px}
+.footer-copy{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-top:12px}
+.footer-links{display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:0.8rem}
+.footer-links a,.footer-links button{color:var(--gray-metal);transition:color .2s;background:none;border:0;text-align:left;padding:0;cursor:pointer}
+.footer-links a:hover,.footer-links button:hover{color:var(--yellow-safe)}
+.footer-disclaimer{
+  grid-column:1/-1;
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:20px;
+  font-size:0.75rem;
+  color:rgba(255,255,255,0.3);
+  font-family:var(--font-mono);
+  text-align:center;
+}
+
+/* ============================================================
+   MOBILE CTA
+   ============================================================ */
+.mobile-cta{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:999;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(243,241,235,0.95);
+  backdrop-filter:blur(6px);
+  border-top:1px solid var(--line-light);
+}
+.mobile-cta a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--yellow-safe);
+  color:var(--graphite);
+  font-weight:700;
+  text-transform:uppercase;
+  padding:14px;
+  gap:8px;
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.lightbox{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(23,25,27,0.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:2px}
+.lightbox-close{
+  position:absolute;top:16px;right:16px;
+  color:#fff;font-size:2rem;
+  background:rgba(255,255,255,0.1);
+  border:0;width:48px;height:48px;
+  cursor:pointer;transition:background .2s;
+}
+.lightbox-close:hover{background:rgba(255,255,255,0.2)}
+.lightbox-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,0.4);
+  font-size:0.8rem;
+  font-family:var(--font-mono);
+}
+
+/* ============================================================
+   DIALOG
+   ============================================================ */
+dialog{
+  width:min(600px, calc(100% - 30px));
+  border:0;padding:0;
+  background:var(--white-tech);
+  color:var(--graphite);
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+dialog::backdrop{background:rgba(23,25,27,0.6)}
+.dialog-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;
+  border-bottom:1px solid var(--line-light);
+}
+.dialog-head h2{font-size:1.5rem;font-family:var(--font-display)}
+.dialog-close{font-size:1.8rem;cursor:pointer;background:none;border:0}
+.dialog-body{padding:24px;display:grid;gap:16px;font-size:0.95rem}
+.dialog-body p{color:rgba(23,25,27,0.8)}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media(max-width:1024px){
+  .nav{display:none}
+  .menu-button{display:flex}
+  .header-inner .nav-open .nav{display:flex;flex-direction:column;position:absolute;top:var(--header-height);left:16px;right:16px;background:var(--white-tech);border:1px solid var(--line-light);padding:16px;gap:12px;z-index:100}
+  .hero{grid-template-columns:1fr}
+  .hero-image{min-height:300px}
+  .hero-line::after{right:16px;font-size:0.55rem}
+  .problem-grid,.services-grid,.signs-grid,.area-grid,.budget-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item.vert{grid-row:span 1;min-height:200px}
+  .gallery-item.wide{grid-column:span 1}
+  .process-step{grid-template-columns:60px 1fr;gap:12px}
+  .process-step p{grid-column:1/-1}
+  .reviews-grid{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .cta-grid h2{max-width:100%}
+  .mobile-cta{display:block}
+  .site-footer{padding-bottom:100px}
+}
+@media(max-width:720px){
+  .container{width:calc(100% - 24px)}
+  h1{font-size:clamp(2.2rem,12vw,3.6rem)}
+  h2{font-size:clamp(1.8rem,8vw,2.8rem)}
+  .hero-content{padding:32px 16px}
+  .hero-stats{flex-direction:column;gap:8px}
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  .review-card .stamp{font-size:0.5rem}
+  .area-highlight{padding:24px}
+  .cta-footer-bar{flex-direction:column;align-items:center;gap:8px;text-align:center}
+  .footer-grid{grid-template-columns:1fr}
+  .lightbox-hint{display:none}
+  .problem-signals li{flex-direction:column;gap:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="João Eletricista">
+      <strong>JOÃO<br>ELETRICISTA</strong>
+      <span>•</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicos">01 SERVIÇOS</a>
+      <a href="#trabalhos">02 TRABALHOS</a>
+      <a href="#processo">03 PROCESSO</a>
+      <a href="#avaliacoes">04 AVALIAÇÕES</a>
+      <a href="#contato">05 CONTATO</a>
+    </nav>
+    <a class="header-cta" href="#contato">Solicitar atendimento</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-content reveal">
+      <span class="kicker">ELETRICISTA RESIDENCIAL E COMERCIAL</span>
+      <h1>Serviço elétrico bem executado começa com um diagnóstico responsável.</h1>
+      <p class="lead">Instalações, reparos e manutenção elétrica para residências, comércios e pequenos condomínios. Atendimento organizado, explicação clara do problema e cuidado durante toda a execução.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contato">Solicitar atendimento</a>
+        <a class="btn btn-secondary" href="#servicos">Conhecer os serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>Atendimento com hora marcada</strong> <span>•</span></div>
+        <div><strong>Residencial e comercial</strong> <span>•</span></div>
+        <div><strong>Orçamento antes da execução</strong></div>
+      </div>
+      <div style="margin-top:16px;font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-metal);">
+        Atendimento em Cidade Exemplo e região • CNPJ 00.000.000/0000-00
+      </div>
+    </div>
+    <div class="hero-image reveal">
+      <div class="img-placeholder" role="img" aria-label="Eletricista verificando quadro de distribuição"></div>
+      <div class="hero-badge">ATENDIMENTO • CIDADE EXEMPLO</div>
+    </div>
+    <div class="hero-line" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============================================================
+       POSICIONAMENTO (PROBLEMA)
+       ============================================================ -->
+  <section class="section problem" id="posicionamento">
+    <div class="container">
+      <div class="problem-grid reveal">
+        <div>
+          <span class="kicker">POSICIONAMENTO</span>
+          <h2>Quando o problema é elétrico, improviso não é solução.</h2>
+          <p class="lead">Tomadas que aquecem, disjuntores que desarmam, iluminação instável e instalações antigas podem indicar falhas que precisam ser verificadas com atenção.</p>
+          <p class="lead" style="margin-top:12px">O serviço começa pela identificação da causa. Depois da avaliação, você recebe uma explicação objetiva sobre o problema, o que precisa ser feito e quais materiais podem ser necessários.</p>
+        </div>
+        <div class="problem-side">
+          <span class="mono" style="font-weight:600;color:var(--blue-project)">SINAIS DE ALERTA</span>
+          <ul class="problem-signals">
+            <li data-code="1">tomada aquecendo</li>
+            <li data-code="2">disjuntor desarmando</li>
+            <li data-code="3">luz oscilando</li>
+            <li data-code="4">cheiro de queimado</li>
+          </ul>
+          <div style="margin-top:20px;border-top:1px solid var(--line-light);padding-top:16px;font-size:0.9rem;">
+            <strong style="display:block;font-family:var(--font-mono);">Diagnóstico antes da intervenção</strong>
+            <p style="color:rgba(23,25,27,0.7);">O problema é avaliado antes do início do serviço.</p>
+            <strong style="display:block;margin-top:12px;font-family:var(--font-mono);">Explicação clara</strong>
+            <p style="color:rgba(23,25,27,0.7);">Você entende o que será realizado e por quê.</p>
+            <strong style="display:block;margin-top:12px;font-family:var(--font-mono);">Cuidado com o ambiente</strong>
+            <p style="color:rgba(23,25,27,0.7);">O atendimento é feito com organização e respeito pelo imóvel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVIÇOS
+       ============================================================ -->
+  <section class="section services" id="servicos">
+    <div class="container">
+      <span class="kicker">SERVIÇOS ELÉTRICOS</span>
+      <h2 style="color:#fff;">Atendimento para reparos, instalações e melhorias elétricas.</h2>
+      <p class="lead" style="margin-top:12px;">Os serviços são realizados de acordo com a necessidade de cada imóvel. A avaliação inicial ajuda a definir o procedimento adequado e a extensão do trabalho.</p>
+      <div class="services-grid reveal">
+        <div class="service-item">
+          <span class="mono">01</span>
+          <h3>Instalação e troca de tomadas</h3>
+          <p>Instalação de novos pontos, substituição de tomadas danificadas e adequação de componentes aparentes.</p>
+        </div>
+        <div class="service-item">
+          <span class="mono">02</span>
+          <h3>Iluminação e luminárias</h3>
+          <p>Instalação e substituição de luminárias, plafons, pendentes, refletores, interruptores e pontos de iluminação.</p>
+        </div>
+        <div class="service-item">
+          <span class="mono">03</span>
+          <h3>Disjuntores e quadro elétrico</h3>
+          <p>Verificação de desarmes frequentes, troca de componentes e organização de circuitos existentes.</p>
+        </div>
+        <div class="service-item">
+          <span class="mono">04</span>
+          <h3>Identificação de falhas elétricas</h3>
+          <p>Avaliação de falta de energia em pontos específicos, oscilações, aquecimento e mau funcionamento.</p>
+        </div>
+        <div class="service-item">
+          <span class="mono">05</span>
+          <h3>Instalação de chuveiros e equipamentos</h3>
+          <p>Instalação e substituição de chuveiros, torneiras elétricas, ventiladores e outros equipamentos compatíveis.</p>
+        </div>
+        <div class="service-item">
+          <span class="mono">06</span>
+          <h3>Manutenção preventiva</h3>
+          <p>Verificação de instalações, conexões, tomadas, interruptores e sinais aparentes de desgaste.</p>
+        </div>
+        <div class="service-note">
+          A disponibilidade de cada serviço depende das condições encontradas no local. Intervenções maiores podem exigir avaliação específica, adequações adicionais ou contratação separada.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SITUAÇÕES QUE ATENDEMOS
+       ============================================================ -->
+  <section class="section signs" id="situacoes">
+    <div class="container">
+      <span class="kicker">SINAIS QUE ATENDEMOS</span>
+      <h2>Alguns sinais de que a instalação precisa ser verificada</h2>
+      <div class="signs-grid reveal">
+        <ul>
+          <li>disjuntor desarmando com frequência</li>
+          <li>tomada ou interruptor aquecendo</li>
+          <li>cheiro de queimado próximo a pontos elétricos</li>
+          <li>luzes piscando ou oscilando</li>
+          <li>parte do imóvel sem energia</li>
+        </ul>
+        <ul>
+          <li>tomada com mau contato</li>
+          <li>necessidade de instalar novos pontos</li>
+          <li>quadro elétrico antigo ou desorganizado</li>
+          <li>chuveiro sem funcionamento</li>
+          <li>luminária ou equipamento recém-adquirido para instalar</li>
+        </ul>
+      </div>
+      <div class="signs-close reveal">
+        Evite desmontar componentes ou realizar ligações sem conhecimento técnico. Uma avaliação presencial permite identificar o problema com mais segurança.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALERIA DE TRABALHOS
+       ============================================================ -->
+  <section class="section gallery" id="trabalhos">
+    <div class="container">
+      <span class="kicker">TRABALHOS REALIZADOS</span>
+      <h2>Serviços executados em situações reais do dia a dia.</h2>
+      <p class="lead" style="max-width:60ch;margin-top:12px;">A galeria apresenta exemplos de instalações, substituições, reparos e melhorias elétricas. As imagens ajudam o cliente a conhecer o padrão de organização e acabamento aplicado nos atendimentos.</p>
+      <div class="gallery-grid reveal">
+        <button class="gallery-item wide gallery-trigger" type="button" aria-label="Ampliar imagem de quadro elétrico organizado">
+          <div class="img-placeholder" style="background:linear-gradient(135deg,#B8B2A4 0%,#A39D8E 100%);"></div>
+          <span class="label">QUADRO ELÉTRICO — 01</span>
+        </button>
+        <button class="gallery-item vert gallery-trigger" type="button" aria-label="Ampliar imagem de instalação de tomada">
+          <div class="img-placeholder" style="background:linear-gradient(135deg,#C5BFB2 0%,#B0AA9C 100%);"></div>
+          <span class="label">TOMADAS — 02</span>
+        </button>
+        <button class="gallery-item gallery-trigger" type="button" aria-label="Ampliar imagem de iluminação instalada">
+          <div class="img-placeholder" style="background:linear-gradient(135deg,#D9D4C8 0%,#C5BFB2 100%);"></div>
+          <span class="label">ILUMINAÇÃO — 03</span>
+        </button>
+        <button class="gallery-item gallery-trigger" type="button" aria-label="Ampliar imagem de ferramentas sobre bancada">
+          <div class="img-placeholder" style="background:linear-gradient(135deg,#E5E1D6 0%,#D9D4C8 100%);"></div>
+          <span class="label">FERRAMENTAS — 04</span>
+        </button>
+        <button class="gallery-item wide gallery-trigger" type="button" aria-label="Ampliar imagem de chuveiro instalado">
+          <div class="img-placeholder" style="background:linear-gradient(135deg,#B8B2A4 0%,#A39D8E 100%);"></div>
+          <span class="label">EQUIPAMENTOS — 05</span>
+        </button>
+      </div>
+      <div class="gallery-note reveal">Imagens e informações utilizadas exclusivamente para demonstração deste modelo de página.</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESSO (COMO FUNCIONA)
+       ============================================================ -->
+  <section class="section process" id="processo">
+    <div class="container">
+      <span class="kicker">COMO FUNCIONA</span>
+      <h2>Do primeiro contato à conclusão do serviço</h2>
+      <div class="process-list reveal">
+        <div class="process-step">
+          <span class="mono">01</span>
+          <h3>Você explica a necessidade</h3>
+          <p>Envie uma descrição do problema, o endereço aproximado e, quando possível, fotos ou vídeos do local.</p>
+        </div>
+        <div class="process-step">
+          <span class="mono">02</span>
+          <h3>O atendimento é avaliado</h3>
+          <p>As informações iniciais ajudam a entender o tipo de serviço e verificar a necessidade de uma visita técnica.</p>
+        </div>
+        <div class="process-step">
+          <span class="mono">03</span>
+          <h3>O orçamento é apresentado</h3>
+          <p>Depois da avaliação, você recebe as informações sobre o serviço, materiais necessários e valor da execução.</p>
+        </div>
+        <div class="process-step">
+          <span class="mono">04</span>
+          <h3>O serviço é realizado</h3>
+          <p>Com a aprovação, o atendimento é executado conforme o que foi combinado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DIFERENCIAIS
+       ============================================================ -->
+  <section class="section differentials" id="diferenciais">
+    <div class="container">
+      <span class="kicker">DIFERENCIAIS</span>
+      <h2 style="color:#fff;">Um atendimento profissional não se resume à ferramenta.</h2>
+      <div class="diff-grid reveal">
+        <div class="diff-item">
+          <h3>Pontualidade e comunicação</h3>
+          <p>Confirmação do atendimento e comunicação em caso de qualquer alteração de horário.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Transparência no orçamento</h3>
+          <p>O cliente recebe uma explicação sobre o serviço antes da execução.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Organização durante o trabalho</h3>
+          <p>Ferramentas e materiais são utilizados com cuidado para reduzir sujeira e transtornos.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Orientação ao cliente</h3>
+          <p>Ao final, são explicados o serviço realizado e os cuidados necessários.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ÁREA DE ATENDIMENTO
+       ============================================================ -->
+  <section class="section area" id="area">
+    <div class="container">
+      <span class="kicker">ÁREA DE ATENDIMENTO</span>
+      <h2>Atendimento em Cidade Exemplo e municípios próximos</h2>
+      <p class="lead" style="max-width:50ch;margin-top:12px;">O atendimento é realizado em residências, pequenos comércios, escritórios e áreas comuns de condomínios. A disponibilidade depende da distância, do tipo de serviço e da agenda do dia.</p>
+      <div class="area-grid reveal">
+        <ul class="area-list">
+          <li>Cidade Exemplo</li>
+          <li>Bairro Modelo</li>
+          <li>Vila Demonstração</li>
+          <li>Município Ilustrativo</li>
+          <li>Região Metropolitana Exemplo</li>
+        </ul>
+        <div class="area-highlight">
+          <strong>Cidade Exemplo e região</strong>
+          <span class="mono">SEG–SÁB • 08:00–18:00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AVALIAÇÕES (formato ordem de serviço)
+       ============================================================ -->
+  <section class="section reviews" id="avaliacoes">
+    <div class="container">
+      <span class="kicker">AVALIAÇÕES</span>
+      <h2>O que os clientes destacam após o atendimento</h2>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <div class="os">OS <strong>000001</strong> • REPARO EM QUADRO ELÉTRICO</div>
+          <blockquote>“Expliquei o problema pelo WhatsApp e o atendimento foi muito organizado. O defeito foi identificado e tudo foi explicado antes do serviço.”</blockquote>
+          <footer>
+            <span>Cliente demonstrativo — Cidade Exemplo</span>
+            <span class="stamp">Concluído</span>
+          </footer>
+        </div>
+        <div class="review-card">
+          <div class="os">OS <strong>000002</strong> • INSTALAÇÃO DE LUMINÁRIAS</div>
+          <blockquote>“Precisava instalar luminárias e trocar algumas tomadas. O trabalho ficou bem-feito e o ambiente foi deixado organizado.”</blockquote>
+          <footer>
+            <span>Cliente demonstrativo — Bairro Modelo</span>
+            <span class="stamp">Concluído</span>
+          </footer>
+        </div>
+        <div class="review-card">
+          <div class="os">OS <strong>000003</strong> • SUBSTITUIÇÃO DE DISJUNTOR</div>
+          <blockquote>“O disjuntor estava desarmando várias vezes. Recebi uma explicação clara sobre o problema e sobre o que precisava ser corrigido.”</blockquote>
+          <footer>
+            <span>Cliente demonstrativo — Município Ilustrativo</span>
+            <span class="stamp">Concluído</span>
+          </footer>
+        </div>
+      </div>
+      <div class="review-note reveal">Depoimentos inseridos exclusivamente para demonstração do modelo.</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ORÇAMENTO (sem preço fixo)
+       ============================================================ -->
+  <section class="section budget" id="orcamento">
+    <div class="container">
+      <div class="budget-grid reveal">
+        <div>
+          <span class="kicker">ORÇAMENTO</span>
+          <h2>O valor depende do serviço e das condições encontradas no local.</h2>
+          <p class="lead">Fotos e descrição ajudam na avaliação inicial, mas determinados problemas exigem visita técnica para um orçamento preciso.</p>
+          <a class="btn btn-primary" href="#contato">Enviar informações para avaliação</a>
+        </div>
+        <div class="budget-info">
+          <span class="mono">AVALIAÇÃO INICIAL</span>
+          <p style="margin-top:8px;color:rgba(255,255,255,0.7);">Descreva o problema e anexe fotos se possível. Isso ajuda a entender a urgência e a complexidade do serviço.</p>
+          <span class="mono" style="display:block;margin-top:16px;">VISITA TÉCNICA</span>
+          <p style="color:rgba(255,255,255,0.7);">Quando necessário, o orçamento é apresentado após a avaliação presencial, com todas as condições claras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <span class="kicker">PERGUNTAS FREQUENTES</span>
+      <h2>Dúvidas comuns antes do atendimento</h2>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 01</span> O orçamento é gratuito?</summary>
+          <p>O atendimento inicial pelo WhatsApp é utilizado para entender a necessidade. Dependendo do serviço, pode ser necessária uma visita técnica, cuja condição deve ser informada antes do agendamento.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 02</span> Você fornece os materiais?</summary>
+          <p>Isso depende do serviço. Os materiais podem ser fornecidos pelo cliente ou incluídos no orçamento, conforme combinado previamente.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 03</span> Atende emergências?</summary>
+          <p>O atendimento emergencial depende da localização, do horário e da disponibilidade da agenda.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 04</span> Faz instalação elétrica completa?</summary>
+          <p>O modelo contempla pequenos serviços, reparos e instalações. Projetos completos, reformas elétricas e intervenções maiores precisam de avaliação específica.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 05</span> O serviço possui garantia?</summary>
+          <p>A condição de garantia deve ser informada de acordo com o tipo de serviço executado, os componentes utilizados e o que foi contratado.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="mono">DÚVIDA 06</span> Atende empresas e condomínios?</summary>
+          <p>Sim. O atendimento pode ser realizado em pequenos comércios, escritórios e áreas comuns, conforme a demanda.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+       ============================================================ -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <div class="cta-grid reveal">
+        <h2>Precisa de um eletricista?</h2>
+        <div>
+          <p class="lead">Explique o que está acontecendo e solicite uma avaliação. Envie uma mensagem com uma breve descrição do problema, sua localização e, se possível, fotos do local.</p>
+          <a class="btn btn-primary" href="#" style="background:var(--graphite);color:var(--white-tech);border-color:var(--graphite);">Solicitar atendimento pelo WhatsApp</a>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:0.75rem;color:rgba(23,25,27,0.5);">O link pode permanecer vazio: href=""</p>
+        </div>
+        <div class="cta-footer-bar">
+          <span>João Eletricista</span>
+          <span>CNPJ 00.000.000/0000-00</span>
+          <span>(00) 00000-0000</span>
+          <span>Atendimento em Cidade Exemplo e região</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">João Eletricista <small>Serviços elétricos residenciais e comerciais em Cidade Exemplo e região.</small></div>
+      <p class="footer-copy">CNPJ 00.000.000/0000-00 • Telefone: (00) 00000-0000 • E-mail: contato@joaoeletricista.com.br</p>
+    </div>
+    <div class="footer-links">
+      <a href="#privacidade" data-open-dialog="privacidade">Política de privacidade</a>
+      <a href="#termos" data-open-dialog="termos">Condições de atendimento</a>
+    </div>
+    <div class="footer-disclaimer">
+      Este é um site demonstrativo. Nomes, números, endereços, imagens, avaliações e informações comerciais são fictícios.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MOBILE CTA
+     ============================================================ -->
+<div class="mobile-cta">
+  <a href="#contato">Solicitar atendimento</a>
+</div>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Ampliação de imagem">
+  <button class="lightbox-close" type="button" aria-label="Fechar">×</button>
+  <img src="" alt="">
+  <span class="lightbox-hint">Clique fora da imagem para fechar</span>
+</div>
+
+<!-- ============================================================
+     DIÁLOGOS
+     ============================================================ -->
+<dialog id="privacidade" aria-label="Política de privacidade">
+  <div class="dialog-head">
+    <h2>Política de privacidade</h2>
+    <button class="dialog-close" type="button" aria-label="Fechar">×</button>
+  </div>
+  <div class="dialog-body">
+    <p>Este site demonstrativo não coleta dados pessoais. As informações de contato são fornecidas apenas para simulação.</p>
+    <p>O contato com o profissional é realizado por meio de link externo (WhatsApp), sujeito às políticas da plataforma.</p>
+  </div>
+</dialog>
+
+<dialog id="termos" aria-label="Condições de atendimento">
+  <div class="dialog-head">
+    <h2>Condições de atendimento</h2>
+    <button class="dialog-close" type="button" aria-label="Fechar">×</button>
+  </div>
+  <div class="dialog-body">
+    <p><strong>Orçamento:</strong> O valor é definido após avaliação do serviço. Não há compromisso até a aprovação do orçamento.</p>
+    <p><strong>Pagamento:</strong> Formas de pagamento devem ser acordadas previamente com o profissional.</p>
+    <p><strong>Garantia:</strong> A garantia dos serviços executados segue as condições estabelecidas no momento da contratação.</p>
+    <p><strong>Este é um site demonstrativo:</strong> Todas as informações são fictícias para apresentação do modelo.</p>
+  </div>
+</dialog>
+
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script>
+(() => {
+  // Menu mobile
+  const menuBtn = document.querySelector('.menu-button');
+  const header = document.querySelector('.site-header');
+  const nav = document.querySelector('.nav');
+  menuBtn?.addEventListener('click', () => {
+    const open = header.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    nav.style.display = open ? 'flex' : '';
+  });
+  document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click', () => {
+    header.classList.remove('nav-open');
+    nav.style.display = '';
+    menuBtn?.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px' });
+    reveals.forEach(el => obs.observe(el));
+  }
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  };
+  document.querySelectorAll('.gallery-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.querySelector('.img-placeholder');
+      // Simula imagem com cor de fundo (apenas demonstrativo)
+      lightboxImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23D9D4C8" width="800" height="600"/><text x="400" y="300" text-anchor="middle" font-family="monospace" font-size="24" fill="%2317191B">Imagem demonstrativa</text></svg>';
+      lightboxImg.alt = btn.querySelector('.label')?.textContent || 'Imagem do trabalho';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightbox.querySelector('.lightbox-close').focus();
+    });
+  });
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+
+  // Diálogos
+  const privacyDialog = document.getElementById('privacidade');
+  const termsDialog = document.getElementById('termos');
+  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); privacyDialog.showModal(); });
+  });
+  document.querySelectorAll('[data-open-dialog="termos"]').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); termsDialog.showModal(); });
+  });
+  [privacyDialog, termsDialog].forEach(dialog => {
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        dialog.close();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
