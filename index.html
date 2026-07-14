@@ -29,14 +29,19 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+</noscript>
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23101010'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='20' font-weight='800' fill='%23ff5a36'%3EEEP%3C/text%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
 "@context":"https://schema.org",
 "@graph":[
-{"@type":"Organization","@id":"https://www.estudioescritaplanejada.com.br/#organization","name":"Estúdio Escrita Planejada","url":"https://www.estudioescritaplanejada.com.br/","telephone":"+55 11 96450-2997","areaServed":{"@type":"Country","name":"Brasil"}},
+{"@type":"Organization","@id":"https://www.estudioescritaplanejada.com.br/#organization","name":"Estúdio Escrita Planejada","url":"https://www.estudioescritaplanejada.com.br/","telephone":"+55 11 96450-2997","areaServed":{"@type":"Country","name":"Brasil"},"logo":"https://www.estudioescritaplanejada.com.br/assets/img/logo.png","image":"https://www.estudioescritaplanejada.com.br/assets/img/og-estudio-escrita-planejada.jpg"},
 {"@type":"WebSite","@id":"https://www.estudioescritaplanejada.com.br/#website","url":"https://www.estudioescritaplanejada.com.br/","name":"Estúdio Escrita Planejada","inLanguage":"pt-BR","publisher":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"}},
 {"@type":"WebPage","@id":"https://www.estudioescritaplanejada.com.br/#webpage","url":"https://www.estudioescritaplanejada.com.br/","name":"Páginas profissionais para prestadores de serviços","description":"Criação de páginas profissionais de uma única página para autônomos, MEIs e pequenas empresas.","isPartOf":{"@id":"https://www.estudioescritaplanejada.com.br/#website"},"about":{"@id":"https://www.estudioescritaplanejada.com.br/#service"},"inLanguage":"pt-BR"},
 {"@type":"Service","@id":"https://www.estudioescritaplanejada.com.br/#service","name":"Página profissional para prestadores de serviços","description":"Organização das informações, redação dos textos, design da página, adaptação para celular e computador e publicação.","provider":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":"Criação de site profissional para prestadores de serviços","offers":{"@type":"Offer","price":"700.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://www.estudioescritaplanejada.com.br/#investimento"}}
@@ -54,20 +59,20 @@
   --orange-dark:#d83d1d;
   --blue:#1c3f5b;
   --acid:#d7ff45;
-  --muted:#68635c;
+  --muted:#4a4640;  /* increased contrast */
   --line:rgba(16,16,16,.18);
   --max:1440px;
   --rail:88px;
-  --font-display:'Archivo Black', Impact, sans-serif;
+  --font-display:'Archivo Black', 'Arial Black', sans-serif;
   --font-body:'IBM Plex Sans', Arial, sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
+html{scroll-behavior:smooth;scroll-padding-top:80px} /* adjusted for header + menu */
 body{margin:0;min-width:320px;font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button,input,textarea,select{font:inherit}
-button{color:inherit}
+button{color:inherit;cursor:pointer}
 ::selection{background:var(--orange);color:#fff}
 
 .skip-link{position:fixed;left:12px;top:12px;z-index:9999;transform:translateY(-160%);background:#fff;color:#000;padding:12px 16px;text-decoration:none;font-weight:800}
@@ -92,8 +97,8 @@ button{color:inherit}
 .kicker{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--orange);margin:0 0 18px}
 h1,h2,h3{margin:0}
 h1,h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:-.055em;line-height:.88}
-h1{font-size:clamp(4.1rem,9vw,8.6rem)}
-h2{font-size:clamp(3rem,6vw,6.4rem)}
+h1{font-size:clamp(3.4rem,9vw,8.6rem)}
+h2{font-size:clamp(2.8rem,6vw,6.4rem)}
 h3{font-size:clamp(1.35rem,2vw,2rem);line-height:1.05}
 p{margin:0;color:var(--muted)}
 .lead{font-size:clamp(1.08rem,1.7vw,1.35rem);line-height:1.65}
@@ -104,23 +109,25 @@ p{margin:0;color:var(--muted)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.92rem}
 .brand-mark{width:36px;height:36px;display:grid;place-items:center;background:var(--ink);color:var(--orange);font-weight:800;font-size:.78rem}
 .nav{display:flex;justify-content:center;gap:24px}
-.nav a{text-decoration:none;font-size:.84rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.nav a:hover,.nav a:focus-visible{color:var(--orange)}
-.header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:.84rem;text-transform:uppercase;letter-spacing:.04em}
+.nav a{text-decoration:none;font-size:.84rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover,.nav a:focus-visible{color:var(--orange);border-bottom-color:var(--orange)}
+.header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:.84rem;text-transform:uppercase;letter-spacing:.04em;transition:background .2s}
+.header-cta:hover{background:var(--orange)}
 .menu-button{display:none;background:none;border:0;padding:8px;cursor:pointer}
-.menu-button span{display:block;width:24px;height:2px;background:var(--ink);margin:5px}
+.menu-button span{display:block;width:24px;height:2px;background:var(--ink);margin:5px;transition:background .2s}
 
 /* Hero assimétrico, sem cartão */
 .hero{min-height:calc(100svh - 72px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(480px,.95fr);background:var(--paper)}
 .hero-copy{padding:clamp(58px,8vw,110px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
 .hero-copy h1{max-width:8.6ch}
-.hero-copy .lead{margin-top:28px;max-width:54ch;color:#35312d}
-.hero-subtext{margin-top:16px;max-width:50ch}
+.hero-copy .lead{margin-top:28px;max-width:54ch;color:#2a2622} /* improved contrast */
+.hero-subtext{margin-top:16px;max-width:50ch;color:#3a3632}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--ink);transition:.2s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--ink);transition:all .2s ease;cursor:pointer}
 .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 14px rgba(255,90,54,.3)}
 .btn-secondary{background:transparent;color:var(--ink)}
-.btn:hover{transform:translateY(-2px)}
+.btn-secondary:hover{background:var(--ink);color:#fff;transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.12)}
 .hero-price{margin-top:36px;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .hero-price span{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:#5e5952}
 .hero-price strong{font-family:var(--font-display);font-size:clamp(3.8rem,7vw,6.2rem);line-height:.8;letter-spacing:-.06em}
@@ -134,7 +141,7 @@ p{margin:0;color:var(--muted)}
 /* Manifesto horizontal */
 .manifesto{background:var(--ink);color:#fff;border-top:1px solid #000;border-bottom:1px solid #000}
 .manifesto-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.manifesto-item{padding:34px 30px;border-right:1px solid rgba(255,255,255,.18)}
+.manifesto-item{padding:clamp(28px,5vw,48px) 30px;border-right:1px solid rgba(255,255,255,.18)}
 .manifesto-item:last-child{border-right:0}
 .manifesto-item strong{display:block;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
 .manifesto-item span{font-size:.88rem;color:#c7c3bd}
@@ -143,16 +150,16 @@ p{margin:0;color:var(--muted)}
 .problem{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);min-height:760px}
 .problem-copy{padding:clamp(72px,9vw,130px) clamp(28px,6vw,92px);background:var(--paper-2);display:flex;flex-direction:column;justify-content:center;container-type:inline-size}
 .problem-copy h2{font-size:clamp(2.4rem,4.4vw,4.5rem);max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
-.problem-copy .lead{margin-top:26px;color:#3a3632}
+.problem-copy .lead{margin-top:26px;color:#2a2622}
 .problem-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:10px}
 .problem-list li{font-size:1.05rem;font-weight:700;border-bottom:1px solid var(--line);padding:12px 0}
 .problem-list li::before{content:'—';color:var(--orange);margin-right:10px}
-.problem-copy .tail{margin-top:28px;max-width:52ch}
+.problem-copy .tail{margin-top:28px;max-width:52ch;color:#3a3632}
 .problem-media{min-height:760px;overflow:hidden}
 .problem-media img{width:100%;height:100%;object-fit:cover}
 
 /* Demo: grande galeria sem cards nem legendas */
-.demo{background:var(--white);padding:110px 0 120px}
+.demo{background:var(--white);padding:clamp(80px,10vw,120px) 0}
 .demo-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:end;margin-bottom:50px}
 .demo-head h2{max-width:8ch}
 .demo-head .lead{max-width:46ch;justify-self:end}
@@ -166,14 +173,14 @@ p{margin:0;color:var(--muted)}
 .demo-note{margin-top:18px;font-size:.85rem;color:#7a746d}
 
 /* Entrega: faixa azul com tipografia e uma única imagem */
-.delivery{background:var(--blue);color:#fff;padding:120px 0}
+.delivery{background:var(--blue);color:#fff;padding:clamp(80px,10vw,120px) 0}
 .delivery p{color:#d7e0e8}
 .delivery-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:60px;align-items:start}
 .delivery-copy{container-type:inline-size;min-width:0}
 .delivery-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .delivery-copy .lead{margin-top:24px;color:#eef4f8}
 .delivery-list{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.25);border-left:1px solid rgba(255,255,255,.25)}
-.delivery-list div{padding:18px 18px;border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);font-weight:600}
+.delivery-list div{padding:18px;border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);font-weight:600}
 .delivery-note{margin-top:24px;font-weight:700;color:#fff}
 .delivery-media{display:flex;flex-direction:column;gap:28px}
 .delivery-media img{width:100%;height:auto;object-fit:cover}
@@ -181,7 +188,7 @@ p{margin:0;color:var(--muted)}
 .included div{border-top:3px solid var(--orange);padding-top:12px;font-size:.94rem;color:#eef4f8}
 
 /* Audience: composição editorial, sem grade de cards repetidos */
-.audience{background:var(--paper);padding:120px 0}
+.audience{background:var(--paper);padding:clamp(80px,10vw,120px) 0}
 .audience-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:70px;align-items:center}
 .audience-copy h2{max-width:8.5ch}
 .audience-copy .lead{margin-top:24px}
@@ -193,10 +200,10 @@ p{margin:0;color:var(--muted)}
 .audience-facts{display:grid;grid-template-columns:1fr 1fr;margin-top:30px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .audience-facts div{padding:18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .audience-facts strong{display:block;margin-bottom:5px}
-.audience-facts span{color:#6c665f;font-size:.9rem}
+.audience-facts span{color:#4a4640;font-size:.9rem}
 
 /* Processo: timeline vertical, sem cards */
-.process{background:var(--ink);color:#fff;padding:120px 0}
+.process{background:var(--ink);color:#fff;padding:clamp(80px,10vw,120px) 0}
 .process p{color:#c9c4be}
 .process-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:end;margin-bottom:50px}
 .process-head h2{color:#fff;max-width:8ch}
@@ -219,26 +226,36 @@ p{margin:0;color:var(--muted)}
 .owner-tail{margin-top:24px;font-weight:700;color:#2a2724}
 .owner-costs{margin-top:34px;display:grid;gap:16px}
 .owner-costs div{border-top:1px solid var(--line);padding-top:14px}
-.owner-costs strong{display:block;margin-bottom:5px}
+.owner-costs strong{display:block;margin-bottom:5px;color:#1e1b18}
 .price-panel{background:var(--acid)}
 .price-panel .price{font-family:var(--font-display);font-size:clamp(5rem,9vw,8.5rem);line-height:.8;letter-spacing:-.06em;margin:24px 0 34px}
 .payment-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(16,16,16,.28);border-left:1px solid rgba(16,16,16,.28)}
 .payment-grid div{padding:18px;border-right:1px solid rgba(16,16,16,.28);border-bottom:1px solid rgba(16,16,16,.28)}
 .payment-grid strong{display:block;font-size:1.35rem}
-.price-panel .btn{margin-top:28px;background:var(--ink);color:#fff;border-color:var(--ink);width:100%}
+.payment-grid small{color:#4a4640;font-weight:500}
+.price-panel .btn{margin-top:28px;background:var(--ink);color:#fff;border-color:var(--ink);width:100%;transition:background .2s}
+.price-panel .btn:hover{background:#2a2a2a;box-shadow:0 6px 14px rgba(0,0,0,.2)}
 .price-note{margin-top:16px;font-size:.86rem;color:#413f25}
 
-/* FAQ sem cards */
-.faq{padding:120px 0;background:var(--paper)}
+/* FAQ com transição suave */
+.faq{padding:clamp(80px,10vw,120px) 0;background:var(--paper)}
 .faq-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;margin-bottom:42px}
 .faq-head h2{max-width:7.5ch}
 .faq-list{border-top:1px solid var(--line)}
 .faq-item{border-bottom:1px solid var(--line)}
 .faq-item summary{list-style:none;cursor:pointer;padding:22px 0;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:20px}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--orange);transition:transform .2s ease}
+.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--orange);transition:transform .3s ease}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{padding:0 0 24px;max-width:70ch}
+/* animação suave de abertura */
+.faq-item[open] p{
+  animation: fadeSlide .3s ease;
+}
+@keyframes fadeSlide{
+  0%{opacity:0;transform:translateY(-8px)}
+  100%{opacity:1;transform:translateY(0)}
+}
 
 /* CTA final com imagem única */
 .final{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.82fr);background:var(--orange);color:#fff}
@@ -246,7 +263,8 @@ p{margin:0;color:var(--muted)}
 .final-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .final-copy .lead{margin-top:24px;color:#fff3ee;max-width:48ch}
 .final-copy .price{font-family:var(--font-display);font-size:clamp(4rem,7vw,6.8rem);line-height:.8;letter-spacing:-.06em;margin-top:34px}
-.final-copy .btn{margin-top:26px;align-self:flex-start;background:#fff;color:var(--ink);border-color:#fff}
+.final-copy .btn{margin-top:26px;align-self:flex-start;background:#fff;color:var(--ink);border-color:#fff;transition:all .2s}
+.final-copy .btn:hover{background:var(--ink);color:#fff;transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.2)}
 .final-copy .small{margin-top:18px;color:#ffe8df;font-size:.9rem}
 .final-media{min-height:650px;overflow:hidden;background:#111}
 .final-media img{width:100%;height:100%;object-fit:cover}
@@ -256,26 +274,29 @@ p{margin:0;color:var(--muted)}
 .footer-brand{font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
 .footer-copy{color:#aaa49d;font-size:.88rem}
 .footer-links{display:flex;gap:16px;flex-wrap:wrap}
-.footer-links a,.footer-links button{background:none;border:0;padding:0;color:#fff;text-decoration:none;font-size:.88rem;cursor:pointer}
+.footer-links a,.footer-links button{background:none;border:0;padding:0;color:#fff;text-decoration:none;font-size:.88rem;cursor:pointer;transition:color .2s}
+.footer-links a:hover,.footer-links button:hover{color:var(--orange)}
 
 .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:999;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(244,240,232,0),rgba(244,240,232,.98) 34%)}
-.mobile-cta a{display:flex;align-items:center;justify-content:center;min-height:52px;background:var(--orange);color:#fff;text-decoration:none;font-weight:800;text-transform:uppercase}
+.mobile-cta a{display:flex;align-items:center;justify-content:center;min-height:52px;background:var(--orange);color:#fff;text-decoration:none;font-weight:800;text-transform:uppercase;transition:background .2s}
+.mobile-cta a:hover{background:var(--orange-dark)}
 
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:24px;z-index:2000}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:24px;z-index:2000}
 .lightbox.open{display:flex}
-.lightbox img{max-width:min(1280px,96vw);max-height:88vh}
-.lightbox-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:1.7rem;cursor:pointer}
+.lightbox img{max-width:min(1280px,96vw);max-height:88vh;border-radius:4px}
+.lightbox-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:1.7rem;cursor:pointer;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.1)}
+.lightbox-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.8rem;pointer-events:none}
 
 dialog{width:min(720px,calc(100% - 30px));border:0;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.28)}
 dialog::backdrop{background:rgba(0,0,0,.62)}
 .dialog-head{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px;border-bottom:1px solid var(--line)}
 .dialog-head h2{font-size:2rem;max-width:none}
-.dialog-close{background:none;border:0;color:var(--ink);font-size:1.8rem;cursor:pointer}
+.dialog-close{background:none;border:0;color:var(--ink);font-size:1.8rem;cursor:pointer;padding:0 8px}
 .dialog-body{padding:24px;display:grid;gap:16px}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
-
 
 /* Escala tipográfica baseada na largura real de cada painel, não na viewport */
 @supports (font-size:1cqi){
@@ -283,6 +304,14 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
   .price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
   .final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
+}
+
+/* fallback para navegadores sem container queries */
+@supports not (font-size:1cqi){
+  .problem-copy h2{font-size:clamp(2.2rem,6vw,4rem)}
+  .delivery-copy h2{font-size:clamp(2.25rem,6vw,5rem)}
+  .price-panel h2{font-size:clamp(2.25rem,6vw,4.9rem)}
+  .final-copy h2{font-size:clamp(2.25rem,6vw,5rem)}
 }
 
 @media(max-width:1180px){
@@ -296,12 +325,13 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .owner-panel{border-right:0;border-bottom:1px solid var(--line)}
   .final-media{min-height:520px}
 }
-@media(max-width:920px){
+@media(max-width:1024px){ /* breakpoint ajustado */
   .header-inner{grid-template-columns:auto auto 1fr}
   .menu-button{display:block;justify-self:end;grid-column:3}
-  .nav{position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);padding:12px}
-  .nav-wrap.open .nav{display:flex}
-  .nav a{padding:12px}
+  .nav{position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);padding:12px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .header-inner.open .nav{display:flex}
+  .nav a{padding:12px;border-bottom:1px solid var(--line)}
+  .nav a:last-child{border-bottom:0}
   .header-cta{display:none}
   .manifesto-grid{grid-template-columns:1fr 1fr}
   .manifesto-item:nth-child(2){border-right:0}
@@ -332,6 +362,9 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .problem-media{min-height:420px}
   .demo,.delivery,.audience,.process,.faq{padding:78px 0}
   .demo-image.desktop,.demo-image.mobile{min-height:300px}
+  /* Reordenação: mobile primeiro */
+  .demo-grid{display:flex;flex-direction:column}
+  .demo-image.mobile{order:-1}
   .audience-facts{grid-template-columns:1fr}
   .process-row{grid-template-columns:58px 1fr;gap:18px}
   .process-number{font-size:2.5rem}
@@ -339,6 +372,8 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .final-media{min-height:380px}
   .mobile-cta{display:block}
   .site-footer{padding-bottom:98px}
+  /* lightbox hint escondido em mobile */
+  .lightbox-hint{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
@@ -350,7 +385,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   <div class="container header-inner">
     <a class="brand" href="#inicio" aria-label="Estúdio Escrita Planejada"><span class="brand-mark">EEP</span><span>Estúdio Escrita Planejada</span></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#demonstracao">Demonstração</a>
+      <a href="#demonstracao" aria-current="page">Demonstração</a>
       <a href="#entrega">Entrega</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#investimento">Investimento</a>
@@ -376,7 +411,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
       <ul class="hero-proof"><li>Uma página completa</li><li>Celular e computador</li><li>Uma rodada de ajustes</li></ul>
     </div>
     <div class="hero-media reveal">
-      <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
+      <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941" loading="lazy" decoding="async">
       <div class="hero-stamp">Atendimento online em todo o Brasil</div>
     </div>
   </section>
@@ -399,7 +434,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
       <p class="tail">Sua página reúne tudo em um único endereço profissional.</p>
       <p class="tail">O cliente entende o que você faz, vê trabalhos realizados, conhece sua área de atendimento e chega ao WhatsApp mais preparado para pedir um orçamento.</p>
     </div>
-    <div class="problem-media reveal"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941"></div>
+    <div class="problem-media reveal"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941" loading="lazy" decoding="async"></div>
   </section>
 
   <section class="demo" id="demonstracao">
@@ -409,8 +444,8 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
         <p class="lead">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
       </div>
       <div class="demo-grid reveal">
-        <button class="demo-image desktop gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop"><img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920"></button>
-        <button class="demo-image mobile gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile"><img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551"></button>
+        <button class="demo-image desktop gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop"><img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920" loading="lazy" decoding="async"></button>
+        <button class="demo-image mobile gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile"><img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551" loading="lazy" decoding="async"></button>
       </div>
       <div class="demo-note">Exemplo demonstrativo. Empresa e informações fictícias.</div>
     </div>
@@ -428,7 +463,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
         <p class="delivery-note">Você não precisa escrever os textos nem saber criar um site.</p>
       </div>
       <div class="delivery-media reveal">
-        <img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941">
+        <img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941" loading="lazy" decoding="async">
         <div class="included"><div>organização das informações;</div><div>redação e revisão dos textos;</div><div>design da página;</div><div>adaptação para celular e computador;</div><div>publicação;</div><div>uma rodada de ajustes.</div></div>
       </div>
     </div>
@@ -449,7 +484,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
         </div>
       </div>
       <div class="audience-media reveal">
-        <img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941">
+        <img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941" loading="lazy" decoding="async">
         <div class="audience-quote">Uma boa página ajuda a profissionalizar a primeira impressão</div>
       </div>
     </div>
@@ -520,7 +555,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
       <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
       <p class="small">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
     </div>
-    <div class="final-media reveal"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941"></div>
+    <div class="final-media reveal"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941" loading="lazy" decoding="async"></div>
   </section>
 </main>
 
@@ -533,60 +568,107 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 
 <div class="mobile-cta"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a></div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da demonstração"><button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">×</button><img src="" alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da demonstração">
+  <button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">×</button>
+  <img src="" alt="">
+  <span class="lightbox-hint">Clique fora da imagem para fechar</span>
+</div>
 
-<dialog id="privacidade">
+<dialog id="privacidade" aria-label="Política de privacidade">
   <div class="dialog-head"><h2>Política de privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar política">×</button></div>
   <div class="dialog-body"><p>Esta página não utiliza formulário de contato, ferramenta de publicidade, Meta Pixel ou Google Analytics em sua versão inicial.</p><p>O contato comercial é realizado por meio de um link externo para o WhatsApp. Ao clicar nesse link, você será direcionado ao serviço da Meta/WhatsApp, sujeito às regras e práticas de privacidade dessa plataforma.</p><p>A infraestrutura utilizada para publicar a página pode registrar dados técnicos básicos de acesso por motivos de segurança e funcionamento, como endereço IP, navegador e horário da solicitação.</p><p>O Estúdio Escrita Planejada não vende dados pessoais e não realiza captura de e-mail por esta página.</p></div>
 </dialog>
 
 <script>
 (() => {
-  const menuButton=document.querySelector('.menu-button');
-  const nav=document.querySelector('.nav');
-  const header=document.querySelector('.header-inner');
-  menuButton?.addEventListener('click',()=>{
-    const open=header.classList.toggle('open');
-    nav.style.display=open?'flex':'';
-    menuButton.setAttribute('aria-expanded',String(open));
-    menuButton.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
-  });
-  nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
-    header.classList.remove('open');
-    nav.style.display='';
-    menuButton?.setAttribute('aria-expanded','false');
-    menuButton?.setAttribute('aria-label','Abrir menu');
-  }));
+  const menuButton = document.querySelector('.menu-button');
+  const header = document.querySelector('.header-inner');
+  const nav = document.querySelector('.nav');
 
-  document.getElementById('ano').textContent=new Date().getFullYear();
-
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const reveals=document.querySelectorAll('.reveal');
-  if(reduced||!('IntersectionObserver' in window)){reveals.forEach(el=>el.classList.add('visible'));}
-  else{
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-    }),{threshold:.1,rootMargin:'0px 0px -30px'});
-    reveals.forEach(el=>observer.observe(el));
+  function toggleMenu(open) {
+    const isOpen = open !== undefined ? open : !header.classList.contains('open');
+    header.classList.toggle('open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
 
-  const lightbox=document.getElementById('lightbox');
-  const lightboxImage=lightbox.querySelector('img');
-  const closeLightbox=()=>{lightbox.classList.remove('open');document.body.style.overflow='';lightboxImage.src='';lightboxImage.alt='';};
-  document.querySelectorAll('.gallery-item').forEach(button=>button.addEventListener('click',()=>{
-    const image=button.querySelector('img');
-    lightboxImage.src=image.src;lightboxImage.alt=image.alt;
-    lightbox.classList.add('open');document.body.style.overflow='hidden';
-    lightbox.querySelector('button').focus();
-  }));
-  lightbox.querySelector('.lightbox-close').addEventListener('click',closeLightbox);
-  lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
+  menuButton?.addEventListener('click', () => toggleMenu());
 
-  const privacy=document.getElementById('privacidade');
-  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button=>button.addEventListener('click',()=>privacy.showModal()));
-  privacy.querySelector('.dialog-close').addEventListener('click',()=>privacy.close());
-  privacy.addEventListener('click',event=>{const box=privacy.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)privacy.close();});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox();});
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    if (header.classList.contains('open')) toggleMenu(false);
+  }));
+
+  // Atualiza ano no footer
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Reveal com IntersectionObserver
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px' });
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // Lightbox com gerenciamento de foco
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = lightbox.querySelector('img');
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+    document.querySelector('.gallery-item')?.focus();
+  };
+
+  document.querySelectorAll('.gallery-item').forEach(button => {
+    button.addEventListener('click', () => {
+      const image = button.querySelector('img');
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightbox.querySelector('.lightbox-close').focus();
+      // Foco trap simples
+      const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length) focusable[0].focus();
+    });
+  });
+
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    if (e.key === 'Escape' && document.querySelector('dialog[open]')) {
+      document.querySelector('dialog[open]').close();
+    }
+  });
+
+  // Dialog de privacidade
+  const privacyDialog = document.getElementById('privacidade');
+  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      privacyDialog.showModal();
+      privacyDialog.querySelector('.dialog-close').focus();
+    });
+  });
+  privacyDialog.querySelector('.dialog-close').addEventListener('click', () => privacyDialog.close());
+  privacyDialog.addEventListener('click', (e) => {
+    const rect = privacyDialog.getBoundingClientRect();
+    if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+      privacyDialog.close();
+    }
+  });
 })();
 </script>
 </body>
