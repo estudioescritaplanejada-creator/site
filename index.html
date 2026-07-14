@@ -76,6 +76,19 @@ button{color:inherit}
 .page{min-height:100vh}
 .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
 .section{position:relative}
+
+/* Proteção de largura para todos os filhos de grids principais */
+.hero > *,
+.problem > *,
+.final > *,
+.demo-head > *,
+.demo-grid > *,
+.delivery-grid > *,
+.audience-grid > *,
+.process-head > *,
+.process-row > *,
+.ownership-grid > *,
+.faq-head > *{min-width:0}
 .kicker{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--orange);margin:0 0 18px}
 h1,h2,h3{margin:0}
 h1,h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:-.055em;line-height:.88}
@@ -128,8 +141,8 @@ p{margin:0;color:var(--muted)}
 
 /* Problem: texto + imagem full bleed */
 .problem{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);min-height:760px}
-.problem-copy{padding:clamp(72px,9vw,130px) clamp(28px,6vw,92px);background:var(--paper-2);display:flex;flex-direction:column;justify-content:center}
-.problem-copy h2{max-width:8.5ch}
+.problem-copy{padding:clamp(72px,9vw,130px) clamp(28px,6vw,92px);background:var(--paper-2);display:flex;flex-direction:column;justify-content:center;container-type:inline-size}
+.problem-copy h2{font-size:clamp(2.4rem,4.4vw,4.5rem);max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .problem-copy .lead{margin-top:26px;color:#3a3632}
 .problem-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:10px}
 .problem-list li{font-size:1.05rem;font-weight:700;border-bottom:1px solid var(--line);padding:12px 0}
@@ -156,7 +169,8 @@ p{margin:0;color:var(--muted)}
 .delivery{background:var(--blue);color:#fff;padding:120px 0}
 .delivery p{color:#d7e0e8}
 .delivery-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:60px;align-items:start}
-.delivery-copy h2{color:#fff;max-width:8.5ch}
+.delivery-copy{container-type:inline-size;min-width:0}
+.delivery-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .delivery-copy .lead{margin-top:24px;color:#eef4f8}
 .delivery-list{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.25);border-left:1px solid rgba(255,255,255,.25)}
 .delivery-list div{padding:18px 18px;border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);font-weight:600}
@@ -196,7 +210,9 @@ p{margin:0;color:var(--muted)}
 .ownership-grid{display:grid;grid-template-columns:1fr 1fr}
 .owner-panel,.price-panel{padding:clamp(76px,9vw,130px) clamp(28px,6vw,84px)}
 .owner-panel{border-right:1px solid var(--line)}
-.owner-panel h2,.price-panel h2{max-width:8.5ch}
+.owner-panel h2{max-width:8.5ch}
+.price-panel{container-type:inline-size;min-width:0}
+.price-panel h2{font-size:clamp(2.4rem,4.6vw,4.9rem);max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .owner-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
 .owner-list li{font-weight:600}
 .owner-list li::before{content:'✓';display:inline-grid;place-items:center;width:24px;height:24px;border:1px solid var(--ink);margin-right:10px;font-size:.8rem}
@@ -226,8 +242,8 @@ p{margin:0;color:var(--muted)}
 
 /* CTA final com imagem única */
 .final{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.82fr);background:var(--orange);color:#fff}
-.final-copy{padding:clamp(76px,9vw,130px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center}
-.final-copy h2{color:#fff;max-width:8ch}
+.final-copy{padding:clamp(76px,9vw,130px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center;container-type:inline-size}
+.final-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .final-copy .lead{margin-top:24px;color:#fff3ee;max-width:48ch}
 .final-copy .price{font-family:var(--font-display);font-size:clamp(4rem,7vw,6.8rem);line-height:.8;letter-spacing:-.06em;margin-top:34px}
 .final-copy .btn{margin-top:26px;align-self:flex-start;background:#fff;color:var(--ink);border-color:#fff}
@@ -259,6 +275,15 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
+
+
+/* Escala tipográfica baseada na largura real de cada painel, não na viewport */
+@supports (font-size:1cqi){
+  .problem-copy h2{font-size:clamp(2.2rem,11.2cqi,4rem)}
+  .delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
+  .price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
+  .final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
+}
 
 @media(max-width:1180px){
   .hero,.problem,.final{grid-template-columns:1fr}
@@ -296,6 +321,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .hero-copy,.problem-copy,.final-copy{padding:58px 20px}
   h1{font-size:clamp(3rem,16vw,5.2rem)}
   h2{font-size:clamp(2.55rem,13vw,4.3rem)}
+  .problem-copy h2,.delivery-copy h2,.price-panel h2,.final-copy h2{max-width:100%;letter-spacing:-.048em;line-height:.9}
   .hero-media{min-height:410px}
   .hero-stamp{width:116px;height:116px;font-size:.68rem;left:16px;bottom:16px}
   .hero-actions{flex-direction:column}
