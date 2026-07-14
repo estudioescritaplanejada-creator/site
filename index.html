@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -47,20 +46,20 @@
 
 <style>
 :root{
---ink:#101010;
---paper:#f4f0e8;
---paper-2:#e9e1d4;
---white:#fffdf7;
---orange:#ff5a36;
---orange-dark:#d83d1d;
---blue:#1c3f5b;
---acid:#d7ff45;
---muted:#68635c;
---line:rgba(16,16,16,.18);
---max:1440px;
---rail:88px;
---font-display:'Archivo Black', Impact, sans-serif;
---font-body:'IBM Plex Sans', Arial, sans-serif;
+  --ink:#101010;
+  --paper:#f4f0e8;
+  --paper-2:#e9e1d4;
+  --white:#fffdf7;
+  --orange:#ff5a36;
+  --orange-dark:#d83d1d;
+  --blue:#1c3f5b;
+  --acid:#d7ff45;
+  --muted:#68635c;
+  --line:rgba(16,16,16,.18);
+  --max:1440px;
+  --rail:88px;
+  --font-display:'Archivo Black', Impact, sans-serif;
+  --font-body:'IBM Plex Sans', Arial, sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
@@ -280,66 +279,66 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 
 /* Escala tipográfica baseada na largura real de cada painel, não na viewport */
 @supports (font-size:1cqi){
-.problem-copy h2{font-size:clamp(2.2rem,11.2cqi,4rem)}
-.delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
-.price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
-.final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
+  .problem-copy h2{font-size:clamp(2.2rem,11.2cqi,4rem)}
+  .delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
+  .price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
+  .final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
 }
 
 @media(max-width:1180px){
-.hero,.problem,.final{grid-template-columns:1fr}
-.hero-copy{border-right:0;border-bottom:1px solid var(--line)}
-.hero-media{min-height:540px}
-.problem-media{min-height:560px}
-.demo-head,.delivery-grid,.audience-grid,.process-head,.faq-head{grid-template-columns:1fr}
-.demo-head .lead{justify-self:start}
-.ownership-grid{grid-template-columns:1fr}
-.owner-panel{border-right:0;border-bottom:1px solid var(--line)}
-.final-media{min-height:520px}
+  .hero,.problem,.final{grid-template-columns:1fr}
+  .hero-copy{border-right:0;border-bottom:1px solid var(--line)}
+  .hero-media{min-height:540px}
+  .problem-media{min-height:560px}
+  .demo-head,.delivery-grid,.audience-grid,.process-head,.faq-head{grid-template-columns:1fr}
+  .demo-head .lead{justify-self:start}
+  .ownership-grid{grid-template-columns:1fr}
+  .owner-panel{border-right:0;border-bottom:1px solid var(--line)}
+  .final-media{min-height:520px}
 }
 @media(max-width:920px){
-.header-inner{grid-template-columns:auto auto 1fr}
-.menu-button{display:block;justify-self:end;grid-column:3}
-.nav{position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);padding:12px}
-.nav-wrap.open .nav{display:flex}
-.nav a{padding:12px}
-.header-cta{display:none}
-.manifesto-grid{grid-template-columns:1fr 1fr}
-.manifesto-item:nth-child(2){border-right:0}
-.manifesto-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.18)}
-.demo-grid{grid-template-columns:1fr}
-.demo-image.desktop,.demo-image.mobile{min-height:420px}
-.delivery-list{grid-template-columns:1fr}
-.included{grid-template-columns:1fr}
-.process-row{grid-template-columns:78px 1fr}
-.process-row p{grid-column:2}
-.payment-grid{grid-template-columns:1fr}
+  .header-inner{grid-template-columns:auto auto 1fr}
+  .menu-button{display:block;justify-self:end;grid-column:3}
+  .nav{position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);padding:12px}
+  .nav-wrap.open .nav{display:flex}
+  .nav a{padding:12px}
+  .header-cta{display:none}
+  .manifesto-grid{grid-template-columns:1fr 1fr}
+  .manifesto-item:nth-child(2){border-right:0}
+  .manifesto-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.18)}
+  .demo-grid{grid-template-columns:1fr}
+  .demo-image.desktop,.demo-image.mobile{min-height:420px}
+  .delivery-list{grid-template-columns:1fr}
+  .included{grid-template-columns:1fr}
+  .process-row{grid-template-columns:78px 1fr}
+  .process-row p{grid-column:2}
+  .payment-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
-.container{width:min(var(--max),calc(100% - 20px))}
-.header-inner{height:68px}
-.brand{font-size:.82rem}
-.hero-copy,.problem-copy,.final-copy{padding:58px 20px}
-h1{font-size:clamp(3rem,16vw,5.2rem)}
-h2{font-size:clamp(2.55rem,13vw,4.3rem)}
-.problem-copy h2,.delivery-copy h2,.price-panel h2,.final-copy h2{max-width:100%;letter-spacing:-.048em;line-height:.9}
-.hero-media{min-height:410px}
-.hero-stamp{width:116px;height:116px;font-size:.68rem;left:16px;bottom:16px}
-.hero-actions{flex-direction:column}
-.btn{width:100%}
-.manifesto-grid{grid-template-columns:1fr}
-.manifesto-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.18)}
-.manifesto-item:last-child{border-bottom:0}
-.problem-media{min-height:420px}
-.demo,.delivery,.audience,.process,.faq{padding:78px 0}
-.demo-image.desktop,.demo-image.mobile{min-height:300px}
-.audience-facts{grid-template-columns:1fr}
-.process-row{grid-template-columns:58px 1fr;gap:18px}
-.process-number{font-size:2.5rem}
-.owner-panel,.price-panel{padding:72px 20px}
-.final-media{min-height:380px}
-.mobile-cta{display:block}
-.site-footer{padding-bottom:98px}
+  .container{width:min(var(--max),calc(100% - 20px))}
+  .header-inner{height:68px}
+  .brand{font-size:.82rem}
+  .hero-copy,.problem-copy,.final-copy{padding:58px 20px}
+  h1{font-size:clamp(3rem,16vw,5.2rem)}
+  h2{font-size:clamp(2.55rem,13vw,4.3rem)}
+  .problem-copy h2,.delivery-copy h2,.price-panel h2,.final-copy h2{max-width:100%;letter-spacing:-.048em;line-height:.9}
+  .hero-media{min-height:410px}
+  .hero-stamp{width:116px;height:116px;font-size:.68rem;left:16px;bottom:16px}
+  .hero-actions{flex-direction:column}
+  .btn{width:100%}
+  .manifesto-grid{grid-template-columns:1fr}
+  .manifesto-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.18)}
+  .manifesto-item:last-child{border-bottom:0}
+  .problem-media{min-height:420px}
+  .demo,.delivery,.audience,.process,.faq{padding:78px 0}
+  .demo-image.desktop,.demo-image.mobile{min-height:300px}
+  .audience-facts{grid-template-columns:1fr}
+  .process-row{grid-template-columns:58px 1fr;gap:18px}
+  .process-number{font-size:2.5rem}
+  .owner-panel,.price-panel{padding:72px 20px}
+  .final-media{min-height:380px}
+  .mobile-cta{display:block}
+  .site-footer{padding-bottom:98px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
@@ -348,248 +347,247 @@ h2{font-size:clamp(2.55rem,13vw,4.3rem)}
 <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 
 <header class="site-header">
-<div class="container header-inner">
-<a class="brand" href="#inicio" aria-label="Estúdio Escrita Planejada"><span class="brand-mark">EEP</span><span>Estúdio Escrita Planejada</span></a>
-<nav class="nav" aria-label="Principal">
-<a href="#demonstracao">Demonstração</a>
-<a href="#entrega">Entrega</a>
-<a href="#como-funciona">Como funciona</a>
-<a href="#investimento">Investimento</a>
-<a href="#faq">Dúvidas</a>
-</nav>
-<a class="header-cta" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página</a>
-<button class="menu-button" type="button" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-</div>
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Estúdio Escrita Planejada"><span class="brand-mark">EEP</span><span>Estúdio Escrita Planejada</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#demonstracao">Demonstração</a>
+      <a href="#entrega">Entrega</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#investimento">Investimento</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="header-cta" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
 <main id="conteudo" class="page">
-<section class="hero" id="inicio">
-<div class="hero-copy reveal">
-<p class="kicker">Páginas profissionais para prestadores de serviços</p>
-<h1>Mostre seu trabalho antes mesmo do primeiro contato</h1>
-<p class="lead">Reúna seus serviços, fotos, avaliações e áreas atendidas em uma página própria, pronta para apresentar seu negócio e levar o cliente diretamente ao WhatsApp.</p>
-<p class="hero-subtext">Você envia as informações. O Estúdio organiza, escreve, cria e publica.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a>
-<a class="btn btn-secondary" href="#demonstracao">Ver demonstração</a>
-</div>
-<div class="hero-price"><span>Página profissional completa por</span><strong>R$ 700</strong></div>
-<ul class="hero-proof"><li>Uma página completa</li><li>Celular e computador</li><li>Uma rodada de ajustes</li></ul>
-</div>
-<div class="hero-media reveal">
-<img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
-<div class="hero-stamp">Atendimento online em todo o Brasil</div>
-</div>
-</section>
+  <section class="hero" id="inicio">
+    <div class="hero-copy reveal">
+      <p class="kicker">Páginas profissionais para prestadores de serviços</p>
+      <h1>Mostre seu trabalho antes mesmo do primeiro contato</h1>
+      <p class="lead">Reúna seus serviços, fotos, avaliações e áreas atendidas em uma página própria, pronta para apresentar seu negócio e levar o cliente diretamente ao WhatsApp.</p>
+      <p class="hero-subtext">Você envia as informações. O Estúdio organiza, escreve, cria e publica.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a>
+        <a class="btn btn-secondary" href="#demonstracao">Ver demonstração</a>
+      </div>
+      <div class="hero-price"><span>Página profissional completa por</span><strong>R$ 700</strong></div>
+      <ul class="hero-proof"><li>Uma página completa</li><li>Celular e computador</li><li>Uma rodada de ajustes</li></ul>
+    </div>
+    <div class="hero-media reveal">
+      <img src="assets/img/hero-mockup-principal.png" alt="Notebook e celular exibindo um exemplo de página profissional criada pelo Estúdio Escrita Planejada" width="1672" height="941">
+      <div class="hero-stamp">Atendimento online em todo o Brasil</div>
+    </div>
+  </section>
 
-<section class="manifesto" aria-label="Benefícios resumidos">
-<div class="manifesto-grid">
-<div class="manifesto-item"><strong>Informação organizada</strong><span>Serviços, fotos e contato em um único endereço</span></div>
-<div class="manifesto-item"><strong>Pronto para divulgação</strong><span>Compartilhe no WhatsApp, redes sociais e propostas</span></div>
-<div class="manifesto-item"><strong>Funciona em qualquer tela</strong><span>Layout ajustado para celular e computador</span></div>
-<div class="manifesto-item"><strong>Entrega objetiva</strong><span>Escopo claro, uma rodada de ajustes e publicação</span></div>
-</div>
-</section>
+  <section class="manifesto" aria-label="Benefícios resumidos">
+    <div class="manifesto-grid">
+      <div class="manifesto-item"><strong>Informação organizada</strong><span>Serviços, fotos e contato em um único endereço</span></div>
+      <div class="manifesto-item"><strong>Pronto para divulgação</strong><span>Compartilhe no WhatsApp, redes sociais e propostas</span></div>
+      <div class="manifesto-item"><strong>Funciona em qualquer tela</strong><span>Layout ajustado para celular e computador</span></div>
+      <div class="manifesto-item"><strong>Entrega objetiva</strong><span>Escopo claro, uma rodada de ajustes e publicação</span></div>
+    </div>
+  </section>
 
-<section class="problem" id="problema">
-<div class="problem-copy reveal">
-<p class="kicker">Problema</p>
-<h2>Seu serviço pode ser excelente. A apresentação também precisa ser.</h2>
-<p class="lead">Quando alguém recebe sua indicação ou pesquisa pelo seu negócio, talvez encontre apenas:</p>
-<ul class="problem-list"><li>um número de WhatsApp;</li><li>fotos espalhadas;</li><li>uma rede social desatualizada;</li><li>informações incompletas sobre seus serviços.</li></ul>
-<p class="tail">Sua página reúne tudo em um único endereço profissional.</p>
-<p class="tail">O cliente entende o que você faz, vê trabalhos realizados, conhece sua área de atendimento e chega ao WhatsApp mais preparado para pedir um orçamento.</p>
-</div>
-<div class="problem-media reveal"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941"></div>
-</section>
+  <section class="problem" id="problema">
+    <div class="problem-copy reveal">
+      <p class="kicker">Problema</p>
+      <h2>Seu serviço pode ser excelente. A apresentação também precisa ser.</h2>
+      <p class="lead">Quando alguém recebe sua indicação ou pesquisa pelo seu negócio, talvez encontre apenas:</p>
+      <ul class="problem-list"><li>um número de WhatsApp;</li><li>fotos espalhadas;</li><li>uma rede social desatualizada;</li><li>informações incompletas sobre seus serviços.</li></ul>
+      <p class="tail">Sua página reúne tudo em um único endereço profissional.</p>
+      <p class="tail">O cliente entende o que você faz, vê trabalhos realizados, conhece sua área de atendimento e chega ao WhatsApp mais preparado para pedir um orçamento.</p>
+    </div>
+    <div class="problem-media reveal"><img src="assets/img/material-bruto.png" alt="Mesa com fotos, anotações, papéis e celular mostrando conversas, representando informações espalhadas do negócio" width="1672" height="941"></div>
+  </section>
 
-<section class="demo" id="demonstracao">
-<div class="container">
-<div class="demo-head reveal">
-<div><p class="kicker">Demonstração</p><h2>Veja como seu serviço pode ser apresentado</h2></div>
-<p class="lead">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
-</div>
-<div class="demo-grid reveal">
-<button class="demo-image desktop gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop"><img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920"></button>
-<button class="demo-image mobile gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile"><img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551"></button>
-</div>
-<div class="demo-note">Exemplo demonstrativo. Empresa e informações fictícias.</div>
-</div>
-</section>
+  <section class="demo" id="demonstracao">
+    <div class="container">
+      <div class="demo-head reveal">
+        <div><p class="kicker">Demonstração</p><h2>Veja como seu serviço pode ser apresentado</h2></div>
+        <p class="lead">Abaixo está um exemplo do tipo de página entregue pelo Estúdio. Cada projeto recebe textos, imagens, cores e informações adaptados ao negócio do cliente.</p>
+      </div>
+      <div class="demo-grid reveal">
+        <button class="demo-image desktop gallery-item" type="button" aria-label="Ampliar exemplo completo da versão desktop"><img src="assets/img/exemplo-desktop.png" alt="Exemplo completo da versão desktop de uma página profissional para prestador de serviços" width="1899" height="920"></button>
+        <button class="demo-image mobile gallery-item" type="button" aria-label="Ampliar exemplo completo da versão mobile"><img src="assets/img/exemplo-mobile.jpg" alt="Exemplo completo da versão mobile de uma página profissional para prestador de serviços" width="720" height="1551"></button>
+      </div>
+      <div class="demo-note">Exemplo demonstrativo. Empresa e informações fictícias.</div>
+    </div>
+  </section>
 
-<section class="delivery" id="entrega">
-<div class="container delivery-grid">
-<div class="delivery-copy reveal">
-<p class="kicker">Entrega</p>
-<h2>Você fornece as informações. Nós entregamos a página pronta.</h2>
-<p class="lead">Sua página pode incluir:</p>
-<div class="delivery-list">
-<div>apresentação do profissional ou da empresa;</div><div>descrição dos serviços;</div><div>cidades e regiões atendidas;</div><div>fotos de trabalhos realizados;</div><div>avaliações de clientes;</div><div>diferenciais;</div><div>perguntas frequentes;</div><div>botão direto para o WhatsApp.</div>
-</div>
-<p class="delivery-note">Você não precisa escrever os textos nem saber criar um site.</p>
-</div>
-<div class="delivery-media reveal">
-<img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941">
-<div class="included"><div>organização das informações;</div><div>redação e revisão dos textos;</div><div>design da página;</div><div>adaptação para celular e computador;</div><div>publicação;</div><div>uma rodada de ajustes.</div></div>
-</div>
-</div>
-</section>
+  <section class="delivery" id="entrega">
+    <div class="container delivery-grid">
+      <div class="delivery-copy reveal">
+        <p class="kicker">Entrega</p>
+        <h2>Você fornece as informações. Nós entregamos a página pronta.</h2>
+        <p class="lead">Sua página pode incluir:</p>
+        <div class="delivery-list">
+          <div>apresentação do profissional ou da empresa;</div><div>descrição dos serviços;</div><div>cidades e regiões atendidas;</div><div>fotos de trabalhos realizados;</div><div>avaliações de clientes;</div><div>diferenciais;</div><div>perguntas frequentes;</div><div>botão direto para o WhatsApp.</div>
+        </div>
+        <p class="delivery-note">Você não precisa escrever os textos nem saber criar um site.</p>
+      </div>
+      <div class="delivery-media reveal">
+        <img src="assets/img/mockup-contabilidade.png" alt="Mockup completo de outro site profissional exibido em notebook e celular" width="1672" height="941">
+        <div class="included"><div>organização das informações;</div><div>redação e revisão dos textos;</div><div>design da página;</div><div>adaptação para celular e computador;</div><div>publicação;</div><div>uma rodada de ajustes.</div></div>
+      </div>
+    </div>
+  </section>
 
-<section class="audience" id="para-quem-e">
-<div class="container audience-grid">
-<div class="audience-copy reveal">
-<p class="kicker">Para quem é</p>
-<h2>Feito para quem trabalha por orçamento e precisa transmitir confiança</h2>
-<p class="lead">Este serviço é indicado para autônomos, MEIs e pequenas empresas que atendem residências, empresas ou condomínios e já possuem experiência e trabalhos realizados.</p>
-<div class="tags"><span>Eletricistas</span><span>Pintores</span><span>Técnicos de ar-condicionado</span><span>Empresas de manutenção</span><span>Profissionais de reforma</span><span>Marcenarias</span><span>Vidraçarias</span><span>Serralherias</span><span>Dedetizadoras</span><span>Empresas de limpeza</span><span>Fotógrafos</span><span>Contadores</span></div>
-<div class="audience-facts">
-<div><strong>Autônomos e MEIs</strong><span>Que dependem de indicação, pesquisa e WhatsApp para receber novos contatos.</span></div>
-<div><strong>Pequenas empresas</strong><span>Que precisam apresentar seus serviços com mais clareza e organização.</span></div>
-<div><strong>Atendimento por orçamento</strong><span>Ideal para negócios que precisam explicar o serviço antes da conversa comercial.</span></div>
-<div><strong>Quem já tem material real</strong><span>Fotos, avaliações e experiência prática para transformar em uma boa apresentação.</span></div>
-</div>
-</div>
-<div class="audience-media reveal">
-<img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941">
-<div class="audience-quote">Uma boa página ajuda a profissionalizar a primeira impressão</div>
-</div>
-</div>
-</section>
+  <section class="audience" id="para-quem-e">
+    <div class="container audience-grid">
+      <div class="audience-copy reveal">
+        <p class="kicker">Para quem é</p>
+        <h2>Feito para quem trabalha por orçamento e precisa transmitir confiança</h2>
+        <p class="lead">Este serviço é indicado para autônomos, MEIs e pequenas empresas que atendem residências, empresas ou condomínios e já possuem experiência e trabalhos realizados.</p>
+        <div class="tags"><span>Eletricistas</span><span>Pintores</span><span>Técnicos de ar-condicionado</span><span>Empresas de manutenção</span><span>Profissionais de reforma</span><span>Marcenarias</span><span>Vidraçarias</span><span>Serralherias</span><span>Dedetizadoras</span><span>Empresas de limpeza</span><span>Fotógrafos</span><span>Contadores</span></div>
+        <div class="audience-facts">
+          <div><strong>Autônomos e MEIs</strong><span>Que dependem de indicação, pesquisa e WhatsApp para receber novos contatos.</span></div>
+          <div><strong>Pequenas empresas</strong><span>Que precisam apresentar seus serviços com mais clareza e organização.</span></div>
+          <div><strong>Atendimento por orçamento</strong><span>Ideal para negócios que precisam explicar o serviço antes da conversa comercial.</span></div>
+          <div><strong>Quem já tem material real</strong><span>Fotos, avaliações e experiência prática para transformar em uma boa apresentação.</span></div>
+        </div>
+      </div>
+      <div class="audience-media reveal">
+        <img src="assets/img/profissional-em-acao.png" alt="Prestador de serviços em ação, usando celular e segurando maleta" width="1672" height="941">
+        <div class="audience-quote">Uma boa página ajuda a profissionalizar a primeira impressão</div>
+      </div>
+    </div>
+  </section>
 
-<section class="process" id="como-funciona">
-<div class="container">
-<div class="process-head reveal"><div><p class="kicker">Como funciona</p><h2>Da informação bruta à página publicada</h2></div><p class="lead">Um processo simples, acompanhado do começo à publicação.</p></div>
-<div class="process-list">
-<article class="process-row reveal"><div class="process-number">01</div><h3>Você envia</h3><p>Responde a um questionário simples e encaminha fotos, serviços, avaliações e contatos.</p></article>
-<article class="process-row reveal"><div class="process-number">02</div><h3>O Estúdio cria</h3><p>Organizamos as informações, escrevemos os textos e montamos a página.</p></article>
-<article class="process-row reveal"><div class="process-number">03</div><h3>Você aprova</h3><p>Recebe uma prévia e envia uma lista com os ajustes previstos.</p></article>
-<article class="process-row reveal"><div class="process-number">04</div><h3>A página é publicada</h3><p>Depois da aprovação, concluímos a configuração e entregamos o endereço pronto para divulgar.</p></article>
-</div>
-</div>
-</section>
+  <section class="process" id="como-funciona">
+    <div class="container">
+      <div class="process-head reveal"><div><p class="kicker">Como funciona</p><h2>Da informação bruta à página publicada</h2></div><p class="lead">Um processo simples, acompanhado do começo à publicação.</p></div>
+      <div class="process-list">
+        <article class="process-row reveal"><div class="process-number">01</div><h3>Você envia</h3><p>Responde a um questionário simples e encaminha fotos, serviços, avaliações e contatos.</p></article>
+        <article class="process-row reveal"><div class="process-number">02</div><h3>O Estúdio cria</h3><p>Organizamos as informações, escrevemos os textos e montamos a página.</p></article>
+        <article class="process-row reveal"><div class="process-number">03</div><h3>Você aprova</h3><p>Recebe uma prévia e envia uma lista com os ajustes previstos.</p></article>
+        <article class="process-row reveal"><div class="process-number">04</div><h3>A página é publicada</h3><p>Depois da aprovação, concluímos a configuração e entregamos o endereço pronto para divulgar.</p></article>
+      </div>
+    </div>
+  </section>
 
-<section class="ownership" id="propriedade">
-<div class="ownership-grid">
-<div class="owner-panel reveal">
-<p class="kicker">Propriedade e custos</p>
-<h2>A página fica em seu nome</h2>
-<p class="lead" style="margin-top:24px">Depois da aprovação e do pagamento final:</p>
-<ul class="owner-list"><li>a página é transferida para sua conta;</li><li>o endereço fica vinculado ao cliente;</li><li>os pagamentos anuais ficam sob seu controle;</li><li>você pode manter ou trocar de profissional no futuro.</li></ul>
-<p class="owner-tail">Não existe mensalidade obrigatória do Estúdio.</p>
-<div class="owner-costs">
-<div><strong>Custos anuais</strong><p>Os custos anuais necessários para manter a página ativa são pagos diretamente pelo cliente e informados antes da contratação.</p></div>
-<div><strong>Alterações futuras</strong><p>Se precisar de mudanças após a entrega, elas podem ser contratadas separadamente, conforme a demanda.</p></div>
-<div><strong>Sem dependência obrigatória</strong><p>Depois da conclusão, o cliente mantém o controle da página, da conta e das renovações.</p></div>
-</div>
-</div>
-<div class="price-panel reveal" id="investimento">
-<p class="kicker">Investimento</p>
-<h2>Página profissional completa</h2>
-<div class="price">R$ 700</div>
-<div class="payment-grid"><div><strong>R$ 350</strong><span>para iniciar</span></div><div><strong>R$ 350</strong><span>depois da aprovação</span></div></div>
-<p style="margin-top:24px;color:#282717">Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
-<p style="margin-top:22px;color:#282717"><strong>Entrega em até 7 dias úteis</strong></p>
-<p style="margin-top:8px;color:#3e3b25">A partir da confirmação do pagamento inicial, envio completo das informações e recebimento das fotos e demais materiais.</p>
-<a class="btn" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página por R$ 700</a>
-<div class="price-note">Plano anual, domínio e futuras renovações não estão incluídos no valor.</div>
-</div>
-</div>
-</section>
+  <section class="ownership" id="propriedade">
+    <div class="ownership-grid">
+      <div class="owner-panel reveal">
+        <p class="kicker">Propriedade e custos</p>
+        <h2>A página fica em seu nome</h2>
+        <p class="lead" style="margin-top:24px">Depois da aprovação e do pagamento final:</p>
+        <ul class="owner-list"><li>a página é transferida para sua conta;</li><li>o endereço fica vinculado ao cliente;</li><li>os pagamentos anuais ficam sob seu controle;</li><li>você pode manter ou trocar de profissional no futuro.</li></ul>
+        <p class="owner-tail">Não existe mensalidade obrigatória do Estúdio.</p>
+        <div class="owner-costs">
+          <div><strong>Custos anuais</strong><p>Os custos anuais necessários para manter a página ativa são pagos diretamente pelo cliente e informados antes da contratação.</p></div>
+          <div><strong>Alterações futuras</strong><p>Se precisar de mudanças após a entrega, elas podem ser contratadas separadamente, conforme a demanda.</p></div>
+          <div><strong>Sem dependência obrigatória</strong><p>Depois da conclusão, o cliente mantém o controle da página, da conta e das renovações.</p></div>
+        </div>
+      </div>
+      <div class="price-panel reveal" id="investimento">
+        <p class="kicker">Investimento</p>
+        <h2>Página profissional completa</h2>
+        <div class="price">R$ 700</div>
+        <div class="payment-grid"><div><strong>R$ 350</strong><span>para iniciar</span></div><div><strong>R$ 350</strong><span>depois da aprovação</span></div></div>
+        <p style="margin-top:24px;color:#282717">Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
+        <p style="margin-top:22px;color:#282717"><strong>Entrega em até 7 dias úteis</strong></p>
+        <p style="margin-top:8px;color:#3e3b25">A partir da confirmação do pagamento inicial, envio completo das informações e recebimento das fotos e demais materiais.</p>
+        <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página por R$ 700</a>
+        <div class="price-note">Plano anual, domínio e futuras renovações não estão incluídos no valor.</div>
+      </div>
+    </div>
+  </section>
 
-<section class="faq" id="faq">
-<div class="container">
-<div class="faq-head reveal"><div><p class="kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><p class="lead">As respostas essenciais antes da contratação.</p></div>
-<div class="faq-list">
-<details class="faq-item reveal"><summary>Preciso escrever os textos?</summary><p>Não. Você envia as informações e o Estúdio organiza e escreve o conteúdo.</p></details>
-<details class="faq-item reveal"><summary>Preciso saber criar ou administrar um site?</summary><p>Não. O processo é acompanhado do início à publicação.</p></details>
-<details class="faq-item reveal"><summary>Posso usar as fotos que já tenho?</summary><p>Sim. Fotos reais de trabalhos realizados são recomendadas.</p></details>
-<details class="faq-item reveal"><summary>A página funciona no celular?</summary><p>Sim. Ela é preparada para celulares e computadores.</p></details>
-<details class="faq-item reveal"><summary>O site será meu?</summary><p>Sim. Depois da conclusão, a página e o endereço ficam vinculados ao cliente.</p></details>
-<details class="faq-item reveal"><summary>Existe custo anual?</summary><p>Sim. Toda página publicada depende de serviços anuais. Esses custos são informados previamente e pagos diretamente pelo cliente.</p></details>
-<details class="faq-item reveal"><summary>Posso pedir alterações depois?</summary><p>Sim. Alterações futuras podem ser contratadas separadamente.</p></details>
-<details class="faq-item reveal"><summary>O serviço atende lojas?</summary><p>Não. A oferta é exclusiva para apresentação de serviços. Não inclui loja virtual, blog, sistemas ou várias páginas.</p></details>
-</div>
-</div>
-</section>
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-head reveal"><div><p class="kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><p class="lead">As respostas essenciais antes da contratação.</p></div>
+      <div class="faq-list">
+        <details class="faq-item reveal"><summary>Preciso escrever os textos?</summary><p>Não. Você envia as informações e o Estúdio organiza e escreve o conteúdo.</p></details>
+        <details class="faq-item reveal"><summary>Preciso saber criar ou administrar um site?</summary><p>Não. O processo é acompanhado do início à publicação.</p></details>
+        <details class="faq-item reveal"><summary>Posso usar as fotos que já tenho?</summary><p>Sim. Fotos reais de trabalhos realizados são recomendadas.</p></details>
+        <details class="faq-item reveal"><summary>A página funciona no celular?</summary><p>Sim. Ela é preparada para celulares e computadores.</p></details>
+        <details class="faq-item reveal"><summary>O site será meu?</summary><p>Sim. Depois da conclusão, a página e o endereço ficam vinculados ao cliente.</p></details>
+        <details class="faq-item reveal"><summary>Existe custo anual?</summary><p>Sim. Toda página publicada depende de serviços anuais. Esses custos são informados previamente e pagos diretamente pelo cliente.</p></details>
+        <details class="faq-item reveal"><summary>Posso pedir alterações depois?</summary><p>Sim. Alterações futuras podem ser contratadas separadamente.</p></details>
+        <details class="faq-item reveal"><summary>O serviço atende lojas?</summary><p>Não. A oferta é exclusiva para apresentação de serviços. Não inclui loja virtual, blog, sistemas ou várias páginas.</p></details>
+      </div>
+    </div>
+  </section>
 
-<section class="final" id="contato">
-<div class="final-copy reveal">
-<p class="kicker" style="color:#fff3ee">CTA final</p>
-<h2>Seu trabalho já existe. Agora ele precisa ser bem apresentado.</h2>
-<p class="lead">Tenha uma página própria para mostrar seus serviços, seus trabalhos e suas avaliações — e levar o cliente direto para o WhatsApp.</p>
-<div class="price">R$ 700</div>
-<a class="btn" href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
-<p class="small">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
-</div>
-<div class="final-media reveal"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941"></div>
-</section>
+  <section class="final" id="contato">
+    <div class="final-copy reveal">
+      <p class="kicker" style="color:#fff3ee">CTA final</p>
+      <h2>Seu trabalho já existe. Agora ele precisa ser bem apresentado.</h2>
+      <p class="lead">Tenha uma página própria para mostrar seus serviços, seus trabalhos e suas avaliações — e levar o cliente direto para o WhatsApp.</p>
+      <div class="price">R$ 700</div>
+      <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
+      <p class="small">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
+    </div>
+    <div class="final-media reveal"><img src="assets/img/mockup-enquanto-ele-age.png" alt="Mockup completo de outro site profissional exibido em notebook sobre uma mesa de trabalho" width="1672" height="941"></div>
+  </section>
 </main>
 
 <footer class="site-footer">
-<div class="container footer-grid">
-<div><div class="footer-brand">Estúdio Escrita Planejada</div><p class="footer-copy">Páginas profissionais para prestadores de serviços • Atendimento online em todo o Brasil<br>© <span id="ano">2026</span> Estúdio Escrita Planejada.</p></div>
-<div class="footer-links"><a href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a><button type="button" data-open-dialog="privacidade">Política de privacidade</button><a href="#investimento">Condições da oferta</a></div>
-</div>
+  <div class="container footer-grid">
+    <div><div class="footer-brand">Estúdio Escrita Planejada</div><p class="footer-copy">Páginas profissionais para prestadores de serviços • Atendimento online em todo o Brasil<br>© <span id="ano">2026</span> Estúdio Escrita Planejada.</p></div>
+    <div class="footer-links"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a><button type="button" data-open-dialog="privacidade">Política de privacidade</button><a href="#investimento">Condições da oferta</a></div>
+  </div>
 </footer>
 
-<div class="mobile-cta"><a href="https://wa.me/5511963502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a></div>
+<div class="mobile-cta"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a></div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da demonstração"><button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">×</button><img src="" alt=""></div>
 
 <dialog id="privacidade">
-<div class="dialog-head"><h2>Política de privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar política">×</button></div>
-<div class="dialog-body"><p>Esta página não utiliza formulário de contato, ferramenta de publicidade, Meta Pixel ou Google Analytics em sua versão inicial.</p><p>O contato comercial é realizado por meio de um link externo para o WhatsApp. Ao clicar nesse link, você será direcionado ao serviço da Meta/WhatsApp, sujeito às regras e práticas de privacidade dessa plataforma.</p><p>A infraestrutura utilizada para publicar a página pode registrar dados técnicos básicos de acesso por motivos de segurança e funcionamento, como endereço IP, navegador e horário da solicitação.</p><p>O Estúdio Escrita Planejada não vende dados pessoais e não realiza captura de e-mail por esta página.</p></div>
+  <div class="dialog-head"><h2>Política de privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar política">×</button></div>
+  <div class="dialog-body"><p>Esta página não utiliza formulário de contato, ferramenta de publicidade, Meta Pixel ou Google Analytics em sua versão inicial.</p><p>O contato comercial é realizado por meio de um link externo para o WhatsApp. Ao clicar nesse link, você será direcionado ao serviço da Meta/WhatsApp, sujeito às regras e práticas de privacidade dessa plataforma.</p><p>A infraestrutura utilizada para publicar a página pode registrar dados técnicos básicos de acesso por motivos de segurança e funcionamento, como endereço IP, navegador e horário da solicitação.</p><p>O Estúdio Escrita Planejada não vende dados pessoais e não realiza captura de e-mail por esta página.</p></div>
 </dialog>
 
 <script>
 (() => {
-const menuButton=document.querySelector('.menu-button');
-const nav=document.querySelector('.nav');
-const header=document.querySelector('.header-inner');
-menuButton?.addEventListener('click',()=>{
-const open=header.classList.toggle('open');
-nav.style.display=open?'flex':'';
-menuButton.setAttribute('aria-expanded',String(open));
-menuButton.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
-});
-nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
-header.classList.remove('open');
-nav.style.display='';
-menuButton?.setAttribute('aria-expanded','false');
-menuButton?.setAttribute('aria-label','Abrir menu');
-}));
+  const menuButton=document.querySelector('.menu-button');
+  const nav=document.querySelector('.nav');
+  const header=document.querySelector('.header-inner');
+  menuButton?.addEventListener('click',()=>{
+    const open=header.classList.toggle('open');
+    nav.style.display=open?'flex':'';
+    menuButton.setAttribute('aria-expanded',String(open));
+    menuButton.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  });
+  nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    header.classList.remove('open');
+    nav.style.display='';
+    menuButton?.setAttribute('aria-expanded','false');
+    menuButton?.setAttribute('aria-label','Abrir menu');
+  }));
 
-document.getElementById('ano').textContent=new Date().getFullYear();
+  document.getElementById('ano').textContent=new Date().getFullYear();
 
-const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const reveals=document.querySelectorAll('.reveal');
-if(reduced||!('IntersectionObserver' in window)){reveals.forEach(el=>el.classList.add('visible'));}
-else{
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-}),{threshold:.1,rootMargin:'0px 0px -30px'});
-reveals.forEach(el=>observer.observe(el));
-}
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals=document.querySelectorAll('.reveal');
+  if(reduced||!('IntersectionObserver' in window)){reveals.forEach(el=>el.classList.add('visible'));}
+  else{
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+    }),{threshold:.1,rootMargin:'0px 0px -30px'});
+    reveals.forEach(el=>observer.observe(el));
+  }
 
-const lightbox=document.getElementById('lightbox');
-const lightboxImage=lightbox.querySelector('img');
-const closeLightbox=()=>{lightbox.classList.remove('open');document.body.style.overflow='';lightboxImage.src='';lightboxImage.alt='';};
-document.querySelectorAll('.gallery-item').forEach(button=>button.addEventListener('click',()=>{
-const image=button.querySelector('img');
-lightboxImage.src=image.src;lightboxImage.alt=image.alt;
-lightbox.classList.add('open');document.body.style.overflow='hidden';
-lightbox.querySelector('button').focus();
-}));
-lightbox.querySelector('.lightbox-close').addEventListener('click',closeLightbox);
-lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
+  const lightbox=document.getElementById('lightbox');
+  const lightboxImage=lightbox.querySelector('img');
+  const closeLightbox=()=>{lightbox.classList.remove('open');document.body.style.overflow='';lightboxImage.src='';lightboxImage.alt='';};
+  document.querySelectorAll('.gallery-item').forEach(button=>button.addEventListener('click',()=>{
+    const image=button.querySelector('img');
+    lightboxImage.src=image.src;lightboxImage.alt=image.alt;
+    lightbox.classList.add('open');document.body.style.overflow='hidden';
+    lightbox.querySelector('button').focus();
+  }));
+  lightbox.querySelector('.lightbox-close').addEventListener('click',closeLightbox);
+  lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
 
-const privacy=document.getElementById('privacidade');
-document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button=>button.addEventListener('click',()=>privacy.showModal()));
-privacy.querySelector('.dialog-close').addEventListener('click',()=>privacy.close());
-privacy.addEventListener('click',event=>{const box=privacy.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)privacy.close();});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox();});
+  const privacy=document.getElementById('privacidade');
+  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button=>button.addEventListener('click',()=>privacy.showModal()));
+  privacy.querySelector('.dialog-close').addEventListener('click',()=>privacy.close());
+  privacy.addEventListener('click',event=>{const box=privacy.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)privacy.close();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox();});
 })();
 </script>
 </body>
 </html>
-
