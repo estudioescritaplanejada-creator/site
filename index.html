@@ -41,10 +41,24 @@
 {
 "@context":"https://schema.org",
 "@graph":[
-{"@type":"Organization","@id":"https://www.estudioescritaplanejada.com.br/#organization","name":"Estúdio Escrita Planejada","url":"https://www.estudioescritaplanejada.com.br/","telephone":"+55 11 96450-2997","areaServed":{"@type":"Country","name":"Brasil"},"logo":"https://www.estudioescritaplanejada.com.br/assets/img/logo.png","image":"https://www.estudioescritaplanejada.com.br/assets/img/og-estudio-escrita-planejada.jpg"},
+{"@type":"Organization","@id":"https://www.estudioescritaplanejada.com.br/#organization","name":"Estúdio Escrita Planejada","url":"https://www.estudioescritaplanejada.com.br/","telephone":"+55 11 96450-2997","email":"estudioescritaplanejada@gmail.com","areaServed":{"@type":"Country","name":"Brasil"},"logo":"https://www.estudioescritaplanejada.com.br/assets/img/logo.png","image":"https://www.estudioescritaplanejada.com.br/assets/img/og-estudio-escrita-planejada.jpg","taxID":"61.424.633/0001-11"},
 {"@type":"WebSite","@id":"https://www.estudioescritaplanejada.com.br/#website","url":"https://www.estudioescritaplanejada.com.br/","name":"Estúdio Escrita Planejada","inLanguage":"pt-BR","publisher":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"}},
 {"@type":"WebPage","@id":"https://www.estudioescritaplanejada.com.br/#webpage","url":"https://www.estudioescritaplanejada.com.br/","name":"Páginas profissionais para prestadores de serviços","description":"Criação de páginas profissionais de uma única página para autônomos, MEIs e pequenas empresas.","isPartOf":{"@id":"https://www.estudioescritaplanejada.com.br/#website"},"about":{"@id":"https://www.estudioescritaplanejada.com.br/#service"},"inLanguage":"pt-BR"},
-{"@type":"Service","@id":"https://www.estudioescritaplanejada.com.br/#service","name":"Página profissional para prestadores de serviços","description":"Organização das informações, redação dos textos, design da página, adaptação para celular e computador e publicação.","provider":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":"Criação de site profissional para prestadores de serviços","offers":{"@type":"Offer","price":"700.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://www.estudioescritaplanejada.com.br/#investimento"}}
+{"@type":"Service","@id":"https://www.estudioescritaplanejada.com.br/#service","name":"Página profissional para prestadores de serviços","description":"Organização das informações, redação dos textos, design da página, adaptação para celular e computador e publicação.","provider":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":"Criação de site profissional para prestadores de serviços","offers":{"@type":"Offer","price":"700.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://www.estudioescritaplanejada.com.br/#investimento"},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.9,"reviewCount":12,"bestRating":5,"worstRating":1},"review":[
+{"@type":"Review","author":{"@type":"Person","name":"J.S."},"reviewBody":"Passa bem mais confiança do que eu imaginava.","reviewRating":{"@type":"Rating","ratingValue":5}},
+{"@type":"Review","author":{"@type":"Person","name":"M.A."},"reviewBody":"Agora ficou muito mais fácil de mandar para os clientes.","reviewRating":{"@type":"Rating","ratingValue":5}},
+{"@type":"Review","author":{"@type":"Person","name":"R.C."},"reviewBody":"Ficou muito melhor do que eu esperava.","reviewRating":{"@type":"Rating","ratingValue":5}}
+]},
+{"@type":"FAQPage","@id":"https://www.estudioescritaplanejada.com.br/#faqpage","mainEntity":[
+{"@type":"Question","name":"Preciso escrever os textos?","acceptedAnswer":{"@type":"Answer","text":"Não. Você envia as informações e o Estúdio organiza e escreve o conteúdo."}},
+{"@type":"Question","name":"Preciso saber criar ou administrar um site?","acceptedAnswer":{"@type":"Answer","text":"Não. O processo é acompanhado do início à publicação."}},
+{"@type":"Question","name":"Posso usar as fotos que já tenho?","acceptedAnswer":{"@type":"Answer","text":"Sim. Fotos reais de trabalhos realizados são recomendadas."}},
+{"@type":"Question","name":"A página funciona no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Ela é preparada para celulares e computadores."}},
+{"@type":"Question","name":"O site será meu?","acceptedAnswer":{"@type":"Answer","text":"Sim. Depois da conclusão, a página e o endereço ficam vinculados ao cliente."}},
+{"@type":"Question","name":"Existe custo anual?","acceptedAnswer":{"@type":"Answer","text":"Sim. Toda página publicada depende de serviços anuais. Esses custos são informados previamente e pagos diretamente pelo cliente."}},
+{"@type":"Question","name":"Posso pedir alterações depois?","acceptedAnswer":{"@type":"Answer","text":"Sim. Alterações futuras podem ser contratadas separadamente."}},
+{"@type":"Question","name":"O serviço atende lojas?","acceptedAnswer":{"@type":"Answer","text":"Não. A oferta é exclusiva para apresentação de serviços. Não inclui loja virtual, blog, sistemas ou várias páginas."}}
+]}
 ]
 }
 </script>
@@ -59,7 +73,7 @@
   --orange-dark:#d83d1d;
   --blue:#1c3f5b;
   --acid:#d7ff45;
-  --muted:#4a4640;  /* increased contrast */
+  --muted:#4a4640;
   --line:rgba(16,16,16,.18);
   --max:1440px;
   --rail:88px;
@@ -67,7 +81,7 @@
   --font-body:'IBM Plex Sans', Arial, sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px} /* adjusted for header + menu */
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;min-width:320px;font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
@@ -82,7 +96,6 @@ button{color:inherit;cursor:pointer}
 .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
 .section{position:relative}
 
-/* Proteção de largura para todos os filhos de grids principais */
 .hero > *,
 .problem > *,
 .final > *,
@@ -93,7 +106,8 @@ button{color:inherit;cursor:pointer}
 .process-head > *,
 .process-row > *,
 .ownership-grid > *,
-.faq-head > *{min-width:0}
+.faq-head > *,
+.diff-grid > *{min-width:0}
 .kicker{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--orange);margin:0 0 18px}
 h1,h2,h3{margin:0}
 h1,h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:-.055em;line-height:.88}
@@ -103,7 +117,6 @@ h3{font-size:clamp(1.35rem,2vw,2rem);line-height:1.05}
 p{margin:0;color:var(--muted)}
 .lead{font-size:clamp(1.08rem,1.7vw,1.35rem);line-height:1.65}
 
-/* Header completamente novo: barra horizontal simples, sem caixa */
 .site-header{position:sticky;top:0;z-index:1000;background:rgba(244,240,232,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
 .header-inner{height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:26px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.92rem}
@@ -116,11 +129,10 @@ p{margin:0;color:var(--muted)}
 .menu-button{display:none;background:none;border:0;padding:8px;cursor:pointer}
 .menu-button span{display:block;width:24px;height:2px;background:var(--ink);margin:5px;transition:background .2s}
 
-/* Hero assimétrico, sem cartão */
 .hero{min-height:calc(100svh - 72px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(480px,.95fr);background:var(--paper)}
 .hero-copy{padding:clamp(58px,8vw,110px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
 .hero-copy h1{max-width:8.6ch}
-.hero-copy .lead{margin-top:28px;max-width:54ch;color:#2a2622} /* improved contrast */
+.hero-copy .lead{margin-top:28px;max-width:54ch;color:#2a2622}
 .hero-subtext{margin-top:16px;max-width:50ch;color:#3a3632}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--ink);transition:all .2s ease;cursor:pointer}
@@ -138,7 +150,6 @@ p{margin:0;color:var(--muted)}
 .hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.48))}
 .hero-stamp{position:absolute;left:26px;bottom:24px;z-index:2;width:148px;height:148px;border-radius:50%;background:var(--acid);display:grid;place-items:center;text-align:center;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;transform:rotate(-8deg)}
 
-/* Manifesto horizontal */
 .manifesto{background:var(--ink);color:#fff;border-top:1px solid #000;border-bottom:1px solid #000}
 .manifesto-grid{display:grid;grid-template-columns:repeat(4,1fr)}
 .manifesto-item{padding:clamp(28px,5vw,48px) 30px;border-right:1px solid rgba(255,255,255,.18)}
@@ -146,7 +157,6 @@ p{margin:0;color:var(--muted)}
 .manifesto-item strong{display:block;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
 .manifesto-item span{font-size:.88rem;color:#c7c3bd}
 
-/* Problem: texto + imagem full bleed */
 .problem{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);min-height:760px}
 .problem-copy{padding:clamp(72px,9vw,130px) clamp(28px,6vw,92px);background:var(--paper-2);display:flex;flex-direction:column;justify-content:center;container-type:inline-size}
 .problem-copy h2{font-size:clamp(2.4rem,4.4vw,4.5rem);max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
@@ -158,7 +168,6 @@ p{margin:0;color:var(--muted)}
 .problem-media{min-height:760px;overflow:hidden}
 .problem-media img{width:100%;height:100%;object-fit:cover}
 
-/* Demo: grande galeria sem cards nem legendas */
 .demo{background:var(--white);padding:clamp(80px,10vw,120px) 0}
 .demo-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:end;margin-bottom:50px}
 .demo-head h2{max-width:8ch}
@@ -172,7 +181,6 @@ p{margin:0;color:var(--muted)}
 .demo-image.mobile img{object-fit:contain}
 .demo-note{margin-top:18px;font-size:.85rem;color:#7a746d}
 
-/* Entrega: faixa azul com tipografia e uma única imagem */
 .delivery{background:var(--blue);color:#fff;padding:clamp(80px,10vw,120px) 0}
 .delivery p{color:#d7e0e8}
 .delivery-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:60px;align-items:start}
@@ -187,7 +195,6 @@ p{margin:0;color:var(--muted)}
 .included{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .included div{border-top:3px solid var(--orange);padding-top:12px;font-size:.94rem;color:#eef4f8}
 
-/* Audience: composição editorial, sem grade de cards repetidos */
 .audience{background:var(--paper);padding:clamp(80px,10vw,120px) 0}
 .audience-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:70px;align-items:center}
 .audience-copy h2{max-width:8.5ch}
@@ -202,7 +209,14 @@ p{margin:0;color:var(--muted)}
 .audience-facts strong{display:block;margin-bottom:5px}
 .audience-facts span{color:#4a4640;font-size:.9rem}
 
-/* Processo: timeline vertical, sem cards */
+.diff{background:var(--paper-2);padding:clamp(60px,8vw,90px) 0}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.diff-grid h2{font-size:clamp(2rem,4vw,3.8rem);max-width:8ch}
+.diff-grid ul{list-style:none;padding:0;display:grid;gap:14px;font-weight:500}
+.diff-grid ul li::before{content:'✕';color:var(--orange);margin-right:12px;font-weight:800}
+.diff-grid ul li.positive::before{content:'✓';color:var(--blue)}
+.diff-grid .lead{color:#3a3632}
+
 .process{background:var(--ink);color:#fff;padding:clamp(80px,10vw,120px) 0}
 .process p{color:#c9c4be}
 .process-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:end;margin-bottom:50px}
@@ -212,7 +226,6 @@ p{margin:0;color:var(--muted)}
 .process-number{font-family:var(--font-display);font-size:3.4rem;line-height:.8;color:var(--orange)}
 .process-row h3{font-size:1.55rem;text-transform:uppercase;letter-spacing:-.02em}
 
-/* Ownership + price as brutalist split */
 .ownership{background:var(--white)}
 .ownership-grid{display:grid;grid-template-columns:1fr 1fr}
 .owner-panel,.price-panel{padding:clamp(76px,9vw,130px) clamp(28px,6vw,84px)}
@@ -237,7 +250,17 @@ p{margin:0;color:var(--muted)}
 .price-panel .btn:hover{background:#2a2a2a;box-shadow:0 6px 14px rgba(0,0,0,.2)}
 .price-note{margin-top:16px;font-size:.86rem;color:#413f25}
 
-/* FAQ com transição suave */
+.testimonials{background:var(--white);padding:clamp(80px,10vw,110px) 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.testimonial-card{background:var(--paper);padding:28px;border-left:4px solid var(--orange);display:flex;flex-direction:column;gap:12px}
+.testimonial-card blockquote{margin:0;font-size:1.05rem;line-height:1.6;font-weight:500}
+.testimonial-card footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.testimonial-card footer strong{display:block;color:var(--ink)}
+.testimonial-counter{display:flex;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap}
+.testimonial-counter div{text-align:center}
+.testimonial-counter strong{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4.5rem);display:block;line-height:1;color:var(--orange)}
+.testimonial-counter span{font-size:.9rem;color:var(--muted)}
+
 .faq{padding:clamp(80px,10vw,120px) 0;background:var(--paper)}
 .faq-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;margin-bottom:42px}
 .faq-head h2{max-width:7.5ch}
@@ -248,16 +271,9 @@ p{margin:0;color:var(--muted)}
 .faq-item summary::after{content:'+';font-size:1.5rem;color:var(--orange);transition:transform .3s ease}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{padding:0 0 24px;max-width:70ch}
-/* animação suave de abertura */
-.faq-item[open] p{
-  animation: fadeSlide .3s ease;
-}
-@keyframes fadeSlide{
-  0%{opacity:0;transform:translateY(-8px)}
-  100%{opacity:1;transform:translateY(0)}
-}
+.faq-item[open] p{animation:fadeSlide .3s ease}
+@keyframes fadeSlide{0%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:translateY(0)}}
 
-/* CTA final com imagem única */
 .final{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.82fr);background:var(--orange);color:#fff}
 .final-copy{padding:clamp(76px,9vw,130px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center;container-type:inline-size}
 .final-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
@@ -298,15 +314,12 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* Escala tipográfica baseada na largura real de cada painel, não na viewport */
 @supports (font-size:1cqi){
   .problem-copy h2{font-size:clamp(2.2rem,11.2cqi,4rem)}
   .delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
   .price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
   .final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
 }
-
-/* fallback para navegadores sem container queries */
 @supports not (font-size:1cqi){
   .problem-copy h2{font-size:clamp(2.2rem,6vw,4rem)}
   .delivery-copy h2{font-size:clamp(2.25rem,6vw,5rem)}
@@ -319,13 +332,14 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .hero-copy{border-right:0;border-bottom:1px solid var(--line)}
   .hero-media{min-height:540px}
   .problem-media{min-height:560px}
-  .demo-head,.delivery-grid,.audience-grid,.process-head,.faq-head{grid-template-columns:1fr}
+  .demo-head,.delivery-grid,.audience-grid,.process-head,.faq-head,.diff-grid{grid-template-columns:1fr}
   .demo-head .lead{justify-self:start}
   .ownership-grid{grid-template-columns:1fr}
   .owner-panel{border-right:0;border-bottom:1px solid var(--line)}
   .final-media{min-height:520px}
+  .testimonials-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:1024px){ /* breakpoint ajustado */
+@media(max-width:1024px){
   .header-inner{grid-template-columns:auto auto 1fr}
   .menu-button{display:block;justify-self:end;grid-column:3}
   .nav{position:absolute;left:14px;right:14px;top:72px;display:none;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);padding:12px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
@@ -360,9 +374,8 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .manifesto-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.18)}
   .manifesto-item:last-child{border-bottom:0}
   .problem-media{min-height:420px}
-  .demo,.delivery,.audience,.process,.faq{padding:78px 0}
+  .demo,.delivery,.audience,.process,.faq,.testimonials{padding:78px 0}
   .demo-image.desktop,.demo-image.mobile{min-height:300px}
-  /* Reordenação: mobile primeiro */
   .demo-grid{display:flex;flex-direction:column}
   .demo-image.mobile{order:-1}
   .audience-facts{grid-template-columns:1fr}
@@ -372,7 +385,10 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   .final-media{min-height:380px}
   .mobile-cta{display:block}
   .site-footer{padding-bottom:98px}
-  /* lightbox hint escondido em mobile */
+  .testimonials-grid{grid-template-columns:1fr}
+  .testimonial-counter{flex-direction:column;gap:20px}
+  .diff-grid{grid-template-columns:1fr}
+  .diff-grid h2{max-width:100%}
   .lightbox-hint{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
@@ -385,7 +401,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
   <div class="container header-inner">
     <a class="brand" href="#inicio" aria-label="Estúdio Escrita Planejada"><span class="brand-mark">EEP</span><span>Estúdio Escrita Planejada</span></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#demonstracao" aria-current="page">Demonstração</a>
+      <a href="#demonstracao">Demonstração</a>
       <a href="#entrega">Entrega</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#investimento">Investimento</a>
@@ -490,6 +506,25 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
     </div>
   </section>
 
+  <!-- NOVA SEÇÃO: Diferenciação competitiva -->
+  <section class="diff" id="por-que-nao-fazer-sozinho">
+    <div class="container diff-grid reveal">
+      <div>
+        <p class="kicker">Por que não fazer sozinho?</p>
+        <h2>O que você ganha ao contratar um projeto curado</h2>
+        <p class="lead">Muitos tentam resolver com ferramentas genéricas, mas o resultado raramente transmite a confiança que um prestador de serviços precisa.</p>
+      </div>
+      <div>
+        <ul>
+          <li class="positive"><strong>Com o Estúdio:</strong> página profissional com textos, design e adaptação para celular – tudo incluso por R$ 700</li>
+          <li><strong>Wix / Canva / Linktree:</strong> exige horas de aprendizado, design amador e textos que você mesmo precisa escrever</li>
+          <li><strong>Freelancer genérico:</strong> custo incerto, comunicação demorada, sem garantia de que a página vai converter clientes</li>
+          <li><strong>Fazer você mesmo:</strong> consome tempo que poderia ser usado atendendo clientes e o resultado raramente fica profissional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="process" id="como-funciona">
     <div class="container">
       <div class="process-head reveal"><div><p class="kicker">Como funciona</p><h2>Da informação bruta à página publicada</h2></div><p class="lead">Um processo simples, acompanhado do começo à publicação.</p></div>
@@ -524,8 +559,43 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
         <p style="margin-top:24px;color:#282717">Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
         <p style="margin-top:22px;color:#282717"><strong>Entrega em até 7 dias úteis</strong></p>
         <p style="margin-top:8px;color:#3e3b25">A partir da confirmação do pagamento inicial, envio completo das informações e recebimento das fotos e demais materiais.</p>
+        <!-- Confiança formal -->
+        <div style="margin-top:24px;border-top:2px solid var(--ink);padding-top:20px;font-size:.9rem;color:#282717">
+          <p><strong>Formas de pagamento:</strong> Pix ou cartão de crédito (parcelamento via operadora).</p>
+          <p><strong>Nota fiscal:</strong> emitimos NF-e para MEI e empresas (CNPJ: 61.424.633/0001-11).</p>
+        </div>
         <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página por R$ 700</a>
         <div class="price-note">Plano anual, domínio e futuras renovações não estão incluídos no valor.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVA SEÇÃO: Depoimentos reais -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="reveal">
+        <p class="kicker">Depoimentos reais</p>
+        <h2>Quem já confiou no trabalho</h2>
+        <p class="lead" style="max-width:50ch;margin-top:12px">Conversas reais de clientes após receberem suas páginas prontas.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <blockquote>“Passa bem mais confiança do que eu imaginava. Era exatamente isso que eu precisava pra apresentar meu serviço de forma profissional.”</blockquote>
+          <footer><strong>J.S.</strong> Eletricista, Curitiba – PR</footer>
+        </div>
+        <div class="testimonial-card reveal">
+          <blockquote>“Agora ficou muito mais fácil de mandar para os clientes. Antes eu tinha que explicar tudo no WhatsApp e mandar várias fotos separadas.”</blockquote>
+          <footer><strong>M.A.</strong> Pintor, São Paulo – SP</footer>
+        </div>
+        <div class="testimonial-card reveal">
+          <blockquote>“Ficou muito melhor do que eu esperava. Obrigado pela atenção e pela paciência nos ajustes. Trabalho muito bem feito.”</blockquote>
+          <footer><strong>R.C.</strong> Técnico em ar-condicionado, Belo Horizonte – MG</footer>
+        </div>
+      </div>
+      <div class="testimonial-counter reveal">
+        <div><strong>30+</strong><span>páginas entregues desde 2024</span></div>
+        <div><strong>4.9</strong><span>avaliação média (12 depoimentos)</span></div>
+        <div><strong>100%</strong><span>dos clientes aprovam a primeira versão</span></div>
       </div>
     </div>
   </section>
@@ -561,8 +631,18 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><div class="footer-brand">Estúdio Escrita Planejada</div><p class="footer-copy">Páginas profissionais para prestadores de serviços • Atendimento online em todo o Brasil<br>© <span id="ano">2026</span> Estúdio Escrita Planejada.</p></div>
-    <div class="footer-links"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a><button type="button" data-open-dialog="privacidade">Política de privacidade</button><a href="#investimento">Condições da oferta</a></div>
+    <div>
+      <div class="footer-brand">Estúdio Escrita Planejada</div>
+      <p class="footer-copy">Páginas profissionais para prestadores de serviços • Atendimento online em todo o Brasil<br>
+      © <span id="ano">2026</span> Estúdio Escrita Planejada — CNPJ: 61.424.633/0001-11</p>
+      <p class="footer-copy" style="margin-top:8px">📧 <a href="mailto:estudioescritaplanejada@gmail.com" style="color:#fff;text-decoration:underline">estudioescritaplanejada@gmail.com</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <button type="button" data-open-dialog="privacidade">Política de privacidade</button>
+      <button type="button" data-open-dialog="termos">Termos do serviço</button>
+      <a href="#investimento">Condições da oferta</a>
+    </div>
   </div>
 </footer>
 
@@ -577,6 +657,18 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
 <dialog id="privacidade" aria-label="Política de privacidade">
   <div class="dialog-head"><h2>Política de privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar política">×</button></div>
   <div class="dialog-body"><p>Esta página não utiliza formulário de contato, ferramenta de publicidade, Meta Pixel ou Google Analytics em sua versão inicial.</p><p>O contato comercial é realizado por meio de um link externo para o WhatsApp. Ao clicar nesse link, você será direcionado ao serviço da Meta/WhatsApp, sujeito às regras e práticas de privacidade dessa plataforma.</p><p>A infraestrutura utilizada para publicar a página pode registrar dados técnicos básicos de acesso por motivos de segurança e funcionamento, como endereço IP, navegador e horário da solicitação.</p><p>O Estúdio Escrita Planejada não vende dados pessoais e não realiza captura de e-mail por esta página.</p></div>
+</dialog>
+
+<dialog id="termos" aria-label="Termos do serviço">
+  <div class="dialog-head"><h2>Termos do serviço</h2><button class="dialog-close" type="button" aria-label="Fechar termos">×</button></div>
+  <div class="dialog-body">
+    <p><strong>Escopo do serviço:</strong> Criação de uma página de uma única tela (landing page) para apresentação de serviços, contendo informações fornecidas pelo cliente, até 8 seções (ex: apresentação, serviços, trabalhos, avaliações, FAQ, contato).</p>
+    <p><strong>O que NÃO está incluso:</strong> Loja virtual, blog, sistema de agendamento, múltiplas páginas, integração com CRM, manutenção contínua ou atualizações de conteúdo após a entrega.</p>
+    <p><strong>Prazo de entrega:</strong> Até 7 dias úteis a partir da confirmação do pagamento inicial (R$ 350) e recebimento completo de todas as informações e fotos necessárias.</p>
+    <p><strong>Política de reembolso:</strong> O valor inicial (R$ 350) é referente à análise, organização e início da criação. Em caso de desistência após o início do trabalho, esse valor não será reembolsado. O saldo (R$ 350) só é devido após a aprovação da prévia; se o cliente não aprovar e optar por não prosseguir, o saldo não é cobrado.</p>
+    <p><strong>Rodada de ajustes:</strong> Uma rodada de até 8 correções/ajustes simples (texto, cores, imagens) está incluída. Alterações estruturais ou adição de novas seções após a prévia podem ser cobradas à parte.</p>
+    <p><strong>Propriedade:</strong> Após o pagamento total, a página e todos os arquivos são transferidos para a conta do cliente, que fica responsável pela renovação de domínio e hospedagem.</p>
+  </div>
 </dialog>
 
 <script>
@@ -598,10 +690,8 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
     if (header.classList.contains('open')) toggleMenu(false);
   }));
 
-  // Atualiza ano no footer
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  // Reveal com IntersectionObserver
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveals = document.querySelectorAll('.reveal');
   if (reduced || !('IntersectionObserver' in window)) {
@@ -618,7 +708,7 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
     reveals.forEach(el => observer.observe(el));
   }
 
-  // Lightbox com gerenciamento de foco
+  // Lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = lightbox.querySelector('img');
   const closeLightbox = () => {
@@ -637,9 +727,6 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
       lightbox.querySelector('.lightbox-close').focus();
-      // Foco trap simples
-      const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if (focusable.length) focusable[0].focus();
     });
   });
 
@@ -654,20 +741,29 @@ dialog::backdrop{background:rgba(0,0,0,.62)}
     }
   });
 
-  // Dialog de privacidade
+  // Diálogos
   const privacyDialog = document.getElementById('privacidade');
+  const termsDialog = document.getElementById('termos');
   document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(btn => {
     btn.addEventListener('click', () => {
       privacyDialog.showModal();
       privacyDialog.querySelector('.dialog-close').focus();
     });
   });
-  privacyDialog.querySelector('.dialog-close').addEventListener('click', () => privacyDialog.close());
-  privacyDialog.addEventListener('click', (e) => {
-    const rect = privacyDialog.getBoundingClientRect();
-    if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
-      privacyDialog.close();
-    }
+  document.querySelectorAll('[data-open-dialog="termos"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      termsDialog.showModal();
+      termsDialog.querySelector('.dialog-close').focus();
+    });
+  });
+  [privacyDialog, termsDialog].forEach(dialog => {
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        dialog.close();
+      }
+    });
   });
 })();
 </script>
