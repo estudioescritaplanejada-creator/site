@@ -1,447 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Almeida Contabilidade • Contabilidade para MEIs, autônomos e pequenas empresas</title>
+<meta name="description" content="Contabilidade com linguagem clara para MEIs, autônomos e pequenas empresas. Acompanhamento, regularização e orientação fiscal em todo o Brasil.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Almeida Contabilidade">
+<meta name="theme-color" content="#0F1F2E">
+<meta name="color-scheme" content="dark light">
 
-<!DOCTYPE html><html lang="en"><head>
-		<meta charset="utf-8">
-		<link rel="icon" type="image/png" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="shortcut icon" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="apple-touch-icon" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<meta name="apple-mobile-web-app-title" content="Z.ai - Advanced AI Chatbot &amp; Agent powered by GLM-5.2">
-		
-		<meta name="keywords" content="GLM-4.6, GLM 4.6, GLM-4.6-Air, GLM 4.6 Air, GLM 4.5, GLM4.5, GLM4.6, Deep Research, z ai, z.ai, GLM 4.5 AI, GLM 4.6 AI, GLM AI, Chat Z, zai, Chat AI, GLM, z.ia, Chat Z AI, AI chat, chatbot, z.ai chat, free ai chat, free AI, free ai chat no login, GLM-4.5, GLM-4.5 chat, GLM-4.1V, GLM-4.5V, AI assistant chat, AI PPT, AI presentation, AI presentation maker, AI slides maker, AI slides, slide deck, pitch deck, AI deck generator, free pitch deck generator, AI PPT, AI PPT maker, AI for Google Slides, AI for PowerPoint, AI writer, AI writing assistant, AI code generator, full stack code generation, AI full stack developer, claude code, Roo Code, Cline, Kilo Code, OpenCode, Codex, Cursor, GLM Coding Plan, GLM Coding, AI Coding, code writer ai, magic design, magic design tool, AI inspiration board, visual brainstorming AI, chat with AI, AI对话, AI聊天, 聊天机器人, 免费AI聊天, AI做PPT, AI写作, AI编程, 全栈开发, 灵感画板, AI tool, AI helper, AI for students, AI for marketers, AI for content creation, ChatGPT, chatgpt free, Free ChatGPT, gpt chat, Gemini, Grok, Claude, Poe AI, YouChat, Jasper AI, deepseek, qwen, 豆包, 文心一言, AI搜问答, 写作灵感AI, 代码解释工具, PPT思路生成, 如何用AI做PPT, create pitch deck from brief, AI business plan presentation, marketing report slides, AI academic paper assistant, AI legal contract drafting, write social media calendar, AI email responder,  VS Code AI assistant, AI for Notion, AI for Figma, AI math problem solver from image, AI geoguessr solver, image to code generator, table extractor from image, chart data extractor, document analysis AI, image caption generator, visual Q&amp;A, 看图猜成语, AI拍照解题, 数学题解答, 物理题解答, GeoGuess AI, 图片转表格, 图片读数据, 看图问答, analyze video, summarize video content, generate video transcript, find object in image, what is in this picture, 视频分析, 视频内容摘要, 生成视频字幕, 图片里有什么, 识别图中物体, GLM-4.7, GLM 4.7, GLM4.7, skills, coding plan, GLM-5, GLM-5.0, GLM5, GLM 5, Pony, Pony Alpha, GLM-5.2, GLM 5.2, GLM5.2, long-horizon, long-running">
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+</noscript>
 
-		<link rel="manifest" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/manifest.json">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-		
-		<meta name="referrer" content="no-referrer">
-		<link rel="search" type="application/opensearchdescription+xml" title="Z.ai - Advanced AI Chatbot &amp; Agent powered by GLM-5.2" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/opensearch.xml">
-		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z8QTHYBHP3"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F1F2E'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='central' font-family='serif' font-size='24' font-weight='900' fill='%23FCFAF6'%3EAC%3C/text%3E%3C/svg%3E">
 
-			gtag('config', 'G-Z8QTHYBHP3');
-		</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"Organization","@id":"#organization","name":"Almeida Contabilidade","url":"#","telephone":"(00) 00000-0000","email":"contato@almeidacontabilidade.com.br","areaServed":{"@type":"Country","name":"Brasil"},"taxID":"00.000.000/0000-00"},
+    {"@type":"WebPage","@id":"#webpage","name":"Almeida Contabilidade — Contabilidade para MEIs e pequenas empresas","isPartOf":{"@id":"#website"},"about":{"@id":"#service"}},
+    {"@type":"Service","@id":"#service","name":"Contabilidade para MEIs, autônomos e pequenas empresas","description":"Acompanhamento contábil, abertura, regularização, folha de pagamento, Imposto de Renda e orientação fiscal.","provider":{"@id":"#organization"},"areaServed":{"@type":"Country","name":"Brasil"}},
+    {"@type":"FAQPage","@id":"#faqpage","mainEntity":[
+      {"@type":"Question","name":"A contabilidade atende MEI?","acceptedAnswer":{"@type":"Answer","text":"Sim. O atendimento pode incluir orientação sobre obrigações, declaração anual, limites, regularização e avaliação do momento de mudança de categoria."}},
+      {"@type":"Question","name":"Posso trocar de contador?","acceptedAnswer":{"@type":"Answer","text":"Sim. A troca pode ser realizada mediante organização dos documentos, autorizações necessárias e alinhamento com o profissional anterior."}},
+      {"@type":"Question","name":"O atendimento pode ser totalmente online?","acceptedAnswer":{"@type":"Answer","text":"Sim. Documentos, reuniões e orientações podem ser realizados por meios digitais, conforme a necessidade."}}
+    ]}
+  ]
+}
+</script>
 
-		<script>
-			let metrics = {};
-			const observer = new PerformanceObserver((list) => {
-				const entries = list.getEntries();
+<style>
+/* ============================================================
+   DESIGN SYSTEM & TOKENS
+   ============================================================ */
+:root{
+  --sand: #F5F1EA;
+  --navy: #0F1F2E;
+  --navy-soft: #16293B;
+  --olive: #5A6F46;
+  --olive-light: #7A9261;
+  --terracotta: #C76B4E;
+  --terracotta-soft: #E08A6D;
+  --cream: #FCFAF6;
+  --muted-text: rgba(15,31,46,0.65);
+  --line-light: rgba(15,31,46,0.08);
+  --line-medium: rgba(15,31,46,0.15);
+  --max-width: 1280px;
+  --header-height: 76px;
+  
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-body: 'Manrope', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  --shadow-sm: 0 2px 8px rgba(15,31,46,0.04);
+  --shadow-md: 0 8px 24px rgba(15,31,46,0.06);
+  --shadow-lg: 0 20px 50px rgba(15,31,46,0.1);
+  
+  --transition: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-				entries.forEach((entry) => {
-					// 根据不同的entry类型处理不同的性能指标
-					switch (entry.entryType) {
-						case 'navigation':
-							{
-								const navEntry = entry;
-								metrics = {
-									...metrics,
-									dns: navEntry.domainLookupEnd - navEntry.domainLookupStart,
-									response: navEntry.responseEnd - navEntry.responseStart,
-									dom_parse: navEntry.domInteractive - navEntry.responseEnd,
-									dom_ready: navEntry.domContentLoadedEventEnd - navEntry.fetchStart,
-									resource: navEntry.domComplete - navEntry.domContentLoadedEventEnd,
-									first_interactive: navEntry.domInteractive - navEntry.fetchStart,
-									first_byte: navEntry.responseStart - navEntry.domainLookupStart,
-									loaded: navEntry.loadEventEnd - navEntry.fetchStart
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-								// 发送性能指标到阿里云日志服务
-							}
-							break;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 30px)}
+body{
+  font-family:var(--font-body);
+  background:var(--sand);
+  color:var(--navy);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+::selection{background:var(--olive);color:#fff}
+:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;border-radius:var(--radius-sm)}
 
-						case 'paint':
-							if (entry.name === 'first-paint') {
-								metrics = {
-									...metrics,
-									first_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							if (entry.name === 'first-contentful-paint') {
-								metrics = {
-									...metrics,
-									first_contentful_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							break;
-					}
-				});
-			});
+/* SKIP LINK */
+.skip-link{
+  position:fixed;left:16px;top:16px;z-index:9999;
+  transform:translateY(-200%);
+  background:var(--navy);color:var(--cream);padding:12px 20px;font-weight:700;
+  border-radius:var(--radius-sm);transition:transform .3s var(--transition);
+}
+.skip-link:focus{transform:none}
 
-			// 观察的性能指标类型
-			observer.observe({
-				entryTypes: ['navigation', 'paint']
-			});
-		</script>
+/* CONTAINER & UTILS */
+.container{width:min(var(--max-width), calc(100% - 48px));margin-inline:auto}
+.section{padding:clamp(64px, 9vw, 120px) 0}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--transition), transform .8s var(--transition)}
+.reveal.visible{opacity:1;transform:none}
 
-		<script>
-			function resizeIframe(obj) {
-				obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-			}
-		</script>
+/* TIPOGRAFIA */
+h1,h2,h3{
+  font-family:var(--font-serif);
+  font-weight:800;
+  letter-spacing:-0.025em;
+  line-height:1.05;
+  margin:0;
+}
+h1{font-size:clamp(2.8rem, 6vw, 4.5rem);font-weight:900}
+h2{font-size:clamp(2.2rem, 4vw, 3.6rem)}
+h3{font-size:clamp(1.3rem, 2vw, 1.8rem)}
+.lead{font-size:clamp(1.05rem, 1.3vw, 1.2rem);line-height:1.7;color:var(--muted-text);font-weight:500}
+.mono{font-family:var(--font-mono);font-weight:500;font-size:0.85rem;letter-spacing:0.02em}
+.label{
+  font-family:var(--font-mono);
+  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;
+  font-weight:600;color:var(--olive);
+}
+.kicker{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;
+  font-weight:600;color:var(--terracotta);margin-bottom:16px;
+  padding:6px 12px;background:rgba(199,107,78,0.08);border-radius:100px;
+}
 
-		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			const initTheme = () => {
-				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
-				// 取用户浏览器设置的主题
-				// const prefersTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(252, 250, 246, 0.85);
+  backdrop-filter:blur(16px) saturate(180%);
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  border-bottom:1px solid var(--line-light);
+  height:var(--header-height);
+  transition:box-shadow .3s ease;
+}
+.site-header.scrolled{box-shadow:0 4px 20px rgba(15,31,46,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:42px;height:42px;display:grid;place-items:center;
+  background:var(--navy);color:var(--cream);
+  font-family:var(--font-serif);font-size:1rem;font-weight:900;
+  border-radius:var(--radius-sm);transition:transform .3s var(--transition);
+}
+.brand:hover .brand-mark{transform:rotate(-6deg)}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand strong{font-family:var(--font-serif);font-size:1.25rem;font-weight:900;letter-spacing:-0.03em}
+.brand span{font-family:var(--font-body);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.18em;font-weight:600;color:var(--muted-text);margin-top:2px}
 
-				const prefersTheme = 'light';
+.nav{display:flex;gap:32px;font-size:0.85rem;font-weight:600}
+.nav a{position:relative;padding:6px 0;transition:color .2s}
+.nav a::after{
+  content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--terracotta);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--transition);
+}
+.nav a:hover, .nav a:focus-visible{color:var(--terracotta)}
+.nav a:hover::after, .nav a:focus-visible::after{transform:scaleX(1)}
 
-				if (!localStorage?.theme) {
-					localStorage.theme = prefersTheme;
-				}
+.header-cta{
+  background:var(--navy);color:var(--cream);
+  padding:12px 24px;font-weight:700;font-size:0.8rem;
+  text-transform:uppercase;letter-spacing:0.06em;
+  border-radius:var(--radius-sm);
+  transition:all .3s var(--transition);
+}
+.header-cta:hover{background:var(--terracotta);transform:translateY(-2px);box-shadow:0 6px 16px rgba(199,107,78,0.3)}
 
-				if (localStorage.theme === 'system') {
-					document.documentElement.classList.add(prefersTheme);
-					metaThemeColorTag.setAttribute(
-						'content',
-						prefersTheme === 'light' ? '#F4F6F8' : '#141618'
-					);
-				} else if (localStorage.theme === 'light') {
-					document.documentElement.classList.add('light');
-					metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				} else {
-					document.documentElement.classList.add('dark');
-					metaThemeColorTag.setAttribute('content', '#141618');
-				}
+.menu-button{display:none;flex-direction:column;gap:5px;padding:8px}
+.menu-button span{display:block;width:24px;height:2px;background:var(--navy);transition:all .3s var(--transition)}
+.menu-button[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-button[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-button[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-				// window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-				// 	if (localStorage.theme === 'system') {
-				// 		if (e.matches) {
-				// 			document.documentElement.classList.add('dark');
-				// 			document.documentElement.classList.remove('light');
-				// 			metaThemeColorTag.setAttribute('content', '#141618');
-				// 		} else {
-				// 			document.documentElement.classList.add('light');
-				// 			document.documentElement.classList.remove('dark');
-				// 			metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				// 		}
-				// 	}
-				// });
-			};
-			initTheme();
-		</script>
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:0 32px;font-weight:700;font-size:0.85rem;
+  text-transform:uppercase;letter-spacing:0.06em;border-radius:var(--radius-sm);
+  transition:all .3s var(--transition);border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 4px 14px rgba(199,107,78,0.25)}
+.btn-primary:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,31,46,0.2)}
+.btn-secondary{background:transparent;border-color:var(--navy);color:var(--navy)}
+.btn-secondary:hover{background:var(--navy);color:var(--cream);transform:translateY(-2px)}
 
-		
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{background:var(--sand);padding:clamp(48px, 6vw, 80px) 0 0;position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;top:0;right:-10%;width:60%;height:100%;
+  background:radial-gradient(circle, rgba(199,107,78,0.04) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;min-height:75vh;position:relative}
+.hero-text .kicker{color:var(--navy);background:rgba(15,31,46,0.05)}
+.hero-text h1{margin:20px 0 24px;max-width:14ch}
+.hero-text h1 em{font-style:normal;color:var(--terracotta);font-family:inherit}
+.hero-text .lead{max-width:48ch;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+.hero-visuals{display:flex;flex-direction:column;gap:24px}
+.hero-image{
+  background:#E8E2D5;border-radius:var(--radius-md);overflow:hidden;
+  min-height:360px;position:relative;box-shadow:var(--shadow-lg);
+}
+.hero-image .img-placeholder{
+  width:100%;height:100%;object-fit:cover;
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23E8E2D5" width="600" height="400"/><rect x="120" y="160" width="360" height="80" fill="%23D4CBB8" rx="8"/><rect x="140" y="180" width="80" height="40" fill="%23BFB59E"/><rect x="240" y="180" width="160" height="40" fill="%23BFB59E"/><rect x="120" y="260" width="360" height="4" fill="%23A89D85"/><rect x="120" y="280" width="360" height="4" fill="%23A89D85"/></svg>') center/cover no-repeat;
+}
+.hero-panel{
+  background:var(--navy);color:var(--cream);
+  padding:28px 32px;border-radius:var(--radius-md);
+  position:relative;overflow:hidden;
+}
+.hero-panel::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--terracotta);
+}
+.hero-panel .mono{font-weight:600;color:var(--terracotta-soft);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em}
+.hero-panel h3{font-family:var(--font-body);font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.04em;margin:12px 0 20px;color:#fff}
+.hero-panel ul{list-style:none;font-size:0.95rem;display:grid;gap:10px}
+.hero-panel ul li{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.hero-panel ul li:last-child{border-bottom:0;padding-bottom:0}
+.hero-panel ul li span:last-child{color:var(--olive-light);font-weight:700}
+.hero-cnpj{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.15);font-family:var(--font-mono);font-size:0.75rem;color:rgba(255,255,255,0.5)}
 
-		<script>
-			// 炫酷的控制台介绍 - 根据语言显示
-			(function () {
-				// 检测用户语言偏好
-				const userLang = navigator.language || navigator.userLanguage;
-				const isChinese =
-					userLang.startsWith('zh') ||
-					userLang.includes('CN') ||
-					userLang.includes('TW') ||
-					userLang.includes('HK');
+/* ============================================================
+   POSICIONAMENTO (Editorial Grid)
+   ============================================================ */
+.positioning{background:var(--cream);position:relative}
+.positioning-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.positioning-left .kicker{margin-bottom:24px}
+.positioning-quote{
+  font-family:var(--font-serif);font-size:clamp(2rem, 3.5vw, 3rem);
+  font-weight:900;line-height:1.15;letter-spacing:-0.03em;color:var(--navy);
+}
+.positioning-features{display:grid;gap:32px;margin-top:48px}
+.positioning-features div{padding-top:24px;border-top:2px solid var(--navy)}
+.positioning-features div strong{display:block;font-family:var(--font-serif);font-weight:800;font-size:1.4rem;letter-spacing:-0.02em;margin-bottom:8px}
+.positioning-features div p{font-size:1rem;color:var(--muted-text);max-width:40ch}
+.pos-text{
+  font-size:1.15rem;line-height:1.8;color:var(--navy);
+  font-family:var(--font-serif);font-weight:400;font-style:italic;
+  border-left:4px solid var(--terracotta);padding-left:32px;
+}
 
-				// 共同的 ASCII Logo
-				const logoLines = [
-					'%c███████╗     █████╗ ██╗',
-					'%c╚══███╔╝    ██╔══██╗██║',
-					'%c  ███╔╝     ███████║██║',
-					'%c ███╔╝      ██╔══██║██║',
-					'%c███████╗ ██╗██║  ██║██║',
-					'%c╚══════╝ ╚═╝╚═╝  ╚═╝╚═╝'
-				];
-				const logoColors = [
-					'color: #ff6b6b; font-family: monospace; font-size: 12px;',
-					'color: #4ecdc4; font-family: monospace; font-size: 12px;',
-					'color: #45b7d1; font-family: monospace; font-size: 12px;',
-					'color: #f9ca24; font-family: monospace; font-size: 12px;',
-					'color: #ff9ff3; font-family: monospace; font-size: 12px;',
-					'color: #6c5ce7; font-family: monospace; font-size: 12px;'
-				];
+/* ============================================================
+   SERVIÇOS
+   ============================================================ */
+.services{background:var(--sand)}
+.services-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:80px}
+.services-index{position:sticky;top:calc(var(--header-height) + 40px);align-self:start}
+.services-index h2{margin:12px 0 16px}
+.services-index p{color:var(--muted-text);max-width:35ch}
+.services-list{border-top:1px solid var(--line-medium)}
+.service-item{border-bottom:1px solid var(--line-medium)}
+.service-item summary{
+  list-style:none;padding:24px 0;font-weight:700;font-size:1.15rem;
+  display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:16px;
+  transition:color .3s ease, padding-left .3s var(--transition);
+}
+.service-item summary::-webkit-details-marker{display:none}
+.service-item summary:hover{color:var(--terracotta);padding-left:8px}
+.service-item summary .num{font-family:var(--font-mono);font-size:0.8rem;color:var(--terracotta);font-weight:600;margin-right:16px}
+.service-item summary::after{
+  content:'+';font-size:1.5rem;font-weight:300;color:var(--terracotta);
+  transition:transform .3s var(--transition);
+  width:32px;height:32px;display:grid;place-items:center;
+  border:1px solid var(--line-medium);border-radius:50%;
+}
+.service-item[open] summary{color:var(--terracotta);padding-left:8px}
+.service-item[open] summary::after{transform:rotate(45deg);background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+.service-item .desc{padding:0 0 24px 40px;color:var(--muted-text);font-size:1rem;max-width:55ch;animation:slideIn .4s var(--transition)}
+@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-				if (isChinese) {
-					// 中文版本
-					console.log(
-						'%c🚀 欢迎来到 Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ 基于开源GLM模型的智能AI助手',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log('%c🧠 支持文本生成、推理和深度研究', 'color: #fd79a8; font-size: 12px;');
-					console.log('%c🌍 为中英文用户量身定制', 'color: #00b894; font-size: 12px;');
-					console.log('%c💡 免费开源的ChatGPT替代方案', 'color: #fdcb6e; font-size: 12px;');
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%c由 ❤️ 和大量 ☕ 驱动',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 加入我们！我们正在招聘优秀人才！',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 查看职位: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				} else {
-					// 英文版本
-					console.log(
-						'%c🚀 Welcome to Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ Advanced AI assistant powered by open-source GLM models',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log(
-						'%c🧠 Supports text generation, reasoning, and deep research',
-						'color: #fd79a8; font-size: 12px;'
-					);
-					console.log(
-						'%c🌍 Tailored for both English and Chinese users',
-						'color: #00b894; font-size: 12px;'
-					);
-					console.log(
-						'%c💡 Free and open-source ChatGPT alternative',
-						'color: #fdcb6e; font-size: 12px;'
-					);
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%cPowered by ❤️ and lots of ☕',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 Join us! We are hiring talented people!',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 View jobs: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				}
-			})();
-		</script>
+/* ============================================================
+   PÚBLICO-ALVO
+   ============================================================ */
+.audience{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+.audience::before{
+  content:'';position:absolute;top:0;right:0;width:50%;height:100%;
+  background:radial-gradient(circle, rgba(90,111,70,0.15) 0%, transparent 70%);
+}
+.audience .kicker{color:var(--olive-light);background:rgba(122,146,97,0.1)}
+.audience h2{color:#fff;max-width:18ch}
+.audience .lead{color:rgba(255,255,255,0.7)}
+.audience-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;margin-top:56px;position:relative}
+.audience-item{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+  padding:32px;border-radius:var(--radius-md);
+  transition:transform .3s var(--transition), background .3s ease, border-color .3s ease;
+}
+.audience-item:hover{transform:translateY(-6px);background:rgba(255,255,255,0.06);border-color:var(--olive-light)}
+.audience-item .num{font-family:var(--font-mono);font-size:0.75rem;color:var(--terracotta-soft);font-weight:600;display:block;margin-bottom:12px}
+.audience-item h3{font-family:var(--font-body);font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:0.04em;color:#fff;margin-bottom:8px}
+.audience-item p{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.6}
 
-		<script type="module" crossorigin="" src="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.1.77/assets/index-BMEi3I8f.js"></script>
-		<link rel="stylesheet" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.1.77/assets/index-BJnCnv7z.css">
-	<title>Z.AI Share</title><meta name="description" content="Amazing content sharing from Z.AI"><meta property="og:type" content="website"><meta property="og:site_name" content="Z.AI"><meta property="og:title" content="Z.AI Share"><meta property="og:description" content="Amazing content sharing from Z.AI"><meta property="og:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta property="og:image:alt" content="Z.AI Share"><meta property="og:image:width" content="400"><meta property="og:image:height" content="400"><meta property="og:image:type" content="image/png"><meta property="og:url" content="http://chat.z.ai/space/c1n0e6gu8tj1-art"><meta property="article:author" content="Z.AI"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Z.AI Share"><meta name="twitter:description" content="Amazing content sharing from Z.AI"><meta name="twitter:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta name="twitter:image:alt" content="Z.AI Share"><meta name="robots" content="index,follow"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="application-name" content="Z.AI"><meta name="theme-color" content="#1976d2"><meta name="msapplication-TileColor" content="#1976d2"><link rel="canonical" href="http://chat.z.ai/space/c1n0e6gu8tj1-art"><script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-<script>
-(function() {
-  var frontendCallId = Math.random().toString(36).substring(2, 8);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 开始前端微信JS-SDK初始化 =====');
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL:', window.location.href);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL (去掉#):', window.location.href.split('#')[0]);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 签名配置:', {
-    debug: false,
-    appId: 'wxa5796e47c57570b1',
-    timestamp: 1784297587,
-    nonceStr: 'P7ungmg2qvnrsXb6',
-    signature: '72a18538d5c5be836b82671c3424eddc93c88733',
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"]
-  });
+/* ============================================================
+   DIAGNÓSTICO
+   ============================================================ */
+.diagnostic{background:var(--sand)}
+.diagnostic-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:64px;align-items:start}
+.diagnostic h2{max-width:20ch;margin-bottom:32px}
+.diagnostic-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.diagnostic-list li{
+  padding:16px 0;border-bottom:1px solid var(--line-light);
+  font-size:1rem;font-weight:500;display:flex;align-items:center;gap:12px;
+  transition:padding-left .3s var(--transition)
+}
+.diagnostic-list li:hover{padding-left:8px;color:var(--terracotta)}
+.diagnostic-list li::before{content:'•';color:var(--terracotta);font-size:1.5rem;line-height:1}
+.diagnostic-highlight{
+  background:var(--navy);color:var(--cream);
+  padding:40px;border-radius:var(--radius-md);
+  position:relative;overflow:hidden;
+}
+.diagnostic-highlight::after{
+  content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;
+  background:var(--terracotta);border-radius:50%;opacity:0.1;
+}
+.diagnostic-highlight strong{display:block;font-family:var(--font-serif);font-size:1.8rem;font-weight:900;line-height:1.2;color:#fff}
+.diagnostic-highlight p{color:rgba(255,255,255,0.7);margin-top:16px;font-size:1rem}
 
-  // 微信 JS-SDK 配置
-  wx.config({
-    debug: false, // 根据环境变量设置debug模式
-    appId: 'wxa5796e47c57570b1', // 公众号的唯一标识
-    timestamp: 1784297587, // 生成签名的时间戳
-    nonceStr: 'P7ungmg2qvnrsXb6', // 生成签名的随机串
-    signature: '72a18538d5c5be836b82671c3424eddc93c88733', // 签名
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"] // 需要使用的JS接口列表
-  });
+/* ============================================================
+   PROCESSO
+   ============================================================ */
+.workflow{background:var(--cream)}
+.workflow-timeline{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;margin-top:56px;
+  position:relative;
+}
+.workflow-timeline::before{
+  content:'';position:absolute;top:32px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg, var(--terracotta) 0%, var(--olive) 100%);
+  z-index:0;
+}
+.workflow-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start}
+.workflow-step .num{
+  width:64px;height:64px;background:var(--cream);border:2px solid var(--terracotta);
+  border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-mono);font-size:1.2rem;font-weight:700;color:var(--terracotta);
+  margin-bottom:24px;transition:all .3s var(--transition);
+}
+.workflow-step:hover .num{background:var(--terracotta);color:#fff;transform:scale(1.05)}
+.workflow-step h3{font-family:var(--font-body);font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:8px}
+.workflow-step p{color:var(--muted-text);font-size:0.95rem}
 
-  console.log('[WeChat-Frontend-' + frontendCallId + '] wx.config() 调用完成');
+/* ============================================================
+   ROTINA CONTÁBIL
+   ============================================================ */
+.routine{background:var(--sand)}
+.routine-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;margin-top:56px}
+.routine-item{
+  background:var(--cream);padding:32px;border-radius:var(--radius-md);
+  border-top:4px solid var(--olive);box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--transition), box-shadow .3s ease;
+}
+.routine-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.routine-item .period{
+  font-family:var(--font-mono);font-size:0.75rem;font-weight:600;color:var(--terracotta);
+  text-transform:uppercase;letter-spacing:0.08em;padding:4px 8px;
+  background:rgba(199,107,78,0.08);border-radius:4px;display:inline-block;margin-bottom:16px;
+}
+.routine-item h4{font-family:var(--font-body);font-weight:700;font-size:1.1rem;margin-bottom:8px}
+.routine-item p{font-size:0.9rem;color:var(--muted-text);line-height:1.6}
 
-  // 微信 JS-SDK 就绪回调
-  wx.ready(function () {
-    console.log('[WeChat-Frontend-' + frontendCallId + '] WeChat JS-SDK ready - 微信JS-SDK就绪!');
+/* ============================================================
+   DIFERENCIAIS
+   ============================================================ */
+.differentials{background:var(--cream)}
+.diff-manifesto{display:grid;grid-template-columns:1fr 1fr;gap:48px 80px;margin-top:56px}
+.diff-manifesto blockquote{
+  font-family:var(--font-serif);font-size:clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight:800;line-height:1.2;letter-spacing:-0.02em;
+  position:relative;padding-left:32px;
+}
+.diff-manifesto blockquote::before{
+  content:'';position:absolute;left:0;top:8px;width:4px;height:calc(100% - 16px);
+  background:var(--terracotta);border-radius:2px;
+}
+.diff-manifesto blockquote .mono{
+  display:block;margin-top:16px;font-size:0.8rem;font-weight:500;
+  color:var(--muted-text);font-family:var(--font-mono);line-height:1.6;
+}
 
-    // 分享给朋友的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享给朋友...');
-    wx.updateAppMessageShareData({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/c1n0e6gu8tj1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友取消');
-      }
-    });
+/* ============================================================
+   DISCLAIMER
+   ============================================================ */
+.disclaimer{background:var(--navy);color:var(--cream)}
+.disclaimer .kicker{color:var(--olive-light);background:rgba(122,146,97,0.1)}
+.disclaimer-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center}
+.disclaimer h2{color:#fff;max-width:18ch}
+.disclaimer .lead{color:rgba(255,255,255,0.7);margin-top:24px}
+.disclaimer-box{
+  background:rgba(255,255,255,0.05);padding:32px;border-radius:var(--radius-md);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.disclaimer-box .mono{font-weight:600;color:var(--terracotta-soft);text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem}
+.disclaimer-box p{margin-top:12px;font-size:0.95rem;color:rgba(255,255,255,0.8)}
+.disclaimer-box .notice{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);font-family:var(--font-mono);font-size:0.8rem;color:var(--olive-light)}
 
-    // 分享到朋友圈的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享到朋友圈...');
-    wx.updateTimelineShareData({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/c1n0e6gu8tj1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈取消');
-      }
-    });
+/* ============================================================
+   AVALIAÇÕES
+   ============================================================ */
+.reviews{background:var(--sand)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;margin-top:56px}
+.review-doc{
+  background:var(--cream);padding:32px;border-radius:var(--radius-md);
+  border:1px solid var(--line-light);box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;gap:20px;
+  transition:transform .3s var(--transition), box-shadow .3s ease;
+}
+.review-doc:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.review-doc .doc-id{font-family:var(--font-mono);font-size:0.7rem;color:var(--terracotta);font-weight:600;letter-spacing:0.08em}
+.review-doc .doc-title{font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted-text)}
+.review-doc blockquote{
+  font-family:var(--font-serif);font-size:1.2rem;font-weight:400;line-height:1.5;
+  font-style:italic;color:var(--navy);flex-grow:1;
+}
+.review-doc footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line-light);padding-top:20px}
+.review-doc .status{background:var(--olive);color:#fff;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:4px 12px;border-radius:100px}
+.review-note{margin-top:48px;text-align:center;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted-text)}
 
-    // 兼容旧版本微信客户端
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置兼容旧版本分享...');
-    wx.onMenuShareAppMessage({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/c1n0e6gu8tj1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友取消');
-      }
-    });
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{background:var(--cream)}
+.faq-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start}
+.faq-head h2{max-width:12ch}
+.faq-head p{margin-top:16px;color:var(--muted-text)}
+.faq-list{border-top:1px solid var(--line-medium)}
+.faq-item{border-bottom:1px solid var(--line-medium)}
+.faq-item summary{list-style:none;padding:24px 0;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:16px;transition:color .3s ease}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--terracotta)}
+.faq-item summary .num{font-family:var(--font-mono);font-size:0.75rem;color:var(--terracotta);font-weight:600;margin-right:16px}
+.faq-item summary::after{content:'+';font-size:1.4rem;font-weight:300;color:var(--terracotta);transition:transform .3s var(--transition);width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line-medium);border-radius:50%}
+.faq-item[open] summary{color:var(--terracotta)}
+.faq-item[open] summary::after{transform:rotate(45deg);background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+.faq-item p{padding:0 0 24px 40px;color:var(--muted-text);font-size:0.95rem;max-width:60ch;animation:slideIn .4s var(--transition)}
 
-    wx.onMenuShareTimeline({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/c1n0e6gu8tj1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈取消');
-      }
-    });
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta-final{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:radial-gradient(circle, rgba(199,107,78,0.1) 0%, transparent 70%)}
+.cta-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center;position:relative}
+.cta-left .kicker{color:var(--olive-light);background:rgba(122,146,97,0.1)}
+.cta-left h2{color:#fff;max-width:18ch;margin-bottom:16px}
+.cta-left .lead{color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:50ch}
+.cta-left .btn-primary{background:var(--terracotta)}
+.cta-left .btn-primary:hover{background:#fff;color:var(--navy)}
+.cta-right{background:var(--cream);color:var(--navy);padding:40px;border-radius:var(--radius-md)}
+.cta-right .brand-sm{font-family:var(--font-serif);font-weight:900;font-size:1.8rem;letter-spacing:-0.03em}
+.cta-right .mono{display:block;font-size:0.9rem;margin-top:8px;color:var(--muted-text)}
+.cta-right .cta-tag{margin-top:24px;padding-top:24px;border-top:1px solid var(--line-light);font-family:var(--font-mono);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--olive)}
 
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 所有分享配置完成');
-  });
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.site-footer{background:var(--navy-soft);color:var(--cream);padding:64px 0 120px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:48px}
+.footer-brand{font-family:var(--font-serif);font-weight:900;font-size:1.5rem;letter-spacing:-0.02em}
+.footer-brand small{font-family:var(--font-body);font-size:0.85rem;font-weight:400;display:block;color:rgba(255,255,255,0.6);margin-top:4px}
+.footer-copy{color:rgba(255,255,255,0.5);font-size:0.9rem;margin-top:16px;line-height:1.8}
+.footer-links{display:flex;flex-direction:column;gap:12px;font-size:0.9rem}
+.footer-links a, .footer-links button{color:rgba(255,255,255,0.7);transition:color .2s;text-align:left}
+.footer-links a:hover, .footer-links button:hover{color:var(--terracotta)}
+.footer-disclaimer{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;margin-top:24px;font-size:0.75rem;color:rgba(255,255,255,0.4);font-family:var(--font-mono);text-align:center;line-height:1.6}
 
-  // 微信 JS-SDK 错误回调
-  wx.error(function(res){
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 微信JS-SDK错误:', res);
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 错误详情:', JSON.stringify(res, null, 2));
-    // 可以在这里处理签名验证失败等错误
-  });
+/* ============================================================
+   MOBILE CTA & MENU
+   ============================================================ */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(252,250,246,0.95);backdrop-filter:blur(10px);border-top:1px solid var(--line-light)}
+.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--terracotta);color:#fff;font-weight:700;text-transform:uppercase;padding:16px;border-radius:var(--radius-sm);gap:8px;box-shadow:0 4px 12px rgba(199,107,78,0.3)}
 
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 微信JS-SDK初始化完成 =====');
-})();
-</script></head>
+.mobile-nav{position:fixed;inset:0;background:var(--navy);z-index:998;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateY(-100%);transition:transform .4s var(--transition);visibility:hidden}
+.mobile-nav.open{transform:translateY(0);visibility:visible}
+.mobile-nav a{font-family:var(--font-serif);font-size:2rem;font-weight:800;color:var(--cream)}
 
-	<body>
-		<script>
-			const env = location.hostname === 'chat.z.ai' ? 'prod' : 'pre';
-			!(function (c, b, d, a) {
-				c[a] || (c[a] = {});
-				c[a] = {
-					pid: 'j2c03hoppk@9a8be198b65ba4b',
-					endpoint: 'https://j2c03hoppk-default-cn.rum.aliyuncs.com',
-					// 设置环境信息，参考值：'prod' | 'gray' | 'pre' | 'daily' | 'local'
-					env: env,
-					// 设置路由模式， 参考值：'history' | 'hash'
-					spaMode: 'history',
-					collectors: {
-						// 页面性能指标监听开关，默认开启
-						perf: true,
-						// WebVitals指标监听开关，默认开启
-						webVitals: false,
-						// Ajax监听开关，默认开启
-						api: true,
-						// 静态资源开关，默认开启
-						staticResource: true,
-						// JS错误监听开关，默认开启
-						jsError: true,
-						// 控制台错误监听开关，默认开启
-						consoleError: false,
-						// 用户行为监听开关，默认开启
-						action: true
-					},
-					// 链路追踪配置开关，默认关闭
-					tracing: false,
-					parseViewName(url) {
-						const pathname = new URL(url).pathname;
-						if (!pathname) {
-							return '/';
-						}
-						return pathname.replace(/(.*)\/[a-f0-9-]+$/g, '$1');
-					},
-					evaluateApi(options, response) {
-						const traceId = response?.headers?.get?.('X-Trace-Id') || 'unknown';
+/* ============================================================
+   LIGHTBOX & DIALOG
+   ============================================================ */
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(15,31,46,0.95);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:var(--radius-md);box-shadow:var(--shadow-lg)}
+.lightbox-close{position:absolute;top:24px;right:24px;color:#fff;font-size:2.5rem;background:rgba(255,255,255,0.1);width:56px;height:56px;border-radius:50%;transition:background .2s, transform .2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.2);transform:rotate(90deg)}
 
-						return {
-							name: options.url.replace(/\/[a-f0-9-]{36}/g, '/**'),
-							properties: {
-								traceId
-							}
-						};
-					}
-				};
-				with (b)
-					with (body)
-						with (insertBefore(createElement('script'), firstChild))
-							setAttribute('crossorigin', '', (src = d));
-			})(window, document, 'https://sdk.rum.aliyuncs.com/v2/browser-sdk.js', '__rum');
-		</script>
-		<div id="app" style="display: contents"></div>
+dialog{width:min(600px, calc(100% - 32px));border:0;padding:0;background:var(--cream);color:var(--navy);box-shadow:var(--shadow-lg);border-radius:var(--radius-md);animation:dialogIn .4s var(--transition)}
+@keyframes dialogIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+dialog::backdrop{background:rgba(15,31,46,0.7);backdrop-filter:blur(4px)}
+.dialog-head{display:flex;justify-content:space-between;align-items:center;padding:24px 32px;border-bottom:1px solid var(--line-light)}
+.dialog-head h2{font-size:1.5rem}
+.dialog-close{font-size:2rem;cursor:pointer;color:var(--muted-text);width:32px;height:32px;display:grid;place-items:center;border-radius:50%;transition:background .2s}
+.dialog-close:hover{background:var(--line-light)}
+.dialog-body{padding:32px;display:grid;gap:16px;font-size:0.95rem}
+.dialog-body p{color:var(--muted-text);line-height:1.7}
 
-		<script>
-			var token = localStorage.getItem('token');
-			var base = window.WEBUI_BASE_URL || '';
-			var lang = localStorage.locale ?? (navigator.language.includes('zh') ? 'zh-CN' : 'en-US');
-			var config = {
-				credentials: 'include',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					...(token ? { Authorization: `Bearer ${token}` } : {}),
-					'Accept-Language': lang
-				}
-			};
-
-			var sessionFetch = fetch(`${base}/api/v1/auths/`, config).then(async (res) => {
-				if (!res.ok) throw await res.json();
-				return res.json();
-			});
-
-			window.GLOBAL_FETCHES = {
-				session: sessionFetch,
-				config: fetch(`${base}/api/config`, config).then(async (res) => {
-					if (!res.ok) throw await res.json();
-					return res.json();
-				}),
-				// token 存在时与其他请求并行；不存在时需等 session 之后再请求 models
-				// 至少要 cookie 里有 token 才能正常请求 models
-				models: token
-					? fetch(`${base}/api/models`, config)
-					: sessionFetch.then(() => fetch(`${base}/api/models`, config)),
-				settings:
-					token &&
-					fetch(`${base}/api/v1/users/user/settings`, config).then(async (res) => {
-						if (!res.ok) throw await res.json();
-						return res.json();
-					})
-			};
-		</script>
-		<script async="" src="//o.alicdn.com/frontend-lib/common-lib/jquery.min.js"></script>
-	
-
-
-<style type="text/css" nonce="">
-	@keyframes pulse {
-		50% {
-			opacity: 0.65;
-		}
-	}
-
-	.animate-pulse-fast {
-		animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	}
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media(max-width:1024px){
+  .nav, .header-cta{display:none}
+  .menu-button{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-image{min-height:280px}
+  .positioning-grid, .diagnostic-grid, .disclaimer-grid, .cta-grid, .footer-grid, .faq-layout{grid-template-columns:1fr;gap:48px}
+  .services-layout{grid-template-columns:1fr;gap:40px}
+  .services-index{position:relative;top:0}
+  .audience-grid, .routine-grid, .reviews-grid{grid-template-columns:1fr 1fr}
+  .workflow-timeline{grid-template-columns:1fr 1fr;gap:48px}
+  .workflow-timeline::before{display:none}
+  .diff-manifesto{grid-template-columns:1fr;gap:32px}
+  .mobile-cta{display:block}
+}
+@media(max-width:720px){
+  .container{width:calc(100% - 32px)}
+  h1{font-size:clamp(2.2rem, 10vw, 3rem)}
+  h2{font-size:clamp(1.8rem, 7vw, 2.4rem)}
+  .hero-text .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-text .hero-actions .btn{width:100%}
+  .positioning-features{gap:24px}
+  .audience-grid, .routine-grid, .reviews-grid, .diagnostic-list{grid-template-columns:1fr}
+  .workflow-timeline{grid-template-columns:1fr;gap:32px}
+  .footer-grid{grid-template-columns:1fr}
+  .lightbox-hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
-</body></html>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader" role="banner">
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Almeida Contabilidade">
+      <span class="brand-mark">AC</span>
+      <span class="brand-text">
+        <strong>ALMEIDA</strong>
+        <span>Contabilidade</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="header-cta" href="#contato">Falar com a contabilidade</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-label="Abrir menu" id="menuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#servicos">Serviços</a>
+  <a href="#para-quem">Para quem é</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#diferenciais">Diferenciais</a>
+  <a href="#faq">Dúvidas</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<main id="conteudo">
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid reveal">
+        <div class="hero-text">
+          <span class="kicker">Contabilidade para MEIs, autônomos e pequenas empresas</span>
+          <h1>Clareza para organizar sua empresa e tomar decisões com mais <em>segurança</em>.</h1>
+          <p class="lead">Acompanhamento contábil para quem precisa manter obrigações em dia, entender os números do negócio e resolver questões fiscais sem linguagem complicada.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Falar com a contabilidade</a>
+            <a class="btn btn-secondary" href="#servicos">Conhecer os serviços</a>
+          </div>
+        </div>
+        <div class="hero-visuals">
+          <div class="hero-image">
+            <div class="img-placeholder" role="img" aria-label="Atendimento contábil em mesa com documentos e notebook"></div>
+          </div>
+          <div class="hero-panel">
+            <span class="mono">Atendimento</span>
+            <h3>Online e presencial</h3>
+            <ul>
+              <li><span>MEIs e pequenas empresas</span> <span>✓</span></li>
+              <li><span>Cidade Exemplo e todo o Brasil</span> <span>✓</span></li>
+              <li><span>Segunda a sexta</span> <span>✓</span></li>
+            </ul>
+            <div class="hero-cnpj">CNPJ 00.000.000/0000-00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSICIONAMENTO -->
+  <section class="section positioning" id="posicionamento">
+    <div class="container">
+      <div class="positioning-grid reveal">
+        <div class="positioning-left">
+          <span class="kicker">Nosso posicionamento</span>
+          <div class="positioning-quote">A contabilidade precisa ajudar você a entender a empresa, não aumentar a confusão.</div>
+          <div class="positioning-features">
+            <div><strong>Informação compreensível</strong><p>Explicações objetivas, sem excesso de termos técnicos.</p></div>
+            <div><strong>Acompanhamento contínuo</strong><p>Orientação ao longo do mês, não apenas no momento de pagar impostos.</p></div>
+            <div><strong>Visão organizada da empresa</strong><p>Documentos, prazos e obrigações reunidos em um processo mais claro.</p></div>
+          </div>
+        </div>
+        <div class="positioning-right">
+          <p class="pos-text">Guias, impostos, declarações, notas fiscais e obrigações podem se acumular rapidamente quando não existe acompanhamento. O trabalho contábil começa pela organização da situação atual da empresa. A partir daí, cada obrigação é explicada, cada pendência é identificada e as próximas decisões são tomadas com mais clareza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section services" id="servicos">
+    <div class="container">
+      <div class="services-layout reveal">
+        <div class="services-index">
+          <span class="kicker">Serviços contábeis</span>
+          <h2>Soluções para abrir, manter, regularizar ou encerrar uma empresa.</h2>
+          <p>Cada empresa possui uma realidade diferente. O atendimento começa pela identificação do enquadramento, da situação fiscal e das necessidades do negócio.</p>
+        </div>
+        <div class="services-list">
+          <details class="service-item"><summary><span><span class="num">01</span> Abertura de empresa</span></summary><div class="desc">Orientação sobre natureza jurídica, atividade, enquadramento tributário e documentação necessária para iniciar o negócio.</div></details>
+          <details class="service-item"><summary><span><span class="num">02</span> Contabilidade mensal</span></summary><div class="desc">Acompanhamento das obrigações contábeis e fiscais, organização de documentos e apuração conforme o regime da empresa.</div></details>
+          <details class="service-item"><summary><span><span class="num">03</span> Regularização de pendências</span></summary><div class="desc">Verificação de declarações, débitos, inconsistências cadastrais e outras situações que possam impedir o funcionamento regular da empresa.</div></details>
+          <details class="service-item"><summary><span><span class="num">04</span> Emissão e orientação sobre notas fiscais</span></summary><div class="desc">Apoio para compreender quando emitir, como organizar as informações e quais procedimentos devem ser observados.</div></details>
+          <details class="service-item"><summary><span><span class="num">05</span> Folha de pagamento e pró-labore</span></summary><div class="desc">Processamento de informações relacionadas a colaboradores, sócios, encargos e obrigações trabalhistas aplicáveis.</div></details>
+          <details class="service-item"><summary><span><span class="num">06</span> Imposto de Renda</span></summary><div class="desc">Organização das informações e preparação da declaração de pessoas físicas, autônomos e sócios de empresas.</div></details>
+          <details class="service-item"><summary><span><span class="num">07</span> Alteração empresarial</span></summary><div class="desc">Atualização de endereço, atividade, quadro societário, capital e demais dados da empresa.</div></details>
+          <details class="service-item"><summary><span><span class="num">08</span> Encerramento de empresa</span></summary><div class="desc">Orientação e execução dos procedimentos necessários para encerrar as atividades de forma regular.</div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÚBLICO-ALVO -->
+  <section class="section audience" id="para-quem">
+    <div class="container">
+      <span class="kicker reveal">Para quem é</span>
+      <h2 class="reveal">Atendimento para quem precisa de uma contabilidade próxima da realidade do negócio.</h2>
+      <div class="audience-grid reveal">
+        <div class="audience-item"><span class="num">01</span><h3>MEIs em crescimento</h3><p>Quem precisa entender limites, obrigações e o momento de mudar de categoria.</p></div>
+        <div class="audience-item"><span class="num">02</span><h3>Prestadores de serviços</h3><p>Profissionais que emitem notas, recebem de empresas e precisam organizar impostos e retiradas.</p></div>
+        <div class="audience-item"><span class="num">03</span><h3>Pequenas empresas</h3><p>Negócios que precisam manter a operação regular e acompanhar melhor sua situação financeira.</p></div>
+        <div class="audience-item"><span class="num">04</span><h3>Profissionais autônomos</h3><p>Quem deseja organizar rendimentos, declaração e possíveis caminhos para formalização.</p></div>
+        <div class="audience-item"><span class="num">05</span><h3>Empresas em regularização</h3><p>Negócios com pendências, declarações atrasadas ou dúvidas sobre a situação cadastral.</p></div>
+        <div class="audience-item"><span class="num">06</span><h3>Novos empreendedores</h3><p>Quem ainda está decidindo como abrir e estruturar a empresa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGNÓSTICO -->
+  <section class="section diagnostic" id="diagnostico">
+    <div class="container">
+      <div class="diagnostic-grid reveal">
+        <div>
+          <span class="kicker">Situações comuns</span>
+          <h2>Quando a empresa cresce sem organização, as dúvidas também crescem.</h2>
+          <ul class="diagnostic-list">
+            <li>não saber quais impostos devem ser pagos</li>
+            <li>receber notificações ou identificar pendências</li>
+            <li>ter dificuldade para emitir nota fiscal</li>
+            <li>misturar dinheiro da empresa com despesas pessoais</li>
+            <li>não saber quanto pode retirar mensalmente</li>
+            <li>perder prazos de declarações</li>
+            <li>manter uma empresa aberta sem movimentação</li>
+            <li>precisar mudar o enquadramento ou atividade</li>
+            <li>ter dúvidas sobre contratação de funcionário</li>
+            <li>não entender os relatórios enviados pela contabilidade anterior</li>
+          </ul>
+        </div>
+        <div class="diagnostic-highlight">
+          <strong>O primeiro passo é entender a situação atual.</strong>
+          <p>Depois disso, é possível definir o que precisa ser corrigido, mantido ou reorganizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section workflow" id="como-funciona">
+    <div class="container">
+      <span class="kicker reveal">Como começa o atendimento</span>
+      <h2 class="reveal">Um processo simples para entender sua empresa e definir os próximos passos.</h2>
+      <div class="workflow-timeline reveal">
+        <div class="workflow-step"><div class="num">01</div><h3>Você explica a situação</h3><p>Conte em que fase está o negócio, quais são as principais dúvidas e o que precisa ser resolvido.</p></div>
+        <div class="workflow-step"><div class="num">02</div><h3>A documentação é analisada</h3><p>São verificados cadastro, regime tributário, obrigações, movimentação e possíveis pendências.</p></div>
+        <div class="workflow-step"><div class="num">03</div><h3>Você recebe a orientação</h3><p>A situação é explicada de forma objetiva, com indicação do que precisa ser feito e das prioridades.</p></div>
+        <div class="workflow-step"><div class="num">04</div><h3>O acompanhamento inicia</h3><p>Com a contratação, os documentos e informações passam a seguir uma rotina organizada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROTINA CONTÁBIL -->
+  <section class="section routine" id="rotina">
+    <div class="container">
+      <span class="kicker reveal">Rotina contábil</span>
+      <h2 class="reveal">O que precisa acontecer todos os meses para a empresa permanecer organizada</h2>
+      <div class="routine-grid reveal">
+        <div class="routine-item"><span class="period">Até o dia 05</span><h4>Envio dos documentos</h4><p>Notas fiscais, extratos, comprovantes e informações necessárias são enviados dentro do prazo combinado.</p></div>
+        <div class="routine-item"><span class="period">Até o dia 15</span><h4>Conferência e processamento</h4><p>Os dados são verificados e utilizados para apuração e cumprimento das obrigações.</p></div>
+        <div class="routine-item"><span class="period">Até o dia 20</span><h4>Guias e informações</h4><p>O cliente recebe os documentos de pagamento e as orientações correspondentes.</p></div>
+        <div class="routine-item"><span class="period">Ao longo do mês</span><h4>Acompanhamento</h4><p>Dúvidas, alterações e situações específicas são tratadas ao longo do período.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section differentials" id="diferenciais">
+    <div class="container">
+      <span class="kicker reveal">Diferenciais</span>
+      <h2 class="reveal">Contabilidade com explicação, acompanhamento e responsabilidade.</h2>
+      <div class="diff-manifesto reveal">
+        <blockquote>Explicamos o que precisa ser feito.<span class="mono">Linguagem direta — As informações são apresentadas de forma clara para que você compreenda a situação da empresa.</span></blockquote>
+        <blockquote>Organizamos o que precisa ser entregue.<span class="mono">Organização de prazos — As obrigações são acompanhadas conforme o calendário aplicável ao negócio.</span></blockquote>
+        <blockquote>Acompanhamos o que pode afetar sua empresa.<span class="mono">Análise antes da recomendação — A orientação considera o enquadramento, a atividade e a realidade do negócio.</span></blockquote>
+        <blockquote>Processo digital e ágil.<span class="mono">Documentos e informações podem ser enviados online, reduzindo deslocamentos e papelada.</span></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="section disclaimer" id="seguranca">
+    <div class="container">
+      <div class="disclaimer-grid reveal">
+        <div>
+          <span class="kicker">Segurança e responsabilidade</span>
+          <h2>Nem toda solução serve para toda empresa.</h2>
+          <p class="lead">Regime tributário, atividade, faturamento, contratação e retirada de sócios devem ser avaliados com base em informações reais. Por isso, orientações definitivas dependem da análise dos documentos e da situação cadastral da empresa.</p>
+        </div>
+        <div class="disclaimer-box">
+          <span class="mono">Aviso importante</span>
+          <p>Informações desta página possuem caráter geral e demonstrativo. A contratação e a orientação profissional dependem de análise específica.</p>
+          <div class="notice">Decisões contábeis precisam considerar a realidade da sua empresa.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="section reviews" id="avaliacoes">
+    <div class="container">
+      <span class="kicker reveal">Avaliações</span>
+      <h2 class="reveal">O que os clientes valorizam no atendimento</h2>
+      <div class="reviews-grid reveal">
+        <div class="review-doc">
+          <div><div class="doc-id">CLIENTE 000001</div><div class="doc-title">Prestador de serviços</div></div>
+          <blockquote>“Eu recebia as guias, mas não entendia o que estava pagando. Agora consigo acompanhar melhor as obrigações da empresa.”</blockquote>
+          <footer><span>Atendimento online</span><span class="status">Acompanhamento ativo</span></footer>
+        </div>
+        <div class="review-doc">
+          <div><div class="doc-id">CLIENTE 000002</div><div class="doc-title">Pequena empresa</div></div>
+          <blockquote>“Precisava regularizar algumas declarações e não sabia por onde começar. A situação foi explicada com clareza e resolvida por etapas.”</blockquote>
+          <footer><span>Regularização</span><span class="status">Concluído</span></footer>
+        </div>
+        <div class="review-doc">
+          <div><div class="doc-id">CLIENTE 000003</div><div class="doc-title">Profissional autônomo</div></div>
+          <blockquote>“Consegui abrir a empresa e entender o que precisava organizar desde o começo. O atendimento foi objetivo e muito tranquilo.”</blockquote>
+          <footer><span>Abertura de empresa</span><span class="status">Concluído</span></footer>
+        </div>
+      </div>
+      <div class="review-note reveal">Depoimentos inseridos exclusivamente para demonstração deste modelo.</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="faq-layout reveal">
+        <div class="faq-head">
+          <span class="kicker">Perguntas frequentes</span>
+          <h2>Dúvidas comuns sobre o acompanhamento contábil</h2>
+          <p>As respostas a seguir abordam os principais pontos sobre como funciona o serviço e o atendimento.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary><span><span class="num">01</span> A contabilidade atende MEI?</span></summary><p>Sim. O atendimento pode incluir orientação sobre obrigações, declaração anual, limites, regularização e avaliação do momento de mudança de categoria.</p></details>
+          <details class="faq-item"><summary><span><span class="num">02</span> Posso trocar de contador?</span></summary><p>Sim. A troca pode ser realizada mediante organização dos documentos, autorizações necessárias e alinhamento com o profissional anterior.</p></details>
+          <details class="faq-item"><summary><span><span class="num">03</span> O atendimento pode ser totalmente online?</span></summary><p>Sim. Documentos, reuniões e orientações podem ser realizados por meios digitais, conforme a necessidade.</p></details>
+          <details class="faq-item"><summary><span><span class="num">04</span> Preciso enviar documentos todos os meses?</span></summary><p>Depende da atividade e do regime da empresa. A rotina de envio é definida no início do acompanhamento.</p></details>
+          <details class="faq-item"><summary><span><span class="num">05</span> A mensalidade inclui todas as alterações da empresa?</span></summary><p>Nem sempre. Serviços extraordinários, como abertura, alteração, regularização ou encerramento, podem ser cobrados separadamente.</p></details>
+          <details class="faq-item"><summary><span><span class="num">06</span> Vocês fazem Imposto de Renda de pessoa física?</span></summary><p>Sim. O serviço pode ser contratado separadamente e depende da análise das informações e documentos do contribuinte.</p></details>
+          <details class="faq-item"><summary><span><span class="num">07</span> Como sei qual regime tributário é melhor?</span></summary><p>A escolha depende da atividade, do faturamento, das despesas, da folha e de outros fatores. A recomendação deve ser feita após análise.</p></details>
+          <details class="faq-item"><summary><span><span class="num">08</span> Atende empresas de qualquer segmento?</span></summary><p>O atendimento depende da atividade e da complexidade da operação. Segmentos específicos podem exigir análise prévia.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section cta-final" id="contato">
+    <div class="container">
+      <div class="cta-grid reveal">
+        <div class="cta-left">
+          <span class="kicker">Precisa organizar sua empresa?</span>
+          <h2>Explique sua situação e descubra quais são os próximos passos.</h2>
+          <p class="lead">Envie uma mensagem informando o tipo de empresa, a atividade e a principal dúvida. A partir dessas informações, será possível entender melhor a necessidade do atendimento.</p>
+          <a class="btn btn-primary" href="#" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Falar com a contabilidade</a>
+          <p style="margin-top:16px;font-family:var(--font-mono);font-size:0.75rem;color:rgba(255,255,255,0.4);">O link pode permanecer vazio: href=""</p>
+        </div>
+        <div class="cta-right">
+          <div class="brand-sm">Almeida Contabilidade</div>
+          <span class="mono">CNPJ 00.000.000/0000-00</span>
+          <span class="mono">(00) 00000-0000</span>
+          <span class="mono">contato@almeidacontabilidade.com.br</span>
+          <div class="cta-tag">Atendimento online em todo o Brasil</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- RODAPÉ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">Almeida Contabilidade <small>Contabilidade para MEIs, autônomos e pequenas empresas.</small></div>
+      <p class="footer-copy">CNPJ 00.000.000/0000-00 • Telefone: (00) 00000-0000 • E-mail: contato@almeidacontabilidade.com.br<br>Rua Exemplo, 000 — Centro — Cidade Exemplo</p>
+    </div>
+    <div class="footer-links">
+      <a href="#privacidade" data-open-dialog="privacidade">Política de privacidade</a>
+      <a href="#termos" data-open-dialog="termos">Condições de atendimento</a>
+    </div>
+    <div class="footer-disclaimer">
+      Este é um site demonstrativo. Nomes, números, endereços, avaliações e informações comerciais são fictícios.
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta"><a href="#contato">Falar com a contabilidade</a></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Ampliação de imagem">
+  <button class="lightbox-close" type="button" aria-label="Fechar">×</button>
+  <img src="" alt="">
+  <span class="lightbox-hint" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.3);font-size:0.75rem;font-family:var(--font-mono)">Clique fora da imagem para fechar</span>
+</div>
+
+<dialog id="privacidade" aria-label="Política de privacidade">
+  <div class="dialog-head"><h2>Política de privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar">×</button></div>
+  <div class="dialog-body"><p>Este site demonstrativo não coleta dados pessoais. As informações de contato são fornecidas apenas para simulação.</p><p>O contato com a contabilidade é realizado por meio de link externo (WhatsApp), sujeito às políticas da plataforma.</p></div>
+</dialog>
+
+<dialog id="termos" aria-label="Condições de atendimento">
+  <div class="dialog-head"><h2>Condições de atendimento</h2><button class="dialog-close" type="button" aria-label="Fechar">×</button></div>
+  <div class="dialog-body">
+    <p><strong>Contratação:</strong> O acompanhamento contábil é iniciado mediante contratação formal e organização dos documentos da empresa.</p>
+    <p><strong>Comunicação:</strong> Orientações e dúvidas são tratadas por canais digitais (WhatsApp, e-mail ou reunião online).</p>
+    <p><strong>Responsabilidade:</strong> As orientações consideram a situação apresentada pelo cliente. Decisões finais são de responsabilidade do contratante.</p>
+    <p><strong>Este é um site demonstrativo:</strong> Todas as informações são fictícias para apresentação do modelo.</p>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  'use strict';
+
+  // Header scroll effect
+  const siteHeader = document.getElementById('siteHeader');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        siteHeader.classList.toggle('scrolled', window.scrollY > 8);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Mobile Menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  function toggleMenu(open) {
+    const isOpen = open !== undefined ? open : !mobileNav.classList.contains('open');
+    mobileNav.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+  
+  menuBtn?.addEventListener('click', () => toggleMenu());
+  mobileNav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px' });
+    reveals.forEach(el => obs.observe(el));
+  }
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  };
+  document.querySelectorAll('.hero-image .img-placeholder, .review-doc').forEach(el => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => {
+      lightboxImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23F5F1EA" width="800" height="600"/><text x="400" y="300" text-anchor="middle" font-family="serif" font-size="32" fill="%230F1F2E">Imagem demonstrativa</text></svg>';
+      lightboxImg.alt = 'Imagem demonstrativa do modelo contábil';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightbox.querySelector('.lightbox-close').focus();
+    });
+  });
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  // Dialogs
+  const privacyDialog = document.getElementById('privacidade');
+  const termsDialog = document.getElementById('termos');
+  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); privacyDialog.showModal(); });
+  });
+  document.querySelectorAll('[data-open-dialog="termos"]').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); termsDialog.showModal(); });
+  });
+  [privacyDialog, termsDialog].forEach(dialog => {
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        dialog.close();
+      }
+    });
+  });
+
+  // Global keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (lightbox.classList.contains('open')) closeLightbox();
+      if (document.querySelector('dialog[open]')) document.querySelector('dialog[open]').close();
+      if (mobileNav.classList.contains('open')) toggleMenu(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
