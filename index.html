@@ -39,7 +39,7 @@
 {"@type":"Organization","@id":"https://www.estudioescritaplanejada.com.br/#organization","name":"Estúdio Escrita Planejada","url":"https://www.estudioescritaplanejada.com.br/","telephone":"+55 11 96450-2997","email":"estudioescritaplanejada@gmail.com","areaServed":{"@type":"Country","name":"Brasil"},"logo":"https://www.estudioescritaplanejada.com.br/assets/img/logo.png","image":"https://www.estudioescritaplanejada.com.br/assets/img/og-estudio-escrita-planejada.jpg","taxID":"61.424.633/0001-11"},
 {"@type":"WebSite","@id":"https://www.estudioescritaplanejada.com.br/#website","url":"https://www.estudioescritaplanejada.com.br/","name":"Estúdio Escrita Planejada","inLanguage":"pt-BR","publisher":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"}},
 {"@type":"WebPage","@id":"https://www.estudioescritaplanejada.com.br/#webpage","url":"https://www.estudioescritaplanejada.com.br/","name":"Landing pages profissionais para negócios, serviços e produtos","description":"Criação de landing pages profissionais com atendimento direcionado ao WhatsApp.","isPartOf":{"@id":"https://www.estudioescritaplanejada.com.br/#website"},"about":{"@id":"https://www.estudioescritaplanejada.com.br/#service"},"inLanguage":"pt-BR"},
-{"@type":"Service","@id":"https://www.estudioescritaplanejada.com.br/#service","name":"Landing page profissional para negócios, serviços e produtos","description":"Organização das informações, redação dos textos, design responsivo, configuração do WhatsApp e publicação.","provider":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":"Criação de landing page profissional com atendimento pelo WhatsApp","offers":{"@type":"Offer","price":"900.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://www.estudioescritaplanejada.com.br/#investimento"}}
+{"@type":"Service","@id":"https://www.estudioescritaplanejada.com.br/#service","name":"Landing page profissional para negócios, serviços e produtos","description":"Organização das informações, redação dos textos, design responsivo, configuração do WhatsApp e publicação.","provider":{"@id":"https://www.estudioescritaplanejada.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"serviceType":"Criação de landing page profissional com atendimento pelo WhatsApp","offers":{"@type":"Offer","price":"700.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://www.estudioescritaplanejada.com.br/#investimento"}}
 ]
 }
 </script>
@@ -261,6 +261,7 @@ p{margin:0;color:var(--muted)}
 .btn:active{transform:translateY(0)}
 .hero-price{margin-top:36px;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .hero-price span{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:#5e5952}
+.hero-price del{display:block;margin-top:6px;font-size:1rem;color:#6e685f;text-decoration-thickness:2px}
 .hero-price strong{font-family:var(--font-display);font-size:clamp(3.8rem,7vw,6.2rem);line-height:.8;letter-spacing:-.06em;color:var(--ink)}
 .hero-proof{display:flex;flex-wrap:wrap;gap:10px 18px;margin:32px 0 0;padding:0;list-style:none;font-size:.9rem;font-weight:600}
 .hero-proof li{display:flex;align-items:center}
@@ -480,6 +481,9 @@ p{margin:0;color:var(--muted)}
 .owner-costs strong{display:block;margin-bottom:5px;color:#1e1b18}
 .owner-costs p{margin:0}
 .price-panel{background:var(--acid)}
+.offer-label{display:inline-block;padding:8px 12px;background:var(--ink);color:#fff;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.regular-price{margin-top:22px;color:#4a4640;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.regular-price del{font-size:1.35rem;text-decoration-thickness:2px}
 .price-panel .price{font-family:var(--font-display);font-size:clamp(5rem,9vw,8.5rem);line-height:.8;letter-spacing:-.06em;margin:24px 0 34px;color:var(--ink)}
 .payment-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-strong);border-left:1px solid var(--line-strong)}
 .payment-grid div{padding:18px;border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);transition:background .25s ease}
@@ -536,6 +540,8 @@ p{margin:0;color:var(--muted)}
 .final-copy{padding:clamp(76px,9vw,130px) clamp(28px,6vw,92px);display:flex;flex-direction:column;justify-content:center;container-type:inline-size;position:relative;z-index:1}
 .final-copy h2{font-size:clamp(2.5rem,4.8vw,5.15rem);color:#fff;max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .final-copy .lead{margin-top:24px;color:#fff3ee;max-width:48ch}
+.final-offer{margin-top:30px;color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.final-offer del{margin-left:8px;color:#ffe1d8;text-decoration-thickness:2px}
 .final-copy .price{font-family:var(--font-display);font-size:clamp(4rem,7vw,6.8rem);line-height:.8;letter-spacing:-.06em;margin-top:34px;color:#fff}
 .final-copy .btn{margin-top:26px;align-self:flex-start;background:#fff;color:var(--ink);border-color:#fff;transition:all .25s var(--ease-out)}
 .final-copy .btn:hover{background:var(--ink);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
@@ -667,13 +673,15 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
   .payment-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
-  .container{width:min(var(--max),calc(100% - 20px))}
+  html,body,.page{width:100%;max-width:100%;overflow-x:clip}
+  .page > section,.site-header,.site-footer{width:100%;max-width:100%}
+  .container{width:calc(100% - 24px);max-width:none;margin-inline:auto}
   .header-inner{height:68px}
   .brand{font-size:.82rem}
   .brand span:last-child{display:none}
-  .hero-copy,.problem-copy,.final-copy{padding:58px 20px}
-  h1{font-size:clamp(2rem,9.5vw,3.4rem);line-height:.9;max-width:100%}
-  h2{font-size:clamp(2rem,9.5vw,3.4rem);line-height:.9;max-width:100%}
+  .hero-copy,.problem-copy,.final-copy{padding:52px 16px}
+  h1{font-size:clamp(1.9rem,8.6vw,3.2rem);line-height:.9;max-width:100%}
+  h2{font-size:clamp(1.9rem,8.6vw,3.2rem);line-height:.9;max-width:100%}
   .hero-copy h1,.audience-copy h2,.process-head h2{overflow-wrap:normal;word-break:normal}
   .problem-copy h2,.delivery-copy h2,.price-panel h2,.final-copy h2{max-width:100%;letter-spacing:-.048em;line-height:.9}
   .hero-media{min-height:410px}
@@ -727,7 +735,7 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
       <a href="#investimento">Investimento</a>
       <a href="#faq">Dúvidas</a>
     </nav>
-    <a class="header-cta" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página</a>
+    <a class="header-cta" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página</a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -739,10 +747,10 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
       <p class="lead">Reúna serviços, produtos, imagens, diferenciais e informações comerciais em uma página própria, pronta para levar o cliente diretamente ao WhatsApp.</p>
       <p class="hero-subtext">Você envia as informações. O Estúdio organiza, escreve, cria e publica.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a>
+        <a class="btn btn-primary" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a>
         <a class="btn btn-secondary" href="#demonstracao">Ver demonstração</a>
       </div>
-      <div class="hero-price"><span>Página profissional completa por</span><strong>R$ 900</strong></div>
+      <div class="hero-price"><span>Oferta de lançamento por tempo limitado <del>R$ 900</del></span><strong>R$ 700</strong></div>
       <ul class="hero-proof"><li>Uma página completa</li><li>Celular e computador</li><li>Uma rodada de ajustes</li></ul>
     </div>
     <div class="hero-media reveal">
@@ -830,7 +838,7 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
       </div>
       <div>
         <ul>
-          <li class="positive"><strong>Com o Estúdio:</strong> página profissional com textos, design e adaptação para celular – tudo incluso por R$ 900</li>
+          <li class="positive"><strong>Com o Estúdio:</strong> página profissional com textos, design e adaptação para celular — valor regular de R$ 900; oferta de lançamento por R$ 700</li>
           <li><strong>Wix / Canva / Linktree:</strong> exige horas de aprendizado, design amador e textos que você mesmo precisa escrever</li>
           <li><strong>Freelancer genérico:</strong> custo incerto, comunicação demorada, sem garantia de que a página vai converter clientes</li>
           <li><strong>Fazer você mesmo:</strong> consome tempo que poderia ser usado atendendo clientes e o resultado raramente fica profissional</li>
@@ -866,8 +874,10 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
       </div>
       <div class="price-panel reveal" id="investimento">
         <h2>Página profissional completa</h2>
-        <div class="price">R$ 900</div>
-        <div class="payment-grid"><div><strong>R$ 450</strong><small>para iniciar</small></div><div><strong>R$ 450</strong><small>depois da aprovação</small></div></div>
+        <p class="offer-label">Oferta de lançamento por tempo limitado</p>
+        <div class="regular-price">De <del>R$ 900</del> por</div>
+        <div class="price">R$ 700</div>
+        <div class="payment-grid"><div><strong>R$ 350</strong><small>para iniciar</small></div><div><strong>R$ 350</strong><small>depois da aprovação</small></div></div>
         <p class="price-summary">Inclui redação, organização do conteúdo, design, versão para celular, publicação e uma rodada de ajustes.</p>
         <p class="price-deadline"><strong>Entrega em até 7 dias úteis</strong></p>
         <p class="price-condition">A partir da confirmação do pagamento inicial, envio completo das informações e recebimento das fotos e demais materiais.</p>
@@ -875,7 +885,7 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
           <p><strong>Formas de pagamento:</strong> Pix ou cartão de crédito (parcelamento via operadora).</p>
           <p><strong>Nota fiscal:</strong> emitimos NFS-e para MEI e empresas (CNPJ: 61.424.633/0001-11).</p>
         </div>
-        <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página por R$ 900</a>
+        <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página por R$ 700</a>
         <div class="price-note">Domínio, eventuais serviços pagos de terceiros e futuras alterações não estão incluídos no valor.</div>
       </div>
     </div>
@@ -901,8 +911,9 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
     <div class="final-copy reveal">
       <h2 id="final-title">Seu trabalho já existe. Agora ele precisa ser bem apresentado.</h2>
       <p class="lead">Tenha uma página própria para apresentar seu negócio, serviço ou produto — e levar o cliente direto para o WhatsApp.</p>
-      <div class="price">R$ 900</div>
-      <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
+      <p class="final-offer">Oferta de lançamento <del>R$ 900</del></p>
+      <div class="price">R$ 700</div>
+      <a class="btn" href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero apresentar melhor meu serviço</a>
       <p class="small">Atendimento online para autônomos, MEIs e pequenas empresas de todo o Brasil.</p>
     </div>
     <div class="final-media reveal"><img src="assets/img/hero-mockup-principal.webp" alt="Landing page profissional exibida em notebook sobre uma mesa de trabalho" width="1672" height="941" loading="lazy" decoding="async"></div>
@@ -918,7 +929,7 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
       <p class="footer-copy footer-email">📧 <a href="mailto:estudioescritaplanejada@gmail.com">estudioescritaplanejada@gmail.com</a></p>
     </div>
     <nav class="footer-links" aria-label="Rodapé">
-      <a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <button type="button" data-open-dialog="privacidade">Política de privacidade</button>
       <button type="button" data-open-dialog="termos">Termos do serviço</button>
       <a href="#investimento">Condições da oferta</a>
@@ -926,7 +937,7 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
   </div>
 </footer>
 
-<div class="mobile-cta"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20900.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a></div>
+<div class="mobile-cta"><a href="https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20p%C3%A1gina%20profissional%20por%20R%24%20700.%20Meu%20servi%C3%A7o%20%C3%A9%3A" target="_blank" rel="noopener noreferrer">Quero minha página profissional</a></div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da demonstração">
   <button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">×</button>
@@ -944,8 +955,8 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
   <div class="dialog-body">
     <p><strong>Escopo do serviço:</strong> Criação de uma landing page única para apresentação de negócio, serviço ou produto, com atendimento direcionado ao WhatsApp. Conteúdos complementares podem ser exibidos em acordeões, galerias ou janelas internas.</p>
     <p><strong>O que NÃO está incluso:</strong> Loja virtual, blog, sistema de agendamento, múltiplas páginas, integração com CRM, manutenção contínua ou atualizações de conteúdo após a entrega.</p>
-    <p><strong>Prazo de entrega:</strong> Até 7 dias úteis a partir da confirmação do pagamento inicial (R$ 450) e recebimento completo de todas as informações e fotos necessárias.</p>
-    <p><strong>Política de reembolso:</strong> O valor inicial (R$ 450) é referente à análise, organização e início da criação. Em caso de desistência após o início do trabalho, esse valor não será reembolsado. O saldo (R$ 450) só é devido após a aprovação da prévia; se o cliente não aprovar e optar por não prosseguir, o saldo não é cobrado.</p>
+    <p><strong>Prazo de entrega:</strong> Até 7 dias úteis a partir da confirmação do pagamento inicial (R$ 350) e recebimento completo de todas as informações e fotos necessárias.</p>
+    <p><strong>Política de reembolso:</strong> O valor inicial (R$ 350) é referente à análise, organização e início da criação. Em caso de desistência após o início do trabalho, esse valor não será reembolsado. O saldo (R$ 350) só é devido após a aprovação da prévia; se o cliente não aprovar e optar por não prosseguir, o saldo não é cobrado.</p>
     <p><strong>Rodada de ajustes:</strong> Uma rodada de até 8 correções/ajustes simples (texto, cores, imagens) está incluída. Alterações estruturais ou adição de novas seções após a prévia podem ser cobradas à parte.</p>
     <p><strong>Propriedade:</strong> Após o pagamento total, a página e todos os arquivos são transferidos para a conta do cliente, que fica responsável pelo domínio e por eventuais serviços pagos de terceiros.</p>
   </div>
