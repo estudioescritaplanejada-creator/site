@@ -238,8 +238,9 @@ p{margin:0;color:var(--muted)}
   padding:clamp(58px,8vw,110px) clamp(28px,6vw,92px);
   display:flex;flex-direction:column;justify-content:center;
   border-right:1px solid var(--line);position:relative;z-index:1;
+  container-type:inline-size;
 }
-.hero-copy h1{max-width:8.6ch}
+.hero-copy h1{max-width:100%;overflow-wrap:break-word}
 .hero-copy h1 em{font-style:normal;color:var(--orange);position:relative}
 .hero-copy .lead{margin-top:28px;max-width:54ch;color:#2a2622}
 .hero-subtext{margin-top:16px;max-width:50ch;color:#3a3632}
@@ -390,7 +391,8 @@ p{margin:0;color:var(--muted)}
    ========================================================= */
 .audience{background:var(--paper);padding:clamp(80px,10vw,120px) 0}
 .audience-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:70px;align-items:center}
-.audience-copy h2{max-width:8.5ch}
+.audience-copy{container-type:inline-size;min-width:0}
+.audience-copy h2{max-width:100%;overflow-wrap:break-word}
 .audience-copy .lead{margin-top:24px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .tags span{
@@ -445,7 +447,8 @@ p{margin:0;color:var(--muted)}
 }
 .process p{color:#c9c4be}
 .process-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:end;margin-bottom:50px;position:relative}
-.process-head h2{color:#fff;max-width:8ch}
+.process-head > div{container-type:inline-size;min-width:0}
+.process-head h2{color:#fff;max-width:100%;overflow-wrap:break-word}
 .process-list{border-top:1px solid rgba(255,255,255,.22);position:relative}
 .process-row{
   display:grid;grid-template-columns:110px 1fr 1.25fr;gap:30px;align-items:start;
@@ -610,14 +613,20 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
    Container queries
    ========================================================= */
 @supports (font-size:1cqi){
+  .hero-copy h1{font-size:clamp(3.4rem,12cqi,7.2rem)}
   .problem-copy h2{font-size:clamp(2.2rem,11.2cqi,4rem)}
   .delivery-copy h2{font-size:clamp(2.25rem,11.4cqi,5rem)}
+  .audience-copy h2{font-size:clamp(2.6rem,11cqi,5rem)}
+  .process-head h2{font-size:clamp(2.6rem,10.5cqi,5rem)}
   .price-panel h2{font-size:clamp(2.25rem,11cqi,4.9rem)}
   .final-copy h2{font-size:clamp(2.25rem,11cqi,5rem)}
 }
 @supports not (font-size:1cqi){
+  .hero-copy h1{font-size:clamp(3.4rem,6vw,7.2rem)}
   .problem-copy h2{font-size:clamp(2.2rem,6vw,4rem)}
   .delivery-copy h2{font-size:clamp(2.25rem,6vw,5rem)}
+  .audience-copy h2{font-size:clamp(2.6rem,4vw,5rem)}
+  .process-head h2{font-size:clamp(2.6rem,4vw,5rem)}
   .price-panel h2{font-size:clamp(2.25rem,6vw,4.9rem)}
   .final-copy h2{font-size:clamp(2.25rem,6vw,5rem)}
 }
@@ -663,8 +672,9 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
   .brand{font-size:.82rem}
   .brand span:last-child{display:none}
   .hero-copy,.problem-copy,.final-copy{padding:58px 20px}
-  h1{font-size:clamp(3rem,16vw,5.2rem)}
-  h2{font-size:clamp(2.55rem,13vw,4.3rem)}
+  h1{font-size:clamp(2rem,9.5vw,3.4rem);line-height:.9;max-width:100%}
+  h2{font-size:clamp(2rem,9.5vw,3.4rem);line-height:.9;max-width:100%}
+  .hero-copy h1,.audience-copy h2,.process-head h2{overflow-wrap:normal;word-break:normal}
   .problem-copy h2,.delivery-copy h2,.price-panel h2,.final-copy h2{max-width:100%;letter-spacing:-.048em;line-height:.9}
   .hero-media{min-height:410px}
   .hero-stamp{width:116px;height:116px;font-size:.68rem;left:16px;bottom:16px}
