@@ -1,0 +1,47 @@
+PACOTE — E-MAIL DE PROSPECÇÃO PARA O RAMO PET
+================================================
+
+ARQUIVOS
+
+1. email-pet-previa.html
+   Abre diretamente no navegador. As imagens estão incorporadas ao HTML.
+   Use apenas para avaliação visual.
+
+2. email-pet-envio.html
+   Versão correta para envio por e-mail. As imagens são carregadas por URLs
+   públicas no domínio do Estúdio.
+
+3. assets/email/pet/
+   Imagens usadas no e-mail:
+   - pet-hero.jpg
+   - pet-page-preview.jpg
+   - pet-features.jpg
+   - pet-detail.jpg (ativo adicional para futuras variações)
+
+ANTES DO ENVIO
+
+1. Publique a pasta:
+   assets/email/pet/
+
+   no site do Estúdio, preservando exatamente este endereço:
+   https://www.estudioescritaplanejada.com.br/assets/email/pet/
+
+2. No arquivo email-pet-envio.html, substitua todas as ocorrências de:
+   {{LINK_DEMONSTRACAO}}
+
+   pelo endereço público da demonstração do ramo pet.
+
+IMPORTANTE
+
+- A versão de envio usa imagens externas porque Gmail, Outlook e outros
+  clientes de e-mail não exibem imagens locais nem oferecem suporte confiável
+  a imagens incorporadas em base64.
+- Não envie o arquivo de prévia como campanha real.
+- Faça um teste para seu próprio Gmail e para um endereço Outlook antes
+  de iniciar a prospecção.
+- Assunto sugerido:
+  Uma página criada para profissionais do ramo pet
+
+- Preheader:
+  Veja uma demonstração criada para passeadores, pet sitters e profissionais
+  que atendem pelo WhatsApp.
