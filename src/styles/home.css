@@ -282,6 +282,7 @@ p {
 }
 
 .home-hero__copy {
+  min-width: 0;
   max-width: 52rem;
 }
 
@@ -1125,7 +1126,10 @@ p {
   }
 
   .home-hero h1 {
-    font-size: clamp(3.15rem, 16vw, 5.3rem);
+    max-width: 100%;
+    font-size: clamp(2.85rem, 13.2vw, 4.4rem);
+    line-height: 0.92;
+    text-wrap: wrap;
   }
 
   .home-hero__actions,
@@ -1147,7 +1151,20 @@ p {
   }
 
   .signal-board__rows > div {
-    grid-template-columns: 4.2rem 1fr auto;
+    grid-template-columns: 5.4rem minmax(0, 1fr) auto;
+    gap: 0.45rem;
+    padding-inline: 0.8rem;
+  }
+
+  .signal-board__rows span {
+    font-size: 0.61rem;
+    letter-spacing: 0.04em;
+  }
+
+  .signal-board__rows strong {
+    min-width: 0;
+    font-size: 0.76rem;
+    line-height: 1.2;
   }
 
   .editorial-grid {
@@ -1161,7 +1178,12 @@ p {
   }
 
   .editorial-strip > div {
-    justify-content: flex-start;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem 0.8rem;
+    padding-inline: 1rem;
+    text-align: center;
   }
 
   .diagnostic__options a {
@@ -1211,4 +1233,14 @@ p {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+.home-footer__legal a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.home-footer__legal a:hover {
+  color: var(--acid);
 }

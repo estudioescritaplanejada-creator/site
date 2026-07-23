@@ -39,3 +39,27 @@
 - Confirmar HTTP 200 em `/site-profissional/`.
 - Confirmar que uma URL inexistente retorna a página 404 com status 404.
 - Confirmar ausência de recursos 404 no console do navegador.
+
+## Auditoria pré-publicação Astro
+
+- Executar `npm ci`.
+- Executar `npm run preflight`.
+- Confirmar auditoria sem falhas.
+- Confirmar que a página 404 possui `noindex` e não possui canonical.
+- Confirmar que rascunhos não geram rota, RSS ou sitemap.
+- Confirmar ausência de HTMLs internos de e-mail no `dist`.
+- Confirmar HTTP 200 nas imagens públicas já usadas em e-mails.
+- Confirmar políticas de segurança e cache em `_headers`.
+- Validar home, guias, artigo, landing e Enquanto Ele Age em desktop e celular.
+- Validar teclado, foco, menu, diálogos, FAQ e lightbox.
+- Registrar commit da versão aprovada e URL do deploy de prévia.
+
+## Migração para produção
+
+- Seguir `docs/PLANO_MIGRACAO_PRODUCAO.md`.
+- Criar tag do estado legado antes da integração em `main`.
+- Integrar `ampliacao-astro` sem reescrever histórico.
+- Configurar o projeto oficial com `npm run build` e saída `dist`.
+- Validar a URL técnica da implantação antes do domínio.
+- Executar `npm run eep -- verify` no domínio oficial.
+- Manter uma implantação anterior disponível para rollback.

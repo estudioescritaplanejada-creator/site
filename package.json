@@ -15,7 +15,10 @@
     "eep:new": "node scripts/eep.mjs new",
     "eep:check": "node scripts/eep.mjs check",
     "eep:publish": "node scripts/eep.mjs publish",
-    "eep:verify": "node scripts/eep.mjs verify"
+    "eep:verify": "node scripts/eep.mjs verify",
+    "audit": "node scripts/audit.mjs",
+    "preflight": "node scripts/eep.mjs check",
+    "eep:audit": "node scripts/eep.mjs audit"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

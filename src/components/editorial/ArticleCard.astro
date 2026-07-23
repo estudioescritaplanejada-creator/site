@@ -23,7 +23,7 @@ const minutes = getReadingMinutes(article.body ?? '');
     <a href={categoryPath(article.data.category)}>{category.label}</a>
     <span>{formatArticleDate(article.data.publishedAt)}</span>
   </div>
-  <h2><a href={articlePath(article)}>{article.data.title}</a></h2>
+  <h3><a href={articlePath(article)}>{article.data.title}</a></h3>
   <p>{article.data.description}</p>
   <div class="article-card__bottom">
     <span>{minutes} min de leitura</span>

@@ -19,6 +19,7 @@ npm run check
 npm run build
 npm run dev
 npm run preview
+npm run preflight
 ```
 
 ## Rotas atuais
@@ -83,3 +84,23 @@ Atalhos equivalentes estão disponíveis como `eep:new`, `eep:check`, `eep:publi
 - `docs/FLUXO_PUBLICACAO_EDITORIAL.md`: procedimento completo;
 - `public/assets/editorial/<slug>/`: convenção para imagens editoriais;
 - rascunhos continuam fora do build de produção, RSS e sitemap.
+
+## Auditoria pré-publicação
+
+O Módulo 9 adiciona uma auditoria automática do build:
+
+```bash
+npm run preflight
+npm run audit
+npm run eep -- audit
+```
+
+- `npm run preflight`: valida artigos, Astro, build, auditoria e Git;
+- `npm run audit`: audita um diretório `dist` já gerado;
+- `npm run eep -- audit`: reconstrói e audita o build.
+
+Documentos de referência:
+
+- `docs/AUDITORIA_PRE_PUBLICACAO.md`;
+- `docs/PLANO_MIGRACAO_PRODUCAO.md`;
+- `docs/MODULO_9_AUDITORIA_PRE_PUBLICACAO.md`.

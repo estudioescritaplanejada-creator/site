@@ -230,11 +230,23 @@ function checkCommand() {
   run('npm', ['run', 'check']);
   heading('BUILD DE PRODUÇÃO');
   run('npm', ['run', 'build']);
+  heading('AUDITORIA DO BUILD');
+  run('node', ['scripts/audit.mjs']);
   heading('FORMATAÇÃO GIT');
   if (existsSync(join(ROOT, '.git'))) run('git', ['diff', '--check']);
   else note('verificação Git ignorada no pacote sem diretório .git');
   heading('RESULTADO');
   note('conteúdo, Astro, build e diff validados');
+}
+
+
+function auditCommand() {
+  heading('BUILD DE PRODUÇÃO');
+  run('npm', ['run', 'build']);
+  heading('AUDITORIA DO BUILD');
+  run('node', ['scripts/audit.mjs']);
+  heading('RESULTADO');
+  note('build reconstruído e auditoria pré-publicação aprovada');
 }
 
 function newCommand(slug) {
@@ -309,8 +321,18 @@ async function fetchChecked(url, options = {}) {
 
 async function verifyCommand(baseArg) {
   const base = normalizeBase(baseArg || process.env.EEP_VERIFY_BASE || DEFAULT_VERIFY_BASE);
-  const articles = validateAllArticles().filter((article) => !article.isDraft && !article.isFuture);
-  const paths = ['/', '/guias/', '/rss.xml', '/sitemap-index.xml'];
+  const validated = validateAllArticles();
+  const articles = validated.filter((article) => !article.isDraft && !article.isFuture);
+  const hiddenArticles = validated.filter((article) => article.isDraft || article.isFuture);
+  const paths = [
+    '/',
+    '/guias/',
+    '/site-profissional/',
+    '/enquanto/',
+    '/rss.xml',
+    '/sitemap-index.xml',
+    '/robots.txt',
+  ];
 
   for (const article of articles) paths.push(`/guias/${article.slug}/`);
   for (const category of [...new Set(articles.map((article) => article.data.category))]) {
@@ -327,6 +349,72 @@ async function verifyCommand(baseArg) {
     }
   }
 
+  const homeResponse = await fetchChecked(`${base}/`);
+  const requiredHeaders = [
+    'x-content-type-options',
+    'referrer-policy',
+    'permissions-policy',
+    'x-frame-options',
+    'strict-transport-security',
+    'content-security-policy',
+  ];
+  for (const header of requiredHeaders) {
+    if (!homeResponse.headers.get(header)) fail(`cabeçalho remoto ausente: ${header}`);
+  }
+  note('cabeçalhos de segurança verificados');
+
+  const canonicalChecks = [
+    ['/', 'https://www.estudioescritaplanejada.com.br/'],
+    ['/guias/', 'https://www.estudioescritaplanejada.com.br/guias/'],
+    ['/site-profissional/', 'https://www.estudioescritaplanejada.com.br/site-profissional/'],
+    ['/enquanto/', 'https://www.estudioescritaplanejada.com.br/enquanto/'],
+  ];
+  for (const [path, officialUrl] of canonicalChecks) {
+    const html = await (await fetchChecked(`${base}${path}`)).text();
+    if (!html.includes(`rel="canonical" href="${officialUrl}"`)) {
+      fail(`canonical incorreto ou ausente em ${path}`);
+    }
+  }
+  note('canonicals das rotas principais verificados');
+
+  const legacyRedirect = await fetch(`${base}/enquanto.html`, {
+    redirect: 'manual',
+    signal: AbortSignal.timeout(20_000),
+  });
+  const legacyLocation = legacyRedirect.headers.get('location');
+  if (legacyRedirect.status !== 301 || legacyLocation !== '/enquanto/') {
+    fail(`/enquanto.html deveria retornar 301 para /enquanto/; recebido ${legacyRedirect.status} ${legacyLocation ?? ''}`);
+  }
+  note('redirecionamento legado verificado');
+
+  const missingResponse = await fetch(`${base}/pagina-inexistente-auditoria`, {
+    redirect: 'manual',
+    signal: AbortSignal.timeout(20_000),
+  });
+  const missingHtml = await missingResponse.text();
+  if (missingResponse.status !== 404) fail(`URL inexistente deveria retornar 404; recebido ${missingResponse.status}`);
+  if (!missingHtml.includes('noindex, nofollow')) fail('página 404 remota sem noindex');
+  if (missingHtml.includes('rel="canonical"')) fail('página 404 remota declara canonical');
+  note('status e metadados da página 404 verificados');
+
+  const criticalAssets = [
+    '/assets/email/pet/pet-hero.jpg',
+    '/assets/email/pet/pet-page-preview.jpg',
+    '/assets/email/canais-cristaos/canais-cristaos-mockup.jpg',
+    '/assets/enquanto-ele-age/img/hero.webp',
+  ];
+  for (const path of criticalAssets) {
+    await fetchChecked(`${base}${path}`);
+    console.log(`OK  ativo crítico  ${path}`);
+  }
+
+  const internalEmail = await fetch(`${base}/emails/pet/email-pet-envio.html`, {
+    redirect: 'manual',
+    signal: AbortSignal.timeout(20_000),
+  });
+  if (internalEmail.status !== 404) fail(`HTML interno de e-mail exposto: status ${internalEmail.status}`);
+  note('HTML interno de e-mail permanece indisponível');
+
   const sitemap = await (await fetchChecked(`${base}/sitemap-0.xml`)).text();
   const rss = await (await fetchChecked(`${base}/rss.xml`)).text();
 
@@ -340,8 +428,19 @@ async function verifyCommand(baseArg) {
     if (!rss.includes(officialUrl)) fail(`artigo ausente do RSS: ${article.slug}`);
   }
 
+  for (const article of hiddenArticles) {
+    const response = await fetch(`${base}/guias/${article.slug}/`, {
+      redirect: 'manual',
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (response.status !== 404) fail(`rascunho ou agendado exposto: ${article.slug} (${response.status})`);
+    if (sitemap.includes(article.slug) || rss.includes(article.slug)) {
+      fail(`rascunho ou agendado presente no sitemap ou RSS: ${article.slug}`);
+    }
+  }
+
   heading('RESULTADO');
-  note('rotas, canonicals, sitemap e RSS verificados');
+  note('rotas, segurança, canonicals, redirecionamentos, ativos, 404, sitemap, RSS e rascunhos verificados');
 }
 
 function help() {
@@ -352,12 +451,14 @@ Comandos:
   npm run eep -- new <slug>       cria um rascunho pelo modelo oficial
   npm run eep -- check            valida artigos, Astro, build e diff
   npm run eep -- publish <slug>   remove o estado de rascunho, data e valida
+  npm run eep -- audit            reconstrói e audita o build estático
   npm run eep -- verify [base]    verifica o deploy remoto
 
 Atalhos:
   npm run eep:new -- <slug>
   npm run eep:check
   npm run eep:publish -- <slug>
+  npm run eep:audit
   npm run eep:verify -- [base]
 `);
 }
@@ -369,6 +470,7 @@ try {
   else if (command === 'new') newCommand(args[0]);
   else if (command === 'check') checkCommand();
   else if (command === 'publish') publishCommand(args[0]);
+  else if (command === 'audit') auditCommand();
   else if (command === 'verify') await verifyCommand(args[0]);
   else fail(`comando desconhecido: ${command}`);
 } catch (error) {
