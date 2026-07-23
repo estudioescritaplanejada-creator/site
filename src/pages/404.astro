@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle =
+  'Página não encontrada — Estúdio Escrita Planejada';
+
+const pageDescription =
+  'A página solicitada não foi encontrada no site do Estúdio Escrita Planejada.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/404/"
+  noindex={true}
+>
+  <section class="error-page">
+    <p class="error-page__code">Erro 404</p>
+
+    <h1>Esta página não está aqui.</h1>
+
+    <p>
+      O endereço pode ter mudado, sido removido ou digitado incorretamente.
+    </p>
+
+    <a class="error-page__link" href="/">
+      Voltar para a página inicial
+    </a>
+  </section>
+</BaseLayout>

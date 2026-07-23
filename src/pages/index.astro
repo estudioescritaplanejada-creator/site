@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle =
+  'Estúdio Escrita Planejada — Ampliação em desenvolvimento';
+
+const pageDescription =
+  'Base técnica em desenvolvimento para a ampliação editorial do Estúdio Escrita Planejada.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  noindex={true}
+>
+  <section class="development-status">
+    <h1>Estúdio Escrita Planejada</h1>
+
+    <p>
+      Fundação editorial em desenvolvimento. O site público atual permanece
+      preservado na branch principal.
+    </p>
+  </section>
+</BaseLayout>
