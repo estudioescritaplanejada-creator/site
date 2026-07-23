@@ -2,14 +2,15 @@
 
 Projeto de ampliação editorial e comercial do Estúdio Escrita Planejada.
 
-## Arquitetura em desenvolvimento
+## Arquitetura de produção
 
 - Astro com saída estática;
 - Markdown e Astro Content Collections;
 - GitHub;
 - Cloudflare Pages;
-- branch de desenvolvimento `ampliacao-astro`;
-- build publicado a partir de `dist`.
+- branch de produção `main`;
+- comando de build `npm run build`;
+- publicação exclusiva do diretório `dist`.
 
 ## Comandos
 
@@ -47,12 +48,22 @@ npm run preflight
 ## Arquivos internos e legados
 
 - `emails/` contém arquivos de produção e prévia de e-mails, mas não é copiada para o build;
-- os arquivos estáticos antigos na raiz permanecem temporariamente como fonte de referência e migração;
-- somente o conteúdo de `src` e `public` é publicado pelo Astro.
+- arquivos estáticos legados presentes na raiz não fazem parte da publicação de produção;
+- somente o conteúdo processado pelo Astro e gerado em `dist` é publicado.
 
 ## Produção
 
-O domínio oficial permanece publicado pelo projeto anterior até a conclusão da ampliação. O ambiente Astro utiliza um projeto separado no Cloudflare Pages.
+O domínio oficial está publicado pelo projeto Cloudflare Pages `estudio-escrita-planejada`, conectado à branch `main`.
+
+Configuração vigente:
+
+- predefinição: `Nenhum`;
+- comando de build: `npm run build`;
+- diretório de saída: `dist`;
+- diretório raiz: vazio;
+- deploy automático após push na branch `main`.
+
+O registro técnico completo está em `docs/CLOUDFLARE_PAGES_PRODUCAO.md`.
 
 ## Estrutura editorial
 
