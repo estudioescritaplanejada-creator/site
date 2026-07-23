@@ -5,7 +5,7 @@ Projeto de ampliação editorial e comercial do Estúdio Escrita Planejada.
 ## Arquitetura em desenvolvimento
 
 - Astro com saída estática;
-- Markdown e Content Collections em módulos posteriores;
+- Markdown e Astro Content Collections;
 - GitHub;
 - Cloudflare Pages;
 - branch de desenvolvimento `ampliacao-astro`;
@@ -64,3 +64,22 @@ O domínio oficial permanece publicado pelo projeto anterior até a conclusão d
 - artigos com `draft: true` não geram rota, sitemap ou item no RSS em produção.
 
 O frontmatter mínimo de um artigo deve informar `title`, `description`, `publishedAt`, `category` e `themes`. Autor, estado de rascunho e destaque possuem valores padrão definidos no schema.
+
+## Fluxo operacional de publicação
+
+O Módulo 8 adiciona um comando editorial próprio:
+
+```bash
+npm run eep -- new <slug>
+npm run eep -- check
+npm run eep -- publish <slug>
+npm run eep -- verify [URL-base]
+```
+
+Atalhos equivalentes estão disponíveis como `eep:new`, `eep:check`, `eep:publish` e `eep:verify`.
+
+- `templates/article-template.md`: modelo oficial de artigo;
+- `scripts/eep.mjs`: criação, validação, promoção e verificação;
+- `docs/FLUXO_PUBLICACAO_EDITORIAL.md`: procedimento completo;
+- `public/assets/editorial/<slug>/`: convenção para imagens editoriais;
+- rascunhos continuam fora do build de produção, RSS e sitemap.
