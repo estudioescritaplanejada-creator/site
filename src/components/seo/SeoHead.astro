@@ -8,6 +8,10 @@ interface Props {
   ogType?: 'website' | 'article';
   image?: string;
   imageAlt?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  tags?: string[];
 }
 
 const {
@@ -19,6 +23,10 @@ const {
   ogType = 'website',
   image,
   imageAlt,
+  publishedTime,
+  modifiedTime,
+  section,
+  tags = [],
 } = Astro.props;
 
 const baseUrl = Astro.site ?? Astro.url.origin;
@@ -66,3 +74,16 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 <meta name="twitter:description" content={description} />
 {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+
+{ogType === 'article' && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{ogType === 'article' && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+{ogType === 'article' && section && (
+  <meta property="article:section" content={section} />
+)}
+{ogType === 'article' && tags.map((tag) => (
+  <meta property="article:tag" content={tag} />
+))}

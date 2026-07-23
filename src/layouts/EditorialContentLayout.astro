@@ -1,0 +1,70 @@
+---
+import SeoHead from '../components/seo/SeoHead.astro';
+import EditorialSiteHeader from '../components/editorial/EditorialSiteHeader.astro';
+import EditorialSiteFooter from '../components/editorial/EditorialSiteFooter.astro';
+import '../styles/editorial-content.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  image?: string;
+  imageAlt?: string;
+  ogType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  tags?: string[];
+  active?: 'guias' | 'ferramentas' | 'servicos';
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  image = '/assets/img/og-estudio-escrita-planejada.jpg',
+  imageAlt = 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios',
+  ogType = 'website',
+  publishedTime,
+  modifiedTime,
+  section,
+  tags = [],
+  active = 'guias',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="color-scheme" content="light" />
+
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      author="Estúdio Escrita Planejada"
+      ogType={ogType}
+      image={image}
+      imageAlt={imageAlt}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      section={section}
+      tags={tags}
+    />
+
+    <link rel="alternate" type="application/rss+xml" title="Estúdio Escrita Planejada — Guias" href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <slot name="head" />
+  </head>
+  <body>
+    <EditorialSiteHeader active={active} />
+    <slot />
+    <EditorialSiteFooter />
+  </body>
+</html>

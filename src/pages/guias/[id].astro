@@ -1,0 +1,163 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ArticleCard from '../../components/editorial/ArticleCard.astro';
+import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
+import {
+  articlePath,
+  categoryInfo,
+  categoryPath,
+  formatArticleDate,
+  getReadingMinutes,
+  isPublished,
+  sortArticles,
+} from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', (article) => isPublished(article));
+  return articles.map((article) => ({
+    params: { id: article.id },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const category = categoryInfo[article.data.category];
+const readingMinutes = getReadingMinutes(article.body ?? '');
+const canonicalPath = articlePath(article);
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const publishedIso = article.data.publishedAt.toISOString();
+const modifiedIso = (article.data.updatedAt ?? article.data.publishedAt).toISOString();
+
+const allArticles = sortArticles(
+  await getCollection('articles', (entry) => isPublished(entry)),
+);
+const related = allArticles
+  .filter(
+    (entry) =>
+      entry.id !== article.id &&
+      (entry.data.category === article.data.category ||
+        entry.data.themes.some((theme) => article.data.themes.includes(theme))),
+  )
+  .slice(0, 3);
+
+const title = article.data.seoTitle ?? `${article.data.title} | Estúdio Escrita Planejada`;
+const image = article.data.image ?? '/assets/img/og-estudio-escrita-planejada.jpg';
+const imageAlt =
+  article.data.imageAlt ?? 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: publishedIso,
+  dateModified: modifiedIso,
+  inLanguage: 'pt-BR',
+  mainEntityOfPage: canonicalUrl,
+  articleSection: category.label,
+  keywords: article.data.themes.join(', '),
+  author: {
+    '@type': 'Organization',
+    name: article.data.author,
+    url: new URL('/', baseUrl).toString(),
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Estúdio Escrita Planejada',
+    url: new URL('/', baseUrl).toString(),
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/assets/img/logo.png', baseUrl).toString(),
+    },
+  },
+  image: new URL(image, baseUrl).toString(),
+};
+---
+
+<EditorialContentLayout
+  title={title}
+  description={article.data.description}
+  canonicalPath={canonicalPath}
+  image={image}
+  imageAlt={imageAlt}
+  ogType="article"
+  publishedTime={publishedIso}
+  modifiedTime={modifiedIso}
+  section={category.label}
+  tags={article.data.themes}
+  active="guias"
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <main id="conteudo">
+    <nav class="breadcrumbs" aria-label="Caminho da página">
+      <div class="editorial-container">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/guias/">Guias</a></li>
+          <li><a href={categoryPath(article.data.category)}>{category.label}</a></li>
+          <li aria-current="page">{article.data.title}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="article-header">
+      <div class="editorial-container article-header__inner">
+        <p class="article-kicker">{category.shortLabel}</p>
+        <h1>{article.data.title}</h1>
+        <p class="article-header__description">{article.data.description}</p>
+        <ul class="article-meta" aria-label="Informações do artigo">
+          <li>Por {article.data.author}</li>
+          <li><time datetime={publishedIso}>{formatArticleDate(article.data.publishedAt)}</time></li>
+          <li>{readingMinutes} min de leitura</li>
+          <li><a href={categoryPath(article.data.category)}>{category.label}</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="editorial-container article-shell">
+      <aside class="article-aside" aria-label="Informações complementares">
+        <strong>Território editorial</strong>
+        <a href={categoryPath(article.data.category)}>{category.label}</a>
+        <div class="article-aside__themes" aria-label="Temas do artigo">
+          {article.data.themes.map((theme) => <span>{theme}</span>)}
+        </div>
+      </aside>
+
+      <article class="article-body">
+        <Content />
+
+        <aside class="article-callout">
+          <h2>Seu negócio precisa de uma presença digital mais organizada?</h2>
+          <p>
+            O Estúdio estrutura páginas profissionais, presença digital e materiais
+            sob medida para autônomos e pequenos negócios.
+          </p>
+          <a href="/site-profissional/">Conhecer o serviço de site profissional</a>
+        </aside>
+      </article>
+    </div>
+
+    {related.length > 0 && (
+      <section class="related-section" aria-labelledby="related-title">
+        <div class="editorial-container">
+          <h2 id="related-title">Continue por aqui.</h2>
+          <div class="articles-grid">
+            {related.map((entry) => <ArticleCard article={entry} />)}
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+</EditorialContentLayout>

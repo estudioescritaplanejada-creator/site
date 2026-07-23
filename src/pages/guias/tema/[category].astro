@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../../../components/editorial/ArticleCard.astro';
+import EditorialContentLayout from '../../../layouts/EditorialContentLayout.astro';
+import {
+  categoryInfo,
+  categoryOrder,
+  type ArticleCategory,
+  isPublished,
+  sortArticles,
+} from '../../../lib/editorial';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', (article) => isPublished(article));
+  const activeCategories = new Set(articles.map((article) => article.data.category));
+
+  return categoryOrder
+    .filter((category) => activeCategories.has(category))
+    .map((category) => ({
+      params: { category },
+      props: { category },
+    }));
+}
+
+interface Props {
+  category: ArticleCategory;
+}
+
+const { category } = Astro.props;
+const info = categoryInfo[category];
+const articles = sortArticles(
+  await getCollection(
+    'articles',
+    (article) => isPublished(article) && article.data.category === category,
+  ),
+);
+
+const title = `${info.label}: guias práticos | Estúdio Escrita Planejada`;
+const description = info.description;
+const canonicalPath = `/guias/tema/${category}/`;
+---
+
+<EditorialContentLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  active="guias"
+>
+  <main id="conteudo">
+    <nav class="breadcrumbs" aria-label="Caminho da página">
+      <div class="editorial-container">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/guias/">Guias</a></li>
+          <li aria-current="page">{info.label}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="guides-hero" aria-labelledby="category-title">
+      <div class="editorial-container guides-hero__inner">
+        <div>
+          <p class="guides-kicker">{info.number} — {info.shortLabel}</p>
+          <h1 id="category-title">{info.label}</h1>
+          <p class="guides-hero__lead">{info.description}</p>
+        </div>
+        <aside class="guides-summary">
+          <span>{articles.length} {articles.length === 1 ? 'guia publicado' : 'guias publicados'}</span>
+          <strong>Leia, aplique e registre o próximo passo.</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="guides-section" aria-labelledby="articles-title">
+      <div class="editorial-container">
+        <div class="guides-section__heading">
+          <h2 id="articles-title">Conteúdos do tema.</h2>
+          <p><a href="/guias/">Voltar para todos os territórios editoriais.</a></p>
+        </div>
+
+        {articles.length > 0 ? (
+          <div class="articles-grid">
+            {articles.map((article, index) => (
+              <ArticleCard article={article} featured={index === 0} />
+            ))}
+          </div>
+        ) : (
+          <div class="empty-guides">
+            <p>Este território está estruturado e receberá os próximos guias da biblioteca.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</EditorialContentLayout>

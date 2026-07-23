@@ -639,7 +639,12 @@ p {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-decoration: none;
   text-transform: uppercase;
+}
+
+.editorial-card__action:hover {
+  color: var(--orange);
 }
 
 .diagnostic {

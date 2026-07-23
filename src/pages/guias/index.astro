@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../../components/editorial/ArticleCard.astro';
+import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
+import {
+  categoryInfo,
+  categoryOrder,
+  categoryPath,
+  isPublished,
+  sortArticles,
+} from '../../lib/editorial';
+
+const articles = sortArticles(
+  await getCollection('articles', (article) => isPublished(article)),
+);
+const featured = articles.find((article) => article.data.featured) ?? articles[0];
+const remaining = featured
+  ? articles.filter((article) => article.id !== featured.id)
+  : articles;
+const articleCountByCategory = new Map(
+  categoryOrder.map((category) => [
+    category,
+    articles.filter((article) => article.data.category === category).length,
+  ] as const),
+);
+
+const title = 'Guias práticos para trabalhar melhor no digital | Estúdio Escrita Planejada';
+const description =
+  'Guias claros sobre proteção digital, escolhas de ferramentas, organização, inteligência artificial e produtos digitais para autônomos e pequenos negócios.';
+const canonicalPath = '/guias/';
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: canonicalUrl,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Estúdio Escrita Planejada',
+    url: new URL('/', baseUrl).toString(),
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/guias/${article.id}/`, baseUrl).toString(),
+      name: article.data.title,
+    })),
+  },
+};
+---
+
+<EditorialContentLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  active="guias"
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <main id="conteudo">
+    <section class="guides-hero" aria-labelledby="guides-title">
+      <div class="editorial-container guides-hero__inner">
+        <div>
+          <p class="guides-kicker">Biblioteca prática</p>
+          <h1 id="guides-title">Guias para resolver o digital sem complicação.</h1>
+          <p class="guides-hero__lead">
+            Conteúdo para reconhecer riscos, organizar o trabalho, escolher melhor e
+            aplicar ferramentas com clareza — mesmo sem conhecimento técnico.
+          </p>
+        </div>
+        <aside class="guides-summary" aria-label="Como usar os guias">
+          <span>Problema → decisão → ação</span>
+          <strong>Comece pelo que está atrasando ou colocando seu negócio em risco.</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="guides-section guides-section--muted" aria-labelledby="categories-title">
+      <div class="editorial-container">
+        <div class="guides-section__heading">
+          <h2 id="categories-title">Escolha um território.</h2>
+          <p>
+            Cada tema reúne conteúdos com a mesma função prática. A biblioteca cresce
+            por coleções, sem misturar problemas diferentes numa única orientação.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          {categoryOrder.map((category) => {
+            const info = categoryInfo[category];
+            const count = articleCountByCategory.get(category) ?? 0;
+            return count > 0 ? (
+              <a class="category-card" href={categoryPath(category)}>
+                <span class="category-card__number">{info.number}</span>
+                <small>{info.shortLabel}</small>
+                <h2>{info.label}</h2>
+                <p>{info.description}</p>
+                <b>{count} {count === 1 ? 'guia' : 'guias'}</b>
+              </a>
+            ) : (
+              <div class="category-card category-card--inactive">
+                <span class="category-card__number">{info.number}</span>
+                <small>{info.shortLabel}</small>
+                <h2>{info.label}</h2>
+                <p>{info.description}</p>
+                <b>Em preparação</b>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <section class="guides-section" aria-labelledby="latest-title">
+      <div class="editorial-container">
+        <div class="guides-section__heading">
+          <h2 id="latest-title">Guias publicados.</h2>
+          <p>
+            A ordem segue a data de publicação. Artigos em rascunho ficam fora do site,
+            do sitemap e do RSS até serem liberados.
+          </p>
+        </div>
+
+        {articles.length > 0 ? (
+          <div class="articles-grid">
+            {featured && <ArticleCard article={featured} featured />}
+            {remaining.map((article) => <ArticleCard article={article} />)}
+          </div>
+        ) : (
+          <div class="empty-guides"><p>Os primeiros guias estão em preparação.</p></div>
+        )}
+      </div>
+    </section>
+  </main>
+</EditorialContentLayout>

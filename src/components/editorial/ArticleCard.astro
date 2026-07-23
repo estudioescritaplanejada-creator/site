@@ -1,0 +1,32 @@
+---
+import type { ArticleEntry } from '../../lib/editorial';
+import {
+  articlePath,
+  categoryInfo,
+  categoryPath,
+  formatArticleDate,
+  getReadingMinutes,
+} from '../../lib/editorial';
+
+interface Props {
+  article: ArticleEntry;
+  featured?: boolean;
+}
+
+const { article, featured = false } = Astro.props;
+const category = categoryInfo[article.data.category];
+const minutes = getReadingMinutes(article.body ?? '');
+---
+
+<article class:list={['article-card', featured && 'article-card--featured']}>
+  <div class="article-card__meta">
+    <a href={categoryPath(article.data.category)}>{category.label}</a>
+    <span>{formatArticleDate(article.data.publishedAt)}</span>
+  </div>
+  <h2><a href={articlePath(article)}>{article.data.title}</a></h2>
+  <p>{article.data.description}</p>
+  <div class="article-card__bottom">
+    <span>{minutes} min de leitura</span>
+    <a href={articlePath(article)}>Ler o guia →</a>
+  </div>
+</article>

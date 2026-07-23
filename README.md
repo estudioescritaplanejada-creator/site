@@ -52,3 +52,15 @@ npm run preview
 ## Produção
 
 O domínio oficial permanece publicado pelo projeto anterior até a conclusão da ampliação. O ambiente Astro utiliza um projeto separado no Cloudflare Pages.
+
+## Estrutura editorial
+
+- `src/content.config.ts`: schema tipado da coleção `articles`;
+- `src/content/articles/`: artigos em Markdown ou MDX;
+- `/guias/`: índice editorial;
+- `/guias/[id]/`: rota estática de cada artigo;
+- `/guias/tema/[category]/`: páginas dos cinco territórios editoriais;
+- `/rss.xml`: feed RSS dos artigos publicados;
+- artigos com `draft: true` não geram rota, sitemap ou item no RSS em produção.
+
+O frontmatter mínimo de um artigo deve informar `title`, `description`, `publishedAt`, `category` e `themes`. Autor, estado de rascunho e destaque possuem valores padrão definidos no schema.

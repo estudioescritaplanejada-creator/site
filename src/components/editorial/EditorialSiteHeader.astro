@@ -1,0 +1,45 @@
+---
+interface Props {
+  active?: 'guias' | 'ferramentas' | 'servicos';
+}
+
+const { active } = Astro.props;
+---
+
+<a class="editorial-skip" href="#conteudo">Ir para o conteúdo principal</a>
+
+<div class="editorial-utility">
+  <div class="editorial-container editorial-utility__inner">
+    <span>Vida digital prática</span>
+    <span aria-hidden="true">•</span>
+    <span>Guias, alertas e ferramentas para pequenos negócios</span>
+  </div>
+</div>
+
+<header class="editorial-header">
+  <div class="editorial-container editorial-header__inner">
+    <a class="editorial-brand" href="/" aria-label="Estúdio Escrita Planejada — página inicial">
+      <span class="editorial-brand__mark">EEP</span>
+      <span class="editorial-brand__name">Estúdio Escrita Planejada</span>
+    </a>
+
+    <nav class="editorial-nav" aria-label="Navegação principal">
+      <a href="/guias/" aria-current={active === 'guias' ? 'page' : undefined}>Guias</a>
+      <a href="/#ferramentas" aria-current={active === 'ferramentas' ? 'page' : undefined}>Ferramentas</a>
+      <a href="/#servicos" aria-current={active === 'servicos' ? 'page' : undefined}>Serviços</a>
+      <a href="/site-profissional/">Site profissional</a>
+    </nav>
+
+    <a class="editorial-header__cta" href="/guias/">Comece por aqui</a>
+
+    <details class="editorial-menu">
+      <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Navegação móvel">
+        <a href="/guias/">Guias</a>
+        <a href="/#ferramentas">Ferramentas</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/site-profissional/">Site profissional</a>
+      </nav>
+    </details>
+  </div>
+</header>

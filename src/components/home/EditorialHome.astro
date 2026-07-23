@@ -1,34 +1,47 @@
 ---
+import { getCollection } from 'astro:content';
+import { isPublished } from '../../lib/editorial';
+
+const publishedArticles = await getCollection('articles', (article) => isPublished(article));
+const activeCategories = new Set<string>(
+  publishedArticles.map((article) => article.data.category),
+);
+
 const whatsappUrl =
   'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20digital%20para%20o%20meu%20neg%C3%B3cio.';
 
 const editorialAreas = [
   {
     number: '01',
+    slug: 'protecao-digital',
     tag: 'Não caia nessa',
     title: 'Golpes, acessos e riscos que podem parar seu trabalho',
     text: 'Alertas objetivos para reconhecer o problema, reduzir a exposição e agir antes que o prejuízo aumente.',
   },
   {
     number: '02',
+    slug: 'decisoes-digitais',
     tag: 'Vale a pena pagar?',
     title: 'Decisões digitais sem desperdiçar dinheiro',
     text: 'Comparações e critérios para escolher ferramentas, planos, serviços e recursos com mais segurança.',
   },
   {
     number: '03',
+    slug: 'rotina-digital',
     tag: 'Resolva agora',
     title: 'Soluções para a rotina de quem trabalha por conta própria',
     text: 'Passos claros para organizar mensagens, cobranças, arquivos, clientes, presença online e tarefas repetitivas.',
   },
   {
     number: '04',
+    slug: 'ferramentas-e-ia',
     tag: 'Ferramentas aplicadas',
     title: 'IA e tecnologia sem linguagem técnica',
     text: 'Uso prático de ferramentas digitais para escrever, vender, organizar e produzir melhor sem depender de especialistas.',
   },
   {
     number: '05',
+    slug: 'produtos-digitais',
     tag: 'Transforme seu conhecimento',
     title: 'Ideias que podem virar produtos digitais',
     text: 'Estrutura, conteúdo e apresentação para transformar experiência profissional em materiais úteis e comercializáveis.',
@@ -72,7 +85,7 @@ const tools = [
     </a>
 
     <nav class="home-nav" aria-label="Navegação principal">
-      <a href="#guias">Guias</a>
+      <a href="/guias/">Guias</a>
       <a href="#ferramentas">Ferramentas</a>
       <a href="#servicos">Serviços</a>
       <a href="/site-profissional/">Site profissional</a>
@@ -83,7 +96,7 @@ const tools = [
     <details class="home-menu">
       <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
       <nav aria-label="Navegação móvel">
-        <a href="#guias">Guias</a>
+        <a href="/guias/">Guias</a>
         <a href="#ferramentas">Ferramentas</a>
         <a href="#servicos">Serviços</a>
         <a href="/site-profissional/">Site profissional</a>
@@ -104,7 +117,7 @@ const tools = [
           com orientações claras, ferramentas úteis e soluções que você consegue aplicar.
         </p>
         <div class="home-hero__actions">
-          <a class="home-button home-button--primary" href="#guias">Explorar os temas</a>
+          <a class="home-button home-button--primary" href="/guias/">Explorar os temas</a>
           <a class="home-button home-button--secondary" href="#servicos">Conhecer o Estúdio</a>
         </div>
         <ul class="home-hero__proof" aria-label="Características do conteúdo">
@@ -166,7 +179,12 @@ const tools = [
             </div>
             <h3>{area.title}</h3>
             <p>{area.text}</p>
-            <span class="editorial-card__action">Território editorial</span>
+            <a
+              class="editorial-card__action"
+              href={activeCategories.has(area.slug) ? `/guias/tema/${area.slug}/` : '/guias/'}
+            >
+              {activeCategories.has(area.slug) ? 'Ver os guias →' : 'Em preparação →'}
+            </a>
           </article>
         ))}
       </div>
@@ -190,7 +208,7 @@ const tools = [
           <strong>Tenho medo de perder acesso, dados ou dinheiro.</strong>
           <small>Proteção e verificação</small>
         </a>
-        <a href="#guias">
+        <a href="/guias/">
           <span>02</span>
           <strong>Perco tempo com tarefas digitais desorganizadas.</strong>
           <small>Rotina e produtividade</small>
@@ -349,7 +367,7 @@ const tools = [
       <p>Vida digital prática para quem trabalha por conta própria e administra pequenos negócios.</p>
     </div>
     <nav aria-label="Links institucionais">
-      <a href="#guias">Guias</a>
+      <a href="/guias/">Guias</a>
       <a href="#ferramentas">Ferramentas</a>
       <a href="#servicos">Serviços</a>
       <a href="/site-profissional/">Site profissional</a>
