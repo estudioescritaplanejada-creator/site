@@ -10,7 +10,7 @@ themes:
   - organização
   - clientes
 author: Estúdio Escrita Planejada
-draft: true
+draft: false
 featured: false
 seoTitle: "Como separar WhatsApp pessoal e comercial"
 ---
