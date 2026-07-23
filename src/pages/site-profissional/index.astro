@@ -1,0 +1,111 @@
+---
+import CommercialLandingLayout from '../../layouts/CommercialLandingLayout.astro';
+import LandingContent from '../../components/site-profissional/LandingContent.astro';
+const title =
+  'Uma página profissional para mostrar seu trabalho e receber mais pedidos | Estúdio Escrita Planejada';
+
+const description =
+  'Reúna seus serviços, produtos, fotos, pontos fortes e informações de contato em uma página própria, pronta para apresentar seu trabalho e levar o cliente diretamente ao WhatsApp.';
+
+const canonicalPath = '/site-profissional/';
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const siteUrl = new URL('/', baseUrl).toString();
+const organizationId = `${siteUrl}#organization`;
+const websiteId = `${siteUrl}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const serviceId = `${canonicalUrl}#service`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Estúdio Escrita Planejada',
+      url: siteUrl,
+      telephone: '+55 11 96450-2997',
+      email: 'estudioescritaplanejada@gmail.com',
+      areaServed: {
+        '@type': 'Country',
+        name: 'Brasil',
+      },
+      logo: new URL('/assets/img/logo.png', baseUrl).toString(),
+      image: new URL(
+        '/assets/img/og-estudio-escrita-planejada.jpg',
+        baseUrl,
+      ).toString(),
+      taxID: '61.424.633/0001-11',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: siteUrl,
+      name: 'Estúdio Escrita Planejada',
+      inLanguage: 'pt-BR',
+      publisher: {
+        '@id': organizationId,
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: canonicalUrl,
+      name: 'Uma página profissional para mostrar seu trabalho e receber mais pedidos',
+      description:
+        'Uma página própria para apresentar seu trabalho e levar o cliente diretamente ao WhatsApp.',
+      isPartOf: {
+        '@id': websiteId,
+      },
+      about: {
+        '@id': serviceId,
+      },
+      inLanguage: 'pt-BR',
+    },
+    {
+      '@type': 'Service',
+      '@id': serviceId,
+      name: 'Página profissional para mostrar seu trabalho e receber mais pedidos',
+      description:
+        'Organização das informações, redação e revisão dos textos, criação visual da página, adaptação para celular e computador, configuração básica para o Google, publicação e uma rodada de ajustes.',
+      provider: {
+        '@id': organizationId,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Brasil',
+      },
+      serviceType:
+        'Criação de página profissional com atendimento pelo WhatsApp',
+      offers: {
+        '@type': 'Offer',
+        price: '490.00',
+        priceCurrency: 'BRL',
+        availability: 'https://schema.org/InStock',
+        url: `${canonicalUrl}#investimento`,
+      },
+    },
+  ],
+};
+---
+
+<CommercialLandingLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  image="/assets/img/og-estudio-escrita-planejada.jpg"
+  imageAlt="Exemplo de página profissional exibida em notebook e celular"
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <LandingContent />
+
+  <script>
+    import '../../scripts/site-profissional.js';
+  </script>
+</CommercialLandingLayout>

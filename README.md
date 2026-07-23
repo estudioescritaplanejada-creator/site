@@ -1,22 +1,47 @@
 # Estúdio Escrita Planejada
 
-Landing page estática de uma única página, preparada para publicação no Cloudflare Pages.
+Projeto de ampliação editorial e comercial do Estúdio Escrita Planejada.
 
-## Publicação
+## Arquitetura em desenvolvimento
 
-- Diretório de build: não utilizar.
-- Comando de build: não utilizar.
-- Diretório raiz publicado: a própria raiz do projeto.
+- Astro com saída estática;
+- Markdown e Content Collections em módulos posteriores;
+- GitHub;
+- Cloudflare Pages;
+- branch de desenvolvimento `ampliacao-astro`;
+- build publicado a partir de `dist`.
 
-## Estrutura
+## Comandos
 
-- `index.html`: landing page e pop-ups legais.
-- `404.html`: exceção técnica para endereços inexistentes.
-- `assets/img`: imagens otimizadas.
-- `assets/fontes`: fontes hospedadas localmente.
-- `robots.txt` e `sitemap.xml`: descoberta pelo Google.
-- `_headers` e `_redirects`: regras para Cloudflare Pages.
+```bash
+npm ci
+npm run check
+npm run build
+npm run dev
+npm run preview
+```
 
-## Antes de publicar
+## Rotas Astro atuais
 
-Confirme se o domínio principal utiliza `www`. Caso contrário, ajuste a canonical, o sitemap, os dados estruturados e `_redirects`.
+- `/`: home provisória de desenvolvimento;
+- `/site-profissional/`: landing comercial migrada;
+- `/404.html`: página de erro.
+
+## Estrutura principal
+
+- `src/pages`: rotas;
+- `src/layouts`: layouts HTML;
+- `src/components`: componentes reutilizáveis;
+- `src/styles`: tokens, estilos globais e estilos da landing;
+- `src/scripts`: JavaScript específico das páginas;
+- `src/assets/fonts`: fontes processadas pelo Astro;
+- `public/assets/img`: imagens públicas da landing comercial;
+- `public/_headers` e `public/_redirects`: regras da Cloudflare Pages.
+
+## Arquivos legados
+
+Os arquivos estáticos antigos permanecem temporariamente na raiz para referência e migração controlada. O build do Astro utiliza somente `src` e `public`.
+
+## Produção
+
+O domínio oficial permanece publicado pelo projeto anterior até a conclusão da ampliação. O ambiente Astro utiliza um projeto separado no Cloudflare Pages.

@@ -4,6 +4,10 @@ interface Props {
   description: string;
   canonicalPath?: string;
   noindex?: boolean;
+  author?: string;
+  ogType?: 'website' | 'article';
+  image?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -11,32 +15,54 @@ const {
   description,
   canonicalPath = Astro.url.pathname,
   noindex = false,
+  author,
+  ogType = 'website',
+  image,
+  imageAlt,
 } = Astro.props;
 
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 
+{author && <meta name="author" content={author} />}
+
 {
-  noindex && (
+  noindex ? (
     <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
   )
 }
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:locale" content="pt_BR" />
-<meta
-  property="og:site_name"
-  content="Estúdio Escrita Planejada"
-/>
+<meta property="og:site_name" content="Estúdio Escrita Planejada" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
 
+{
+  imageUrl && (
+    <>
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    </>
+  )
+}
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+{imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
