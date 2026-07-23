@@ -21,26 +21,33 @@ npm run dev
 npm run preview
 ```
 
-## Rotas Astro atuais
+## Rotas atuais
 
-- `/`: home provisória de desenvolvimento;
-- `/site-profissional/`: landing comercial migrada;
+- `/`: home provisória de desenvolvimento, com `noindex`;
+- `/site-profissional/`: landing comercial migrada para Astro;
+- `/enquanto`: página estática preservada do projeto Enquanto Ele Age;
+- `/enquanto.html`: endereço legado redirecionado para `/enquanto` no Cloudflare Pages;
 - `/404.html`: página de erro.
 
 ## Estrutura principal
 
-- `src/pages`: rotas;
+- `src/pages`: rotas geradas pelo Astro;
 - `src/layouts`: layouts HTML;
 - `src/components`: componentes reutilizáveis;
 - `src/styles`: tokens, estilos globais e estilos da landing;
 - `src/scripts`: JavaScript específico das páginas;
 - `src/assets/fonts`: fontes processadas pelo Astro;
 - `public/assets/img`: imagens públicas da landing comercial;
+- `public/enquanto`: página estática preservada;
+- `public/assets/enquanto-ele-age`: arquivos públicos do projeto Enquanto Ele Age;
+- `public/assets/email`: imagens públicas utilizadas em e-mails já enviados;
 - `public/_headers` e `public/_redirects`: regras da Cloudflare Pages.
 
-## Arquivos legados
+## Arquivos internos e legados
 
-Os arquivos estáticos antigos permanecem temporariamente na raiz para referência e migração controlada. O build do Astro utiliza somente `src` e `public`.
+- `emails/` contém arquivos de produção e prévia de e-mails, mas não é copiada para o build;
+- os arquivos estáticos antigos na raiz permanecem temporariamente como fonte de referência e migração;
+- somente o conteúdo de `src` e `public` é publicado pelo Astro.
 
 ## Produção
 
