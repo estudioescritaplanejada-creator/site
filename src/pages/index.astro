@@ -1,25 +1,83 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import EditorialLayout from '../layouts/EditorialLayout.astro';
+import EditorialHome from '../components/home/EditorialHome.astro';
 
-const pageTitle =
-  'Estúdio Escrita Planejada — Ampliação em desenvolvimento';
+const title =
+  'Vida digital prática para autônomos e pequenos negócios | Estúdio Escrita Planejada';
 
-const pageDescription =
-  'Base técnica em desenvolvimento para a ampliação editorial do Estúdio Escrita Planejada.';
+const description =
+  'Guias, alertas, ferramentas e soluções para organizar, proteger e desenvolver pequenos negócios no ambiente digital, sem linguagem técnica.';
+
+const canonicalPath = '/';
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const organizationId = `${canonicalUrl}#organization`;
+const websiteId = `${canonicalUrl}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Estúdio Escrita Planejada',
+      url: canonicalUrl,
+      telephone: '+55 11 96450-2997',
+      email: 'estudioescritaplanejada@gmail.com',
+      areaServed: {
+        '@type': 'Country',
+        name: 'Brasil',
+      },
+      logo: new URL('/assets/img/logo.png', baseUrl).toString(),
+      image: new URL(
+        '/assets/img/og-estudio-escrita-planejada.jpg',
+        baseUrl,
+      ).toString(),
+      taxID: '61.424.633/0001-11',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: canonicalUrl,
+      name: 'Estúdio Escrita Planejada',
+      description,
+      inLanguage: 'pt-BR',
+      publisher: {
+        '@id': organizationId,
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: {
+        '@id': websiteId,
+      },
+      about: {
+        '@id': organizationId,
+      },
+      inLanguage: 'pt-BR',
+    },
+  ],
+};
 ---
 
-<BaseLayout
-  title={pageTitle}
-  description={pageDescription}
-  canonicalPath="/"
-  noindex={true}
+<EditorialLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  image="/assets/img/og-estudio-escrita-planejada.jpg"
+  imageAlt="Estúdio Escrita Planejada: soluções digitais para autônomos e pequenos negócios"
 >
-  <section class="development-status">
-    <h1>Estúdio Escrita Planejada</h1>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
 
-    <p>
-      Fundação editorial em desenvolvimento. O site público atual permanece
-      preservado na branch principal.
-    </p>
-  </section>
-</BaseLayout>
+  <EditorialHome />
+</EditorialLayout>

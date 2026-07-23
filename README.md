@@ -23,7 +23,7 @@ npm run preview
 
 ## Rotas atuais
 
-- `/`: home provisória de desenvolvimento, com `noindex`;
+- `/`: home editorial do Estúdio Escrita Planejada;
 - `/site-profissional/`: landing comercial migrada para Astro;
 - `/enquanto/`: página estática preservada do projeto Enquanto Ele Age;
 - `/enquanto.html`: endereço legado redirecionado para `/enquanto/` no Cloudflare Pages;
@@ -33,8 +33,8 @@ npm run preview
 
 - `src/pages`: rotas geradas pelo Astro;
 - `src/layouts`: layouts HTML;
-- `src/components`: componentes reutilizáveis;
-- `src/styles`: tokens, estilos globais e estilos da landing;
+- `src/components`: componentes de SEO, home editorial e landing comercial;
+- `src/styles`: tokens, estilos globais, home editorial e landing comercial;
 - `src/scripts`: JavaScript específico das páginas;
 - `src/assets/fonts`: fontes processadas pelo Astro;
 - `public/assets/img`: imagens públicas da landing comercial;

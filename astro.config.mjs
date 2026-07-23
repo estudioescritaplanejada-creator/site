@@ -13,7 +13,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       customPages: [`${site}/enquanto/`],
-      filter: (page) => page !== `${site}/` && !page.endsWith('/404.html'),
+      filter: (page) => !page.endsWith('/404.html'),
     }),
   ],
 });
