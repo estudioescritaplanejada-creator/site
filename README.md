@@ -25,8 +25,8 @@ npm run preview
 
 - `/`: home provisória de desenvolvimento, com `noindex`;
 - `/site-profissional/`: landing comercial migrada para Astro;
-- `/enquanto`: página estática preservada do projeto Enquanto Ele Age;
-- `/enquanto.html`: endereço legado redirecionado para `/enquanto` no Cloudflare Pages;
+- `/enquanto/`: página estática preservada do projeto Enquanto Ele Age;
+- `/enquanto.html`: endereço legado redirecionado para `/enquanto/` no Cloudflare Pages;
 - `/404.html`: página de erro.
 
 ## Estrutura principal
