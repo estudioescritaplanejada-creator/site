@@ -929,3 +929,63 @@ a.category-card:hover {
 .editorial-footer__legal a:hover {
   color: var(--acid);
 }
+
+/* Bloco promocional editorial — Sistema Criador Digital com IA */
+.article-promotion {
+  margin-top: 4rem;
+}
+
+.article-promotion__link {
+  display: block;
+  overflow: hidden;
+  color: inherit;
+  background: #080808;
+  border: 0.1rem solid var(--ink);
+  box-shadow: 0.55rem 0.55rem 0 var(--orange);
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.article-promotion__link:hover {
+  transform: translate(-0.18rem, -0.18rem);
+  box-shadow: 0.73rem 0.73rem 0 var(--orange);
+}
+
+.article-promotion__link:focus-visible {
+  outline: 0.22rem solid var(--blue);
+  outline-offset: 0.3rem;
+}
+
+.article-promotion picture,
+.article-promotion img {
+  display: block;
+  width: 100%;
+}
+
+.article-promotion img {
+  height: auto;
+}
+
+.article-promotion__disclosure {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .article-promotion {
+    margin-top: 3.2rem;
+  }
+
+  .article-promotion__link {
+    box-shadow: 0.38rem 0.38rem 0 var(--orange);
+  }
+
+  .article-promotion__link:hover {
+    transform: none;
+    box-shadow: 0.38rem 0.38rem 0 var(--orange);
+  }
+}

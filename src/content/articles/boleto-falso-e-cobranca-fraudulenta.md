@@ -14,7 +14,6 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como reconhecer boleto falso e cobrança fraudulenta"
-commercialCta: false
 ---
 
 Quem administra o próprio negócio lida com boletos, links de pagamento e cobranças de fornecedores, plataformas, impostos e serviços recorrentes.

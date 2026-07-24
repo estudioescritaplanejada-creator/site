@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ArticleCard from '../../components/editorial/ArticleCard.astro';
+import ArticlePromotion from '../../components/editorial/ArticlePromotion.astro';
 import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
 import {
   articlePath,
@@ -50,32 +51,6 @@ const title = article.data.seoTitle ?? `${article.data.title} | Estúdio Escrita
 const image = article.data.image ?? '/assets/img/og-estudio-escrita-planejada.jpg';
 const imageAlt =
   article.data.imageAlt ?? 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios';
-
-const defaultCommercialCta = {
-  type: 'service' as const,
-  title: 'Seu negócio precisa de uma presença digital mais organizada?',
-  text:
-    'O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.',
-  label: 'Conhecer o serviço de site profissional',
-  href: '/site-profissional/',
-};
-
-const commercialCta =
-  article.data.commercialCta === false
-    ? null
-    : article.data.commercialCta ?? defaultCommercialCta;
-
-const commercialCtaIsExternal = commercialCta
-  ? /^https?:\/\//.test(commercialCta.href)
-  : false;
-
-const commercialCtaRel = commercialCta
-  ? commercialCta.type === 'affiliate'
-    ? 'sponsored noopener noreferrer'
-    : commercialCtaIsExternal
-      ? 'noopener noreferrer'
-      : undefined
-  : undefined;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -164,23 +139,7 @@ const schema = {
       <article class="article-body">
         <Content />
 
-        {commercialCta && (
-          <aside class="article-callout" data-cta-type={commercialCta.type}>
-            <h2>{commercialCta.title}</h2>
-            <p>{commercialCta.text}</p>
-            <a
-              href={commercialCta.href}
-              target={commercialCtaIsExternal ? '_blank' : undefined}
-              rel={commercialCtaRel}
-              data-analytics-event="commercial_cta_click"
-              data-article-slug={article.id}
-              data-cta-type={commercialCta.type}
-              data-cta-label={commercialCta.label}
-            >
-              {commercialCta.label}
-            </a>
-          </aside>
-        )}
+        <ArticlePromotion articleSlug={article.id} />
       </article>
     </div>
 

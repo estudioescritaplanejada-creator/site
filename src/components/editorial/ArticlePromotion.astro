@@ -1,0 +1,47 @@
+---
+interface Props {
+  articleSlug: string;
+}
+
+const { articleSlug } = Astro.props;
+
+const href = '/sistema-criador-digital/';
+const label = 'Conheça o Sistema Criador Digital com IA';
+---
+
+<aside
+  class="article-promotion"
+  aria-label="Conteúdo recomendado"
+  data-promotion="sistema-criador-digital"
+>
+  <a
+    class="article-promotion__link"
+    href={href}
+    aria-label={label}
+    data-analytics-event="commercial_cta_click"
+    data-article-slug={articleSlug}
+    data-cta-type="product"
+    data-cta-label={label}
+  >
+    <picture>
+      <source
+        media="(max-width: 700px)"
+        srcset="/assets/promocoes/sistema-criador-digital/vertical.webp"
+        width="1086"
+        height="1448"
+      />
+      <img
+        src="/assets/promocoes/sistema-criador-digital/horizontal.webp"
+        width="1448"
+        height="1086"
+        alt="Criador Digital com IA: aprenda a organizar ideias, criar conteúdo e desenvolver projetos"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </a>
+
+  <p class="article-promotion__disclosure">
+    Conteúdo do Estúdio Escrita Planejada.
+  </p>
+</aside>
