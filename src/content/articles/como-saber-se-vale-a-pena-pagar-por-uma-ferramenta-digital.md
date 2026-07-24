@@ -12,6 +12,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Vale a pena pagar por uma ferramenta digital?"
+commercialCta: false
 ---
 
 Toda semana aparece uma ferramenta prometendo organizar alguma parte do trabalho: agenda, atendimento, edição de imagens, emissão de documentos, automação de mensagens, produção de conteúdo, inteligência artificial ou controle financeiro.

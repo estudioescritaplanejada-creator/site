@@ -76,33 +76,81 @@ function parseFrontmatter(filePath) {
   const body = source.slice(end + 5);
   const data = {};
   const errors = [];
-  let currentArray = null;
+  let currentContainer = null;
 
   for (const [index, rawLine] of block.split('\n').entries()) {
     const lineNumber = index + 2;
     if (!rawLine.trim() || rawLine.trimStart().startsWith('#')) continue;
 
-    const listMatch = rawLine.match(/^\s+-\s+(.+)$/);
-    if (listMatch && currentArray) {
-      data[currentArray].push(parseScalar(listMatch[1]));
+    const listMatch = rawLine.match(/^\s{2,}-\s+(.+)$/);
+    if (listMatch) {
+      if (!currentContainer) {
+        errors.push(`linha ${lineNumber} contém item de lista sem campo correspondente`);
+        continue;
+      }
+
+      if (data[currentContainer] === null) data[currentContainer] = [];
+
+      if (!Array.isArray(data[currentContainer])) {
+        errors.push(`linha ${lineNumber} mistura lista e objeto no mesmo campo`);
+        continue;
+      }
+
+      data[currentContainer].push(parseScalar(listMatch[1]));
+      continue;
+    }
+
+    const nestedFieldMatch = rawLine.match(
+      /^\s{2,}([A-Za-z][A-Za-z0-9]*):\s*(.*)$/,
+    );
+
+    if (nestedFieldMatch) {
+      if (!currentContainer) {
+        errors.push(`linha ${lineNumber} contém campo aninhado sem bloco correspondente`);
+        continue;
+      }
+
+      if (data[currentContainer] === null) data[currentContainer] = {};
+
+      if (
+        Array.isArray(data[currentContainer]) ||
+        typeof data[currentContainer] !== 'object'
+      ) {
+        errors.push(`linha ${lineNumber} mistura objeto e lista no mesmo campo`);
+        continue;
+      }
+
+      const [, nestedKey, rawValue] = nestedFieldMatch;
+
+      if (rawValue === '') {
+        errors.push(`linha ${lineNumber} contém campo aninhado sem valor`);
+        continue;
+      }
+
+      data[currentContainer][nestedKey] = parseScalar(rawValue);
       continue;
     }
 
     const fieldMatch = rawLine.match(/^([A-Za-z][A-Za-z0-9]*):\s*(.*)$/);
     if (!fieldMatch) {
       errors.push(`linha ${lineNumber} do frontmatter não reconhecida`);
-      currentArray = null;
+      currentContainer = null;
       continue;
     }
 
     const [, key, rawValue] = fieldMatch;
+
     if (rawValue === '') {
-      data[key] = [];
-      currentArray = key;
+      data[key] = null;
+      currentContainer = key;
     } else {
       data[key] = parseScalar(rawValue);
-      currentArray = null;
+      currentContainer = null;
     }
+  }
+
+  for (const [key, value] of Object.entries(data)) {
+    if (value === null) data[key] = [];
   }
 
   return { data, body, errors };
@@ -171,6 +219,56 @@ function validateArticle(filePath) {
 
   if (data.featured !== undefined && typeof data.featured !== 'boolean') {
     issues.push('featured deve ser true ou false');
+  }
+
+  if (data.commercialCta !== undefined && data.commercialCta !== false) {
+    const cta = data.commercialCta;
+
+    if (!cta || Array.isArray(cta) || typeof cta !== 'object') {
+      issues.push('commercialCta deve ser false ou um bloco de configuração');
+    } else {
+      const allowedFields = new Set(['type', 'title', 'text', 'label', 'href']);
+
+      for (const key of Object.keys(cta)) {
+        if (!allowedFields.has(key)) {
+          issues.push(`commercialCta contém campo não reconhecido: ${key}`);
+        }
+      }
+
+      for (const field of ['type', 'title', 'text', 'label', 'href']) {
+        if (typeof cta[field] !== 'string' || cta[field].trim() === '') {
+          issues.push(`commercialCta.${field} é obrigatório`);
+        }
+      }
+
+      if (
+        typeof cta.type === 'string' &&
+        !['service', 'affiliate', 'product'].includes(cta.type)
+      ) {
+        issues.push('commercialCta.type deve ser service, affiliate ou product');
+      }
+
+      if (
+        typeof cta.title === 'string' &&
+        (cta.title.length < 10 || cta.title.length > 120)
+      ) {
+        issues.push('commercialCta.title deve ter entre 10 e 120 caracteres');
+      }
+
+      if (
+        typeof cta.text === 'string' &&
+        (cta.text.length < 20 || cta.text.length > 260)
+      ) {
+        issues.push('commercialCta.text deve ter entre 20 e 260 caracteres');
+      }
+
+      if (
+        typeof cta.label === 'string' &&
+        (cta.label.length < 3 || cta.label.length > 90)
+      ) {
+        issues.push('commercialCta.label deve ter entre 3 e 90 caracteres');
+      }
+    }
   }
 
   if (data.image && !data.imageAlt) issues.push('imageAlt é obrigatório quando image é informado');

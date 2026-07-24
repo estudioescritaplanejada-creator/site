@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Quando vale a pena trocar de ferramenta digital"
+commercialCta: false
 ---
 
 Todo negócio que usa tecnologia chega, cedo ou tarde, à mesma dúvida: a ferramenta atual não parece mais suficiente, e uma alternativa nova promete resolver tudo isso melhor. A vontade de trocar costuma vir de um misto de frustração real com a ferramenta antiga e do brilho de uma novidade bem anunciada.

@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Site próprio ou redes sociais: quando investir"
+commercialCta:
+  type: service
+  title: "Seu negócio já precisa de um site próprio?"
+  text: "O Estúdio cria uma página profissional para organizar serviços, apresentar seu trabalho no Google e levar clientes ao WhatsApp."
+  label: "Conhecer o serviço de site profissional"
+  href: "/site-profissional/"
 ---
 
 Muitos negócios começam e permanecem por anos apenas com um perfil no Instagram ou uma página no Facebook — e, para uma fase inicial, isso costuma ser suficiente. A dúvida aparece mais adiante: vale a pena investir num site próprio, ou as redes sociais continuam dando conta do recado?

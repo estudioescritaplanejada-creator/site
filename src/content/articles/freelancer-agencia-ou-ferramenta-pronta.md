@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Freelancer, agência ou ferramenta pronta: qual escolher"
+commercialCta:
+  type: service
+  title: "Prefere contratar a execução do seu site?"
+  text: "O Estúdio planeja, escreve, organiza e publica uma página profissional completa, sem exigir que você monte tudo sozinho."
+  label: "Ver como funciona o serviço"
+  href: "/site-profissional/"
 ---
 
 Quando chega a hora de resolver algo mais estruturado no digital — um site, uma identidade visual, uma campanha de anúncios — surge sempre a mesma dúvida: contratar alguém para fazer, montar sozinho numa ferramenta pronta, ou buscar uma agência que cuide de tudo. Cada opção tem um discurso de venda convincente, e a decisão errada custa tempo, dinheiro ou os dois.

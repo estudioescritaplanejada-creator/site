@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Anúncio pago vale a pena no início do negócio"
+commercialCta:
+  type: service
+  title: "Antes de anunciar, prepare a página que receberá o cliente"
+  text: "O Estúdio cria uma página profissional clara, rápida e conectada ao WhatsApp para transformar visitas de anúncios em pedidos."
+  label: "Preparar a página do negócio"
+  href: "/site-profissional/"
 ---
 
 Assim que um negócio começa a ganhar forma no digital, surge quase sempre a mesma sugestão: "impulsiona um post" ou "faz um anúncio". A promessa é sedutora — alcançar mais gente rapidamente, com um investimento aparentemente pequeno. O problema é que anúncio pago amplifica o que já existe; ele não corrige o que ainda está mal resolvido antes dele.
