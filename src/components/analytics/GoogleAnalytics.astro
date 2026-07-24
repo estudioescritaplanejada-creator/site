@@ -156,6 +156,68 @@
 
     settingsButton.addEventListener('click', openBanner);
 
+    const sendAnalyticsEvent = (eventName, parameters) => {
+      if (readChoice() !== 'granted') return;
+
+      window.gtag('event', eventName, parameters);
+    };
+
+    const whatsappPattern =
+      /^https:\/\/(?:wa\.me|api\.whatsapp\.com)(?:\/|$)/i;
+
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest('a[href]');
+
+      if (!(link instanceof HTMLAnchorElement)) return;
+
+      const href = link.href;
+      const linkText = (
+        link.dataset.ctaLabel ||
+        link.textContent ||
+        link.getAttribute('aria-label') ||
+        ''
+      )
+        .trim()
+        .replace(/\s+/g, ' ')
+        .slice(0, 120);
+
+      if (link.dataset.analyticsEvent === 'commercial_cta_click') {
+        const destinationType = whatsappPattern.test(href)
+          ? 'whatsapp'
+          : link.origin === window.location.origin
+            ? 'internal'
+            : 'external';
+
+        sendAnalyticsEvent('commercial_cta_click', {
+          article_slug: link.dataset.articleSlug || '',
+          cta_type: link.dataset.ctaType || '',
+          cta_label: linkText,
+          destination_type: destinationType,
+          link_url: href,
+        });
+
+        return;
+      }
+
+      if (!whatsappPattern.test(href)) return;
+
+      const linkPosition = link.closest('.mobile-cta')
+        ? 'mobile_floating'
+        : link.classList.contains('header-cta')
+          ? 'header'
+          : link.closest('footer')
+            ? 'footer'
+            : 'content';
+
+      sendAnalyticsEvent('whatsapp_click', {
+        link_text: linkText,
+        link_position: linkPosition,
+        link_url: href,
+      });
+    });
+
     const storedChoice = readChoice();
 
     if (storedChoice === 'granted') {

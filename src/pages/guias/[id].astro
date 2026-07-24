@@ -172,6 +172,10 @@ const schema = {
               href={commercialCta.href}
               target={commercialCtaIsExternal ? '_blank' : undefined}
               rel={commercialCtaRel}
+              data-analytics-event="commercial_cta_click"
+              data-article-slug={article.id}
+              data-cta-type={commercialCta.type}
+              data-cta-label={commercialCta.label}
             >
               {commercialCta.label}
             </a>
