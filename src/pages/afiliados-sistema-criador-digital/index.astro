@@ -1,0 +1,154 @@
+---
+import AffiliateLandingLayout from '../../layouts/AffiliateLandingLayout.astro';
+import AffiliateLandingContent from '../../components/afiliados-sistema-criador-digital/AffiliateLandingContent.astro';
+
+const title =
+  'Programa de Afiliados | Sistema Criador Digital com IA';
+
+const description =
+  'Conheça o programa de afiliados do Sistema Criador Digital com IA, acesse materiais de divulgação e candidate-se pela Hotmart.';
+
+const canonicalPath = '/afiliados-sistema-criador-digital/';
+const recruitingUrl =
+  'https://affiliate.hotmart.com/affiliate-recruiting/view/4977S102690793';
+
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const siteUrl = new URL('/', baseUrl).toString();
+const organizationId = `${siteUrl}#organization`;
+const websiteId = `${siteUrl}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const faqId = `${canonicalUrl}#faq`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Estúdio Escrita Planejada',
+      url: siteUrl,
+      email: 'estudioescritaplanejada@gmail.com',
+      logo: new URL('/assets/img/logo.png', baseUrl).toString(),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: siteUrl,
+      name: 'Estúdio Escrita Planejada',
+      inLanguage: 'pt-BR',
+      publisher: {
+        '@id': organizationId,
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: canonicalUrl,
+      name: 'Programa de Afiliados do Sistema Criador Digital com IA',
+      description,
+      isPartOf: {
+        '@id': websiteId,
+      },
+      about: {
+        '@type': 'Product',
+        name: 'Sistema Criador Digital com IA',
+        url: new URL('/sistema-criador-digital/', baseUrl).toString(),
+      },
+      inLanguage: 'pt-BR',
+      potentialAction: {
+        '@type': 'RegisterAction',
+        target: recruitingUrl,
+        name: 'Candidatar-se ao programa de afiliados',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': faqId,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Preciso comprar o produto para divulgar?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A compra não é apresentada como obrigatória. Conhecer o conteúdo pode ajudar o afiliado a comunicar a proposta com mais precisão.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quanto posso receber por venda?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Hotmart informa comissão de até R$ 56,72 por venda, considerando o preço máximo atual de R$ 127,00.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Como funciona a atribuição da venda?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'O programa está configurado para atribuição pelo último clique, com cookie de duração eterna conforme informação exibida na Hotmart.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Posso usar os materiais prontos?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim. Os materiais foram organizados como apoio para divulgação e podem ser adaptados ao contexto do público do afiliado.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Posso criar meus próprios materiais?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim. Os materiais próprios devem ser éticos, verdadeiros e compatíveis com o conteúdo real do produto.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'É permitido usar tráfego pago?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim, desde que a campanha respeite as políticas da Hotmart, da plataforma de anúncios e as regras aplicáveis à divulgação.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Há meta mínima de vendas?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não foi informada meta mínima. O afiliado pode organizar a divulgação conforme sua estratégia e disponibilidade.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Onde acompanho links, vendas e comissões?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'O acompanhamento operacional é realizado diretamente no painel da Hotmart.',
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<AffiliateLandingLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  image="/assets/produtos/sistema-criador-digital/hero.png"
+  imageAlt="Sistema Criador Digital com IA"
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <AffiliateLandingContent />
+</AffiliateLandingLayout>
