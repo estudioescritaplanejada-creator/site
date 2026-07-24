@@ -1,0 +1,161 @@
+---
+import ProductLandingLayout from '../../layouts/ProductLandingLayout.astro';
+import LandingContent from '../../components/sistema-criador-digital/LandingContent.astro';
+
+const title =
+  'Sistema Criador Digital com IA | Estúdio Escrita Planejada';
+
+const description =
+  'Organize suas ideias, aprenda a usar inteligência artificial e comece a criar conteúdos, vídeos e projetos digitais com um sistema de 7 módulos.';
+
+const canonicalPath = '/sistema-criador-digital/';
+const checkoutUrl =
+  'https://pay.hotmart.com/K102690772K?bid=1784922165130';
+
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const siteUrl = new URL('/', baseUrl).toString();
+const organizationId = `${siteUrl}#organization`;
+const websiteId = `${siteUrl}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const productId = `${canonicalUrl}#product`;
+const faqId = `${canonicalUrl}#faq`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Estúdio Escrita Planejada',
+      url: siteUrl,
+      email: 'estudioescritaplanejada@gmail.com',
+      logo: new URL('/assets/img/logo.png', baseUrl).toString(),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: siteUrl,
+      name: 'Estúdio Escrita Planejada',
+      inLanguage: 'pt-BR',
+      publisher: {
+        '@id': organizationId,
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: canonicalUrl,
+      name: 'Sistema Criador Digital com IA',
+      description,
+      isPartOf: {
+        '@id': websiteId,
+      },
+      about: {
+        '@id': productId,
+      },
+      inLanguage: 'pt-BR',
+    },
+    {
+      '@type': 'Product',
+      '@id': productId,
+      name: 'Sistema Criador Digital com IA',
+      description,
+      image: [
+        new URL(
+          '/assets/produtos/sistema-criador-digital/hero.png',
+          baseUrl,
+        ).toString(),
+        new URL(
+          '/assets/produtos/sistema-criador-digital/oferta.png',
+          baseUrl,
+        ).toString(),
+      ],
+      brand: {
+        '@id': organizationId,
+      },
+      category: 'Produto digital educacional',
+      offers: {
+        '@type': 'Offer',
+        url: checkoutUrl,
+        price: '127.00',
+        priceCurrency: 'BRL',
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: {
+          '@id': organizationId,
+        },
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': faqId,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Preciso saber usar inteligência artificial?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não. O sistema foi pensado para pessoas que ainda estão começando.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Preciso saber programar?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não. O conteúdo não exige conhecimento de programação.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Por quanto tempo tenho acesso?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'O acesso é vitalício. A compra é realizada uma vez e os materiais podem ser consultados sempre que necessário.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'É possível acessar pelo celular?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim. O conteúdo é entregue pelo ambiente digital da Hotmart.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'O produto possui certificado?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não. O foco do sistema é o conteúdo prático e o desenvolvimento dos próprios projetos do aluno.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Como funciona o suporte?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'As dúvidas sobre o conteúdo podem ser enviadas para estudioescritaplanejada@gmail.com.',
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<ProductLandingLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <LandingContent />
+</ProductLandingLayout>
