@@ -302,7 +302,7 @@ function publishCommand(slug) {
   heading('PRONTO PARA VERSIONAR');
   note(`git add src/content/articles/${slug}.md`);
   note(`git commit -m "feat: publicar guia ${slug}"`);
-  note('git push origin ampliacao-astro');
+  note('git push origin main');
 }
 
 function normalizeBase(value) {

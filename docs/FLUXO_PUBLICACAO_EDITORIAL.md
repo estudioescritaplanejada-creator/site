@@ -124,7 +124,7 @@ Após a validação:
 ```bash
 git add src/content/articles/<slug>.md
 git commit -m "feat: publicar guia <slug>"
-git push origin ampliacao-astro
+git push origin main
 ```
 
 Se houver imagens, documentação ou outras alterações relacionadas, inclua apenas esses arquivos no `git add`.
