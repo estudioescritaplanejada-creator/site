@@ -1,5 +1,6 @@
 ---
 import SeoHead from '../components/seo/SeoHead.astro';
+import GoogleAnalytics from '../components/analytics/GoogleAnalytics.astro';
 import EditorialSiteHeader from '../components/editorial/EditorialSiteHeader.astro';
 import EditorialSiteFooter from '../components/editorial/EditorialSiteFooter.astro';
 import '../styles/editorial-content.css';
@@ -66,5 +67,6 @@ const {
     <EditorialSiteHeader active={active} />
     <slot />
     <EditorialSiteFooter />
+      <GoogleAnalytics />
   </body>
 </html>

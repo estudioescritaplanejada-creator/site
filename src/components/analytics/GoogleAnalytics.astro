@@ -1,0 +1,244 @@
+<div
+  id="eep-analytics-consent"
+  class="analytics-consent"
+  role="dialog"
+  aria-labelledby="eep-analytics-title"
+  aria-describedby="eep-analytics-description"
+  hidden
+>
+  <div>
+    <strong id="eep-analytics-title">Medição opcional do site</strong>
+    <p id="eep-analytics-description">
+      O Google Analytics ajuda a entender acessos, páginas visitadas e cliques.
+      Você pode aceitar ou recusar essa medição.
+    </p>
+  </div>
+
+  <div class="analytics-consent__actions">
+    <button id="eep-analytics-reject" type="button">Recusar</button>
+    <button id="eep-analytics-accept" type="button">Aceitar</button>
+  </div>
+</div>
+
+<button
+  id="eep-analytics-settings"
+  class="analytics-settings"
+  type="button"
+  aria-label="Alterar preferências de privacidade"
+  hidden
+>
+  Privacidade
+</button>
+
+<script is:inline>
+  (() => {
+    const measurementId = 'G-EW21JNBSY5';
+    const storageKey = 'eep_analytics_consent';
+
+    const banner = document.getElementById('eep-analytics-consent');
+    const acceptButton = document.getElementById('eep-analytics-accept');
+    const rejectButton = document.getElementById('eep-analytics-reject');
+    const settingsButton = document.getElementById('eep-analytics-settings');
+
+    if (!banner || !acceptButton || !rejectButton || !settingsButton) return;
+
+    window.dataLayer = window.dataLayer || [];
+
+    window.gtag =
+      window.gtag ||
+      function () {
+        window.dataLayer.push(arguments);
+      };
+
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+    });
+
+    const readChoice = () => {
+      try {
+        return window.localStorage.getItem(storageKey);
+      } catch {
+        return null;
+      }
+    };
+
+    const saveChoice = (choice) => {
+      try {
+        window.localStorage.setItem(storageKey, choice);
+      } catch {
+        // A preferência continuará válida apenas durante esta página.
+      }
+    };
+
+    const denyAnalytics = () => {
+      window.gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+    };
+
+    const loadAnalytics = () => {
+      window.gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'granted',
+      });
+
+      if (
+        document.querySelector(
+          'script[data-eep-google-analytics="true"]',
+        )
+      ) {
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src =
+        `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      script.dataset.eepGoogleAnalytics = 'true';
+      document.head.appendChild(script);
+
+      window.gtag('js', new Date());
+      window.gtag('config', measurementId);
+    };
+
+    const closeBanner = () => {
+      banner.hidden = true;
+      settingsButton.hidden = false;
+    };
+
+    const openBanner = () => {
+      banner.hidden = false;
+      settingsButton.hidden = true;
+      acceptButton.focus();
+    };
+
+    acceptButton.addEventListener('click', () => {
+      saveChoice('granted');
+      loadAnalytics();
+      closeBanner();
+    });
+
+    rejectButton.addEventListener('click', () => {
+      const previousChoice = readChoice();
+
+      saveChoice('denied');
+      denyAnalytics();
+      closeBanner();
+
+      if (previousChoice === 'granted') {
+        window.setTimeout(() => window.location.reload(), 50);
+      }
+    });
+
+    settingsButton.addEventListener('click', openBanner);
+
+    const storedChoice = readChoice();
+
+    if (storedChoice === 'granted') {
+      loadAnalytics();
+      closeBanner();
+    } else if (storedChoice === 'denied') {
+      denyAnalytics();
+      closeBanner();
+    } else {
+      openBanner();
+    }
+  })();
+</script>
+
+<style>
+  .analytics-consent[hidden],
+  .analytics-settings[hidden] {
+    display: none;
+  }
+
+  .analytics-consent {
+    position: fixed;
+    z-index: 10000;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 1rem 1.1rem;
+    color: #f8f5ef;
+    background: #171717;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+    font-family: system-ui, sans-serif;
+  }
+
+  .analytics-consent strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .analytics-consent p {
+    max-width: 520px;
+    margin: 0;
+    color: #d7d3cc;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .analytics-consent__actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.55rem;
+  }
+
+  .analytics-consent button,
+  .analytics-settings {
+    min-height: 40px;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 9px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font: 700 0.82rem/1 system-ui, sans-serif;
+  }
+
+  #eep-analytics-accept {
+    color: #101010;
+    background: #f4f0e8;
+    border-color: #f4f0e8;
+  }
+
+  .analytics-settings {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0.65rem;
+    left: 0.65rem;
+    min-height: 32px;
+    padding: 0.45rem 0.65rem;
+    color: #f4f0e8;
+    background: rgba(23, 23, 23, 0.92);
+    font-size: 0.72rem;
+  }
+
+  @media (max-width: 640px) {
+    .analytics-consent {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .analytics-consent__actions {
+      justify-content: flex-end;
+    }
+  }
+</style>

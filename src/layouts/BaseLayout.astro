@@ -1,5 +1,6 @@
 ---
 import SeoHead from '../components/seo/SeoHead.astro';
+import GoogleAnalytics from '../components/analytics/GoogleAnalytics.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -62,5 +63,6 @@ const {
     <main id="conteudo">
       <slot />
     </main>
+      <GoogleAnalytics />
   </body>
 </html>
