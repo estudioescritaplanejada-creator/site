@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como evitar golpes no WhatsApp Business"
+commercialCta: false
 ---
 
 O WhatsApp se tornou o principal canal de trabalho de muitos profissionais autônomos e pequenos negócios. É por ele que chegam pedidos, orçamentos, comprovantes, dúvidas e confirmações de clientes. Por isso, também virou um alvo frequente de tentativas de fraude.

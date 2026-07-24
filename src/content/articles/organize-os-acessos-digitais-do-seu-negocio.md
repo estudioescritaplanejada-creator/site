@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: true
 seoTitle: "Como organizar os acessos digitais do seu negócio"
+commercialCta: false
 ---
 
 Perder o acesso a uma conta importante não é apenas um problema técnico. Para quem trabalha por conta própria, isso pode interromper atendimento, cobrança, divulgação, entrega de arquivos e contato com clientes.

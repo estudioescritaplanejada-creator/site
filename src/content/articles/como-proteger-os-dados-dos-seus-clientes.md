@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como proteger os dados de clientes no pequeno negócio"
+commercialCta: false
 ---
 
 Todo negócio que atende pessoas recebe dados pessoais: nome, telefone, e-mail, endereço, informações de cadastro e, em algumas atividades, documentos ou dados financeiros.

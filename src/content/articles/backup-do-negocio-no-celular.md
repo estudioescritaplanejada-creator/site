@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como fazer backup dos dados do negócio no celular"
+commercialCta: false
 ---
 
 Para quem trabalha por conta própria, o celular costuma concentrar contatos de clientes, conversas no WhatsApp, fotos de trabalhos, arquivos de orçamento e acesso a aplicativos financeiros.
