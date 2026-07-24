@@ -24,7 +24,7 @@ interface Props {
   article: CollectionEntry<'articles'>;
 }
 
-const { article } = Astro.props;
+const { article } = Astro.props as Props;
 const { Content } = await render(article);
 const category = categoryInfo[article.data.category];
 const readingMinutes = getReadingMinutes(article.body ?? '');
@@ -50,6 +50,32 @@ const title = article.data.seoTitle ?? `${article.data.title} | Estúdio Escrita
 const image = article.data.image ?? '/assets/img/og-estudio-escrita-planejada.jpg';
 const imageAlt =
   article.data.imageAlt ?? 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios';
+
+const defaultCommercialCta = {
+  type: 'service' as const,
+  title: 'Seu negócio precisa de uma presença digital mais organizada?',
+  text:
+    'O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.',
+  label: 'Conhecer o serviço de site profissional',
+  href: '/site-profissional/',
+};
+
+const commercialCta =
+  article.data.commercialCta === false
+    ? null
+    : article.data.commercialCta ?? defaultCommercialCta;
+
+const commercialCtaIsExternal = commercialCta
+  ? /^https?:\/\//.test(commercialCta.href)
+  : false;
+
+const commercialCtaRel = commercialCta
+  ? commercialCta.type === 'affiliate'
+    ? 'sponsored noopener noreferrer'
+    : commercialCtaIsExternal
+      ? 'noopener noreferrer'
+      : undefined
+  : undefined;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -138,14 +164,19 @@ const schema = {
       <article class="article-body">
         <Content />
 
-        <aside class="article-callout">
-          <h2>Seu negócio precisa de uma presença digital mais organizada?</h2>
-          <p>
-            O Estúdio estrutura páginas profissionais, presença digital e materiais
-            sob medida para autônomos e pequenos negócios.
-          </p>
-          <a href="/site-profissional/">Conhecer o serviço de site profissional</a>
-        </aside>
+        {commercialCta && (
+          <aside class="article-callout" data-cta-type={commercialCta.type}>
+            <h2>{commercialCta.title}</h2>
+            <p>{commercialCta.text}</p>
+            <a
+              href={commercialCta.href}
+              target={commercialCtaIsExternal ? '_blank' : undefined}
+              rel={commercialCtaRel}
+            >
+              {commercialCta.label}
+            </a>
+          </aside>
+        )}
       </article>
     </div>
 

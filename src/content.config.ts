@@ -28,6 +28,16 @@ const articles = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     seoTitle: z.string().max(70).optional(),
+    commercialCta: z.union([
+      z.literal(false),
+      z.object({
+        type: z.enum(['service', 'affiliate', 'product']),
+        title: z.string().min(10).max(120),
+        text: z.string().min(20).max(260),
+        label: z.string().min(3).max(90),
+        href: z.string().min(1),
+      }),
+    ]).optional(),
   }),
 });
 
