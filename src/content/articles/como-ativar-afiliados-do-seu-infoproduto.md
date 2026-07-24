@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como ativar afiliados para vender um infoproduto"
+commercialCta:
+  type: service
+  title: "Seu produto digital ainda precisa de uma estrutura comercial?"
+  text: "O Estúdio organiza conteúdo, apresentação e materiais do infoproduto para que ele esteja pronto para vender e receber parceiros."
+  label: "Estruturar meu produto digital"
+  href: "https://wa.me/5511964502997?text=Quero%20estruturar%20meu%20produto%20digital"
 ---
 
 Colocar um infoproduto em plataformas com programa de afiliados costuma gerar uma expectativa que raramente se confirma sozinha: a ideia de que, uma vez disponível, outras pessoas vão naturalmente encontrar o produto e começar a divulgá-lo. Na prática, afiliados que se cadastram, mas nunca recebem orientação ou material de apoio, tendem a permanecer inativos — inscritos, mas sem nunca fazer a primeira divulgação.

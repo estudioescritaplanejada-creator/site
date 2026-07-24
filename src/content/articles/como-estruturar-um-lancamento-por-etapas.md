@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como estruturar um lançamento de infoproduto por etapas"
+commercialCta:
+  type: service
+  title: "Precisa organizar seu produto antes do lançamento?"
+  text: "O Estúdio transforma seu conhecimento em um infoproduto estruturado, com conteúdo, materiais e apresentação prontos para a etapa comercial."
+  label: "Conversar sobre o projeto"
+  href: "https://wa.me/5511964502997?text=Quero%20organizar%20meu%20produto%20digital"
 ---
 
 Um erro recorrente ao lançar um infoproduto é anunciar tudo de uma vez, num único post ou mensagem, e esperar que as vendas aconteçam a partir desse único momento. Sem preparação prévia nem continuidade depois, o lançamento vira um evento isolado — fácil de ser ignorado por quem não estava prestando atenção naquele exato momento.

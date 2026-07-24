@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como escolher uma ferramenta de inteligência artificial"
+commercialCta: false
 ---
 
 Novas ferramentas de inteligência artificial aparecem com frequência, acompanhadas de comparações, rankings e promessas de desempenho.

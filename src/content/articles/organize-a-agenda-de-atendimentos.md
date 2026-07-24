@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como organizar a agenda de atendimentos"
+commercialCta: false
 ---
 
 Poucas coisas desgastam tanto a rotina de quem atende clientes quanto uma agenda que muda o tempo todo: cliente que remarca em cima da hora, encaixe que empurra outro compromisso, horário livre que ninguém confirma se está de fato livre. O resultado é uma sensação constante de estar sempre reorganizando o dia, em vez de simplesmente vivê-lo.

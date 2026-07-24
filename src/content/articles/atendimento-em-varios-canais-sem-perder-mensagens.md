@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como organizar atendimento em vários canais"
+commercialCta: false
 ---
 
 Atender clientes por um único canal já é bastante trabalho. Quando os pedidos chegam ao mesmo tempo por WhatsApp, direct do Instagram, comentário público e, às vezes, e-mail, fica fácil perder o controle de quem já foi respondido, quem está esperando e quem simplesmente desistiu por falta de retorno.

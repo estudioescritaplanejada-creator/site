@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como usar IA para criar conteúdo com identidade"
+commercialCta: false
 ---
 
 Inteligência artificial ajudou muitas pessoas a superar a tela em branco na hora de criar conteúdo. O problema aparece quando legendas, posts e roteiros parecem corretos, mas poderiam ter sido publicados por qualquer negócio.

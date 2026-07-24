@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como usar inteligência artificial no pequeno negócio"
+commercialCta: false
 ---
 
 Inteligência artificial virou assunto obrigatório, mas, para quem trabalha sozinho, o problema não costuma ser falta de ferramenta. É excesso de opções e pouca clareza sobre onde ela realmente ajuda.

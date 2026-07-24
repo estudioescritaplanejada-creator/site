@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Por que um infoproduto não vende e como corrigir"
+commercialCta:
+  type: service
+  title: "Seu infoproduto precisa de uma estrutura mais clara?"
+  text: "O Estúdio reorganiza conteúdo, formato, materiais e apresentação para tornar a oferta mais compreensível e profissional."
+  label: "Reestruturar meu produto digital"
+  href: "https://wa.me/5511964502997?text=Quero%20reestruturar%20meu%20produto%20digital"
 ---
 
 Terminar um infoproduto costuma dar a sensação de que a parte difícil já passou. Depois vem o lançamento — e, com ele, o silêncio: poucas vendas, pouco interesse, mensagens que não chegam. A reação mais comum é concluir que "o assunto não interessa" ou que "falta impulsionar mais", quando o problema geralmente está em outro lugar.

@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como organizar mensagens, cobranças e arquivos"
+commercialCta: false
 ---
 
 Quem trabalha por conta própria costuma acumular a rotina inteira em três lugares: o WhatsApp, o e-mail e a própria memória. Funciona por um tempo — até o dia em que uma cobrança se perde no meio de outras conversas, um arquivo importante desaparece entre fotos do celular ou um cliente pergunta “e aquele orçamento?” e a resposta é silêncio.

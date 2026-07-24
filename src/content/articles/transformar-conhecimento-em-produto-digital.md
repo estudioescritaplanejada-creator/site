@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como transformar conhecimento em produto digital"
+commercialCta:
+  type: service
+  title: "Quer transformar seu conhecimento em um produto digital?"
+  text: "O Estúdio organiza a ideia, define o formato e produz os materiais necessários para criar um infoproduto sob medida."
+  label: "Conversar sobre meu projeto"
+  href: "https://wa.me/5511964502997?text=Quero%20criar%20um%20produto%20digital"
 ---
 
 Quem trabalha por conta própria acumula, com o tempo, um tipo de conhecimento que não está em nenhum diploma: a forma certa de resolver um problema recorrente, os erros que os clientes sempre cometem, o passo a passo que funciona na prática. Esse conhecimento tem valor — mas, para a maioria, ele continua preso na cabeça ou espalhado em conversas soltas, nunca virando algo que possa ser apresentado ou vendido.

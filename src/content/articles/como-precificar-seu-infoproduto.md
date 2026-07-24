@@ -14,6 +14,12 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como definir o preço de um infoproduto"
+commercialCta:
+  type: service
+  title: "Seu infoproduto já está pronto para ser apresentado ao mercado?"
+  text: "O Estúdio estrutura o conteúdo, os materiais e a apresentação comercial para transformar sua ideia em um produto digital consistente."
+  label: "Estruturar meu infoproduto"
+  href: "https://wa.me/5511964502997?text=Quero%20estruturar%20meu%20infoproduto"
 ---
 
 Definir o preço de um infoproduto costuma ser um dos momentos mais desconfortáveis de todo o processo. É comum oscilar entre dois extremos: colocar um valor tão baixo que mal cobre o esforço de produção, ou copiar o preço de um concorrente sem entender se ele faz sentido para o próprio público.

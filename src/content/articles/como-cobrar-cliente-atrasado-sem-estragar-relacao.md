@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como cobrar cliente atrasado sem prejudicar a relação"
+commercialCta: false
 ---
 
 Cobrar um cliente que atrasou o pagamento é, para muita gente que trabalha por conta própria, um dos momentos mais desconfortáveis da rotina. O medo de parecer inconveniente, de estragar a relação ou de perder um cliente recorrente faz com que a cobrança seja adiada — às vezes por dias, às vezes até ser esquecida por completo.

@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como usar IA no atendimento sem parecer robô"
+commercialCta: false
 ---
 
 Automatizar parte do atendimento parece uma solução natural para quem trabalha sozinho: menos tempo respondendo as mesmas perguntas e mais disponibilidade para tarefas que exigem atenção pessoal.

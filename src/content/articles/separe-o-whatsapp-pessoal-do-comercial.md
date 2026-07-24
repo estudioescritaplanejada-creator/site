@@ -13,6 +13,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como separar WhatsApp pessoal e comercial"
+commercialCta: false
 ---
 
 Usar o mesmo WhatsApp para família, amigos, fornecedores e clientes parece simples no começo. O problema aparece quando o volume cresce: mensagens importantes desaparecem entre conversas pessoais, o atendimento continua fora do horário e o cliente não sabe se está falando com uma pessoa ou com uma empresa.

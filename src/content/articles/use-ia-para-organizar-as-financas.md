@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como usar IA para organizar as finanças do negócio"
+commercialCta: false
 ---
 
 A organização financeira costuma ser adiada por quem trabalha por conta própria. Não porque seja pouco importante, mas porque parece exigir fórmulas, categorias contábeis e domínio de planilhas.
