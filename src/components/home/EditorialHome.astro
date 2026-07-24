@@ -156,41 +156,6 @@ const tools = [
     </div>
   </div>
 
-  <section class="editorial-intro" id="guias" aria-labelledby="guias-title">
-    <div class="home-container">
-      <div class="section-heading section-heading--split">
-        <div>
-          <p class="eyebrow">O que você encontra aqui</p>
-          <h2 id="guias-title">Conteúdo que começa no problema e termina numa ação.</h2>
-        </div>
-        <p>
-          Nada de tecnologia abstrata. Cada território editorial parte de situações
-          reais de quem atende clientes, vende, cobra, organiza arquivos e administra
-          o próprio trabalho.
-        </p>
-      </div>
-
-      <div class="editorial-grid">
-        {editorialAreas.map((area, index) => (
-          <article class:list={['editorial-card', index === 0 && 'editorial-card--featured']}>
-            <div class="editorial-card__meta">
-              <span>{area.number}</span>
-              <span>{area.tag}</span>
-            </div>
-            <h3>{area.title}</h3>
-            <p>{area.text}</p>
-            <a
-              class="editorial-card__action"
-              href={activeCategories.has(area.slug) ? `/guias/tema/${area.slug}/` : '/guias/'}
-            >
-              {activeCategories.has(area.slug) ? 'Ver os guias →' : 'Em preparação →'}
-            </a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="diagnostic" id="comece" aria-labelledby="diagnostic-title">
     <div class="home-container diagnostic__grid">
       <div class="diagnostic__intro">
@@ -223,6 +188,41 @@ const tools = [
           <strong>Tenho conhecimento, mas não sei transformá-lo em produto.</strong>
           <small>Infoproduto sob medida</small>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-intro" id="guias" aria-labelledby="guias-title">
+    <div class="home-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="eyebrow">O que você encontra aqui</p>
+          <h2 id="guias-title">Conteúdo que começa no problema e termina numa ação.</h2>
+        </div>
+        <p>
+          Nada de tecnologia abstrata. Cada território editorial parte de situações
+          reais de quem atende clientes, vende, cobra, organiza arquivos e administra
+          o próprio trabalho.
+        </p>
+      </div>
+
+      <div class="editorial-grid">
+        {editorialAreas.map((area, index) => (
+          <article class:list={['editorial-card', index === 0 && 'editorial-card--featured']}>
+            <div class="editorial-card__meta">
+              <span>{area.number}</span>
+              <span>{area.tag}</span>
+            </div>
+            <h3>{area.title}</h3>
+            <p>{area.text}</p>
+            <a
+              class="editorial-card__action"
+              href={activeCategories.has(area.slug) ? `/guias/tema/${area.slug}/` : '/guias/'}
+            >
+              {activeCategories.has(area.slug) ? 'Ver os guias →' : 'Em preparação →'}
+            </a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
