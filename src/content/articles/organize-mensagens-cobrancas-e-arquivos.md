@@ -146,9 +146,3 @@ O objetivo inicial não é reconstruir perfeitamente tudo que passou. É evitar 
 - comece pelos clientes e projetos que ainda estão ativos.
 
 Rotina organizada não elimina o trabalho. Ela elimina o tempo perdido procurando uma informação que já deveria estar em um lugar definido.
-
-## Seu negócio precisa de uma presença digital mais organizada?
-
-O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.
-
-[Conhecer o serviço de site profissional](https://www.estudioescritaplanejada.com.br/site-profissional/)

@@ -188,9 +188,3 @@ Nesses casos, o controlador deve comunicar à ANPD e aos titulares no prazo apli
 Proteger dados de clientes não é transformar um pequeno negócio em um departamento jurídico. É criar controles proporcionais ao tipo de informação que o negócio recebe e ao dano que uma falha poderia causar.
 
 Consulte o [guia de segurança para agentes de pequeno porte](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-sobre-seguranca-da-informacao-para-agentes-de-tratamento-de-pequeno-porte) e as orientações da ANPD sobre [comunicação de incidentes de segurança](https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/comunicado-de-incidente-de-seguranca-cis).
-
-## Seu negócio precisa de uma presença digital mais organizada?
-
-O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.
-
-[Conhecer o serviço de site profissional](https://www.estudioescritaplanejada.com.br/site-profissional/)

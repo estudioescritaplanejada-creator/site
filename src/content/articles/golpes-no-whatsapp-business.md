@@ -138,9 +138,3 @@ Quanto mais cedo a reação, menor o espaço para que a conta seja usada contra 
 Prevenção não significa desconfiar de toda mensagem. Significa ter um procedimento de verificação que continua funcionando mesmo nos dias mais corridos.
 
 Para conferir as orientações atuais da plataforma, consulte a página oficial sobre [mensagens suspeitas e golpes](https://faq.whatsapp.com/573786218075805) e as instruções de [verificação em duas etapas](https://faq.whatsapp.com/1920866721452534).
-
-## Seu negócio precisa de uma presença digital mais organizada?
-
-O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.
-
-[Conhecer o serviço de site profissional](https://www.estudioescritaplanejada.com.br/site-profissional/)

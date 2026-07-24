@@ -161,9 +161,3 @@ Manter esse procedimento fora do celular reduz o tempo de reação.
 Backup não evita falhas. Ele permite que o negócio continue quando a falha acontecer.
 
 Consulte as instruções oficiais do WhatsApp para [configurar o backup do histórico](https://faq.whatsapp.com/481135090640375) e [exportar conversas](https://faq.whatsapp.com/1180414079177245).
-
-## Seu negócio precisa de uma presença digital mais organizada?
-
-O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.
-
-[Conhecer o serviço de site profissional](https://www.estudioescritaplanejada.com.br/site-profissional/)

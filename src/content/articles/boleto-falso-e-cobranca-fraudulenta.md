@@ -150,9 +150,3 @@ O Banco Central orienta vítimas de boleto fraudulento a procurar o banco e regi
 Conferir uma cobrança leva poucos minutos. Recuperar dinheiro enviado a um fraudador pode ser difícil e, em alguns casos, não será possível.
 
 Consulte também as orientações do Banco Central sobre [golpes envolvendo boletos](https://www.bcb.gov.br/meubc/faqs/p/vitima-pagou-um-boleto-e-caiu-em-um-golpe).
-
-## Seu negócio precisa de uma presença digital mais organizada?
-
-O Estúdio estrutura páginas profissionais, presença digital e materiais sob medida para autônomos e pequenos negócios.
-
-[Conhecer o serviço de site profissional](https://www.estudioescritaplanejada.com.br/site-profissional/)
