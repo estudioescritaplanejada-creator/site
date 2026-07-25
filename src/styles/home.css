@@ -318,9 +318,22 @@ p {
 
 .home-hero__lead {
   max-width: 43rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   color: var(--muted);
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+}
+
+.home-hero__model {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 0.22rem solid var(--orange);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.home-hero__model strong {
+  font-weight: 700;
 }
 
 .home-hero__actions {
@@ -800,6 +813,17 @@ p {
 .services {
   background: var(--paper-2);
   border-bottom: 0.1rem solid var(--ink);
+}
+
+.services-principle {
+  max-width: 52rem;
+  margin: 0 0 2rem;
+  padding: 1rem 1.2rem;
+  color: var(--ink);
+  background: var(--acid);
+  border: 0.1rem solid var(--ink);
+  font-weight: 700;
+  line-height: 1.55;
 }
 
 .services-grid {
