@@ -139,7 +139,10 @@ const schema = {
       <article class="article-body">
         <Content />
 
-        <ArticlePromotion articleSlug={article.id} />
+        <ArticlePromotion
+          articleSlug={article.id}
+          promotion={article.data.promotion}
+        />
       </article>
     </div>
 

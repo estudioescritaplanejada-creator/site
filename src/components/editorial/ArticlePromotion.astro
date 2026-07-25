@@ -1,40 +1,82 @@
 ---
+type PromotionType =
+  | 'sistema-criador-digital'
+  | 'afiliados';
+
 interface Props {
   articleSlug: string;
+  promotion?: PromotionType;
 }
 
-const { articleSlug } = Astro.props;
+const {
+  articleSlug,
+  promotion = 'sistema-criador-digital',
+} = Astro.props;
 
-const href = '/sistema-criador-digital/';
-const label = 'Conheça o Sistema Criador Digital com IA';
+const promotions = {
+  'sistema-criador-digital': {
+    href: '/sistema-criador-digital/',
+    label: 'Conheça o Sistema Criador Digital com IA',
+    imagePath:
+      '/assets/promocoes/sistema-criador-digital',
+    alt:
+      'Criador Digital com IA: aprenda a organizar ideias, criar conteúdo e desenvolver projetos',
+    ctaType: 'product',
+    disclosure: 'Conteúdo do Estúdio Escrita Planejada.',
+  },
+  afiliados: {
+    href: '/afiliados-sistema-criador-digital/',
+    label:
+      'Conheça o programa de afiliados do Sistema Criador Digital',
+    imagePath: '/assets/promocoes/afiliados',
+    alt:
+      'Divulgue o Sistema Criador Digital e conheça o programa de afiliados',
+    ctaType: 'affiliate',
+    disclosure:
+      'Programa de afiliados do Estúdio Escrita Planejada.',
+  },
+} satisfies Record<
+  PromotionType,
+  {
+    href: string;
+    label: string;
+    imagePath: string;
+    alt: string;
+    ctaType: string;
+    disclosure: string;
+  }
+>;
+
+const selected = promotions[promotion];
 ---
 
 <aside
   class="article-promotion"
   aria-label="Conteúdo recomendado"
-  data-promotion="sistema-criador-digital"
+  data-promotion={promotion}
 >
   <a
     class="article-promotion__link"
-    href={href}
-    aria-label={label}
+    href={selected.href}
+    aria-label={selected.label}
     data-analytics-event="commercial_cta_click"
     data-article-slug={articleSlug}
-    data-cta-type="product"
-    data-cta-label={label}
+    data-cta-type={selected.ctaType}
+    data-cta-label={selected.label}
   >
     <picture>
       <source
         media="(max-width: 700px)"
-        srcset="/assets/promocoes/sistema-criador-digital/vertical.webp"
+        srcset={`${selected.imagePath}/vertical.webp`}
         width="1086"
         height="1448"
       />
+
       <img
-        src="/assets/promocoes/sistema-criador-digital/horizontal.webp"
+        src={`${selected.imagePath}/horizontal.webp`}
         width="1448"
         height="1086"
-        alt="Criador Digital com IA: aprenda a organizar ideias, criar conteúdo e desenvolver projetos"
+        alt={selected.alt}
         loading="lazy"
         decoding="async"
       />
@@ -42,6 +84,6 @@ const label = 'Conheça o Sistema Criador Digital com IA';
   </a>
 
   <p class="article-promotion__disclosure">
-    Conteúdo do Estúdio Escrita Planejada.
+    {selected.disclosure}
   </p>
 </aside>

@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Por que um infoproduto não vende e como corrigir"
+promotion: afiliados
 ---
 
 Terminar um infoproduto costuma dar a sensação de que a parte difícil já passou. Depois vem o lançamento — e, com ele, o silêncio: poucas vendas, pouco interesse, mensagens que não chegam. A reação mais comum é concluir que "o assunto não interessa" ou que "falta impulsionar mais", quando o problema geralmente está em outro lugar.

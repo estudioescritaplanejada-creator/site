@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como estruturar um lançamento de infoproduto por etapas"
+promotion: afiliados
 ---
 
 Um erro recorrente ao lançar um infoproduto é anunciar tudo de uma vez, num único post ou mensagem, e esperar que as vendas aconteçam a partir desse único momento. Sem preparação prévia nem continuidade depois, o lançamento vira um evento isolado — fácil de ser ignorado por quem não estava prestando atenção naquele exato momento.

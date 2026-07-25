@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como ativar afiliados para vender um infoproduto"
+promotion: afiliados
 ---
 
 Colocar um infoproduto em plataformas com programa de afiliados costuma gerar uma expectativa que raramente se confirma sozinha: a ideia de que, uma vez disponível, outras pessoas vão naturalmente encontrar o produto e começar a divulgá-lo. Na prática, afiliados que se cadastram, mas nunca recebem orientação ou material de apoio, tendem a permanecer inativos — inscritos, mas sem nunca fazer a primeira divulgação.

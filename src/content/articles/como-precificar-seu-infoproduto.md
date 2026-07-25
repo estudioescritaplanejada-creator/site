@@ -14,6 +14,7 @@ author: Estúdio Escrita Planejada
 draft: false
 featured: false
 seoTitle: "Como definir o preço de um infoproduto"
+promotion: afiliados
 ---
 
 Definir o preço de um infoproduto costuma ser um dos momentos mais desconfortáveis de todo o processo. É comum oscilar entre dois extremos: colocar um valor tão baixo que mal cobre o esforço de produção, ou copiar o preço de um concorrente sem entender se ele faz sentido para o próprio público.

@@ -28,6 +28,9 @@ const articles = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     seoTitle: z.string().max(70).optional(),
+    promotion: z
+      .enum(['sistema-criador-digital', 'afiliados'])
+      .default('sistema-criador-digital'),
   }),
 });
 
