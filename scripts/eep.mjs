@@ -8,7 +8,7 @@ import process from 'node:process';
 const ROOT = resolve(import.meta.dirname, '..');
 const ARTICLES_DIR = join(ROOT, 'src/content/articles');
 const TEMPLATE_PATH = join(ROOT, 'templates/article-template.md');
-const DEFAULT_VERIFY_BASE = 'https://estudio-escrita-planejada-astro.pages.dev';
+const DEFAULT_VERIFY_BASE = 'https://www.estudioescritaplanejada.com.br';
 const CATEGORIES = new Set([
   'protecao-digital',
   'decisoes-digitais',
