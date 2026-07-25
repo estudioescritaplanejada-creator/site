@@ -108,51 +108,49 @@ const tools = [
 
 <main id="conteudo">
   <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-container home-hero__grid">
-      <div class="home-hero__copy">
+    <div class="home-container">
+      <div class="home-hero__media">
+        <picture>
+          <source
+            media="(max-width: 44rem)"
+            srcset="/assets/home/hero/home-hero-v.webp"
+          />
+          <img
+            class="home-hero__image"
+            src="/assets/home/hero/home-hero-h.webp"
+            alt="Profissional autônoma organizando o trabalho no ambiente digital, em composição publicitária alinhada à identidade visual do Estúdio Escrita Planejada"
+            width="1448"
+            height="1086"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+      </div>
+
+      <div class="home-hero__content">
         <p class="eyebrow">Para autônomos e pequenos negócios</p>
         <h1 id="home-title">Trabalhe melhor no digital. Sem complicação.</h1>
+
         <p class="home-hero__lead">
           Organize mensagens, proteja seus acessos, escolha ferramentas com mais
           segurança e apresente melhor o seu trabalho. Tudo explicado de forma
           clara, para você entender o problema e saber o que fazer em seguida.
         </p>
+
         <p class="home-hero__model">
           <strong>
             Guias gratuitos quando você quer resolver por conta própria. Serviços
             profissionais quando precisa que o Estúdio organize e execute.
           </strong>
         </p>
+
         <div class="home-hero__actions">
           <a class="home-button home-button--primary" href="#comece">Encontrar uma solução</a>
           <a class="home-button home-button--secondary" href="#servicos">Conhecer o Estúdio</a>
         </div>
-        <ul class="home-hero__proof" aria-label="Características do conteúdo">
-          <li>Explicação simples</li>
-          <li>Problemas reais</li>
-          <li>Próximos passos claros</li>
-        </ul>
-      </div>
 
-      <aside class="signal-board" aria-label="Painel editorial do Estúdio">
-        <div class="signal-board__top">
-          <span>Ajuda prática</span>
-          <span class="signal-board__live">Para o trabalho de todos os dias</span>
-        </div>
-        <div class="signal-board__main">
-          <p>O digital deve facilitar seu trabalho — não criar mais uma preocupação.</p>
-          <strong>
-            Reconheça o problema, decida o que fazer e coloque cada parte em ordem
-            no seu ritmo.
-          </strong>
-        </div>
-        <div class="signal-board__rows">
-          <div><span>Proteção</span><strong>Evite perdas</strong><b>01</b></div>
-          <div><span>Escolha</span><strong>Decida melhor</strong><b>02</b></div>
-          <div><span>Rotina</span><strong>Deixe em ordem</strong><b>03</b></div>
-          <div><span>Materiais</span><strong>Use e adapte</strong><b>04</b></div>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 
@@ -336,58 +334,110 @@ const tools = [
   </section>
 
   <section class="site-feature" aria-labelledby="site-feature-title">
-    <div class="home-container site-feature__grid">
-      <div class="site-feature__media">
+    <div class="home-container site-feature__layout">
+      <picture class="site-feature__media">
+        <source
+          media="(max-width: 44rem)"
+          srcset="/assets/home/site-profissional/home-site-profissional-v.webp"
+          width="1086"
+          height="1448"
+        />
         <img
-          src="/assets/img/hero-mockup-principal.webp"
-          alt="Exemplo de site profissional exibido em notebook"
-          width="1672"
-          height="941"
+          src="/assets/home/site-profissional/home-site-profissional-h.webp"
+          alt="Notebook e celular exibem uma página profissional para um pequeno negócio"
+          width="1448"
+          height="1086"
           loading="lazy"
           decoding="async"
         />
-        <span>Projeto real do Estúdio</span>
-      </div>
-      <div class="site-feature__copy">
-        <p class="eyebrow">Seu endereço na internet</p>
-        <h2 id="site-feature-title">Não dependa apenas das redes sociais para apresentar seu trabalho.</h2>
-        <p>
-          Reúna seus serviços, fotos, informações, região atendida e formas de
-          contato em uma página que pertence ao seu negócio.
-        </p>
-        <p>
-          Seu cliente não precisa conhecer todos os detalhes. Precisa entender o
-          que você faz e saber como falar com você.
-        </p>
-        <p>
-          O Estúdio organiza as informações, escreve os textos, cria o visual e
-          publica tudo.
-        </p>
-        <ul>
-          <li>Atendimento online em todo o Brasil</li>
-          <li>Página rápida e adaptada ao celular</li>
-          <li>Informações reunidas em um só lugar</li>
-          <li>Contato direto pelo WhatsApp</li>
-        </ul>
-        <a class="home-button home-button--primary" href="/site-profissional/">Conhecer o serviço de site profissional</a>
+      </picture>
+
+      <div class="site-feature__copy site-feature__copy--wide">
+        <div class="site-feature__heading">
+          <p class="eyebrow">Seu endereço na internet</p>
+          <h2 id="site-feature-title">
+            Não dependa apenas das redes sociais para apresentar seu trabalho.
+          </h2>
+        </div>
+
+        <div class="site-feature__details">
+          <p>
+            Reúna seus serviços, fotos, informações, região atendida e formas de
+            contato em uma página que pertence ao seu negócio.
+          </p>
+
+          <p>
+            Seu cliente não precisa conhecer todos os detalhes. Precisa entender o
+            que você faz e saber como falar com você.
+          </p>
+
+          <p>
+            O Estúdio organiza as informações, escreve os textos, cria o visual e
+            publica tudo.
+          </p>
+
+          <ul>
+            <li>Atendimento online em todo o Brasil</li>
+            <li>Página rápida e adaptada ao celular</li>
+            <li>Informações reunidas em um só lugar</li>
+            <li>Contato direto pelo WhatsApp</li>
+          </ul>
+
+          <a
+            class="home-button home-button--primary"
+            href="/site-profissional/"
+          >
+            Conhecer o serviço de site profissional
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="final-call" aria-labelledby="final-call-title">
-    <div class="home-container final-call__inner">
-      <div>
-        <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
-        <h2 id="final-call-title">Menos confusão no digital. Mais tranquilidade para trabalhar.</h2>
-      </div>
-      <div>
-        <p>
-          Comece pelo problema que está atrapalhando hoje. Você pode ler uma
-          orientação, usar um material ou conversar com o Estúdio para organizar e
-          executar o que precisa ser feito. Sem contratar o que não faz sentido.
-          Sem complicar o que pode ser simples.
-        </p>
-        <a class="home-button home-button--acid" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+    <div class="home-container final-call__layout">
+      <picture class="final-call__media">
+        <source
+          media="(max-width: 44rem)"
+          srcset="/assets/home/encerramento/home-encerramento-confianca-v.webp"
+          width="1086"
+          height="1448"
+        />
+        <img
+          src="/assets/home/encerramento/home-encerramento-confianca-h.webp"
+          alt="Homem e mulher analisam juntos um projeto em um ambiente profissional"
+          width="1448"
+          height="1086"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="final-call__panel">
+        <div>
+          <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
+          <h2 id="final-call-title">
+            Menos confusão no digital. Mais tranquilidade para trabalhar.
+          </h2>
+        </div>
+
+        <div class="final-call__action">
+          <p>
+            Comece pelo problema que está atrapalhando hoje. Você pode ler uma
+            orientação, usar um material ou conversar com o Estúdio para organizar e
+            executar o que precisa ser feito. Sem contratar o que não faz sentido.
+            Sem complicar o que pode ser simples.
+          </p>
+
+          <a
+            class="home-button home-button--acid"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar pelo WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
