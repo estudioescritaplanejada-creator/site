@@ -884,3 +884,131 @@
         animation-iteration-count: 1 !important;
       }
     }
+
+/* CONVITE PARA O PROGRAMA DE AFILIADOS */
+
+.affiliate-invitation {
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(55, 184, 220, 0.14),
+      transparent 38%
+    ),
+    #f4f8fb;
+}
+
+.affiliate-invitation__box {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid rgba(16, 43, 61, 0.12);
+  border-radius: 1.75rem;
+  background: #ffffff;
+  box-shadow: 0 1.5rem 4rem rgba(13, 42, 61, 0.1);
+}
+
+.affiliate-invitation__content h2 {
+  max-width: 18ch;
+  margin: 0 0 1.25rem;
+  color: #102b3d;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.affiliate-invitation__content strong {
+  color: #102b3d;
+  font-weight: 800;
+}
+
+.affiliate-invitation__content p:not(.section-kicker) {
+  max-width: 62ch;
+  margin: 0;
+  color: #465d6c;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.affiliate-invitation__content p + p {
+  margin-top: 1rem;
+}
+
+.affiliate-invitation__details {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 1.25rem;
+  background: #102b3d;
+  color: #ffffff;
+}
+
+.affiliate-invitation__label {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.affiliate-invitation__details ul {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.affiliate-invitation__details li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.55;
+}
+
+.affiliate-invitation__details li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #37b8dc;
+  content: "";
+}
+
+.affiliate-invitation__button {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 52rem) {
+  .affiliate-invitation__box {
+    grid-template-columns: 1fr;
+  }
+
+  .affiliate-invitation__content h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 38rem) {
+  .affiliate-invitation {
+    padding: 3.5rem 0;
+  }
+
+  .affiliate-invitation__box {
+    gap: 1.5rem;
+    padding: 1.35rem;
+    border-radius: 1.25rem;
+  }
+
+  .affiliate-invitation__details {
+    padding: 1.35rem;
+  }
+
+  .affiliate-invitation__button {
+    padding-inline: 1rem;
+  }
+}
