@@ -131,10 +131,10 @@ Se houver imagens, documentação ou outras alterações relacionadas, inclua ap
 
 ## 9. Verificar o deploy
 
-No ambiente atual de desenvolvimento:
+No ambiente oficial de produção:
 
 ```bash
-npm run eep -- verify https://estudio-escrita-planejada-astro.pages.dev
+npm run eep:verify
 ```
 
 O comando verifica:
@@ -147,11 +147,6 @@ O comando verifica:
 - sitemap;
 - canonical de cada artigo.
 
-Depois da migração definitiva, informe o domínio oficial ou defina:
-
-```bash
-export EEP_VERIFY_BASE="https://www.estudioescritaplanejada.com.br"
-```
 
 ## 10. Agendamento
 
