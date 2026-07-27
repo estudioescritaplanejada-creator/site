@@ -267,6 +267,7 @@
 
     .hero-visual {
       position: relative;
+      min-width: 0;
     }
 
     .hero-frame {
@@ -282,9 +283,13 @@
     }
 
     .hero-frame img {
+      display: block;
       width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      object-fit: contain;
+      object-position: center;
     }
 
     .hero-badge {
@@ -446,9 +451,13 @@
     }
 
     .product-image img {
+      display: block;
       width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      object-fit: contain;
+      object-position: center;
     }
 
     .module-summary {
