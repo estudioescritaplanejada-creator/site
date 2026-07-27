@@ -1683,8 +1683,9 @@ p {
 
 .section-heading--diagnostic > p {
   margin-bottom: 0;
-  color: var(--white);
+  color: #ffffff !important;
   font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .problem-grid {
