@@ -42,3 +42,7 @@
 
 /robots.txt
   Cache-Control: public, max-age=3600, must-revalidate
+
+/materiais/checklist-organizar-atendimento.pdf
+  Content-Disposition: attachment; filename="checklist-organizar-atendimento.pdf"
+  X-Robots-Tag: noindex
