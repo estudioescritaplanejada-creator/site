@@ -28,6 +28,28 @@ const articles = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     seoTitle: z.string().max(70).optional(),
+    socialTitle: z.string().max(90).optional(),
+    socialDescription: z.string().max(200).optional(),
+    faqQuestions: z
+      .array(z.string().min(8).max(180))
+      .min(1)
+      .max(12)
+      .optional(),
+    faqAnswers: z
+      .array(z.string().min(20).max(1200))
+      .min(1)
+      .max(12)
+      .optional(),
+    leadMagnet: z
+      .object({
+        id: z.string().min(3).max(100),
+        title: z.string().min(10).max(120),
+        description: z.string().min(30).max(260),
+        href: z.string().startsWith('/'),
+        fileLabel: z.string().min(3).max(80),
+        note: z.string().max(160).optional(),
+      })
+      .optional(),
     promotion: z
       .enum(['sistema-criador-digital', 'afiliados'])
       .default('sistema-criador-digital'),

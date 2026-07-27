@@ -666,6 +666,12 @@ a.category-card:hover {
   margin-bottom: 0;
 }
 
+.article-body blockquote strong,
+.article-body blockquote b,
+.article-body blockquote a {
+  color: inherit;
+}
+
 .article-body table {
   display: block;
   width: 100%;
@@ -735,6 +741,184 @@ a.category-card:hover {
   letter-spacing: 0.06em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+
+.lead-magnet-strip {
+  color: var(--white);
+  background: var(--blue);
+  border-bottom: 0.1rem solid var(--ink);
+}
+
+.lead-magnet-strip__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem 2rem;
+  align-items: center;
+  padding-block: 1.5rem;
+}
+
+.lead-magnet-strip__inner span,
+.lead-magnet-download__eyebrow {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--acid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lead-magnet-strip__inner strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.03;
+}
+
+.lead-magnet-strip__inner p {
+  max-width: 52rem;
+  margin: 0.65rem 0 0;
+  color: var(--paper-3);
+}
+
+.lead-magnet-strip__inner a,
+.lead-magnet-download__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.1rem;
+  color: var(--ink);
+  background: var(--acid);
+  border: 0.1rem solid var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0.35rem 0.35rem 0 var(--orange);
+}
+
+.lead-magnet-strip__inner a:hover,
+.lead-magnet-download__button:hover {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.lead-magnet-strip__inner small {
+  grid-column: 1 / -1;
+  color: var(--paper-3);
+  font-size: 0.78rem;
+}
+
+.lead-magnet-download {
+  margin: 4rem 0;
+  padding: clamp(1.6rem, 4vw, 2.7rem);
+  color: var(--white);
+  background: var(--blue);
+  border: 0.12rem solid var(--ink);
+  box-shadow: 0.75rem 0.75rem 0 var(--orange);
+}
+
+.lead-magnet-download h2 {
+  max-width: 15ch;
+  margin: 0 0 1.1rem;
+  color: var(--white);
+  font-size: clamp(2.1rem, 4.5vw, 3.7rem);
+}
+
+.lead-magnet-download p,
+.lead-magnet-download li {
+  color: var(--paper-3);
+}
+
+.lead-magnet-download ul {
+  columns: 2;
+  gap: 2rem;
+  margin-block: 1.5rem;
+}
+
+.lead-magnet-download__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  align-items: center;
+  margin-top: 1.7rem;
+}
+
+.lead-magnet-download__note {
+  margin: 0;
+  color: var(--paper-3);
+  font-size: 0.84rem;
+}
+
+.lead-magnet-download--compact {
+  margin-bottom: 0;
+  background: var(--ink);
+  box-shadow: 0.65rem 0.65rem 0 var(--acid);
+}
+
+.article-service-box,
+.article-product-box {
+  margin: 3.5rem 0;
+  padding: clamp(1.5rem, 3.5vw, 2.4rem);
+  border: 0.1rem solid var(--ink);
+}
+
+.article-service-box {
+  background: var(--paper-2);
+  box-shadow: 0.6rem 0.6rem 0 var(--blue);
+}
+
+.article-product-box {
+  background: var(--acid);
+  box-shadow: 0.6rem 0.6rem 0 var(--orange);
+}
+
+.article-service-box h2,
+.article-product-box h2 {
+  margin-top: 0;
+}
+
+.article-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.article-cta-actions a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.95rem;
+  color: var(--white);
+  background: var(--ink);
+  border: 0.08rem solid var(--ink);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.article-cta-actions a:hover {
+  color: var(--ink);
+  background: var(--orange-light);
+}
+
+.article-body .task-list-item {
+  list-style: none;
+}
+
+.article-body .task-list-item input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.55rem 0 -1.35rem;
+  accent-color: var(--orange);
 }
 
 .related-section {
@@ -843,6 +1027,21 @@ a.category-card:hover {
 
   .article-card--featured {
     grid-column: auto;
+  }
+}
+
+
+@media (max-width: 52rem) {
+  .lead-magnet-strip__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-magnet-strip__inner a {
+    width: fit-content;
+  }
+
+  .lead-magnet-download ul {
+    columns: 1;
   }
 }
 

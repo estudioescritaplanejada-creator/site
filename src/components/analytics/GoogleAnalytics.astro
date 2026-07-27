@@ -183,6 +183,22 @@
         .replace(/\s+/g, ' ')
         .slice(0, 120);
 
+      if (link.dataset.analyticsEvent === 'lead_magnet_download') {
+        const params = new URLSearchParams(window.location.search);
+
+        sendAnalyticsEvent('lead_magnet_download', {
+          material: link.dataset.leadMagnet || '',
+          article_slug: link.dataset.articleSlug || '',
+          cta_position: link.dataset.ctaPosition || 'content',
+          utm_source: params.get('utm_source') || '',
+          utm_medium: params.get('utm_medium') || '',
+          utm_campaign: params.get('utm_campaign') || '',
+          link_url: href,
+        });
+
+        return;
+      }
+
       if (link.dataset.analyticsEvent === 'commercial_cta_click') {
         const destinationType = whatsappPattern.test(href)
           ? 'whatsapp'

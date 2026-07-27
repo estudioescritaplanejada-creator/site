@@ -12,6 +12,8 @@ interface Props {
   modifiedTime?: string;
   section?: string;
   tags?: string[];
+  socialTitle?: string;
+  socialDescription?: string;
 }
 
 const {
@@ -27,6 +29,8 @@ const {
   modifiedTime,
   section,
   tags = [],
+  socialTitle = title,
+  socialDescription = description,
 } = Astro.props;
 
 const baseUrl = Astro.site ?? Astro.url.origin;
@@ -54,8 +58,8 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 <meta property="og:type" content={ogType} />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:site_name" content="Estúdio Escrita Planejada" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:title" content={socialTitle} />
+<meta property="og:description" content={socialDescription} />
 {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
 {
@@ -70,8 +74,8 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 }
 
 <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:title" content={socialTitle} />
+<meta name="twitter:description" content={socialDescription} />
 {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 

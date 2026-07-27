@@ -34,6 +34,7 @@ const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
 const publishedIso = article.data.publishedAt.toISOString();
 const modifiedIso = (article.data.updatedAt ?? article.data.publishedAt).toISOString();
+const leadMagnet = article.data.leadMagnet;
 
 const allArticles = sortArticles(
   await getCollection('articles', (entry) => isPublished(entry)),
@@ -52,7 +53,7 @@ const image = article.data.image ?? '/assets/img/og-estudio-escrita-planejada.jp
 const imageAlt =
   article.data.imageAlt ?? 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios';
 
-const schema = {
+const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: article.data.title,
@@ -79,6 +80,31 @@ const schema = {
   },
   image: new URL(image, baseUrl).toString(),
 };
+
+const faqQuestions = article.data.faqQuestions ?? [];
+const faqAnswers = article.data.faqAnswers ?? [];
+
+const faqItems = faqQuestions
+  .map((question, index) => ({
+    question,
+    answer: faqAnswers[index] ?? '',
+  }))
+  .filter((item) => item.question && item.answer);
+
+const faqSchema = faqItems.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
 ---
 
 <EditorialContentLayout
@@ -93,13 +119,24 @@ const schema = {
   section={category.label}
   tags={article.data.themes}
   active="guias"
+  socialTitle={article.data.socialTitle}
+  socialDescription={article.data.socialDescription}
 >
   <script
     slot="head"
     is:inline
     type="application/ld+json"
-    set:html={JSON.stringify(schema)}
+    set:html={JSON.stringify(articleSchema)}
   ></script>
+
+  {faqSchema && (
+    <script
+      slot="head"
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(faqSchema)}
+    ></script>
+  )}
 
   <main id="conteudo">
     <nav class="breadcrumbs" aria-label="Caminho da página">
@@ -126,6 +163,29 @@ const schema = {
         </ul>
       </div>
     </header>
+
+    {leadMagnet && (
+      <section class="lead-magnet-strip" aria-label="Material gratuito relacionado">
+        <div class="editorial-container lead-magnet-strip__inner">
+          <div>
+            <span>Material gratuito · download direto</span>
+            <strong>{leadMagnet.title}</strong>
+            <p>{leadMagnet.description}</p>
+          </div>
+          <a
+            href={leadMagnet.href}
+            download
+            data-analytics-event="lead_magnet_download"
+            data-lead-magnet={leadMagnet.id}
+            data-article-slug={article.id}
+            data-cta-position="article_top"
+          >
+            {leadMagnet.fileLabel}
+          </a>
+          {leadMagnet.note && <small>{leadMagnet.note}</small>}
+        </div>
+      </section>
+    )}
 
     <div class="editorial-container article-shell">
       <aside class="article-aside" aria-label="Informações complementares">
