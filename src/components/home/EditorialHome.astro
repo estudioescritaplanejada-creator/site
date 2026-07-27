@@ -10,41 +10,76 @@ const activeCategories = new Set<string>(
 const whatsappUrl =
   'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20digital%20para%20o%20meu%20neg%C3%B3cio.';
 
+const problemPaths = [
+  {
+    number: '01',
+    label: 'Segurança',
+    title: 'Tenho medo de perder acessos, dados ou dinheiro.',
+    text: 'Proteja contas, celulares, arquivos e informações importantes.',
+    action: 'Proteger contas',
+    href: '/guias/tema/protecao-digital/',
+  },
+  {
+    number: '02',
+    label: 'Organização',
+    title: 'Perco tempo procurando mensagens, arquivos e cobranças.',
+    text: 'Organize a rotina digital e encontre o que precisa com mais facilidade.',
+    action: 'Organizar a rotina',
+    href: '/guias/tema/rotina-digital/',
+  },
+  {
+    number: '03',
+    label: 'Presença profissional',
+    title: 'Meu trabalho não está bem apresentado na internet.',
+    text: 'Reúna serviços, fotos, informações e contato em uma página clara.',
+    action: 'Apresentar melhor',
+    href: '/site-profissional/',
+  },
+  {
+    number: '04',
+    label: 'Produto digital',
+    title: 'Sei fazer, mas não sei transformar isso em um produto.',
+    text: 'Organize seu conhecimento em um material que possa ser entregue ou vendido.',
+    action: 'Criar um produto',
+    href: '/guias/tema/produtos-digitais/',
+  },
+];
+
 const editorialAreas = [
   {
     number: '01',
     slug: 'protecao-digital',
-    tag: 'Não caia nessa',
-    title: 'Proteja seu negócio de golpes, perdas e acessos indevidos',
-    text: 'Reconheça situações de risco, fortaleça suas contas e saiba o que fazer antes que um problema pare o atendimento.',
+    tag: 'Proteção digital',
+    title: 'Evite golpes, perdas e acessos indevidos',
+    text: 'Reconheça riscos e fortaleça as contas que mantêm seu trabalho funcionando.',
   },
   {
     number: '02',
-    slug: 'decisoes-digitais',
-    tag: 'Vale a pena pagar?',
-    title: 'Escolha ferramentas e serviços sem gastar no escuro',
-    text: 'Compare opções, entenda os custos e evite pagar por recursos que não combinam com sua rotina.',
+    slug: 'rotina-digital',
+    tag: 'Rotina digital',
+    title: 'Coloque mensagens, cobranças e arquivos em ordem',
+    text: 'Reduza o tempo perdido e crie uma rotina que seja possível manter.',
   },
   {
     number: '03',
-    slug: 'rotina-digital',
-    tag: 'Resolva agora',
-    title: 'Coloque mensagens, cobranças, arquivos e tarefas em ordem',
-    text: 'Reduza o tempo perdido procurando informações e crie uma rotina mais fácil de manter.',
+    slug: 'decisoes-digitais',
+    tag: 'Decisões digitais',
+    title: 'Escolha ferramentas sem gastar no escuro',
+    text: 'Compare utilidade, custo e dificuldade antes de contratar ou trocar.',
   },
   {
     number: '04',
     slug: 'ferramentas-e-ia',
-    tag: 'Ferramentas aplicadas',
-    title: 'Use IA e tecnologia sem depender delas para tudo',
-    text: 'Aplique ferramentas digitais para escrever, atender, divulgar e produzir com mais agilidade, sem perder sua forma de trabalhar.',
+    tag: 'Ferramentas e IA',
+    title: 'Use tecnologia sem depender dela para tudo',
+    text: 'Aplique ferramentas para atender, escrever e produzir com mais agilidade.',
   },
   {
     number: '05',
     slug: 'produtos-digitais',
-    tag: 'Transforme seu conhecimento',
-    title: 'Organize aquilo que você sabe em um material útil',
-    text: 'Transforme uma aula, um método, uma orientação ou uma experiência profissional em algo que possa ser entregue ou vendido.',
+    tag: 'Produtos digitais',
+    title: 'Transforme conhecimento em um material útil',
+    text: 'Estruture uma aula, orientação ou método para entregar ou vender.',
   },
 ];
 
@@ -57,12 +92,12 @@ const tools = [
   {
     status: 'Em preparação',
     title: 'Inventário de acessos digitais',
-    text: 'Reúna num só lugar seus domínios, redes sociais, e-mails, ferramentas e as pessoas que têm acesso a cada conta.',
+    text: 'Reúna domínios, redes sociais, e-mails, ferramentas e responsáveis por cada conta.',
   },
   {
     status: 'Em preparação',
     title: 'Banco de mensagens profissionais',
-    text: 'Use e adapte mensagens para orçamento, cobrança, confirmação, atendimento, pós-venda e outras situações da rotina.',
+    text: 'Adapte mensagens para orçamento, cobrança, confirmação, atendimento e pós-venda.',
   },
 ];
 ---
@@ -108,113 +143,91 @@ const tools = [
 
 <main id="conteudo">
   <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-container">
-      <div class="home-hero__media">
-        <picture>
-          <source
-            media="(max-width: 44rem)"
-            srcset="/assets/home/hero/home-hero-v.webp"
-          />
-          <img
-            class="home-hero__image"
-            src="/assets/home/hero/home-hero-h.webp"
-            alt="Profissional autônoma organizando o trabalho no ambiente digital, em composição publicitária alinhada à identidade visual do Estúdio Escrita Planejada"
-            width="1448"
-            height="1086"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
-
+    <div class="home-container home-hero__synthesis">
       <div class="home-hero__content">
         <p class="eyebrow">Para autônomos e pequenos negócios</p>
         <h1 id="home-title">Trabalhe melhor no digital. Sem complicação.</h1>
 
         <p class="home-hero__lead">
           Organize mensagens, proteja seus acessos, escolha ferramentas com mais
-          segurança e apresente melhor o seu trabalho. Tudo explicado de forma
-          clara, para você entender o problema e saber o que fazer em seguida.
+          segurança e apresente melhor o seu trabalho.
         </p>
 
         <p class="home-hero__model">
-          <strong>
-            Guias gratuitos quando você quer resolver por conta própria. Serviços
-            profissionais quando precisa que o Estúdio organize e execute.
-          </strong>
+          Guias gratuitos para entender e resolver. Serviços profissionais quando
+          você precisa que o Estúdio organize e execute.
         </p>
 
         <div class="home-hero__actions">
           <a class="home-button home-button--primary" href="#comece">Encontrar uma solução</a>
           <a class="home-button home-button--secondary" href="#servicos">Conhecer o Estúdio</a>
         </div>
-
       </div>
+
+      <picture class="home-hero__media">
+        <source
+          media="(max-width: 44rem)"
+          srcset="/assets/home/hero/home-hero-v.webp"
+          width="1086"
+          height="1448"
+        />
+        <img
+          class="home-hero__image"
+          src="/assets/home/hero/home-hero-h.webp"
+          alt="Profissional autônoma organizando o trabalho no ambiente digital"
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
     </div>
   </section>
 
-  <div class="editorial-strip" aria-hidden="true">
-    <div>
-      <span>Proteção digital</span><b>•</b>
-      <span>Organização</span><b>•</b>
-      <span>Ferramentas</span><b>•</b>
-      <span>Presença online</span><b>•</b>
-      <span>Produtos digitais</span><b>•</b>
-    </div>
-  </div>
-
   <section class="diagnostic" id="comece" aria-labelledby="diagnostic-title">
-    <div class="home-container diagnostic__grid">
-      <div class="diagnostic__intro">
-        <p class="eyebrow eyebrow--light">Comece pelo que mais pesa hoje</p>
-        <h2 id="diagnostic-title">Qual destes problemas está atrapalhando seu trabalho?</h2>
+    <div class="home-container">
+      <div class="section-heading section-heading--diagnostic">
+        <div>
+          <p class="eyebrow eyebrow--light">Comece pelo que pesa hoje</p>
+          <h2 id="diagnostic-title">Qual problema está atrapalhando seu trabalho?</h2>
+        </div>
         <p>
-          Escolha a situação mais parecida com a sua. Você pode começar com uma
-          orientação gratuita, usar um material pronto ou pedir ajuda ao Estúdio
-          quando precisar de alguém para colocar tudo em ordem.
+          Escolha a situação mais parecida com a sua e vá direto para uma orientação,
+          um material ou um serviço.
         </p>
       </div>
-      <div class="diagnostic__options">
-        <a href="#ferramentas">
-          <span>01</span>
-          <strong>Tenho medo de perder acessos, dados ou dinheiro.</strong>
-          <small>Proteger contas e informações</small>
-        </a>
-        <a href="/guias/">
-          <span>02</span>
-          <strong>Perco tempo procurando mensagens, arquivos e cobranças.</strong>
-          <small>Colocar a rotina em ordem</small>
-        </a>
-        <a href="/site-profissional/">
-          <span>03</span>
-          <strong>Meu trabalho não está bem apresentado na internet.</strong>
-          <small>Apresentar melhor meu trabalho</small>
-        </a>
-        <a href="#servicos">
-          <span>04</span>
-          <strong>Tenho conhecimento, mas não sei como transformar isso em algo que possa oferecer.</strong>
-          <small>Organizar meu conhecimento</small>
-        </a>
+
+      <div class="problem-grid">
+        {problemPaths.map((problem) => (
+          <a class="problem-card" href={problem.href}>
+            <span class="problem-card__meta">{problem.number} · {problem.label}</span>
+            <h3>{problem.title}</h3>
+            <p>{problem.text}</p>
+            <span class="problem-card__action">{problem.action} →</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="editorial-intro" id="guias" aria-labelledby="guias-title">
     <div class="home-container">
-      <div class="section-heading section-heading--split">
+      <div class="section-heading section-heading--split section-heading--with-action">
         <div>
-          <p class="eyebrow">O que você encontra aqui</p>
-          <h2 id="guias-title">Ajuda prática para problemas que fazem parte do trabalho.</h2>
+          <p class="eyebrow">Guias e orientações</p>
+          <h2 id="guias-title">Ajuda prática para problemas reais.</h2>
         </div>
-        <p>
-          Cada tema começa com uma situação conhecida e mostra formas possíveis de
-          agir. Sem conteúdo criado apenas para parecer técnico. Sem palavras
-          difíceis quando uma explicação direta resolve.
-        </p>
+        <div class="section-heading__side">
+          <p>
+            Escolha uma área e encontre explicações diretas, próximos passos e formas
+            possíveis de agir.
+          </p>
+          <a class="home-button home-button--secondary" href="/guias/">Ver todos os guias</a>
+        </div>
       </div>
 
-      <div class="editorial-grid">
+      <div class="editorial-grid editorial-grid--synthesis">
         {editorialAreas.map((area, index) => (
           <article class:list={['editorial-card', index === 0 && 'editorial-card--featured']}>
             <div class="editorial-card__meta">
@@ -240,12 +253,11 @@ const tools = [
       <div class="section-heading section-heading--tools">
         <div>
           <p class="eyebrow">Ferramentas e materiais</p>
-          <h2 id="tools-title">Materiais para deixar tarefas importantes mais fáceis de começar.</h2>
+          <h2 id="tools-title">Materiais para começar tarefas importantes com mais facilidade.</h2>
         </div>
         <p>
-          Além dos guias, o Estúdio prepara checklists, modelos e mensagens prontas
-          para atividades que costumam ocupar tempo demais. Você pode adaptar cada
-          material à sua rotina, guardar e reutilizar sempre que precisar.
+          Checklists, modelos e mensagens prontas para adaptar, guardar e reutilizar
+          na rotina do negócio.
         </p>
       </div>
 
@@ -270,33 +282,22 @@ const tools = [
       <div class="section-heading section-heading--split">
         <div>
           <p class="eyebrow">Serviços do Estúdio</p>
-          <h2 id="services-title">Quando você precisa de alguém para organizar e fazer, o Estúdio entra em ação.</h2>
+          <h2 id="services-title">Quando você precisa que alguém organize e faça.</h2>
         </div>
         <p>
-          Você pode usar os conteúdos para cuidar do que estiver ao seu alcance.
-          Quando precisar escrever, apresentar, organizar ou publicar alguma coisa
-          de forma profissional, o Estúdio assume a execução e conduz cada etapa
-          com você.
+          O Estúdio transforma informações dispersas em uma entrega clara, útil e
+          pronta para funcionar.
         </p>
       </div>
 
-      <p class="services-principle">
-        Uma boa solução não deve criar mais trabalho do que o problema que ela resolve.
-      </p>
-
-      <div class="services-grid">
+      <div class="services-grid services-grid--synthesis">
         <article class="service-card service-card--primary">
           <span class="service-card__number">01</span>
           <p class="service-card__tag">Serviço principal</p>
-          <h3>Site profissional para apresentar seu trabalho e receber contatos</h3>
+          <h3>Site profissional</h3>
           <p>
-            Uma página clara, adaptada ao celular e conectada ao WhatsApp, com as
-            informações que o cliente precisa para entender seu serviço e falar
-            com você.
-          </p>
-          <p>
-            O Estúdio organiza o conteúdo, escreve os textos, cria o visual e
-            publica a página.
+            Uma página clara, adaptada ao celular e conectada ao WhatsApp para
+            apresentar seu trabalho e receber contatos.
           </p>
           <div class="service-card__actions">
             <a class="home-button home-button--light" href="/site-profissional/">Conhecer o serviço</a>
@@ -307,10 +308,10 @@ const tools = [
         <article class="service-card">
           <span class="service-card__number">02</span>
           <p class="service-card__tag">Organização digital</p>
-          <h3>Organize a forma como seu negócio se apresenta e atende</h3>
+          <h3>Coloque canais, mensagens e informações em ordem</h3>
           <p>
-            Coloque em ordem canais, mensagens, informações e caminhos de contato
-            para reduzir dúvidas e facilitar o atendimento.
+            Organize a forma como o negócio se apresenta e atende para reduzir dúvidas
+            e facilitar o contato.
           </p>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Conversar sobre o projeto →</a>
         </article>
@@ -318,14 +319,10 @@ const tools = [
         <article class="service-card">
           <span class="service-card__number">03</span>
           <p class="service-card__tag">Produto digital</p>
-          <h3>Organize o que você sabe em um material pronto</h3>
+          <h3>Transforme conhecimento em um material pronto</h3>
           <p>
-            Organize aquilo que você ensina, orienta ou faz todos os dias em um
-            guia, curso, apresentação ou material que possa ser entregue ou vendido.
-          </p>
-          <p>
-            Você traz o conhecimento. O Estúdio cuida da estrutura, do texto, do
-            visual e da preparação final.
+            Você traz o conhecimento. O Estúdio cuida da estrutura, do texto, do visual
+            e da preparação final.
           </p>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Apresentar uma ideia →</a>
         </article>
@@ -334,7 +331,7 @@ const tools = [
   </section>
 
   <section class="site-feature" aria-labelledby="site-feature-title">
-    <div class="home-container site-feature__layout">
+    <div class="home-container site-feature__synthesis">
       <picture class="site-feature__media">
         <source
           media="(max-width: 44rem)"
@@ -352,50 +349,53 @@ const tools = [
         />
       </picture>
 
-      <div class="site-feature__copy site-feature__copy--wide">
-        <div class="site-feature__heading">
-          <p class="eyebrow">Seu endereço na internet</p>
-          <h2 id="site-feature-title">
-            Não dependa apenas das redes sociais para apresentar seu trabalho.
-          </h2>
-        </div>
+      <div class="site-feature__copy">
+        <p class="eyebrow eyebrow--light">Seu endereço na internet</p>
+        <h2 id="site-feature-title">
+          Não dependa apenas das redes sociais para apresentar seu trabalho.
+        </h2>
+        <p>
+          Reúna serviços, fotos, região atendida e formas de contato em uma página
+          que pertence ao seu negócio.
+        </p>
 
-        <div class="site-feature__details">
-          <p>
-            Reúna seus serviços, fotos, informações, região atendida e formas de
-            contato em uma página que pertence ao seu negócio.
-          </p>
+        <ul>
+          <li>Página rápida e adaptada ao celular</li>
+          <li>Informações reunidas em um só lugar</li>
+          <li>Contato direto pelo WhatsApp</li>
+        </ul>
 
-          <p>
-            Seu cliente não precisa conhecer todos os detalhes. Precisa entender o
-            que você faz e saber como falar com você.
-          </p>
-
-          <p>
-            O Estúdio organiza as informações, escreve os textos, cria o visual e
-            publica tudo.
-          </p>
-
-          <ul>
-            <li>Atendimento online em todo o Brasil</li>
-            <li>Página rápida e adaptada ao celular</li>
-            <li>Informações reunidas em um só lugar</li>
-            <li>Contato direto pelo WhatsApp</li>
-          </ul>
-
-          <a
-            class="home-button home-button--primary"
-            href="/site-profissional/"
-          >
-            Conhecer o serviço de site profissional
-          </a>
-        </div>
+        <a class="home-button home-button--primary" href="/site-profissional/">
+          Conhecer o serviço de site profissional
+        </a>
       </div>
     </div>
   </section>
 
   <section class="final-call" aria-labelledby="final-call-title">
-    <div class="home-container final-call__layout">
+    <div class="home-container final-call__synthesis">
+      <div class="final-call__panel">
+        <div>
+          <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
+          <h2 id="final-call-title">Menos confusão no digital. Mais tranquilidade para trabalhar.</h2>
+        </div>
+
+        <div class="final-call__action">
+          <p>
+            Leia uma orientação, use um material ou converse com o Estúdio para
+            organizar e executar o que precisa ser feito.
+          </p>
+          <a
+            class="home-button home-button--acid"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
       <picture class="final-call__media">
         <source
           media="(max-width: 44rem)"
@@ -412,33 +412,6 @@ const tools = [
           decoding="async"
         />
       </picture>
-
-      <div class="final-call__panel">
-        <div>
-          <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
-          <h2 id="final-call-title">
-            Menos confusão no digital. Mais tranquilidade para trabalhar.
-          </h2>
-        </div>
-
-        <div class="final-call__action">
-          <p>
-            Comece pelo problema que está atrapalhando hoje. Você pode ler uma
-            orientação, usar um material ou conversar com o Estúdio para organizar e
-            executar o que precisa ser feito. Sem contratar o que não faz sentido.
-            Sem complicar o que pode ser simples.
-          </p>
-
-          <a
-            class="home-button home-button--acid"
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar pelo WhatsApp
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 </main>
