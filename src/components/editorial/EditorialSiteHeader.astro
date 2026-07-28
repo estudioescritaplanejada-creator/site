@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active?: 'guias' | 'ferramentas' | 'servicos';
+  active?: 'guias' | 'ferramentas' | 'servicos' | 'sobre';
 }
 
 const { active } = Astro.props;
@@ -27,6 +27,7 @@ const { active } = Astro.props;
       <a href="/guias/" aria-current={active === 'guias' ? 'page' : undefined}>Guias</a>
       <a href="/#ferramentas" aria-current={active === 'ferramentas' ? 'page' : undefined}>Ferramentas</a>
       <a href="/#servicos" aria-current={active === 'servicos' ? 'page' : undefined}>Serviços</a>
+      <a href="/sobre/" aria-current={active === 'sobre' ? 'page' : undefined}>Sobre</a>
       <a href="/site-profissional/">Site profissional</a>
     </nav>
 
@@ -38,6 +39,7 @@ const { active } = Astro.props;
         <a href="/guias/">Guias</a>
         <a href="/#ferramentas">Ferramentas</a>
         <a href="/#servicos">Serviços</a>
+        <a href="/sobre/">Sobre</a>
         <a href="/site-profissional/">Site profissional</a>
       </nav>
     </details>
