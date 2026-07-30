@@ -134,7 +134,7 @@ Navegadores e serviços de segurança podem alertar sobre páginas já identific
 
 A ausência de alerta não garante que o endereço seja legítimo. Uma página nova pode ainda não ter sido detectada ou denunciada. A ferramenta ajuda, mas não substitui a confirmação da origem e da finalidade da solicitação.
 
-## Como saber se um site é verdadeiro?
+<h2 id="como-saber-se-um-site-e-verdadeiro">Como saber se um site é verdadeiro?</h2>
 
 Para verificar se um site é verdadeiro, observe o domínio, a forma como você chegou até ele e a correspondência entre a solicitação exibida e os canais oficiais da instituição.
 
@@ -161,7 +161,7 @@ O endereço tem letras extras, domínio diferente ou palavras de urgência | **P
 O site pede código, senha completa ou instalação de acesso remoto | **Pare** e contate a instituição pelos canais oficiais
 A página não tem alerta, mas você não consegue confirmar a origem | **Não prossiga apenas pela ausência de aviso**
 
-## O cadeado ou o HTTPS provam que o site é seguro?
+<h2 id="o-cadeado-ou-o-https-provam-que-o-site-e-seguro">O cadeado ou o HTTPS provam que o site é seguro?</h2>
 
 Não. O HTTPS indica que a comunicação entre o navegador e aquela página está protegida por criptografia. Ele não prova que a página pertence à empresa que está sendo imitada nem que a cobrança apresentada é legítima.
 
@@ -169,7 +169,7 @@ Um site falso também pode utilizar HTTPS. Além disso, a aparência do indicado
 
 Use o HTTPS como requisito básico de conexão, não como prova de identidade. A confirmação continua dependendo do domínio correto, da origem do acesso e da coerência da solicitação.
 
-## Como confirmar se a pessoa ou empresa é realmente quem afirma ser?
+<h2 id="como-confirmar-se-a-pessoa-ou-empresa-e-realmente-quem-afirma-ser">Como confirmar se a pessoa ou empresa é realmente quem afirma ser?</h2>
 
 Confirme a identidade usando um canal que não tenha sido fornecido pela própria mensagem suspeita.
 
@@ -191,7 +191,7 @@ Não basta responder “é você mesmo?” no mesmo número. Se a conta estiver 
 
 Golpes específicos do atendimento comercial exigem cuidados adicionais. O guia [Golpes no WhatsApp Business: reconheça antes de cair](/guias/golpes-no-whatsapp-business/) explica como lidar com pedidos de código, perfis clonados e dispositivos conectados.
 
-## Como conferir uma cobrança antes de pagar?
+<h2 id="como-conferir-uma-cobranca-antes-de-pagar">Como conferir uma cobrança antes de pagar?</h2>
 
 Confira a origem da cobrança e os dados exibidos pelo banco antes da autorização final.
 
@@ -253,7 +253,7 @@ Desconecte o aparelho da internet e evite utilizá-lo para acessar banco, e-mail
 
 O [Ministério da Justiça e Segurança Pública](https://www.gov.br/mj/pt-br/acesso-a-informacao/acoes-e-programas/sofri-um-golpe-e-agora/cliquei-em-links) orienta interromper o contato, isolar temporariamente o dispositivo, falar com os bancos pelos canais oficiais e preservar as provas da ocorrência.
 
-## O que fazer se você informou dados ou realizou o pagamento?
+<h2 id="o-que-fazer-se-voce-informou-dados-ou-realizou-o-pagamento">O que fazer se você informou dados ou realizou o pagamento?</h2>
 
 A resposta precisa ser rápida e proporcional ao que foi exposto.
 
