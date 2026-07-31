@@ -1,0 +1,94 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  source: string;
+}
+
+const { id, title, source } = Astro.props;
+const titleId = `article-video-title-${id}`;
+const thumbnail = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
+const youtubeUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(id)}`;
+---
+
+<section class="article-video" aria-labelledby={titleId}>
+  <div class="article-video__heading">
+    <p>Vídeo relacionado</p>
+    <h2 id={titleId}>{title}</h2>
+  </div>
+
+  <div
+    class="article-video__player"
+    data-article-video
+    data-video-id={id}
+    data-video-title={title}
+  >
+    <button
+      class="article-video__activate"
+      type="button"
+      aria-label={`Reproduzir vídeo: ${title}`}
+    >
+      <img
+        src={thumbnail}
+        alt=""
+        width="480"
+        height="360"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="article-video__overlay" aria-hidden="true">
+        <span class="article-video__play">▶</span>
+        <span>Reproduzir no site</span>
+      </span>
+    </button>
+  </div>
+
+  <p class="article-video__source">
+    Fonte:
+    <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+      {source}
+    </a>
+  </p>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+
+    if (root.dataset.eepArticleVideoBound === 'true') return;
+
+    root.dataset.eepArticleVideoBound = 'true';
+
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const button = event.target.closest('.article-video__activate');
+
+      if (!(button instanceof HTMLButtonElement)) return;
+
+      const player = button.closest('[data-article-video]');
+
+      if (!(player instanceof HTMLElement)) return;
+
+      const id = player.dataset.videoId || '';
+      const title = player.dataset.videoTitle || 'Vídeo relacionado';
+
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.src =
+        `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+      iframe.title = title;
+      iframe.width = '560';
+      iframe.height = '315';
+      iframe.loading = 'lazy';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+      player.replaceChildren(iframe);
+      iframe.focus();
+    });
+  })();
+</script>

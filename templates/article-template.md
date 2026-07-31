@@ -10,9 +10,15 @@ themes:
 author: Estúdio Escrita Planejada
 draft: true
 featured: false
-# image: /assets/editorial/{{SLUG}}/capa.webp
-# imageAlt: "Descrição objetiva da imagem para leitores e mecanismos de busca"
 # seoTitle: "Título opcional para busca com até 70 caracteres"
+# Mídia editorial obrigatória antes da publicação
+# image: "/assets/editorial/{{SLUG}}.webp" # WebP, 1600 × 1200 px, proporção 4:3
+# imageAlt: "Descrição objetiva da imagem principal"
+# video:
+#   id: "XXXXXXXXXXX"
+#   title: "Título descritivo do vídeo relacionado"
+#   source: "Nome do canal, instituição ou especialista"
+
 ---
 
 Abra com uma situação concreta vivida por quem trabalha por conta própria ou administra um pequeno negócio. Apresente o problema antes de explicar conceitos.

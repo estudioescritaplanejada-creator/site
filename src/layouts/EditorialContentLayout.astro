@@ -11,6 +11,8 @@ interface Props {
   canonicalPath: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   ogType?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
@@ -27,6 +29,8 @@ const {
   canonicalPath,
   image = '/assets/img/og-estudio-escrita-planejada.jpg',
   imageAlt = 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios',
+  imageWidth = 1200,
+  imageHeight = 630,
   ogType = 'website',
   publishedTime,
   modifiedTime,
@@ -55,6 +59,8 @@ const {
       ogType={ogType}
       image={image}
       imageAlt={imageAlt}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
       publishedTime={publishedTime}
       modifiedTime={modifiedTime}
       section={section}

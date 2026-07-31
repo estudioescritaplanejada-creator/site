@@ -171,6 +171,54 @@ function todayUtc() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function readWebpDimensions(filePath) {
+  const data = readFileSync(filePath);
+
+  if (data.toString('ascii', 0, 4) !== 'RIFF' || data.toString('ascii', 8, 12) !== 'WEBP') {
+    fail('o arquivo de imagem não é um WebP válido');
+  }
+
+  let offset = 12;
+
+  while (offset + 8 <= data.length) {
+    const chunkType = data.toString('ascii', offset, offset + 4);
+    const chunkSize = data.readUInt32LE(offset + 4);
+    const chunkStart = offset + 8;
+
+    if (chunkType === 'VP8X' && chunkSize >= 10) {
+      return {
+        width: data.readUIntLE(chunkStart + 4, 3) + 1,
+        height: data.readUIntLE(chunkStart + 7, 3) + 1,
+      };
+    }
+
+    if (chunkType === 'VP8L' && chunkSize >= 5 && data[chunkStart] === 0x2f) {
+      const bits = data.readUInt32LE(chunkStart + 1);
+      return {
+        width: (bits & 0x3fff) + 1,
+        height: ((bits >> 14) & 0x3fff) + 1,
+      };
+    }
+
+    if (
+      chunkType === 'VP8 ' &&
+      chunkSize >= 10 &&
+      data[chunkStart + 3] === 0x9d &&
+      data[chunkStart + 4] === 0x01 &&
+      data[chunkStart + 5] === 0x2a
+    ) {
+      return {
+        width: data.readUInt16LE(chunkStart + 6) & 0x3fff,
+        height: data.readUInt16LE(chunkStart + 8) & 0x3fff,
+      };
+    }
+
+    offset += 8 + chunkSize + (chunkSize % 2);
+  }
+
+  fail('não foi possível ler as dimensões do arquivo WebP');
+}
+
 function validateArticle(filePath) {
   const name = basename(filePath);
   const slug = name.replace(/\.(md|mdx)$/, '');
@@ -282,6 +330,46 @@ function validateArticle(filePath) {
     }
   }
 
+  if (typeof data.image === 'string' && !/\.webp$/i.test(data.image)) {
+    issues.push('image deve apontar para um arquivo WebP');
+  }
+
+  if (data.video !== undefined) {
+    const video = data.video;
+
+    if (!video || Array.isArray(video) || typeof video !== 'object') {
+      issues.push('video deve ser um bloco de configuração');
+    } else {
+      const allowedFields = new Set(['id', 'title', 'source']);
+
+      for (const key of Object.keys(video)) {
+        if (!allowedFields.has(key)) {
+          issues.push(`video contém campo não reconhecido: ${key}`);
+        }
+      }
+
+      if (typeof video.id !== 'string' || !/^[A-Za-z0-9_-]{11}$/.test(video.id)) {
+        issues.push('video.id deve ser um ID válido do YouTube com 11 caracteres');
+      }
+
+      if (
+        typeof video.title !== 'string' ||
+        video.title.length < 10 ||
+        video.title.length > 160
+      ) {
+        issues.push('video.title deve ter entre 10 e 160 caracteres');
+      }
+
+      if (
+        typeof video.source !== 'string' ||
+        video.source.length < 2 ||
+        video.source.length > 120
+      ) {
+        issues.push('video.source deve ter entre 2 e 120 caracteres');
+      }
+    }
+  }
+
   const wordCount = body.trim().split(/\s+/).filter(Boolean).length;
   if (wordCount < 350) issues.push(`corpo muito curto: ${wordCount} palavras; mínimo operacional: 350`);
   if (!/^##\s+/m.test(body)) issues.push('o artigo precisa de pelo menos um subtítulo de nível 2 (##)');
@@ -363,7 +451,8 @@ function newCommand(slug) {
   heading('RASCUNHO CRIADO');
   note(`arquivo: src/content/articles/${slug}.md`);
   note('estado: draft: true');
-  note('edite o título, descrição, categoria, temas e conteúdo antes de publicar');
+  note('edite o título, descrição, categoria, temas e conteúdo');
+  note('antes de publicar, adicione a imagem WebP 1600 × 1200 e o vídeo confiável indicados no modelo');
 }
 
 function publishCommand(slug) {
@@ -375,6 +464,43 @@ function publishCommand(slug) {
   let source = originalSource;
   const parsed = parseFrontmatter(filePath);
   if (parsed.errors.length) fail(parsed.errors.join('; '));
+
+  const missingMedia = [];
+  if (typeof parsed.data.image !== 'string' || !parsed.data.image.trim()) {
+    missingMedia.push('image');
+  }
+  if (typeof parsed.data.imageAlt !== 'string' || !parsed.data.imageAlt.trim()) {
+    missingMedia.push('imageAlt');
+  }
+  if (
+    !parsed.data.video ||
+    Array.isArray(parsed.data.video) ||
+    typeof parsed.data.video !== 'object'
+  ) {
+    missingMedia.push('video');
+  }
+
+  if (missingMedia.length > 0) {
+    fail(
+      `antes de publicar, preencha a mídia editorial obrigatória: ${missingMedia.join(', ')}`,
+    );
+  }
+
+  const editorialImagePath = join(
+    ROOT,
+    'public',
+    parsed.data.image.replace(/^\/+/, ''),
+  );
+  const editorialImageDimensions = readWebpDimensions(editorialImagePath);
+
+  if (
+    editorialImageDimensions.width !== 1600 ||
+    editorialImageDimensions.height !== 1200
+  ) {
+    fail(
+      `a imagem editorial deve medir exatamente 1600 × 1200 px; arquivo atual: ${editorialImageDimensions.width} × ${editorialImageDimensions.height} px`,
+    );
+  }
 
   if (!/^draft:\s*true\s*$/m.test(source) && !/^draft:\s*false\s*$/m.test(source)) {
     fail('o artigo precisa declarar draft: true ou draft: false');

@@ -27,6 +27,13 @@ const articles = defineCollection({
     featured: z.boolean().default(false),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    video: z
+      .object({
+        id: z.string().regex(/^[A-Za-z0-9_-]{11}$/),
+        title: z.string().min(10).max(160),
+        source: z.string().min(2).max(120),
+      })
+      .optional(),
     seoTitle: z.string().max(70).optional(),
     socialTitle: z.string().max(90).optional(),
     socialDescription: z.string().max(200).optional(),

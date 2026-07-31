@@ -1,7 +1,12 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import ArticleCard from '../../components/editorial/ArticleCard.astro';
 import ArticlePromotion from '../../components/editorial/ArticlePromotion.astro';
+import ArticleHeroImage from '../../components/editorial/ArticleHeroImage.astro';
+import ArticleVideo from '../../components/editorial/ArticleVideo.astro';
 import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
 import {
   articlePath,
@@ -52,6 +57,62 @@ const title = article.data.seoTitle ?? `${article.data.title} | Estúdio Escrita
 const image = article.data.image ?? '/assets/img/og-estudio-escrita-planejada.jpg';
 const imageAlt =
   article.data.imageAlt ?? 'Estúdio Escrita Planejada: vida digital prática para pequenos negócios';
+const publicDirectory = fileURLToPath(new URL('../../../public/', import.meta.url));
+
+function getPublicWebpDimensions(publicPath: string) {
+  const filePath = join(publicDirectory, publicPath.replace(/^\/+/, ''));
+  const data = readFileSync(filePath);
+
+  if (data.toString('ascii', 0, 4) !== 'RIFF' || data.toString('ascii', 8, 12) !== 'WEBP') {
+    throw new Error(`Imagem editorial inválida: ${publicPath} não é um WebP válido.`);
+  }
+
+  let offset = 12;
+
+  while (offset + 8 <= data.length) {
+    const chunkType = data.toString('ascii', offset, offset + 4);
+    const chunkSize = data.readUInt32LE(offset + 4);
+    const chunkStart = offset + 8;
+
+    if (chunkType === 'VP8X' && chunkSize >= 10) {
+      return {
+        width: data.readUIntLE(chunkStart + 4, 3) + 1,
+        height: data.readUIntLE(chunkStart + 7, 3) + 1,
+      };
+    }
+
+    if (chunkType === 'VP8L' && chunkSize >= 5 && data[chunkStart] === 0x2f) {
+      const bits = data.readUInt32LE(chunkStart + 1);
+      return {
+        width: (bits & 0x3fff) + 1,
+        height: ((bits >> 14) & 0x3fff) + 1,
+      };
+    }
+
+    if (
+      chunkType === 'VP8 ' &&
+      chunkSize >= 10 &&
+      data[chunkStart + 3] === 0x9d &&
+      data[chunkStart + 4] === 0x01 &&
+      data[chunkStart + 5] === 0x2a
+    ) {
+      return {
+        width: data.readUInt16LE(chunkStart + 6) & 0x3fff,
+        height: data.readUInt16LE(chunkStart + 8) & 0x3fff,
+      };
+    }
+
+    offset += 8 + chunkSize + (chunkSize % 2);
+  }
+
+  throw new Error(`Não foi possível ler as dimensões da imagem editorial: ${publicPath}.`);
+}
+
+const imageDimensions = article.data.image
+  ? getPublicWebpDimensions(article.data.image)
+  : { width: 1200, height: 630 };
+const imageWidth = imageDimensions.width;
+const imageHeight = imageDimensions.height;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -113,6 +174,8 @@ const faqSchema = faqItems.length
   canonicalPath={canonicalPath}
   image={image}
   imageAlt={imageAlt}
+  imageWidth={imageWidth}
+  imageHeight={imageHeight}
   ogType="article"
   publishedTime={publishedIso}
   modifiedTime={modifiedIso}
@@ -164,6 +227,15 @@ const faqSchema = faqItems.length
       </div>
     </header>
 
+    {article.data.image && article.data.imageAlt && (
+      <ArticleHeroImage
+        src={article.data.image}
+        alt={article.data.imageAlt}
+        width={imageWidth}
+        height={imageHeight}
+      />
+    )}
+
     {leadMagnet && (
       <section class="lead-magnet-strip" aria-label="Material gratuito relacionado">
         <div class="editorial-container lead-magnet-strip__inner">
@@ -203,6 +275,14 @@ const faqSchema = faqItems.length
           articleSlug={article.id}
           promotion={article.data.promotion}
         />
+
+        {article.data.video && (
+          <ArticleVideo
+            id={article.data.video.id}
+            title={article.data.video.title}
+            source={article.data.video.source}
+          />
+        )}
       </article>
     </div>
 
