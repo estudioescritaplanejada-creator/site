@@ -4,7 +4,9 @@ interface Props {
   description: string;
   canonicalPath?: string | null;
   noindex?: boolean;
+  nofollow?: boolean;
   author?: string;
+  siteName?: string;
   ogType?: 'website' | 'article';
   image?: string;
   imageAlt?: string;
@@ -14,6 +16,10 @@ interface Props {
   tags?: string[];
   socialTitle?: string;
   socialDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  twitterImageAlt?: string;
 }
 
 const {
@@ -21,7 +27,9 @@ const {
   description,
   canonicalPath = Astro.url.pathname,
   noindex = false,
+  nofollow = true,
   author,
+  siteName = 'Estúdio Escrita Planejada',
   ogType = 'website',
   image,
   imageAlt,
@@ -31,11 +39,18 @@ const {
   tags = [],
   socialTitle = title,
   socialDescription = description,
+  twitterTitle = socialTitle,
+  twitterDescription = socialDescription,
+  twitterImage = image,
+  twitterImageAlt = imageAlt,
 } = Astro.props;
 
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = canonicalPath === null ? undefined : new URL(canonicalPath, baseUrl).toString();
 const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
+const twitterImageUrl = twitterImage
+  ? new URL(twitterImage, baseUrl).toString()
+  : undefined;
 ---
 
 <title>{title}</title>
@@ -46,7 +61,10 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 
 {
   noindex ? (
-    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="robots"
+      content={nofollow ? 'noindex, nofollow' : 'noindex, follow'}
+    />
   ) : (
     <meta
       name="robots"
@@ -57,7 +75,7 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 
 <meta property="og:type" content={ogType} />
 <meta property="og:locale" content="pt_BR" />
-<meta property="og:site_name" content="Estúdio Escrita Planejada" />
+<meta property="og:site_name" content={siteName} />
 <meta property="og:title" content={socialTitle} />
 <meta property="og:description" content={socialDescription} />
 {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
@@ -73,11 +91,18 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
   )
 }
 
-<meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
-<meta name="twitter:title" content={socialTitle} />
-<meta name="twitter:description" content={socialDescription} />
-{imageUrl && <meta name="twitter:image" content={imageUrl} />}
-{imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+<meta
+  name="twitter:card"
+  content={twitterImageUrl ? 'summary_large_image' : 'summary'}
+/>
+<meta name="twitter:title" content={twitterTitle} />
+<meta name="twitter:description" content={twitterDescription} />
+{twitterImageUrl && (
+  <meta name="twitter:image" content={twitterImageUrl} />
+)}
+{twitterImageAlt && (
+  <meta name="twitter:image:alt" content={twitterImageAlt} />
+)}
 
 {ogType === 'article' && publishedTime && (
   <meta property="article:published_time" content={publishedTime} />

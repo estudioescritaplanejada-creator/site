@@ -27,7 +27,7 @@ npm run preflight
 
 - `/`: home editorial do Estúdio Escrita Planejada;
 - `/site-profissional/`: landing comercial migrada para Astro;
-- `/enquanto/`: página estática preservada do projeto Enquanto Ele Age;
+- `/enquanto/`: página Astro do projeto Enquanto Ele Age;
 - `/enquanto.html`: endereço legado redirecionado para `/enquanto/` no Cloudflare Pages;
 - `/404.html`: página de erro.
 
@@ -40,7 +40,7 @@ npm run preflight
 - `src/scripts`: JavaScript específico das páginas;
 - `src/assets/fonts`: fontes processadas pelo Astro;
 - `public/assets/img`: imagens públicas da landing comercial;
-- `public/enquanto`: página estática preservada;
+- `src/pages/enquanto`: rota Astro do projeto Enquanto Ele Age;
 - `public/assets/enquanto-ele-age`: arquivos públicos do projeto Enquanto Ele Age;
 - `public/assets/email`: imagens públicas utilizadas em e-mails já enviados;
 - `public/_headers` e `public/_redirects`: regras da Cloudflare Pages.
