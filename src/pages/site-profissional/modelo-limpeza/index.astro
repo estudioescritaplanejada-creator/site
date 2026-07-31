@@ -1,0 +1,416 @@
+---
+import StandalonePageLayout from '../../../layouts/StandalonePageLayout.astro';
+import '../../../styles/modelo-limpeza.css';
+---
+
+<StandalonePageLayout
+  title="Modelo Limpeza | Site profissional para empresa de limpeza"
+  description="Landing page responsiva para serviços de limpeza profissional de fachadas, vidros, ACM e pisos comerciais."
+  canonicalPath="/site-profissional/modelo-limpeza/"
+  noindex={true}
+  nofollow={false}
+  themeColor="#07182d"
+  bodyDataPage="modelo-limpeza"
+>
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      href="/site-profissional/modelo-limpeza/assets/fonts/barlow-condensed-extrabold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="/site-profissional/modelo-limpeza/assets/fonts/fonts.css"
+    />
+  </Fragment>
+
+<!--
+    CONFIGURAÇÃO RÁPIDA
+    1. Substitua todos os números do WhatsApp abaixo.
+    2. Troque "Sua Marca" pelo nome real.
+    3. Substitua os blocos ilustrativos da seção de resultados por fotos reais.
+    4. Ajuste cidades, promessas e informações técnicas conforme a operação.
+  -->
+<header class="site-header">
+<div class="container header-inner">
+<a aria-label="Voltar ao início" class="brand" href="#inicio">
+<span aria-hidden="true" class="brand-mark">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="M5 17.5 12 5l7 12.5M7.5 14h9" stroke="currentColor" stroke-linecap="square" stroke-width="2.2"></path>
+</svg>
+</span>
+<span class="brand-copy">
+<strong>Sua Marca</strong>
+<span>Limpeza comercial especializada</span>
+</span>
+</a>
+<button aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Navegação principal" class="nav" id="main-nav">
+<a href="#servicos">Serviços</a>
+<a href="#processo">Como funciona</a>
+<a href="#resultados">Resultados</a>
+<a href="#duvidas">Dúvidas</a>
+<a class="btn btn-primary" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20limpeza%20comercial." rel="noopener noreferrer" target="_blank">
+          Solicitar orçamento
+        </a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+<div class="hero-content">
+<p class="eyebrow">Curitiba e região</p>
+<h1>Seu comércio limpo por fora. Valorizado por inteiro.</h1>
+<p class="lead">
+            Limpeza profissional de vidros, fachadas, ACM e pisos para lojas, empresas, condomínios e espaços comerciais que precisam apresentar uma imagem impecável.
+          </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="https://wa.me/5541999999999?text=Olá!%20Quero%20receber%20um%20orçamento%20para%20limpeza%20de%20fachada,%20vidros,%20ACM%20ou%20pisos." rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="icon" fill="none" viewBox="0 0 24 24">
+<path d="M20 11.5a8 8 0 0 1-11.8 7l-4.2 1 1.1-4A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="2"></path>
+<path d="M9 8.5c.5 2.4 1.8 3.8 4.3 4.5" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+              Orçamento pelo WhatsApp
+            </a>
+<a class="btn btn-outline" href="#servicos">Ver serviços</a>
+</div>
+<div aria-label="Diferenciais" class="hero-proof">
+<div class="proof-item">
+<strong>Atendimento comercial</strong>
+<span>Serviço planejado para empresas</span>
+</div>
+<div class="proof-item">
+<strong>Equipe preparada</strong>
+<span>Procedimentos e equipamentos adequados</span>
+</div>
+<div class="proof-item">
+<strong>Resultado visível</strong>
+<span>Mais cuidado com cada superfície</span>
+</div>
+</div>
+</div>
+<div aria-label="Equipe realizando limpeza de fachada comercial" class="hero-visual"><figure class="hero-photo"><img alt="Equipe realizando limpeza profissional de fachada envidraçada comercial" decoding="async" fetchpriority="high" height="1402" src="assets/limpeza-fachada-comercial.webp" width="1122"/></figure><div class="service-stamp"><small>Atendimento especializado</small><strong>Fachadas, vidros, ACM e pisos</strong></div></div>
+</div>
+</section>
+<section aria-label="Principais serviços" class="service-strip">
+<div class="container strip-grid">
+<div class="strip-item">
+<span class="strip-number">01</span>
+<strong>Fachadas comerciais</strong>
+</div>
+<div class="strip-item">
+<span class="strip-number">02</span>
+<strong>Vidros e vitrines</strong>
+</div>
+<div class="strip-item">
+<span class="strip-number">03</span>
+<strong>Revestimentos em ACM</strong>
+</div>
+<div class="strip-item">
+<span class="strip-number">04</span>
+<strong>Limpeza e cuidado de pisos</strong>
+</div>
+</div>
+</section>
+<section class="section services" id="servicos">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Serviços</p>
+<h2>Limpeza técnica para cada parte do seu espaço</h2>
+</div>
+<p class="section-copy">
+            Cada material exige produtos, equipamentos e métodos diferentes. O atendimento é definido após a análise da área, do nível de sujeira e do tipo de acabamento.
+          </p>
+</div>
+<div class="service-grid">
+<article class="service-card">
+<figure class="service-photo"><img alt="Profissionais realizando limpeza de fachada comercial" decoding="async" height="1402" loading="lazy" src="assets/limpeza-fachada-comercial.webp" width="1122"/></figure><span class="card-index">01</span>
+<span aria-hidden="true" class="service-icon">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="M4 20V6l8-3 8 3v14M8 8h2m4 0h2M8 12h2m4 0h2M8 16h2m4 0h2" stroke="currentColor" stroke-width="1.8"></path>
+</svg>
+</span>
+<h3>Limpeza de fachadas</h3>
+<p>
+              Remoção de sujeira, poeira, marcas de chuva e resíduos acumulados em fachadas de lojas, empresas e prédios comerciais.
+            </p>
+<a class="service-link" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20fachada." rel="noopener noreferrer" target="_blank">Pedir orçamento →</a>
+</article>
+<article class="service-card">
+<figure class="service-photo"><img alt="Equipe limpando vidros e vitrines de um estabelecimento comercial" decoding="async" height="1402" loading="lazy" src="assets/limpeza-vidros-vitrines.webp" width="1122"/></figure><span class="card-index">02</span>
+<span aria-hidden="true" class="service-icon">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="M4 4h16v16H4zM12 4v16M4 12h16" stroke="currentColor" stroke-width="1.8"></path>
+</svg>
+</span>
+<h3>Vidros e vitrines</h3>
+<p>
+              Limpeza de vitrines, portas, painéis e grandes áreas envidraçadas com acabamento uniforme e melhor transparência.
+            </p>
+<a class="service-link" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20vidros%20ou%20vitrines." rel="noopener noreferrer" target="_blank">Pedir orçamento →</a>
+</article>
+<article class="service-card">
+<figure class="service-photo"><img alt="Limpeza profissional de revestimento externo em ACM azul" decoding="async" height="1402" loading="lazy" src="assets/limpeza-fachada-acm.webp" width="1122"/></figure><span class="card-index">03</span>
+<span aria-hidden="true" class="service-icon">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="m4 7 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-width="1.8"></path>
+</svg>
+</span>
+<h3>Limpeza de ACM</h3>
+<p>
+              Cuidado específico para placas e revestimentos, evitando produtos agressivos e preservando o aspecto visual do material.
+            </p>
+<a class="service-link" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20ACM." rel="noopener noreferrer" target="_blank">Pedir orçamento →</a>
+</article>
+<article class="service-card">
+<figure class="service-photo"><img alt="Equipe realizando limpeza de piso em entrada comercial" decoding="async" height="1402" loading="lazy" src="assets/limpeza-pisos-comerciais.webp" width="1122"/></figure><span class="card-index">04</span>
+<span aria-hidden="true" class="service-icon">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="M4 15h16M7 11h10M10 7h4M5 15l2 5h10l2-5" stroke="currentColor" stroke-width="1.8"></path>
+</svg>
+</span>
+<h3>Limpeza de pisos</h3>
+<p>
+              Tratamento da sujeira acumulada em áreas comerciais, entradas e áreas de circulação, conforme o tipo de piso e acabamento.
+            </p>
+<a class="service-link" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20pisos." rel="noopener noreferrer" target="_blank">Pedir orçamento →</a>
+</article>
+</div>
+</div>
+</section>
+<section class="section process" id="processo">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Como funciona</p>
+<h2>Do primeiro contato à entrega do serviço</h2>
+</div>
+<p class="section-copy">
+            Um processo simples para entender a necessidade, definir a melhor solução e executar o trabalho com organização.
+          </p>
+</div>
+<div class="process-grid">
+<article class="process-step">
+<span>01</span>
+<h3>Contato</h3>
+<p>Você envia fotos, localização e uma descrição breve do espaço pelo WhatsApp.</p>
+</article>
+<article class="process-step">
+<span>02</span>
+<h3>Avaliação</h3>
+<p>Analisamos área, material, acesso, nível de sujeira e necessidade de equipamentos.</p>
+</article>
+<article class="process-step">
+<span>03</span>
+<h3>Orçamento</h3>
+<p>Apresentamos o escopo do serviço, condições e prazo para execução.</p>
+</article>
+<article class="process-step">
+<span>04</span>
+<h3>Execução</h3>
+<p>O serviço é realizado conforme o planejamento definido para o local.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section results" id="resultados">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Resultados</p>
+<h2>O serviço precisa aparecer antes mesmo de ser explicado</h2>
+</div>
+<p class="section-copy">Serviços executados com atenção ao material, ao acesso e ao acabamento. A apresentação visual ajuda o cliente a compreender rapidamente o tipo de trabalho realizado.</p>
+</div>
+<div class="results-grid">
+<article class="result-main"><img alt="Limpeza profissional em fachada comercial com grandes painéis de vidro" decoding="async" height="1402" loading="lazy" src="assets/limpeza-fachada-comercial.webp" width="1122"/>
+<div class="result-label">
+<small>Foto principal</small>
+<strong>Fachada comercial após a limpeza</strong>
+</div>
+</article>
+<div class="result-side">
+<article class="result-panel"><img alt="Limpeza de vidros e vitrines em prédio comercial moderno" decoding="async" height="1402" loading="lazy" src="assets/limpeza-vidros-vitrines.webp" width="1122"/>
+<div class="result-label">
+<small>Detalhe</small>
+<strong>Vidros e vitrines</strong>
+</div>
+</article>
+<article class="result-panel"><img alt="Lavagem de fachada revestida em placas de ACM" decoding="async" height="1402" loading="lazy" src="assets/limpeza-fachada-acm.webp" width="1122"/>
+<div class="result-label">
+<small>Detalhe</small>
+<strong>ACM e revestimentos</strong>
+</div>
+</article>
+</div>
+</div>
+<p class="result-note">As imagens desta landing page modelo são ilustrativas e devem ser substituídas por registros próprios ou autorizados antes da publicação definitiva.</p>
+</div>
+</section>
+<section class="section" id="diferenciais">
+<div class="container trust-grid">
+<div>
+<p class="eyebrow">Confiança</p>
+<h2>Mais cuidado com o espaço e com a rotina do cliente</h2>
+<p class="section-copy">
+            O serviço comercial precisa considerar segurança, circulação de pessoas, horários, materiais e impacto sobre o funcionamento do local.
+          </p>
+</div>
+<div class="trust-list">
+<article class="trust-item">
+<span class="check">✓</span>
+<div>
+<h3>Avaliação antes do orçamento</h3>
+<p>A proposta é construída conforme a dimensão, o acesso e as condições reais do local.</p>
+</div>
+</article>
+<article class="trust-item">
+<span class="check">✓</span>
+<div>
+<h3>Produtos adequados ao material</h3>
+<p>Vidros, ACM, fachadas e pisos recebem cuidados diferentes para evitar danos e manchas.</p>
+</div>
+</article>
+<article class="trust-item">
+<span class="check">✓</span>
+<div>
+<h3>Atendimento para empresas</h3>
+<p>Organização do serviço de acordo com o fluxo do espaço e as necessidades do contratante.</p>
+</div>
+</article>
+<article class="trust-item">
+<span class="check">✓</span>
+<div>
+<h3>Atuação local</h3>
+<p>Atendimento em Curitiba e cidades da região, conforme disponibilidade e escopo do serviço.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="cta-block">
+<div class="container cta-inner">
+<div>
+<p class="eyebrow" style="color:#fff;">Solicite uma avaliação</p>
+<h2>Envie fotos do local e receba uma orientação inicial pelo WhatsApp</h2>
+<p>
+            Informe o tipo de espaço, a cidade e o serviço necessário. A partir dessas informações, será possível avaliar os próximos passos.
+          </p>
+</div>
+<a class="btn btn-dark" href="https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20enviar%20fotos%20para%20uma%20avaliação%20inicial%20do%20serviço." rel="noopener noreferrer" target="_blank">
+          Falar no WhatsApp
+        </a>
+</div>
+</section>
+<section class="section" id="duvidas">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Perguntas frequentes</p>
+<h2>Informações antes de solicitar o orçamento</h2>
+</div>
+</div>
+<div class="faq-list">
+<details>
+<summary>Quais tipos de empresas podem solicitar o serviço?</summary>
+<p>
+              Lojas, clínicas, escritórios, academias, mercados, restaurantes, condomínios, galpões e outros espaços comerciais podem solicitar uma avaliação.
+            </p>
+</details>
+<details>
+<summary>É possível avaliar o serviço por fotos?</summary>
+<p>
+              Fotos e vídeos ajudam na avaliação inicial. Dependendo da altura, do acesso, da dimensão ou do material, poderá ser necessária uma visita técnica.
+            </p>
+</details>
+<details>
+<summary>O atendimento pode ser feito fora do horário comercial?</summary>
+<p>
+              A possibilidade depende do local, do tipo de serviço e da disponibilidade da equipe. Essa necessidade deve ser informada durante o orçamento.
+            </p>
+</details>
+<details>
+<summary>Vocês fazem manutenção periódica?</summary>
+<p>
+              Serviços recorrentes podem ser avaliados conforme a frequência necessária, as características do espaço e o volume de trabalho.
+            </p>
+</details>
+<details>
+<summary>Quais cidades são atendidas?</summary>
+<p>
+              O modelo considera atendimento em Curitiba e região. Substitua este texto pela relação real de cidades ou pela área efetivamente atendida.
+            </p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-grid">
+<div>
+<a class="brand" href="#inicio">
+<span aria-hidden="true" class="brand-mark">
+<svg fill="none" viewBox="0 0 24 24">
+<path d="M5 17.5 12 5l7 12.5M7.5 14h9" stroke="currentColor" stroke-linecap="square" stroke-width="2.2"></path>
+</svg>
+</span>
+<span class="brand-copy">
+<strong>Sua Marca</strong>
+<span>Limpeza comercial especializada</span>
+</span>
+</a>
+<p class="footer-intro">
+          Limpeza profissional de fachadas, vidros, ACM e pisos para empresas que valorizam apresentação, cuidado e organização.
+        </p>
+</div>
+<div>
+<h3>Navegação</h3>
+<a href="#servicos">Serviços</a>
+<a href="#processo">Como funciona</a>
+<a href="#resultados">Resultados</a>
+<a href="#duvidas">Dúvidas</a>
+</div>
+<div>
+<h3>Atendimento</h3>
+<a href="https://wa.me/5541999999999" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+<a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a>
+<a href="#">Curitiba e região</a>
+</div>
+</div>
+<div class="container footer-bottom">
+<span>© <span id="year"></span> Sua Marca. Todos os direitos reservados.</span>
+<span>Modelo Limpeza — site demonstrativo com dados fictícios.</span>
+</div>
+</footer>
+<a aria-label="Solicitar orçamento pelo WhatsApp" class="whatsapp-float" href="https://wa.me/5541999999999?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." rel="noopener noreferrer" target="_blank">
+<span class="whatsapp-label">Solicitar orçamento</span>
+<svg aria-hidden="true" fill="currentColor" viewBox="0 0 32 32">
+<path d="M16.04 3C8.87 3 3.05 8.76 3.05 15.86c0 2.5.73 4.95 2.12 7.03L3 29l6.3-2.05a13.04 13.04 0 0 0 6.72 1.84h.01C23.2 28.79 29 23.03 29 15.93A12.9 12.9 0 0 0 16.04 3Zm7.58 18.3c-.32.89-1.84 1.7-2.54 1.8-.65.1-1.49.14-2.4-.15-.55-.18-1.27-.41-2.19-.8-3.84-1.65-6.35-5.48-6.55-5.74-.2-.25-1.56-2.06-1.56-3.93 0-1.87.98-2.79 1.33-3.17.35-.38.77-.48 1.02-.48.25 0 .51 0 .73.01.23.01.55-.09.86.65.32.76 1.08 2.63 1.17 2.82.1.19.16.41.03.66-.13.25-.19.41-.38.63-.19.22-.4.49-.57.65-.19.19-.39.4-.17.78.22.38.98 1.61 2.1 2.61 1.44 1.28 2.65 1.68 3.03 1.87.38.19.6.16.83-.1.22-.25.95-1.1 1.2-1.48.25-.38.51-.32.86-.19.35.13 2.22 1.04 2.6 1.23.38.19.63.29.73.44.09.16.09.92-.23 1.81Z"></path>
+</svg>
+</a>
+
+  <script is:inline>
+const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav");
+
+    toggle?.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</StandalonePageLayout>

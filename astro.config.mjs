@@ -13,7 +13,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !page.endsWith('/404.html') && !page.endsWith('/rss.xml'),
+        !page.endsWith('/404.html') &&
+        !page.endsWith('/rss.xml') &&
+        !page.endsWith('/site-profissional/modelo-limpeza/'),
     }),
   ],
 });
