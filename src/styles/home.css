@@ -1898,8 +1898,7 @@ p {
 
 .final-call__synthesis {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(22rem, 1.08fr);
-  align-items: stretch;
+  grid-template-columns: 1fr;
   padding: 0;
   background: var(--ink);
   border: 0.1rem solid var(--ink);
@@ -1917,21 +1916,6 @@ p {
 .final-call__synthesis .final-call__panel h2 {
   max-width: 12ch;
   font-size: clamp(2.7rem, 5vw, 5.2rem);
-}
-
-.final-call__synthesis .final-call__media {
-  display: grid;
-  align-items: center;
-  width: 100%;
-  padding: clamp(1rem, 2.8vw, 2.2rem);
-  background: var(--paper-2);
-}
-
-.final-call__synthesis .final-call__media img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border: 0.1rem solid var(--ink);
 }
 
 @media (max-width: 68rem) {
@@ -1975,9 +1959,6 @@ p {
     order: -1;
   }
 
-  .final-call__synthesis .final-call__media {
-    padding-top: 0;
-  }
 }
 
 @media (max-width: 44rem) {
@@ -2036,8 +2017,7 @@ p {
     max-width: none;
   }
 
-  .site-feature__synthesis .site-feature__media,
-  .final-call__synthesis .final-call__media {
+  .site-feature__synthesis .site-feature__media {
     padding: 0.8rem;
   }
 }
