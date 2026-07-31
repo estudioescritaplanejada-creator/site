@@ -15,7 +15,7 @@ themes:
 author: Estúdio Escrita Planejada
 draft: false
 featured: false
-image: "/assets/editorial/como-saber-se-mensagem-link-ou-site-e-golpe.webp"
+image: "/assets/editorial/como-saber-se-mensagem-link-ou-site-e-golpe-v2.webp"
 imageAlt: "Profissional analisa uma mensagem suspeita de bloqueio de conta antes de clicar, enquanto um aviso orienta a confirmar a origem do contato"
 seoTitle: "Como saber se uma mensagem, link ou site é golpe"
 ---
