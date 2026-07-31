@@ -93,16 +93,9 @@
     if (e.target === lightbox) closeLightbox();
   });
 
-  /* ---------------- Diálogos ---------------- */
-  const privacyDialog = document.getElementById('privacidade');
+  /* ---------------- Termos do serviço ---------------- */
   const termsDialog = document.getElementById('termos');
 
-  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      privacyDialog.showModal();
-      privacyDialog.querySelector('.dialog-close').focus();
-    });
-  });
   document.querySelectorAll('[data-open-dialog="termos"]').forEach(btn => {
     btn.addEventListener('click', () => {
       termsDialog.showModal();
@@ -110,14 +103,20 @@
     });
   });
 
-  [privacyDialog, termsDialog].forEach(dialog => {
-    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (e) => {
-      const rect = dialog.getBoundingClientRect();
-      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
-        dialog.close();
-      }
-    });
+  termsDialog.querySelector('.dialog-close').addEventListener(
+    'click',
+    () => termsDialog.close(),
+  );
+  termsDialog.addEventListener('click', (e) => {
+    const rect = termsDialog.getBoundingClientRect();
+    if (
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom
+    ) {
+      termsDialog.close();
+    }
   });
 
   /* ---------------- Teclado global ---------------- */

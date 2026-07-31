@@ -300,16 +300,6 @@ button{color:inherit}
 .mobile-cta a:hover{transform:translateY(-2px);background:#d8002b}
 .mobile-cta svg{width:27px;height:27px;fill:currentColor}
 
-/* Diálogo */
-dialog{width:min(760px,calc(100% - 28px));max-height:86vh;padding:0;border:0;border-radius:var(--radius-md);background:var(--paper);color:var(--night);box-shadow:0 32px 90px rgba(0,0,0,.5)}
-dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(5px)}
-.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;border-bottom:1px solid rgba(7,24,33,.16)}
-.dialog-head h2{margin:0;font-family:var(--font-display);font-size:1.65rem}
-.dialog-close{display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;background:rgba(7,24,33,.08);cursor:pointer;font-size:1.6rem}
-.dialog-body{padding:25px 28px 30px;overflow:auto;max-height:calc(86vh - 90px)}
-.dialog-body p{margin:0;color:#4d626b}
-.dialog-body p + p{margin-top:15px}
-.dialog-body strong{color:var(--night)}
 
 @media(max-width:1120px){
   .header-inner{grid-template-columns:auto 1fr auto}

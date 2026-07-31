@@ -1,0 +1,177 @@
+---
+import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
+import '../../styles/legal-pages.css';
+
+const title = 'Política de Privacidade | Estúdio Escrita Planejada';
+const description =
+  'Entenda como o Estúdio Escrita Planejada trata dados pessoais, para quais finalidades e como exercer seus direitos.';
+const canonicalPath = '/privacidade/';
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const homeUrl = new URL('/', baseUrl).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': `${homeUrl}#website`,
+    url: homeUrl,
+    name: 'Estúdio Escrita Planejada',
+  },
+  dateModified: '2026-07-31',
+};
+---
+
+<EditorialContentLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  active="none"
+  socialTitle="Política de Privacidade"
+  socialDescription="Como o Estúdio Escrita Planejada trata dados pessoais e protege a privacidade dos visitantes."
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <main id="conteudo" class="legal-page">
+    <article class="legal-page__shell">
+      <header class="legal-page__header">
+        <p class="legal-page__eyebrow">Transparência e proteção de dados</p>
+        <h1>Política de Privacidade</h1>
+        <p class="legal-page__lead">
+          Esta política explica como o Estúdio Escrita Planejada trata dados
+          pessoais quando você navega neste domínio, utiliza seus conteúdos ou
+          entra em contato.
+        </p>
+        <p class="legal-page__updated">
+          Última atualização: 31 de julho de 2026.
+        </p>
+      </header>
+
+      <section aria-labelledby="responsavel">
+        <h2 id="responsavel">1. Responsável pelo tratamento</h2>
+        <p>
+          O responsável por este site e pelos contatos comerciais é o
+          <strong>Estúdio Escrita Planejada</strong>, sob responsabilidade de
+          Roberto Franco, CNPJ 61.424.633/0001-11.
+        </p>
+        <p>
+          Solicitações relacionadas a dados pessoais podem ser enviadas para
+          <a href="mailto:estudioescritaplanejada@gmail.com">
+            estudioescritaplanejada@gmail.com
+          </a>
+          ou pelo WhatsApp informado nas páginas do Estúdio.
+        </p>
+      </section>
+
+      <section aria-labelledby="dados">
+        <h2 id="dados">2. Dados que podem ser tratados</h2>
+        <ul>
+          <li>
+            <strong>Dados fornecidos por você:</strong> nome, telefone, e-mail,
+            mensagem e informações sobre o serviço ou projeto enviadas pelos
+            canais de contato.
+          </li>
+          <li>
+            <strong>Dados técnicos:</strong> endereço IP, data e hora,
+            navegador, dispositivo e página solicitada podem ser registrados
+            pela infraestrutura de hospedagem e segurança.
+          </li>
+          <li>
+            <strong>Dados de navegação:</strong> páginas acessadas, origem do
+            tráfego, dispositivo e interações, somente quando você autoriza o
+            Google Analytics.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="finalidades">
+        <h2 id="finalidades">3. Finalidades e bases legais</h2>
+        <p>
+          Os dados podem ser usados para responder contatos, preparar propostas,
+          executar serviços, manter a segurança e o funcionamento do site,
+          melhorar conteúdos e cumprir obrigações legais.
+        </p>
+        <p>
+          Conforme o contexto, o tratamento pode se apoiar em consentimento,
+          procedimentos preliminares solicitados pelo titular, execução de
+          contrato, cumprimento de obrigação legal ou regulatória e legítimo
+          interesse.
+        </p>
+        <p>
+          O Google Analytics é carregado somente após sua autorização. A escolha
+          pode ser recusada ou alterada pelo controle de preferências disponível
+          no site.
+        </p>
+      </section>
+
+      <section aria-labelledby="compartilhamento">
+        <h2 id="compartilhamento">4. Compartilhamento e serviços externos</h2>
+        <p>
+          Dados podem ser processados por fornecedores necessários à hospedagem,
+          segurança, comunicação e análise. O domínio também contém links ou
+          integrações com WhatsApp/Meta, YouTube, Google Analytics e Hotmart.
+          Ao utilizar esses serviços, aplicam-se também as políticas das
+          respectivas plataformas.
+        </p>
+        <p>O Estúdio não vende dados pessoais.</p>
+      </section>
+
+      <section aria-labelledby="retencao">
+        <h2 id="retencao">5. Retenção e segurança</h2>
+        <p>
+          Os dados são mantidos pelo período necessário às finalidades
+          informadas, à execução de contratos, ao cumprimento de obrigações e
+          ao exercício regular de direitos.
+        </p>
+        <p>
+          São adotadas medidas técnicas e organizacionais para reduzir riscos,
+          embora nenhum sistema conectado à internet ofereça segurança absoluta.
+        </p>
+      </section>
+
+      <section aria-labelledby="direitos">
+        <h2 id="direitos">6. Direitos do titular</h2>
+        <p>
+          Você pode solicitar, quando aplicável, confirmação do tratamento,
+          acesso, correção, anonimização, bloqueio ou eliminação de dados
+          inadequados ou excessivos, portabilidade, informação sobre
+          compartilhamentos, revogação do consentimento, oposição e revisão de
+          decisões automatizadas.
+        </p>
+        <p>
+          A solicitação poderá exigir confirmação de identidade para proteger
+          os dados contra acesso indevido.
+        </p>
+      </section>
+
+      <section aria-labelledby="alteracoes">
+        <h2 id="alteracoes">7. Crianças, adolescentes e alterações</h2>
+        <p>
+          Os serviços comerciais deste domínio não são direcionados à coleta
+          intencional de dados de crianças. Esta política poderá ser atualizada
+          para refletir mudanças no site, nos serviços ou nas exigências
+          aplicáveis. A data da versão vigente aparecerá no início da página.
+        </p>
+      </section>
+
+      <aside class="legal-page__related" aria-label="Informações relacionadas">
+        <strong>Informações relacionadas</strong>
+        <a href="/cookies/">Política de Cookies</a>
+        <a href="mailto:estudioescritaplanejada@gmail.com">
+          Contato por e-mail
+        </a>
+      </aside>
+    </article>
+  </main>
+</EditorialContentLayout>

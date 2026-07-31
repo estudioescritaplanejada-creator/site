@@ -1,4 +1,5 @@
 ---
+import LegalLinks from '../../components/legal/LegalLinks.astro';
 import StandalonePageLayout from '../../layouts/StandalonePageLayout.astro';
 import '../../styles/enquanto.css';
 
@@ -493,12 +494,12 @@ const structuredData = {
       <h2 class="footer-title">Informações</h2>
       <div class="footer-links">
         <a href="mailto:enquantoeleage@gmail.com">Contato</a>
-        <button type="button" data-open-dialog="privacidade">Política de Privacidade</button>
       </div>
     </div>
     <div class="footer-legal">
       <span>Os conteúdos do Enquanto Ele Age têm finalidade espiritual, artística e informativa. Eles não substituem acompanhamento médico, psicológico, jurídico ou financeiro quando necessário.</span>
       <span>© <span id="ano">2026</span> Enquanto Ele Age. Todos os direitos reservados.</span>
+      <LegalLinks />
     </div>
   </div>
 </footer>
@@ -509,16 +510,6 @@ const structuredData = {
   </a>
 </div>
 
-<dialog id="privacidade" aria-label="Política de Privacidade">
-  <div class="dialog-head"><h2>Política de Privacidade</h2><button class="dialog-close" type="button" aria-label="Fechar política">×</button></div>
-  <div class="dialog-body">
-    <p><strong>Dados fornecidos por você:</strong> este site não possui formulário de cadastro ou coleta direta de dados pessoais. Caso você entre em contato por e-mail, as informações enviadas serão utilizadas apenas para responder à mensagem.</p>
-    <p><strong>Conteúdos do YouTube:</strong> as miniaturas são carregadas a partir dos servidores do YouTube. O reprodutor incorporado é ativado somente quando você escolhe reproduzir um vídeo. A partir desse momento, o uso pode estar sujeito às políticas e tecnologias da plataforma YouTube.</p>
-    <p><strong>Clube e assinaturas:</strong> pagamentos, assinaturas, cancelamentos e benefícios do Clube são administrados pelo YouTube. O Enquanto Ele Age não recebe, por meio deste site, dados completos de pagamento.</p>
-    <p><strong>Links externos:</strong> o site contém links para o YouTube e para o aplicativo de e-mail do visitante. Ao acessar serviços externos, passam a valer as políticas desses serviços.</p>
-    <p><strong>Contato:</strong> dúvidas sobre esta política podem ser enviadas para <a href="mailto:enquantoeleage@gmail.com">enquantoeleage@gmail.com</a>.</p>
-  </div>
-</dialog>
 
   <script is:inline>
 (() => {
@@ -590,18 +581,6 @@ const structuredData = {
       shell.replaceChildren(iframe);
       iframe.focus();
     });
-  });
-
-  const dialog = document.getElementById('privacidade');
-  document.querySelectorAll('[data-open-dialog="privacidade"]').forEach(button => {
-    button.addEventListener('click', () => {
-      if (dialog instanceof HTMLDialogElement) dialog.showModal();
-    });
-  });
-  dialog?.querySelector('.dialog-close')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('click', event => {
-    const rect = dialog.getBoundingClientRect();
-    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
 
   document.addEventListener('keydown', event => {

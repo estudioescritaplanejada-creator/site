@@ -1,0 +1,156 @@
+---
+import EditorialContentLayout from '../../layouts/EditorialContentLayout.astro';
+import '../../styles/legal-pages.css';
+
+const title = 'Política de Cookies | Estúdio Escrita Planejada';
+const description =
+  'Saiba como o Estúdio Escrita Planejada usa armazenamento local e cookies opcionais do Google Analytics.';
+const canonicalPath = '/cookies/';
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const homeUrl = new URL('/', baseUrl).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': `${homeUrl}#website`,
+    url: homeUrl,
+    name: 'Estúdio Escrita Planejada',
+  },
+  dateModified: '2026-07-31',
+};
+---
+
+<EditorialContentLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  active="none"
+  socialTitle="Política de Cookies"
+  socialDescription="Cookies, armazenamento local e preferências de análise no site do Estúdio Escrita Planejada."
+>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <main id="conteudo" class="legal-page">
+    <article class="legal-page__shell">
+      <header class="legal-page__header">
+        <p class="legal-page__eyebrow">Controle nas suas mãos</p>
+        <h1>Política de Cookies</h1>
+        <p class="legal-page__lead">
+          O site usa armazenamento local para lembrar sua escolha e só carrega
+          os cookies opcionais do Google Analytics quando você autoriza.
+        </p>
+        <p class="legal-page__updated">
+          Última atualização: 31 de julho de 2026.
+        </p>
+      </header>
+
+      <section aria-labelledby="conceito">
+        <h2 id="conceito">1. Cookies e armazenamento local</h2>
+        <p>
+          Cookies são pequenos arquivos gravados pelo navegador. O
+          armazenamento local guarda informações diretamente no navegador sem
+          enviá-las automaticamente a cada solicitação.
+        </p>
+      </section>
+
+      <section aria-labelledby="tecnologias">
+        <h2 id="tecnologias">2. Tecnologias utilizadas</h2>
+        <div class="legal-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tecnologia</th>
+                <th>Categoria</th>
+                <th>Finalidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>eep_analytics_consent</code></td>
+                <td>Necessária — armazenamento local</td>
+                <td>
+                  Guardar se você aceitou ou recusou os cookies de análise.
+                </td>
+              </tr>
+              <tr>
+                <td><code>_ga</code> e identificadores relacionados</td>
+                <td>Opcional — Google Analytics</td>
+                <td>
+                  Produzir estatísticas agregadas de navegação e manter o estado
+                  das sessões de análise.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="analytics">
+        <h2 id="analytics">3. Google Analytics</h2>
+        <p>
+          Quando autorizado, o Google Analytics mede visitas, sessões, páginas
+          acessadas, origem aproximada do tráfego, informações de navegador e
+          dispositivo e interações relevantes, como downloads e cliques em
+          chamadas para ação.
+        </p>
+        <p>
+          As permissões de publicidade permanecem negadas na configuração
+          atual. O Google Analytics não é carregado quando a preferência de
+          análise está recusada.
+        </p>
+      </section>
+
+      <section aria-labelledby="externos">
+        <h2 id="externos">4. Serviços externos</h2>
+        <p>
+          Algumas páginas contêm links para WhatsApp, YouTube e Hotmart. O
+          reprodutor do YouTube é ativado somente quando você escolhe reproduzir
+          o vídeo. Depois da interação, essas plataformas podem utilizar
+          tecnologias próprias conforme suas políticas.
+        </p>
+      </section>
+
+      <section aria-labelledby="controle">
+        <h2 id="controle">5. Como mudar sua escolha</h2>
+        <p>
+          Na primeira visita, o painel permite aceitar ou recusar os cookies de
+          análise. A recusa não impede o acesso ao conteúdo principal.
+        </p>
+        <p>
+          Você pode reabrir esse painel pelo botão flutuante de preferências no
+          canto da página. Também pode apagar cookies e dados locais nas
+          configurações do navegador.
+        </p>
+      </section>
+
+      <section aria-labelledby="atualizacoes">
+        <h2 id="atualizacoes">6. Atualizações</h2>
+        <p>
+          Esta política poderá ser atualizada quando houver mudanças relevantes
+          nas tecnologias, finalidades ou configurações do site.
+        </p>
+      </section>
+
+      <aside class="legal-page__related" aria-label="Informações relacionadas">
+        <strong>Informações relacionadas</strong>
+        <a href="/privacidade/">Política de Privacidade</a>
+        <a href="mailto:estudioescritaplanejada@gmail.com">
+          Contato por e-mail
+        </a>
+      </aside>
+    </article>
+  </main>
+</EditorialContentLayout>
