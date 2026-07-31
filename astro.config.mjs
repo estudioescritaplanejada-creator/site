@@ -15,7 +15,8 @@ export default defineConfig({
       filter: (page) =>
         !page.endsWith('/404.html') &&
         !page.endsWith('/rss.xml') &&
-        !page.endsWith('/site-profissional/modelo-limpeza/'),
+        !page.endsWith('/site-profissional/modelo-limpeza/') &&
+        !page.endsWith('/site-profissional/modelo-recreacao/'),
     }),
   ],
 });
