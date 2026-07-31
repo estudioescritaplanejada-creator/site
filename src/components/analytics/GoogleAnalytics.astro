@@ -7,10 +7,12 @@
   hidden
 >
   <div>
-    <strong id="eep-analytics-title">Cookies de análise</strong>
+    <strong id="eep-analytics-title">Privacidade e cookies</strong>
     <p id="eep-analytics-description">
-      Usamos cookies opcionais para entender como o site é utilizado e melhorar
-      nossos conteúdos. Você pode aceitar ou recusar.
+      Usamos armazenamento local para lembrar sua escolha. Com sua autorização,
+      o Google Analytics usa cookies opcionais para medir o uso do site.
+      Consulte <a href="/cookies/">Cookies</a> e
+      <a href="/privacidade/">Privacidade</a>. Você pode aceitar ou recusar.
     </p>
   </div>
 
@@ -50,6 +52,8 @@
   (() => {
     const measurementId = 'G-EW21JNBSY5';
     const storageKey = 'eep_analytics_consent';
+    const storageVersionKey = 'eep_analytics_consent_version';
+    const consentVersion = '2026-07-31-v1';
 
     const banner = document.getElementById('eep-analytics-consent');
     const acceptButton = document.getElementById('eep-analytics-accept');
@@ -75,7 +79,17 @@
 
     const readChoice = () => {
       try {
-        return window.localStorage.getItem(storageKey);
+        if (
+          window.localStorage.getItem(storageVersionKey) !== consentVersion
+        ) {
+          return null;
+        }
+
+        const choice = window.localStorage.getItem(storageKey);
+
+        return choice === 'granted' || choice === 'denied'
+          ? choice
+          : null;
       } catch {
         return null;
       }
@@ -84,6 +98,7 @@
     const saveChoice = (choice) => {
       try {
         window.localStorage.setItem(storageKey, choice);
+        window.localStorage.setItem(storageVersionKey, consentVersion);
       } catch {
         // A preferência continuará válida apenas durante esta página.
       }
@@ -98,6 +113,23 @@
       });
     };
 
+    const sendAutomaticPageEvents = () => {
+      if (
+        document.body?.dataset.page !== '404' ||
+        document.body.dataset.eep404Tracked === 'true'
+      ) {
+        return;
+      }
+
+      document.body.dataset.eep404Tracked = 'true';
+
+      window.gtag('event', 'page_not_found', {
+        attempted_path: `${window.location.pathname}${window.location.search}`,
+        page_location: window.location.href,
+        page_referrer: document.referrer,
+        page_title: document.title,
+      });
+    };
     const loadAnalytics = () => {
       window.gtag('consent', 'update', {
         ad_storage: 'denied',
@@ -123,6 +155,7 @@
 
       window.gtag('js', new Date());
       window.gtag('config', measurementId);
+      sendAutomaticPageEvents();
     };
 
     const closeBanner = () => {
@@ -155,6 +188,19 @@
     });
 
     settingsButton.addEventListener('click', openBanner);
+
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const trigger = event.target.closest(
+        '[data-eep-open-cookie-settings]',
+      );
+
+      if (!trigger) return;
+
+      event.preventDefault();
+      openBanner();
+    });
 
     const sendAnalyticsEvent = (eventName, parameters) => {
       if (readChoice() !== 'granted') return;
@@ -287,6 +333,12 @@
     color: #d7d3cc;
     font-size: 0.88rem;
     line-height: 1.45;
+  }
+
+  .analytics-consent a {
+    color: #fff;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
   .analytics-consent__actions {

@@ -1,6 +1,9 @@
 <nav class="legal-links" aria-label="Privacidade e cookies">
   <a href="/privacidade/">Privacidade</a>
   <a href="/cookies/">Cookies</a>
+  <button type="button" data-eep-open-cookie-settings>
+    Preferências de cookies
+  </button>
 </nav>
 
 <style>
@@ -17,9 +20,17 @@
     opacity: 0.72;
   }
 
-  .legal-links a {
+  .legal-links a,
+  .legal-links button {
+    width: auto;
+    margin: 0;
+    padding: 0;
     color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
     font: inherit;
+    text-align: left;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 0.2em;
@@ -29,7 +40,9 @@
   }
 
   .legal-links a:hover,
-  .legal-links a:focus-visible {
+  .legal-links a:focus-visible,
+  .legal-links button:hover,
+  .legal-links button:focus-visible {
     opacity: 1;
     text-decoration-color: currentColor;
   }

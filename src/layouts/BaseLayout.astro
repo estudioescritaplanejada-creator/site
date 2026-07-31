@@ -8,6 +8,7 @@ interface Props {
   description: string;
   canonicalPath?: string | null;
   noindex?: boolean;
+  bodyDataPage?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description,
   canonicalPath,
   noindex = false,
+  bodyDataPage,
 } = Astro.props;
 ---
 
@@ -55,7 +57,7 @@ const {
     <slot name="head" />
   </head>
 
-  <body>
+  <body data-page={bodyDataPage}>
     <a class="skip-link" href="#conteudo">
       Pular para o conteúdo
     </a>
