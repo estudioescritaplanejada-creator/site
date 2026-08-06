@@ -1,0 +1,1179 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background: #f6efe5;
+}
+
+.cozinha-page {
+  --cozinha-ink: #2b211a;
+  --cozinha-muted: #6f6258;
+  --cozinha-cream: #f6efe5;
+  --cozinha-paper: #fffaf3;
+  --cozinha-paper-strong: #ffffff;
+  --cozinha-beige: #eadac7;
+  --cozinha-caramel: #b97942;
+  --cozinha-copper: #925326;
+  --cozinha-copper-dark: #6f3c1d;
+  --cozinha-brown: #4b2f20;
+  --cozinha-green: #34483b;
+  --cozinha-line: rgba(75, 47, 32, 0.16);
+  --cozinha-line-strong: rgba(75, 47, 32, 0.28);
+  --cozinha-shadow:
+    0 1.5rem 4rem rgba(75, 47, 32, 0.13),
+    0 0.35rem 1rem rgba(75, 47, 32, 0.07);
+  --cozinha-max: 74rem;
+
+  min-width: 20rem;
+  margin: 0;
+  color: var(--cozinha-ink);
+  background: var(--cozinha-cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cozinha-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.cozinha-page a {
+  color: inherit;
+}
+
+.cozinha-page button {
+  font: inherit;
+}
+
+.cozinha-page h1,
+.cozinha-page h2,
+.cozinha-page h3,
+.cozinha-page p {
+  margin-top: 0;
+}
+
+.cozinha-page h1,
+.cozinha-page h2,
+.cozinha-page h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.cozinha-page p,
+.cozinha-page li {
+  text-wrap: pretty;
+}
+
+.cozinha-page :focus-visible {
+  outline: 0.2rem solid var(--cozinha-copper);
+  outline-offset: 0.2rem;
+}
+
+.cozinha-container {
+  width: min(calc(100% - 2rem), var(--cozinha-max));
+  margin-inline: auto;
+}
+
+.cozinha-skip {
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: var(--cozinha-brown);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-180%);
+}
+
+.cozinha-skip:focus {
+  transform: none;
+}
+
+.cozinha-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--cozinha-line);
+  background: rgba(255, 250, 243, 0.94);
+  backdrop-filter: blur(1rem);
+}
+
+.cozinha-header__inner {
+  display: flex;
+  min-height: 4.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.cozinha-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--cozinha-ink);
+  text-decoration: none;
+}
+
+.cozinha-brand img {
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.cozinha-brand span {
+  display: grid;
+  line-height: 1.1;
+}
+
+.cozinha-brand strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.cozinha-brand small {
+  margin-top: 0.25rem;
+  color: var(--cozinha-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cozinha-header__cta {
+  display: inline-flex;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.15rem;
+  color: #fff;
+  background: var(--cozinha-copper);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.cozinha-header__cta:hover {
+  background: var(--cozinha-copper-dark);
+  transform: translateY(-1px);
+}
+
+.cozinha-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  padding-block: 1.1rem;
+  color: var(--cozinha-muted);
+  font-size: 0.82rem;
+}
+
+.cozinha-breadcrumb a {
+  color: var(--cozinha-copper-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cozinha-hero {
+  overflow: hidden;
+  padding: clamp(2.5rem, 7vw, 6.5rem) 0;
+  background:
+    radial-gradient(
+      circle at 86% 12%,
+      rgba(185, 121, 66, 0.18),
+      transparent 28rem
+    ),
+    linear-gradient(135deg, #fffaf3 0%, #f0e1cf 100%);
+}
+
+.cozinha-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.72fr);
+  gap: clamp(2.5rem, 7vw, 6.5rem);
+  align-items: center;
+}
+
+.cozinha-label,
+.cozinha-kicker {
+  margin-bottom: 1rem;
+  color: var(--cozinha-copper-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.cozinha-label {
+  display: inline-flex;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(146, 83, 38, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.cozinha-product-name {
+  margin-bottom: 1.1rem;
+  color: var(--cozinha-brown);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.15;
+}
+
+.cozinha-hero h1 {
+  max-width: 17ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.75rem, 5.6vw, 5.4rem);
+  letter-spacing: -0.045em;
+}
+
+.cozinha-hero__lead {
+  max-width: 41rem;
+  margin-bottom: 1.7rem;
+  color: var(--cozinha-muted);
+  font-size: clamp(1.06rem, 1.7vw, 1.25rem);
+}
+
+.cozinha-price-summary {
+  display: grid;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+}
+
+.cozinha-old-price {
+  color: var(--cozinha-muted);
+  font-size: 0.88rem;
+}
+
+.cozinha-price-summary strong {
+  color: var(--cozinha-copper-dark);
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.cozinha-price-summary > span:last-child {
+  margin-top: 0.35rem;
+  color: var(--cozinha-muted);
+  font-size: 0.86rem;
+}
+
+.cozinha-button {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  border: 0;
+  border-radius: 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.cozinha-button:hover {
+  transform: translateY(-2px);
+}
+
+.cozinha-button--primary {
+  color: #fff;
+  background: var(--cozinha-copper);
+  box-shadow: 0 0.85rem 2rem rgba(146, 83, 38, 0.24);
+}
+
+.cozinha-button--primary:hover {
+  background: var(--cozinha-copper-dark);
+}
+
+.cozinha-button--light {
+  width: 100%;
+  color: var(--cozinha-brown);
+  background: #fff;
+}
+
+.cozinha-button--light:hover {
+  background: var(--cozinha-cream);
+}
+
+.cozinha-trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  color: var(--cozinha-muted);
+  font-size: 0.82rem;
+  list-style: none;
+}
+
+.cozinha-trust-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.cozinha-trust-list li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--cozinha-caramel);
+  content: "";
+}
+
+.cozinha-hero__visual {
+  width: min(100%, 29rem);
+  justify-self: end;
+}
+
+.cozinha-hero__frame {
+  overflow: hidden;
+  border: 1px solid rgba(75, 47, 32, 0.14);
+  border-radius: 1.5rem;
+  background: #e8d8c5;
+  box-shadow: var(--cozinha-shadow);
+}
+
+.cozinha-hero__frame img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.cozinha-section {
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+}
+
+.cozinha-section h2,
+.cozinha-offer h2,
+.cozinha-final h2 {
+  max-width: 19ch;
+  margin-bottom: 1.4rem;
+  font-size: clamp(2.25rem, 4.5vw, 4.3rem);
+  letter-spacing: -0.04em;
+}
+
+.cozinha-section__lead {
+  max-width: 39rem;
+  color: var(--cozinha-muted);
+  font-size: 1.07rem;
+}
+
+.cozinha-problem {
+  background: var(--cozinha-paper);
+}
+
+.cozinha-problem__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.cozinha-question-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--cozinha-line);
+  list-style: none;
+}
+
+.cozinha-question-list li {
+  padding: 1rem 1.1rem;
+  border-right: 1px solid var(--cozinha-line);
+  border-bottom: 1px solid var(--cozinha-line);
+  color: var(--cozinha-brown);
+  font-weight: 600;
+}
+
+.cozinha-question-list li:nth-child(even) {
+  border-right: 0;
+}
+
+.cozinha-solution {
+  color: #f9f3e9;
+  background: var(--cozinha-green);
+}
+
+.cozinha-solution .cozinha-kicker {
+  color: #d9b98d;
+}
+
+.cozinha-solution__inner h2 {
+  max-width: 16ch;
+}
+
+.cozinha-solution__copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 55rem;
+  gap: 2rem;
+  color: rgba(255, 255, 255, 0.77);
+  font-size: 1.05rem;
+}
+
+.cozinha-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.cozinha-principles span {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.cozinha-modules {
+  background: var(--cozinha-cream);
+}
+
+.cozinha-modules__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.cozinha-module {
+  min-height: 17rem;
+  padding: 1.7rem;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.cozinha-module > span {
+  display: block;
+  margin-bottom: 3.6rem;
+  color: var(--cozinha-copper);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.cozinha-module h3 {
+  margin-bottom: 0.9rem;
+  font-size: 1.45rem;
+  line-height: 1.08;
+}
+
+.cozinha-module p {
+  margin-bottom: 0;
+  color: var(--cozinha-muted);
+  font-size: 0.93rem;
+}
+
+.cozinha-complements {
+  background: var(--cozinha-paper);
+}
+
+.cozinha-complements__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.cozinha-complement {
+  padding: 1.8rem;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.cozinha-complement__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cozinha-complement__top span {
+  color: var(--cozinha-copper);
+  font-family: var(--font-display);
+}
+
+.cozinha-complement__top small {
+  color: var(--cozinha-muted);
+  font-weight: 600;
+}
+
+.cozinha-complement h3 {
+  margin-bottom: 0.85rem;
+  font-size: 1.5rem;
+}
+
+.cozinha-complement p {
+  margin-bottom: 0;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-complements__notice {
+  max-width: 54rem;
+  margin: 1.8rem 0 0;
+  padding-left: 1.1rem;
+  border-left: 0.2rem solid var(--cozinha-caramel);
+  color: var(--cozinha-muted);
+  font-size: 0.92rem;
+}
+
+.cozinha-receive {
+  background: linear-gradient(135deg, #ead7c1, #f7eee3);
+}
+
+.cozinha-receive__grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.cozinha-receive__visual {
+  overflow: hidden;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: var(--cozinha-shadow);
+}
+
+.cozinha-receive__visual img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.cozinha-delivery-list {
+  display: grid;
+  gap: 0;
+  margin: 2rem 0;
+  padding: 0;
+  border-top: 1px solid var(--cozinha-line);
+  list-style: none;
+}
+
+.cozinha-delivery-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--cozinha-line);
+}
+
+.cozinha-delivery-list span {
+  color: var(--cozinha-muted);
+  font-size: 0.86rem;
+  text-align: right;
+}
+
+.cozinha-content-total {
+  max-width: 42rem;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-content-total strong {
+  color: var(--cozinha-brown);
+}
+
+.cozinha-delivery-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.cozinha-delivery-meta span {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.cozinha-audience {
+  background: var(--cozinha-cream);
+}
+
+.cozinha-audience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.cozinha-audience-card {
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.cozinha-audience-card h3 {
+  margin-bottom: 1.4rem;
+  font-size: 1.65rem;
+}
+
+.cozinha-audience-card ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cozinha-audience-card li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-audience-card li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  content: "";
+}
+
+.cozinha-audience-card--yes li::before {
+  background: #58725e;
+}
+
+.cozinha-audience-card--no li::before {
+  background: var(--cozinha-caramel);
+}
+
+.cozinha-steps {
+  background: var(--cozinha-paper);
+}
+
+.cozinha-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--cozinha-line);
+  border-left: 1px solid var(--cozinha-line);
+  margin-top: 2.5rem;
+}
+
+.cozinha-steps__grid article {
+  min-height: 10rem;
+  padding: 1.2rem;
+  border-right: 1px solid var(--cozinha-line);
+  border-bottom: 1px solid var(--cozinha-line);
+}
+
+.cozinha-steps__grid span {
+  color: var(--cozinha-copper);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+}
+
+.cozinha-steps__grid p {
+  margin: 3rem 0 0;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cozinha-steps__closing {
+  max-width: 50rem;
+  margin: 1.7rem 0 0;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-offer {
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  color: #fff8ef;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(217, 185, 141, 0.17),
+      transparent 26rem
+    ),
+    var(--cozinha-brown);
+}
+
+.cozinha-offer .cozinha-kicker {
+  color: #ddb887;
+}
+
+.cozinha-offer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(19rem, 0.72fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.cozinha-offer__grid > div:first-child > p:not(.cozinha-kicker) {
+  max-width: 40rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cozinha-offer__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cozinha-offer__list li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: rgba(255, 255, 255, 0.83);
+}
+
+.cozinha-offer__list li::before {
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #ddb887;
+  content: "";
+}
+
+.cozinha-offer__box {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cozinha-offer__regular {
+  display: block;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.cozinha-offer__price {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 7vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.cozinha-offer__payment {
+  display: block;
+  margin: 0.5rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cozinha-offer__box p {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.cozinha-faq {
+  background: var(--cozinha-cream);
+}
+
+.cozinha-faq__list {
+  display: grid;
+  max-width: 54rem;
+  gap: 0.7rem;
+  margin-top: 2.3rem;
+}
+
+.cozinha-faq details {
+  border: 1px solid var(--cozinha-line);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.cozinha-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.cozinha-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.cozinha-faq summary::after {
+  color: var(--cozinha-copper);
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.cozinha-faq details[open] summary::after {
+  content: "−";
+}
+
+.cozinha-faq details p {
+  max-width: 48rem;
+  margin: 0;
+  padding: 0 1.2rem 1.2rem;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-warning {
+  background: var(--cozinha-paper);
+}
+
+.cozinha-warning__box {
+  padding: clamp(1.7rem, 5vw, 3.5rem);
+  border: 1px solid var(--cozinha-line-strong);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.cozinha-warning__box h2 {
+  max-width: 16ch;
+}
+
+.cozinha-warning__box p:not(.cozinha-kicker) {
+  max-width: 52rem;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-warning__box p:last-child {
+  margin-bottom: 0;
+}
+
+.cozinha-final {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(185, 121, 66, 0.2),
+      transparent 30rem
+    ),
+    linear-gradient(180deg, #f3e7d8, #fffaf3);
+}
+
+.cozinha-final__inner {
+  display: grid;
+  justify-items: center;
+}
+
+.cozinha-final h2 {
+  max-width: 18ch;
+}
+
+.cozinha-final__inner > p:not(.cozinha-kicker) {
+  max-width: 43rem;
+  color: var(--cozinha-muted);
+  font-size: 1.06rem;
+}
+
+.cozinha-final__price {
+  display: grid;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.cozinha-final__price strong {
+  color: var(--cozinha-copper-dark);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+}
+
+.cozinha-final__price span {
+  margin-top: 0.45rem;
+  color: var(--cozinha-muted);
+  font-size: 0.85rem;
+}
+
+.cozinha-footer {
+  padding: 3rem 0 6rem;
+  color: #d8cdc3;
+  background: #2b211a;
+}
+
+.cozinha-footer__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.65fr 0.9fr;
+  gap: 2.5rem;
+}
+
+.cozinha-brand--footer {
+  color: #fff;
+}
+
+.cozinha-brand--footer small {
+  color: #bbaea3;
+}
+
+.cozinha-footer p {
+  max-width: 28rem;
+  margin: 1rem 0 0;
+  color: #aa9d93;
+  font-size: 0.85rem;
+}
+
+.cozinha-footer nav:not(.legal-links) {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+}
+
+.cozinha-footer nav:not(.legal-links) a {
+  width: fit-content;
+  color: #d8cdc3;
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.cozinha-footer nav:not(.legal-links) a:hover {
+  color: #fff;
+}
+
+.cozinha-footer__legal p {
+  margin-top: 0;
+}
+
+.cozinha-mobile-buy {
+  display: none;
+}
+
+/*
+ * Contraste explícito dos CTAs.
+ * A regra geral `.cozinha-page a { color: inherit; }` possui
+ * maior especificidade que as classes isoladas dos botões.
+ */
+.cozinha-page a.cozinha-header__cta,
+.cozinha-page a.cozinha-button--primary,
+.cozinha-page a.cozinha-mobile-buy {
+  color: #ffffff;
+}
+
+.cozinha-page a.cozinha-button--light {
+  color: var(--cozinha-brown);
+}
+
+@media (max-width: 58rem) {
+  .cozinha-hero__grid,
+  .cozinha-problem__grid,
+  .cozinha-receive__grid,
+  .cozinha-offer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozinha-hero__visual {
+    width: min(100%, 27rem);
+    justify-self: center;
+    order: -1;
+  }
+
+  .cozinha-hero__content {
+    max-width: 48rem;
+  }
+
+  .cozinha-solution__copy {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .cozinha-modules__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cozinha-complements__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozinha-receive__visual {
+    width: min(100%, 34rem);
+    margin-inline: auto;
+  }
+
+  .cozinha-steps__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cozinha-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cozinha-footer__legal {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 43rem) {
+  .cozinha-page {
+    padding-bottom: 4.7rem;
+  }
+
+  .cozinha-container {
+    width: min(calc(100% - 1.4rem), var(--cozinha-max));
+  }
+
+  .cozinha-header__inner {
+    min-height: 4.25rem;
+  }
+
+  .cozinha-header__cta {
+    display: none;
+  }
+
+  .cozinha-brand small {
+    display: none;
+  }
+
+  .cozinha-breadcrumb {
+    font-size: 0.76rem;
+  }
+
+  .cozinha-hero {
+    padding-top: 1.5rem;
+  }
+
+  .cozinha-hero__grid {
+    gap: 2rem;
+  }
+
+  .cozinha-hero h1 {
+    font-size: clamp(2.45rem, 12vw, 3.7rem);
+  }
+
+  .cozinha-button {
+    width: 100%;
+  }
+
+  .cozinha-trust-list {
+    display: grid;
+  }
+
+  .cozinha-question-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cozinha-question-list li {
+    border-right: 0;
+  }
+
+  .cozinha-modules__grid,
+  .cozinha-audience__grid,
+  .cozinha-steps__grid,
+  .cozinha-offer__list,
+  .cozinha-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozinha-module {
+    min-height: auto;
+  }
+
+  .cozinha-module > span {
+    margin-bottom: 2.5rem;
+  }
+
+  .cozinha-delivery-list li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .cozinha-delivery-list span {
+    text-align: left;
+  }
+
+  .cozinha-steps__grid article {
+    min-height: auto;
+  }
+
+  .cozinha-steps__grid p {
+    margin-top: 1.6rem;
+  }
+
+  .cozinha-footer__legal {
+    grid-column: auto;
+  }
+
+  .cozinha-mobile-buy {
+    position: fixed;
+    right: 0.7rem;
+    bottom: calc(0.65rem + env(safe-area-inset-bottom));
+    left: 0.7rem;
+    z-index: 950;
+    display: flex;
+    min-height: 3.55rem;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1rem;
+    color: #fff;
+    background: var(--cozinha-copper);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.9rem 2.5rem rgba(43, 33, 26, 0.35);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  .cozinha-header,
+  .cozinha-mobile-buy,
+  .cozinha-button {
+    display: none !important;
+  }
+
+  .cozinha-page {
+    padding: 0;
+    color: #000;
+    background: #fff;
+  }
+}
