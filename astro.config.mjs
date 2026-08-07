@@ -16,7 +16,8 @@ export default defineConfig({
         !page.endsWith('/404.html') &&
         !page.endsWith('/rss.xml') &&
         !page.endsWith('/site-profissional/modelo-limpeza/') &&
-        !page.endsWith('/site-profissional/modelo-recreacao/'),
+        !page.endsWith('/site-profissional/modelo-recreacao/') &&
+        !page.endsWith('/enquanto/para-criadores-do-youtube/'),
     }),
   ],
 });

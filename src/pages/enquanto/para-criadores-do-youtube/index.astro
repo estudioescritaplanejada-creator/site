@@ -1,0 +1,233 @@
+---
+import LegalLinks from '../../../components/legal/LegalLinks.astro';
+import StandalonePageLayout from '../../../layouts/StandalonePageLayout.astro';
+import '../../../styles/para-criadores-do-youtube.css';
+
+const title = 'Estrutura para Canais de Fé no YouTube | Estúdio Escrita Planejada';
+const description = 'Página, Clube de Membros e produtos digitais para criadores de conteúdo cristão e de fé no YouTube, desenvolvidos a partir das necessidades reais da comunidade.';
+const canonicalPath = '/enquanto/para-criadores-do-youtube/';
+const socialImage = '/assets/enquanto/para-criadores/social.webp';
+const currentYear = new Date().getFullYear();
+const whatsappUrl = 'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Vi%20a%20p%C3%A1gina%20para%20criadores%20de%20conte%C3%BAdo%20de%20f%C3%A9%20e%20gostaria%20de%20entender%20o%20que%20poderia%20ser%20desenvolvido%20para%20o%20meu%20canal%3A';
+
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const siteUrl = new URL('/', baseUrl).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}#organization`,
+      name: 'Estúdio Escrita Planejada',
+      url: siteUrl,
+      email: 'estudioescritaplanejada@gmail.com',
+      logo: new URL('/assets/img/logo.png', baseUrl).toString(),
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      inLanguage: 'pt-BR',
+      publisher: { '@id': `${siteUrl}#organization` },
+    },
+  ],
+};
+---
+
+<StandalonePageLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  author="Estúdio Escrita Planejada"
+  siteName="Estúdio Escrita Planejada"
+  image={socialImage}
+  imageAlt="Estrutura digital do projeto Enquanto Ele Age apresentada como caso real"
+  socialTitle="Estrutura para Canais de Fé no YouTube"
+  socialDescription="Página, Clube de Membros e produtos digitais desenvolvidos a partir da comunidade do canal."
+  twitterTitle="Estrutura para Canais de Fé no YouTube"
+  twitterDescription="Página, Clube de Membros e produtos digitais para criadores de conteúdo de fé."
+  twitterImage={socialImage}
+  twitterImageAlt="Estrutura digital do projeto Enquanto Ele Age apresentada como caso real"
+  themeColor="#04151c"
+  colorScheme="dark light"
+  bodyDataPage="criadores-de-fe"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex,follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=League+Spartan:wght@600;700;800&amp;display=swap" />
+    <link rel="preload" as="image" href="/assets/enquanto/para-criadores/hero-ecossistema-enquanto.webp" type="image/webp" fetchpriority="high" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </Fragment>
+
+<div class="faith-page">
+<a class="faith-skip" href="#conteudo">Ir para o conteúdo principal</a>
+<header class="faith-header">
+  <div class="faith-wrap faith-header-in">
+    <a class="faith-brand" href="/" aria-label="Estúdio Escrita Planejada">
+      <span class="faith-brand-mark faith-brand-mark-studio"></span>
+      <span>Estúdio Escrita Planejada<small>Estruturas digitais para canais de fé</small></span>
+    </a>
+    <div class="faith-header-actions">
+      <a class="faith-text-link" href="/enquanto/" target="_blank" rel="noopener noreferrer">Ver o case</a>
+      <a class="faith-btn faith-btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-analytics-event="commercial_cta_click" data-article-slug="para-criadores-do-youtube" data-cta-type="whatsapp_header">Falar no WhatsApp</a>
+    </div>
+  </div>
+</header>
+<main id="conteudo">
+<section class="faith-hero" aria-labelledby="faith-hero-title">
+  <div class="faith-wrap faith-hero-grid">
+    <div class="faith-hero-copy">
+      <div class="faith-eyebrow">Para criadores de conteúdo de fé no YouTube</div>
+      <h1 id="faith-hero-title">Seu canal já tem uma comunidade. <span>Construa o que pode existir além dos vídeos.</span></h1>
+      <p class="faith-lead">Criamos a estrutura do seu Clube de Membros e desenvolvemos ativos e produtos digitais pensados para as necessidades reais da sua audiência — da ideia à apresentação final.</p>
+      <div class="faith-hero-actions">
+        <a class="faith-btn faith-btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-analytics-event="commercial_cta_click" data-article-slug="para-criadores-do-youtube" data-cta-type="whatsapp_hero">Quero uma ideia para o meu canal</a>
+        <a class="faith-btn faith-btn-ghost" href="#caso">Ver o caso Enquanto Ele Age</a>
+      </div>
+      <div class="faith-micro">Página própria + estratégia + textos + materiais e produtos digitais.</div>
+      <div class="faith-hero-signature"><span>Estúdio Escrita Planejada</span> · solução desenvolvida a partir da experiência prática com o Enquanto Ele Age.</div>
+    </div>
+    <div class="faith-proof-stage">
+      <span class="faith-proof-label">Case real · Enquanto Ele Age</span>
+      <div class="faith-proof-final">
+        <img
+          src="/assets/enquanto/para-criadores/hero-ecossistema-enquanto.webp"
+          alt="Case real do Enquanto Ele Age mostrando canal, página e produto digital"
+          width="1122"
+          height="1402"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faith-section">
+  <div class="faith-wrap">
+    <div class="faith-section-head">
+      <div class="faith-eyebrow">Clube de membros</div>
+      <h2>O botão “Seja membro” é só o começo.</h2>
+      <p>O YouTube já cuida da assinatura, da cobrança, dos níveis e do acesso. Mas ainda fica com o criador uma parte decisiva: transformar a assinatura em uma experiência que faça sentido para a comunidade.</p>
+    </div>
+    <div class="faith-compare">
+      <div class="faith-split-card"><h3>No YouTube</h3><ul><li>Assinatura e cobrança</li><li>Níveis do Clube</li><li>Acesso do membro</li><li>Recursos nativos da plataforma</li></ul></div>
+      <div class="faith-arrow">→</div>
+      <div class="faith-split-card"><h3>Ao redor dele</h3><ul><li>Página própria do Clube</li><li>Apresentação dos benefícios</li><li>Ativos exclusivos</li><li>Produtos digitais com vida própria</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="faith-section faith-band">
+  <div class="faith-wrap faith-twocol">
+    <div class="faith-copy-block">
+      <div class="faith-eyebrow">Antes do formato</div>
+      <h2>O produto começa na comunidade.</h2>
+      <p>Antes de decidir se o resultado será um guia, uma jornada, um kit, uma biblioteca ou outra solução, olhamos para o canal: quem acompanha, o que essas pessoas procuram, quais perguntas aparecem e onde existe uma necessidade que o projeto pode atender de maneira legítima.</p>
+      <div class="faith-pill-row"><span class="faith-pill">audiência</span><span class="faith-pill">necessidades</span><span class="faith-pill">oportunidade</span></div>
+    </div>
+    <div class="faith-editorial-image"><img src="/assets/enquanto/para-criadores/comunidade-oportunidade.webp" alt="Profissional analisando informações da comunidade para identificar necessidades e oportunidades" width="1122" height="1402" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<section class="faith-section faith-light">
+  <div class="faith-wrap faith-twocol">
+    <div class="faith-editorial-image"><img src="/assets/enquanto/para-criadores/caso-da-sua-cozinha.webp" alt="Mulher organizando alimentos para venda no caso Da Sua Cozinha para os Primeiros Clientes" width="1122" height="1402" loading="lazy" decoding="async"></div>
+    <div class="faith-copy-block">
+      <div class="faith-eyebrow">Um caso que nasceu da vida real</div>
+      <h2>Um canal de fé pode gerar muito mais do que um devocional.</h2>
+      <p>Uma comunidade também vive questões de trabalho, renda, casa, família, organização, propósito e recomeços. A melhor oportunidade pode surgir justamente onde o criador já possui confiança e contexto para apresentar uma solução útil.</p>
+      <p><strong>Da Sua Cozinha para os Primeiros Clientes</strong> é um exemplo dessa lógica: um produto digital completo, criado dentro do ecossistema do projeto, com proposta própria e potencial para existir além do Clube.</p>
+      <a class="faith-btn faith-btn-ghost faith-btn-on-light" href="/enquanto/da-sua-cozinha-para-os-primeiros-clientes/" target="_blank" rel="noopener noreferrer">Ver o produto real</a>
+    </div>
+  </div>
+</section>
+
+<section class="faith-section" id="caso">
+  <div class="faith-wrap faith-case-grid">
+    <div class="faith-copy-block">
+      <div class="faith-eyebrow">Caso real</div>
+      <h2>Foi assim que aconteceu no Enquanto Ele Age.</h2>
+      <p>O projeto começou com conteúdo cristão de música, oração e companhia para a vida real. Conforme a comunidade cresceu, surgiram novas possibilidades: Clube, materiais, presença própria e produtos digitais.</p>
+      <p>Essa experiência mostrou que um canal pode ampliar seu ecossistema sem abandonar sua identidade.</p>
+      <div class="faith-case-links">
+        <a class="faith-btn faith-btn-primary" href="/enquanto/" target="_blank" rel="noopener noreferrer">Conhecer o Enquanto Ele Age</a>
+        <a class="faith-btn faith-btn-ghost" href="/enquanto/da-sua-cozinha-para-os-primeiros-clientes/" target="_blank" rel="noopener noreferrer">Ver o produto criado</a>
+      </div>
+    </div>
+    <div class="faith-case-final">
+      <img
+        src="/assets/enquanto/para-criadores/case-enquanto-ele-age.webp"
+        alt="Estudo de caso real do Enquanto Ele Age com página, versão mobile e produto digital"
+        width="1122"
+        height="1402"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="faith-section faith-band">
+  <div class="faith-wrap">
+    <div class="faith-section-head">
+      <div class="faith-eyebrow">O que podemos construir</div>
+      <h2>Uma estrutura que cresce junto com o projeto.</h2>
+      <p>Nem todo canal precisa de tudo ao mesmo tempo. A proposta é definida de acordo com o momento, a comunidade e o que realmente faz sentido desenvolver.</p>
+    </div>
+    <div class="faith-cards">
+      <div class="faith-card"><div class="faith-card-num">01 — ESTRUTURA</div><h3>Página do Clube</h3><p>Apresentação do projeto, níveis, benefícios, CTAs, identidade e organização da experiência do membro.</p></div>
+      <div class="faith-card"><div class="faith-card-num">02 — EXPERIÊNCIA</div><h3>Ativos exclusivos</h3><p>Entregas pensadas para dar substância aos níveis do Clube e fortalecer a relação com a comunidade.</p></div>
+      <div class="faith-card"><div class="faith-card-num">03 — PRODUTO</div><h3>Produtos digitais próprios</h3><p>Soluções mais robustas, desenvolvidas a partir de necessidades reais e capazes de existir dentro ou fora do Clube.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faith-section">
+  <div class="faith-wrap faith-twocol">
+    <div class="faith-copy-block">
+      <div class="faith-eyebrow">Com o canal no centro</div>
+      <h2>Você continua cuidando do canal. Nós cuidamos da estrutura.</h2>
+      <p>Você apresenta o projeto, o público e o que já oferece. Nós estudamos esse contexto, organizamos as possibilidades e cuidamos da escrita, da página, da apresentação visual e dos materiais ou produtos definidos.</p>
+      <div class="faith-process">
+        <div class="faith-step"><b>01</b>Canal</div><div class="faith-step"><b>02</b>Análise</div><div class="faith-step"><b>03</b>Oportunidade</div><div class="faith-step"><b>04</b>Conceito</div><div class="faith-step"><b>05</b>Criação</div><div class="faith-step"><b>06</b>Publicação</div>
+      </div>
+    </div>
+    <div class="faith-editorial-image"><img src="/assets/enquanto/para-criadores/criador-estrutura-clube.webp" alt="Criador de conteúdo de fé trabalhando em seu canal com câmera e microfone" width="1122" height="1402" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<section class="faith-section faith-light">
+  <div class="faith-wrap faith-about">
+    <div class="faith-about-box">
+      <div class="faith-eyebrow">Quem faz</div>
+      <h3>Estúdio Escrita Planejada</h3>
+      <p class="faith-muted">Estratégia, escrita, organização de informação, páginas e desenvolvimento de produtos digitais.</p>
+    </div>
+    <div class="faith-copy-block">
+      <h2>Uma extensão do que sua comunidade já encontra em você.</h2>
+      <p>A melhor estrutura não parece algo colocado de fora. A linguagem precisa ser reconhecível, os materiais precisam conversar com a audiência e os produtos precisam respeitar a relação de confiança que o canal já construiu.</p>
+      <p>A solução para canais de fé nasceu da experiência prática com o Enquanto Ele Age — primeiro construindo o nosso próprio ecossistema, depois transformando essa experiência em uma oferta para outros criadores.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faith-cta-final">
+  <div class="faith-wrap">
+    <div class="faith-eyebrow">Próxima etapa</div>
+    <h2>Seu canal já construiu uma comunidade. Vamos descobrir o que pode nascer dela.</h2>
+    <p>Envie o link do seu canal. A conversa começa entendendo o projeto e avaliando que tipo de página, estrutura, ativo ou produto pode fazer sentido para a sua comunidade.</p>
+    <a class="faith-btn faith-btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-analytics-event="commercial_cta_click" data-article-slug="para-criadores-do-youtube" data-cta-type="whatsapp_final">Quero uma ideia para o meu canal</a>
+    <div class="faith-small-note">Sem fórmula pronta. Primeiro entendemos o projeto. Depois avaliamos o que vale a pena construir.</div>
+  </div>
+</section>
+</main>
+<footer class="faith-footer"><div class="faith-wrap faith-footer-in"><span>© {currentYear} Estúdio Escrita Planejada. Todos os direitos reservados.</span><LegalLinks /></div></footer>
+</div>
+</StandalonePageLayout>

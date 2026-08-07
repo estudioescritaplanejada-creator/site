@@ -1,0 +1,316 @@
+
+body[data-page="criadores-de-fe"] {
+  --night:#061820;
+  --petrol:#0b2731;
+  --petrol-2:#103540;
+  --ivory:#f3ebdd;
+  --paper:#f7f1e7;
+  --muted:#a9bdc2;
+  --cyan:#7bc6cf;
+  --cyan-2:#a6dce1;
+  --ochre:#c39a5a;
+  --ochre-2:#b8863b;
+  --bronze:#6e4e2e;
+  --line:rgba(243,235,221,.14);
+  --shadow:0 30px 80px rgba(0,0,0,.30);
+}
+.faith-page,.faith-page *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body[data-page="criadores-de-fe"]{margin:0;background:var(--night);color:var(--ivory);font-family:Inter,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+.faith-page a{color:inherit}
+.faith-page img{max-width:100%;display:block}
+.faith-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.faith-header{position:sticky;top:0;z-index:50;background:rgba(6,24,32,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.faith-header-in{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.faith-brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:'League Spartan',Arial,sans-serif;font-weight:700;letter-spacing:.01em}
+.faith-brand-mark{width:34px;height:34px;border-radius:11px;border:1px solid rgba(195,154,90,.32);display:grid;place-items:center;background:linear-gradient(145deg,#122b35,#101521);box-shadow:inset 0 0 22px rgba(195,154,90,.08)}
+.faith-brand-mark::before{content:'◔';color:var(--ochre);font-size:19px;transform:rotate(-25deg)}
+.faith-brand small{display:block;font-family:Inter,Arial,sans-serif;color:var(--muted);font-weight:500;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-top:-5px}
+.faith-header-actions{display:flex;align-items:center;gap:12px}
+.faith-text-link{font-size:13px;color:var(--muted);text-decoration:none}
+.faith-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:12px;padding:13px 18px;font-weight:800;font-size:13px;letter-spacing:.035em;text-transform:uppercase;transition:.2s ease;border:1px solid transparent}
+.faith-btn:hover{transform:translateY(-1px)}
+.faith-btn-primary{background:var(--cyan);color:#062029;box-shadow:0 10px 34px rgba(123,198,207,.17)}
+.faith-btn-ghost{border-color:rgba(195,154,90,.55);color:var(--ivory);background:rgba(195,154,90,.04)}
+.faith-eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--ochre);font-weight:800;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.faith-eyebrow::before{content:'';width:22px;height:1px;background:var(--ochre)}
+.faith-page h1,.faith-page h2,.faith-page h3{font-family:'League Spartan',Arial,sans-serif;line-height:.98;margin:0;letter-spacing:-.02em}
+.faith-page h1{font-size:clamp(48px,6vw,84px);max-width:770px}
+.faith-page h2{font-size:clamp(38px,5vw,64px)}
+.faith-page h3{font-size:30px}
+.faith-lead{font-size:clamp(18px,2vw,22px);color:#d9e2e3;max-width:760px;line-height:1.6}
+.faith-hero{position:relative;padding:92px 0 90px;background:
+ radial-gradient(circle at 83% 20%,rgba(195,154,90,.11),transparent 34%),
+ radial-gradient(circle at 74% 70%,rgba(123,198,207,.12),transparent 38%),
+ linear-gradient(180deg,#071b24 0%,#061820 100%);overflow:hidden}
+.faith-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 75%)}
+.faith-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.faith-hero-copy .faith-eyebrow{margin-bottom:22px}
+.faith-hero h1 span{color:var(--ochre)}
+.faith-hero .faith-lead{margin:28px 0}
+.faith-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 16px}
+.faith-micro{font-size:12px;color:var(--muted)}
+.faith-proof-stage{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
+.faith-proof-card{position:relative;border-radius:24px;padding:18px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.13);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.faith-proof-desktop{width:95%;transform:rotate(1.3deg)}
+.faith-proof-desktop img{border-radius:15px}
+.faith-proof-mobile{position:absolute;width:29%;right:-3%;bottom:2%;padding:8px;border-radius:22px;transform:rotate(-2deg);background:#0c2028;border:1px solid rgba(195,154,90,.38);box-shadow:0 24px 70px rgba(0,0,0,.44)}
+.faith-proof-mobile img{border-radius:16px}
+.faith-proof-label{position:absolute;left:7%;top:2%;background:var(--ochre);color:#10212a;padding:7px 11px;border-radius:999px;font-weight:900;font-size:10px;letter-spacing:.12em;text-transform:uppercase;z-index:5}
+.faith-section{padding:96px 0;border-top:1px solid rgba(255,255,255,.055)}
+.faith-section.faith-light{background:var(--paper);color:#13252a}
+.faith-section.faith-light .faith-muted,.faith-section.faith-light p{color:#44585d}
+.faith-section-head{max-width:900px;margin-bottom:46px}
+.faith-section-head .faith-eyebrow{margin-bottom:18px}
+.faith-section-head p{font-size:18px;color:#bfced1;max-width:780px}
+.faith-twocol{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.faith-split-card{padding:34px;border-radius:22px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.faith-split-card h3{font-size:34px;margin-bottom:12px}
+.faith-split-card ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+.faith-split-card li{display:flex;gap:10px;color:#c7d3d5}
+.faith-split-card li::before{content:'•';color:var(--ochre);font-size:22px;line-height:1}
+.faith-arrow{font-family:'League Spartan';font-size:38px;color:var(--ochre);text-align:center}
+.faith-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;margin-top:30px}
+.faith-editorial-image{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow);background:#0d232b}
+.faith-editorial-image img{width:100%;height:auto}
+.faith-band{background:linear-gradient(135deg,rgba(195,154,90,.08),rgba(123,198,207,.05));border-block:1px solid var(--line)}
+.faith-copy-block{max-width:790px}
+.faith-copy-block p{font-size:18px;color:#bed0d3}
+.faith-copy-block strong{color:var(--ivory)}
+.faith-pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.faith-pill{border:1px solid rgba(195,154,90,.32);color:#e7d3b3;border-radius:999px;padding:8px 12px;font-size:12px;background:rgba(195,154,90,.035)}
+.faith-case-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center}
+.faith-case-shot{padding:16px;border-radius:24px;background:#0b2129;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+.faith-case-shot img{border-radius:14px}
+.faith-case-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.faith-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.faith-card{border-radius:22px;padding:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.10);min-height:220px}
+.faith-card-num{color:var(--ochre);font-weight:800;font-size:12px;letter-spacing:.16em}
+.faith-card h3{font-size:32px;margin:16px 0 12px}
+.faith-card p{color:#b9c9cc}
+.faith-process{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:42px}
+.faith-step{position:relative;padding:18px 14px;border-top:1px solid rgba(195,154,90,.55);font-size:13px;color:#c7d3d5}
+.faith-step b{display:block;color:var(--ochre);font-size:11px;letter-spacing:.14em;margin-bottom:7px}
+.faith-about{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:start}
+.faith-about-box{padding:26px;border-radius:20px;background:rgba(195,154,90,.08);border:1px solid rgba(195,154,90,.25)}
+.faith-cta-final{padding:110px 0;background:linear-gradient(135deg,#0c2c36,#071820 65%);text-align:center;position:relative;overflow:hidden}
+.faith-cta-final::before{content:'';position:absolute;inset:auto -10% -45% auto;width:620px;height:620px;border-radius:50%;border:1px solid rgba(195,154,90,.18);box-shadow:0 0 0 60px rgba(195,154,90,.02),0 0 0 120px rgba(123,198,207,.025)}
+.faith-cta-final .faith-wrap{position:relative;z-index:2}
+.faith-cta-final h2{max-width:880px;margin:0 auto 24px}
+.faith-cta-final p{max-width:720px;margin:0 auto 28px;color:#c8d7da;font-size:19px}
+.faith-footer{padding:30px 0;color:#8fa4a9;font-size:12px;border-top:1px solid var(--line)}
+.faith-small-note{font-size:13px;color:#aebfc2;margin-top:18px}
+
+.faith-skip{position:fixed;top:.75rem;left:.75rem;z-index:5000;padding:.7rem 1rem;border-radius:.65rem;background:var(--ochre);color:#08212a;text-decoration:none;font-weight:800;transform:translateY(-180%);transition:transform .16s ease}
+.faith-skip:focus{transform:none}
+.faith-page a:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.faith-btn-on-light{color:#183139;border-color:rgba(155,103,45,.60);background:rgba(155,103,45,.035)}
+#caso{scroll-margin-top:88px}
+.faith-footer-in{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.faith-footer .legal-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.faith-footer .legal-links a,.faith-footer .legal-links button{color:#9fb0b4}
+@media (max-width:900px){
+  .faith-header-in{height:64px} .faith-header-actions .faith-text-link{display:none}
+  .faith-hero{padding:58px 0 68px} .faith-hero-grid,.faith-twocol,.faith-case-grid,.faith-about{grid-template-columns:1fr;gap:34px}
+  .faith-hero-copy{order:2} .faith-proof-stage{order:1;min-height:360px}
+  .faith-proof-desktop{width:88%} .faith-proof-mobile{width:26%;right:2%}
+  .faith-compare{grid-template-columns:1fr} .faith-arrow{transform:rotate(90deg)}
+  .faith-cards{grid-template-columns:1fr} .faith-process{grid-template-columns:repeat(2,1fr)}
+  .faith-section{padding:72px 0}
+}
+@media (max-width:560px){
+  .faith-wrap{width:min(100% - 28px,1180px)}
+  .faith-brand small{display:none} .faith-brand{font-size:15px} .faith-header-actions .faith-btn{padding:10px 12px;font-size:11px}
+  .faith-page h1{font-size:48px} .faith-page h2{font-size:40px} .faith-lead{font-size:17px}
+  .faith-hero-grid{gap:22px} .faith-proof-stage{min-height:300px} .faith-proof-desktop{width:96%;padding:8px;border-radius:18px} .faith-proof-mobile{width:27%;right:-1%;bottom:-1%}
+  .faith-hero-actions .faith-btn{width:100%}
+  .faith-section-head p,.faith-copy-block p{font-size:16px}
+  .faith-editorial-image{border-radius:18px}
+  .faith-cards{gap:12px} .faith-card{min-height:auto}
+  .faith-process{grid-template-columns:1fr 1fr}
+}
+
+/* ===== V2 — refinamento premium + autoria do Estúdio ===== */
+body[data-page="criadores-de-fe"]{
+  --night:#04151c;
+  --petrol:#08232c;
+  --petrol-2:#0d313b;
+  --ivory:#f6efe3;
+  --paper:#f5ede0;
+  --ochre:#c99b55;
+  --ochre-2:#aa7736;
+  --bronze:#825a2f;
+  --cyan:#7ac9d2;
+}
+.faith-header{
+  background:rgba(4,21,28,.93);
+  border-bottom:1px solid rgba(201,155,85,.20);
+  box-shadow:0 10px 34px rgba(0,0,0,.12);
+}
+.faith-brand{font-size:17px}
+.faith-brand-mark-studio{
+  background:linear-gradient(145deg,#12313a,#0a171d 70%);
+  border-color:rgba(201,155,85,.46);
+  box-shadow:inset 0 0 22px rgba(201,155,85,.10),0 8px 22px rgba(0,0,0,.18);
+}
+.faith-brand-mark-studio::before{content:'✦';transform:none;font-size:14px;color:var(--ochre)}
+.faith-text-link{color:#c3d0d2}
+.faith-hero{
+  padding:104px 0 100px;
+  background:
+    radial-gradient(circle at 84% 24%,rgba(201,155,85,.19),transparent 24%),
+    radial-gradient(circle at 76% 66%,rgba(122,201,210,.13),transparent 34%),
+    radial-gradient(circle at 17% 18%,rgba(255,255,255,.035),transparent 23%),
+    linear-gradient(118deg,#03131a 0%,#061d25 52%,#0a2932 100%);
+}
+.faith-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.16),transparent 46%,rgba(201,155,85,.035));
+}
+.faith-hero::after{
+  opacity:.72;
+  background-image:
+    linear-gradient(rgba(201,155,85,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,155,85,.028) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+.faith-hero-copy{position:relative}
+.faith-hero-copy::before{
+  content:'';
+  position:absolute;
+  left:-28px;
+  top:5px;
+  width:1px;
+  height:86px;
+  background:linear-gradient(to bottom,var(--ochre),transparent);
+  opacity:.75;
+}
+.faith-hero .faith-eyebrow{color:#ddb36f;text-shadow:0 0 26px rgba(201,155,85,.16)}
+.faith-hero h1{color:#fff8ed;text-shadow:0 5px 38px rgba(0,0,0,.18)}
+.faith-hero h1 span{
+  color:#e0b36d;
+  text-shadow:0 0 34px rgba(201,155,85,.12);
+}
+.faith-hero .faith-lead{color:#e5ecec;max-width:720px}
+.faith-hero-signature{
+  margin-top:12px;
+  color:#9eb1b5;
+  font-size:12px;
+  line-height:1.5;
+  max-width:620px;
+}
+.faith-hero-signature span{color:#d6b275;font-weight:700}
+.faith-btn-primary{
+  background:linear-gradient(135deg,#8bd4dc,#69bdc8);
+  color:#04212a;
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(66,165,178,.22),inset 0 1px 0 rgba(255,255,255,.30);
+}
+.faith-btn-primary:hover{box-shadow:0 18px 42px rgba(66,165,178,.30)}
+.faith-btn-ghost{
+  border-color:rgba(216,171,102,.66);
+  background:linear-gradient(180deg,rgba(201,155,85,.075),rgba(201,155,85,.025));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+.faith-proof-stage::before{
+  content:'';
+  position:absolute;
+  width:78%;
+  height:78%;
+  right:2%;
+  top:10%;
+  background:radial-gradient(circle,rgba(201,155,85,.18),rgba(122,201,210,.07) 43%,transparent 70%);
+  filter:blur(28px);
+  opacity:.74;
+}
+.faith-proof-card{
+  border-color:rgba(223,189,132,.30);
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025));
+  box-shadow:0 34px 100px rgba(0,0,0,.48),0 0 0 1px rgba(201,155,85,.05),inset 0 1px 0 rgba(255,255,255,.09);
+}
+.faith-proof-desktop{transform:rotate(.45deg)}
+.faith-proof-mobile{
+  border-color:rgba(218,174,105,.60);
+  box-shadow:0 26px 80px rgba(0,0,0,.58),0 0 36px rgba(201,155,85,.08);
+}
+.faith-proof-label{
+  left:6%;
+  top:0;
+  background:linear-gradient(135deg,#d5aa66,#b8813c);
+  color:#09212a;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+/* Corrige contraste de destaques dentro das seções claras. */
+.faith-section.faith-light .faith-copy-block strong,
+.faith-section.faith-light strong{
+  color:#714b27;
+  font-weight:800;
+}
+.faith-section.faith-light .faith-eyebrow{color:#9b672d}
+.faith-section.faith-light .faith-eyebrow::before{background:#9b672d}
+.faith-section.faith-light .faith-btn-ghost{color:#183139;border-color:rgba(155,103,45,.60);background:rgba(155,103,45,.035)}
+@media (max-width:900px){
+  .faith-hero{padding:64px 0 74px}
+  .faith-hero-copy::before{display:none}
+}
+@media (max-width:560px){
+  .faith-brand{font-size:14px;line-height:1.05}
+  .faith-brand span:last-child{max-width:190px}
+  .faith-header-actions .faith-btn{font-size:10px;padding:10px 11px}
+  .faith-hero-signature{font-size:11px}
+}
+
+/* ===== ASSETS FINAIS HERO + CASE ===== */
+
+.faith-proof-final,
+.faith-case-final {
+  width: 100%;
+  position: relative;
+  margin-inline: auto;
+}
+
+.faith-proof-final {
+  max-width: 650px;
+}
+
+.faith-case-final {
+  max-width: 620px;
+}
+
+.faith-proof-final img,
+.faith-case-final img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+  border-radius: 28px;
+}
+
+.faith-proof-final img {
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(195, 154, 90, 0.18);
+}
+
+.faith-case-final img {
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(195, 154, 90, 0.14);
+}
+
+@media (max-width: 780px) {
+  .faith-proof-final,
+  .faith-case-final {
+    max-width: 100%;
+  }
+
+  .faith-proof-final img,
+  .faith-case-final img {
+    border-radius: 22px;
+  }
+}
+
