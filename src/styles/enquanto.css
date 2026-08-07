@@ -375,3 +375,320 @@ button{color:inherit}
   .hero,.manifesto,.club,.support,.about,.final{background:#fff!important;color:#000!important}
   .reveal{opacity:1!important;transform:none!important}
 }
+/* ===== EEA PRODUCT HERO — DA SUA COZINHA ===== */
+
+.product-hero {
+  --product-night: #071821;
+  --product-petrol: #103744;
+  --product-cyan: #7ccbd5;
+  --product-paper: #f3f0e8;
+  --product-muted: #a9b7be;
+  --product-gold: #c5a46d;
+
+  position: relative;
+  overflow: hidden;
+  min-height: 690px;
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid rgba(243, 240, 232, 0.15);
+  background:
+    radial-gradient(
+      circle at 83% 28%,
+      rgba(197, 164, 109, 0.15),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 15% 75%,
+      rgba(124, 203, 213, 0.10),
+      transparent 30rem
+    ),
+    linear-gradient(
+      145deg,
+      #071821 0%,
+      #0b2530 52%,
+      #103744 100%
+    );
+}
+
+.product-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  -webkit-mask-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 90%);
+  mask-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 90%);
+  pointer-events: none;
+}
+
+.product-hero .product-grid {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 40px), 1320px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+  gap: clamp(42px, 7vw, 96px);
+  align-items: center;
+  padding: clamp(68px, 8vw, 110px) 0;
+}
+
+.product-eyebrow {
+  margin: 0 0 18px;
+  color: #7ccbd5;
+  font-family: "League Spartan", Arial, sans-serif;
+  font-size: 0.79rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.product-title {
+  max-width: 780px;
+  margin: 0;
+  color: #f3f0e8;
+  font-family: "League Spartan", Arial, sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6.7rem);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.product-title span {
+  color: #f3f0e8;
+}
+
+.product-lead {
+  max-width: 680px;
+  margin: 28px 0 0;
+  color: #d7e0e3;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.72;
+}
+
+.product-lead strong {
+  color: #f3f0e8;
+  font-weight: 600;
+}
+
+.product-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  margin: 27px 0 0;
+  padding: 10px 14px 10px 12px;
+  border: 1px solid rgba(197, 164, 109, 0.28);
+  border-radius: 999px;
+  background: rgba(197, 164, 109, 0.07);
+  color: #e7d8bd;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.product-name::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c5a46d;
+  box-shadow: 0 0 0 5px rgba(197, 164, 109, 0.11);
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.product-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 23px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: "League Spartan", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-hero .btn:hover {
+  transform: translateY(-2px);
+}
+
+.product-hero .btn-primary {
+  border-color: transparent;
+  background: #7ccbd5;
+  color: #071821;
+  box-shadow: 0 12px 28px rgba(124, 203, 213, 0.18);
+}
+
+.product-hero .btn-primary:hover {
+  background: #f3f0e8;
+  color: #071821;
+}
+
+.product-hero .btn-secondary {
+  border-color: rgba(243, 240, 232, 0.42);
+  color: #f3f0e8;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.product-hero .btn-secondary:hover {
+  border-color: rgba(243, 240, 232, 0.72);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.product-microcopy {
+  margin: 14px 0 0;
+  color: #a9b7be;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.product-media {
+  position: relative;
+  isolation: isolate;
+}
+
+.product-mockup-shell {
+  position: relative;
+  width: min(100%, 560px);
+  margin-inline: auto;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid rgba(243, 240, 232, 0.16);
+  border-radius: 34px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(243, 240, 232, 0.10),
+      rgba(243, 240, 232, 0.035)
+    );
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.product-mockup-shell::before {
+  content: "";
+  position: absolute;
+  inset: 22% 12% -8% 12%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(124, 203, 213, 0.16);
+  filter: blur(48px);
+}
+
+.product-mockup-shell img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 22px;
+  background: #eee3d5;
+}
+
+.product-media-tag {
+  position: absolute;
+  top: 28px;
+  right: -12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #c5a46d;
+  color: #071821;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  font-family: "League Spartan", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: rotate(2deg);
+}
+
+@media (max-width: 1050px) {
+  .product-hero .product-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+    gap: 42px;
+  }
+
+  .product-title {
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+  }
+}
+
+@media (max-width: 780px) {
+  .product-hero {
+    min-height: auto;
+  }
+
+  .product-hero .product-grid {
+    width: min(calc(100% - 28px), 1320px);
+    grid-template-columns: 1fr;
+    padding: 62px 0 70px;
+  }
+
+  .product-media {
+    order: -1;
+  }
+
+  .product-mockup-shell {
+    width: min(88vw, 480px);
+  }
+
+  .product-media-tag {
+    top: 20px;
+    right: 4px;
+  }
+
+  .product-title {
+    font-size: clamp(3.1rem, 15vw, 5rem);
+  }
+
+  .product-lead {
+    font-size: 1.03rem;
+  }
+
+  .product-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 440px) {
+  .product-title {
+    font-size: 3.25rem;
+  }
+
+  .product-name {
+    font-size: 0.77rem;
+  }
+
+  .product-media-tag {
+    font-size: 0.7rem;
+  }
+}
