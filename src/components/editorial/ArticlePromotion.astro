@@ -13,39 +13,23 @@ const {
   promotion = 'sistema-criador-digital',
 } = Astro.props;
 
+const newPromotion = {
+  landingHref: '/enquanto/da-sua-cozinha-para-os-primeiros-clientes/',
+  checkoutHref: 'https://pay.hotmart.com/M107050060Q',
+  label: 'Da Sua Cozinha para os Primeiros Clientes',
+  ctaLabel: 'Clique na imagem e conheça',
+  imagePath:
+    '/assets/promocoes/da-sua-cozinha-para-os-primeiros-clientes/banner.webp',
+  alt:
+    'Da Sua Cozinha para os Primeiros Clientes, produto digital do Estúdio Escrita Planejada',
+  ctaType: 'product',
+  disclosure: 'Produto digital do Estúdio Escrita Planejada.',
+};
+
 const promotions = {
-  'sistema-criador-digital': {
-    href: '/sistema-criador-digital/',
-    label: 'Conheça o Sistema Criador Digital com IA',
-    imagePath:
-      '/assets/promocoes/sistema-criador-digital',
-    alt:
-      'Criador Digital com IA: aprenda a organizar ideias, criar conteúdo e desenvolver projetos',
-    ctaType: 'product',
-    disclosure: 'Conteúdo do Estúdio Escrita Planejada.',
-  },
-  afiliados: {
-    href: '/afiliados-sistema-criador-digital/',
-    label:
-      'Conheça o programa de afiliados do Sistema Criador Digital',
-    imagePath: '/assets/promocoes/afiliados',
-    alt:
-      'Divulgue o Sistema Criador Digital e conheça o programa de afiliados',
-    ctaType: 'affiliate',
-    disclosure:
-      'Programa de afiliados do Estúdio Escrita Planejada.',
-  },
-} satisfies Record<
-  PromotionType,
-  {
-    href: string;
-    label: string;
-    imagePath: string;
-    alt: string;
-    ctaType: string;
-    disclosure: string;
-  }
->;
+  'sistema-criador-digital': newPromotion,
+  afiliados: newPromotion,
+} satisfies Record<PromotionType, typeof newPromotion>;
 
 const selected = promotions[promotion];
 ---
@@ -53,34 +37,38 @@ const selected = promotions[promotion];
 <aside
   class="article-promotion"
   aria-label="Conteúdo recomendado"
-  data-promotion={promotion}
+  data-promotion="da-sua-cozinha-para-os-primeiros-clientes"
 >
   <a
+    class="article-promotion__cta"
+    href={selected.checkoutHref}
+    data-analytics-event="commercial_cta_click"
+    data-article-slug={articleSlug}
+    data-cta-type={selected.ctaType}
+    data-cta-label={selected.ctaLabel}
+    data-cta-position="article_promotion_text"
+  >
+    {selected.ctaLabel}
+  </a>
+
+  <a
     class="article-promotion__link"
-    href={selected.href}
-    aria-label={selected.label}
+    href={selected.landingHref}
+    aria-label={`Conheça ${selected.label}`}
     data-analytics-event="commercial_cta_click"
     data-article-slug={articleSlug}
     data-cta-type={selected.ctaType}
     data-cta-label={selected.label}
+    data-cta-position="article_promotion_image"
   >
-    <picture>
-      <source
-        media="(max-width: 700px)"
-        srcset={`${selected.imagePath}/vertical.webp`}
-        width="1086"
-        height="1448"
-      />
-
-      <img
-        src={`${selected.imagePath}/horizontal.webp`}
-        width="1448"
-        height="1086"
-        alt={selected.alt}
-        loading="lazy"
-        decoding="async"
-      />
-    </picture>
+    <img
+      src={selected.imagePath}
+      width="1920"
+      height="1080"
+      alt={selected.alt}
+      loading="lazy"
+      decoding="async"
+    />
   </a>
 
   <p class="article-promotion__disclosure">

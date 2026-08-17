@@ -1129,9 +1129,28 @@ a.category-card:hover {
   color: var(--acid);
 }
 
-/* Bloco promocional editorial — Sistema Criador Digital com IA */
+/* Bloco promocional editorial */
 .article-promotion {
   margin-top: 4rem;
+}
+
+.article-promotion__cta {
+  display: inline-block;
+  margin-bottom: 1.15rem;
+  color: var(--orange-dark);
+  font-size: clamp(1rem, 2vw, 1.16rem);
+  font-weight: 800;
+  line-height: 1.35;
+  text-underline-offset: 0.18em;
+}
+
+.article-promotion__cta:hover {
+  color: var(--ink);
+}
+
+.article-promotion__cta:focus-visible {
+  outline: 0.22rem solid var(--blue);
+  outline-offset: 0.3rem;
 }
 
 .article-promotion__link {
