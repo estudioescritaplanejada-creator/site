@@ -333,6 +333,135 @@ const currentYear = new Date().getFullYear();
       type="application/ld+json"
       set:html={JSON.stringify(schema)}
     ></script>
+
+    <script is:inline>
+      (() => {
+        const analyticsConsentKey = 'eep_analytics_consent';
+        const analyticsConsentVersionKey = 'eep_analytics_consent_version';
+        const analyticsConsentVersion = '2026-07-31-v1';
+        const hotmartConsentKey = 'eep_hotmart_analytics_consent';
+        const hotmartConsentVersionKey =
+          'eep_hotmart_analytics_consent_version';
+        const hotmartConsentVersion = '2026-08-20-v1';
+
+        const readStorage = (key) => {
+          try {
+            return window.localStorage.getItem(key);
+          } catch {
+            return null;
+          }
+        };
+
+        const saveHotmartChoice = (choice) => {
+          try {
+            window.localStorage.setItem(hotmartConsentKey, choice);
+            window.localStorage.setItem(
+              hotmartConsentVersionKey,
+              hotmartConsentVersion,
+            );
+          } catch {
+            // Sem persistência: o rastreamento permanece desativado.
+          }
+        };
+
+        const hasCurrentHotmartChoice = () => {
+          if (
+            readStorage(hotmartConsentVersionKey) !== hotmartConsentVersion
+          ) {
+            return false;
+          }
+
+          const choice = readStorage(hotmartConsentKey);
+          return choice === 'granted' || choice === 'denied';
+        };
+
+        const loadHotmartAnalytics = () => {
+          if (
+            readStorage(analyticsConsentKey) !== 'granted' ||
+            readStorage(analyticsConsentVersionKey) !== analyticsConsentVersion
+          ) {
+            return;
+          }
+
+          if (
+            readStorage(hotmartConsentVersionKey) !== hotmartConsentVersion ||
+            readStorage(hotmartConsentKey) !== 'granted'
+          ) {
+            return;
+          }
+
+          if (document.getElementById('hotmart_launcher_script')) return;
+
+          const script = document.createElement('script');
+          script.id = 'hotmart_launcher_script';
+
+          script.textContent = `(function(l,a,u,n,c,h,e,r){l['HotmartLauncherObject']=c;l[c]=l[c]||function(){
+(l[c].q=l[c].q||[]).push(arguments)},l[c].l=1*new Date();h=a.createElement(u),
+e=a.getElementsByTagName(u)[0];h.async=1;h.src=n;e.parentNode.insertBefore(h,e)
+})(window,document,'script','//launcher.hotmart.com/launcher.js','hot');
+
+hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
+
+          document.head.appendChild(script);
+        };
+
+        if (
+          hasCurrentHotmartChoice() &&
+          readStorage(hotmartConsentKey) === 'granted'
+        ) {
+          loadHotmartAnalytics();
+        }
+
+        const configureHotmartConsent = () => {
+          const banner = document.getElementById('eep-analytics-consent');
+          const description = document.getElementById(
+            'eep-analytics-description',
+          );
+          const acceptButton = document.getElementById('eep-analytics-accept');
+          const rejectButton = document.getElementById('eep-analytics-reject');
+          const settingsButton = document.getElementById(
+            'eep-analytics-settings',
+          );
+
+          if (
+            !banner ||
+            !description ||
+            !acceptButton ||
+            !rejectButton ||
+            !settingsButton
+          ) {
+            return;
+          }
+
+          description.innerHTML =
+            'Usamos armazenamento local para lembrar sua escolha. Com sua autorização, o Google Analytics mede o uso do site e, somente nesta página de produto, o Hotmart Analytics mede a jornada até o checkout. Consulte <a href="/cookies/">Cookies</a> e <a href="/privacidade/">Privacidade</a>. Você pode aceitar ou recusar.';
+
+          acceptButton.addEventListener('click', () => {
+            saveHotmartChoice('granted');
+            window.setTimeout(loadHotmartAnalytics, 0);
+          });
+
+          rejectButton.addEventListener('click', () => {
+            saveHotmartChoice('denied');
+          });
+
+          if (!hasCurrentHotmartChoice()) {
+            banner.hidden = false;
+            settingsButton.hidden = true;
+          }
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener(
+            'DOMContentLoaded',
+            configureHotmartConsent,
+            { once: true },
+          );
+        } else {
+          configureHotmartConsent();
+        }
+      })();
+    </script>
   </Fragment>
 
   <a class="cozinha-skip" href="#conteudo">

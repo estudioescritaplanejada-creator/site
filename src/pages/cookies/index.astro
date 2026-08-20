@@ -4,7 +4,7 @@ import '../../styles/legal-pages.css';
 
 const title = 'Política de Cookies | Estúdio Escrita Planejada';
 const description =
-  'Saiba como o Estúdio Escrita Planejada usa armazenamento local e cookies opcionais do Google Analytics.';
+  'Saiba como o Estúdio Escrita Planejada usa armazenamento local e ferramentas opcionais de análise, incluindo o Hotmart Analytics na página específica do produto.';
 const canonicalPath = '/cookies/';
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
@@ -24,7 +24,7 @@ const schema = {
     url: homeUrl,
     name: 'Estúdio Escrita Planejada',
   },
-  dateModified: '2026-07-31',
+  dateModified: '2026-08-20',
 };
 ---
 
@@ -50,10 +50,12 @@ const schema = {
         <h1>Política de Cookies</h1>
         <p class="legal-page__lead">
           O site usa armazenamento local para lembrar sua escolha e só carrega
-          os cookies opcionais do Google Analytics quando você autoriza.
+          ferramentas opcionais de análise quando você autoriza. O Hotmart
+          Analytics é utilizado exclusivamente na página Da Sua Cozinha para os
+          Primeiros Clientes.
         </p>
         <p class="legal-page__updated">
-          Última atualização: 31 de julho de 2026.
+          Última atualização: 20 de agosto de 2026.
         </p>
       </header>
 
@@ -94,11 +96,35 @@ const schema = {
                 </td>
               </tr>
               <tr>
+                <td><code>eep_hotmart_analytics_consent</code></td>
+                <td>Necessária — armazenamento local</td>
+                <td>
+                  Guardar a escolha sobre o Hotmart Analytics na página
+                  específica do produto.
+                </td>
+              </tr>
+              <tr>
+                <td><code>eep_hotmart_analytics_consent_version</code></td>
+                <td>Necessária — armazenamento local</td>
+                <td>
+                  Identificar a versão da escolha referente ao Hotmart
+                  Analytics.
+                </td>
+              </tr>
+              <tr>
                 <td><code>_ga</code> e identificadores relacionados</td>
                 <td>Opcional — Google Analytics</td>
                 <td>
                   Produzir estatísticas agregadas de navegação e manter o estado
                   das sessões de análise.
+                </td>
+              </tr>
+              <tr>
+                <td>Hotmart Analytics</td>
+                <td>Opcional — análise da página de produto</td>
+                <td>
+                  Medir visitas e a jornada até o checkout exclusivamente na
+                  página Da Sua Cozinha para os Primeiros Clientes.
                 </td>
               </tr>
             </tbody>
@@ -121,8 +147,22 @@ const schema = {
         </p>
       </section>
 
+      <section aria-labelledby="hotmart-analytics">
+        <h2 id="hotmart-analytics">4. Hotmart Analytics</h2>
+        <p>
+          Na página Da Sua Cozinha para os Primeiros Clientes, e somente nela,
+          o Hotmart Analytics pode ser carregado após autorização para medir a
+          visita e a jornada até o checkout e alimentar os relatórios internos
+          da Hotmart.
+        </p>
+        <p>
+          O código do Hotmart Analytics não é carregado nas demais páginas do
+          site.
+        </p>
+      </section>
+
       <section aria-labelledby="externos">
-        <h2 id="externos">4. Serviços externos</h2>
+        <h2 id="externos">5. Serviços externos</h2>
         <p>
           Algumas páginas contêm links para WhatsApp, YouTube e Hotmart. O
           reprodutor do YouTube é ativado somente quando você escolhe reproduzir
@@ -132,7 +172,7 @@ const schema = {
       </section>
 
       <section aria-labelledby="controle">
-        <h2 id="controle">5. Como mudar sua escolha</h2>
+        <h2 id="controle">6. Como mudar sua escolha</h2>
         <p>
           Na primeira visita, o painel permite aceitar ou recusar os cookies de
           análise. A recusa não impede o acesso ao conteúdo principal.
@@ -145,7 +185,7 @@ const schema = {
       </section>
 
       <section aria-labelledby="atualizacoes">
-        <h2 id="atualizacoes">6. Atualizações</h2>
+        <h2 id="atualizacoes">7. Atualizações</h2>
         <p>
           Esta política poderá ser atualizada quando houver mudanças relevantes
           nas tecnologias, finalidades ou configurações do site.
