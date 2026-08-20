@@ -1068,6 +1068,933 @@ html {
   color: var(--cozinha-brown);
 }
 
+
+/* ==========================================================
+   REFINAMENTO VISUAL — EDITORIAL PREMIUM QUENTE
+   ========================================================== */
+
+.cozinha-page {
+  --cozinha-terracotta: #aa6138;
+  --cozinha-terracotta-dark: #82431f;
+  --cozinha-gold: #d3a36d;
+  --cozinha-gold-soft: #ead0ad;
+  --cozinha-green-deep: #26392f;
+  --cozinha-green-rich: #2f4639;
+  --cozinha-card-shadow:
+    0 1.3rem 3rem rgba(65, 42, 27, 0.09),
+    0 0.25rem 0.8rem rgba(65, 42, 27, 0.05);
+  --cozinha-card-shadow-hover:
+    0 1.8rem 4rem rgba(65, 42, 27, 0.15),
+    0 0.4rem 1rem rgba(65, 42, 27, 0.07);
+
+  background:
+    radial-gradient(
+      circle at 12% 4%,
+      rgba(185, 121, 66, 0.08),
+      transparent 28rem
+    ),
+    var(--cozinha-cream);
+}
+
+/* Header */
+
+.cozinha-header {
+  transition:
+    box-shadow 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease;
+}
+
+.cozinha-header.is-scrolled {
+  border-bottom-color: rgba(75, 47, 32, 0.2);
+  background: rgba(255, 250, 243, 0.97);
+  box-shadow: 0 0.45rem 1.6rem rgba(75, 47, 32, 0.08);
+}
+
+/* Botões */
+
+.cozinha-button,
+.cozinha-header__cta,
+.cozinha-mobile-buy {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.cozinha-button--primary,
+.cozinha-header__cta,
+.cozinha-mobile-buy {
+  background:
+    linear-gradient(
+      180deg,
+      #ad673c 0%,
+      var(--cozinha-copper) 52%,
+      #81451f 100%
+    );
+  box-shadow:
+    0 0.8rem 1.8rem rgba(111, 60, 29, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.19);
+}
+
+.cozinha-button::after,
+.cozinha-header__cta::after,
+.cozinha-mobile-buy::after {
+  position: absolute;
+  top: -80%;
+  bottom: -80%;
+  left: -45%;
+  z-index: -1;
+  width: 30%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+  content: "";
+  transform: skewX(-20deg) translateX(-240%);
+  transition: transform 520ms ease;
+}
+
+.cozinha-button:active,
+.cozinha-header__cta:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* Hero */
+
+.cozinha-hero {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(75, 47, 32, 0.08);
+  background:
+    radial-gradient(
+      circle at 77% 42%,
+      rgba(211, 163, 109, 0.24),
+      transparent 22rem
+    ),
+    radial-gradient(
+      circle at 97% 4%,
+      rgba(146, 83, 38, 0.16),
+      transparent 30rem
+    ),
+    linear-gradient(
+      135deg,
+      #fffdf8 0%,
+      #f5e9da 48%,
+      #ead5bd 100%
+    );
+}
+
+.cozinha-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.44;
+  background-image:
+    radial-gradient(
+      rgba(75, 47, 32, 0.11) 0.7px,
+      transparent 0.7px
+    );
+  background-size: 7px 7px;
+  content: "";
+  pointer-events: none;
+}
+
+.cozinha-hero::after {
+  position: absolute;
+  top: 7%;
+  right: 5%;
+  z-index: -1;
+  width: min(34rem, 44vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 245, 222, 0.9) 0%,
+      rgba(208, 150, 90, 0.18) 42%,
+      transparent 72%
+    );
+  content: "";
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.cozinha-hero__grid {
+  position: relative;
+  z-index: 1;
+}
+
+.cozinha-label {
+  border-color: rgba(146, 83, 38, 0.35);
+  background: rgba(255, 252, 246, 0.72);
+  box-shadow:
+    0 0.3rem 1rem rgba(75, 47, 32, 0.05),
+    inset 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.cozinha-product-name {
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.cozinha-product-name::before {
+  position: absolute;
+  top: 0.12em;
+  bottom: 0.12em;
+  left: 0;
+  width: 0.22rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--cozinha-caramel),
+      var(--cozinha-copper-dark)
+    );
+  content: "";
+}
+
+.cozinha-hero h1 {
+  text-shadow: 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.cozinha-hero__visual {
+  position: relative;
+}
+
+.cozinha-hero__visual::before {
+  position: absolute;
+  inset: 12% -8% -4%;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(146, 83, 38, 0.2),
+      transparent 68%
+    );
+  content: "";
+  filter: blur(18px);
+}
+
+.cozinha-hero__frame {
+  border-color: rgba(75, 47, 32, 0.19);
+  box-shadow:
+    0 2.5rem 5rem rgba(75, 47, 32, 0.18),
+    0 0.6rem 1.5rem rgba(75, 47, 32, 0.08);
+  transform:
+    perspective(75rem)
+    rotateY(-3deg)
+    rotateZ(1deg);
+  transform-origin: center;
+  transition:
+    transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 420ms ease;
+}
+
+.cozinha-hero__frame img {
+  transform: scale(1.012);
+  transition: transform 520ms ease;
+}
+
+/* Ritmo entre seções */
+
+.cozinha-problem {
+  border-bottom: 1px solid rgba(75, 47, 32, 0.08);
+  background:
+    radial-gradient(
+      circle at 12% 25%,
+      rgba(185, 121, 66, 0.08),
+      transparent 23rem
+    ),
+    var(--cozinha-paper);
+}
+
+.cozinha-solution {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(218, 184, 137, 0.12),
+      transparent 27rem
+    ),
+    linear-gradient(
+      135deg,
+      var(--cozinha-green-rich),
+      var(--cozinha-green-deep)
+    );
+}
+
+.cozinha-solution::after {
+  position: absolute;
+  right: -8rem;
+  bottom: -11rem;
+  width: 27rem;
+  height: 27rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: "";
+}
+
+.cozinha-modules {
+  background:
+    linear-gradient(
+      180deg,
+      #f7efe5 0%,
+      #f3e6d7 100%
+    );
+}
+
+.cozinha-complements {
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(185, 121, 66, 0.07),
+      transparent 22rem
+    ),
+    #fffaf3;
+}
+
+.cozinha-receive {
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 13% 22%,
+      rgba(255, 255, 255, 0.72),
+      transparent 21rem
+    ),
+    linear-gradient(
+      135deg,
+      #e4ccb0 0%,
+      #f5e7d7 48%,
+      #efe0cf 100%
+    );
+}
+
+.cozinha-audience {
+  background:
+    linear-gradient(
+      180deg,
+      #f8f0e6,
+      #f2e5d6
+    );
+}
+
+.cozinha-steps {
+  background:
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(185, 121, 66, 0.08),
+      transparent 24rem
+    ),
+    #fffaf3;
+}
+
+/* Perguntas iniciais */
+
+.cozinha-question-list {
+  overflow: hidden;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 1rem 2.5rem rgba(75, 47, 32, 0.05);
+}
+
+.cozinha-question-list li {
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+/* Cards editoriais */
+
+.cozinha-module,
+.cozinha-complement,
+.cozinha-audience-card,
+.cozinha-steps__grid article {
+  position: relative;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease;
+}
+
+.cozinha-module {
+  overflow: hidden;
+  border-color: rgba(75, 47, 32, 0.13);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 250, 243, 0.62)
+    );
+  box-shadow: var(--cozinha-card-shadow);
+}
+
+.cozinha-module::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.22rem;
+  background:
+    linear-gradient(
+      90deg,
+      var(--cozinha-caramel),
+      var(--cozinha-copper-dark)
+    );
+  content: "";
+}
+
+.cozinha-module > span {
+  color: var(--cozinha-copper-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.cozinha-complement {
+  border-color: rgba(75, 47, 32, 0.13);
+  background:
+    linear-gradient(
+      155deg,
+      #ffffff,
+      #fff9f1
+    );
+  box-shadow: var(--cozinha-card-shadow);
+}
+
+.cozinha-complement__top span {
+  display: inline-flex;
+  min-width: 2.3rem;
+  min-height: 2.3rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(146, 83, 38, 0.18);
+  border-radius: 50%;
+  background: rgba(185, 121, 66, 0.08);
+  font-weight: 700;
+}
+
+.cozinha-complement__top small {
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(185, 121, 66, 0.08);
+}
+
+/* Carrossel premium */
+
+.cozinha-preview {
+  position: relative;
+  overflow: hidden;
+  color: #fff8ef;
+  background:
+    radial-gradient(
+      circle at 86% 17%,
+      rgba(217, 185, 141, 0.15),
+      transparent 25rem
+    ),
+    radial-gradient(
+      circle at 8% 90%,
+      rgba(185, 121, 66, 0.12),
+      transparent 28rem
+    ),
+    linear-gradient(
+      135deg,
+      #31463a 0%,
+      #25372e 58%,
+      #1f3028 100%
+    );
+}
+
+.cozinha-preview::before {
+  position: absolute;
+  inset: 0;
+  opacity: 0.23;
+  background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.2) 0.65px,
+      transparent 0.65px
+    );
+  background-size: 8px 8px;
+  content: "";
+  pointer-events: none;
+}
+
+.cozinha-preview > .cozinha-container {
+  position: relative;
+}
+
+.cozinha-preview .cozinha-kicker {
+  color: var(--cozinha-gold-soft);
+}
+
+.cozinha-preview h2 {
+  color: #fffaf3;
+}
+
+.cozinha-preview .cozinha-section__lead,
+.cozinha-preview__hint,
+.cozinha-preview__note {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cozinha-preview__scroller {
+  padding-top: 1rem;
+  padding-bottom: 1.7rem;
+  scrollbar-color: var(--cozinha-gold) rgba(255, 255, 255, 0.09);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      90deg,
+      var(--cozinha-gold),
+      #ba7548
+    );
+}
+
+.cozinha-preview-card {
+  border-color: rgba(255, 255, 255, 0.17);
+  border-radius: 0.7rem;
+  box-shadow:
+    0 2rem 4rem rgba(0, 0, 0, 0.25),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.14);
+  transform: rotate(-0.32deg);
+  transform-origin: center bottom;
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 280ms ease;
+}
+
+.cozinha-preview-card:nth-child(even) {
+  transform: rotate(0.32deg);
+}
+
+.cozinha-preview-card figcaption {
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--cozinha-brown);
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #fffaf3
+    );
+}
+
+/* Mockup */
+
+.cozinha-receive__visual {
+  border-color: rgba(75, 47, 32, 0.17);
+  box-shadow:
+    0 2rem 4.5rem rgba(75, 47, 32, 0.17),
+    0 0.4rem 1rem rgba(75, 47, 32, 0.07);
+  transform: rotate(-0.55deg);
+  transition:
+    transform 320ms ease,
+    box-shadow 320ms ease;
+}
+
+/* Público */
+
+.cozinha-audience-card {
+  overflow: hidden;
+  background:
+    linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(255, 250, 243, 0.55)
+    );
+  box-shadow: var(--cozinha-card-shadow);
+}
+
+.cozinha-audience-card::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.26rem;
+  content: "";
+}
+
+.cozinha-audience-card--yes::before {
+  background:
+    linear-gradient(
+      180deg,
+      #6c8b73,
+      #34483b
+    );
+}
+
+.cozinha-audience-card--no::before {
+  background:
+    linear-gradient(
+      180deg,
+      #d1a06c,
+      #a75d32
+    );
+}
+
+/* Etapas */
+
+.cozinha-steps__grid {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 1.2rem 3rem rgba(75, 47, 32, 0.06);
+}
+
+.cozinha-steps__grid article {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.cozinha-steps__grid span {
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(146, 83, 38, 0.2);
+  border-radius: 50%;
+  background: rgba(185, 121, 66, 0.08);
+  font-weight: 700;
+}
+
+/* Oferta */
+
+.cozinha-offer {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 82% 10%,
+      rgba(222, 184, 135, 0.22),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 8% 95%,
+      rgba(146, 83, 38, 0.22),
+      transparent 27rem
+    ),
+    linear-gradient(
+      135deg,
+      #4b2f20 0%,
+      #39241a 55%,
+      #2f211b 100%
+    );
+}
+
+.cozinha-offer::before {
+  position: absolute;
+  top: -13rem;
+  right: -11rem;
+  width: 31rem;
+  height: 31rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  content: "";
+}
+
+.cozinha-offer__grid {
+  position: relative;
+}
+
+.cozinha-offer__grid > div:first-child > p strong {
+  color: #f4d6ad;
+}
+
+.cozinha-offer__box {
+  border-color: rgba(255, 255, 255, 0.25);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.055)
+    );
+  box-shadow:
+    0 2rem 4.5rem rgba(0, 0, 0, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.cozinha-offer__price {
+  color: #fffaf3;
+  text-shadow:
+    0 0.18rem 0 rgba(0, 0, 0, 0.08),
+    0 1rem 2.6rem rgba(0, 0, 0, 0.16);
+}
+
+.cozinha-button--light {
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #f4e8d9
+    );
+  box-shadow:
+    0 0.9rem 2rem rgba(0, 0, 0, 0.16),
+    inset 0 1px #fff;
+}
+
+/* FAQ */
+
+.cozinha-faq {
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(185, 121, 66, 0.07),
+      transparent 24rem
+    ),
+    var(--cozinha-cream);
+}
+
+.cozinha-faq details {
+  overflow: hidden;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+.cozinha-faq details[open] {
+  border-color: rgba(146, 83, 38, 0.26);
+  background: #fffaf3;
+  box-shadow: 0 0.9rem 2rem rgba(75, 47, 32, 0.06);
+}
+
+.cozinha-faq summary::after {
+  display: inline-flex;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: 0 0 1.9rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(146, 83, 38, 0.16);
+  border-radius: 50%;
+  background: rgba(185, 121, 66, 0.07);
+  line-height: 1;
+}
+
+/* Aviso */
+
+.cozinha-warning {
+  background: #f5e8d9;
+}
+
+.cozinha-warning__box {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(75, 47, 32, 0.18);
+  box-shadow: var(--cozinha-card-shadow);
+}
+
+.cozinha-warning__box::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.3rem;
+  background:
+    linear-gradient(
+      180deg,
+      var(--cozinha-caramel),
+      var(--cozinha-copper-dark)
+    );
+  content: "";
+}
+
+/* Fechamento */
+
+.cozinha-final {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 115%,
+      rgba(185, 121, 66, 0.28),
+      transparent 31rem
+    ),
+    radial-gradient(
+      circle at 86% 8%,
+      rgba(211, 163, 109, 0.12),
+      transparent 22rem
+    ),
+    linear-gradient(
+      180deg,
+      #f0dfcc,
+      #fffaf3
+    );
+}
+
+.cozinha-final::before {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: min(52rem, 85vw);
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(146, 83, 38, 0.24),
+      transparent
+    );
+  content: "";
+  transform: translateX(-50%);
+}
+
+/* Motion */
+
+@keyframes cozinha-hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cozinha-hero-product-in {
+  from {
+    opacity: 0;
+    transform:
+      perspective(75rem)
+      rotateY(-5deg)
+      rotateZ(2deg)
+      translateY(1.3rem)
+      scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      perspective(75rem)
+      rotateY(-3deg)
+      rotateZ(1deg)
+      translateY(0)
+      scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cozinha-hero__content {
+    animation:
+      cozinha-hero-copy-in
+      650ms
+      cubic-bezier(0.2, 0.8, 0.2, 1)
+      both;
+  }
+
+  .cozinha-hero__frame {
+    animation:
+      cozinha-hero-product-in
+      800ms
+      90ms
+      cubic-bezier(0.2, 0.8, 0.2, 1)
+      both;
+  }
+}
+
+.cozinha-motion-ready .cozinha-reveal {
+  opacity: 0;
+  transform: translateY(1.4rem);
+  transition:
+    opacity 600ms ease,
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cozinha-motion-ready .cozinha-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cozinha-motion-ready .cozinha-reveal-item {
+  opacity: 0;
+  transform: translateY(0.85rem);
+  transition:
+    opacity 520ms ease,
+    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease;
+}
+
+.cozinha-motion-ready .cozinha-reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Desktop com ponteiro */
+
+@media (hover: hover) and (pointer: fine) {
+  .cozinha-button:hover::after,
+  .cozinha-header__cta:hover::after {
+    transform: skewX(-20deg) translateX(580%);
+  }
+
+  .cozinha-hero__frame:hover {
+    box-shadow:
+      0 3rem 6rem rgba(75, 47, 32, 0.22),
+      0 0.8rem 1.8rem rgba(75, 47, 32, 0.1);
+    transform:
+      perspective(75rem)
+      rotateY(-1deg)
+      rotateZ(0deg)
+      translateY(-0.35rem);
+  }
+
+  .cozinha-hero__frame:hover img {
+    transform: scale(1.026);
+  }
+
+  .cozinha-question-list li:hover {
+    color: var(--cozinha-copper-dark);
+    background: rgba(185, 121, 66, 0.075);
+  }
+
+  .cozinha-module:hover,
+  .cozinha-complement:hover,
+  .cozinha-audience-card:hover,
+  .cozinha-steps__grid article:hover {
+    border-color: rgba(146, 83, 38, 0.25);
+    box-shadow: var(--cozinha-card-shadow-hover);
+    transform: translateY(-0.28rem);
+  }
+
+  .cozinha-preview-card:hover {
+    z-index: 2;
+    box-shadow:
+      0 2.6rem 5rem rgba(0, 0, 0, 0.32),
+      0 0.6rem 1.2rem rgba(0, 0, 0, 0.18);
+    transform: translateY(-0.45rem) rotate(0deg) scale(1.018);
+  }
+
+  .cozinha-receive__visual:hover {
+    box-shadow:
+      0 2.6rem 5rem rgba(75, 47, 32, 0.21),
+      0 0.5rem 1.2rem rgba(75, 47, 32, 0.09);
+    transform: rotate(0deg) translateY(-0.2rem);
+  }
+
+  .cozinha-faq details:hover {
+    border-color: rgba(146, 83, 38, 0.24);
+    background: rgba(255, 255, 255, 0.76);
+  }
+}
+
+
 @media (max-width: 58rem) {
   .cozinha-hero__grid,
   .cozinha-problem__grid,
@@ -1237,7 +2164,74 @@ html {
   }
 }
 
+
+@media (max-width: 58rem) {
+  .cozinha-hero::after {
+    top: 1%;
+    right: 50%;
+    width: min(31rem, 80vw);
+    transform: translateX(50%);
+  }
+
+  .cozinha-hero__frame {
+    transform: rotate(0.45deg);
+  }
+
+  .cozinha-receive__visual {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 43rem) {
+  .cozinha-hero::before,
+  .cozinha-preview::before {
+    opacity: 0.24;
+  }
+
+  .cozinha-hero__frame {
+    border-radius: 1.1rem;
+    box-shadow:
+      0 1.7rem 3.5rem rgba(75, 47, 32, 0.16),
+      0 0.35rem 0.9rem rgba(75, 47, 32, 0.07);
+    transform: none;
+  }
+
+  .cozinha-preview__scroller {
+    padding-top: 0.6rem;
+  }
+
+  .cozinha-preview-card,
+  .cozinha-preview-card:nth-child(even) {
+    transform: none;
+  }
+
+  .cozinha-module,
+  .cozinha-complement,
+  .cozinha-audience-card {
+    box-shadow:
+      0 0.8rem 2rem rgba(75, 47, 32, 0.065);
+  }
+
+  .cozinha-steps__grid {
+    box-shadow: none;
+  }
+
+  .cozinha-offer__box {
+    box-shadow:
+      0 1.5rem 3rem rgba(0, 0, 0, 0.16);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .cozinha-hero__content,
+  .cozinha-hero__frame,
+  .cozinha-reveal,
+  .cozinha-reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
   html {
     scroll-behavior: auto;
   }
