@@ -418,6 +418,86 @@ html {
   border-right: 0;
 }
 
+
+.cozinha-preview {
+  overflow: hidden;
+  background: linear-gradient(180deg, #f6efe5 0%, #fffaf3 100%);
+}
+
+.cozinha-preview h2 {
+  max-width: 15ch;
+}
+
+.cozinha-preview__hint {
+  margin: 1.3rem 0 0;
+  color: var(--cozinha-muted);
+  font-size: 0.82rem;
+}
+
+.cozinha-preview__scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(16rem, 19rem);
+  gap: 1rem;
+  margin-top: 1.4rem;
+  padding: 0.35rem 0.2rem 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 0.2rem;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cozinha-caramel) rgba(75, 47, 32, 0.08);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar {
+  height: 0.65rem;
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(75, 47, 32, 0.08);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--cozinha-caramel);
+}
+
+.cozinha-preview-card {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 0.8rem 2.2rem rgba(75, 47, 32, 0.09);
+  scroll-snap-align: start;
+}
+
+.cozinha-preview-card img {
+  width: 100%;
+  aspect-ratio: 941 / 1672;
+  object-fit: cover;
+  background: #ece4d9;
+}
+
+.cozinha-preview-card figcaption {
+  padding: 0.85rem 1rem 0.95rem;
+  border-top: 1px solid var(--cozinha-line);
+  color: var(--cozinha-brown);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cozinha-preview__note {
+  max-width: 49rem;
+  margin: 1.2rem 0 0;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-preview__cta {
+  margin-top: 1.5rem;
+}
+
 .cozinha-solution {
   color: #f9f3e9;
   background: var(--cozinha-green);
@@ -1146,6 +1226,14 @@ html {
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
+  }
+}
+
+
+@media (max-width: 43rem) {
+  .cozinha-preview__scroller {
+    grid-auto-columns: 82vw;
+    margin-right: -0.7rem;
   }
 }
 
