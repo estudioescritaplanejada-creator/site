@@ -1,5 +1,9 @@
 @import "./tokens.css";
 
+/* =========================================================
+   DA SUA COZINHA — PREMIUM COMERCIAL DE PERFORMANCE
+   ========================================================= */
+
 *,
 *::before,
 *::after {
@@ -9,32 +13,39 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  background: #f6efe5;
+  background: #fff9f2;
 }
 
 .cozinha-page {
-  --cozinha-ink: #2b211a;
-  --cozinha-muted: #6f6258;
-  --cozinha-cream: #f6efe5;
-  --cozinha-paper: #fffaf3;
-  --cozinha-paper-strong: #ffffff;
-  --cozinha-beige: #eadac7;
-  --cozinha-caramel: #b97942;
-  --cozinha-copper: #925326;
-  --cozinha-copper-dark: #6f3c1d;
-  --cozinha-brown: #4b2f20;
-  --cozinha-green: #34483b;
-  --cozinha-line: rgba(75, 47, 32, 0.16);
-  --cozinha-line-strong: rgba(75, 47, 32, 0.28);
-  --cozinha-shadow:
-    0 1.5rem 4rem rgba(75, 47, 32, 0.13),
-    0 0.35rem 1rem rgba(75, 47, 32, 0.07);
-  --cozinha-max: 74rem;
+  --cozinha-ink: #1f2930;
+  --cozinha-muted: #5f6b73;
+  --cozinha-navy: #17324d;
+  --cozinha-navy-deep: #0e2639;
+  --cozinha-navy-soft: #2b4c65;
+  --cozinha-orange: #f46f2c;
+  --cozinha-orange-hover: #ff7a2f;
+  --cozinha-green: #2f7658;
+  --cozinha-green-soft: #eaf4ef;
+  --cozinha-warm: #fff9f2;
+  --cozinha-paper: #fffdf9;
+  --cozinha-surface: #f3f6f7;
+  --cozinha-white: #ffffff;
+  --cozinha-line: rgba(23, 50, 77, 0.13);
+  --cozinha-line-strong: rgba(23, 50, 77, 0.22);
+  --cozinha-shadow-soft:
+    0 1.1rem 2.8rem rgba(14, 38, 57, 0.08),
+    0 0.2rem 0.7rem rgba(14, 38, 57, 0.04);
+  --cozinha-shadow-product:
+    0 2.2rem 5rem rgba(14, 38, 57, 0.17),
+    0 0.45rem 1.2rem rgba(14, 38, 57, 0.08);
+  --cozinha-radius: 1rem;
+  --cozinha-radius-large: 1.5rem;
+  --cozinha-max: 76rem;
 
   min-width: 20rem;
   margin: 0;
   color: var(--cozinha-ink);
-  background: var(--cozinha-cream);
+  background: var(--cozinha-warm);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.65;
@@ -66,9 +77,10 @@ html {
 .cozinha-page h1,
 .cozinha-page h2,
 .cozinha-page h3 {
+  color: var(--cozinha-navy);
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 500;
+  line-height: 0.98;
   text-wrap: balance;
 }
 
@@ -78,14 +90,18 @@ html {
 }
 
 .cozinha-page :focus-visible {
-  outline: 0.2rem solid var(--cozinha-copper);
-  outline-offset: 0.2rem;
+  outline: 0.2rem solid var(--cozinha-orange);
+  outline-offset: 0.22rem;
 }
 
 .cozinha-container {
-  width: min(calc(100% - 2rem), var(--cozinha-max));
+  width: min(calc(100% - 2.4rem), var(--cozinha-max));
   margin-inline: auto;
 }
+
+/* =========================================================
+   ACESSIBILIDADE / NAVEGAÇÃO
+   ========================================================= */
 
 .cozinha-skip {
   position: fixed;
@@ -93,9 +109,9 @@ html {
   left: 0.8rem;
   z-index: 10000;
   padding: 0.75rem 1rem;
-  color: #fff;
-  background: var(--cozinha-brown);
-  border-radius: 0.5rem;
+  color: #ffffff;
+  background: var(--cozinha-navy-deep);
+  border-radius: 0.55rem;
   font-weight: 700;
   text-decoration: none;
   transform: translateY(-180%);
@@ -109,14 +125,24 @@ html {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--cozinha-line);
-  background: rgba(255, 250, 243, 0.94);
+  border-bottom: 1px solid rgba(23, 50, 77, 0.1);
+  background: rgba(255, 253, 249, 0.94);
   backdrop-filter: blur(1rem);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.cozinha-header.is-scrolled {
+  border-bottom-color: rgba(23, 50, 77, 0.16);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 0.45rem 1.4rem rgba(14, 38, 57, 0.07);
 }
 
 .cozinha-header__inner {
   display: flex;
-  min-height: 4.75rem;
+  min-height: 4.8rem;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
@@ -126,55 +152,85 @@ html {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--cozinha-ink);
+  color: var(--cozinha-navy);
   text-decoration: none;
 }
 
 .cozinha-brand img {
   width: 2.625rem;
   height: 2.625rem;
-  border-radius: 0.75rem;
+  border-radius: 0.7rem;
   object-fit: cover;
 }
 
 .cozinha-brand span {
   display: grid;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 
 .cozinha-brand strong {
   font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .cozinha-brand small {
-  margin-top: 0.25rem;
+  margin-top: 0.28rem;
   color: var(--cozinha-muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.cozinha-header__cta {
+.cozinha-header__cta,
+.cozinha-button,
+.cozinha-mobile-buy {
   display: inline-flex;
-  min-height: 2.8rem;
   align-items: center;
   justify-content: center;
-  padding-inline: 1.15rem;
-  color: #fff;
-  background: var(--cozinha-copper);
-  border-radius: 999px;
-  font-size: 0.84rem;
-  font-weight: 700;
+  border: 0;
+  font-weight: 800;
+  text-align: center;
   text-decoration: none;
   transition:
     background 160ms ease,
+    box-shadow 160ms ease,
     transform 160ms ease;
 }
 
-.cozinha-header__cta:hover {
-  background: var(--cozinha-copper-dark);
-  transform: translateY(-1px);
+.cozinha-header__cta {
+  min-height: 2.85rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.7rem;
+  font-size: 0.84rem;
+}
+
+.cozinha-button {
+  min-height: 3.6rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 0.94rem;
+}
+
+.cozinha-page a.cozinha-header__cta,
+.cozinha-page a.cozinha-button--primary,
+.cozinha-page a.cozinha-button--light,
+.cozinha-page a.cozinha-mobile-buy {
+  color: var(--cozinha-navy-deep);
+  background: var(--cozinha-orange);
+  box-shadow:
+    0 0.9rem 2rem rgba(244, 111, 44, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.34);
+}
+
+.cozinha-button--light {
+  width: 100%;
+}
+
+.cozinha-header__cta:active,
+.cozinha-button:active,
+.cozinha-mobile-buy:active {
+  transform: translateY(0) scale(0.985);
 }
 
 .cozinha-breadcrumb {
@@ -182,142 +238,116 @@ html {
   flex-wrap: wrap;
   gap: 0.55rem;
   align-items: center;
-  padding-block: 1.1rem;
+  padding-block: 1.05rem;
   color: var(--cozinha-muted);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
 }
 
 .cozinha-breadcrumb a {
-  color: var(--cozinha-copper-dark);
-  font-weight: 700;
+  color: var(--cozinha-navy);
+  font-weight: 750;
   text-decoration: none;
 }
 
+/* =========================================================
+   HERO
+   ========================================================= */
+
 .cozinha-hero {
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
-  padding: clamp(2.5rem, 7vw, 6.5rem) 0;
+  padding: clamp(3.25rem, 7vw, 6.8rem) 0 clamp(4rem, 8vw, 7.5rem);
+  border-bottom: 1px solid var(--cozinha-line);
   background:
-    radial-gradient(
-      circle at 86% 12%,
-      rgba(185, 121, 66, 0.18),
-      transparent 28rem
-    ),
-    linear-gradient(135deg, #fffaf3 0%, #f0e1cf 100%);
+    linear-gradient(
+      118deg,
+      #fffdf9 0%,
+      #fff9f2 58%,
+      #eef3f5 100%
+    );
+}
+
+.cozinha-hero::after {
+  position: absolute;
+  top: 9%;
+  right: -4%;
+  bottom: 9%;
+  z-index: -1;
+  width: min(31rem, 36vw);
+  border-radius: 2rem 0 0 2rem;
+  background: rgba(23, 50, 77, 0.065);
+  content: "";
 }
 
 .cozinha-hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.72fr);
-  gap: clamp(2.5rem, 7vw, 6.5rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.78fr);
+  gap: clamp(3rem, 7vw, 6.5rem);
   align-items: center;
 }
 
 .cozinha-label,
 .cozinha-kicker {
   margin-bottom: 1rem;
-  color: var(--cozinha-copper-dark);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
+  color: var(--cozinha-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .cozinha-label {
   display: inline-flex;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(146, 83, 38, 0.28);
+  padding: 0.46rem 0.72rem;
+  border: 1px solid rgba(47, 118, 88, 0.23);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.52);
+  background: var(--cozinha-green-soft);
 }
 
 .cozinha-product-name {
   margin-bottom: 1.1rem;
-  color: var(--cozinha-brown);
+  color: var(--cozinha-navy-soft);
   font-family: var(--font-display);
   font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 600;
   line-height: 1.15;
 }
 
 .cozinha-hero h1 {
   max-width: 17ch;
-  margin-bottom: 1.5rem;
-  font-size: clamp(2.75rem, 5.6vw, 5.4rem);
-  letter-spacing: -0.045em;
+  margin-bottom: 1.6rem;
+  color: var(--cozinha-navy);
+  font-size: clamp(2.9rem, 5.6vw, 5.55rem);
+  letter-spacing: -0.05em;
 }
 
 .cozinha-hero__lead {
-  max-width: 41rem;
-  margin-bottom: 1.7rem;
+  max-width: 40rem;
+  margin-bottom: 1.15rem;
   color: var(--cozinha-muted);
-  font-size: clamp(1.06rem, 1.7vw, 1.25rem);
+  font-size: clamp(1.06rem, 1.6vw, 1.22rem);
 }
 
 .cozinha-price-summary {
   display: grid;
   width: fit-content;
-  margin-bottom: 1.5rem;
-}
-
-.cozinha-old-price {
-  color: var(--cozinha-muted);
-  font-size: 0.88rem;
+  margin: 1.8rem 0 1.35rem;
 }
 
 .cozinha-price-summary strong {
-  color: var(--cozinha-copper-dark);
+  color: var(--cozinha-navy);
   font-family: var(--font-display);
-  font-size: clamp(2.7rem, 5vw, 4.4rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
 }
 
 .cozinha-price-summary > span:last-child {
-  margin-top: 0.35rem;
+  margin-top: 0.48rem;
   color: var(--cozinha-muted);
-  font-size: 0.86rem;
-}
-
-.cozinha-button {
-  display: inline-flex;
-  min-height: 3.5rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.5rem;
-  border: 0;
-  border-radius: 0.75rem;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  transition:
-    background 160ms ease,
-    color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-
-.cozinha-button:hover {
-  transform: translateY(-2px);
-}
-
-.cozinha-button--primary {
-  color: #fff;
-  background: var(--cozinha-copper);
-  box-shadow: 0 0.85rem 2rem rgba(146, 83, 38, 0.24);
-}
-
-.cozinha-button--primary:hover {
-  background: var(--cozinha-copper-dark);
-}
-
-.cozinha-button--light {
-  width: 100%;
-  color: var(--cozinha-brown);
-  background: #fff;
-}
-
-.cozinha-button--light:hover {
-  background: var(--cozinha-cream);
+  font-size: 0.84rem;
 }
 
 .cozinha-trust-list {
@@ -327,7 +357,7 @@ html {
   margin: 1.25rem 0 0;
   padding: 0;
   color: var(--cozinha-muted);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   list-style: none;
 }
 
@@ -338,26 +368,45 @@ html {
 
 .cozinha-trust-list li::before {
   position: absolute;
-  top: 0.65em;
+  top: 0.62em;
   left: 0;
-  width: 0.38rem;
-  height: 0.38rem;
+  width: 0.4rem;
+  height: 0.4rem;
   border-radius: 50%;
-  background: var(--cozinha-caramel);
+  background: var(--cozinha-green);
   content: "";
 }
 
 .cozinha-hero__visual {
-  width: min(100%, 29rem);
+  position: relative;
+  width: min(100%, 28rem);
   justify-self: end;
+}
+
+.cozinha-hero__visual::before {
+  position: absolute;
+  top: 8%;
+  right: -8%;
+  bottom: -6%;
+  left: 10%;
+  z-index: -1;
+  border-radius: 1.8rem;
+  background: var(--cozinha-navy);
+  content: "";
+  opacity: 0.1;
+  transform: rotate(3deg);
 }
 
 .cozinha-hero__frame {
   overflow: hidden;
-  border: 1px solid rgba(75, 47, 32, 0.14);
-  border-radius: 1.5rem;
-  background: #e8d8c5;
-  box-shadow: var(--cozinha-shadow);
+  border: 1px solid rgba(23, 50, 77, 0.14);
+  border-radius: var(--cozinha-radius-large);
+  background: #ffffff;
+  box-shadow: var(--cozinha-shadow-product);
+  transform: rotate(0.7deg);
+  transition:
+    box-shadow 260ms ease,
+    transform 260ms ease;
 }
 
 .cozinha-hero__frame img {
@@ -366,24 +415,33 @@ html {
   object-fit: cover;
 }
 
+/* =========================================================
+   BASE DE SEÇÕES
+   ========================================================= */
+
 .cozinha-section {
-  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  padding: clamp(4.8rem, 8.5vw, 7.6rem) 0;
 }
 
 .cozinha-section h2,
 .cozinha-offer h2,
 .cozinha-final h2 {
   max-width: 19ch;
-  margin-bottom: 1.4rem;
-  font-size: clamp(2.25rem, 4.5vw, 4.3rem);
-  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  color: var(--cozinha-navy);
+  font-size: clamp(2.35rem, 4.3vw, 4.25rem);
+  letter-spacing: -0.045em;
 }
 
 .cozinha-section__lead {
-  max-width: 39rem;
+  max-width: 40rem;
   color: var(--cozinha-muted);
-  font-size: 1.07rem;
+  font-size: 1.08rem;
 }
+
+/* =========================================================
+   PROBLEMA / VALOR
+   ========================================================= */
 
 .cozinha-problem {
   background: var(--cozinha-paper);
@@ -392,17 +450,19 @@ html {
 .cozinha-problem__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(2.5rem, 7vw, 6rem);
+  gap: clamp(2.8rem, 7vw, 6rem);
   align-items: start;
 }
 
 .cozinha-question-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--cozinha-line);
+  overflow: hidden;
+  border: 1px solid var(--cozinha-line);
+  border-radius: var(--cozinha-radius);
+  background: #ffffff;
   list-style: none;
 }
 
@@ -410,242 +470,536 @@ html {
   padding: 1rem 1.1rem;
   border-right: 1px solid var(--cozinha-line);
   border-bottom: 1px solid var(--cozinha-line);
-  color: var(--cozinha-brown);
-  font-weight: 600;
+  color: var(--cozinha-navy);
+  font-weight: 650;
 }
 
 .cozinha-question-list li:nth-child(even) {
   border-right: 0;
 }
 
-
-.cozinha-preview {
-  overflow: hidden;
-  background: linear-gradient(180deg, #f6efe5 0%, #fffaf3 100%);
+.cozinha-problem--dark {
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      var(--cozinha-navy) 0%,
+      var(--cozinha-navy-deep) 100%
+    );
 }
 
-.cozinha-preview h2 {
-  max-width: 15ch;
+.cozinha-problem--dark h2 {
+  color: #ffffff;
 }
 
-.cozinha-preview__hint {
-  margin: 1.3rem 0 0;
-  color: var(--cozinha-muted);
-  font-size: 0.82rem;
+.cozinha-problem--dark .cozinha-kicker {
+  color: #9cc7b3;
 }
 
-.cozinha-preview__scroller {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(16rem, 19rem);
-  gap: 1rem;
-  margin-top: 1.4rem;
-  padding: 0.35rem 0.2rem 1.25rem;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-padding-inline: 0.2rem;
-  scroll-snap-type: inline mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: var(--cozinha-caramel) rgba(75, 47, 32, 0.08);
+.cozinha-problem--dark .cozinha-section__lead {
+  color: rgba(255, 255, 255, 0.74);
 }
 
-.cozinha-preview__scroller::-webkit-scrollbar {
-  height: 0.65rem;
+.cozinha-problem--dark .cozinha-question-list {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
 }
 
-.cozinha-preview__scroller::-webkit-scrollbar-track {
-  border-radius: 999px;
-  background: rgba(75, 47, 32, 0.08);
+.cozinha-problem--dark .cozinha-question-list li {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.93);
 }
 
-.cozinha-preview__scroller::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: var(--cozinha-caramel);
-}
-
-.cozinha-preview-card {
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid var(--cozinha-line);
-  border-radius: 1rem;
-  background: #fff;
-  box-shadow: 0 0.8rem 2.2rem rgba(75, 47, 32, 0.09);
-  scroll-snap-align: start;
-}
-
-.cozinha-preview-card img {
-  width: 100%;
-  aspect-ratio: 941 / 1672;
-  object-fit: cover;
-  background: #ece4d9;
-}
-
-.cozinha-preview-card figcaption {
-  padding: 0.85rem 1rem 0.95rem;
+.cozinha-problem--value {
   border-top: 1px solid var(--cozinha-line);
-  color: var(--cozinha-brown);
-  font-size: 0.82rem;
-  font-weight: 700;
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf9,
+      #f5f8f8
+    );
 }
 
-.cozinha-preview__note {
-  max-width: 49rem;
-  margin: 1.2rem 0 0;
-  color: var(--cozinha-muted);
+.cozinha-problem--value .cozinha-kicker {
+  color: var(--cozinha-green);
 }
 
-.cozinha-preview__cta {
-  margin-top: 1.5rem;
-}
-
-.cozinha-solution {
-  color: #f9f3e9;
-  background: var(--cozinha-green);
-}
-
-.cozinha-solution .cozinha-kicker {
-  color: #d9b98d;
-}
-
-.cozinha-solution__inner h2 {
-  max-width: 16ch;
-}
-
-.cozinha-solution__copy {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 55rem;
-  gap: 2rem;
-  color: rgba(255, 255, 255, 0.77);
-  font-size: 1.05rem;
-}
-
-.cozinha-principles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 2rem;
-}
-
-.cozinha-principles span {
-  padding: 0.7rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  font-size: 0.83rem;
-  font-weight: 600;
-}
+/* =========================================================
+   PASSOS / MÓDULOS
+   ========================================================= */
 
 .cozinha-modules {
-  background: var(--cozinha-cream);
+  background: var(--cozinha-surface);
 }
 
 .cozinha-modules__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 2.6rem;
 }
 
 .cozinha-module {
-  min-height: 17rem;
-  padding: 1.7rem;
+  position: relative;
+  min-height: 16rem;
+  padding: 1.65rem;
   border: 1px solid var(--cozinha-line);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.58);
+  border-radius: var(--cozinha-radius);
+  background: #ffffff;
+  box-shadow: 0 0.7rem 1.8rem rgba(14, 38, 57, 0.045);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .cozinha-module > span {
-  display: block;
-  margin-bottom: 3.6rem;
-  color: var(--cozinha-copper);
+  display: inline-flex;
+  min-width: 2.3rem;
+  height: 2.3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.9rem;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--cozinha-navy);
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .cozinha-module h3 {
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.85rem;
   font-size: 1.45rem;
-  line-height: 1.08;
+  line-height: 1.05;
 }
 
 .cozinha-module p {
   margin-bottom: 0;
   color: var(--cozinha-muted);
-  font-size: 0.93rem;
+  font-size: 0.94rem;
 }
 
-.cozinha-complements {
-  background: var(--cozinha-paper);
+.cozinha-modules--path {
+  background: #ffffff;
 }
 
-.cozinha-complements__grid {
+.cozinha-modules--path .cozinha-modules__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  padding-top: 1.4rem;
+}
+
+.cozinha-modules--path .cozinha-module {
+  min-height: 0;
+  padding: 2.2rem 1.3rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--cozinha-line-strong);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cozinha-modules--path .cozinha-module:not(:last-child) {
+  padding-right: 1.5rem;
+}
+
+.cozinha-modules--path .cozinha-module > span {
+  width: 2.55rem;
+  height: 2.55rem;
+  margin: -3.5rem 0 1.55rem;
+  color: #ffffff;
+  background: var(--cozinha-navy);
+  box-shadow: 0 0 0 0.35rem #ffffff;
+}
+
+.cozinha-modules--path .cozinha-module h3 {
+  color: var(--cozinha-navy);
+}
+
+.cozinha-modules--path .cozinha-steps__closing {
+  margin-top: 2.4rem;
+}
+
+/* =========================================================
+   PRÉVIA DO PRODUTO
+   ========================================================= */
+
+.cozinha-preview {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #17324d 0%,
+      #0e2639 72%,
+      #0b2030 100%
+    );
+}
+
+.cozinha-preview::after {
+  position: absolute;
+  top: -9rem;
+  right: -9rem;
+  width: 25rem;
+  height: 25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: "";
+}
+
+.cozinha-preview > .cozinha-container {
+  position: relative;
+  z-index: 1;
+}
+
+.cozinha-preview .cozinha-kicker {
+  color: #9cc7b3;
+}
+
+.cozinha-preview h2 {
+  max-width: 15ch;
+  color: #ffffff;
+}
+
+.cozinha-preview .cozinha-section__lead,
+.cozinha-preview__hint,
+.cozinha-preview__note {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cozinha-preview__hint {
+  margin: 1.25rem 0 0;
+  font-size: 0.82rem;
+}
+
+.cozinha-preview__scroller {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(17rem, 19.5rem);
+  gap: 1rem;
+  margin-top: 1.7rem;
+  padding: 0.7rem 0.2rem 1.45rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 0.2rem;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 199, 179, 0.8) rgba(255, 255, 255, 0.09);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar {
+  height: 0.55rem;
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.cozinha-preview__scroller::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(156, 199, 179, 0.86);
+}
+
+.cozinha-preview-card {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.8rem;
+  background: #ffffff;
+  box-shadow:
+    0 1.8rem 4rem rgba(0, 0, 0, 0.24),
+    0 0.4rem 1rem rgba(0, 0, 0, 0.12);
+  scroll-snap-align: start;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.cozinha-preview-card img {
+  width: 100%;
+  aspect-ratio: 941 / 1672;
+  object-fit: cover;
+  background: #eef1f2;
+}
+
+.cozinha-preview-card figcaption {
+  min-height: 3.4rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0.95rem;
+  border-top: 1px solid rgba(23, 50, 77, 0.1);
+  color: var(--cozinha-navy);
+  background: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.cozinha-preview__note {
+  max-width: 49rem;
+  margin: 1.1rem 0 0;
+}
+
+.cozinha-preview__cta {
+  margin-top: 1.55rem;
+}
+
+/* =========================================================
+   COMPARAÇÃO / PÚBLICO
+   ========================================================= */
+
+.cozinha-audience {
+  background: var(--cozinha-surface);
+}
+
+.cozinha-audience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: 2.5rem;
 }
 
-.cozinha-complement {
-  padding: 1.8rem;
+.cozinha-audience-card {
+  position: relative;
+  padding: clamp(1.6rem, 3.5vw, 2.35rem);
+  overflow: hidden;
   border: 1px solid var(--cozinha-line);
-  border-radius: 1rem;
-  background: #fff;
+  border-radius: var(--cozinha-radius);
+  background: #ffffff;
 }
 
-.cozinha-complement__top {
+.cozinha-audience-card::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.25rem;
+  content: "";
+}
+
+.cozinha-audience-card--yes {
+  border-color: rgba(47, 118, 88, 0.2);
+  background: var(--cozinha-green-soft);
+}
+
+.cozinha-audience-card--yes::before {
+  background: var(--cozinha-green);
+}
+
+.cozinha-audience-card--no::before {
+  background: #8a969d;
+}
+
+.cozinha-audience-card h3 {
+  margin-bottom: 1.35rem;
+  font-size: 1.65rem;
+}
+
+.cozinha-audience-card ul {
+  display: grid;
+  gap: 0.74rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cozinha-audience-card li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--cozinha-muted);
+}
+
+.cozinha-audience-card li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #8a969d;
+  content: "";
+}
+
+.cozinha-audience-card--yes li::before {
+  background: var(--cozinha-green);
+}
+
+.cozinha-audience--difference {
+  background: #ffffff;
+}
+
+/* =========================================================
+   DEPOIMENTOS
+   ========================================================= */
+
+.cozinha-testimonials {
+  border-top: 1px solid var(--cozinha-line);
+  border-bottom: 1px solid var(--cozinha-line);
+  background: #fffdf9;
+}
+
+.cozinha-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.8rem, 4vw, 3rem);
+  margin-top: 2.5rem;
+}
+
+.cozinha-testimonial {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.55rem 0 0;
+  border-top: 2px solid var(--cozinha-navy);
+}
+
+.cozinha-testimonial__quote {
+  margin: 0;
+  color: #35434c;
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.cozinha-testimonial__person {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 0.85rem;
+  margin-top: 1.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cozinha-line);
 }
 
-.cozinha-complement__top span {
-  color: var(--cozinha-copper);
-  font-family: var(--font-display);
+.cozinha-testimonial__person img {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--cozinha-line);
 }
 
-.cozinha-complement__top small {
+.cozinha-testimonial__person div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.cozinha-testimonial__person strong {
+  color: var(--cozinha-navy);
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+
+.cozinha-testimonial__person span {
+  margin-top: 0.2rem;
   color: var(--cozinha-muted);
-  font-weight: 600;
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
-.cozinha-complement h3 {
-  margin-bottom: 0.85rem;
-  font-size: 1.5rem;
+/* =========================================================
+   RUPTURA: COMEÇAR PEQUENO
+   ========================================================= */
+
+.cozinha-solution {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      var(--cozinha-navy) 0%,
+      var(--cozinha-navy-deep) 100%
+    );
 }
 
-.cozinha-complement p {
-  margin-bottom: 0;
-  color: var(--cozinha-muted);
+.cozinha-solution::after {
+  position: absolute;
+  right: -9rem;
+  bottom: -12rem;
+  width: 29rem;
+  height: 29rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: "";
 }
 
-.cozinha-complements__notice {
-  max-width: 54rem;
-  margin: 1.8rem 0 0;
-  padding-left: 1.1rem;
-  border-left: 0.2rem solid var(--cozinha-caramel);
-  color: var(--cozinha-muted);
-  font-size: 0.92rem;
+.cozinha-solution__inner {
+  position: relative;
+  z-index: 1;
 }
+
+.cozinha-solution .cozinha-kicker {
+  color: #9cc7b3;
+}
+
+.cozinha-solution h2 {
+  max-width: 16ch;
+  color: #ffffff;
+}
+
+.cozinha-solution__copy {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  max-width: 55rem;
+  gap: 2rem;
+  color: rgba(255, 255, 255, 0.77);
+  font-size: 1.05rem;
+}
+
+.cozinha-solution__copy strong {
+  color: #ffffff;
+}
+
+.cozinha-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.cozinha-principles span {
+  padding: 0.68rem 0.88rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+/* =========================================================
+   O QUE RECEBE / MOCKUP
+   ========================================================= */
 
 .cozinha-receive {
-  background: linear-gradient(135deg, #ead7c1, #f7eee3);
+  background:
+    linear-gradient(
+      135deg,
+      #fff9f2 0%,
+      #f4f7f8 100%
+    );
 }
 
 .cozinha-receive__grid {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(2.5rem, 7vw, 6rem);
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(3rem, 7vw, 6rem);
   align-items: center;
 }
 
 .cozinha-receive__visual {
   overflow: hidden;
   border: 1px solid var(--cozinha-line);
-  border-radius: 1.5rem;
-  background: #fff;
-  box-shadow: var(--cozinha-shadow);
+  border-radius: var(--cozinha-radius-large);
+  background: #ffffff;
+  box-shadow: var(--cozinha-shadow-product);
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .cozinha-receive__visual img {
@@ -672,148 +1026,222 @@ html {
   border-bottom: 1px solid var(--cozinha-line);
 }
 
+.cozinha-delivery-list strong {
+  color: var(--cozinha-navy);
+}
+
 .cozinha-delivery-list span {
   color: var(--cozinha-muted);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   text-align: right;
-}
-
-.cozinha-content-total {
-  max-width: 42rem;
-  color: var(--cozinha-muted);
-}
-
-.cozinha-content-total strong {
-  color: var(--cozinha-brown);
 }
 
 .cozinha-delivery-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .cozinha-delivery-meta span {
-  padding: 0.45rem 0.7rem;
-  border: 1px solid var(--cozinha-line);
+  padding: 0.44rem 0.66rem;
+  border: 1px solid rgba(47, 118, 88, 0.2);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.45);
-  font-size: 0.78rem;
-  font-weight: 600;
+  color: var(--cozinha-green);
+  background: var(--cozinha-green-soft);
+  font-size: 0.76rem;
+  font-weight: 750;
 }
 
-.cozinha-audience {
-  background: var(--cozinha-cream);
+/* =========================================================
+   COMPLEMENTOS
+   ========================================================= */
+
+.cozinha-complements {
+  background: #ffffff;
 }
 
-.cozinha-audience__grid {
+.cozinha-complements__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 2.5rem;
 }
 
-.cozinha-audience-card {
-  padding: clamp(1.5rem, 4vw, 2.4rem);
+.cozinha-complement {
+  padding: 1.75rem;
   border: 1px solid var(--cozinha-line);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.55);
+  border-radius: var(--cozinha-radius);
+  background: #ffffff;
+  box-shadow: 0 0.7rem 1.8rem rgba(14, 38, 57, 0.04);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
-.cozinha-audience-card h3 {
-  margin-bottom: 1.4rem;
-  font-size: 1.65rem;
+.cozinha-complement__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.3rem;
 }
 
-.cozinha-audience-card ul {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.cozinha-complement__top span {
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--cozinha-navy);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
-.cozinha-audience-card li {
-  position: relative;
-  padding-left: 1.4rem;
+.cozinha-complement__top small {
+  padding: 0.34rem 0.55rem;
+  border-radius: 999px;
+  color: var(--cozinha-green);
+  background: var(--cozinha-green-soft);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.cozinha-complement h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.cozinha-complement p {
+  margin-bottom: 0;
   color: var(--cozinha-muted);
 }
 
-.cozinha-audience-card li::before {
-  position: absolute;
-  top: 0.58em;
-  left: 0;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  content: "";
-}
-
-.cozinha-audience-card--yes li::before {
-  background: #58725e;
-}
-
-.cozinha-audience-card--no li::before {
-  background: var(--cozinha-caramel);
-}
+/* =========================================================
+   BIBLIOTECA / ETAPAS
+   ========================================================= */
 
 .cozinha-steps {
-  background: var(--cozinha-paper);
+  background: var(--cozinha-surface);
 }
 
 .cozinha-steps__grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-top: 1px solid var(--cozinha-line);
-  border-left: 1px solid var(--cozinha-line);
   margin-top: 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--cozinha-line);
+  border-radius: var(--cozinha-radius);
+  background: #ffffff;
 }
 
 .cozinha-steps__grid article {
-  min-height: 10rem;
-  padding: 1.2rem;
+  min-height: 10.5rem;
+  padding: 1.25rem;
   border-right: 1px solid var(--cozinha-line);
-  border-bottom: 1px solid var(--cozinha-line);
+}
+
+.cozinha-steps__grid article:last-child {
+  border-right: 0;
 }
 
 .cozinha-steps__grid span {
-  color: var(--cozinha-copper);
+  display: inline-flex;
+  width: 2.3rem;
+  height: 2.3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--cozinha-green);
+  background: var(--cozinha-green-soft);
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 750;
 }
 
 .cozinha-steps__grid p {
-  margin: 3rem 0 0;
+  margin: 2.8rem 0 0;
+  color: var(--cozinha-navy);
   font-weight: 700;
   line-height: 1.35;
 }
 
 .cozinha-steps__closing {
   max-width: 50rem;
-  margin: 1.7rem 0 0;
+  margin: 1.75rem 0 0;
   color: var(--cozinha-muted);
 }
 
+.cozinha-steps--example {
+  background: #ffffff;
+}
+
+.cozinha-steps--example .cozinha-steps__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.cozinha-steps--example .cozinha-steps__grid article {
+  min-height: 10.5rem;
+  border: 1px solid var(--cozinha-line);
+  border-radius: 0.85rem;
+  background: #ffffff;
+  box-shadow: 0 0.6rem 1.6rem rgba(14, 38, 57, 0.035);
+}
+
+.cozinha-steps--example .cozinha-steps__grid p {
+  margin-top: 2.2rem;
+}
+
+/* =========================================================
+   OFERTA
+   ========================================================= */
+
 .cozinha-offer {
-  padding: clamp(4.5rem, 9vw, 8rem) 0;
-  color: #fff8ef;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  color: #ffffff;
   background:
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(217, 185, 141, 0.17),
-      transparent 26rem
-    ),
-    var(--cozinha-brown);
+    linear-gradient(
+      135deg,
+      var(--cozinha-navy) 0%,
+      var(--cozinha-navy-deep) 78%,
+      #091d2b 100%
+    );
+}
+
+.cozinha-offer::before {
+  position: absolute;
+  top: -14rem;
+  right: -10rem;
+  width: 32rem;
+  height: 32rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: "";
 }
 
 .cozinha-offer .cozinha-kicker {
-  color: #ddb887;
+  color: #9cc7b3;
+}
+
+.cozinha-offer h2 {
+  color: #ffffff;
 }
 
 .cozinha-offer__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(19rem, 0.72fr);
-  gap: clamp(2.5rem, 7vw, 6rem);
+  gap: clamp(3rem, 7vw, 6rem);
   align-items: center;
 }
 
@@ -825,7 +1253,7 @@ html {
 .cozinha-offer__list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.7rem 1rem;
+  gap: 0.72rem 1rem;
   margin: 2rem 0 0;
   padding: 0;
   list-style: none;
@@ -834,69 +1262,68 @@ html {
 .cozinha-offer__list li {
   position: relative;
   padding-left: 1.25rem;
-  color: rgba(255, 255, 255, 0.83);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .cozinha-offer__list li::before {
   position: absolute;
   top: 0.62em;
   left: 0;
-  width: 0.45rem;
-  height: 0.45rem;
+  width: 0.44rem;
+  height: 0.44rem;
   border-radius: 50%;
-  background: #ddb887;
+  background: #9cc7b3;
   content: "";
 }
 
 .cozinha-offer__box {
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: clamp(1.7rem, 4vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.cozinha-offer__regular {
-  display: block;
-  color: rgba(255, 255, 255, 0.64);
+  background: #ffffff;
+  box-shadow: 0 2rem 4.8rem rgba(0, 0, 0, 0.24);
 }
 
 .cozinha-offer__price {
   display: block;
-  margin-top: 0.4rem;
+  color: var(--cozinha-navy);
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 7vw, 5.8rem);
-  line-height: 1;
+  font-size: clamp(3.8rem, 7vw, 6rem);
+  font-weight: 600;
+  line-height: 0.92;
   letter-spacing: -0.05em;
 }
 
 .cozinha-offer__payment {
   display: block;
-  margin: 0.5rem 0 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
+  margin: 0.55rem 0 1.5rem;
+  color: var(--cozinha-muted);
 }
 
 .cozinha-offer__box p {
   margin: 1rem 0 0;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.8rem;
+  color: var(--cozinha-muted);
+  font-size: 0.78rem;
   text-align: center;
 }
 
+/* =========================================================
+   FAQ
+   ========================================================= */
+
 .cozinha-faq {
-  background: var(--cozinha-cream);
+  background: #f6f8f9;
 }
 
 .cozinha-faq__list {
   display: grid;
-  max-width: 54rem;
-  gap: 0.7rem;
-  margin-top: 2.3rem;
+  max-width: 55rem;
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--cozinha-line);
 }
 
 .cozinha-faq details {
-  border: 1px solid var(--cozinha-line);
-  border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.56);
+  border-bottom: 1px solid var(--cozinha-line);
 }
 
 .cozinha-faq summary {
@@ -904,9 +1331,10 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.1rem 1.2rem;
+  padding: 1.2rem 0;
+  color: var(--cozinha-navy);
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 750;
   list-style: none;
 }
 
@@ -915,10 +1343,20 @@ html {
 }
 
 .cozinha-faq summary::after {
-  color: var(--cozinha-copper);
+  display: inline-flex;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: 0 0 1.9rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cozinha-line-strong);
+  border-radius: 50%;
+  color: var(--cozinha-navy);
+  background: #ffffff;
   content: "+";
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .cozinha-faq details[open] summary::after {
@@ -928,44 +1366,42 @@ html {
 .cozinha-faq details p {
   max-width: 48rem;
   margin: 0;
-  padding: 0 1.2rem 1.2rem;
+  padding: 0 3rem 1.25rem 0;
   color: var(--cozinha-muted);
 }
 
-.cozinha-warning {
-  background: var(--cozinha-paper);
-}
-
-.cozinha-warning__box {
-  padding: clamp(1.7rem, 5vw, 3.5rem);
-  border: 1px solid var(--cozinha-line-strong);
-  border-radius: 1rem;
-  background: #fff;
-}
-
-.cozinha-warning__box h2 {
-  max-width: 16ch;
-}
-
-.cozinha-warning__box p:not(.cozinha-kicker) {
-  max-width: 52rem;
-  color: var(--cozinha-muted);
-}
-
-.cozinha-warning__box p:last-child {
-  margin-bottom: 0;
-}
+/* =========================================================
+   FECHAMENTO
+   ========================================================= */
 
 .cozinha-final {
-  padding: clamp(5rem, 10vw, 9rem) 0;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5.5rem, 10vw, 9rem) 0;
   text-align: center;
   background:
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(185, 121, 66, 0.2),
-      transparent 30rem
-    ),
-    linear-gradient(180deg, #f3e7d8, #fffaf3);
+    linear-gradient(
+      180deg,
+      #fffdf9 0%,
+      #fff9f2 100%
+    );
+}
+
+.cozinha-final::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(60rem, 86vw);
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(23, 50, 77, 0.22),
+      transparent
+    );
+  content: "";
+  transform: translateX(-50%);
 }
 
 .cozinha-final__inner {
@@ -983,28 +1419,43 @@ html {
   font-size: 1.06rem;
 }
 
+.cozinha-final .cozinha-principles {
+  justify-content: center;
+}
+
+.cozinha-final .cozinha-principles span {
+  border-color: var(--cozinha-line);
+  color: var(--cozinha-navy);
+  background: #ffffff;
+}
+
 .cozinha-final__price {
   display: grid;
-  margin: 1.2rem 0 1.6rem;
+  margin: 1.4rem 0 1.6rem;
 }
 
 .cozinha-final__price strong {
-  color: var(--cozinha-copper-dark);
+  color: var(--cozinha-navy);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1;
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  font-weight: 600;
+  line-height: 0.92;
 }
 
 .cozinha-final__price span {
-  margin-top: 0.45rem;
+  margin-top: 0.5rem;
   color: var(--cozinha-muted);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
 }
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .cozinha-footer {
-  padding: 3rem 0 6rem;
-  color: #d8cdc3;
-  background: #2b211a;
+  padding: 3.25rem 0 6.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  background: #091d2b;
 }
 
 .cozinha-footer__grid {
@@ -1014,18 +1465,18 @@ html {
 }
 
 .cozinha-brand--footer {
-  color: #fff;
+  color: #ffffff;
 }
 
 .cozinha-brand--footer small {
-  color: #bbaea3;
+  color: rgba(255, 255, 255, 0.56);
 }
 
 .cozinha-footer p {
   max-width: 28rem;
   margin: 1rem 0 0;
-  color: #aa9d93;
-  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.84rem;
 }
 
 .cozinha-footer nav:not(.legal-links) {
@@ -1036,828 +1487,35 @@ html {
 
 .cozinha-footer nav:not(.legal-links) a {
   width: fit-content;
-  color: #d8cdc3;
-  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.85rem;
   text-decoration: none;
 }
 
 .cozinha-footer nav:not(.legal-links) a:hover {
-  color: #fff;
+  color: #ffffff;
 }
 
 .cozinha-footer__legal p {
   margin-top: 0;
 }
 
+/* =========================================================
+   CTA FIXO MOBILE
+   ========================================================= */
+
 .cozinha-mobile-buy {
   display: none;
 }
 
-/*
- * Contraste explícito dos CTAs.
- * A regra geral `.cozinha-page a { color: inherit; }` possui
- * maior especificidade que as classes isoladas dos botões.
- */
-.cozinha-page a.cozinha-header__cta,
-.cozinha-page a.cozinha-button--primary,
-.cozinha-page a.cozinha-mobile-buy {
-  color: #ffffff;
-}
-
-.cozinha-page a.cozinha-button--light {
-  color: var(--cozinha-brown);
-}
-
-
-/* ==========================================================
-   REFINAMENTO VISUAL — EDITORIAL PREMIUM QUENTE
-   ========================================================== */
-
-.cozinha-page {
-  --cozinha-terracotta: #aa6138;
-  --cozinha-terracotta-dark: #82431f;
-  --cozinha-gold: #d3a36d;
-  --cozinha-gold-soft: #ead0ad;
-  --cozinha-green-deep: #26392f;
-  --cozinha-green-rich: #2f4639;
-  --cozinha-card-shadow:
-    0 1.3rem 3rem rgba(65, 42, 27, 0.09),
-    0 0.25rem 0.8rem rgba(65, 42, 27, 0.05);
-  --cozinha-card-shadow-hover:
-    0 1.8rem 4rem rgba(65, 42, 27, 0.15),
-    0 0.4rem 1rem rgba(65, 42, 27, 0.07);
-
-  background:
-    radial-gradient(
-      circle at 12% 4%,
-      rgba(185, 121, 66, 0.08),
-      transparent 28rem
-    ),
-    var(--cozinha-cream);
-}
-
-/* Header */
-
-.cozinha-header {
-  transition:
-    box-shadow 220ms ease,
-    background 220ms ease,
-    border-color 220ms ease;
-}
-
-.cozinha-header.is-scrolled {
-  border-bottom-color: rgba(75, 47, 32, 0.2);
-  background: rgba(255, 250, 243, 0.97);
-  box-shadow: 0 0.45rem 1.6rem rgba(75, 47, 32, 0.08);
-}
-
-/* Botões */
-
-.cozinha-button,
-.cozinha-header__cta,
-.cozinha-mobile-buy {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.cozinha-button--primary,
-.cozinha-header__cta,
-.cozinha-mobile-buy {
-  background:
-    linear-gradient(
-      180deg,
-      #ad673c 0%,
-      var(--cozinha-copper) 52%,
-      #81451f 100%
-    );
-  box-shadow:
-    0 0.8rem 1.8rem rgba(111, 60, 29, 0.2),
-    inset 0 1px rgba(255, 255, 255, 0.19);
-}
-
-.cozinha-button::after,
-.cozinha-header__cta::after,
-.cozinha-mobile-buy::after {
-  position: absolute;
-  top: -80%;
-  bottom: -80%;
-  left: -45%;
-  z-index: -1;
-  width: 30%;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.18),
-      transparent
-    );
-  content: "";
-  transform: skewX(-20deg) translateX(-240%);
-  transition: transform 520ms ease;
-}
-
-.cozinha-button:active,
-.cozinha-header__cta:active {
-  transform: translateY(0) scale(0.985);
-}
-
-/* Hero */
-
-.cozinha-hero {
-  position: relative;
-  isolation: isolate;
-  border-bottom: 1px solid rgba(75, 47, 32, 0.08);
-  background:
-    radial-gradient(
-      circle at 77% 42%,
-      rgba(211, 163, 109, 0.24),
-      transparent 22rem
-    ),
-    radial-gradient(
-      circle at 97% 4%,
-      rgba(146, 83, 38, 0.16),
-      transparent 30rem
-    ),
-    linear-gradient(
-      135deg,
-      #fffdf8 0%,
-      #f5e9da 48%,
-      #ead5bd 100%
-    );
-}
-
-.cozinha-hero::before {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  opacity: 0.44;
-  background-image:
-    radial-gradient(
-      rgba(75, 47, 32, 0.11) 0.7px,
-      transparent 0.7px
-    );
-  background-size: 7px 7px;
-  content: "";
-  pointer-events: none;
-}
-
-.cozinha-hero::after {
-  position: absolute;
-  top: 7%;
-  right: 5%;
-  z-index: -1;
-  width: min(34rem, 44vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 245, 222, 0.9) 0%,
-      rgba(208, 150, 90, 0.18) 42%,
-      transparent 72%
-    );
-  content: "";
-  filter: blur(8px);
-  pointer-events: none;
-}
-
-.cozinha-hero__grid {
-  position: relative;
-  z-index: 1;
-}
-
-.cozinha-label {
-  border-color: rgba(146, 83, 38, 0.35);
-  background: rgba(255, 252, 246, 0.72);
-  box-shadow:
-    0 0.3rem 1rem rgba(75, 47, 32, 0.05),
-    inset 0 1px rgba(255, 255, 255, 0.7);
-}
-
-.cozinha-product-name {
-  position: relative;
-  padding-left: 1.15rem;
-}
-
-.cozinha-product-name::before {
-  position: absolute;
-  top: 0.12em;
-  bottom: 0.12em;
-  left: 0;
-  width: 0.22rem;
-  border-radius: 999px;
-  background:
-    linear-gradient(
-      180deg,
-      var(--cozinha-caramel),
-      var(--cozinha-copper-dark)
-    );
-  content: "";
-}
-
-.cozinha-hero h1 {
-  text-shadow: 0 1px rgba(255, 255, 255, 0.7);
-}
-
-.cozinha-hero__visual {
-  position: relative;
-}
-
-.cozinha-hero__visual::before {
-  position: absolute;
-  inset: 12% -8% -4%;
-  z-index: -1;
-  border-radius: 50%;
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(146, 83, 38, 0.2),
-      transparent 68%
-    );
-  content: "";
-  filter: blur(18px);
-}
-
-.cozinha-hero__frame {
-  border-color: rgba(75, 47, 32, 0.19);
-  box-shadow:
-    0 2.5rem 5rem rgba(75, 47, 32, 0.18),
-    0 0.6rem 1.5rem rgba(75, 47, 32, 0.08);
-  transform:
-    perspective(75rem)
-    rotateY(-3deg)
-    rotateZ(1deg);
-  transform-origin: center;
-  transition:
-    transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 420ms ease;
-}
-
-.cozinha-hero__frame img {
-  transform: scale(1.012);
-  transition: transform 520ms ease;
-}
-
-/* Ritmo entre seções */
-
-.cozinha-problem {
-  border-bottom: 1px solid rgba(75, 47, 32, 0.08);
-  background:
-    radial-gradient(
-      circle at 12% 25%,
-      rgba(185, 121, 66, 0.08),
-      transparent 23rem
-    ),
-    var(--cozinha-paper);
-}
-
-.cozinha-solution {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(218, 184, 137, 0.12),
-      transparent 27rem
-    ),
-    linear-gradient(
-      135deg,
-      var(--cozinha-green-rich),
-      var(--cozinha-green-deep)
-    );
-}
-
-.cozinha-solution::after {
-  position: absolute;
-  right: -8rem;
-  bottom: -11rem;
-  width: 27rem;
-  height: 27rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  content: "";
-}
-
-.cozinha-modules {
-  background:
-    linear-gradient(
-      180deg,
-      #f7efe5 0%,
-      #f3e6d7 100%
-    );
-}
-
-.cozinha-complements {
-  background:
-    radial-gradient(
-      circle at 90% 15%,
-      rgba(185, 121, 66, 0.07),
-      transparent 22rem
-    ),
-    #fffaf3;
-}
-
-.cozinha-receive {
-  position: relative;
-  background:
-    radial-gradient(
-      circle at 13% 22%,
-      rgba(255, 255, 255, 0.72),
-      transparent 21rem
-    ),
-    linear-gradient(
-      135deg,
-      #e4ccb0 0%,
-      #f5e7d7 48%,
-      #efe0cf 100%
-    );
-}
-
-.cozinha-audience {
-  background:
-    linear-gradient(
-      180deg,
-      #f8f0e6,
-      #f2e5d6
-    );
-}
-
-.cozinha-steps {
-  background:
-    radial-gradient(
-      circle at 88% 20%,
-      rgba(185, 121, 66, 0.08),
-      transparent 24rem
-    ),
-    #fffaf3;
-}
-
-/* Perguntas iniciais */
-
-.cozinha-question-list {
-  overflow: hidden;
-  border: 1px solid var(--cozinha-line);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 1rem 2.5rem rgba(75, 47, 32, 0.05);
-}
-
-.cozinha-question-list li {
-  transition:
-    background 180ms ease,
-    color 180ms ease;
-}
-
-/* Cards editoriais */
-
-.cozinha-module,
-.cozinha-complement,
-.cozinha-audience-card,
-.cozinha-steps__grid article {
-  position: relative;
-  transition:
-    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 240ms ease,
-    box-shadow 240ms ease,
-    background 240ms ease;
-}
-
-.cozinha-module {
-  overflow: hidden;
-  border-color: rgba(75, 47, 32, 0.13);
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 250, 243, 0.62)
-    );
-  box-shadow: var(--cozinha-card-shadow);
-}
-
-.cozinha-module::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 0.22rem;
-  background:
-    linear-gradient(
-      90deg,
-      var(--cozinha-caramel),
-      var(--cozinha-copper-dark)
-    );
-  content: "";
-}
-
-.cozinha-module > span {
-  color: var(--cozinha-copper-dark);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.cozinha-complement {
-  border-color: rgba(75, 47, 32, 0.13);
-  background:
-    linear-gradient(
-      155deg,
-      #ffffff,
-      #fff9f1
-    );
-  box-shadow: var(--cozinha-card-shadow);
-}
-
-.cozinha-complement__top span {
-  display: inline-flex;
-  min-width: 2.3rem;
-  min-height: 2.3rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(146, 83, 38, 0.18);
-  border-radius: 50%;
-  background: rgba(185, 121, 66, 0.08);
-  font-weight: 700;
-}
-
-.cozinha-complement__top small {
-  padding: 0.35rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(185, 121, 66, 0.08);
-}
-
-/* Carrossel premium */
-
-.cozinha-preview {
-  position: relative;
-  overflow: hidden;
-  color: #fff8ef;
-  background:
-    radial-gradient(
-      circle at 86% 17%,
-      rgba(217, 185, 141, 0.15),
-      transparent 25rem
-    ),
-    radial-gradient(
-      circle at 8% 90%,
-      rgba(185, 121, 66, 0.12),
-      transparent 28rem
-    ),
-    linear-gradient(
-      135deg,
-      #31463a 0%,
-      #25372e 58%,
-      #1f3028 100%
-    );
-}
-
-.cozinha-preview::before {
-  position: absolute;
-  inset: 0;
-  opacity: 0.23;
-  background-image:
-    radial-gradient(
-      rgba(255, 255, 255, 0.2) 0.65px,
-      transparent 0.65px
-    );
-  background-size: 8px 8px;
-  content: "";
-  pointer-events: none;
-}
-
-.cozinha-preview > .cozinha-container {
-  position: relative;
-}
-
-.cozinha-preview .cozinha-kicker {
-  color: var(--cozinha-gold-soft);
-}
-
-.cozinha-preview h2 {
-  color: #fffaf3;
-}
-
-.cozinha-preview .cozinha-section__lead,
-.cozinha-preview__hint,
-.cozinha-preview__note {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.cozinha-preview__scroller {
-  padding-top: 1rem;
-  padding-bottom: 1.7rem;
-  scrollbar-color: var(--cozinha-gold) rgba(255, 255, 255, 0.09);
-}
-
-.cozinha-preview__scroller::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.09);
-}
-
-.cozinha-preview__scroller::-webkit-scrollbar-thumb {
-  background:
-    linear-gradient(
-      90deg,
-      var(--cozinha-gold),
-      #ba7548
-    );
-}
-
-.cozinha-preview-card {
-  border-color: rgba(255, 255, 255, 0.17);
-  border-radius: 0.7rem;
-  box-shadow:
-    0 2rem 4rem rgba(0, 0, 0, 0.25),
-    0 0.5rem 1rem rgba(0, 0, 0, 0.14);
-  transform: rotate(-0.32deg);
-  transform-origin: center bottom;
-  transition:
-    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 280ms ease;
-}
-
-.cozinha-preview-card:nth-child(even) {
-  transform: rotate(0.32deg);
-}
-
-.cozinha-preview-card figcaption {
-  min-height: 3.5rem;
-  display: flex;
-  align-items: center;
-  color: var(--cozinha-brown);
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #fffaf3
-    );
-}
-
-/* Mockup */
-
-.cozinha-receive__visual {
-  border-color: rgba(75, 47, 32, 0.17);
-  box-shadow:
-    0 2rem 4.5rem rgba(75, 47, 32, 0.17),
-    0 0.4rem 1rem rgba(75, 47, 32, 0.07);
-  transform: rotate(-0.55deg);
-  transition:
-    transform 320ms ease,
-    box-shadow 320ms ease;
-}
-
-/* Público */
-
-.cozinha-audience-card {
-  overflow: hidden;
-  background:
-    linear-gradient(
-      150deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(255, 250, 243, 0.55)
-    );
-  box-shadow: var(--cozinha-card-shadow);
-}
-
-.cozinha-audience-card::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 0.26rem;
-  content: "";
-}
-
-.cozinha-audience-card--yes::before {
-  background:
-    linear-gradient(
-      180deg,
-      #6c8b73,
-      #34483b
-    );
-}
-
-.cozinha-audience-card--no::before {
-  background:
-    linear-gradient(
-      180deg,
-      #d1a06c,
-      #a75d32
-    );
-}
-
-/* Etapas */
-
-.cozinha-steps__grid {
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 1.2rem 3rem rgba(75, 47, 32, 0.06);
-}
-
-.cozinha-steps__grid article {
-  background: rgba(255, 255, 255, 0.42);
-}
-
-.cozinha-steps__grid span {
-  display: inline-flex;
-  width: 2.35rem;
-  height: 2.35rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(146, 83, 38, 0.2);
-  border-radius: 50%;
-  background: rgba(185, 121, 66, 0.08);
-  font-weight: 700;
-}
-
-/* Oferta */
-
-.cozinha-offer {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 82% 10%,
-      rgba(222, 184, 135, 0.22),
-      transparent 24rem
-    ),
-    radial-gradient(
-      circle at 8% 95%,
-      rgba(146, 83, 38, 0.22),
-      transparent 27rem
-    ),
-    linear-gradient(
-      135deg,
-      #4b2f20 0%,
-      #39241a 55%,
-      #2f211b 100%
-    );
-}
-
-.cozinha-offer::before {
-  position: absolute;
-  top: -13rem;
-  right: -11rem;
-  width: 31rem;
-  height: 31rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 50%;
-  content: "";
-}
-
-.cozinha-offer__grid {
-  position: relative;
-}
-
-.cozinha-offer__grid > div:first-child > p strong {
-  color: #f4d6ad;
-}
-
-.cozinha-offer__box {
-  border-color: rgba(255, 255, 255, 0.25);
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.055)
-    );
-  box-shadow:
-    0 2rem 4.5rem rgba(0, 0, 0, 0.2),
-    inset 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.cozinha-offer__price {
-  color: #fffaf3;
-  text-shadow:
-    0 0.18rem 0 rgba(0, 0, 0, 0.08),
-    0 1rem 2.6rem rgba(0, 0, 0, 0.16);
-}
-
-.cozinha-button--light {
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #f4e8d9
-    );
-  box-shadow:
-    0 0.9rem 2rem rgba(0, 0, 0, 0.16),
-    inset 0 1px #fff;
-}
-
-/* FAQ */
-
-.cozinha-faq {
-  background:
-    radial-gradient(
-      circle at 12% 10%,
-      rgba(185, 121, 66, 0.07),
-      transparent 24rem
-    ),
-    var(--cozinha-cream);
-}
-
-.cozinha-faq details {
-  overflow: hidden;
-  transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease,
-    background 200ms ease;
-}
-
-.cozinha-faq details[open] {
-  border-color: rgba(146, 83, 38, 0.26);
-  background: #fffaf3;
-  box-shadow: 0 0.9rem 2rem rgba(75, 47, 32, 0.06);
-}
-
-.cozinha-faq summary::after {
-  display: inline-flex;
-  width: 1.9rem;
-  height: 1.9rem;
-  flex: 0 0 1.9rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(146, 83, 38, 0.16);
-  border-radius: 50%;
-  background: rgba(185, 121, 66, 0.07);
-  line-height: 1;
-}
-
-/* Aviso */
-
-.cozinha-warning {
-  background: #f5e8d9;
-}
-
-.cozinha-warning__box {
-  position: relative;
-  overflow: hidden;
-  border-color: rgba(75, 47, 32, 0.18);
-  box-shadow: var(--cozinha-card-shadow);
-}
-
-.cozinha-warning__box::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 0.3rem;
-  background:
-    linear-gradient(
-      180deg,
-      var(--cozinha-caramel),
-      var(--cozinha-copper-dark)
-    );
-  content: "";
-}
-
-/* Fechamento */
-
-.cozinha-final {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 50% 115%,
-      rgba(185, 121, 66, 0.28),
-      transparent 31rem
-    ),
-    radial-gradient(
-      circle at 86% 8%,
-      rgba(211, 163, 109, 0.12),
-      transparent 22rem
-    ),
-    linear-gradient(
-      180deg,
-      #f0dfcc,
-      #fffaf3
-    );
-}
-
-.cozinha-final::before {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  width: min(52rem, 85vw);
-  height: 1px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(146, 83, 38, 0.24),
-      transparent
-    );
-  content: "";
-  transform: translateX(-50%);
-}
-
-/* Motion */
+/* =========================================================
+   MOTION
+   ========================================================= */
 
 @keyframes cozinha-hero-copy-in {
   from {
     opacity: 0;
-    transform: translateY(1.1rem);
+    transform: translateY(0.8rem);
   }
 
   to {
@@ -1869,22 +1527,12 @@ html {
 @keyframes cozinha-hero-product-in {
   from {
     opacity: 0;
-    transform:
-      perspective(75rem)
-      rotateY(-5deg)
-      rotateZ(2deg)
-      translateY(1.3rem)
-      scale(0.975);
+    transform: translateY(0.9rem) rotate(1deg) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform:
-      perspective(75rem)
-      rotateY(-3deg)
-      rotateZ(1deg)
-      translateY(0)
-      scale(1);
+    transform: translateY(0) rotate(0.7deg) scale(1);
   }
 }
 
@@ -1892,7 +1540,7 @@ html {
   .cozinha-hero__content {
     animation:
       cozinha-hero-copy-in
-      650ms
+      520ms
       cubic-bezier(0.2, 0.8, 0.2, 1)
       both;
   }
@@ -1900,8 +1548,8 @@ html {
   .cozinha-hero__frame {
     animation:
       cozinha-hero-product-in
-      800ms
-      90ms
+      620ms
+      70ms
       cubic-bezier(0.2, 0.8, 0.2, 1)
       both;
   }
@@ -1909,10 +1557,10 @@ html {
 
 .cozinha-motion-ready .cozinha-reveal {
   opacity: 0;
-  transform: translateY(1.4rem);
+  transform: translateY(1rem);
   transition:
-    opacity 600ms ease,
-    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 520ms ease,
+    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cozinha-motion-ready .cozinha-reveal.is-visible {
@@ -1922,13 +1570,12 @@ html {
 
 .cozinha-motion-ready .cozinha-reveal-item {
   opacity: 0;
-  transform: translateY(0.85rem);
+  transform: translateY(0.7rem);
   transition:
-    opacity 520ms ease,
-    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 240ms ease,
-    box-shadow 240ms ease,
-    background 240ms ease;
+    opacity 460ms ease,
+    transform 460ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .cozinha-motion-ready .cozinha-reveal-item.is-visible {
@@ -1936,64 +1583,63 @@ html {
   transform: translateY(0);
 }
 
-/* Desktop com ponteiro */
+/* =========================================================
+   DESKTOP COM PONTEIRO
+   ========================================================= */
 
 @media (hover: hover) and (pointer: fine) {
-  .cozinha-button:hover::after,
-  .cozinha-header__cta:hover::after {
-    transform: skewX(-20deg) translateX(580%);
+  .cozinha-page a.cozinha-header__cta:hover,
+  .cozinha-page a.cozinha-button--primary:hover,
+  .cozinha-page a.cozinha-button--light:hover {
+    background: var(--cozinha-orange-hover);
+    box-shadow:
+      0 1.05rem 2.35rem rgba(244, 111, 44, 0.24),
+      inset 0 1px rgba(255, 255, 255, 0.36);
+    transform: translateY(-2px);
   }
 
   .cozinha-hero__frame:hover {
     box-shadow:
-      0 3rem 6rem rgba(75, 47, 32, 0.22),
-      0 0.8rem 1.8rem rgba(75, 47, 32, 0.1);
-    transform:
-      perspective(75rem)
-      rotateY(-1deg)
-      rotateZ(0deg)
-      translateY(-0.35rem);
-  }
-
-  .cozinha-hero__frame:hover img {
-    transform: scale(1.026);
-  }
-
-  .cozinha-question-list li:hover {
-    color: var(--cozinha-copper-dark);
-    background: rgba(185, 121, 66, 0.075);
+      0 2.7rem 5.7rem rgba(14, 38, 57, 0.2),
+      0 0.55rem 1.35rem rgba(14, 38, 57, 0.09);
+    transform: translateY(-0.25rem) rotate(0deg);
   }
 
   .cozinha-module:hover,
-  .cozinha-complement:hover,
-  .cozinha-audience-card:hover,
-  .cozinha-steps__grid article:hover {
-    border-color: rgba(146, 83, 38, 0.25);
-    box-shadow: var(--cozinha-card-shadow-hover);
-    transform: translateY(-0.28rem);
+  .cozinha-complement:hover {
+    border-color: rgba(23, 50, 77, 0.22);
+    box-shadow: var(--cozinha-shadow-soft);
+    transform: translateY(-0.2rem);
+  }
+
+  .cozinha-modules--path .cozinha-module:hover {
+    border-top-color: var(--cozinha-line-strong);
+    box-shadow: none;
+    transform: none;
   }
 
   .cozinha-preview-card:hover {
-    z-index: 2;
     box-shadow:
-      0 2.6rem 5rem rgba(0, 0, 0, 0.32),
-      0 0.6rem 1.2rem rgba(0, 0, 0, 0.18);
-    transform: translateY(-0.45rem) rotate(0deg) scale(1.018);
+      0 2.2rem 4.8rem rgba(0, 0, 0, 0.3),
+      0 0.5rem 1.1rem rgba(0, 0, 0, 0.14);
+    transform: translateY(-0.3rem);
   }
 
   .cozinha-receive__visual:hover {
     box-shadow:
-      0 2.6rem 5rem rgba(75, 47, 32, 0.21),
-      0 0.5rem 1.2rem rgba(75, 47, 32, 0.09);
-    transform: rotate(0deg) translateY(-0.2rem);
+      0 2.55rem 5.5rem rgba(14, 38, 57, 0.2),
+      0 0.5rem 1.3rem rgba(14, 38, 57, 0.09);
+    transform: translateY(-0.2rem);
   }
 
-  .cozinha-faq details:hover {
-    border-color: rgba(146, 83, 38, 0.24);
-    background: rgba(255, 255, 255, 0.76);
+  .cozinha-faq summary:hover {
+    color: var(--cozinha-green);
   }
 }
 
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 58rem) {
   .cozinha-hero__grid,
@@ -2003,23 +1649,58 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .cozinha-hero__visual {
-    width: min(100%, 27rem);
-    justify-self: center;
-    order: -1;
-  }
-
   .cozinha-hero__content {
     max-width: 48rem;
   }
 
-  .cozinha-solution__copy {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .cozinha-hero__visual {
+    width: min(100%, 25rem);
+    justify-self: center;
+  }
+
+  .cozinha-hero::after {
+    top: auto;
+    right: 8%;
+    bottom: 4%;
+    width: 50%;
+    height: 34%;
+    border-radius: 1.5rem;
   }
 
   .cozinha-modules__grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .cozinha-modules--path .cozinha-modules__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 0;
+    border-left: 1px solid var(--cozinha-line-strong);
+  }
+
+  .cozinha-modules--path .cozinha-module,
+  .cozinha-modules--path .cozinha-module:not(:last-child) {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr;
+    column-gap: 1rem;
+    padding: 0 0 1.6rem 1.25rem;
+    border-top: 0;
+  }
+
+  .cozinha-modules--path .cozinha-module > span {
+    grid-row: 1 / span 2;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0 0 0 -2.48rem;
+    box-shadow: 0 0 0 0.3rem #ffffff;
+  }
+
+  .cozinha-modules--path .cozinha-module h3 {
+    margin: 0 0 0.55rem;
+  }
+
+  .cozinha-modules--path .cozinha-module p {
+    grid-column: 2;
   }
 
   .cozinha-complements__grid {
@@ -2035,6 +1716,29 @@ html {
     grid-template-columns: 1fr 1fr;
   }
 
+  .cozinha-steps__grid article {
+    border-right: 1px solid var(--cozinha-line);
+    border-bottom: 1px solid var(--cozinha-line);
+  }
+
+  .cozinha-steps__grid article:nth-child(even) {
+    border-right: 0;
+  }
+
+  .cozinha-steps--example .cozinha-steps__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cozinha-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cozinha-solution__copy {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
   .cozinha-footer__grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -2044,9 +1748,13 @@ html {
   }
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 43rem) {
   .cozinha-page {
-    padding-bottom: 4.7rem;
+    padding-bottom: 4.8rem;
   }
 
   .cozinha-container {
@@ -2054,11 +1762,16 @@ html {
   }
 
   .cozinha-header__inner {
-    min-height: 4.25rem;
+    min-height: 4.15rem;
   }
 
   .cozinha-header__cta {
     display: none;
+  }
+
+  .cozinha-brand img {
+    width: 2.35rem;
+    height: 2.35rem;
   }
 
   .cozinha-brand small {
@@ -2066,27 +1779,64 @@ html {
   }
 
   .cozinha-breadcrumb {
-    font-size: 0.76rem;
+    padding-block: 0.85rem;
+    font-size: 0.74rem;
   }
 
   .cozinha-hero {
-    padding-top: 1.5rem;
+    padding: 2.15rem 0 4.25rem;
   }
 
   .cozinha-hero__grid {
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .cozinha-hero h1 {
-    font-size: clamp(2.45rem, 12vw, 3.7rem);
+    max-width: 16ch;
+    margin-bottom: 1.35rem;
+    font-size: clamp(2.55rem, 12vw, 3.75rem);
+  }
+
+  .cozinha-hero__lead {
+    font-size: 1.02rem;
+  }
+
+  .cozinha-price-summary {
+    margin-top: 1.55rem;
   }
 
   .cozinha-button {
     width: 100%;
+    min-height: 3.7rem;
   }
 
   .cozinha-trust-list {
     display: grid;
+    gap: 0.48rem;
+  }
+
+  .cozinha-hero__visual {
+    width: min(100%, 21rem);
+  }
+
+  .cozinha-hero__visual::before {
+    inset: 8% -5% -5% 8%;
+  }
+
+  .cozinha-hero__frame {
+    border-radius: 1.1rem;
+    transform: none;
+  }
+
+  .cozinha-section,
+  .cozinha-offer {
+    padding: 4.4rem 0;
+  }
+
+  .cozinha-section h2,
+  .cozinha-offer h2,
+  .cozinha-final h2 {
+    font-size: clamp(2.2rem, 10.5vw, 3.35rem);
   }
 
   .cozinha-question-list {
@@ -2100,6 +1850,7 @@ html {
   .cozinha-modules__grid,
   .cozinha-audience__grid,
   .cozinha-steps__grid,
+  .cozinha-steps--example .cozinha-steps__grid,
   .cozinha-offer__list,
   .cozinha-footer__grid {
     grid-template-columns: 1fr;
@@ -2110,7 +1861,26 @@ html {
   }
 
   .cozinha-module > span {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cozinha-preview__scroller {
+    grid-auto-columns: 82vw;
+    margin-right: -0.7rem;
+  }
+
+  .cozinha-audience__grid {
+    gap: 0.8rem;
+  }
+
+  .cozinha-testimonial {
+    padding-top: 1.3rem;
+  }
+
+  .cozinha-testimonial__person img {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
   }
 
   .cozinha-delivery-list li {
@@ -2123,12 +1893,43 @@ html {
     text-align: left;
   }
 
-  .cozinha-steps__grid article {
-    min-height: auto;
+  .cozinha-steps__grid {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
-  .cozinha-steps__grid p {
+  .cozinha-steps__grid article,
+  .cozinha-steps__grid article:nth-child(even),
+  .cozinha-steps--example .cozinha-steps__grid article {
+    min-height: auto;
+    margin-bottom: 0.7rem;
+    padding: 1.2rem;
+    border: 1px solid var(--cozinha-line);
+    border-radius: 0.8rem;
+    background: #ffffff;
+  }
+
+  .cozinha-steps__grid p,
+  .cozinha-steps--example .cozinha-steps__grid p {
     margin-top: 1.6rem;
+  }
+
+  .cozinha-offer__box {
+    padding: 1.45rem;
+  }
+
+  .cozinha-offer__price {
+    font-size: clamp(3.6rem, 18vw, 5rem);
+  }
+
+  .cozinha-faq details p {
+    padding-right: 0;
+  }
+
+  .cozinha-final {
+    padding: 5rem 0 6rem;
   }
 
   .cozinha-footer__legal {
@@ -2142,85 +1943,16 @@ html {
     left: 0.7rem;
     z-index: 950;
     display: flex;
-    min-height: 3.55rem;
-    align-items: center;
-    justify-content: center;
+    min-height: 3.65rem;
     padding-inline: 1rem;
-    color: #fff;
-    background: var(--cozinha-copper);
-    border-radius: 0.75rem;
-    box-shadow: 0 0.9rem 2.5rem rgba(43, 33, 26, 0.35);
+    border-radius: 0.8rem;
     font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
   }
 }
 
-
-@media (max-width: 43rem) {
-  .cozinha-preview__scroller {
-    grid-auto-columns: 82vw;
-    margin-right: -0.7rem;
-  }
-}
-
-
-@media (max-width: 58rem) {
-  .cozinha-hero::after {
-    top: 1%;
-    right: 50%;
-    width: min(31rem, 80vw);
-    transform: translateX(50%);
-  }
-
-  .cozinha-hero__frame {
-    transform: rotate(0.45deg);
-  }
-
-  .cozinha-receive__visual {
-    transform: rotate(0deg);
-  }
-}
-
-@media (max-width: 43rem) {
-  .cozinha-hero::before,
-  .cozinha-preview::before {
-    opacity: 0.24;
-  }
-
-  .cozinha-hero__frame {
-    border-radius: 1.1rem;
-    box-shadow:
-      0 1.7rem 3.5rem rgba(75, 47, 32, 0.16),
-      0 0.35rem 0.9rem rgba(75, 47, 32, 0.07);
-    transform: none;
-  }
-
-  .cozinha-preview__scroller {
-    padding-top: 0.6rem;
-  }
-
-  .cozinha-preview-card,
-  .cozinha-preview-card:nth-child(even) {
-    transform: none;
-  }
-
-  .cozinha-module,
-  .cozinha-complement,
-  .cozinha-audience-card {
-    box-shadow:
-      0 0.8rem 2rem rgba(75, 47, 32, 0.065);
-  }
-
-  .cozinha-steps__grid {
-    box-shadow: none;
-  }
-
-  .cozinha-offer__box {
-    box-shadow:
-      0 1.5rem 3rem rgba(0, 0, 0, 0.16);
-  }
-}
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO / IMPRESSÃO
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .cozinha-hero__content,
@@ -2255,98 +1987,54 @@ html {
 
   .cozinha-page {
     padding: 0;
-    color: #000;
-    background: #fff;
+    color: #000000;
+    background: #ffffff;
   }
 }
 
-/* =========================================================
-   DEPOIMENTOS — DA SUA COZINHA
-   ========================================================= */
-
-.cozinha-testimonials {
-  background:
-    linear-gradient(
-      180deg,
-      #fffaf3 0%,
-      #f5e9da 100%
-    );
+/* ===== AJUSTE LOCAL: PREVIEW CLARO ===== */
+.cozinha-preview {
+  background: linear-gradient(
+    180deg,
+    #fffdf9 0%,
+    #f7efe4 52%,
+    #fffaf3 100%
+  );
+  color: #1f2930;
 }
 
-.cozinha-testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 2rem;
+.cozinha-preview .cozinha-kicker {
+  color: #2f7658;
 }
 
-.cozinha-testimonial {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 0;
-  padding: 1.5rem;
+.cozinha-preview h2 {
+  color: #17324d;
+}
+
+.cozinha-preview .cozinha-section__lead,
+.cozinha-preview__hint,
+.cozinha-preview__note {
+  color: #4f5a63;
+}
+
+.cozinha-preview__scroller {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(23, 50, 77, 0.08);
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+
+.cozinha-preview-card {
   background: #ffffff;
-  border: 1px solid rgba(75, 47, 32, 0.12);
-  border-radius: 1.25rem;
-  box-shadow: 0 12px 32px rgba(75, 47, 32, 0.08);
+  border: 1px solid rgba(23, 50, 77, 0.10);
+  box-shadow: 0 12px 28px rgba(23, 50, 77, 0.08);
 }
 
-.cozinha-testimonial__quote {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.72;
+.cozinha-preview-card figcaption {
+  color: #17324d;
 }
 
-.cozinha-testimonial__person {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-top: 1.35rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(75, 47, 32, 0.1);
+.cozinha-preview__note {
+  max-width: 44rem;
 }
-
-.cozinha-testimonial__person img {
-  width: 72px;
-  height: 72px;
-  flex: 0 0 72px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.cozinha-testimonial__person div {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.cozinha-testimonial__person strong {
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.cozinha-testimonial__person span {
-  margin-top: 0.2rem;
-  font-size: 0.86rem;
-  line-height: 1.35;
-  opacity: 0.72;
-}
-
-@media (max-width: 900px) {
-  .cozinha-testimonials__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cozinha-testimonial {
-    padding: 1.25rem;
-  }
-}
-
-@media (max-width: 520px) {
-  .cozinha-testimonial__person img {
-    width: 64px;
-    height: 64px;
-    flex-basis: 64px;
-  }
-}
+/* ===== FIM AJUSTE LOCAL: PREVIEW CLARO ===== */
