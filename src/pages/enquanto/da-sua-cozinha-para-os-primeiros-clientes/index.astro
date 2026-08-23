@@ -186,11 +186,32 @@ const faqs = [
   },
 ];
 
-const testimonials: Array<{
-  name: string;
-  meta: string;
-  quote: string;
-}> = [];
+const testimonials = [
+  {
+    name: 'Rita A.',
+    meta: 'Salvador, Bahia',
+    image: '/assets/enquanto/da-sua-cozinha/depoimentos/rita-a.webp',
+    imageAlt: 'Rita A., cliente do material Da Sua Cozinha para os Primeiros Clientes',
+    quote:
+      'Eu sempre fazia bolo para a família e já tinham me falado várias vezes para vender. O material me ajudou principalmente a entender por onde começar, porque eu ficava pensando em muita coisa ao mesmo tempo.',
+  },
+  {
+    name: 'Jonas S.',
+    meta: 'Uberlândia, Minas Gerais',
+    image: '/assets/enquanto/da-sua-cozinha/depoimentos/jonas-s.webp',
+    imageAlt: 'Jonas S., cliente do material Da Sua Cozinha para os Primeiros Clientes',
+    quote:
+      'Eu já pegava alguns pedidos, mas fazia tudo meio no improviso. Depois que li o material, comecei a organizar melhor as coisas e ficou bem mais fácil de entender o que eu precisava fazer.',
+  },
+  {
+    name: 'Rodrigo G.',
+    meta: 'Criciúma, Santa Catarina',
+    image: '/assets/enquanto/da-sua-cozinha/depoimentos/rodrigo-g.webp',
+    imageAlt: 'Rodrigo G., cliente do material Da Sua Cozinha para os Primeiros Clientes',
+    quote:
+      'Eu achava que precisava preparar um monte de coisa antes de começar. Gostei porque vi que dava para fazer de um jeito mais simples, começando com o que eu já tinha.',
+  },
+];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -796,7 +817,7 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
     {
       testimonials.length > 0 && (
         <section
-          class="cozinha-section cozinha-complements"
+          class="cozinha-section cozinha-testimonials"
           aria-labelledby="cozinha-testimonials-title"
         >
           <div class="cozinha-container">
@@ -806,13 +827,29 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
               Quem já começou a colocar a ideia em ordem.
             </h2>
 
-            <div class="cozinha-complements__grid">
+            <div class="cozinha-testimonials__grid">
               {
                 testimonials.map((item) => (
-                  <article class="cozinha-complement">
-                    <p>“{item.quote}”</p>
-                    <h3>{item.name}</h3>
-                    <small>{item.meta}</small>
+                  <article class="cozinha-testimonial">
+                    <p class="cozinha-testimonial__quote">
+                      “{item.quote}”
+                    </p>
+
+                    <div class="cozinha-testimonial__person">
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt}
+                        width="240"
+                        height="240"
+                        loading="lazy"
+                        decoding="async"
+                      />
+
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span>{item.meta}</span>
+                      </div>
+                    </div>
                   </article>
                 ))
               }

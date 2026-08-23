@@ -2259,3 +2259,94 @@ html {
     background: #fff;
   }
 }
+
+/* =========================================================
+   DEPOIMENTOS — DA SUA COZINHA
+   ========================================================= */
+
+.cozinha-testimonials {
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf3 0%,
+      #f5e9da 100%
+    );
+}
+
+.cozinha-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.cozinha-testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(75, 47, 32, 0.12);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 32px rgba(75, 47, 32, 0.08);
+}
+
+.cozinha-testimonial__quote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.cozinha-testimonial__person {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(75, 47, 32, 0.1);
+}
+
+.cozinha-testimonial__person img {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cozinha-testimonial__person div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cozinha-testimonial__person strong {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.cozinha-testimonial__person span {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  opacity: 0.72;
+}
+
+@media (max-width: 900px) {
+  .cozinha-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozinha-testimonial {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .cozinha-testimonial__person img {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
+  }
+}
