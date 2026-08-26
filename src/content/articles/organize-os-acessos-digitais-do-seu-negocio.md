@@ -173,6 +173,8 @@ Reserve quinze minutos por mês para verificar:
 
 Também faça uma revisão sempre que houver mudança de equipe, encerramento de contrato, troca de celular ou criação de um novo canal digital.
 
+Quando o inventário estiver pronto, dois procedimentos merecem aprofundamento. Para contas críticas, veja [como ativar autenticação em dois fatores sem perder acesso à própria conta](/guias/autenticacao-em-dois-fatores-sem-perder-acesso/). E, quando uma pessoa deixa de trabalhar com o negócio, use o [checklist de desligamento digital para transferir e remover acessos](/guias/checklist-desligamento-digital-remover-acessos/).
+
 ## Plano de ação para hoje
 
 Faça estas cinco ações antes de encerrar o dia:

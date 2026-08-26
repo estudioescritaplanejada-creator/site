@@ -284,6 +284,8 @@ Ao final, tome uma das três decisões:
 
 Evite deixar a ferramenta indefinidamente em uma situação de “talvez”. Assinaturas recorrentes precisam de uma justificativa recorrente.
 
+Quando a ferramenta em análise é armazenamento, não compare apenas preço e gigabytes. O guia [Vale a pena pagar por armazenamento em nuvem para o seu negócio?](/guias/vale-a-pena-pagar-por-armazenamento-em-nuvem/) acrescenta critérios de versões, compartilhamento, propriedade, backup e recuperação.
+
 ## Resumo prático
 
 Para decidir se vale a pena pagar por uma ferramenta digital:

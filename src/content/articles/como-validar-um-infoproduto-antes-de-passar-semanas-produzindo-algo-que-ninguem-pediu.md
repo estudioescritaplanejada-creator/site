@@ -239,6 +239,8 @@ Se você quiser algo mais objetivo, siga esta sequência:
 7. se houver sinal suficiente, construa um MVP;
 8. use o retorno obtido para decidir o próximo passo.
 
+A análise de concorrência pode fortalecer a validação quando é feita com evidências. Veja [como usar IA para pesquisar concorrentes sem copiar nem confiar em informação inventada](/guias/como-pesquisar-concorrentes-com-ia-sem-copiar/). Depois que a oferta estiver validada, a etapa seguinte é [montar uma página de vendas clara, sem exagerar na promessa](/guias/como-montar-uma-pagina-de-vendas-de-infoproduto/).
+
 ## Plano de ação para hoje
 
 1. escolha um problema específico que você sabe resolver;

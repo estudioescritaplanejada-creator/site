@@ -154,6 +154,8 @@ Se surgir uma mensagem suspeita durante a recuperação, use os critérios do gu
 7. Avise clientes apenas se houver risco de uso indevido.
 8. Registre o que aconteceu e o que precisou ser recuperado.
 
+Depois de recuperar as contas, revise também a forma como o segundo fator foi configurado. O guia [Autenticação em dois fatores: como ativar sem perder acesso à própria conta](/guias/autenticacao-em-dois-fatores-sem-perder-acesso/) mostra como combinar proteção, códigos de recuperação e métodos alternativos antes da próxima troca ou perda de aparelho.
+
 ## Depois da emergência, reduza a dependência de um único celular
 
 Quando tudo estiver controlado, aproveite o incidente para revisar a estrutura do negócio.

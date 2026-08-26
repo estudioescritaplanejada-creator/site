@@ -202,6 +202,8 @@ Fonte verificada em 10 de agosto de 2026:
 
 - [OpenAI — práticas recomendadas de engenharia de prompt para ChatGPT](https://help.openai.com/pt-br/articles/10032626-prompt-engineering-best-practices-for-chatgpt)
 
+Depois que uma ideia vira plano e começa a se repetir na rotina, vale dar o passo seguinte: [transformar a execução real em procedimentos e checklists usando IA](/guias/como-criar-procedimentos-e-checklists-com-ia/).
+
 ## Resumo prático
 
 - comece pelo objetivo, não pela ferramenta;

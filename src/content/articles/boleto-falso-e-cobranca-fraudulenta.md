@@ -128,6 +128,8 @@ Não existe garantia de devolução. A rapidez aumenta a possibilidade de bloque
 
 O Banco Central orienta vítimas de boleto fraudulento a procurar o banco e registrar boletim de ocorrência.
 
+Quando a venda é recebida por Pix, existe um risco diferente: a pessoa pode apresentar um comprovante que não corresponde a um crédito efetivamente recebido. Veja o procedimento em [Comprovante de Pix falso: como confirmar que o dinheiro entrou antes de entregar](/guias/comprovante-de-pix-falso-como-confirmar-pagamento/).
+
 ## Plano de ação para hoje
 
 1. Salve os contatos oficiais dos fornecedores recorrentes.

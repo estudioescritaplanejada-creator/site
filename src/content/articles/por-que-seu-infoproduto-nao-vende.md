@@ -94,6 +94,8 @@ Antes de relançar ou lançar um novo produto, percorra esta checagem:
 - a apresentação começa pelo problema, não pelo conteúdo;
 - existe um motivo real para decidir agora.
 
+Se o diagnóstico aponta para apresentação da oferta, avance para [como montar uma página de vendas de infoproduto sem exagerar na promessa](/guias/como-montar-uma-pagina-de-vendas-de-infoproduto/). Se o problema está em confiança, veja [como conseguir depoimentos reais sem inventar resultado](/guias/como-conseguir-depoimentos-reais-para-pagina-de-vendas/).
+
 ## Plano de ação para hoje
 
 1. Releia a descrição do seu produto e marque se ela fala do problema antes do conteúdo.

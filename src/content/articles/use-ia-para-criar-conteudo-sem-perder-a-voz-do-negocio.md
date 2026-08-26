@@ -184,6 +184,8 @@ Essas decisões precisam continuar ligadas à estratégia do negócio.
 6. Faça a revisão em quatro camadas.
 7. Salve a versão final no banco de conteúdos aprovados.
 
+Antes de publicar qualquer dado, referência, número ou explicação factual produzida com apoio de IA, aplique o protocolo do guia [Como conferir se uma resposta da inteligência artificial está correta](/guias/como-conferir-se-uma-resposta-da-ia-esta-correta/).
+
 ## Resumo prático
 
 - use exemplos reais como referência;

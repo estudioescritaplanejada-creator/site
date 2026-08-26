@@ -601,6 +601,8 @@ Depois, ajuste conforme a rotina mostrar o que realmente faz falta.
 
 ---
 
+Quando o volume cresce, a próxima decisão não precisa ser automaticamente contratar um sistema. O guia [WhatsApp Business, planilha ou CRM: como saber quando seu negócio precisa mudar](/guias/whatsapp-planilha-ou-crm-quando-mudar/) compara os três níveis pela rotina real. Para propostas já enviadas, veja também [como organizar follow-up sem depender da memória](/guias/como-acompanhar-orcamentos-enviados-e-fazer-follow-up/).
+
 ## Quando a organização manual deixa de ser suficiente
 
 Uma estrutura simples pode funcionar por muito tempo para quem trabalha sozinho ou administra poucos atendimentos simultâneos.

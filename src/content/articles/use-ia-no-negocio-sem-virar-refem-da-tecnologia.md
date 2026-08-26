@@ -184,6 +184,8 @@ Ao final, decida se o uso deve ser mantido, ajustado ou abandonado.
 6. Retire informações pessoais desnecessárias.
 7. Salve o procedimento que funcionou.
 
+Dois usos complementares ajudam a transformar IA em processo, não dependência: [documentar procedimentos e checklists com IA](/guias/como-criar-procedimentos-e-checklists-com-ia/) e [conferir se uma resposta da IA está correta antes de usar](/guias/como-conferir-se-uma-resposta-da-ia-esta-correta/).
+
 ## Resumo prático
 
 - comece pela tarefa;

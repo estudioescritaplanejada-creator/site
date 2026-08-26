@@ -179,6 +179,8 @@ Revise:
 - etapas que não fazem mais sentido;
 - pedidos concluídos que podem ser arquivados.
 
+Mudanças pedidas durante a execução também precisam sair da conversa e entrar no controle. Veja [como registrar alterações pedidas pelo cliente sem perder prazo, preço e versão](/guias/como-registrar-alteracoes-pedidas-pelo-cliente/) para separar correção, revisão prevista e mudança real de escopo.
+
 ## O que evitar
 
 Evite:

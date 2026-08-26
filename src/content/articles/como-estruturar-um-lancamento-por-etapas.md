@@ -88,6 +88,8 @@ Depois de encerrado, reserve um momento para revisar o que funcionou e o que pod
 
 Esse aprendizado transforma cada lançamento em uma versão mais refinada do anterior, em vez de recomeçar do zero toda vez.
 
+Durante a preparação, um material gratuito pode funcionar como ponte para a oferta — desde que atraia o público certo. Veja [como criar um lead magnet que prepara a pessoa para sua oferta](/guias/lead-magnet-como-criar-material-gratuito-para-sua-oferta/). E, antes de abrir vendas, revise a [estrutura da página de vendas](/guias/como-montar-uma-pagina-de-vendas-de-infoproduto/).
+
 ## Plano de ação para hoje
 
 1. Defina a duração de cada etapa do seu próximo lançamento: pré-lançamento, carrinho aberto e fechamento.

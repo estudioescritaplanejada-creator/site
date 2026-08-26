@@ -137,6 +137,8 @@ Registre o que fazer caso o aparelho desapareça:
 
 Manter esse procedimento fora do celular reduz o tempo de reação.
 
+Se a dúvida já deixou de ser apenas backup do aparelho e passou a envolver espaço, compartilhamento e controle de arquivos do negócio, use também o guia [Vale a pena pagar por armazenamento em nuvem?](/guias/vale-a-pena-pagar-por-armazenamento-em-nuvem/).
+
 ## Plano de ação para hoje
 
 1. Confira a data do último backup do WhatsApp.

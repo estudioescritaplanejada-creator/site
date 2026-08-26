@@ -93,6 +93,8 @@ Um bom conteúdo apresentado de forma desorganizada perde valor. Antes de vender
 
 A apresentação profissional não substitui o conteúdo, mas evita que um bom material pareça amador.
 
+Depois de estruturar o produto, você não precisa levar todo mundo diretamente para a compra. Um [lead magnet conectado à oferta](/guias/lead-magnet-como-criar-material-gratuito-para-sua-oferta/) pode resolver um problema anterior e preparar a próxima etapa da jornada.
+
 ## Plano de ação para hoje
 
 1. Escreva três problemas específicos que você já sabe resolver na prática.

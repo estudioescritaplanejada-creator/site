@@ -250,6 +250,8 @@ Se você quiser começar sem complicar, use este roteiro:
 - downloads;
 - arquivos a arquivar.
 
+Na revisão comercial, não olhe apenas para pedidos em execução. Revise também [orçamentos enviados que precisam de follow-up](/guias/como-acompanhar-orcamentos-enviados-e-fazer-follow-up/) e clientes que já receberam a entrega, mas ainda têm uma [próxima ação de pós-venda](/guias/pos-venda-simples-como-acompanhar-o-cliente/).
+
 ## Plano de ação para hoje
 
 1. escolha um dia e um horário fixo para o fechamento semanal;
