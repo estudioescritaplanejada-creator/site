@@ -125,24 +125,41 @@ const problemPaths = [
   <section class="home-v2-hero" aria-labelledby="home-title">
     <div class="home-container home-v2-hero__inner">
       <div class="home-v2-hero__copy">
-        <p class="eyebrow">
-          Conteúdo prático para quem trabalha por conta própria
-        </p>
+        <picture class="home-v2-hero__picture" aria-hidden="true">
+          <source
+            media="(max-width: 48rem)"
+            srcset="/assets/home/hero/eep-hero-mobile-photo-4x5.webp"
+          />
+          <img
+            src="/assets/home/hero/eep-hero-desktop-4x5.webp"
+            width="1280"
+            height="1600"
+            alt=""
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
 
-        <h1 id="home-title">
-          Respostas claras para os problemas digitais do seu trabalho.
-        </h1>
+        <div class="home-v2-hero__copy-content">
+          <p class="eyebrow">
+            Conteúdo prático para quem trabalha por conta própria
+          </p>
 
-        <p class="home-v2-hero__lead">
-          Aprenda a proteger suas contas, evitar golpes, organizar mensagens e
-          cobranças, usar inteligência artificial, escolher ferramentas e
-          transformar o que você sabe em produtos digitais.
-        </p>
+          <h1 id="home-title">
+            Respostas claras para os problemas digitais do seu trabalho.
+          </h1>
 
-        <p class="home-v2-hero__support">
-          Conteúdo gratuito, direto ao ponto e pensado para situações que
-          aparecem no trabalho de verdade.
-        </p>
+          <p class="home-v2-hero__lead">
+            Aprenda a proteger suas contas, evitar golpes, organizar mensagens e
+            cobranças, usar inteligência artificial, escolher ferramentas e
+            transformar o que você sabe em produtos digitais.
+          </p>
+
+          <p class="home-v2-hero__support">
+            Conteúdo gratuito, direto ao ponto e pensado para situações que
+            aparecem no trabalho de verdade.
+          </p>
+        </div>
       </div>
 
       <div class="home-v2-paths" aria-label="Escolha como começar">

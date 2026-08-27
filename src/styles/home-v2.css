@@ -611,3 +611,380 @@
   height: 1px;
   pointer-events: none;
 }
+
+/* Home v2: hero fotográfico editorial */
+.home-v2-hero__copy {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--white);
+  background: #072b29;
+  border: 0.1rem solid var(--ink);
+}
+
+.home-v2-hero__picture {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.home-v2-hero__picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.home-v2-hero__copy::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 34, 32, 0.72) 0%,
+      rgba(4, 34, 32, 0.58) 27%,
+      rgba(4, 34, 32, 0.27) 49%,
+      rgba(4, 34, 32, 0.08) 65%,
+      rgba(4, 34, 32, 0.00) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 23, 22, 0.08) 0%,
+      rgba(3, 23, 22, 0) 42%
+    );
+}
+
+.home-v2-hero__copy-content {
+  display: flex;
+  min-height: inherit;
+  flex-direction: column;
+  justify-content: center;
+  width: min(63%, 35rem);
+  padding: clamp(2rem, 3.4vw, 3.6rem);
+}
+
+.home-v2-hero__copy .eyebrow {
+  color: #ff623e;
+}
+
+.home-v2-hero__copy h1 {
+  max-width: 10.8ch;
+  margin-bottom: clamp(1.25rem, 1.8vw, 1.65rem);
+  color: #f8f5ef;
+  font-size: clamp(3rem, 4vw, 4.65rem);
+  line-height: 0.91;
+}
+
+.home-v2-hero__copy .home-v2-hero__lead {
+  max-width: 30rem;
+  margin-bottom: 1rem;
+  color: #f0eee9;
+  font-size: clamp(0.98rem, 1.15vw, 1.12rem);
+  line-height: 1.5;
+}
+
+.home-v2-hero__copy .home-v2-hero__support {
+  max-width: 28rem;
+  color: #e4e0d9;
+  border-left-color: #ff623e;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+/* Desktop: respeita a proporção real da fotografia 4:5. */
+@media (min-width: 68.001rem) {
+  .home-v2-hero__copy {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+}
+
+/* Tablet. */
+@media (min-width: 48.001rem) and (max-width: 68rem) {
+  .home-v2-hero__copy {
+    width: 100%;
+    max-width: 48rem;
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+
+  .home-v2-hero__copy-content {
+    width: min(61%, 34rem);
+  }
+}
+
+/* Mobile: texto no alto e fotografia ganhando protagonismo na parte inferior. */
+@media (max-width: 48rem) {
+  .home-v2-hero {
+    padding-block: clamp(2.2rem, 8vw, 3.5rem);
+  }
+
+  .home-v2-hero__copy {
+    width: 100%;
+    max-width: none;
+    min-height: 48rem;
+    background: #072b29;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .home-v2-hero__picture {
+    top: auto;
+    bottom: 0;
+    height: 61%;
+  }
+
+  .home-v2-hero__picture img {
+    object-position: 58% 52%;
+  }
+
+  .home-v2-hero__copy::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4, 34, 32, 0.00) 0%,
+        rgba(4, 34, 32, 0.00) 33%,
+        rgba(4, 34, 32, 0.30) 43%,
+        rgba(4, 34, 32, 0.16) 57%,
+        rgba(4, 34, 32, 0.03) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(4, 34, 32, 0.34) 0%,
+        rgba(4, 34, 32, 0.13) 53%,
+        rgba(4, 34, 32, 0.00) 100%
+      );
+  }
+
+  .home-v2-hero__copy-content {
+    justify-content: flex-start;
+    width: 100%;
+    min-height: inherit;
+    padding: 1.7rem 1rem 16rem;
+  }
+
+  .home-v2-hero__copy h1 {
+    max-width: 11.3ch;
+    margin-top: 0.25rem;
+    margin-bottom: 1.2rem;
+    font-size: clamp(2.65rem, 11.8vw, 3.5rem);
+    line-height: 0.92;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__lead {
+    max-width: 29rem;
+    margin-bottom: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.48;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__support {
+    max-width: 27rem;
+    font-size: 0.8rem;
+    line-height: 1.42;
+  }
+}
+
+@media (max-width: 25rem) {
+  .home-v2-hero__copy {
+    min-height: 47rem;
+  }
+
+  .home-v2-hero__copy-content {
+    padding-inline: 0.9rem;
+  }
+
+  .home-v2-hero__copy h1 {
+    font-size: clamp(2.55rem, 11.5vw, 3.15rem);
+  }
+}
+
+/* Ajuste final de composição do hero */
+
+@media (min-width: 68.001rem) {
+  .home-v2-hero__inner {
+    grid-template-columns: minmax(0, 1.42fr) minmax(21rem, 0.78fr);
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+    align-items: center;
+  }
+
+  .home-v2-hero__copy-content {
+    width: 58%;
+    padding: clamp(2.4rem, 3.4vw, 3.8rem);
+  }
+
+  .home-v2-hero__copy h1 {
+    max-width: 11.7ch;
+    font-size: clamp(3.2rem, 3.55vw, 4.15rem);
+    line-height: 0.92;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__lead {
+    max-width: 29rem;
+    font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+  }
+
+  .home-v2-hero__copy .home-v2-hero__support {
+    max-width: 27rem;
+  }
+
+  .home-v2-hero__copy::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 34, 32, 0.74) 0%,
+        rgba(4, 34, 32, 0.58) 26%,
+        rgba(4, 34, 32, 0.27) 43%,
+        rgba(4, 34, 32, 0.07) 57%,
+        rgba(4, 34, 32, 0) 72%
+      );
+  }
+}
+
+@media (max-width: 48rem) {
+  .home-v2-hero__copy {
+    min-height: 46rem;
+  }
+
+  .home-v2-hero__picture {
+    inset: 0;
+    height: 100%;
+  }
+
+  .home-v2-hero__picture img {
+    object-position: center center;
+  }
+
+  .home-v2-hero__copy::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4, 34, 32, 0.78) 0%,
+        rgba(4, 34, 32, 0.67) 34%,
+        rgba(4, 34, 32, 0.38) 54%,
+        rgba(4, 34, 32, 0.10) 76%,
+        rgba(4, 34, 32, 0.02) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(4, 34, 32, 0.30) 0%,
+        rgba(4, 34, 32, 0.08) 60%,
+        rgba(4, 34, 32, 0) 100%
+      );
+  }
+
+  .home-v2-hero__copy-content {
+    width: 100%;
+    min-height: inherit;
+    justify-content: flex-start;
+    padding: 1.7rem 1rem 12rem;
+  }
+
+  .home-v2-hero__copy h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.55rem, 11.2vw, 3.35rem);
+    line-height: 0.92;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__lead {
+    max-width: 27rem;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__support {
+    max-width: 26rem;
+  }
+}
+
+/* Mobile: composição própria, independente do desktop */
+@media (max-width: 48rem) {
+  .home-v2-hero__copy {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+    background: #072b29;
+  }
+
+  /* No mobile a fotografia deixa de ser background do texto. */
+  .home-v2-hero__picture {
+    position: relative;
+    z-index: 0;
+    inset: auto;
+    order: 2;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .home-v2-hero__picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Transição suave entre texto e fotografia. */
+  .home-v2-hero__picture::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 43, 41, 0.42) 0%,
+        rgba(7, 43, 41, 0.14) 9%,
+        rgba(7, 43, 41, 0) 20%
+      );
+  }
+
+  /* Remove o overlay geral usado pela composição desktop. */
+  .home-v2-hero__copy::after {
+    display: none;
+  }
+
+  .home-v2-hero__copy-content {
+    position: relative;
+    z-index: 1;
+    order: 1;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    padding: 1.6rem 1rem 1.8rem;
+    background: #072b29;
+  }
+
+  .home-v2-hero__copy .eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-v2-hero__copy h1 {
+    max-width: 11.8ch;
+    margin: 0 0 1.35rem;
+    font-size: clamp(2.5rem, 11vw, 3.25rem);
+    line-height: 0.92;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__lead {
+    max-width: 29rem;
+    margin-bottom: 1.15rem;
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .home-v2-hero__copy .home-v2-hero__support {
+    max-width: 28rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+}
