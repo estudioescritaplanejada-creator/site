@@ -11,6 +11,7 @@
     <p id="eep-analytics-description">
       Usamos armazenamento local para lembrar sua escolha. Com sua autorização,
       o Google Analytics usa cookies opcionais para medir o uso do site.
+      Preferências de publicidade, quando aplicáveis, são gerenciadas separadamente.
       Consulte <a href="/cookies/">Cookies</a> e
       <a href="/privacidade/">Privacidade</a>. Você pode aceitar ou recusar.
     </p>
@@ -53,7 +54,7 @@
     const measurementId = 'G-EW21JNBSY5';
     const storageKey = 'eep_analytics_consent';
     const storageVersionKey = 'eep_analytics_consent_version';
-    const consentVersion = '2026-07-31-v1';
+    const consentVersion = '2026-08-27-v2';
 
     const banner = document.getElementById('eep-analytics-consent');
     const acceptButton = document.getElementById('eep-analytics-accept');
@@ -71,9 +72,6 @@
       };
 
     window.gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
       analytics_storage: 'denied',
     });
 
@@ -106,9 +104,6 @@
 
     const denyAnalytics = () => {
       window.gtag('consent', 'update', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
         analytics_storage: 'denied',
       });
     };
@@ -132,9 +127,6 @@
     };
     const loadAnalytics = () => {
       window.gtag('consent', 'update', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
         analytics_storage: 'granted',
       });
 

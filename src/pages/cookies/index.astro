@@ -4,7 +4,7 @@ import '../../styles/legal-pages.css';
 
 const title = 'Política de Cookies | Estúdio Escrita Planejada';
 const description =
-  'Saiba como o Estúdio Escrita Planejada usa armazenamento local e ferramentas opcionais de análise, incluindo o Hotmart Analytics na página específica do produto.';
+  'Saiba como o Estúdio Escrita Planejada usa cookies, armazenamento local, Google Analytics, Google AdSense e ferramentas opcionais de análise.';
 const canonicalPath = '/cookies/';
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
@@ -24,7 +24,7 @@ const schema = {
     url: homeUrl,
     name: 'Estúdio Escrita Planejada',
   },
-  dateModified: '2026-08-20',
+  dateModified: '2026-08-27',
 };
 ---
 
@@ -49,13 +49,15 @@ const schema = {
         <p class="legal-page__eyebrow">Controle nas suas mãos</p>
         <h1>Política de Cookies</h1>
         <p class="legal-page__lead">
-          O site usa armazenamento local para lembrar sua escolha e só carrega
-          ferramentas opcionais de análise quando você autoriza. O Hotmart
-          Analytics é utilizado exclusivamente na página Da Sua Cozinha para os
+          O site usa armazenamento local para lembrar escolhas, Google Analytics
+          para medição autorizada e Google AdSense nas páginas de conteúdo
+          elegíveis para monetização. A publicidade e as mensagens de
+          consentimento variam conforme a região e as escolhas do visitante. O
+          Hotmart Analytics permanece restrito à página Da Sua Cozinha para os
           Primeiros Clientes.
         </p>
         <p class="legal-page__updated">
-          Última atualização: 20 de agosto de 2026.
+          Última atualização: 27 de agosto de 2026.
         </p>
       </header>
 
@@ -120,6 +122,25 @@ const schema = {
                 </td>
               </tr>
               <tr>
+                <td>Google AdSense</td>
+                <td>Publicidade</td>
+                <td>
+                  Selecionar, exibir, proteger e medir anúncios nas páginas de
+                  conteúdo elegíveis para monetização. Cookies e outros
+                  identificadores podem variar conforme região, consentimento
+                  e configuração do Google.
+                </td>
+              </tr>
+              <tr>
+                <td>Google CMP / Privacidade e mensagens</td>
+                <td>Preferências e consentimento</td>
+                <td>
+                  Apresentar opções de consentimento ou recusa quando
+                  aplicáveis e registrar sinais necessários para respeitar as
+                  escolhas do visitante em publicidade.
+                </td>
+              </tr>
+              <tr>
                 <td>Hotmart Analytics</td>
                 <td>Opcional — análise da página de produto</td>
                 <td>
@@ -141,14 +162,39 @@ const schema = {
           chamadas para ação.
         </p>
         <p>
-          As permissões de publicidade permanecem negadas na configuração
-          atual. O Google Analytics não é carregado quando a preferência de
-          análise está recusada.
+          A preferência deste painel controla o armazenamento de análise do
+          Google Analytics. As escolhas relacionadas à publicidade são
+          gerenciadas separadamente pelas ferramentas de privacidade do Google
+          quando aplicáveis. O Google Analytics não é carregado quando a
+          preferência de análise está recusada.
+        </p>
+      </section>
+
+      <section aria-labelledby="adsense">
+        <h2 id="adsense">4. Google AdSense e publicidade</h2>
+        <p>
+          Páginas de conteúdo elegíveis deste domínio podem utilizar o Google
+          AdSense para monetização. As áreas comerciais, institucionais e
+          legais deliberadamente excluídas permanecem sem carregamento do
+          código publicitário.
+        </p>
+        <p>
+          O AdSense pode selecionar e exibir anúncios com base no conteúdo, no
+          contexto, no dispositivo, na região e nas preferências de privacidade
+          aplicáveis. Os anúncios automáticos podem utilizar formatos dentro do
+          conteúdo, sobreposições e formatos baseados em intenção quando
+          disponíveis e elegíveis.
+        </p>
+        <p>
+          Em regiões nas quais consentimento ou possibilidade de recusa sejam
+          exigidos ou disponibilizados, o Google pode apresentar uma mensagem
+          de privacidade. Dependendo da região e da escolha, a publicidade pode
+          ser personalizada, não personalizada ou limitada.
         </p>
       </section>
 
       <section aria-labelledby="hotmart-analytics">
-        <h2 id="hotmart-analytics">4. Hotmart Analytics</h2>
+        <h2 id="hotmart-analytics">5. Hotmart Analytics</h2>
         <p>
           Na página Da Sua Cozinha para os Primeiros Clientes, e somente nela,
           o Hotmart Analytics pode ser carregado após autorização para medir a
@@ -162,7 +208,7 @@ const schema = {
       </section>
 
       <section aria-labelledby="externos">
-        <h2 id="externos">5. Serviços externos</h2>
+        <h2 id="externos">6. Serviços externos</h2>
         <p>
           Algumas páginas contêm links para WhatsApp, YouTube e Hotmart. O
           reprodutor do YouTube é ativado somente quando você escolhe reproduzir
@@ -172,20 +218,22 @@ const schema = {
       </section>
 
       <section aria-labelledby="controle">
-        <h2 id="controle">6. Como mudar sua escolha</h2>
+        <h2 id="controle">7. Como mudar sua escolha</h2>
         <p>
           Na primeira visita, o painel permite aceitar ou recusar os cookies de
           análise. A recusa não impede o acesso ao conteúdo principal.
         </p>
         <p>
-          Você pode reabrir esse painel pelo botão flutuante de preferências no
-          canto da página. Também pode apagar cookies e dados locais nas
+          Você pode reabrir o painel próprio de análise pelo botão flutuante de
+          preferências no canto da página. As mensagens de privacidade do Google
+          oferecem controles próprios quando aplicáveis à região e ao tipo de
+          publicidade. Também é possível apagar cookies e dados locais nas
           configurações do navegador.
         </p>
       </section>
 
       <section aria-labelledby="atualizacoes">
-        <h2 id="atualizacoes">7. Atualizações</h2>
+        <h2 id="atualizacoes">8. Atualizações</h2>
         <p>
           Esta política poderá ser atualizada quando houver mudanças relevantes
           nas tecnologias, finalidades ou configurações do site.

@@ -1,0 +1,51 @@
+---
+/**
+ * Google AdSense / Auto Ads
+ *
+ * Monetização habilitada por padrão para conteúdo HTML do site.
+ * As áreas comerciais, institucionais, legais e técnicas abaixo
+ * permanecem deliberadamente sem carregamento do código publicitário.
+ */
+
+const pathname = Astro.url.pathname;
+const normalizedPath =
+  pathname.endsWith('/') ? pathname : `${pathname}/`;
+
+const excludedPrefixes = [
+  '/enquanto/',
+  '/site-profissional/',
+  '/sistema-criador-digital/',
+  '/afiliados-sistema-criador-digital/',
+  '/cookies/',
+  '/privacidade/',
+  '/sobre/',
+];
+
+const isHome = pathname === '/';
+
+const isTechnicalPage =
+  pathname === '/404' ||
+  pathname === '/404/' ||
+  pathname === '/404.html';
+
+const isExcludedSection = excludedPrefixes.some((prefix) =>
+  normalizedPath.startsWith(prefix)
+);
+
+const adsenseEnabled =
+  !isHome &&
+  !isTechnicalPage &&
+  !isExcludedSection;
+---
+
+{
+  adsenseEnabled && (
+    <script
+      is:inline
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4266020173915588"
+      crossorigin="anonymous"
+      data-eep-google-adsense="true"
+    ></script>
+  )
+}
