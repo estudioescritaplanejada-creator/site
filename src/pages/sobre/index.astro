@@ -147,24 +147,7 @@ const principles = [
           </div>
         </div>
 
-        <figure class="about-portrait">
-          <div class="about-portrait__frame">
-            <Image
-              src={robertoImage}
-              alt="Roberto Franco, fundador do Estúdio Escrita Planejada"
-              widths={[480, 720, 960, 1122]}
-              sizes="(max-width: 52rem) calc(100vw - 2.5rem), 40vw"
-              format="webp"
-              quality={88}
-              loading="eager"
-              fetchpriority="high"
-            />
-          </div>
-          <figcaption>
-            <span>Roberto Franco</span>
-            <small>Fundador do Estúdio Escrita Planejada</small>
-          </figcaption>
-        </figure>
+
       </div>
     </section>
 
@@ -305,6 +288,31 @@ const principles = [
             >Falar pelo WhatsApp</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section
+      class="about-closing"
+      aria-label="Roberto Franco, fundador do Estúdio Escrita Planejada"
+    >
+      <div class="editorial-container about-closing__inner">
+        <figure class="about-portrait about-portrait--closing">
+          <div class="about-portrait__frame">
+            <Image
+              src={robertoImage}
+              alt="Roberto Franco, fundador do Estúdio Escrita Planejada"
+              widths={[480, 720, 960, 1122]}
+              sizes="(max-width: 52rem) calc(100vw - 2.5rem), 42rem"
+              format="webp"
+              quality={88}
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            <span>Roberto Franco</span>
+            <small>Fundador do Estúdio Escrita Planejada</small>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </main>

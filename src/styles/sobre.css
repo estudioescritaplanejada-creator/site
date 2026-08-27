@@ -581,3 +581,43 @@
     width: 100%;
   }
 }
+
+/* Sobre: hero textual e retrato como encerramento autoral */
+.about-hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.about-hero__copy {
+  max-width: 64rem;
+}
+
+.about-hero h1 {
+  max-width: 11.5ch;
+}
+
+.about-closing {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  background: var(--paper-2);
+  border-bottom: 0.1rem solid var(--ink);
+}
+
+.about-closing__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.about-portrait--closing {
+  width: min(100%, 42rem);
+  margin: 0 auto;
+}
+
+@media (max-width: 52rem) {
+  .about-hero__copy {
+    max-width: 100%;
+  }
+
+  .about-portrait--closing {
+    width: min(100%, 32rem);
+    margin: 0 auto;
+  }
+}
