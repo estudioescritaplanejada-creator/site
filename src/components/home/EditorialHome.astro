@@ -1,402 +1,426 @@
 ---
 import LegalLinks from '../legal/LegalLinks.astro';
 import { getCollection } from 'astro:content';
-import { isPublished } from '../../lib/editorial';
+import {
+  articlePath,
+  categoryPath,
+  formatArticleDate,
+  isPublished,
+  sortArticles,
+} from '../../lib/editorial';
+import '../../styles/home-v2.css';
 
-const publishedArticles = await getCollection('articles', (article) => isPublished(article));
+const publishedArticles = sortArticles(
+  await getCollection('articles', (article) => isPublished(article)),
+);
+
+const latestArticles = publishedArticles.slice(0, 6);
+
 const activeCategories = new Set<string>(
   publishedArticles.map((article) => article.data.category),
 );
 
 const whatsappUrl =
-  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20digital%20para%20o%20meu%20neg%C3%B3cio.';
+  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20quero%20entender%20como%20voc%C3%AAs%20podem%20me%20ajudar.';
+
+const homeCategoryLabel = {
+  'protecao-digital': 'Segurança digital',
+  'decisoes-digitais': 'Escolha de ferramentas',
+  'rotina-digital': 'Organização do trabalho',
+  'ferramentas-e-ia': 'Inteligência artificial',
+  'produtos-digitais': 'Produtos digitais',
+} as const;
 
 const problemPaths = [
   {
     number: '01',
     label: 'Segurança',
-    title: 'Tenho medo de perder acessos, dados ou dinheiro.',
-    text: 'Proteja contas, celulares, arquivos e informações importantes.',
-    action: 'Proteger contas',
+    title: 'Tenho medo de cair em um golpe ou perder uma conta.',
+    text: 'Celular roubado, WhatsApp, PIX, links suspeitos, senhas, autenticação e proteção de dados.',
+    action: 'Quero me proteger',
     href: '/guias/tema/protecao-digital/',
   },
   {
     number: '02',
     label: 'Organização',
-    title: 'Perco tempo procurando mensagens, arquivos e cobranças.',
-    text: 'Organize a rotina digital e encontre o que precisa com mais facilidade.',
-    action: 'Organizar a rotina',
+    title: 'Estou me perdendo entre mensagens, cobranças e tarefas.',
+    text: 'Atendimento, agenda, pedidos, prazos, arquivos, clientes e acompanhamento.',
+    action: 'Quero colocar em ordem',
     href: '/guias/tema/rotina-digital/',
   },
   {
     number: '03',
-    label: 'Presença profissional',
-    title: 'Meu trabalho não está bem apresentado na internet.',
-    text: 'Reúna serviços, fotos, informações e contato em uma página clara.',
-    action: 'Apresentar melhor',
-    href: '/site-profissional/',
+    label: 'Decisões digitais',
+    title: 'Não sei se vale a pena pagar por uma ferramenta ou serviço.',
+    text: 'Planos, assinaturas, armazenamento, CRM, ferramentas prontas e decisões antes de gastar dinheiro.',
+    action: 'Quero decidir melhor',
+    href: '/guias/tema/decisoes-digitais/',
   },
   {
     number: '04',
+    label: 'Ferramentas e IA',
+    title: 'Quero usar IA e ferramentas sem me complicar.',
+    text: 'Inteligência artificial, aplicativos e ferramentas para escrever, produzir, organizar e atender melhor.',
+    action: 'Quero usar melhor',
+    href: '/guias/tema/ferramentas-e-ia/',
+  },
+  {
+    number: '05',
     label: 'Produto digital',
-    title: 'Sei fazer, mas não sei transformar isso em um produto.',
-    text: 'Organize seu conhecimento em um material que possa ser entregue ou vendido.',
-    action: 'Criar um produto',
+    title: 'Quero transformar o que sei em algo que possa vender.',
+    text: 'Ideia, validação, formato, preço, página de vendas, divulgação e afiliados.',
+    action: 'Quero começar',
     href: '/guias/tema/produtos-digitais/',
   },
 ];
 
-const editorialAreas = [
-  {
-    number: '01',
-    slug: 'protecao-digital',
-    tag: 'Proteção digital',
-    title: 'Evite golpes, perdas e acessos indevidos',
-    text: 'Reconheça riscos e fortaleça as contas que mantêm seu trabalho funcionando.',
-  },
-  {
-    number: '02',
-    slug: 'rotina-digital',
-    tag: 'Rotina digital',
-    title: 'Coloque mensagens, cobranças e arquivos em ordem',
-    text: 'Reduza o tempo perdido e crie uma rotina que seja possível manter.',
-  },
-  {
-    number: '03',
-    slug: 'decisoes-digitais',
-    tag: 'Decisões digitais',
-    title: 'Escolha ferramentas sem gastar no escuro',
-    text: 'Compare utilidade, custo e dificuldade antes de contratar ou trocar.',
-  },
-  {
-    number: '04',
-    slug: 'ferramentas-e-ia',
-    tag: 'Ferramentas e IA',
-    title: 'Use tecnologia sem depender dela para tudo',
-    text: 'Aplique ferramentas para atender, escrever e produzir com mais agilidade.',
-  },
-  {
-    number: '05',
-    slug: 'produtos-digitais',
-    tag: 'Produtos digitais',
-    title: 'Transforme conhecimento em um material útil',
-    text: 'Estruture uma aula, orientação ou método para entregar ou vender.',
-  },
-];
-
-const tools = [
-  {
-    status: 'Em preparação',
-    title: 'Checklist de segurança do negócio',
-    text: 'Confira senhas, acessos, celulares, backups e contas importantes em poucos passos.',
-  },
-  {
-    status: 'Em preparação',
-    title: 'Inventário de acessos digitais',
-    text: 'Reúna domínios, redes sociais, e-mails, ferramentas e responsáveis por cada conta.',
-  },
-  {
-    status: 'Em preparação',
-    title: 'Banco de mensagens profissionais',
-    text: 'Adapte mensagens para orçamento, cobrança, confirmação, atendimento e pós-venda.',
-  },
-];
 ---
 
 <a class="home-skip" href="#conteudo">Ir para o conteúdo principal</a>
 
 <div class="utility-bar">
   <div class="home-container utility-bar__inner">
-    <span>Vida digital prática</span>
+    <span>Conteúdo prático</span>
     <span aria-hidden="true">•</span>
-    <span>Guias, ferramentas e serviços para quem trabalha por conta própria</span>
+    <span>Respostas para quem trabalha por conta própria</span>
   </div>
 </div>
 
 <header class="home-header">
   <div class="home-container home-header__inner">
-    <a class="home-brand" href="/" aria-label="Estúdio Escrita Planejada — página inicial">
+    <a
+      class="home-brand"
+      href="/"
+      aria-label="Estúdio Escrita Planejada - página inicial"
+    >
       <span class="home-brand__mark">EEP</span>
       <span class="home-brand__name">Estúdio Escrita Planejada</span>
     </a>
 
     <nav class="home-nav" aria-label="Navegação principal">
-      <a href="/guias/">Guias</a>
-      <a href="#ferramentas">Ferramentas</a>
-      <a href="#servicos">Serviços</a>
+      <a href="#publicacoes">Publicações</a>
+      <a href="#problemas">Por problema</a>
+      <a href="#ajuda">Ajuda para fazer</a>
       <a href="/sobre/">Sobre</a>
-      <a href="/site-profissional/">Site profissional</a>
     </nav>
 
-    <a class="home-header__cta" href="#comece">Comece por aqui</a>
+    <a class="home-header__cta" href="/guias/">Encontrar uma resposta</a>
 
     <details class="home-menu">
-      <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
+      <summary aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </summary>
       <nav aria-label="Navegação móvel">
-        <a href="/guias/">Guias</a>
-        <a href="#ferramentas">Ferramentas</a>
-        <a href="#servicos">Serviços</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#problemas">Por problema</a>
+          <a href="#ajuda">Ajuda para fazer</a>
         <a href="/sobre/">Sobre</a>
-        <a href="/site-profissional/">Site profissional</a>
-        <a href="#comece">Comece por aqui</a>
+        <a href="/guias/">Encontrar uma resposta</a>
       </nav>
     </details>
   </div>
 </header>
 
 <main id="conteudo">
-  <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-container home-hero__synthesis">
-      <div class="home-hero__content">
-        <p class="eyebrow">Para quem trabalha por conta própria</p>
-        <h1 id="home-title">Ajuda prática para organizar seu negócio no digital</h1>
-
-        <p class="home-hero__lead">
-          Guias gratuitos para resolver problemas do dia a dia e serviços profissionais para criar, organizar e melhorar sua presença na internet.
+  <section class="home-v2-hero" aria-labelledby="home-title">
+    <div class="home-container home-v2-hero__inner">
+      <div class="home-v2-hero__copy">
+        <p class="eyebrow">
+          Conteúdo prático para quem trabalha por conta própria
         </p>
 
-        <p class="home-hero__model">
-          Do atendimento aos clientes à criação do seu site, encontre o próximo passo com clareza.
+        <h1 id="home-title">
+          Respostas claras para os problemas digitais do seu trabalho.
+        </h1>
+
+        <p class="home-v2-hero__lead">
+          Aprenda a proteger suas contas, evitar golpes, organizar mensagens e
+          cobranças, usar inteligência artificial, escolher ferramentas e
+          transformar o que você sabe em produtos digitais.
         </p>
 
-        <div class="home-hero__actions">
-          <a class="home-button home-button--primary" href="#comece">O que você precisa resolver?</a>
-          <a class="home-button home-button--secondary" href="#servicos">Conhecer os serviços</a>
-        </div>
-      </div>
-
-      <picture class="home-hero__media">
-        <source
-          media="(max-width: 44rem)"
-          srcset="/assets/home/hero/home-hero-v.webp"
-          width="1086"
-          height="1448"
-        />
-        <img
-          class="home-hero__image"
-          src="/assets/home/hero/home-hero-h.webp"
-          alt="Profissional autônoma organizando o trabalho no ambiente digital"
-          width="1448"
-          height="1086"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </picture>
-    </div>
-  </section>
-
-  <section class="diagnostic" id="comece" aria-labelledby="diagnostic-title">
-    <div class="home-container">
-      <div class="section-heading section-heading--diagnostic">
-        <div>
-          <p class="eyebrow eyebrow--light">Comece pelo que pesa hoje</p>
-          <h2 id="diagnostic-title">Qual problema está atrapalhando seu trabalho?</h2>
-        </div>
-        <p>
-          Escolha a situação mais parecida com a sua e vá direto para uma orientação,
-          um material ou um serviço.
+        <p class="home-v2-hero__support">
+          Conteúdo gratuito, direto ao ponto e pensado para situações que
+          aparecem no trabalho de verdade.
         </p>
       </div>
 
-      <div class="problem-grid">
-        {problemPaths.map((problem) => (
-          <a class="problem-card" href={problem.href}>
-            <span class="problem-card__meta">{problem.number} · {problem.label}</span>
-            <h3>{problem.title}</h3>
-            <p>{problem.text}</p>
-            <span class="problem-card__action">{problem.action} →</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="editorial-intro" id="guias" aria-labelledby="guias-title">
-    <div class="home-container">
-      <div class="section-heading section-heading--split section-heading--with-action">
-        <div>
-          <p class="eyebrow">Guias e orientações</p>
-          <h2 id="guias-title">Ajuda prática para problemas reais.</h2>
-        </div>
-        <div class="section-heading__side">
+      <div class="home-v2-paths" aria-label="Escolha como começar">
+        <article class="home-v2-path home-v2-path--content">
+          <span class="home-v2-path__number">01</span>
+          <p class="home-v2-path__label">Quero resolver por conta própria</p>
+          <h2>Procure a resposta que você precisa.</h2>
           <p>
-            Escolha uma área e encontre explicações diretas, próximos passos e formas
-            possíveis de agir.
+            Segurança, organização, inteligência artificial, ferramentas e
+            produtos digitais.
           </p>
-          <a class="home-button home-button--secondary" href="/guias/">Ver todos os guias</a>
+          <a
+            class="home-button home-button--primary"
+            href="/guias/"
+          >
+            Encontrar uma resposta
+          </a>
+        </article>
+
+        <article class="home-v2-path home-v2-path--help">
+          <span class="home-v2-path__number">02</span>
+          <p class="home-v2-path__label">Quero ajuda para fazer</p>
+          <h2>Tem coisa que você não precisa fazer sozinho.</h2>
+          <p>
+            Sites, organização do trabalho digital e criação de materiais ou
+            produtos.
+          </p>
+          <a
+            class="home-button home-button--secondary"
+            href="#ajuda"
+          >
+            Ver como podemos ajudar
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="home-v2-latest"
+    id="publicacoes"
+    aria-labelledby="latest-title"
+    data-latest-rail
+  >
+    <div class="home-container">
+      <div class="home-v2-heading home-v2-heading--latest">
+        <div>
+          <p class="eyebrow">Publicado recentemente</p>
+          <h2 id="latest-title">
+            Novas respostas para problemas do dia a dia
+          </h2>
+        </div>
+
+        <div class="home-v2-heading__side">
+          <p>
+            Veja os conteúdos mais recentes publicados pelo Estúdio.
+          </p>
+
+          <div class="home-v2-rail-controls" aria-label="Navegar pelas publicações">
+            <button
+              type="button"
+              data-latest-prev
+              aria-label="Ver publicações anteriores"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              data-latest-next
+              aria-label="Ver próximas publicações"
+            >
+              →
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="editorial-grid editorial-grid--synthesis">
-        {editorialAreas.map((area, index) => (
-          <article class:list={['editorial-card', index === 0 && 'editorial-card--featured']}>
-            <div class="editorial-card__meta">
-              <span>{area.number}</span>
-              <span>{area.tag}</span>
+      <div
+        class="home-v2-latest__track"
+        data-latest-track
+        tabindex="0"
+        aria-label="Publicações recentes"
+      >
+        {latestArticles.map((article) => (
+          <article class="home-v2-latest-card">
+            <div class="home-v2-latest-card__meta">
+              <a href={categoryPath(article.data.category)}>
+                {homeCategoryLabel[article.data.category]}
+              </a>
+              <time datetime={article.data.publishedAt.toISOString()}>
+                {formatArticleDate(article.data.publishedAt)}
+              </time>
             </div>
-            <h3>{area.title}</h3>
-            <p>{area.text}</p>
+
+            <h3>
+              <a href={articlePath(article)}>
+                {article.data.title}
+              </a>
+            </h3>
+
+            <p>{article.data.description}</p>
+
             <a
-              class="editorial-card__action"
-              href={activeCategories.has(area.slug) ? `/guias/tema/${area.slug}/` : '/guias/'}
+              class="home-v2-latest-card__action"
+              href={articlePath(article)}
             >
-              {activeCategories.has(area.slug) ? 'Ver os guias →' : 'Em preparação →'}
+              Ler
+              <span aria-hidden="true">→</span>
             </a>
           </article>
         ))}
       </div>
-    </div>
-  </section>
 
-  <section class="tools" id="ferramentas" aria-labelledby="tools-title">
-    <div class="home-container">
-      <div class="section-heading section-heading--tools">
-        <div>
-          <p class="eyebrow">Ferramentas e materiais</p>
-          <h2 id="tools-title">Materiais para começar tarefas importantes com mais facilidade.</h2>
-        </div>
-        <p>
-          Checklists, modelos e mensagens prontas para adaptar, guardar e reutilizar
-          na rotina do negócio.
-        </p>
-      </div>
-
-      <div class="tools-grid">
-        {tools.map((tool, index) => (
-          <article class="tool-card">
-            <div class="tool-card__top">
-              <span>{tool.status}</span>
-              <b>0{index + 1}</b>
-            </div>
-            <h3>{tool.title}</h3>
-            <p>{tool.text}</p>
-            <span class="tool-card__label">Material gratuito</span>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="servicos" aria-labelledby="services-title">
-    <div class="home-container">
-      <div class="section-heading section-heading--split">
-        <div>
-          <p class="eyebrow">Serviços do Estúdio</p>
-          <h2 id="services-title">Quando você precisa que alguém organize e faça.</h2>
-        </div>
-        <p>
-          O Estúdio transforma informações dispersas em uma entrega clara, útil e
-          pronta para funcionar.
-        </p>
-      </div>
-
-      <div class="services-grid services-grid--synthesis">
-        <article class="service-card service-card--primary">
-          <span class="service-card__number">01</span>
-          <p class="service-card__tag">Serviço principal</p>
-          <h3>Site profissional</h3>
-          <p>
-            Uma página clara, adaptada ao celular e conectada ao WhatsApp para
-            apresentar seu trabalho e receber contatos.
-          </p>
-          <div class="service-card__actions">
-            <a class="home-button home-button--light" href="/site-profissional/">Conhecer o serviço</a>
-            <span>Projetos a partir de R$ 490*</span>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <span class="service-card__number">02</span>
-          <p class="service-card__tag">Organização digital</p>
-          <h3>Coloque canais, mensagens e informações em ordem</h3>
-          <p>
-            Organize a forma como o negócio se apresenta e atende para reduzir dúvidas
-            e facilitar o contato.
-          </p>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Conversar sobre o projeto →</a>
-        </article>
-
-        <article class="service-card">
-          <span class="service-card__number">03</span>
-          <p class="service-card__tag">Produto digital</p>
-          <h3>Transforme conhecimento em um material pronto</h3>
-          <p>
-            Você traz o conhecimento. O Estúdio cuida da estrutura, do texto, do visual
-            e da preparação final.
-          </p>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Apresentar uma ideia →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="site-feature" aria-labelledby="site-feature-title">
-    <div class="home-container site-feature__synthesis">
-      <picture class="site-feature__media">
-        <source
-          media="(max-width: 44rem)"
-          srcset="/assets/home/site-profissional/home-site-profissional-v.webp"
-          width="1086"
-          height="1448"
-        />
-        <img
-          src="/assets/home/site-profissional/home-site-profissional-h.webp"
-          alt="Notebook e celular exibem uma página profissional para um pequeno negócio"
-          width="1448"
-          height="1086"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
-
-      <div class="site-feature__copy">
-        <p class="eyebrow eyebrow--light">Seu endereço na internet</p>
-        <h2 id="site-feature-title">
-          Não dependa apenas das redes sociais para apresentar seu trabalho.
-        </h2>
-        <p>
-          Reúna serviços, fotos, região atendida e formas de contato em uma página
-          que pertence ao seu negócio.
-        </p>
-
-        <ul>
-          <li>Página rápida e adaptada ao celular</li>
-          <li>Informações reunidas em um só lugar</li>
-          <li>Contato direto pelo WhatsApp</li>
-        </ul>
-
-        <a class="home-button home-button--primary" href="/site-profissional/">
-          Conhecer o serviço de site profissional
+      <div class="home-v2-latest__footer">
+        <a class="home-button home-button--secondary" href="/guias/">
+          Ver todas as publicações
         </a>
       </div>
     </div>
   </section>
 
-  <section class="final-call" aria-labelledby="final-call-title">
-    <div class="home-container final-call__synthesis">
-      <div class="final-call__panel">
+  <section
+    class="home-v2-problems"
+    id="problemas"
+    aria-labelledby="problems-title"
+  >
+    <span
+      id="ferramentas"
+      class="home-v2-anchor-alias"
+      aria-hidden="true"
+    ></span>
+    <div class="home-container">
+      <div class="home-v2-heading home-v2-heading--light">
         <div>
-          <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
-          <h2 id="final-call-title">Menos confusão no digital. Mais tranquilidade para trabalhar.</h2>
+          <p class="eyebrow eyebrow--light">Não sabe por onde começar?</p>
+          <h2 id="problems-title">O que está dando trabalho hoje?</h2>
         </div>
+        <p>
+          Escolha a situação que mais se parece com a sua.
+        </p>
+      </div>
 
-        <div class="final-call__action">
+      <div class="home-v2-problem-grid">
+        {problemPaths.map((problem) => (
+          <a class="home-v2-problem-card" href={problem.href}>
+            <span class="home-v2-problem-card__meta">
+              {problem.number} · {problem.label}
+            </span>
+            <h3>{problem.title}</h3>
+            <p>{problem.text}</p>
+            <span class="home-v2-problem-card__action">
+              {problem.action} →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="home-v2-help"
+    id="ajuda"
+    aria-labelledby="help-title"
+  >
+    <span
+      id="servicos"
+      class="home-v2-anchor-alias"
+      aria-hidden="true"
+    ></span>
+    <div class="home-container">
+      <div class="home-v2-heading home-v2-heading--help">
+        <div>
+          <p class="eyebrow">Se você preferir ter ajuda</p>
+          <h2 id="help-title">
+            Tem coisa que você não precisa fazer sozinho.
+          </h2>
+        </div>
+        <p>
+          Além dos conteúdos gratuitos, o Estúdio pode ajudar a colocar alguns
+          desses trabalhos em prática.
+        </p>
+      </div>
+
+      <div class="home-v2-help-grid">
+        <article class="home-v2-help-card home-v2-help-card--primary">
+          <span class="home-v2-help-card__number">01</span>
+          <p class="home-v2-help-card__label">
+            Quero um site para mostrar meu trabalho
+          </p>
+          <h3>Um lugar simples e profissional para apresentar o que você faz.</h3>
           <p>
-            Leia uma orientação, use um material ou converse com o Estúdio para
-            organizar e executar o que precisa ser feito.
+            Reúna seus serviços, informações, fotos e formas de contato em uma
+            página rápida e adaptada ao celular.
           </p>
           <a
-            class="home-button home-button--acid"
+            class="home-button home-button--light"
+            href="/site-profissional/"
+          >
+            Ver como funciona
+          </a>
+          <small>Projetos a partir de R$ 490*</small>
+        </article>
+
+        <article class="home-v2-help-card">
+          <span class="home-v2-help-card__number">02</span>
+          <p class="home-v2-help-card__label">
+            Quero organizar melhor meu atendimento
+          </p>
+          <h3>Coloque mensagens, informações e etapas em uma ordem mais simples.</h3>
+          <p>
+            Organizamos a forma como seu trabalho se apresenta e atende para
+            reduzir dúvidas e facilitar a rotina.
+          </p>
+          <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Falar pelo WhatsApp
+            Entender como funciona →
+          </a>
+        </article>
+
+        <article class="home-v2-help-card">
+          <span class="home-v2-help-card__number">03</span>
+          <p class="home-v2-help-card__label">
+            Quero transformar o que sei em um produto
+          </p>
+          <h3>Organize seu conhecimento para publicar, entregar ou vender.</h3>
+          <p>
+            Você traz o que sabe. O Estúdio ajuda a estruturar, escrever,
+            apresentar e preparar o material.
+          </p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Quero contar minha ideia →
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="home-v2-final"
+    aria-labelledby="final-title"
+  >
+    <div class="home-container home-v2-final__panel">
+      <div>
+        <p class="eyebrow eyebrow--light">Estúdio Escrita Planejada</p>
+        <h2 id="final-title">
+          Pode começar pelo problema que você tem hoje.
+        </h2>
+      </div>
+
+      <div class="home-v2-final__action">
+        <p>
+          Procure uma resposta entre os conteúdos publicados. Se precisar de
+          ajuda para colocar alguma coisa em prática, fale com o Estúdio.
+        </p>
+
+        <div class="home-v2-final__buttons">
+          <a
+            class="home-button home-button--acid"
+            href="/guias/"
+          >
+            Encontrar uma resposta
+          </a>
+
+          <a
+            class="home-button home-button--light"
+            href="#ajuda"
+          >
+            Ver como podemos ajudar
           </a>
         </div>
       </div>
-
     </div>
   </section>
 </main>
@@ -408,21 +432,66 @@ const tools = [
         <span class="home-brand__mark">EEP</span>
         <span class="home-brand__name">Estúdio Escrita Planejada</span>
       </a>
-      <p>Ajuda prática para organizar a vida digital de quem trabalha por conta própria e administra pequenos negócios.</p>
+      <p>
+        Conteúdo prático e ajuda para quem trabalha por conta própria e precisa
+        lidar todos os dias com tecnologia, organização e clientes.
+      </p>
     </div>
-    <nav aria-label="Links institucionais">
-      <a href="/guias/">Guias</a>
-      <a href="#ferramentas">Ferramentas</a>
-      <a href="#servicos">Serviços</a>
+
+    <nav aria-label="Links principais">
+      <a href="#publicacoes">Publicações</a>
+      <a href="#problemas">Por problema</a>
+      <a href="#ajuda">Ajuda para fazer</a>
       <a href="/sobre/">Sobre</a>
-      <a href="/site-profissional/">Site profissional</a>
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="/guias/">Todos os conteúdos</a>
     </nav>
+
     <div class="home-footer__legal">
       <p>Atendimento online em todo o Brasil</p>
-      <p><a href="mailto:estudioescritaplanejada@gmail.com">estudioescritaplanejada@gmail.com</a></p>
+      <p>
+        <a href="mailto:estudioescritaplanejada@gmail.com">
+          estudioescritaplanejada@gmail.com
+        </a>
+      </p>
       <p>© 2026 Estúdio Escrita Planejada</p>
       <LegalLinks />
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  (() => {
+    const sections = document.querySelectorAll('[data-latest-rail]');
+
+    sections.forEach((section) => {
+      const track = section.querySelector('[data-latest-track]');
+      const previous = section.querySelector('[data-latest-prev]');
+      const next = section.querySelector('[data-latest-next]');
+
+      if (
+        !(track instanceof HTMLElement) ||
+        !(previous instanceof HTMLButtonElement) ||
+        !(next instanceof HTMLButtonElement)
+      ) {
+        return;
+      }
+
+      const scrollAmount = () =>
+        Math.max(track.clientWidth * 0.82, 280);
+
+      previous.addEventListener('click', () => {
+        track.scrollBy({
+          left: -scrollAmount(),
+          behavior: 'smooth',
+        });
+      });
+
+      next.addEventListener('click', () => {
+        track.scrollBy({
+          left: scrollAmount(),
+          behavior: 'smooth',
+        });
+      });
+    });
+  })();
+</script>
