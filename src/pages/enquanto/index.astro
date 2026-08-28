@@ -1,6 +1,7 @@
 ---
 import LegalLinks from '../../components/legal/LegalLinks.astro';
 import StandalonePageLayout from '../../layouts/StandalonePageLayout.astro';
+import FloatingSupport from '../../components/enquanto/FloatingSupport.astro';
 import '../../styles/enquanto.css';
 
 const structuredData = {
@@ -654,4 +655,5 @@ const structuredData = {
   if (year) year.textContent = new Date().getFullYear();
 })();
   </script>
+  <FloatingSupport />
 </StandalonePageLayout>

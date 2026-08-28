@@ -1,0 +1,468 @@
+---
+const mercadoPagoUrl = 'https://link.mercadopago.com.br/enquantoeleage';
+const qrCodeUrl =
+  '/assets/enquanto-ele-age/img/qrcode-mercadopago-enquanto-ele-age.png';
+---
+
+<aside
+  class="eea-support-widget"
+  data-eea-support-widget
+  aria-label="Apoie o Enquanto Ele Age"
+>
+  <div
+    class="eea-support-panel"
+    id="eea-support-panel"
+    data-eea-support-panel
+    hidden
+  >
+    <div class="eea-support-head">
+      <strong>APOIE O ENQUANTO ELE AGE</strong>
+
+      <button
+        class="eea-support-close"
+        type="button"
+        data-eea-support-close
+        aria-label="Minimizar apoio ao Enquanto Ele Age"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <p class="eea-support-intro">
+      Se este projeto faz bem a você, considere nos apoiar.
+    </p>
+
+    <div class="eea-support-body">
+      <a
+        class="eea-support-cta"
+        href={mercadoPagoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics-event="support_mercadopago_click"
+        data-cta-label="Apoiar pelo Mercado Pago"
+      >
+        APOIAR PELO MERCADO PAGO
+      </a>
+
+      <p class="eea-support-mobile-hint">
+        Está vendo esta página em outro dispositivo? Escaneie o QR Code.
+      </p>
+
+      <div class="eea-support-qr">
+        <div class="eea-support-qr-image">
+          <img
+            src={qrCodeUrl}
+            alt="QR Code para apoiar o Enquanto Ele Age pelo Mercado Pago"
+            width="588"
+            height="588"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <span class="eea-support-desktop-hint">
+          Escaneie com a câmera do celular
+        </span>
+      </div>
+
+      <span class="eea-support-separator" aria-hidden="true">ou</span>
+
+      <span class="eea-support-provider">
+        Pagamento pelo Mercado Pago
+      </span>
+    </div>
+  </div>
+
+  <button
+    class="eea-support-trigger"
+    type="button"
+    data-eea-support-trigger
+    aria-expanded="false"
+    aria-controls="eea-support-panel"
+  >
+    <span class="eea-support-heart" aria-hidden="true">♥</span>
+    <span class="eea-support-label eea-support-label--desktop">
+      APOIE O ENQUANTO ELE AGE
+    </span>
+    <span class="eea-support-label eea-support-label--mobile">
+      APOIE O PROJETO
+    </span>
+  </button>
+</aside>
+
+<script>
+  const widget = document.querySelector('[data-eea-support-widget]');
+
+  if (widget instanceof HTMLElement) {
+    const trigger = widget.querySelector('[data-eea-support-trigger]');
+    const panel = widget.querySelector('[data-eea-support-panel]');
+    const closeButton = widget.querySelector('[data-eea-support-close]');
+
+    if (
+      trigger instanceof HTMLButtonElement &&
+      panel instanceof HTMLElement &&
+      closeButton instanceof HTMLButtonElement
+    ) {
+      const getContext = () =>
+        window.matchMedia('(max-width: 820px)').matches
+          ? 'mobile'
+          : 'desktop';
+
+      const openPanel = () => {
+        panel.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+
+        document.dispatchEvent(
+          new CustomEvent('eep:support-widget-open', {
+            detail: {
+              source: getContext(),
+            },
+          }),
+        );
+
+        closeButton.focus();
+      };
+
+      const closePanel = (restoreFocus = true) => {
+        panel.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+
+        if (restoreFocus) {
+          trigger.focus();
+        }
+      };
+
+      trigger.addEventListener('click', () => {
+        if (trigger.getAttribute('aria-expanded') === 'true') {
+          closePanel();
+          return;
+        }
+
+        openPanel();
+      });
+
+      closeButton.addEventListener('click', () => {
+        closePanel();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (
+          event.key === 'Escape' &&
+          trigger.getAttribute('aria-expanded') === 'true'
+        ) {
+          closePanel();
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  .eea-support-widget {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1850;
+    font-family: var(--font-body, 'Inter', 'Segoe UI', Arial, sans-serif);
+  }
+
+  .eea-support-panel[hidden] {
+    display: none;
+  }
+
+  .eea-support-trigger,
+  .eea-support-close {
+    font: inherit;
+  }
+
+  .eea-support-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 54px;
+    padding: 0 21px;
+    border: 1px solid rgba(243, 240, 232, 0.2);
+    border-radius: 999px;
+    color: #071821;
+    background: #c5a46d;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+    font-family: var(--font-display, 'League Spartan', Arial, sans-serif);
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.045em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .eea-support-trigger:hover {
+    background: #d4b77f;
+  }
+
+  .eea-support-trigger:focus-visible,
+  .eea-support-close:focus-visible,
+  .eea-support-cta:focus-visible {
+    outline: 3px solid #7ccbd5;
+    outline-offset: 4px;
+  }
+
+  .eea-support-heart {
+    color: #7b1722;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .eea-support-label--mobile {
+    display: none;
+  }
+
+  .eea-support-panel {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 12px);
+    width: min(430px, calc(100vw - 40px));
+    max-height: calc(100svh - 100px);
+    overflow: auto;
+    padding: 26px;
+    border: 1px solid rgba(243, 240, 232, 0.16);
+    border-radius: 20px;
+    color: #f3f0e8;
+    background: #071821;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+  }
+
+  .eea-support-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .eea-support-head strong {
+    max-width: 310px;
+    color: #fff;
+    font-family: var(--font-display, 'League Spartan', Arial, sans-serif);
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.025em;
+  }
+
+  .eea-support-close {
+    display: grid;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid rgba(243, 240, 232, 0.2);
+    border-radius: 50%;
+    color: #f3f0e8;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .eea-support-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .eea-support-intro {
+    margin: 13px 0 0;
+    color: #c5d0d4;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .eea-support-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+  .eea-support-qr {
+    order: 1;
+    display: grid;
+    justify-items: center;
+    gap: 9px;
+  }
+
+  .eea-support-qr-image {
+    width: 205px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  .eea-support-qr img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .eea-support-desktop-hint {
+    color: #a9b7be;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  .eea-support-separator {
+    order: 2;
+    margin: 13px 0;
+    color: #82969e;
+    font-size: 0.76rem;
+    text-align: center;
+    text-transform: lowercase;
+  }
+
+  .eea-support-cta {
+    order: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 12px 18px;
+    border-radius: 11px;
+    color: #071821;
+    background: #c5a46d;
+    text-decoration: none;
+    font-family: var(--font-display, 'League Spartan', Arial, sans-serif);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .eea-support-cta:hover {
+    background: #d4b77f;
+  }
+
+  .eea-support-mobile-hint {
+    display: none;
+  }
+
+  .eea-support-provider {
+    order: 4;
+    margin-top: 10px;
+    color: #81949c;
+    font-size: 0.72rem;
+    text-align: center;
+  }
+
+  @media (max-width: 820px) {
+    .eea-support-widget {
+      right: auto;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .eea-support-trigger {
+      max-width: calc(100vw - 138px);
+      min-height: 46px;
+      padding-inline: 15px;
+      white-space: nowrap;
+    }
+
+    .eea-support-label--desktop {
+      display: none;
+    }
+
+    .eea-support-label--mobile {
+      display: inline;
+    }
+
+    .eea-support-panel {
+      right: 50%;
+      bottom: calc(100% + 10px);
+      width: min(360px, calc(100vw - 24px));
+      max-height: calc(100svh - 92px);
+      transform: translateX(50%);
+      padding: 18px;
+    }
+
+    .eea-support-cta {
+      order: 1;
+    }
+
+    .eea-support-mobile-hint {
+      order: 2;
+      display: block;
+      margin: 15px 0 10px;
+      color: #a9b7be;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .eea-support-qr {
+      order: 3;
+    }
+
+    .eea-support-qr-image {
+      width: 132px;
+    }
+
+    .eea-support-desktop-hint,
+    .eea-support-separator {
+      display: none;
+    }
+
+    .eea-support-provider {
+      order: 4;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .eea-support-trigger {
+      max-width: calc(100vw - 128px);
+      padding-inline: 12px;
+      font-size: 0.72rem;
+    }
+
+    .eea-support-panel {
+      width: calc(100vw - 20px);
+    }
+  }
+
+  @media (max-height: 520px) and (orientation: landscape) {
+    .eea-support-panel {
+      max-height: calc(100svh - 70px);
+      padding: 14px 16px;
+    }
+
+    .eea-support-intro {
+      margin-top: 8px;
+    }
+
+    .eea-support-body {
+      margin-top: 12px;
+    }
+
+    .eea-support-qr-image {
+      width: 94px;
+    }
+
+    .eea-support-mobile-hint {
+      margin: 9px 0 7px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eea-support-trigger,
+    .eea-support-close,
+    .eea-support-cta {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .eea-support-widget {
+      display: none !important;
+    }
+  }
+</style>

@@ -200,6 +200,22 @@
       window.gtag('event', eventName, parameters);
     };
 
+    document.addEventListener('eep:support-widget-open', (event) => {
+      const supportContext =
+        event instanceof CustomEvent &&
+        event.detail &&
+        typeof event.detail.source === 'string'
+          ? event.detail.source
+          : window.matchMedia('(max-width: 820px)').matches
+            ? 'mobile'
+            : 'desktop';
+
+      sendAnalyticsEvent('support_widget_open', {
+        support_context: supportContext,
+        page_path: window.location.pathname,
+      });
+    });
+
     const whatsappPattern =
       /^https:\/\/(?:wa\.me|api\.whatsapp\.com)(?:\/|$)/i;
 
@@ -220,6 +236,19 @@
         .trim()
         .replace(/\s+/g, ' ')
         .slice(0, 120);
+
+      if (link.dataset.analyticsEvent === 'support_mercadopago_click') {
+        sendAnalyticsEvent('support_mercadopago_click', {
+          support_context: window.matchMedia('(max-width: 820px)').matches
+            ? 'mobile'
+            : 'desktop',
+          cta_label: linkText,
+          link_url: href,
+          page_path: window.location.pathname,
+        });
+
+        return;
+      }
 
       if (link.dataset.analyticsEvent === 'lead_magnet_download') {
         const params = new URLSearchParams(window.location.search);
