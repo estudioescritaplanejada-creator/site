@@ -244,6 +244,63 @@
   margin-top: 1.8rem;
 }
 
+.home-v2-preferred-source {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: clamp(2rem, 3vw, 2.8rem);
+  border-top: 0.1rem solid var(--line-strong);
+}
+
+.home-v2-preferred-source__copy .eyebrow {
+  margin-bottom: 0.8rem;
+}
+
+.home-v2-preferred-source__copy h3 {
+  max-width: 19ch;
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.9rem, 3vw, 3.1rem);
+  line-height: 0.98;
+}
+
+.home-v2-preferred-source__copy > p:last-child {
+  max-width: 45rem;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.home-v2-preferred-source__action {
+  width: min(100%, 24rem);
+  justify-self: end;
+}
+
+@media (max-width: 68rem) {
+  .home-v2-preferred-source {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-v2-preferred-source__action {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 44rem) {
+  .home-v2-preferred-source__action {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .home-v2-preferred-source__action > [google-add-preferred-source-btn] {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .home-v2-problems {
   padding-block: clamp(5rem, 8vw, 7.5rem);
   color: var(--white);

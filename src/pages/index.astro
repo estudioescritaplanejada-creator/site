@@ -79,5 +79,12 @@ const schema = {
     set:html={JSON.stringify(schema)}
   ></script>
 
+  <script
+    slot="head"
+    is:inline
+    async
+    src="https://news.google.com/swg/js/v1/publisher.js"
+  ></script>
+
   <EditorialHome />
 </EditorialLayout>
