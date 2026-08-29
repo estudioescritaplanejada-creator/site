@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # editor settings
 .vscode/
+
+# EEP editorial workflow local workspace
+.eep-work/
