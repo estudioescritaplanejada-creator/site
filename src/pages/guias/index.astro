@@ -30,18 +30,23 @@ const description =
 const canonicalPath = '/guias/';
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const organizationId = new URL('/#organization', baseUrl).toString();
+const websiteId = new URL('/#website', baseUrl).toString();
+const webpageId = `${canonicalUrl}#webpage`;
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
+  '@id': webpageId,
   name: title,
   description,
   url: canonicalUrl,
   inLanguage: 'pt-BR',
   isPartOf: {
-    '@type': 'WebSite',
-    name: 'Estúdio Escrita Planejada',
-    url: new URL('/', baseUrl).toString(),
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
   },
   mainEntity: {
     '@type': 'ItemList',

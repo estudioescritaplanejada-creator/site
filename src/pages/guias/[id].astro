@@ -37,6 +37,9 @@ const readingMinutes = getReadingMinutes(article.body ?? '');
 const canonicalPath = articlePath(article);
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+const organizationId = new URL('/#organization', baseUrl).toString();
+const websiteId = new URL('/#website', baseUrl).toString();
+const articleId = `${canonicalUrl}#article`;
 const publishedIso = article.data.publishedAt.toISOString();
 const modifiedIso = (article.data.updatedAt ?? article.data.publishedAt).toISOString();
 const leadMagnet = article.data.leadMagnet;
@@ -117,21 +120,31 @@ const imageHeight = imageDimensions.height;
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
+  '@id': articleId,
   headline: article.data.title,
   description: article.data.description,
   datePublished: publishedIso,
   dateModified: modifiedIso,
   inLanguage: 'pt-BR',
-  mainEntityOfPage: canonicalUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+    url: canonicalUrl,
+  },
+  isPartOf: {
+    '@id': websiteId,
+  },
   articleSection: category.label,
   keywords: article.data.themes.join(', '),
   author: {
     '@type': 'Organization',
+    '@id': organizationId,
     name: article.data.author,
     url: new URL('/', baseUrl).toString(),
   },
   publisher: {
     '@type': 'Organization',
+    '@id': organizationId,
     name: 'Estúdio Escrita Planejada',
     url: new URL('/', baseUrl).toString(),
     logo: {
