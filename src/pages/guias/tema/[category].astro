@@ -38,6 +38,62 @@ const articles = sortArticles(
 const title = `${info.label}: guias práticos | Estúdio Escrita Planejada`;
 const description = info.description;
 const canonicalPath = `/guias/tema/${category}/`;
+const baseUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: canonicalUrl,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Estúdio Escrita Planejada',
+    url: new URL('/', baseUrl).toString(),
+  },
+  about: {
+    '@type': 'Thing',
+    name: info.label,
+    description: info.description,
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/guias/${article.id}/`, baseUrl).toString(),
+      name: article.data.title,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Início',
+      item: new URL('/', baseUrl).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Guias',
+      item: new URL('/guias/', baseUrl).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: info.label,
+      item: canonicalUrl,
+    },
+  ],
+};
 ---
 
 <EditorialContentLayout
@@ -46,6 +102,20 @@ const canonicalPath = `/guias/tema/${category}/`;
   canonicalPath={canonicalPath}
   active="guias"
 >
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  ></script>
+
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  ></script>
+
   <main id="conteudo">
     <nav class="breadcrumbs" aria-label="Caminho da página">
       <div class="editorial-container">
