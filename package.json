@@ -18,7 +18,8 @@
     "eep:verify": "node scripts/eep.mjs verify",
     "audit": "node scripts/audit.mjs",
     "preflight": "node scripts/eep.mjs check",
-    "eep:audit": "node scripts/eep.mjs audit"
+    "eep:audit": "node scripts/eep.mjs audit",
+    "postbuild": "node scripts/ensure-sitemap-alias.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
