@@ -27,39 +27,6 @@ const productId = `${canonicalUrl}#product`;
 const faqId = `${canonicalUrl}#faq`;
 const breadcrumbId = `${canonicalUrl}#breadcrumb`;
 
-const modules = [
-  {
-    number: '01',
-    title: 'Sua Vitrine nas Redes',
-    description:
-      'Organize fotos, informações e apresentação para que as pessoas entendam melhor o que você vende.',
-  },
-  {
-    number: '02',
-    title: 'Anúncios Simples',
-    description:
-      'Entenda como escolher uma oferta, pensar em um público próximo e fazer seus primeiros testes de divulgação paga.',
-  },
-  {
-    number: '03',
-    title: 'Sua Loja nos Aplicativos',
-    description:
-      'Veja os principais pontos relacionados a cardápio, fotografia, descrição, preço, embalagem, taxas e operação.',
-  },
-  {
-    number: '04',
-    title: 'Mensagens que Facilitam o Pedido',
-    description:
-      'Tenha uma estrutura para responder, confirmar informações, pagamento, retirada e entrega.',
-  },
-  {
-    number: '05',
-    title: 'Organização do Começo',
-    description:
-      'Produto, preço, apresentação, divulgação e atendimento conectados em uma única sequência.',
-  },
-];
-
 const complements = [
   {
     number: '01',
@@ -262,7 +229,7 @@ const schema = {
           baseUrl,
         ).toString(),
         new URL(
-          '/assets/enquanto/da-sua-cozinha/hero.webp',
+          '/assets/enquanto/da-sua-cozinha/v2/hero-v2-desktop.webp',
           baseUrl,
         ).toString(),
       ],
@@ -340,8 +307,17 @@ const currentYear = new Date().getFullYear();
     <link
       rel="preload"
       as="image"
-      href="/assets/enquanto/da-sua-cozinha/hero.webp"
+      href="/assets/enquanto/da-sua-cozinha/v2/hero-v2-desktop.webp"
       type="image/webp"
+      media="(min-width: 43.01rem)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/enquanto/da-sua-cozinha/v2/hero-v2-mobile.webp"
+      type="image/webp"
+      media="(max-width: 43rem)"
       fetchpriority="high"
     />
 
@@ -529,47 +505,51 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
     </nav>
 
     <section
-      class="cozinha-hero"
+      class="cozinha-hero cozinha-hero--v2"
       aria-labelledby="cozinha-hero-title"
     >
-      <div class="cozinha-container cozinha-hero__grid">
-        <div class="cozinha-hero__content">
-          <p class="cozinha-label">Kit digital · 6 PDFs</p>
+      <div class="cozinha-hero__media" aria-hidden="true"></div>
+      <div class="cozinha-hero__shade" aria-hidden="true"></div>
 
+      <div class="cozinha-container cozinha-hero__stage">
+        <div class="cozinha-hero__content cozinha-hero__content--v2">
           <p class="cozinha-product-name">
             Da Sua Cozinha para os Primeiros Clientes
           </p>
 
           <h1 id="cozinha-hero-title">
-            Você já sabe cozinhar. Agora transforme o que você faz em algo
-            que as pessoas possam pedir de você.
+            Você já sabe fazer o que as pessoas pedem repetido.
+            <span>Só falta transformar isso em pedido de verdade.</span>
           </h1>
 
           <p class="cozinha-hero__lead">
-            Se o seu bolo, pão, salgado, marmita, torta ou outra receita
-            vive recebendo elogios, talvez você já tenha pensado:
-            “E se eu começasse a vender?”
+            Aquele bolo que some da bandeja em 20 minutos. Aquele salgado que
+            já ouviu “você deveria vender isso” mais de uma vez. A parte difícil,
+            saber fazer bem, você já resolveu.
           </p>
 
-          <p class="cozinha-hero__lead">
-            Da Sua Cozinha para os Primeiros Clientes foi criado para
-            colocar as decisões desse começo na ordem certa.
+          <p class="cozinha-hero__lead cozinha-hero__lead--product">
+            <strong>Da Sua Cozinha para os Primeiros Clientes</strong>
+            organiza o resto: o que vender primeiro, quanto cobrar, como
+            apresentar, onde divulgar e como responder quando o pedido chegar.
           </p>
 
-          <div class="cozinha-price-summary">
-            <strong>R$ 77,00</strong>
-            <span>Pagamento único · acesso vitalício</span>
+          <div class="cozinha-hero__conversion">
+            <div class="cozinha-price-summary">
+              <strong>R$ 77,00</strong>
+              <span>Pagamento único · acesso vitalício</span>
+            </div>
+
+            <a
+              class="cozinha-button cozinha-button--primary"
+              href={checkoutUrl}
+              data-analytics-event="commercial_cta_click"
+              data-cta-type="hotmart_checkout_hero"
+              data-cta-label="Quero começar agora por R$ 77,00"
+            >
+              Quero começar agora
+            </a>
           </div>
-
-          <a
-            class="cozinha-button cozinha-button--primary"
-            href={checkoutUrl}
-            data-analytics-event="commercial_cta_click"
-            data-cta-type="hotmart_checkout_hero"
-            data-cta-label="Quero começar agora por R$ 77,00"
-          >
-            Quero começar agora por R$ 77,00
-          </a>
 
           <ul class="cozinha-trust-list" aria-label="Condições da compra">
             <li>Compra e acesso pela Hotmart</li>
@@ -577,125 +557,190 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
             <li>Leitura no celular e no computador</li>
           </ul>
         </div>
+      </div>
+    </section>
 
-        <div class="cozinha-hero__visual">
-          <div class="cozinha-hero__frame">
-            <img
-              src="/assets/enquanto/da-sua-cozinha/hero.webp"
-              alt="Capa vertical do guia Da Sua Cozinha para os Primeiros Clientes"
-              width="1086"
-              height="1448"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
+    <section
+      class="cozinha-section cozinha-v2-inaction"
+      aria-labelledby="cozinha-inaction-title"
+    >
+      <div class="cozinha-container cozinha-v2-inaction__grid">
+        <div>
+          <p class="cozinha-kicker">O custo do improviso</p>
+
+          <h2 id="cozinha-inaction-title">
+            O que custa não organizar isso agora
+          </h2>
+        </div>
+
+        <div class="cozinha-v2-inaction__copy">
+          <p>
+            Cada mês sem isso resolvido não é um mês parado: é um mês
+            vendendo no improviso, cobrando errado ou nem cobrando,
+            perdendo pedido por não saber responder rápido.
+          </p>
+
+          <p class="cozinha-v2-inaction__echo">
+            “Vou resolver depois” geralmente quer dizer
+            <strong>“vou continuar cobrando errado por mais tempo”.</strong>
+          </p>
         </div>
       </div>
     </section>
 
     <section
-      class="cozinha-section cozinha-problem cozinha-problem--dark"
-      aria-labelledby="cozinha-problem-title"
+      class="cozinha-section cozinha-v2-transformation"
+      aria-labelledby="cozinha-transformation-title"
     >
-      <div class="cozinha-container cozinha-problem__grid">
-        <div>
-          <p class="cozinha-kicker">O difícil não é fazer a comida</p>
+      <div class="cozinha-container">
+        <div class="cozinha-v2-section-intro">
+          <p class="cozinha-kicker">Pense na diferença</p>
 
-          <h2 id="cozinha-problem-title">
-            É saber o que fazer depois.
+          <h2 id="cozinha-transformation-title">
+            O produto já pode ser bom. O que muda é a organização.
           </h2>
 
           <p class="cozinha-section__lead">
-            Você pode saber fazer um bolo maravilhoso. Pode ter uma receita
-            de pão que todo mundo elogia. Pode preparar salgados, marmitas
-            ou tortas melhores do que muita coisa que já é vendida por aí.
-          </p>
-
-          <p class="cozinha-section__lead">
-            Mas saber cozinhar e saber como começar a vender são coisas
-            diferentes.
+            Você não precisa transformar sua cozinha em uma empresa enorme.
+            Precisa deixar claras as decisões que hoje ainda dependem do improviso.
           </p>
         </div>
 
-        <ul class="cozinha-question-list">
-          <li>O que eu vendo primeiro?</li>
-          <li>Quanto eu cobro?</li>
-          <li>Como monto um cardápio?</li>
-          <li>Como mostro meus produtos?</li>
-          <li>Como recebo pedidos?</li>
-          <li>Preciso de Instagram?</li>
-          <li>E se alguém perguntar o preço?</li>
-          <li>Por onde eu começo?</li>
-        </ul>
+        <figure class="cozinha-v2-photo cozinha-v2-photo--wide">
+          <img
+            src="/assets/enquanto/da-sua-cozinha/v2/antes-depois-v2.webp"
+            alt="O mesmo espaço de trabalho culinário mostrado primeiro de forma improvisada e depois organizado para vendas."
+            width="1800"
+            height="1344"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="cozinha-v2-state-grid">
+          <article class="cozinha-v2-state cozinha-v2-state--today">
+            <p class="cozinha-v2-state__label">Hoje</p>
+
+            <ul>
+              <li>Eu sei fazer, mas não sei por onde começar.</li>
+              <li>Não faço ideia de quanto cobrar.</li>
+              <li>Não sei o que colocar no cardápio.</li>
+              <li>Tenho vergonha ou dúvida na hora de divulgar.</li>
+              <li>Improviso quando alguém pergunta preço ou como pedir.</li>
+            </ul>
+          </article>
+
+          <article class="cozinha-v2-state cozinha-v2-state--organized">
+            <p class="cozinha-v2-state__label">
+              Com as decisões organizadas
+            </p>
+
+            <ul>
+              <li>Você sabe o que pretende vender primeiro.</li>
+              <li>Tem uma estrutura para analisar o preço.</li>
+              <li>Sabe como apresentar seus produtos.</li>
+              <li>Escolhe onde começar a divulgar.</li>
+              <li>Prepara o atendimento antes do primeiro pedido.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="cozinha-v2-closing">
+          Nada mágico aconteceu. Você continua fazendo o que já sabe fazer.
+          <strong>O que muda é ter clareza sobre o que vem depois.</strong>
+        </p>
       </div>
     </section>
 
     <section
-      class="cozinha-section cozinha-modules cozinha-modules--path"
-      aria-labelledby="cozinha-path-title"
+      class="cozinha-section cozinha-v2-roadmap"
+      aria-labelledby="cozinha-roadmap-title"
     >
       <div class="cozinha-container">
-        <p class="cozinha-kicker">Da cozinha ao primeiro pedido</p>
+        <div class="cozinha-v2-roadmap__head">
+          <div>
+            <p class="cozinha-kicker">Da cozinha ao primeiro pedido</p>
 
-        <h2 id="cozinha-path-title">
-          Existem 5 passos. E você pode organizar um de cada vez.
-        </h2>
+            <h2 id="cozinha-roadmap-title">
+              Cinco decisões colocam o começo em movimento.
+            </h2>
 
-        <div class="cozinha-modules__grid">
-          <article class="cozinha-module">
+            <p class="cozinha-section__lead">
+              Não é necessário resolver tudo de uma vez. Você pode seguir
+              uma sequência simples e organizar uma decisão por vez.
+            </p>
+          </div>
+
+          <figure class="cozinha-v2-photo cozinha-v2-roadmap__photo">
+            <img
+              src="/assets/enquanto/da-sua-cozinha/v2/cinco-passos-v2.webp"
+              alt="Sequência visual de cinco etapas para transformar um produto de cozinha em uma oferta organizada."
+              width="1800"
+              height="1344"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+
+        <div class="cozinha-v2-steps" aria-label="Cinco passos">
+          <article class="cozinha-v2-step">
             <span>01</span>
-            <h3>Escolher</h3>
-            <p>
-              Decida o que faz mais sentido oferecer primeiro. Sem começar
-              com vinte opções e sem tentar vender tudo o que sabe fazer.
-            </p>
+            <div>
+              <h3>Escolher</h3>
+              <p>
+                Decida o que faz mais sentido oferecer primeiro, sem tentar
+                vender tudo o que sabe fazer.
+              </p>
+            </div>
           </article>
 
-          <article class="cozinha-module">
+          <article class="cozinha-v2-step">
             <span>02</span>
-            <h3>Calcular</h3>
-            <p>
-              Ingredientes, rendimento, embalagem, custos e preço. Você
-              passa a enxergar melhor os números antes de decidir quanto cobrar.
-            </p>
+            <div>
+              <h3>Calcular</h3>
+              <p>
+                Organize ingredientes, rendimento, embalagem, custos e preço
+                antes de decidir quanto cobrar.
+              </p>
+            </div>
           </article>
 
-          <article class="cozinha-module">
+          <article class="cozinha-v2-step">
             <span>03</span>
-            <h3>Apresentar</h3>
-            <p>
-              Organize nome, descrição, preço, fotografia e as informações
-              essenciais para que o cliente entenda o que você oferece.
-            </p>
+            <div>
+              <h3>Apresentar</h3>
+              <p>
+                Deixe claros produto, descrição, preço, fotografia e as
+                informações que o cliente precisa entender.
+              </p>
+            </div>
           </article>
 
-          <article class="cozinha-module">
+          <article class="cozinha-v2-step">
             <span>04</span>
-            <h3>Divulgar</h3>
-            <p>
-              WhatsApp, Facebook, Instagram, anúncios e aplicativos. Conheça
-              os caminhos e comece pelos que fazem sentido para sua realidade.
-            </p>
+            <div>
+              <h3>Divulgar</h3>
+              <p>
+                WhatsApp, Facebook, Instagram, anúncios e aplicativos:
+                comece pelos canais que fazem sentido para sua realidade.
+              </p>
+            </div>
           </article>
 
-          <article class="cozinha-module">
+          <article class="cozinha-v2-step">
             <span>05</span>
-            <h3>Atender</h3>
-            <p>
-              Organize informações e mensagens para responder preço,
-              pedido, entrega, pagamento e prazo sem improvisar toda vez.
-            </p>
+            <div>
+              <h3>Atender</h3>
+              <p>
+                Organize preço, pedido, pagamento, prazo, retirada e entrega
+                para não precisar improvisar toda vez.
+              </p>
+            </div>
           </article>
         </div>
 
-        <p class="cozinha-steps__closing">
-          <strong>
-            Escolher → Calcular → Apresentar → Divulgar → Atender.
-          </strong>
-          É assim que uma ideia começa a virar uma pequena operação de vendas.
-        </p>
-
-        <div class="cozinha-preview__cta">
+        <div class="cozinha-v2-roadmap__cta">
           <a
             class="cozinha-button cozinha-button--primary"
             href={checkoutUrl}
@@ -771,46 +816,45 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
     </section>
 
     <section
-      class="cozinha-section cozinha-audience cozinha-audience--difference"
-      aria-labelledby="cozinha-difference-title"
+      class="cozinha-section cozinha-v2-pricing"
+      aria-labelledby="cozinha-pricing-title"
     >
-      <div class="cozinha-container">
-        <p class="cozinha-kicker">Pense na diferença</p>
+      <div class="cozinha-container cozinha-v2-pricing__grid">
+        <figure class="cozinha-v2-photo cozinha-v2-pricing__photo">
+          <img
+            src="/assets/enquanto/da-sua-cozinha/v2/calculadora-preco-v2.webp"
+            alt="Pessoa organizando custos de um produto caseiro com calculadora, anotações e ingredientes."
+            width="1800"
+            height="1344"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
 
-        <h2 id="cozinha-difference-title">
-          O objetivo é colocar as decisões na ordem certa.
-        </h2>
+        <div class="cozinha-v2-pricing__copy">
+          <p class="cozinha-kicker">Preço sem chute</p>
 
-        <div class="cozinha-audience__grid">
-          <article class="cozinha-audience-card cozinha-audience-card--no">
-            <h3>Hoje</h3>
-            <ul>
-              <li>“Eu sei fazer, mas não sei por onde começar.”</li>
-              <li>“Não faço ideia de quanto cobrar.”</li>
-              <li>“Não sei o que colocar no cardápio.”</li>
-              <li>“Tenho vergonha de divulgar.”</li>
-              <li>“Nem sei o que responder se alguém quiser comprar.”</li>
-              <li>“Parece que preciso montar uma empresa inteira.”</li>
-            </ul>
-          </article>
+          <h2 id="cozinha-pricing-title">
+            Saber fazer bem não resolve a dúvida de quanto cobrar.
+          </h2>
 
-          <article class="cozinha-audience-card cozinha-audience-card--yes">
-            <h3>Com as decisões organizadas</h3>
-            <ul>
-              <li>Você sabe o que pretende vender primeiro.</li>
-              <li>Tem uma estrutura para analisar o preço.</li>
-              <li>Sabe como apresentar seus produtos.</li>
-              <li>Escolhe onde começar a divulgar.</li>
-              <li>Organiza como o pedido será feito.</li>
-              <li>Prepara o atendimento antes de precisar improvisar.</li>
-            </ul>
-          </article>
+          <p class="cozinha-section__lead">
+            Ingredientes são apenas uma parte da conta. Rendimento,
+            embalagem e outros custos também precisam entrar na decisão.
+          </p>
+
+          <ul class="cozinha-v2-checklist">
+            <li>Organize ingredientes e quantidades.</li>
+            <li>Entenda o rendimento de cada produção.</li>
+            <li>Inclua embalagem e custos relacionados.</li>
+            <li>Registre as informações para não refazer a conta do zero.</li>
+          </ul>
+
+          <p class="cozinha-v2-pricing__closing">
+            O kit inclui <strong>Fichas Técnicas Simples</strong> para ajudar
+            a colocar essas informações no papel e enxergar melhor cada produto.
+          </p>
         </div>
-
-        <p class="cozinha-steps__closing">
-          O objetivo não é colocar mais informação na sua cabeça.
-          É transformar uma ideia solta em algo que finalmente começa a tomar forma.
-        </p>
       </div>
     </section>
 
@@ -858,39 +902,6 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
         </section>
       )
     }
-
-    <section
-      class="cozinha-section cozinha-solution"
-      aria-labelledby="cozinha-small-title"
-    >
-      <div class="cozinha-container cozinha-solution__inner">
-        <p class="cozinha-kicker">Você não precisa começar grande</p>
-
-        <h2 id="cozinha-small-title">
-          Precisa começar com clareza.
-        </h2>
-
-        <div class="cozinha-solution__copy">
-          <p>
-            Uma cozinha. Algo que você sabe fazer bem. Poucas opções.
-            Um preço pensado. Uma apresentação simples. Um lugar para
-            divulgar. Uma forma organizada de receber o pedido.
-          </p>
-
-          <p>
-            <strong>É daí que se começa.</strong>
-          </p>
-        </div>
-
-        <div class="cozinha-principles" aria-label="Base para começar">
-          <span>Produto</span>
-          <span>Preço</span>
-          <span>Apresentação</span>
-          <span>Divulgação</span>
-          <span>Pedido</span>
-        </div>
-      </div>
-    </section>
 
     <section
       class="cozinha-section cozinha-receive"
@@ -985,217 +996,43 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
     </section>
 
     <section
-      class="cozinha-section cozinha-steps"
-      aria-labelledby="cozinha-library-title"
-    >
-      <div class="cozinha-container">
-        <p class="cozinha-kicker">166 páginas de conteúdo</p>
-
-        <h2 id="cozinha-library-title">
-          Mas você não precisa estudar 166 páginas para começar.
-        </h2>
-
-        <p class="cozinha-section__lead">
-          Este kit não foi criado para funcionar como um livro que você
-          precisa ler inteiro antes de fazer qualquer coisa. Pense nele
-          como uma caixa de ferramentas.
-        </p>
-
-        <div class="cozinha-steps__grid">
-          <article>
-            <span>01</span>
-            <p>Precisa escolher o produto? Abra essa parte.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <p>Está calculando o preço? Vá para custos e ficha técnica.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <p>Vai divulgar? Consulte redes sociais.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <p>Quer experimentar anúncios? Abra Anúncios Simples.</p>
-          </article>
-          <article>
-            <span>05</span>
-            <p>Está pensando em aplicativo? Vá direto para essa etapa.</p>
-          </article>
-        </div>
-
-        <p class="cozinha-steps__closing">
-          <strong>Você consulta o que precisa quando precisa.</strong>
-        </p>
-      </div>
-    </section>
-
-    <section
-      class="cozinha-section cozinha-modules"
-      aria-labelledby="cozinha-tools-title"
-    >
-      <div class="cozinha-container">
-        <p class="cozinha-kicker">Dentro do próprio guia</p>
-
-        <h2 id="cozinha-tools-title">
-          Cinco partes práticas para fazer a ideia avançar.
-        </h2>
-
-        <div class="cozinha-modules__grid">
-          {
-            modules.map((module) => (
-              <article class="cozinha-module">
-                <span>{module.number}</span>
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="cozinha-section cozinha-audience"
-      aria-labelledby="cozinha-audience-title"
-    >
-      <div class="cozinha-container">
-        <p class="cozinha-kicker">Este material foi feito para você que...</p>
-
-        <h2 id="cozinha-audience-title">
-          Quer parar de apenas pensar e começar a organizar a ideia.
-        </h2>
-
-        <div class="cozinha-audience__grid">
-          <article class="cozinha-audience-card cozinha-audience-card--yes">
-            <h3>Talvez você já...</h3>
-            <ul>
-              <li>Ouviu alguém dizer: “Você deveria vender isso.”</li>
-              <li>Pensou em ganhar dinheiro com algo que cozinha.</li>
-              <li>Recebeu pedidos, mas ainda faz tudo no improviso.</li>
-              <li>Tem dúvidas sobre quanto cobrar.</li>
-              <li>Não sabe o que vender primeiro.</li>
-              <li>Não sabe como divulgar.</li>
-              <li>Quer começar pequeno usando o que já tem.</li>
-            </ul>
-          </article>
-
-          <article class="cozinha-audience-card cozinha-audience-card--no">
-            <h3>Você não precisa ter</h3>
-            <ul>
-              <li>Uma loja.</li>
-              <li>Um cardápio enorme.</li>
-              <li>Domínio de Instagram.</li>
-              <li>Conhecimento de marketing.</li>
-              <li>Cadastro imediato em aplicativos.</li>
-              <li>Uma estrutura sofisticada.</li>
-              <li>Investimento em anúncios para começar.</li>
-            </ul>
-          </article>
-        </div>
-
-        <p class="cozinha-steps__closing">
-          Comece com aquilo que já está nas suas mãos:
-          sua cozinha, aquilo que você sabe fazer e um caminho
-          para organizar o próximo passo.
-        </p>
-      </div>
-    </section>
-
-    <section
-      class="cozinha-section cozinha-steps cozinha-steps--example"
-      aria-labelledby="cozinha-example-title"
-    >
-      <div class="cozinha-container">
-        <p class="cozinha-kicker">Um exemplo simples</p>
-
-        <h2 id="cozinha-example-title">
-          Você faz bolos. As pessoas elogiam. E agora?
-        </h2>
-
-        <div class="cozinha-steps__grid">
-          <article>
-            <span>01</span>
-            <p>Escolher dois ou três sabores para começar.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <p>Anotar ingredientes, quantidade e rendimento.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <p>Entender quanto custa produzir cada bolo.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <p>Definir preço e condições.</p>
-          </article>
-          <article>
-            <span>05</span>
-            <p>Fazer boas fotos e criar uma apresentação simples.</p>
-          </article>
-          <article>
-            <span>06</span>
-            <p>Publicar no WhatsApp.</p>
-          </article>
-          <article>
-            <span>07</span>
-            <p>Organizar como o pedido será feito.</p>
-          </article>
-          <article>
-            <span>08</span>
-            <p>Ter pronta a resposta para quem perguntar preço e como pedir.</p>
-          </article>
-        </div>
-
-        <p class="cozinha-steps__closing">
-          Você não precisou aprender a cozinhar.
-          <strong> Precisou organizar a parte que vem depois.</strong>
-        </p>
-      </div>
-    </section>
-
-    <section
-      class="cozinha-offer"
+      class="cozinha-offer cozinha-offer--v2"
       id="oferta"
       aria-labelledby="cozinha-offer-title"
     >
       <div class="cozinha-container cozinha-offer__grid">
         <div>
-          <p class="cozinha-kicker">Quanto custa organizar tudo isso?</p>
+          <p class="cozinha-kicker">Tudo em um único kit</p>
 
           <h2 id="cozinha-offer-title">
-            Tenha o caminho organizado em um único kit.
+            Em vez de procurar cada resposta em um lugar, organize o começo inteiro.
           </h2>
 
           <p>
-            Você poderia procurar preço em um lugar, cardápio em outro,
-            WhatsApp em outro, Instagram em outro, anúncios em outro,
-            aplicativos em outro, atendimento em outro e fichas técnicas
-            em outro.
-          </p>
-
-          <p>
-            Ou pode reunir tudo em uma sequência criada para quem está
-            justamente nessa fase do começo.
+            Produto, preço, apresentação, divulgação e atendimento fazem parte
+            da mesma venda. O kit reúne essas decisões em uma sequência criada
+            para quem está começando pequeno.
           </p>
 
           <ul class="cozinha-offer__list">
-            <li>Guia principal</li>
-            <li>Materiais complementares</li>
-            <li>Fichas técnicas</li>
-            <li>Boas práticas</li>
-            <li>ChatGPT</li>
+            <li>Guia principal de 94 páginas</li>
+            <li>Fichas Técnicas Simples</li>
+            <li>Boas Práticas na Cozinha</li>
+            <li>ChatGPT no Pequeno Negócio</li>
             <li>Comece Aqui</li>
+            <li>Kit complementar reunido</li>
             <li>Acesso vitalício</li>
+            <li>Pagamento único</li>
           </ul>
         </div>
 
-        <div class="cozinha-offer__box">
+        <div class="cozinha-offer__box cozinha-offer__box--v2">
+          <p class="cozinha-offer__eyebrow">Da Sua Cozinha para os Primeiros Clientes</p>
+
           <span class="cozinha-offer__price">R$ 77,00</span>
 
           <span class="cozinha-offer__payment">
-            pagamento único
+            uma única vez · acesso vitalício
           </span>
 
           <a
@@ -1208,53 +1045,32 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
             Quero receber o kit agora
           </a>
 
-          <p>
-            Compra processada pela Hotmart. O acesso ao material digital
-            é disponibilizado após a confirmação do pagamento.
+          <div class="cozinha-v2-secure">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+
+            <span>
+              Compra processada pela Hotmart · Garantia de 7 dias
+            </span>
+          </div>
+
+          <p class="cozinha-v2-access-note">
+            O acesso ao material digital é disponibilizado após
+            a confirmação do pagamento.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section
-      class="cozinha-section cozinha-problem cozinha-problem--value"
-      aria-labelledby="cozinha-value-title"
-    >
-      <div class="cozinha-container cozinha-problem__grid">
-        <div>
-          <p class="cozinha-kicker">R$ 77 uma única vez</p>
-
-          <h2 id="cozinha-value-title">
-            Menos que o preço de muitos pedidos de comida.
-          </h2>
-
-          <p class="cozinha-section__lead">
-            E você não está comprando uma única receita.
-          </p>
-        </div>
-
-        <ul class="cozinha-question-list">
-          <li>Produto</li>
-          <li>Preço</li>
-          <li>Apresentação</li>
-          <li>Divulgação</li>
-          <li>Aplicativos</li>
-          <li>Atendimento</li>
-          <li>Organização</li>
-          <li>Acesso vitalício</li>
-        </ul>
-      </div>
-
-      <div class="cozinha-container cozinha-preview__cta">
-        <a
-          class="cozinha-button cozinha-button--primary"
-          href={checkoutUrl}
-          data-analytics-event="commercial_cta_click"
-          data-cta-type="hotmart_checkout_value"
-          data-cta-label="Quero começar por R$ 77,00"
-        >
-          Quero começar por R$ 77,00
-        </a>
       </div>
     </section>
 
@@ -1283,27 +1099,25 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
     </section>
 
     <section
-      class="cozinha-final"
+      class="cozinha-final cozinha-final--v2"
       aria-labelledby="cozinha-final-title"
     >
       <div class="cozinha-container cozinha-final__inner">
-        <p class="cozinha-kicker">
-          Talvez você já tenha a parte mais difícil
-        </p>
+        <p class="cozinha-kicker">A parte difícil você já fez</p>
 
         <h2 id="cozinha-final-title">
-          Saber fazer algo que as pessoas gostam de comer.
+          Agora falta transformar elogio em um caminho para receber pedidos.
         </h2>
 
         <p>
           A receita pode já existir. O elogio pode já existir.
-          A vontade pode já existir.
+          A vontade de vender também.
         </p>
 
         <p>
-          O que falta é transformar “um dia eu poderia vender isso” em:
-          “é isso que vou oferecer”, “esse é o preço”, “é assim que vou
-          apresentar”, “é aqui que vou divulgar” e “é assim que a pessoa vai pedir”.
+          O próximo passo é conseguir dizer com clareza:
+          o que vou vender, quanto vou cobrar, como vou apresentar,
+          onde vou divulgar e como a pessoa vai pedir.
         </p>
 
         <div class="cozinha-principles" aria-label="Etapas finais">
@@ -1326,11 +1140,36 @@ hot('account','043c4a5a-6eb1-3ccb-98aa-564a403a46f9');`;
           data-cta-type="hotmart_checkout_final"
           data-cta-label="Quero começar agora por R$ 77,00"
         >
-          Quero começar agora por R$ 77,00
+          Quero começar agora
         </a>
 
-        <p>
-          Compra e acesso pela Hotmart.
+        <div class="cozinha-v2-secure cozinha-v2-secure--final">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          </svg>
+
+          <span>
+            Compra processada pela Hotmart · Garantia de 7 dias
+          </span>
+        </div>
+
+        <p class="cozinha-v2-ps">
+          <strong>P.S.</strong>
+          Se bateu aquele “vou deixar para depois”, pensa assim:
+          a parte difícil, que é cozinhar bem, você já resolveu.
+          O que falta agora é organizar o que vem depois.
+          Com a garantia de 7 dias, você tem um período para avaliar o material.
         </p>
       </div>
     </section>

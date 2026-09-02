@@ -38,6 +38,9 @@
       '.cozinha-preview-card',
       '.cozinha-audience-card',
       '.cozinha-steps__grid article',
+      '.cozinha-v2-state',
+      '.cozinha-v2-step',
+      '.cozinha-v2-photo',
     ].join(','),
   );
 
