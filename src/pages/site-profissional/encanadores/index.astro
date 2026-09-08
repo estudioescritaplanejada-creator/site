@@ -1,0 +1,621 @@
+---
+import StandalonePageLayout from '../../../layouts/StandalonePageLayout.astro';
+import '../../../styles/encanadores.css';
+
+const whatsappUrl = 'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20da%20EEP%20Encanador%20%26%20Hidr%C3%A1ulica%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.';
+
+const services = [
+  {
+    title: 'Vazamentos',
+    text: 'Identificação e reparo de vazamentos aparentes em torneiras, registros, conexões, sifões, vasos sanitários e tubulações.',
+    cta: 'Solicitar atendimento',
+  },
+  {
+    title: 'Torneiras e registros',
+    text: 'Instalação, substituição e manutenção de torneiras, misturadores, registros e componentes hidráulicos.',
+    cta: 'Pedir orçamento',
+  },
+  {
+    title: 'Vasos sanitários',
+    text: 'Instalação e manutenção de vasos sanitários, caixas acopladas, mecanismos de descarga e pequenos vazamentos.',
+    cta: 'Falar pelo WhatsApp',
+  },
+  {
+    title: 'Pias e tanques',
+    text: 'Instalação e manutenção de cubas, pias, sifões, válvulas, torneiras e tanques.',
+    cta: 'Solicitar orçamento',
+  },
+  {
+    title: 'Chuveiros e duchas',
+    text: 'Instalação e manutenção da parte hidráulica de chuveiros, duchas e misturadores.',
+    cta: 'Consultar atendimento',
+  },
+  {
+    title: "Caixa d'água",
+    text: "Manutenção de boias, registros, conexões e componentes relacionados ao abastecimento da caixa d'água.",
+    cta: 'Falar com a EEP Hidráulica',
+  },
+  {
+    title: 'Tubulações',
+    text: 'Reparos, substituição de trechos e adequações de tubulações hidráulicas.',
+    cta: 'Pedir avaliação',
+  },
+  {
+    title: 'Novos pontos de água',
+    text: 'Instalação e alteração de pontos hidráulicos para cozinhas, banheiros, lavanderias, áreas gourmet e outros ambientes.',
+    cta: 'Solicitar orçamento',
+  },
+];
+
+const issues = [
+  'Torneira pingando sem parar?',
+  'Registro que não fecha?',
+  'Descarga vazando?',
+  'Umidade aparecendo na parede?',
+  'Vazamento embaixo da pia?',
+  'Sifão ou conexão soltando água?',
+  'Pressão da água diferente do normal?',
+  'Conta de água aumentou sem explicação?',
+  'Precisa instalar uma nova torneira, pia ou ponto de água?',
+];
+
+const reasons = [
+  {
+    title: 'Atendimento direto',
+    text: 'Você conversa diretamente com nossa equipe para explicar o problema e combinar o atendimento.',
+  },
+  {
+    title: 'Orçamento claro',
+    text: 'Antes da execução, explicamos o serviço necessário e os valores envolvidos.',
+  },
+  {
+    title: 'Experiência prática',
+    text: 'Atendemos problemas hidráulicos comuns em casas, apartamentos, comércios e pequenos condomínios.',
+  },
+  {
+    title: 'Cuidado com seu imóvel',
+    text: 'Trabalhamos com atenção à área de serviço, buscando realizar o reparo com organização e o menor transtorno possível.',
+  },
+  {
+    title: 'Atendimento local',
+    text: 'Atendemos Curitiba e diversas cidades da Região Metropolitana.',
+  },
+  {
+    title: 'Pagamento facilitado',
+    text: 'Aceitamos Pix, cartão de crédito e cartão de débito.',
+  },
+];
+
+const works = [
+  {
+    title: 'Reparo de vazamento em cozinha',
+    place: 'Curitiba — Água Verde',
+    text: 'Correção de vazamento em conexão hidráulica e substituição dos componentes danificados.',
+  },
+  {
+    title: 'Instalação de torneira gourmet',
+    place: 'Curitiba — Portão',
+    text: 'Retirada da torneira antiga e instalação de novo modelo com verificação das conexões.',
+  },
+  {
+    title: 'Manutenção de caixa acoplada',
+    place: 'Curitiba — Boa Vista',
+    text: 'Substituição do mecanismo interno e correção de vazamento contínuo.',
+  },
+  {
+    title: 'Novo ponto hidráulico para lavanderia',
+    place: 'Curitiba — Santa Felicidade',
+    text: 'Adequação hidráulica para instalação de tanque e máquina de lavar.',
+  },
+  {
+    title: 'Troca de registro',
+    place: 'São José dos Pinhais',
+    text: 'Substituição de registro danificado e teste do sistema após a instalação.',
+  },
+  {
+    title: 'Instalação hidráulica em área gourmet',
+    place: 'Pinhais',
+    text: 'Criação de ponto de água e instalação de pia em área externa residencial.',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Marcos A. — Curitiba',
+    text: 'Precisava resolver um vazamento embaixo da pia e o atendimento foi muito tranquilo. Expliquei pelo WhatsApp, mandei algumas fotos e conseguiram resolver rapidamente.',
+  },
+  {
+    name: 'Patrícia M. — Curitiba',
+    text: 'Gostei principalmente porque explicaram o que precisava ser feito antes de começar. Serviço organizado e atendimento muito educado.',
+  },
+  {
+    name: 'Carlos R. — São José dos Pinhais',
+    text: 'Chamamos para fazer algumas alterações hidráulicas na lavanderia. Ficou tudo funcionando corretamente e dentro do que havíamos combinado.',
+  },
+  {
+    name: 'Ana L. — Curitiba',
+    text: 'Já tinha chamado outro profissional e o vazamento voltou. A EEP verificou o problema, explicou a causa e resolveu.',
+  },
+];
+
+const metroCities = [
+  'São José dos Pinhais',
+  'Pinhais',
+  'Colombo',
+  'Araucária',
+  'Almirante Tamandaré',
+  'Campo Largo',
+  'Fazenda Rio Grande',
+];
+
+const neighborhoods = [
+  'Água Verde',
+  'Batel',
+  'Boa Vista',
+  'Boqueirão',
+  'Cajuru',
+  'Centro',
+  'Cristo Rei',
+  'Mercês',
+  'Portão',
+  'Santa Felicidade',
+  'Uberaba',
+  'Xaxim',
+];
+
+const residentialServices = ['vazamentos', 'torneiras', 'registros', 'vasos sanitários', 'pias', 'tanques', 'chuveiros', 'tubulações', "caixas d'água", 'novos pontos hidráulicos'];
+const businessServices = ['lojas', 'escritórios', 'salões', 'consultórios', 'restaurantes', 'pequenos condomínios', 'imóveis comerciais'];
+
+const faq = [
+  {
+    q: 'Vocês atendem apartamentos?',
+    a: 'Sim. Atendemos casas e apartamentos em Curitiba e Região Metropolitana.',
+  },
+  {
+    q: 'Posso enviar uma foto antes?',
+    a: 'Sim. Inclusive recomendamos que envie fotos ou pequenos vídeos sempre que possível. Isso ajuda nossa equipe a compreender melhor o problema.',
+  },
+  {
+    q: 'Vocês fazem orçamento?',
+    a: 'Sim. Explique o serviço pelo WhatsApp para receber as orientações sobre avaliação e orçamento.',
+  },
+  {
+    q: 'Atendem empresas?',
+    a: 'Sim. Também realizamos serviços em pequenos estabelecimentos comerciais, escritórios e condomínios.',
+  },
+  {
+    q: 'Vocês fornecem o material?',
+    a: 'Depende do serviço. Quando houver necessidade de peças ou materiais específicos, isso será informado antes da execução.',
+  },
+  {
+    q: 'Quais formas de pagamento são aceitas?',
+    a: 'Aceitamos Pix, cartão de débito e cartão de crédito.',
+  },
+  {
+    q: 'Vocês atendem fora de Curitiba?',
+    a: 'Sim. Também atendemos diversas cidades da Região Metropolitana, conforme disponibilidade.',
+  },
+  {
+    q: 'Posso chamar somente para um serviço pequeno?',
+    a: 'Sim. Atendemos desde pequenos reparos até instalações hidráulicas mais completas.',
+  },
+];
+---
+
+<StandalonePageLayout
+  title="Encanador em Curitiba | EEP Encanador & Hidráulica"
+  description="Página demonstrativa para serviços hidráulicos em Curitiba e Região Metropolitana. Demonstração criada pelo Estúdio Escrita Planejada."
+  canonicalPath="/site-profissional/encanadores/"
+  noindex={true}
+  nofollow={false}
+  themeColor="#073b5c"
+  bodyDataPage="encanadores"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="demo-strip" id="aviso-demo">
+    <span>Página demonstrativa • empresa e dados comerciais fictícios</span>
+    <a href="#sobre-demo">Sobre esta demonstração</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+        <span class="brand-mark">E</span>
+        <span class="brand-copy">
+          <strong>EEP</strong>
+          <small>Encanador &amp; Hidráulica</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal" id="main-nav">
+        <a href="#servicos">Serviços</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#atendimento">Atendimento</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary nav-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-stage">
+          <picture class="hero-media" aria-hidden="true">
+            <source media="(max-width: 767px)" srcset="/site-profissional/encanadores/img/resultado-mobile.webp" />
+            <img src="/site-profissional/encanadores/img/resultado-desktop.webp" alt="" width="1448" height="1086" fetchpriority="high" decoding="async" />
+          </picture>
+          <div class="hero-overlay"></div>
+
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <p class="eyebrow accent">ENCANADOR • CURITIBA E REGIÃO</p>
+              <h1>Encanador em Curitiba para reparos, instalações e <span>serviços hidráulicos</span></h1>
+              <p class="hero-lead">Vazamento, torneira pingando, registro com problema ou alguma instalação hidráulica para fazer?</p>
+              <p class="hero-text">A EEP Encanador &amp; Hidráulica atende residências, comércios e pequenos condomínios em Curitiba e Região Metropolitana.</p>
+              <p class="hero-text">Atendimento direto, serviço bem explicado e orçamento pelo WhatsApp.</p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir orçamento pelo WhatsApp</a>
+                <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-proof">
+            <div>
+              <strong>★★★★★ 4,9 no Google</strong>
+              <span>Mais de 80 avaliações</span>
+            </div>
+            <div>
+              <strong>Atendimento local</strong>
+              <span>Curitiba e Região Metropolitana</span>
+            </div>
+            <div>
+              <strong>Residencial e comercial</strong>
+              <span>Casas • empresas • condomínios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="container split-grid split-grid--reverse">
+        <div class="split-copy">
+          <p class="eyebrow">Solução prática</p>
+          <h2>Seu problema hidráulico precisa de solução, não de complicação</h2>
+          <p>Um pequeno vazamento pode aumentar a conta de água, causar infiltração e provocar danos maiores quando não é resolvido corretamente.</p>
+          <p>A EEP Encanador &amp; Hidráulica trabalha com manutenção, reparos e instalações hidráulicas para quem precisa resolver o problema com segurança e praticidade.</p>
+          <p>Você pode explicar o que está acontecendo e enviar fotos ou vídeos pelo WhatsApp. Assim conseguimos entender melhor a situação antes do atendimento.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar com um encanador</a>
+        </div>
+        <figure class="split-media framed-media">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/encanadores/img/vazamento-mobile.webp" />
+            <img src="/site-profissional/encanadores/img/vazamento-desktop.webp" alt="Vazamento aparente em conexão hidráulica sob a pia" width="1448" height="1086" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Serviços hidráulicos</p>
+            <h2>Atendimento para reparos, manutenção e instalações</h2>
+          </div>
+          <p class="section-lead">A página organiza seus serviços com clareza e mostra rapidamente ao visitante em quais situações ele pode chamar a empresa.</p>
+        </div>
+
+        <div class="service-grid">
+          {services.map((item, index) => (
+            <article class="service-card">
+              <span class="service-index">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{item.cta} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark issues" id="problemas">
+      <div class="container issues-grid">
+        <div>
+          <p class="eyebrow">Problemas comuns</p>
+          <h2>Está com algum destes problemas?</h2>
+          <ul class="issue-list">
+            {issues.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <aside class="info-card info-card--light">
+          <p>Não precisa descobrir sozinho qual peça está causando o problema.</p>
+          <strong>Envie uma foto ou vídeo pelo WhatsApp e conte o que está acontecendo.</strong>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Enviar foto pelo WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section reasons">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Confiança</p>
+            <h2>Por que escolher a EEP Encanador &amp; Hidráulica?</h2>
+          </div>
+        </div>
+
+        <div class="reason-grid">
+          {reasons.map((item) => (
+            <article class="reason-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section visual-showcase section-soft">
+      <div class="container split-grid">
+        <figure class="split-media framed-media framed-media--elevated">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/encanadores/img/detalhe-tecnico-mobile.webp" />
+            <img src="/site-profissional/encanadores/img/detalhe-tecnico-desktop.webp" alt="Detalhe de manutenção hidráulica em banheiro residencial" width="1448" height="1086" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+        <div class="split-copy">
+          <p class="eyebrow">Manutenção hidráulica</p>
+          <h2>Reparos e instalações com atenção aos componentes</h2>
+          <p>Vazamentos, registros, caixas acopladas, conexões e tubulações fazem parte dos serviços apresentados nesta demonstração.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir avaliação</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section works" id="trabalhos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Alguns dos nossos trabalhos</p>
+            <h2>Exemplos de serviços apresentados na landing page</h2>
+          </div>
+          <p class="section-lead">A combinação entre imagem e descrição curta ajuda a tornar a empresa mais concreta e confiável para o visitante.</p>
+        </div>
+
+        <div class="works-grid works-grid--main">
+          <article class="work-feature">
+            <figure class="framed-media">
+              <picture>
+                <source media="(max-width: 767px)" srcset="/site-profissional/encanadores/img/hero-mobile.webp" />
+                <img src="/site-profissional/encanadores/img/hero-desktop.webp" alt="Instalação hidráulica concluída em cozinha ou área gourmet" width="1448" height="1086" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+            <div class="work-feature-copy">
+              <h3>Resultado final — instalação concluída</h3>
+              <p>Ambiente limpo, instalação organizada e acabamento visualmente coerente ajudam a comunicar capricho e confiança.</p>
+            </div>
+          </article>
+
+          <div class="work-list">
+            {works.map((item) => (
+              <article class="work-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span>{item.place}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark testimonials">
+      <div class="container">
+        <div class="section-head section-head--light">
+          <div>
+            <p class="eyebrow">Avaliações</p>
+            <h2>Clientes que já chamaram a EEP</h2>
+          </div>
+        </div>
+
+        <div class="testimonial-grid">
+          {testimonials.map((item) => (
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>“{item.text}”</p>
+              <strong>{item.name}</strong>
+            </article>
+          ))}
+        </div>
+
+        <div class="review-summary">
+          <div>
+            <strong>★★★★★ 4,9 estrelas no Google</strong>
+            <p>Mais de 80 avaliações de clientes atendidos em Curitiba e região.</p>
+          </div>
+          <a class="btn btn-secondary-light" href="#sobre-demo">Ver avaliações no Google</a>
+        </div>
+        <p class="demo-note">Avaliações e dados apresentados nesta página são fictícios e utilizados exclusivamente nesta demonstração.</p>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Como funciona</p>
+            <h2>Do primeiro contato à execução do serviço</h2>
+          </div>
+          <p class="section-lead">Sem formulários complicados e sem precisar entender termos técnicos.</p>
+        </div>
+
+        <div class="process-grid">
+          <article><span>01</span><h3>Chame pelo WhatsApp</h3><p>Conte rapidamente qual serviço você precisa.</p></article>
+          <article><span>02</span><h3>Envie uma foto ou vídeo</h3><p>Quando possível, envie imagens do problema para ajudar na avaliação inicial.</p></article>
+          <article><span>03</span><h3>Combinamos o atendimento</h3><p>Nossa equipe informa a disponibilidade e explica os próximos passos.</p></article>
+          <article><span>04</span><h3>Fazemos o serviço</h3><p>O trabalho é executado conforme o orçamento e as condições combinadas.</p></article>
+        </div>
+
+        <div class="process-cta">
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir orçamento pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-area section-soft" id="atendimento">
+      <div class="container split-grid split-grid--reverse split-grid--top">
+        <div class="split-copy">
+          <p class="eyebrow">Atendimento em Curitiba e Região Metropolitana</p>
+          <h2>Atendimento local para residências, empresas e pequenos condomínios</h2>
+          <p>A EEP Encanador &amp; Hidráulica atende principalmente Curitiba, São José dos Pinhais, Pinhais, Colombo, Araucária, Almirante Tamandaré, Campo Largo e Fazenda Rio Grande.</p>
+          <div class="area-columns">
+            <div>
+              <h3>Região Metropolitana</h3>
+              <ul>
+                {metroCities.map((city) => <li>{city}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3>Bairros de Curitiba</h3>
+              <ul>
+                {neighborhoods.map((n) => <li>{n}</li>)}
+              </ul>
+            </div>
+          </div>
+          <p>Sua região não apareceu na lista? Fale conosco para verificar a disponibilidade.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Consultar minha região</a>
+        </div>
+        <figure class="split-media framed-media">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/encanadores/img/veiculo-mobile.webp" />
+            <img src="/site-profissional/encanadores/img/veiculo-desktop.webp" alt="Veículo da EEP Encanador & Hidráulica estacionado em área residencial" width="1448" height="1086" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section audience-panels">
+      <div class="container panel-grid">
+        <article class="audience-card audience-card--light">
+          <p class="eyebrow">Atendimento residencial</p>
+          <h2>Problemas hidráulicos em casa ou apartamento podem aparecer de repente</h2>
+          <p>Atendemos serviços como:</p>
+          <ul class="bullet-columns">
+            {residentialServices.map((item) => <li>{item};</li>)}
+          </ul>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Preciso de um encanador</a>
+        </article>
+
+        <article class="audience-card audience-card--dark">
+          <p class="eyebrow">Atendimento para empresas e condomínios</p>
+          <h2>Também realizamos serviços hidráulicos para operação comercial</h2>
+          <p>Entre em contato e explique o serviço necessário.</p>
+          <ul class="bullet-columns bullet-columns--light">
+            {businessServices.map((item) => <li>{item};</li>)}
+          </ul>
+          <a class="btn btn-secondary-light" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Solicitar orçamento comercial</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+        <div>
+          <p class="eyebrow">Dúvidas</p>
+          <h2>Perguntas frequentes</h2>
+        </div>
+        <div class="faq-list">
+          {faq.map((item, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark final-cta" id="sobre-demo">
+      <div class="container final-grid">
+        <div>
+          <p class="eyebrow">Atendimento pelo WhatsApp</p>
+          <h2>Precisa resolver um problema hidráulico?</h2>
+          <p>Não deixe um pequeno vazamento virar um problema maior.</p>
+          <p>Fale com a EEP Encanador &amp; Hidráulica, explique o que está acontecendo e, se possível, envie algumas fotos. Nossa equipe verifica sua solicitação e orienta sobre o atendimento.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Chamar a EEP pelo WhatsApp</a>
+          <small>Atendimento em Curitiba e Região Metropolitana.</small>
+        </div>
+
+        <div class="final-card">
+          <h3>EEP Encanador &amp; Hidráulica</h3>
+          <p>Reparos, manutenção e instalações hidráulicas.</p>
+          <dl>
+            <div><dt>WhatsApp</dt><dd>atendimento direto pelo botão desta página</dd></div>
+            <div><dt>Região</dt><dd>Curitiba e Região Metropolitana</dd></div>
+            <div><dt>Horário</dt><dd>segunda a sábado, das 8h às 19h</dd></div>
+            <div><dt>Pagamento</dt><dd>Pix • Débito • Crédito</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>EEP Encanador &amp; Hidráulica</strong>
+        <p>Reparos, manutenção e instalações hidráulicas.</p>
+      </div>
+      <div>
+        <strong>Atendimento</strong>
+        <p>Curitiba e Região Metropolitana<br />segunda a sábado, das 8h às 19h</p>
+      </div>
+      <div>
+        <strong>Demonstração</strong>
+        <p>Página demonstrativa criada pelo Estúdio Escrita Planejada.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 EEP Encanador &amp; Hidráulica.</span>
+      <span>Empresa, avaliações, serviços executados e demais informações comerciais apresentados nesta demonstração são fictícios.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
+    <span>WhatsApp</span>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.33-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.82-1.98-.22-.52-.44-.45-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.95 2.58 1.09 2.76c.13.18 1.87 2.85 4.53 4 .63.27 1.13.44 1.51.56.64.2 1.21.17 1.67.1.51-.08 1.58-.65 1.8-1.27.22-.62.22-1.16.16-1.27-.07-.11-.24-.18-.51-.31zM16.05 3.2A12.62 12.62 0 0 0 5.2 22.24L3.5 28.45l6.36-1.67a12.62 12.62 0 1 0 6.19-23.58zm0 22.92c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.77.99 1.01-3.67-.27-.42a10.31 10.31 0 1 1 9.19 4.92z"/></svg>
+  </a>
+
+  <a class="mobile-bar" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir orçamento pelo WhatsApp</a>
+
+  <script is:inline>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    nav?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</StandalonePageLayout>

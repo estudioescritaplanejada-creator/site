@@ -17,6 +17,7 @@ export default defineConfig({
         !page.endsWith('/rss.xml') &&
         !page.endsWith('/site-profissional/modelo-limpeza/') &&
         !page.endsWith('/site-profissional/modelo-recreacao/') &&
+        !page.endsWith('/site-profissional/encanadores/') &&
         !page.endsWith('/enquanto/para-criadores-do-youtube/'),
     }),
   ],
