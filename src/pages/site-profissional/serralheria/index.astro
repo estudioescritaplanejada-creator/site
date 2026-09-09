@@ -1,0 +1,599 @@
+---
+import StandalonePageLayout from '../../../layouts/StandalonePageLayout.astro';
+import '../../../styles/serralheria.css';
+
+const whatsappUrl = 'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20da%20EEP%20Serralheria%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.';
+
+const services = [
+  {
+    title: 'Portões',
+    text: 'Portões residenciais e comerciais desenvolvidos de acordo com as medidas, a abertura e as características da entrada.',
+    cta: 'Pedir orçamento para portão',
+  },
+  {
+    title: 'Grades e proteções',
+    text: 'Grades para janelas, muros, corredores e outras áreas que precisam de proteção sem comprometer o uso do espaço.',
+    cta: 'Consultar um projeto',
+  },
+  {
+    title: 'Corrimãos e guarda-corpos',
+    text: 'Soluções sob medida para escadas, rampas, sacadas, mezaninos e áreas de circulação.',
+    cta: 'Pedir orçamento',
+  },
+  {
+    title: 'Coberturas metálicas',
+    text: 'Estruturas para garagens, corredores e áreas externas, dimensionadas de acordo com as condições do local.',
+    cta: 'Mostrar meu espaço',
+  },
+  {
+    title: 'Estruturas metálicas',
+    text: 'Projetos sob medida para residências, comércios, ampliações, suportes e diferentes necessidades construtivas.',
+    cta: 'Falar sobre meu projeto',
+  },
+];
+
+const projectInputs = [
+  'Uma foto do local',
+  'Uma referência do que gostaria de fazer',
+  'As medidas aproximadas, se já tiver',
+  'Uma explicação de como pretende utilizar o espaço',
+  'O tipo de acabamento que imagina para o projeto',
+  'Qualquer detalhe importante sobre acesso ou instalação',
+];
+
+const reasons = [
+  {
+    title: 'Projeto sob medida',
+    text: 'Cada trabalho parte das dimensões e das necessidades reais do local, evitando soluções genéricas para espaços diferentes.',
+  },
+  {
+    title: 'Fabricação e instalação',
+    text: 'O projeto não termina na oficina. A instalação e os ajustes no imóvel fazem parte do resultado final.',
+  },
+  {
+    title: 'Atenção ao acabamento',
+    text: 'Alinhamento, soldas, encontros, fixações e preparação da superfície influenciam diretamente na apresentação da peça.',
+  },
+  {
+    title: 'Materiais adequados ao uso',
+    text: 'Estrutura e materiais são definidos considerando finalidade, dimensões e condições de exposição do projeto.',
+  },
+  {
+    title: 'Atendimento direto',
+    text: 'Você pode mostrar o espaço, enviar referências e acompanhar as definições pelo WhatsApp.',
+  },
+  {
+    title: 'Residencial e comercial',
+    text: 'Projetos para casas, empresas, pequenos condomínios e diferentes necessidades de acesso, proteção e estrutura.',
+  },
+];
+
+const works = [
+  {
+    title: 'Portão residencial sob medida',
+    place: 'Curitiba — Água Verde',
+    text: 'Projeto desenvolvido para uma entrada residencial, considerando abertura, circulação e integração com a fachada.',
+  },
+  {
+    title: 'Guarda-corpo para área externa',
+    place: 'Curitiba — Santa Felicidade',
+    text: 'Estrutura metálica criada para aumentar a segurança mantendo o ambiente visualmente leve.',
+  },
+  {
+    title: 'Corrimão para escada residencial',
+    place: 'São José dos Pinhais',
+    text: 'Produção e instalação seguindo o percurso, as dimensões e as condições reais da escada.',
+  },
+  {
+    title: 'Cobertura para garagem',
+    place: 'Curitiba — Boa Vista',
+    text: 'Estrutura desenvolvida para proteger a área de estacionamento e aproveitar melhor o espaço externo.',
+  },
+  {
+    title: 'Estrutura para área comercial',
+    place: 'Pinhais',
+    text: 'Projeto fabricado conforme as necessidades de utilização e as dimensões do estabelecimento.',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Fernando M. — Curitiba',
+    text: 'Mostrei pelo WhatsApp uma foto da entrada da casa e expliquei o modelo que queria. Recebi orientação sobre as medidas e o resultado ficou muito bem integrado à fachada.',
+  },
+  {
+    name: 'Luciana R. — Curitiba',
+    text: 'Precisávamos de um corrimão para uma escada com medidas diferentes. O projeto foi feito para o espaço e a instalação ficou muito bem acabada.',
+  },
+  {
+    name: 'Carlos A. — São José dos Pinhais',
+    text: 'Gostei principalmente da organização. Primeiro definimos o projeto e o orçamento e depois fizeram a fabricação e a instalação conforme combinado.',
+  },
+  {
+    name: 'Mariana T. — Curitiba',
+    text: 'O portão ficou exatamente no tamanho do vão e o acabamento combinou muito bem com a casa.',
+  },
+];
+
+const metroCities = [
+  'São José dos Pinhais',
+  'Pinhais',
+  'Colombo',
+  'Araucária',
+  'Almirante Tamandaré',
+  'Campo Largo',
+  'Fazenda Rio Grande',
+];
+
+const neighborhoods = [
+  'Água Verde',
+  'Batel',
+  'Boa Vista',
+  'Boqueirão',
+  'Cajuru',
+  'Centro',
+  'Cristo Rei',
+  'Mercês',
+  'Portão',
+  'Santa Felicidade',
+  'Uberaba',
+  'Xaxim',
+];
+
+const residentialServices = ['portões', 'grades', 'corrimãos', 'guarda-corpos', 'coberturas', 'proteções', 'estruturas sob medida'];
+const businessServices = ['portões comerciais', 'fechamentos', 'proteções', 'acessos', 'corrimãos', 'estruturas metálicas', 'projetos sob medida'];
+
+const faq = [
+  {
+    q: 'Vocês fazem projetos sob medida?',
+    a: 'Sim. Os projetos são desenvolvidos de acordo com as características, dimensões e finalidade de cada espaço.',
+  },
+  {
+    q: 'Posso mandar apenas uma foto?',
+    a: 'Sim. Uma fotografia do local já ajuda bastante no primeiro contato. Se tiver uma referência do modelo que gostaria, envie também.',
+  },
+  {
+    q: 'Preciso saber as medidas exatas?',
+    a: 'Não para iniciar a conversa. Medidas aproximadas ajudam na avaliação inicial; as medidas necessárias para fabricação devem ser confirmadas antes da produção.',
+  },
+  {
+    q: 'Vocês fabricam e também instalam?',
+    a: 'Sim. A proposta da EEP Serralheria contempla fabricação e instalação conforme o serviço contratado.',
+  },
+  {
+    q: 'Fazem portões automáticos?',
+    a: 'Projetos com automação podem ser avaliados de acordo com o modelo, o espaço e as condições da instalação.',
+  },
+  {
+    q: 'Atendem empresas e condomínios?',
+    a: 'Sim. Atendemos projetos residenciais, comerciais e para pequenos condomínios conforme a necessidade.',
+  },
+  {
+    q: 'Posso enviar uma referência encontrada na internet?',
+    a: 'Sim. A referência ajuda a explicar o estilo ou a solução desejada. O projeto final é adaptado às medidas e condições reais do imóvel.',
+  },
+  {
+    q: 'Como é definido o valor?',
+    a: 'O orçamento depende do tipo de estrutura, dimensões, materiais, acabamento, complexidade de fabricação e instalação.',
+  },
+];
+---
+
+<StandalonePageLayout
+  title="Serralheria em Curitiba | EEP Serralheria"
+  description="Página demonstrativa de serralheria em Curitiba e Região Metropolitana. Portões, grades, corrimãos, coberturas e estruturas metálicas sob medida."
+  canonicalPath="/site-profissional/serralheria/"
+  noindex={true}
+  nofollow={false}
+  themeColor="#073b5c"
+  bodyDataPage="serralheria"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="demo-strip" id="aviso-demo">
+    <span>Página demonstrativa • empresa e dados comerciais fictícios</span>
+    <a href="#sobre-demo">Sobre esta demonstração</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+        <span class="brand-mark">E</span>
+        <span class="brand-copy">
+          <strong>EEP</strong>
+          <small>Serralheria</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal" id="main-nav">
+        <a href="#servicos">Serviços</a>
+        <a href="#trabalhos">Projetos</a>
+        <a href="#atendimento">Atendimento</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary nav-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-stage">
+          <picture class="hero-media" aria-hidden="true">
+            <source media="(max-width: 767px)" srcset="/site-profissional/serralheria/img/hero-mobile.webp" />
+            <img src="/site-profissional/serralheria/img/hero-desktop.webp" alt="" width="1200" height="900" fetchpriority="high" decoding="async" />
+          </picture>
+          <div class="hero-overlay"></div>
+
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <p class="eyebrow accent">SERRALHERIA • CURITIBA E REGIÃO</p>
+              <h1>Portões, grades, corrimãos e <span>estruturas sob medida</span></h1>
+              <p class="hero-lead">Da ideia à fabricação e instalação no seu espaço.</p>
+              <p class="hero-text">Projetos para residências, comércios e pequenos condomínios em Curitiba e Região Metropolitana.</p>
+              <p class="hero-text">Envie uma foto, uma referência ou medidas aproximadas para começarmos a avaliar sua ideia.</p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto pelo WhatsApp</a>
+                <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-proof">
+            <div>
+              <strong>★★★★★ 4,9 no Google</strong>
+              <span>Mais de 70 avaliações</span>
+            </div>
+            <div>
+              <strong>Projeto sob medida</strong>
+              <span>Feito para as medidas do seu espaço</span>
+            </div>
+            <div>
+              <strong>Fabricação e instalação</strong>
+              <span>Residencial • comercial • condomínios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="container split-grid split-grid--reverse">
+        <div class="split-copy">
+          <p class="eyebrow">Feito para o seu espaço</p>
+          <h2>Nem sempre existe uma solução pronta que realmente se encaixe no imóvel</h2>
+          <p>Um portão precisa considerar o espaço disponível para abertura. Um corrimão precisa acompanhar corretamente a escada. Uma cobertura precisa respeitar medidas, apoio e circulação.</p>
+          <p>Por isso, a EEP Serralheria trabalha com soluções desenvolvidas de acordo com cada espaço, considerando uso, dimensões, acabamento e instalação.</p>
+          <p>Você mostra o que precisa. Nós avaliamos as condições do local e orientamos os próximos passos.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto</a>
+        </div>
+        <figure class="split-media framed-media">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/serralheria/img/profissional-mobile.webp" />
+            <img src="/site-profissional/serralheria/img/profissional-desktop.webp" alt="Profissional de serralheria em ambiente de trabalho organizado" width="1200" height="900" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Serviços de serralheria</p>
+            <h2>Soluções metálicas para diferentes espaços e necessidades</h2>
+          </div>
+          <p class="section-lead">A página apresenta de forma clara o que a empresa faz e ajuda o visitante a reconhecer rapidamente o tipo de projeto que procura.</p>
+        </div>
+
+        <div class="service-grid service-grid--serralheria">
+          {services.map((item, index) => (
+            <article class="service-card">
+              <span class="service-index">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{item.cta} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark issues" id="projeto">
+      <div class="container issues-grid">
+        <div>
+          <p class="eyebrow">Comece com o que você tem</p>
+          <h2>Você não precisa ter um projeto técnico pronto para conversar conosco</h2>
+          <ul class="issue-list">
+            {projectInputs.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <aside class="info-card info-card--light">
+          <p>Muitas pessoas sabem o que querem fazer, mas não sabem o nome da estrutura ou todas as medidas necessárias.</p>
+          <strong>Uma foto do local e uma referência já ajudam a iniciar a conversa.</strong>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Enviar meu projeto pelo WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section reasons">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">O que faz diferença</p>
+            <h2>Mais que metal: o projeto precisa funcionar bem depois de instalado</h2>
+          </div>
+        </div>
+
+        <div class="reason-grid">
+          {reasons.map((item) => (
+            <article class="reason-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section visual-showcase section-soft">
+      <div class="container split-grid">
+        <figure class="split-media framed-media framed-media--elevated">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/serralheria/img/detalhe-tecnico-mobile.webp" />
+            <img src="/site-profissional/serralheria/img/detalhe-tecnico-desktop.webp" alt="Detalhe de acabamento e junção em estrutura metálica" width="1200" height="900" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+        <div class="split-copy">
+          <p class="eyebrow">Acabamento</p>
+          <h2>O resultado começa antes da pintura</h2>
+          <p>Medidas, cortes, soldas, alinhamento, preparação da superfície e fixações influenciam diretamente na aparência e no funcionamento da peça.</p>
+          <p>Por isso, o acabamento é tratado como parte do projeto — e não apenas como a última etapa.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Conversar sobre meu projeto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section works" id="trabalhos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Projetos realizados</p>
+            <h2>O trabalho pronto é a melhor forma de mostrar o que a serralheria pode fazer</h2>
+          </div>
+          <p class="section-lead">Portões, corrimãos, guarda-corpos e estruturas concluídas ajudam o visitante a imaginar uma solução semelhante no próprio imóvel.</p>
+        </div>
+
+        <div class="works-grid works-grid--main">
+          <article class="work-feature">
+            <figure class="framed-media">
+              <picture>
+                <source media="(max-width: 767px)" srcset="/site-profissional/serralheria/img/corrimao-mobile.webp" />
+                <img src="/site-profissional/serralheria/img/corrimao-desktop.webp" alt="Corrimão e guarda-corpo metálico concluído em ambiente residencial" width="1200" height="900" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+            <div class="work-feature-copy">
+              <h3>Resultado final — projeto integrado ao ambiente</h3>
+              <p>Uma boa apresentação mostra a peça instalada, o acabamento e a relação da estrutura com o espaço onde será utilizada.</p>
+            </div>
+          </article>
+
+          <div class="work-list">
+            {works.map((item) => (
+              <article class="work-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span>{item.place}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark testimonials">
+      <div class="container">
+        <div class="section-head section-head--light">
+          <div>
+            <p class="eyebrow">Avaliações</p>
+            <h2>Clientes que escolheram a EEP Serralheria</h2>
+          </div>
+        </div>
+
+        <div class="testimonial-grid">
+          {testimonials.map((item) => (
+            <article class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>“{item.text}”</p>
+              <strong>{item.name}</strong>
+            </article>
+          ))}
+        </div>
+
+        <div class="review-summary">
+          <div>
+            <strong>★★★★★ 4,9 estrelas no Google</strong>
+            <p>Mais de 70 avaliações de clientes atendidos em Curitiba e região.</p>
+          </div>
+          <a class="btn btn-secondary-light" href="#sobre-demo">Sobre esta demonstração</a>
+        </div>
+        <p class="demo-note">Avaliações, projetos, nomes e locais apresentados nesta página são fictícios e utilizados exclusivamente nesta demonstração.</p>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Como funciona</p>
+            <h2>Da sua ideia à estrutura instalada</h2>
+          </div>
+          <p class="section-lead">O primeiro contato pode começar com uma foto, uma referência ou apenas uma explicação do que você pretende fazer.</p>
+        </div>
+
+        <div class="process-grid">
+          <article><span>01</span><h3>Mostre sua ideia</h3><p>Envie fotos, referências ou medidas aproximadas pelo WhatsApp.</p></article>
+          <article><span>02</span><h3>Avaliamos o projeto</h3><p>Entendemos dimensões, uso, materiais, acabamento e condições de instalação.</p></article>
+          <article><span>03</span><h3>Fabricamos sob medida</h3><p>A estrutura é produzida de acordo com as definições aprovadas.</p></article>
+          <article><span>04</span><h3>Fazemos a instalação</h3><p>Realizamos montagem e ajustes necessários para concluir o serviço no local.</p></article>
+        </div>
+
+        <div class="process-cta">
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-area section-soft" id="atendimento">
+      <div class="container split-grid split-grid--reverse split-grid--top">
+        <div class="split-copy">
+          <p class="eyebrow">Atendimento em Curitiba e Região Metropolitana</p>
+          <h2>Projetos residenciais e comerciais com fabricação e instalação</h2>
+          <p>A EEP Serralheria atende principalmente Curitiba, São José dos Pinhais, Pinhais, Colombo, Araucária, Almirante Tamandaré, Campo Largo e Fazenda Rio Grande.</p>
+          <div class="area-columns">
+            <div>
+              <h3>Região Metropolitana</h3>
+              <ul>
+                {metroCities.map((city) => <li>{city}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3>Bairros de Curitiba</h3>
+              <ul>
+                {neighborhoods.map((n) => <li>{n}</li>)}
+              </ul>
+            </div>
+          </div>
+          <p>Sua região não apareceu na lista? Fale conosco para verificar a disponibilidade.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Consultar minha região</a>
+        </div>
+        <figure class="split-media framed-media">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/site-profissional/serralheria/img/cobertura-mobile.webp" />
+            <img src="/site-profissional/serralheria/img/cobertura-desktop.webp" alt="Cobertura e estrutura metálica concluída em área residencial" width="1200" height="900" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section audience-panels">
+      <div class="container panel-grid">
+        <article class="audience-card audience-card--light">
+          <p class="eyebrow">Projetos residenciais</p>
+          <h2>Soluções para segurança, acesso e aproveitamento dos espaços da casa</h2>
+          <p>Projetos como:</p>
+          <ul class="bullet-columns">
+            {residentialServices.map((item) => <li>{item};</li>)}
+          </ul>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto residencial</a>
+        </article>
+
+        <article class="audience-card audience-card--dark">
+          <p class="eyebrow">Projetos comerciais</p>
+          <h2>Estruturas metálicas para operação, proteção e acesso comercial</h2>
+          <p>Conte o que seu estabelecimento precisa.</p>
+          <ul class="bullet-columns bullet-columns--light">
+            {businessServices.map((item) => <li>{item};</li>)}
+          </ul>
+          <a class="btn btn-secondary-light" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Solicitar avaliação comercial</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+        <div>
+          <p class="eyebrow">Dúvidas</p>
+          <h2>Perguntas frequentes</h2>
+        </div>
+        <div class="faq-list">
+          {faq.map((item, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark final-cta" id="sobre-demo">
+      <div class="container final-grid">
+        <div>
+          <p class="eyebrow">Atendimento pelo WhatsApp</p>
+          <h2>Tem uma ideia em metal para tirar do papel?</h2>
+          <p>Você não precisa saber o nome técnico da estrutura nem ter todas as medidas prontas.</p>
+          <p>Fotografe o espaço, mostre uma referência se tiver e conte o que gostaria de fazer. A EEP Serralheria avalia sua necessidade e orienta os próximos passos.</p>
+          <a class="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto pelo WhatsApp</a>
+          <small>Atendimento em Curitiba e Região Metropolitana.</small>
+        </div>
+
+        <div class="final-card">
+          <h3>EEP Serralheria</h3>
+          <p>Portões, grades, corrimãos, guarda-corpos, coberturas e estruturas metálicas.</p>
+          <dl>
+            <div><dt>WhatsApp</dt><dd>atendimento direto pelo botão desta página</dd></div>
+            <div><dt>Região</dt><dd>Curitiba e Região Metropolitana</dd></div>
+            <div><dt>Horário</dt><dd>segunda a sexta, das 8h às 18h • sábado, das 8h às 12h</dd></div>
+            <div><dt>Pagamento</dt><dd>Pix • Débito • Crédito</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>EEP Serralheria</strong>
+        <p>Portões, grades, corrimãos e estruturas metálicas sob medida.</p>
+      </div>
+      <div>
+        <strong>Atendimento</strong>
+        <p>Curitiba e Região Metropolitana<br />segunda a sexta, das 8h às 18h • sábado, das 8h às 12h</p>
+      </div>
+      <div>
+        <strong>Demonstração</strong>
+        <p>Página demonstrativa criada pelo Estúdio Escrita Planejada.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 EEP Serralheria.</span>
+      <span>Empresa, avaliações, projetos e demais informações comerciais apresentados nesta demonstração são fictícios.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
+    <span>WhatsApp</span>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.33-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.82-1.98-.22-.52-.44-.45-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.95 2.58 1.09 2.76c.13.18 1.87 2.85 4.53 4 .63.27 1.13.44 1.51.56.64.2 1.21.17 1.67.1.51-.08 1.58-.65 1.8-1.27.22-.62.22-1.16.16-1.27-.07-.11-.24-.18-.51-.31zM16.05 3.2A12.62 12.62 0 0 0 5.2 22.24L3.5 28.45l6.36-1.67a12.62 12.62 0 1 0 6.19-23.58zm0 22.92c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.77.99 1.01-3.67-.27-.42a10.31 10.31 0 1 1 9.19 4.92z"/></svg>
+  </a>
+
+  <a class="mobile-bar" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Mostrar meu projeto pelo WhatsApp</a>
+
+  <script is:inline>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    nav?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</StandalonePageLayout>
