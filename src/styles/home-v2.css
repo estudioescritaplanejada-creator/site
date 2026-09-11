@@ -1045,3 +1045,76 @@
     line-height: 1.45;
   }
 }
+
+
+/* Home v2: oferta comercial unificada */
+
+.home-v2-help-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-v2-help-card {
+  min-height: 27rem;
+  border-top: 0.45rem solid var(--orange);
+}
+
+.home-v2-help-card__number {
+  color: var(--orange-dark);
+  opacity: 0.22;
+}
+
+.home-v2-help-card__label {
+  color: var(--orange-dark);
+}
+
+.home-v2-help__footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  margin-top: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  color: var(--ink);
+  background: var(--acid);
+  border: 0.1rem solid var(--ink);
+}
+
+.home-v2-help__footer p {
+  max-width: 48rem;
+  margin-bottom: 0;
+}
+
+.home-v2-help__price {
+  margin-bottom: 0.45rem !important;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.5vw, 2.5rem);
+  line-height: 1;
+}
+
+.home-v2-help__price strong {
+  color: var(--orange-dark);
+}
+
+.home-v2-help__footer .home-button {
+  white-space: nowrap;
+}
+
+@media (max-width: 68rem) {
+  .home-v2-help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-v2-help-card {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 44rem) {
+  .home-v2-help__footer {
+    grid-template-columns: 1fr;
+  }
+
+  .home-v2-help__footer .home-button {
+    width: 100%;
+  }
+}

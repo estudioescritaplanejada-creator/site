@@ -20,8 +20,6 @@ const activeCategories = new Set<string>(
   publishedArticles.map((article) => article.data.category),
 );
 
-const whatsappUrl =
-  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20quero%20entender%20como%20voc%C3%AAs%20podem%20me%20ajudar.';
 
 const homeCategoryLabel = {
   'protecao-digital': 'Segurança digital',
@@ -98,9 +96,8 @@ const problemPaths = [
     </a>
 
     <nav class="home-nav" aria-label="Navegação principal">
-      <a href="#publicacoes">Publicações</a>
-      <a href="#problemas">Por problema</a>
-      <a href="#ajuda">Ajuda para fazer</a>
+      <a href="/guias/">Conteúdos</a>
+      <a href="#sites-profissionais">Sites profissionais</a>
       <a href="/sobre/">Sobre</a>
     </nav>
 
@@ -111,9 +108,8 @@ const problemPaths = [
         <span></span><span></span><span></span>
       </summary>
       <nav aria-label="Navegação móvel">
-        <a href="#publicacoes">Publicações</a>
-        <a href="#problemas">Por problema</a>
-          <a href="#ajuda">Ajuda para fazer</a>
+        <a href="/guias/">Conteúdos</a>
+        <a href="#sites-profissionais">Sites profissionais</a>
         <a href="/sobre/">Sobre</a>
         <a href="/guias/">Encontrar uma resposta</a>
       </nav>
@@ -181,17 +177,17 @@ const problemPaths = [
 
         <article class="home-v2-path home-v2-path--help">
           <span class="home-v2-path__number">02</span>
-          <p class="home-v2-path__label">Quero ajuda para fazer</p>
-          <h2>Tem coisa que você não precisa fazer sozinho.</h2>
+          <p class="home-v2-path__label">Quero apresentar melhor meu trabalho</p>
+          <h2>Tenha uma página profissional para mostrar o que você faz.</h2>
           <p>
-            Sites, organização do trabalho digital e criação de materiais ou
-            produtos.
+            O Estúdio cria páginas para negócios, serviços e ofertas, com
+            textos, visual, publicação e contato direto pelo WhatsApp.
           </p>
           <a
             class="home-button home-button--secondary"
-            href="#ajuda"
+            href="#sites-profissionais"
           >
-            Ver como podemos ajudar
+            Ver opções de página
           </a>
         </article>
       </div>
@@ -344,7 +340,7 @@ const problemPaths = [
 
   <section
     class="home-v2-help"
-    id="ajuda"
+    id="sites-profissionais"
     aria-labelledby="help-title"
   >
     <span
@@ -352,77 +348,110 @@ const problemPaths = [
       class="home-v2-anchor-alias"
       aria-hidden="true"
     ></span>
+    <span
+      id="ajuda"
+      class="home-v2-anchor-alias"
+      aria-hidden="true"
+    ></span>
+
     <div class="home-container">
       <div class="home-v2-heading home-v2-heading--help">
         <div>
-          <p class="eyebrow">Se você preferir ter ajuda</p>
+          <p class="eyebrow">Criação de sites profissionais</p>
           <h2 id="help-title">
-            Tem coisa que você não precisa fazer sozinho.
+            Uma forma profissional de apresentar o que você faz.
           </h2>
         </div>
         <p>
-          Além dos conteúdos gratuitos, o Estúdio pode ajudar a colocar alguns
-          desses trabalhos em prática.
+          Três situações diferentes, uma mesma entrega: organizar seu trabalho
+          em uma página clara, profissional e pronta para divulgar.
         </p>
       </div>
 
       <div class="home-v2-help-grid">
-        <article class="home-v2-help-card home-v2-help-card--primary">
+        <article class="home-v2-help-card">
           <span class="home-v2-help-card__number">01</span>
           <p class="home-v2-help-card__label">
-            Quero um site para mostrar meu trabalho
+            Ainda não tenho site
           </p>
-          <h3>Um lugar simples e profissional para apresentar o que você faz.</h3>
+
+          <h3>Sua página profissional do zero.</h3>
+
           <p>
-            Reúna seus serviços, informações, fotos e formas de contato em uma
-            página rápida e adaptada ao celular.
+            Organizamos suas informações, serviços, fotos, avaliações e
+            contatos em uma página própria, pronta para apresentar seu
+            trabalho.
           </p>
+
           <a
-            class="home-button home-button--light"
+            class="home-button home-button--secondary"
             href="/site-profissional/"
           >
-            Ver como funciona
+            Ver página profissional
           </a>
-          <small>Projetos a partir de R$ 290*</small>
         </article>
 
         <article class="home-v2-help-card">
           <span class="home-v2-help-card__number">02</span>
           <p class="home-v2-help-card__label">
-            Quero organizar melhor meu atendimento
+            Tenho algo específico para apresentar
           </p>
-          <h3>Coloque mensagens, informações e etapas em uma ordem mais simples.</h3>
+
+          <h3>Uma landing page focada na sua oferta.</h3>
+
           <p>
-            Organizamos a forma como seu trabalho se apresenta e atende para
-            reduzir dúvidas e facilitar a rotina.
+            Uma página dedicada a um serviço, produto, campanha ou
+            oportunidade que precisa ser explicada com clareza e levar o
+            visitante para a próxima ação.
           </p>
+
           <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            class="home-button home-button--secondary"
+            href="/site-profissional/"
           >
-            Entender como funciona →
+            Ver landing pages
           </a>
         </article>
 
         <article class="home-v2-help-card">
           <span class="home-v2-help-card__number">03</span>
           <p class="home-v2-help-card__label">
-            Quero transformar o que sei em um produto
+            Minha página atual não me representa
           </p>
-          <h3>Organize seu conhecimento para publicar, entregar ou vender.</h3>
+
+          <h3>Uma nova apresentação para o que você já oferece.</h3>
+
           <p>
-            Você traz o que sabe. O Estúdio ajuda a estruturar, escrever,
-            apresentar e preparar o material.
+            Reorganizamos conteúdo, hierarquia, texto, visual e chamada para
+            ação em uma nova versão da sua página.
           </p>
+
           <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            class="home-button home-button--secondary"
+            href="/site-profissional/"
           >
-            Quero contar minha ideia →
+            Ver reformulação
           </a>
         </article>
+      </div>
+
+      <div class="home-v2-help__footer">
+        <div>
+          <p class="home-v2-help__price">
+            Projetos a partir de <strong>R$ 290*</strong>
+          </p>
+          <p>
+            O orçamento varia conforme a modalidade, quantidade de conteúdo,
+            seções, material recebido e complexidade do projeto.
+          </p>
+        </div>
+
+        <a
+          class="home-button home-button--primary"
+          href="/site-profissional/"
+        >
+          Conhecer o serviço
+        </a>
       </div>
     </div>
   </section>
@@ -441,8 +470,9 @@ const problemPaths = [
 
       <div class="home-v2-final__action">
         <p>
-          Procure uma resposta entre os conteúdos publicados. Se precisar de
-          ajuda para colocar alguma coisa em prática, fale com o Estúdio.
+          Procure uma resposta entre os conteúdos publicados. Se precisar
+          apresentar melhor seu trabalho na internet, conheça o serviço de
+          criação de páginas profissionais.
         </p>
 
         <div class="home-v2-final__buttons">
@@ -455,9 +485,9 @@ const problemPaths = [
 
           <a
             class="home-button home-button--light"
-            href="#ajuda"
+            href="/site-profissional/"
           >
-            Ver como podemos ajudar
+            Conhecer sites profissionais
           </a>
         </div>
       </div>
@@ -473,17 +503,16 @@ const problemPaths = [
         <span class="home-brand__name">Estúdio Escrita Planejada</span>
       </a>
       <p>
-        Conteúdo prático e ajuda para quem trabalha por conta própria e precisa
-        lidar todos os dias com tecnologia, organização e clientes.
+        Conteúdo prático para quem trabalha por conta própria e criação de
+        páginas profissionais para autônomos, prestadores e pequenos negócios.
       </p>
     </div>
 
     <nav aria-label="Links principais">
-      <a href="#publicacoes">Publicações</a>
+      <a href="/guias/">Conteúdos</a>
       <a href="#problemas">Por problema</a>
-      <a href="#ajuda">Ajuda para fazer</a>
+      <a href="/site-profissional/">Sites profissionais</a>
       <a href="/sobre/">Sobre</a>
-      <a href="/guias/">Todos os conteúdos</a>
     </nav>
 
     <div class="home-footer__legal">
