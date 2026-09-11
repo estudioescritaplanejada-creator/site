@@ -2,10 +2,10 @@
 import CommercialLandingLayout from '../../layouts/CommercialLandingLayout.astro';
 import LandingContent from '../../components/site-profissional/LandingContent.astro';
 const title =
-  'Uma página profissional para mostrar seu trabalho e receber mais pedidos | Estúdio Escrita Planejada';
+  'Criação de sites e landing pages para pequenos negócios | Estúdio Escrita Planejada';
 
 const description =
-  'Reúna seus serviços, produtos, fotos, pontos fortes e informações de contato em uma página própria, pronta para apresentar seu trabalho e levar o cliente diretamente ao WhatsApp.';
+  'Criação e reformulação de páginas profissionais e landing pages para autônomos, MEIs e pequenos negócios, com textos, design, publicação e contato pelo WhatsApp.';
 
 const canonicalPath = '/site-profissional/';
 const baseUrl = Astro.site ?? Astro.url.origin;
@@ -51,9 +51,9 @@ const schema = {
       '@type': 'WebPage',
       '@id': webpageId,
       url: canonicalUrl,
-      name: 'Uma página profissional para mostrar seu trabalho e receber mais pedidos',
+      name: 'Criação de sites e landing pages para pequenos negócios',
       description:
-        'Uma página própria para apresentar seu trabalho e levar o cliente diretamente ao WhatsApp.',
+        'Criação e reformulação de páginas profissionais para apresentar negócios, serviços, produtos e ofertas com clareza.',
       isPartOf: {
         '@id': websiteId,
       },
@@ -65,9 +65,9 @@ const schema = {
     {
       '@type': 'Service',
       '@id': serviceId,
-      name: 'Página profissional para mostrar seu trabalho e receber mais pedidos',
+      name: 'Criação de páginas profissionais e landing pages',
       description:
-        'Organização das informações, redação e revisão dos textos, criação visual da página, adaptação para celular e computador, configuração básica para o Google, publicação e uma rodada de ajustes.',
+        'Criação de páginas profissionais do zero, landing pages para ofertas específicas e reformulação de páginas existentes, com organização, redação, design, publicação e adaptação para celular e computador.',
       provider: {
         '@id': organizationId,
       },
@@ -76,12 +76,12 @@ const schema = {
         name: 'Brasil',
       },
       serviceType:
-        'Criação de página profissional com atendimento pelo WhatsApp',
+        'Criação e reformulação de páginas profissionais para pequenos negócios',
       offers: {
-        '@type': 'Offer',
-        price: '290.00',
+        '@type': 'AggregateOffer',
+        lowPrice: '290.00',
         priceCurrency: 'BRL',
-        availability: 'https://schema.org/InStock',
+        offerCount: 3,
         url: `${canonicalUrl}#investimento`,
       },
     },
