@@ -18,7 +18,7 @@ featured: false
 image: "/assets/editorial/como-proteger-um-pequeno-negocio-de-golpes-digitais.webp"
 imageAlt: "Profissional autônoma revisa a segurança digital do negócio no notebook e no celular em um ambiente de trabalho doméstico"
 seoTitle: "Como proteger um pequeno negócio de golpes digitais"
-promotion: sistema-criador-digital
+promotion: site-profissional
 video:
   id: "9vHSqKMtpw8"
   title: "O que é segurança digital: 5 dicas que ninguém te conta"

@@ -1,77 +1,59 @@
 ---
-type PromotionType =
-  | 'sistema-criador-digital'
-  | 'afiliados';
+type PromotionType = 'site-profissional';
 
 interface Props {
   articleSlug: string;
   promotion?: PromotionType;
 }
 
-const {
-  articleSlug,
-  promotion = 'sistema-criador-digital',
-} = Astro.props;
+const { articleSlug } = Astro.props;
 
-const newPromotion = {
-  landingHref: '/enquanto/da-sua-cozinha-para-os-primeiros-clientes/',
-  checkoutHref: 'https://pay.hotmart.com/M107050060Q',
-  label: 'Da Sua Cozinha para os Primeiros Clientes',
-  ctaLabel: 'Clique na imagem e conheça',
-  imagePath:
-    '/assets/promocoes/da-sua-cozinha-para-os-primeiros-clientes/banner.webp',
+const promotion = {
+  landingHref: '/site-profissional/',
+  label: 'Criação de sites profissionais',
+  imagePath: '/assets/promocoes/site-profissional/card.webp',
   alt:
-    'Da Sua Cozinha para os Primeiros Clientes, produto digital do Estúdio Escrita Planejada',
-  ctaType: 'product',
-  disclosure: 'Produto digital do Estúdio Escrita Planejada.',
+    'Criação de sites profissionais pelo Estúdio Escrita Planejada, com projetos a partir de R$ 290',
+  ctaType: 'service',
 };
-
-const promotions = {
-  'sistema-criador-digital': newPromotion,
-  afiliados: newPromotion,
-} satisfies Record<PromotionType, typeof newPromotion>;
-
-const selected = promotions[promotion];
 ---
 
 <aside
   class="article-promotion"
-  aria-label="Conteúdo recomendado"
-  data-promotion="da-sua-cozinha-para-os-primeiros-clientes"
+  aria-label="Serviço recomendado"
+  data-promotion="site-profissional"
 >
   <a
-    class="article-promotion__cta"
-    href={selected.checkoutHref}
-    data-analytics-event="commercial_cta_click"
-    data-article-slug={articleSlug}
-    data-cta-type={selected.ctaType}
-    data-cta-label={selected.ctaLabel}
-    data-cta-position="article_promotion_text"
-  >
-    {selected.ctaLabel}
-  </a>
-
-  <a
     class="article-promotion__link"
-    href={selected.landingHref}
-    aria-label={`Conheça ${selected.label}`}
+    href={promotion.landingHref}
+    aria-label="Conheça o serviço de criação de sites profissionais do Estúdio Escrita Planejada"
     data-analytics-event="commercial_cta_click"
     data-article-slug={articleSlug}
-    data-cta-type={selected.ctaType}
-    data-cta-label={selected.label}
+    data-cta-type={promotion.ctaType}
+    data-cta-label={promotion.label}
     data-cta-position="article_promotion_image"
   >
     <img
-      src={selected.imagePath}
-      width="1920"
-      height="1080"
-      alt={selected.alt}
+      src={promotion.imagePath}
+      width="1448"
+      height="1086"
+      alt={promotion.alt}
       loading="lazy"
       decoding="async"
     />
   </a>
-
-  <p class="article-promotion__disclosure">
-    {selected.disclosure}
-  </p>
 </aside>
+
+<style>
+  .article-promotion__link {
+    display: block;
+  }
+
+  .article-promotion__link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+</style>

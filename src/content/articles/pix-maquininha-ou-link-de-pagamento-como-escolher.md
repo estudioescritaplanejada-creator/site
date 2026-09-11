@@ -35,7 +35,7 @@ faqAnswers:
   - "Pode ser uma forma legítima de cobrança remota quando gerado por um fornecedor confiável e enviado pelo canal correto. O negócio ainda precisa cuidar de identificação, fraude, taxas e contestação."
   - "Pode, desde que cada venda registre forma, valor, taxa e status. Mais opções sem conciliação criam saldos dispersos e dificultam o fechamento financeiro."
   - "Comece pelo método que atende a maior parte das vendas com menor fricção e controle suficiente. Depois acrescente alternativas quando uma necessidade real aparecer."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Um cliente pergunta:

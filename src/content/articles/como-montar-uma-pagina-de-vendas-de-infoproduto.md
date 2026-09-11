@@ -35,7 +35,7 @@ faqAnswers:
   - "Repita o CTA em pontos naturais quando a página for longa, mas mantenha a ação coerente. O importante é o visitante entender o que acontece ao clicar."
   - "Depende da estratégia e do tipo de oferta, mas para produtos digitais de compra direta a clareza sobre preço, condições e garantia reduz ambiguidade."
   - "Tamanho do texto, ordem dos blocos, imagens, botão, checkout, carregamento, tabelas, FAQ e qualquer elemento que fique pequeno ou exija rolagem lateral."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 O produto está pronto.

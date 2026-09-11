@@ -58,8 +58,8 @@ const articles = defineCollection({
       })
       .optional(),
     promotion: z
-      .enum(['sistema-criador-digital', 'afiliados'])
-      .default('sistema-criador-digital'),
+      .enum(['site-profissional'])
+      .default('site-profissional'),
   }),
 });
 

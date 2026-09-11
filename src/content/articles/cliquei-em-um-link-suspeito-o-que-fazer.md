@@ -17,7 +17,7 @@ featured: false
 image: "/assets/editorial/cliquei-em-um-link-suspeito-o-que-fazer.webp"
 imageAlt: "Profissional autônomo verifica o notebook e o celular depois de perceber que acessou um link suspeito"
 seoTitle: "Cliquei em um link suspeito: o que fazer agora"
-promotion: sistema-criador-digital
+promotion: site-profissional
 video:
   id: "B_iyuzH0h6s"
   title: "Cliquei em um link malicioso de phishing. E agora?"

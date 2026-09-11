@@ -35,7 +35,7 @@ faqAnswers:
   - "Não. Avalie também permissões, histórico de versões, colaboração, administração de usuários, exportação, recuperação e integração com o ambiente em que você já trabalha."
   - "Talvez, mas primeiro descubra o que está ocupando espaço e se existe acúmulo desnecessário. Comprar capacidade sem organização pode apenas adiar o mesmo problema."
   - "O serviço não elimina sua responsabilidade. Guarde apenas o necessário, limite acessos e considere sensibilidade, retenção e proteção dos dados."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 O aviso aparece no pior momento:

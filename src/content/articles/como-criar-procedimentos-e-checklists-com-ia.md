@@ -35,7 +35,7 @@ faqAnswers:
   - "Evite dados pessoais e informações sensíveis quando não forem necessários. Anonimize exemplos e respeite as regras da ferramenta e do seu negócio."
   - "Teste numa execução real e, se possível, peça para outra pessoa seguir sem explicação oral. As dúvidas revelam lacunas."
   - "Quando a ferramenta, regra, responsável ou fluxo mudar; também em revisões periódicas definidas pelo negócio."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Você executa a mesma tarefa toda semana.

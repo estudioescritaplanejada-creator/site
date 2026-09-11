@@ -35,7 +35,7 @@ faqAnswers:
   - "Leis, datas, preços, números, saúde, finanças, contratos, recursos atuais de plataformas, citações e decisões com impacto relevante."
   - "Pode apoiar, mas cálculos importantes devem ser conferidos com ferramenta apropriada e dados originais. Não trate uma resposta textual como auditoria."
   - "Em tarefas de baixo risco, como brainstorming e estruturação inicial, desde que o resultado não seja apresentado como fato externo sem conferência."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 A resposta está perfeita.

@@ -35,7 +35,7 @@ faqAnswers:
   - "Não. Pode falar de clareza, facilidade, atendimento, uso, experiência ou resultado compatível com o produto. Especificidade é mais importante que grandiosidade."
   - "Use demonstração, amostra, beta-teste real e transparência. Não invente cliente, avaliação ou resultado para preencher a seção."
   - "Perto das afirmações que eles ajudam a sustentar: após explicação do método, perto da oferta ou em bloco próprio. Evite concentrar prova sem contexto."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 A página de vendas tem três fotos.

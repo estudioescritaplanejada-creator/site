@@ -126,7 +126,6 @@ function checkRequiredFiles() {
     '404.html',
     'guias/index.html',
     'site-profissional/index.html',
-    'enquanto/index.html',
     'rss.xml',
     'sitemap-index.xml',
     '_headers',

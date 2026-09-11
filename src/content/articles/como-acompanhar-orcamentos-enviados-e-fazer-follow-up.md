@@ -35,7 +35,7 @@ faqAnswers:
   - "Defina uma sequência curta e respeitosa, adaptada à resposta do cliente. Quando não há interesse nem retorno após tentativas razoáveis, encerre a oportunidade e registre."
   - "Não. Uma planilha ou lista pode funcionar bem com pouco volume, desde que cada proposta tenha status, última interação e próxima ação."
   - "Registre o motivo quando ele for informado: preço, prazo, prioridade, concorrente, adiamento ou outro. Isso ajuda a melhorar oferta e qualificação."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Você envia o orçamento.

@@ -35,7 +35,7 @@ faqAnswers:
   - "Normalmente não. O WhatsApp pode continuar como canal de conversa; o CRM organiza contatos, etapas, responsabilidades, histórico e acompanhamento."
   - "Nem sempre. Defina um recorte útil, como clientes ativos, oportunidades abertas e históricos necessários. Migrar cadastros antigos sem função só aumenta o trabalho."
   - "A escolha depende do processo. Primeiro defina campos, etapas, usuários, integrações e relatórios indispensáveis; só depois compare ferramentas."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 O WhatsApp funciona muito bem até o dia em que deixa de funcionar como controle.

@@ -35,7 +35,7 @@ faqAnswers:
   - "Não. Frequência excessiva pode virar ruído. Defina contatos úteis conforme o ciclo do produto, serviço e necessidade do cliente."
   - "Uma planilha com cliente, compra, data, próxima ação, feedback e oportunidade futura pode ser suficiente em operações pequenas."
   - "Pode, quando a experiência foi positiva e o pedido for natural. Não transforme todo contato pós-venda em pressão comercial."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Você entrega.

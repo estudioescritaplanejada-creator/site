@@ -35,7 +35,7 @@ faqAnswers:
   - "O suficiente para resolver um recorte real e gerar confiança, sem precisar transformar o material gratuito numa cópia integral da oferta paga."
   - "Colete apenas o necessário para a finalidade. Quanto mais campos, maior a fricção e maior sua responsabilidade sobre os dados."
   - "Avalie não só downloads, mas consumo, respostas, cliques para a próxima etapa, qualidade dos leads e relação com vendas futuras."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Você cria um e-book de 40 páginas.

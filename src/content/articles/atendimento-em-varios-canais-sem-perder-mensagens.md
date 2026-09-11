@@ -17,7 +17,7 @@ featured: false
 seoTitle: "Atendimento em vários canais sem perder mensagens"
 socialTitle: "Suas mensagens de clientes estão espalhadas?"
 socialDescription: "Veja como organizar atendimentos que começam no Instagram, continuam no WhatsApp e envolvem arquivos, decisões e pendências em outros canais."
-promotion: sistema-criador-digital
+promotion: site-profissional
 leadMagnet:
   id: "checklist-organizar-atendimento"
   title: "Checklist para organizar seu atendimento em vários canais"
@@ -660,22 +660,6 @@ Não da expectativa de que uma plataforma nova resolverá tudo sozinha.
       data-cta-type="whatsapp"
       data-cta-label="Falar com o Estúdio"
     >Falar com o Estúdio</a>
-  </div>
-</section>
-
-<section class="article-product-box" aria-labelledby="sistema-criador-title">
-  <h2 id="sistema-criador-title">Quer transformar seu conhecimento em materiais digitais?</h2>
-  <p>O <strong>Sistema Criador Digital com IA</strong> apresenta um processo para organizar ideias, utilizar inteligência artificial com direção e desenvolver guias, apresentações, roteiros, materiais de apoio e produtos digitais com revisão humana.</p>
-  <p>A ferramenta pode acelerar partes do processo.</p>
-  <p>A direção, a seleção e a revisão continuam sendo humanas.</p>
-  <div class="article-cta-actions">
-    <a
-      href="/sistema-criador-digital/"
-      data-analytics-event="commercial_cta_click"
-      data-article-slug="atendimento-em-varios-canais-sem-perder-mensagens"
-      data-cta-type="product"
-      data-cta-label="Conhecer o Sistema Criador Digital com IA"
-    >Conhecer o Sistema Criador Digital com IA</a>
   </div>
 </section>
 

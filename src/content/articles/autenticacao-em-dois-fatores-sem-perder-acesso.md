@@ -35,7 +35,7 @@ faqAnswers:
   - "Guarde em local protegido e separado do aparelho usado no dia a dia, como um gerenciador de senhas confiável ou uma cópia física protegida. Não deixe os códigos em foto aberta na galeria."
   - "Não. Comece pelas contas que permitem recuperar outras ou movimentar dinheiro: e-mail principal, contas financeiras, domínio, redes sociais, armazenamento e contas administrativas."
   - "Confirme métodos alternativos, códigos de recuperação, e-mail e telefone cadastrados. Só depois migre o autenticador ou remova o aparelho antigo."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Perder uma senha é inconveniente. Perder a senha **e** o único aparelho que recebe o segundo fator pode paralisar o trabalho.

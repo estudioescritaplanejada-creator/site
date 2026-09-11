@@ -35,7 +35,7 @@ faqAnswers:
   - "Use a página oficial, catálogo, checkout ou contato público atual. Se o preço não está disponível, registre como não confirmado em vez de pedir à IA para estimar."
   - "São evidências úteis de percepção, mas têm vieses e não representam automaticamente todo o público. Use como material qualitativo e preserve contexto."
   - "Escolha uma amostra pequena o suficiente para estudar com profundidade e variada o bastante para incluir concorrentes diretos e referências relevantes. Não existe número universal."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Você pede:

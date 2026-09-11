@@ -35,7 +35,7 @@ faqAnswers:
   - "Não dependa da aparência do comprovante. Consulte sua própria conta e confirme se existe uma entrada efetivamente creditada."
   - "Confira o extrato. Se o crédito existir e você precisar devolver, use a função de devolução da própria transação para devolver à conta de origem, seguindo a orientação da sua instituição."
   - "Não. O MED é um mecanismo para análise de suspeita de fraude e pode resultar em devolução total ou parcial conforme o caso e a disponibilidade de recursos; não é garantia de ressarcimento."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 O pedido está pronto. A cliente mostra o comprovante no celular e diz que o Pix já foi feito. Há gente esperando, o motoboy chegou e o próximo atendimento começou.

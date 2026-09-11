@@ -35,7 +35,7 @@ faqAnswers:
   - "Mapeie ativos que ficaram sob propriedade pessoal e transfira o que for possível para contas controladas pelo negócio. Depois, revogue compartilhamentos e dependências remanescentes."
   - "Acesso que deixou de ser necessário deve ser revogado de forma coordenada com o encerramento. Quanto maior o privilégio ou sensibilidade dos dados, menor deve ser a janela entre o fim da relação e a remoção."
   - "Use contas do negócio, permissões individuais, menor privilégio, inventário de acessos e uma rotina de entrada e saída definida antes de delegar."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 Um freelancer encerra o trabalho na sexta-feira.

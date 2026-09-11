@@ -35,7 +35,7 @@ faqAnswers:
   - "Pode registrar uma decisão, mas o ideal é atualizar também o controle principal do projeto para que a informação não fique presa numa conversa."
   - "Consolide quando possível em uma rodada de ajustes. Mudanças pulverizadas aumentam retrabalho e risco de versões conflitantes."
   - "Explique o limite, descreva impacto e apresente alternativa: substituir um item, ampliar prazo ou valor, ou manter o combinado original."
-promotion: sistema-criador-digital
+promotion: site-profissional
 ---
 
 O cliente aprova a primeira versão.
