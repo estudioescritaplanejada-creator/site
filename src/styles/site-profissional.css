@@ -831,3 +831,54 @@ dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
     max-width: none;
   }
 }
+
+
+/* Fix: evita sobreposicao tipografica na secao de exemplos */
+
+.demo {
+  position: relative;
+  isolation: isolate;
+}
+
+.demo .section-heading,
+.demo .demo-head,
+.demo .demo-copy,
+.demo h2,
+.demo p,
+.demo-grid,
+.demo-projects,
+.demo-note {
+  position: relative;
+  z-index: 2;
+}
+
+.demo::before,
+.demo .section-heading::before,
+.demo .section-heading::after,
+.demo .demo-head::before,
+.demo .demo-head::after {
+  z-index: 1;
+}
+
+.demo h2 {
+  line-height: 0.92;
+  max-width: 9ch;
+}
+
+.demo .section-heading,
+.demo .demo-head {
+  align-items: start;
+}
+
+@media (max-width: 80rem) {
+  .demo h2 {
+    max-width: 10ch;
+  }
+}
+
+@media (max-width: 68rem) {
+  .demo h2 {
+    max-width: none;
+    line-height: 0.96;
+  }
+}
