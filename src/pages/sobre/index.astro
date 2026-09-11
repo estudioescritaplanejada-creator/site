@@ -6,14 +6,14 @@ import '../../styles/sobre.css';
 
 const title = 'Sobre o Estúdio Escrita Planejada | Roberto Franco';
 const description =
-  'Conheça Roberto Franco e o Estúdio Escrita Planejada, criado para ajudar profissionais autônomos e pequenos negócios a trabalhar melhor no digital.';
+  'Conheça Roberto Franco e o Estúdio Escrita Planejada, que publica conteúdo prático e cria sites profissionais para autônomos e pequenos negócios.';
 const canonicalPath = '/sobre/';
 const baseUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
 const homeUrl = new URL('/', baseUrl).toString();
 const personImageUrl = new URL(robertoImage.src, baseUrl).toString();
 const whatsappUrl =
-  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20conversar.';
+  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20o%20Est%C3%BAdio%20Escrita%20Planejada%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20ou%20reformula%C3%A7%C3%A3o%20de%20uma%20p%C3%A1gina%20profissional.%20Meu%20neg%C3%B3cio%20ou%20servi%C3%A7o%20%C3%A9%3A';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -35,15 +35,15 @@ const schema = {
       '@id': `${canonicalUrl}#roberto-franco`,
       name: 'Roberto Franco',
       image: personImageUrl,
-      jobTitle: 'Copywriter, web designer e produtor de conteúdo digital',
+      jobTitle: 'Criador de sites e produtor de conteúdo digital',
       description:
         'Profissional com 10 anos de experiência como freelancer e fundador do Estúdio Escrita Planejada.',
       worksFor: {
         '@id': `${homeUrl}#organization`,
       },
       knowsAbout: [
-        'Copywriting',
         'Criação de sites',
+        'Redação e estruturação de conteúdo',
         'Produção de conteúdo digital',
         'Comunicação para pequenos negócios',
       ],
@@ -76,22 +76,17 @@ const services = [
   {
     number: '01',
     title: 'Guias e conteúdos',
-    text: 'Orientações claras sobre organização digital, atendimento, segurança, ferramentas e presença profissional na internet.',
+    text: 'Conteúdo gratuito sobre segurança, organização, ferramentas, inteligência artificial, decisões digitais e presença profissional.',
   },
   {
     number: '02',
     title: 'Materiais práticos',
-    text: 'Checklists, modelos e recursos criados para facilitar tarefas reais do cotidiano de quem trabalha por conta própria.',
+    text: 'Checklists, modelos e recursos para facilitar tarefas reais de quem trabalha por conta própria.',
   },
   {
     number: '03',
     title: 'Sites profissionais',
-    text: 'Páginas institucionais personalizadas para apresentar serviços, valorizar a marca e facilitar o contato com novos clientes.',
-  },
-  {
-    number: '04',
-    title: 'Conteúdo e comunicação',
-    text: 'Textos, páginas e materiais digitais desenvolvidos de acordo com os objetivos e a realidade de cada projeto.',
+    text: 'Criação de páginas profissionais, landing pages e reformulação de páginas para autônomos, prestadores e pequenos negócios.',
   },
 ];
 
@@ -121,7 +116,7 @@ const principles = [
   canonicalPath={canonicalPath}
   active="sobre"
   socialTitle="Sobre o Estúdio Escrita Planejada"
-  socialDescription="Conheça Roberto Franco e o trabalho do Estúdio para tornar a vida digital de autônomos e pequenos negócios mais simples."
+  socialDescription="Conheça Roberto Franco e o Estúdio, que publica conteúdo prático e cria sites profissionais para autônomos e pequenos negócios."
 >
   <script
     slot="head"
@@ -137,13 +132,13 @@ const principles = [
           <p class="about-kicker">Sobre o Estúdio</p>
           <h1 id="about-title">Vida digital mais simples para quem trabalha por conta própria.</h1>
           <p class="about-hero__lead">
-            O Estúdio Escrita Planejada ajuda profissionais autônomos e pequenos negócios
-            a organizar sua presença na internet, apresentar melhor seus serviços e usar
-            ferramentas digitais com mais segurança e clareza.
+            O Estúdio Escrita Planejada publica conteúdo prático para profissionais
+            autônomos e pequenos negócios e cria páginas profissionais para quem precisa
+            apresentar melhor seu trabalho na internet.
           </p>
           <div class="about-hero__actions">
             <a class="about-button about-button--primary" href="/guias/">Conhecer os guias</a>
-            <a class="about-button about-button--secondary" href="/#servicos">Ver os serviços</a>
+            <a class="about-button about-button--secondary" href="/site-profissional/">Conhecer sites profissionais</a>
           </div>
         </div>
 
@@ -159,18 +154,19 @@ const principles = [
           <h2 id="origin-title">Experiência profissional transformada em apoio prático.</h2>
           <div class="about-origin__text">
             <p>
-              Meu nome é Roberto Franco. Trabalho há 10 anos como freelancer nas áreas de
-              copywriting, criação de sites e produção de conteúdo digital.
+              Meu nome é Roberto Franco. Atuo há 10 anos como freelancer em comunicação
+              digital, produção de conteúdo e criação de sites.
             </p>
             <p>
-              Durante esse período, acompanhei profissionais muito competentes enfrentando
-              dificuldades para apresentar seus serviços na internet, organizar seus canais
-              de atendimento e escolher ferramentas adequadas para o próprio negócio.
+              Nesse período, redação, copywriting e estruturação de conteúdo fizeram parte
+              do meu trabalho e mostraram algo recorrente: muitos profissionais excelentes
+              têm dificuldade para transformar o que fazem em uma apresentação clara na
+              internet.
             </p>
             <p>
-              Muitas dessas pessoas não precisavam de soluções complexas. Precisavam de
-              orientação clara, materiais realmente úteis e serviços compatíveis com sua
-              realidade. Foi a partir dessa experiência que surgiu o Estúdio Escrita Planejada.
+              O Estúdio Escrita Planejada surgiu dessa experiência. Hoje reúne duas frentes
+              complementares: conteúdo gratuito para ajudar nas decisões do dia a dia e
+              criação de páginas profissionais para apresentar negócios, serviços e ofertas.
             </p>
           </div>
         </div>
@@ -182,11 +178,11 @@ const principles = [
         <div class="about-heading-row">
           <div>
             <p class="about-kicker">O que fazemos</p>
-            <h2 id="services-title">Conteúdo, ferramentas e serviços para problemas reais.</h2>
+            <h2 id="services-title">Conteúdo útil e páginas profissionais para necessidades reais.</h2>
           </div>
           <p>
-            Criamos soluções para quem cuida do próprio trabalho e nem sempre conta com uma
-            equipe de comunicação, tecnologia ou marketing.
+            Publicamos orientações para quem quer resolver problemas por conta própria e
+            criamos páginas profissionais para quem precisa apresentar melhor seu trabalho.
           </p>
         </div>
 
@@ -215,8 +211,9 @@ const principles = [
             WhatsApp e as redes sociais para atender clientes e apresentar seu trabalho.
           </p>
           <p>
-            Nosso papel é tornar decisões digitais mais compreensíveis e construir soluções
-            que façam sentido para a estrutura, o público e o momento de cada negócio.
+            Nosso papel é tornar decisões digitais mais compreensíveis por meio do conteúdo
+            e, quando a necessidade é apresentar o negócio, transformar informações dispersas
+            em uma página profissional clara e pronta para divulgar.
           </p>
           <a href="/guias/">Encontrar uma orientação prática →</a>
         </div>
@@ -271,15 +268,15 @@ const principles = [
       <div class="editorial-container about-contact__inner">
         <div>
           <p class="about-kicker about-kicker--light">Vamos conversar?</p>
-          <h2 id="contact-title">Encontre uma solução adequada para o seu negócio.</h2>
+          <h2 id="contact-title">Conteúdo para decidir. Uma página profissional para apresentar seu trabalho.</h2>
         </div>
         <div class="about-contact__action">
           <p>
-            Conheça os serviços do Estúdio ou fale diretamente com Roberto Franco pelo
-            WhatsApp, sem compromisso.
+            Explore os conteúdos publicados ou conheça o serviço de criação de sites.
+            Se quiser conversar sobre um projeto, fale diretamente pelo WhatsApp.
           </p>
           <div>
-            <a class="about-button about-button--acid" href="/#servicos">Conhecer as soluções</a>
+            <a class="about-button about-button--acid" href="/site-profissional/">Conhecer sites profissionais</a>
             <a
               class="about-button about-button--outline-light"
               href={whatsappUrl}
