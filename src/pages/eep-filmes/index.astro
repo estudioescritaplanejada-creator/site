@@ -1,0 +1,138 @@
+---
+import StandalonePageLayout from '../../layouts/StandalonePageLayout.astro';
+
+const title = 'EEP filmes | Estúdio Escrita Planejada';
+const description =
+  'EEP filmes, projeto audiovisual do Estúdio Escrita Planejada. Em breve.';
+---
+
+<StandalonePageLayout
+  title={title}
+  description={description}
+  canonicalPath="/eep-filmes/"
+  noindex={true}
+  nofollow={true}
+  siteName="Estúdio Escrita Planejada"
+  themeColor="#050505"
+  colorScheme="dark"
+  bodyClass="eep-filmes-page"
+  bodyDataPage="eep-filmes"
+>
+  <main class="eep-filmes" aria-labelledby="eep-filmes-title">
+    <div class="eep-filmes__content">
+      <h1 id="eep-filmes-title" class="eep-filmes__brand">
+        <span class="eep-filmes__eep">
+          <span>E</span><span>E</span><span>P</span>
+        </span>
+        <span class="eep-filmes__name">filmes</span>
+      </h1>
+
+      <p class="eep-filmes__soon">Em breve</p>
+    </div>
+  </main>
+
+  <style is:global>
+    :root {
+      background: #050505;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #050505;
+    }
+
+    body.eep-filmes-page {
+      min-height: 100svh;
+      color: #f2efe8;
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
+
+    .eep-filmes {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      box-sizing: border-box;
+      padding: 32px;
+      background:
+        radial-gradient(
+          circle at 50% 48%,
+          rgba(229, 107, 34, 0.035),
+          transparent 32%
+        ),
+        #050505;
+    }
+
+    .eep-filmes__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .eep-filmes__brand {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .eep-filmes__eep {
+      display: flex;
+      align-items: center;
+      gap: 0.08em;
+      font-size: clamp(4.6rem, 12vw, 9.5rem);
+      font-weight: 200;
+      letter-spacing: -0.08em;
+    }
+
+    .eep-filmes__eep span {
+      display: inline-block;
+    }
+
+    .eep-filmes__name {
+      margin-top: 0.55rem;
+      font-size: clamp(0.78rem, 1.5vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.72em;
+      text-transform: lowercase;
+      color: #dc6b2c;
+      transform: translateX(0.36em);
+    }
+
+    .eep-filmes__soon {
+      margin: clamp(4rem, 9vh, 6.5rem) 0 0;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(242, 239, 232, 0.48);
+    }
+
+    @media (max-width: 600px) {
+      .eep-filmes {
+        padding: 24px;
+      }
+
+      .eep-filmes__eep {
+        font-size: clamp(4rem, 24vw, 6rem);
+      }
+
+      .eep-filmes__name {
+        font-size: 0.7rem;
+        letter-spacing: 0.58em;
+      }
+
+      .eep-filmes__soon {
+        margin-top: 3.75rem;
+      }
+    }
+  </style>
+</StandalonePageLayout>
