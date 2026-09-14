@@ -56,7 +56,15 @@ const videos = [
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Estúdio Escrita Planejada">
-      <span class="brand-mark">EEP</span>
+      <img
+        class="brand-mark brand-mark--logo"
+        src="/assets/eep-filmes/eep-filmes-logo.webp"
+        alt="EEP Filmes"
+        width="784"
+        height="349"
+        loading="eager"
+        decoding="async"
+      />
       <span>Estúdio Escrita Planejada</span>
     </a>
 
@@ -124,8 +132,15 @@ const videos = [
 
     <div class="films-hero__visual reveal" aria-label="Identidade EEP Filmes">
       <div class="films-brand">
-        <span class="films-brand__eep">EEP</span>
-        <span class="films-brand__name">filmes</span>
+        <img
+          class="films-brand__logo"
+          src="/assets/eep-filmes/eep-filmes-logo.webp"
+          alt="EEP Filmes"
+          width="784"
+          height="349"
+          loading="eager"
+          decoding="async"
+        />
       </div>
 
       <div class="films-stamp">Criação<br />audiovisual</div>
@@ -370,8 +385,15 @@ const videos = [
     </div>
 
     <div class="final-signature reveal">
-      <span>EEP</span>
-      <strong>filmes</strong>
+      <img
+        class="final-signature__logo"
+        src="/assets/eep-filmes/eep-filmes-logo.webp"
+        alt="EEP Filmes"
+        width="784"
+        height="349"
+        loading="lazy"
+        decoding="async"
+      />
       <p>Ideias que começam no imaginário e ganham movimento.</p>
     </div>
   </section>
@@ -454,4 +476,29 @@ const videos = [
 
   const year = document.getElementById('ano');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  // EEP Filmes — reação da marca ao toque
+  const reactiveLogos = document.querySelectorAll(
+    '.brand, .films-brand, .final-signature',
+  );
+
+  reactiveLogos.forEach((element) => {
+    let timer: number | undefined;
+
+    element.addEventListener('pointerdown', () => {
+      element.classList.remove('is-logo-active');
+
+      requestAnimationFrame(() => {
+        element.classList.add('is-logo-active');
+      });
+
+      if (timer !== undefined) {
+        window.clearTimeout(timer);
+      }
+
+      timer = window.setTimeout(() => {
+        element.classList.remove('is-logo-active');
+      }, 850);
+    });
+  });
 </script>
