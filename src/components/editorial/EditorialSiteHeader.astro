@@ -26,6 +26,7 @@ const { active } = Astro.props;
     <nav class="editorial-nav" aria-label="Navegação principal">
       <a href="/guias/" aria-current={active === 'guias' ? 'page' : undefined}>Conteúdos</a>
       <a href="/site-profissional/" aria-current={active === 'servicos' ? 'page' : undefined}>Sites profissionais</a>
+      <a href="/eep-filmes/">EEP Filmes</a>
       <a href="/sobre/" aria-current={active === 'sobre' ? 'page' : undefined}>Sobre</a>
     </nav>
 
@@ -36,6 +37,7 @@ const { active } = Astro.props;
       <nav aria-label="Navegação móvel">
         <a href="/guias/">Conteúdos</a>
         <a href="/site-profissional/">Sites profissionais</a>
+        <a href="/eep-filmes/">EEP Filmes</a>
         <a href="/sobre/">Sobre</a>
         <a href="/guias/">Encontrar uma resposta</a>
       </nav>
