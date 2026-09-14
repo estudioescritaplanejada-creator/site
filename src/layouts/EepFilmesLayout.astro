@@ -1,0 +1,59 @@
+---
+import SeoHead from '../components/seo/SeoHead.astro';
+import GoogleAnalytics from '../components/analytics/GoogleAnalytics.astro';
+import '../styles/eep-filmes.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  image = '/assets/img/og-estudio-escrita-planejada.jpg',
+  imageAlt = 'EEP Filmes, núcleo audiovisual do Estúdio Escrita Planejada',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#101010" />
+    <meta name="color-scheme" content="light dark" />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      author="Estúdio Escrita Planejada"
+      image={image}
+      imageAlt={imageAlt}
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <slot name="head" />
+  </head>
+
+  <body class="eep-filmes-page">
+    <slot />
+    <GoogleAnalytics />
+  </body>
+</html>

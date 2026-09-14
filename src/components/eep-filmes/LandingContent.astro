@@ -1,0 +1,457 @@
+---
+import LegalLinks from '../legal/LegalLinks.astro';
+
+const whatsappUrl =
+  'https://wa.me/5511964502997?text=Ol%C3%A1%21%20Conheci%20a%20EEP%20Filmes%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20audiovisual.';
+
+const youtubeUrl = 'https://www.youtube.com/@eepfilmes';
+
+const videos = [
+  {
+    title: 'Backrooms',
+    category: 'Ensaio audiovisual',
+    id: 't_iK5esd0fk',
+    format: 'vertical',
+    description:
+      'Espaços vazios, estranhamento e a sensação de estar em um lugar que não deveria existir.',
+  },
+  {
+    title: 'Sistema financeiro e inteligência artificial',
+    category: 'Vídeo-ensaio',
+    id: '1HCCz-TmXD8',
+    format: 'vertical',
+    description:
+      'Uma narrativa sobre inteligência artificial, dinheiro, trabalho e um sistema financeiro em transformação.',
+  },
+  {
+    title: 'The Bend of the Hook · Fredé Cf',
+    category: 'Videoclipe',
+    id: 'WEqMKTceiAI',
+    format: 'horizontal',
+    description:
+      'Uma interpretação visual construída a partir da atmosfera, do ritmo e do imaginário da música.',
+  },
+  {
+    title: 'Jesus ressuscita um gigante',
+    category: 'Narrativa visual',
+    id: 'kx5Ns4iSpco',
+    format: 'vertical',
+    description:
+      'Uma experiência cinematográfica construída em torno de fé, escala, mistério e transformação.',
+  },
+  {
+    title: 'Lucrando com IA',
+    category: 'Vídeo para infoproduto',
+    id: 'Q59QiFiYKDo',
+    format: 'vertical',
+    description:
+      'Uma peça audiovisual criada para transformar uma proposta digital em apresentação, movimento e narrativa.',
+  },
+];
+---
+
+<a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Estúdio Escrita Planejada">
+      <span class="brand-mark">EEP</span>
+      <span>Estúdio Escrita Planejada</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#filmes">Filmes</a>
+      <a href="#criamos">O que criamos</a>
+      <a href="#processo">Processo</a>
+      <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="/sobre/">Sobre</a>
+    </nav>
+
+    <a
+      class="header-cta"
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Falar sobre um projeto
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav"
+      aria-label="Abrir menu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo" class="page">
+  <section class="films-hero" id="inicio" aria-labelledby="hero-title">
+    <div class="films-hero__copy reveal">
+      <p class="eyebrow">EEP Filmes</p>
+
+      <h1 id="hero-title">
+        Ideias que começam no imaginário e ganham <em>movimento.</em>
+      </h1>
+
+      <p class="lead">
+        A EEP Filmes é o núcleo de criação audiovisual do Estúdio Escrita
+        Planejada.
+      </p>
+
+      <p class="hero-subtext">
+        Criamos filmes, videoclipes, ensaios visuais, teasers e peças para
+        projetos e marcas, combinando direção criativa, inteligência
+        artificial, animação, edição e pós-produção.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#filmes">Conheça nossos trabalhos</a>
+        <a
+          class="btn btn-secondary"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fale sobre seu projeto
+        </a>
+      </div>
+    </div>
+
+    <div class="films-hero__visual reveal" aria-label="Identidade EEP Filmes">
+      <div class="films-brand">
+        <span class="films-brand__eep">EEP</span>
+        <span class="films-brand__name">filmes</span>
+      </div>
+
+      <div class="films-stamp">Criação<br />audiovisual</div>
+
+      <p class="films-hero__caption">
+        Direção criativa · IA · animação · edição · pós-produção
+      </p>
+    </div>
+  </section>
+
+  <section class="manifesto" aria-label="Competências">
+    <div class="manifesto-grid">
+      <div class="manifesto-item">
+        <strong>Direção criativa</strong>
+        <span>Conceito e linguagem para cada projeto.</span>
+      </div>
+      <div class="manifesto-item">
+        <strong>Criação audiovisual</strong>
+        <span>Imagem, movimento, montagem e som.</span>
+      </div>
+      <div class="manifesto-item">
+        <strong>IA como ferramenta</strong>
+        <span>Novas possibilidades dentro de um processo dirigido.</span>
+      </div>
+      <div class="manifesto-item">
+        <strong>Do conceito à entrega</strong>
+        <span>Uma ideia conduzida até a peça final.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="filmes" aria-labelledby="portfolio-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow eyebrow--acid">Filmes e projetos</p>
+          <h2 id="portfolio-title">Histórias diferentes pedem linguagens diferentes.</h2>
+        </div>
+        <p class="lead">
+          Ensaios, videoclipes, narrativas e peças audiovisuais produzidos
+          pela EEP Filmes.
+        </p>
+      </div>
+
+      <article class="featured-film reveal">
+        <div class="video-shell video-shell--wide">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${videos[2].id}`}
+            title={videos[2].title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="featured-film__copy">
+          <span>{videos[2].category}</span>
+          <h3>{videos[2].title}</h3>
+          <p>{videos[2].description}</p>
+        </div>
+      </article>
+
+      <div class="shorts-grid">
+        {videos.filter((video) => video.format === 'vertical').map((video, index) => (
+          <article class="short-card reveal">
+            <div class="video-shell video-shell--vertical">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                title={video.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="short-card__copy">
+              <span>0{index + 1} · {video.category}</span>
+              <h3>{video.title}</h3>
+              <p>{video.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="youtube-cta reveal">
+        <p>Novos filmes, experimentos e trabalhos continuam no canal.</p>
+        <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+          Ver EEP Filmes no YouTube →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="narrative" aria-labelledby="narrative-title">
+    <div class="narrative-copy reveal">
+      <p class="eyebrow">Direção antes da ferramenta</p>
+      <h2 id="narrative-title">Não é apenas gerar imagens. É construir uma narrativa.</h2>
+
+      <p class="lead">
+        Uma imagem pode impressionar por alguns segundos. Um filme precisa
+        criar ritmo, atmosfera, continuidade e significado.
+      </p>
+
+      <p>
+        Cada projeto passa por decisões de conceito, linguagem, enquadramento,
+        cenas, movimento, montagem, som e acabamento.
+      </p>
+    </div>
+
+    <div class="narrative-panel reveal">
+      <div class="narrative-number">01</div>
+      <p>
+        Usamos ferramentas tradicionais e novas tecnologias, incluindo
+        inteligência artificial, conforme aquilo que cada projeto pede.
+      </p>
+      <strong>A tecnologia amplia possibilidades. A direção dá sentido a elas.</strong>
+    </div>
+  </section>
+
+  <section class="services" id="criamos" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head section-head--light reveal">
+        <div>
+          <p class="eyebrow">O que criamos</p>
+          <h2 id="services-title">Da música ao produto. Da ideia ao filme.</h2>
+        </div>
+
+        <p class="lead">
+          Projetos diferentes não precisam parecer iguais. A linguagem nasce
+          daquilo que a história precisa comunicar.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <span>01</span>
+          <h3>Filmes e narrativas visuais</h3>
+          <p>Ensaios, histórias curtas, projetos conceituais e experiências audiovisuais.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <span>02</span>
+          <h3>Videoclipes</h3>
+          <p>Universos visuais construídos a partir da música e da identidade do artista.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <span>03</span>
+          <h3>Teasers e lançamentos</h3>
+          <p>Peças curtas para despertar interesse, apresentar uma ideia ou preparar um lançamento.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <span>04</span>
+          <h3>Vídeos para marcas e projetos</h3>
+          <p>Apresentações, campanhas, conceitos e narrativas para produtos e serviços.</p>
+        </article>
+
+        <article class="service-card service-card--acid reveal">
+          <span>05</span>
+          <h3>Animação e vídeo com IA</h3>
+          <p>Personagens, ambientes, cenas e movimentos construídos com novas ferramentas de produção.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="technology" aria-labelledby="technology-title">
+    <div class="container technology-grid">
+      <p class="eyebrow eyebrow--acid reveal">Tecnologia + direção</p>
+
+      <h2 id="technology-title" class="reveal">
+        A tecnologia amplia o que podemos criar.
+        <em>A direção decide o que vale a pena mostrar.</em>
+      </h2>
+
+      <p class="lead reveal">
+        A inteligência artificial é uma das ferramentas da EEP Filmes, não o
+        ponto de chegada.
+      </p>
+    </div>
+  </section>
+
+  <section class="process" id="processo" aria-labelledby="process-title">
+    <div class="container">
+      <div class="process-head reveal">
+        <div>
+          <p class="eyebrow">Do conceito à tela</p>
+          <h2 id="process-title">Você pode chegar apenas com uma ideia.</h2>
+        </div>
+
+        <p class="lead">
+          Música, roteiro, produto, história, campanha ou uma imagem que você
+          gostaria de ver existir.
+        </p>
+      </div>
+
+      <div class="process-list">
+        <article class="process-row reveal">
+          <div class="process-number">01</div>
+          <h3>Você traz a ideia</h3>
+          <p>Começamos pelo que precisa ser contado, mostrado ou sentido.</p>
+        </article>
+
+        <article class="process-row reveal">
+          <div class="process-number">02</div>
+          <h3>Desenvolvemos a linguagem</h3>
+          <p>Definimos direção, referências, narrativa e universo visual.</p>
+        </article>
+
+        <article class="process-row reveal">
+          <div class="process-number">03</div>
+          <h3>Criamos e montamos</h3>
+          <p>Produzimos cenas, movimento, edição, som e acabamento.</p>
+        </article>
+
+        <article class="process-row reveal">
+          <div class="process-number">04</div>
+          <h3>O projeto ganha forma</h3>
+          <p>Entregamos a peça final no formato adequado ao seu destino.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contato" aria-labelledby="final-title">
+    <div class="final-copy reveal">
+      <p class="eyebrow eyebrow--light">EEP Filmes</p>
+      <h2 id="final-title">O que você gostaria de colocar em movimento?</h2>
+      <p class="lead">
+        Conte sua ideia. Vamos entender o projeto e encontrar a linguagem
+        audiovisual capaz de transformá-lo em imagem, movimento e narrativa.
+      </p>
+
+      <a
+        class="btn"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Falar sobre meu projeto
+      </a>
+    </div>
+
+    <div class="final-signature reveal">
+      <span>EEP</span>
+      <strong>filmes</strong>
+      <p>Ideias que começam no imaginário e ganham movimento.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">Estúdio Escrita Planejada · EEP Filmes</div>
+      <p class="footer-copy">
+        Criação audiovisual, direção criativa, animação e vídeo com IA.<br />
+        © <span id="ano">2026</span> Estúdio Escrita Planejada
+      </p>
+      <LegalLinks />
+    </div>
+
+    <nav class="footer-links" aria-label="Rodapé">
+      <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="/sobre/">Sobre</a>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const progress = document.getElementById('scrollProgress');
+  const menuButton = document.querySelector('.menu-button');
+  const headerInner = document.querySelector('.header-inner');
+
+  const updatePageState = () => {
+    const scrollTop = window.scrollY;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (header) {
+      header.classList.toggle('scrolled', scrollTop > 8);
+    }
+
+    if (progress) {
+      const value = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, value))}%`;
+    }
+  };
+
+  updatePageState();
+  window.addEventListener('scroll', updatePageState, { passive: true });
+
+  menuButton?.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!expanded));
+    headerInner?.classList.toggle('open', !expanded);
+  });
+
+  document.querySelectorAll('.nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuButton?.setAttribute('aria-expanded', 'false');
+      headerInner?.classList.remove('open');
+    });
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add('visible'));
+  }
+
+  const year = document.getElementById('ano');
+  if (year) year.textContent = String(new Date().getFullYear());
+</script>
