@@ -140,7 +140,7 @@ const articleSchema = {
     '@type': 'Organization',
     '@id': organizationId,
     name: article.data.author,
-    url: new URL('/', baseUrl).toString(),
+    url: new URL('/sobre/', baseUrl).toString(),
   },
   publisher: {
     '@type': 'Organization',
@@ -270,7 +270,7 @@ const faqSchema = faqItems.length
         <h1>{article.data.title}</h1>
         <p class="article-header__description">{article.data.description}</p>
         <ul class="article-meta" aria-label="Informações do artigo">
-          <li>Por {article.data.author}</li>
+          <li>Por <a href="/sobre/">{article.data.author}</a></li>
           <li><time datetime={publishedIso}>{formatArticleDate(article.data.publishedAt)}</time></li>
           <li>{readingMinutes} min de leitura</li>
           <li><a href={categoryPath(article.data.category)}>{category.label}</a></li>
