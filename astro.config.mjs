@@ -18,6 +18,8 @@ export default defineConfig({
         !page.endsWith('/site-profissional/modelo-limpeza/') &&
         !page.endsWith('/site-profissional/modelo-recreacao/') &&
         !page.endsWith('/site-profissional/encanadores/') &&
+        !page.endsWith('/site-profissional/marcenaria/') &&
+        !page.endsWith('/site-profissional/serralheria/') &&
         !page.endsWith('/enquanto/para-criadores-do-youtube/'),
     }),
   ],

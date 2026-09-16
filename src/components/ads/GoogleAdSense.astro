@@ -2,38 +2,20 @@
 /**
  * Google AdSense / Auto Ads
  *
- * Monetização habilitada por padrão para conteúdo HTML do site.
- * As áreas comerciais, institucionais, legais e técnicas abaixo
- * permanecem deliberadamente sem carregamento do código publicitário.
+ * Monetização habilitada somente nos artigos editoriais individuais:
+ * /guias/<slug>/
+ *
+ * Páginas de coleção, categorias, institucionais, comerciais,
+ * legais, técnicas e demonstrações permanecem sem código publicitário.
  */
 
 const pathname = Astro.url.pathname;
-const normalizedPath =
-  pathname.endsWith('/') ? pathname : `${pathname}/`;
-
-const excludedPrefixes = [
-  '/enquanto/',
-  '/site-profissional/',
-  '/cookies/',
-  '/privacidade/',
-  '/sobre/',
-];
-
-const isHome = pathname === '/';
-
-const isTechnicalPage =
-  pathname === '/404' ||
-  pathname === '/404/' ||
-  pathname === '/404.html';
-
-const isExcludedSection = excludedPrefixes.some((prefix) =>
-  normalizedPath.startsWith(prefix)
-);
+const segments = pathname.split('/').filter(Boolean);
 
 const adsenseEnabled =
-  !isHome &&
-  !isTechnicalPage &&
-  !isExcludedSection;
+  segments.length === 2 &&
+  segments[0] === 'guias' &&
+  segments[1] !== 'tema';
 ---
 
 {

@@ -375,8 +375,24 @@ function checkCloudflareFiles() {
     else fail(`cabeçalho ausente: ${header}`);
   }
 
-  if (/\/enquanto\.html\s+\/enquanto\/\s+301/.test(redirects)) pass('redirecionamento legado /enquanto.html correto');
-  else fail('redirecionamento legado /enquanto.html ausente ou incorreto');
+  const obsoleteRedirects = [
+    {
+      label: '/enquanto.html -> /enquanto/',
+      pattern: /\/enquanto\.html\s+\/enquanto\/\s+301/,
+    },
+    {
+      label: '/criador-digital-com-ia.html -> /sistema-criador-digital/',
+      pattern: /\/criador-digital-com-ia\.html\s+\/sistema-criador-digital\/\s+301/,
+    },
+  ];
+
+  for (const redirect of obsoleteRedirects) {
+    if (redirect.pattern.test(redirects)) {
+      fail(`redirecionamento obsoleto ainda configurado: ${redirect.label}`);
+    } else {
+      pass(`redirecionamento obsoleto removido: ${redirect.label}`);
+    }
+  }
 
   if (redirects.includes('https://estudioescritaplanejada.com.br/* https://www.estudioescritaplanejada.com.br/:splat 301')) {
     pass('redirecionamento do domínio sem www configurado');
