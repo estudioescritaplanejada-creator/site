@@ -2,7 +2,7 @@
 title: "Como organizar pedidos, prazos e entregas sem depender da memória"
 description: "Crie um controle simples para acompanhar pedidos, prazos e entregas sem depender de conversas espalhadas, anotações soltas ou memória."
 publishedAt: 2026-08-10
-updatedAt: 2026-08-10
+updatedAt: 2026-09-16
 category: rotina-digital
 themes:
   - organização de pedidos
@@ -32,7 +32,7 @@ O problema não é falta de memória. É usar a memória como sistema de gestão
 
 > Todo pedido importante precisa sair da conversa e entrar em um lugar onde possa ser acompanhado.
 
-## O que está acontecendo
+## Por que a conversa deixa de funcionar como controle
 
 Conversas são ótimas para conversar. Elas não são, por si só, um bom controle operacional.
 
@@ -48,7 +48,7 @@ Quando cada pedido fica registrado apenas no canal onde chegou, você precisa le
 
 Quanto mais pedidos existem, maior a chance de uma dessas informações se perder.
 
-## O que verificar primeiro
+## Descubra se você já perdeu a visão dos pedidos
 
 Pegue os pedidos abertos hoje e tente responder rapidamente:
 
@@ -60,9 +60,9 @@ Pegue os pedidos abertos hoje e tente responder rapidamente:
 
 Se para responder você precisa abrir várias conversas, já existe motivo para centralizar o controle.
 
-## Como resolver
+## Tire o pedido da conversa e leve para um controle
 
-### Etapa 1 — Escolha um lugar principal
+### Etapa 1: Escolha um lugar principal
 
 Pode ser:
 
@@ -78,7 +78,7 @@ O importante é existir **um lugar principal**.
 
 O guia [Atendimento em vários canais: como não perder mensagens, arquivos e decisões](/guias/atendimento-em-varios-canais-sem-perder-mensagens/) segue a mesma lógica: o cliente pode conversar em vários lugares, mas a informação importante precisa ser centralizada.
 
-### Etapa 2 — Registre sempre os mesmos campos
+### Etapa 2: Registre sempre os mesmos campos
 
 Cada pedido deve conter pelo menos:
 
@@ -94,7 +94,7 @@ Cada pedido deve conter pelo menos:
 
 Quanto menos você precisar voltar à conversa original, melhor.
 
-### Etapa 3 — Crie etapas visíveis
+### Etapa 3: Crie etapas visíveis
 
 Um fluxo simples pode ser:
 
@@ -108,11 +108,11 @@ Um fluxo simples pode ser:
 
 As etapas devem refletir o seu trabalho real.
 
-No Trello, por exemplo, listas podem representar estágios de um fluxo e os cartões podem avançar de uma etapa para outra.
+No Trello, por exemplo, listas podem representar estágios de um fluxo e os cartões podem avançar de uma etapa para outra. A documentação oficial do Trello descreve exatamente esse uso de listas para organizar cartões por estágios de progresso.
 
 Mas você pode reproduzir a mesma lógica numa planilha.
 
-### Etapa 4 — Separe prazo de status
+### Etapa 4: Separe prazo de status
 
 "Em produção" não informa quando aquilo precisa ficar pronto.
 
@@ -124,7 +124,7 @@ O sistema de pedidos mostra **o que existe**.
 
 A agenda ajuda a lembrar **quando algo exige atenção**.
 
-### Etapa 5 — Registre mudanças importantes
+### Etapa 5: Registre mudanças importantes
 
 Se o cliente mudar:
 
@@ -181,7 +181,7 @@ Revise:
 
 Mudanças pedidas durante a execução também precisam sair da conversa e entrar no controle. Veja [como registrar alterações pedidas pelo cliente sem perder prazo, preço e versão](/guias/como-registrar-alteracoes-pedidas-pelo-cliente/) para separar correção, revisão prevista e mudança real de escopo.
 
-## O que evitar
+## Evite criar um sistema que dependa de memória de outro jeito
 
 Evite:
 
@@ -195,7 +195,7 @@ Evite:
 
 Uma ferramenta sofisticada não corrige um processo confuso.
 
-## Plano de ação para hoje
+## Monte a primeira versão do controle
 
 1. Liste todos os pedidos ainda abertos.
 2. Coloque-os num único controle.
@@ -205,13 +205,13 @@ Uma ferramenta sofisticada não corrige um processo confuso.
 6. Crie uma revisão diária de dez minutos.
 7. Durante uma semana, ajuste o sistema antes de adicionar recursos novos.
 
-## Fontes consultadas
+## Fonte para estruturar o fluxo
 
-Fonte verificada em 10 de agosto de 2026:
+Fonte verificada em 16 de setembro de 2026:
 
-- [Trello — guia de quadros, listas e cartões](https://www.trello.com/guide/trello-101)
+- [Trello - guia de quadros, listas e cartões](https://trello.com/en/guide/trello-101)
 
-## Resumo prático
+## Um lugar para saber o que acontece em seguida
 
 - conversa não deve ser o único registro do pedido;
 - escolha uma fonte principal de controle;

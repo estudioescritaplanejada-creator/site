@@ -2,7 +2,7 @@
 title: "Muitas opções de IA: como escolher sem se perder"
 description: "Um método para escolher uma ferramenta de inteligência artificial pela tarefa, custo, privacidade e facilidade de uso sem testar tudo ao mesmo tempo."
 publishedAt: 2026-07-23
-updatedAt: 2026-07-23
+updatedAt: 2026-09-16
 category: ferramentas-e-ia
 themes:
   - inteligência artificial
@@ -78,17 +78,19 @@ Uma opção deve ser descartada quando falha num requisito obrigatório, não po
 Antes de enviar conteúdo profissional, verifique:
 
 - se as conversas ficam salvas;
-- se existe controle de histórico;
-- se os dados podem ser usados para melhorar modelos;
+- quais controles de histórico existem;
+- se o conteúdo pode ser usado para melhorar modelos;
 - se arquivos são mantidos por algum período;
 - se há diferenças entre plano pessoal e empresarial;
-- se é possível excluir conteúdo;
+- se é possível excluir ou exportar conteúdo;
 - quais pessoas terão acesso à conta;
 - se o serviço permite administrar usuários.
 
-Essas regras variam entre plataformas e podem mudar. Consulte a documentação atual da ferramenta escolhida.
+Essas regras variam entre plataformas e podem mudar. Consulte a documentação atual da ferramenta escolhida. No ChatGPT, por exemplo, os Controles de Dados permitem escolher se as conversas ajudam a melhorar os modelos e oferecem opções adicionais de gestão de dados para usuários conectados.
 
 Quando o trabalho envolve dados de clientes, contratos, informações financeiras ou material confidencial, a privacidade precisa ser requisito, não detalhe comparado no final.
+
+A LGPD também adota o princípio da necessidade: o tratamento de dados pessoais deve se limitar ao mínimo necessário para a finalidade. Isso reforça uma regra simples para qualquer teste de ferramenta: não envie dados pessoais que não sejam necessários para executar a tarefa.
 
 ## Teste a mesma tarefa
 
@@ -235,6 +237,16 @@ Se a ferramenta mudar ou a conta ficar indisponível, o trabalho deve poder cont
 6. Use por duas semanas.
 7. Registre correções e tempo economizado.
 8. Marque uma data de reavaliação.
+
+## Onde conferir privacidade e segurança
+
+Fontes verificadas em 16 de setembro de 2026:
+
+- [ANPD - Guia orientativo sobre segurança da informação para agentes de tratamento de pequeno porte](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-sobre-seguranca-da-informacao-para-agentes-de-tratamento-de-pequeno-porte)
+- [Lei Geral de Proteção de Dados Pessoais - Lei nº 13.709/2018](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
+- [OpenAI - perguntas frequentes sobre Controles de Dados do ChatGPT](https://help.openai.com/pt-br/articles/7730893-perguntas-frequentes-sobre-controles-de-dados)
+
+A ANPD mantém materiais orientativos de segurança voltados também a agentes de tratamento de pequeno porte. Use essas referências como base para avaliar risco, mas sempre confira as políticas específicas do fornecedor que pretende adotar.
 
 ## Resumo prático
 

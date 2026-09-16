@@ -2,7 +2,7 @@
 title: "Use IA no atendimento sem parecer um robô respondendo"
 description: "Use inteligência artificial para preparar respostas e organizar dúvidas frequentes sem deixar o atendimento genérico, frio ou fora de contexto."
 publishedAt: 2026-07-23
-updatedAt: 2026-07-23
+updatedAt: 2026-09-16
 category: ferramentas-e-ia
 themes:
   - inteligência artificial
@@ -115,7 +115,7 @@ Antes de enviar:
 6. confira se o tom respeita o cliente;
 7. registre o combinado.
 
-Não cole conversas completas em ferramentas externas quando elas contêm dados pessoais ou informações confidenciais. Remova o que não é necessário.
+Não cole conversas completas em ferramentas externas quando elas contêm dados pessoais ou informações confidenciais. Retire o que não é necessário para a tarefa. A LGPD adota o princípio da necessidade, que limita o tratamento ao mínimo de dados pertinentes à finalidade.
 
 ## Seja transparente quando houver um assistente automatizado
 
@@ -192,6 +192,16 @@ Se o processo exige consertar várias respostas, a automação pode estar apenas
 5. Salve apenas os modelos aprovados.
 6. Crie uma opção de atendimento pessoal.
 7. Marque uma data para revisar as mensagens.
+
+## Referências para tratar dados com mais cuidado
+
+Fontes verificadas em 16 de setembro de 2026:
+
+- [ANPD - Guia orientativo sobre segurança da informação para agentes de tratamento de pequeno porte](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-sobre-seguranca-da-informacao-para-agentes-de-tratamento-de-pequeno-porte)
+- [Lei Geral de Proteção de Dados Pessoais - Lei nº 13.709/2018](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
+- [OpenAI - perguntas frequentes sobre Controles de Dados do ChatGPT](https://help.openai.com/pt-br/articles/7730893-perguntas-frequentes-sobre-controles-de-dados)
+
+As configurações de privacidade e retenção variam entre fornecedores. No ChatGPT, por exemplo, os Controles de Dados permitem escolher se as conversas ajudam a melhorar os modelos. Em qualquer ferramenta, confira a documentação atual antes de inserir conteúdo profissional.
 
 ## Resumo prático
 
