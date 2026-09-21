@@ -1,8 +1,8 @@
 ---
 title: "Como organizar o e-mail sem transformar a caixa de entrada em lista de tarefas"
 description: "Use cinco destinos para cada mensagem: responder, agir, esperar, arquivar ou excluir. A caixa de entrada deixa de ser uma lista confusa de lembretes."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:57:59Z"
+updatedAt: "2026-09-21T19:57:59Z"
 category: "rotina-digital"
 themes:
   - "e-mail"

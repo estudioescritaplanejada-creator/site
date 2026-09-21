@@ -1,8 +1,8 @@
 ---
 title: "Como montar um mapa de dados antes de conectar a IA às ferramentas do seu negócio"
 description: "Antes de conectar IA a e-mail, Drive, CRM ou financeiro, registre que dados existem em cada sistema, quem é responsável e o que a IA pode ler ou alterar."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:59:25Z"
+updatedAt: "2026-09-21T19:59:25Z"
 category: "ferramentas-e-ia"
 themes:
   - "dados"

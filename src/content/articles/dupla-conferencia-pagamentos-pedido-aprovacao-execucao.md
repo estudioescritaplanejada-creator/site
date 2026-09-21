@@ -1,8 +1,8 @@
 ---
 title: "Dupla conferência de pagamentos: como separar pedido, aprovação e execução sem travar o negócio"
 description: "Crie um controle simples para pagamentos separando pedido, conferência e execução. Mesmo um negócio de uma pessoa só pode aplicar uma segunda verificação."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:57:19Z"
+updatedAt: "2026-09-21T19:57:19Z"
 category: "protecao-digital"
 themes:
   - "pagamentos"

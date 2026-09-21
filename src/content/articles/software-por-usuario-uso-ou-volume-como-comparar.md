@@ -1,8 +1,8 @@
 ---
 title: "Software cobrado por usuário, por uso ou por volume: como comparar antes de contratar"
 description: "Preço mensal não conta toda a história. Simule crescimento de usuários, consumo e volume para descobrir como a fatura muda antes de contratar software."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:58:40Z"
+updatedAt: "2026-09-21T19:58:40Z"
 category: "decisoes-digitais"
 themes:
   - "software"

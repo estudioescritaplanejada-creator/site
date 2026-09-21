@@ -161,14 +161,29 @@ function isValidSlug(slug) {
 }
 
 function dateValue(value) {
-  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
-  const date = new Date(`${value}T00:00:00.000Z`);
-  if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== value) return null;
+  if (typeof value !== 'string') return null;
+
+  const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(value);
+  const dateTime =
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})$/.test(value);
+
+  if (!dateOnly && !dateTime) return null;
+
+  const normalized = dateOnly ? `${value}T00:00:00.000Z` : value;
+  const date = new Date(normalized);
+
+  if (Number.isNaN(date.getTime())) return null;
+  if (dateOnly && date.toISOString().slice(0, 10) !== value) return null;
+
   return date;
 }
 
 function todayUtc() {
   return new Date().toISOString().slice(0, 10);
+}
+
+function nowUtc() {
+  return new Date().toISOString();
 }
 
 function readWebpDimensions(filePath) {
@@ -247,10 +262,10 @@ function validateArticle(filePath) {
   }
 
   const publishedAt = dateValue(data.publishedAt);
-  if (!publishedAt) issues.push('publishedAt deve usar o formato AAAA-MM-DD');
+  if (!publishedAt) issues.push('publishedAt deve usar AAAA-MM-DD ou data/hora ISO 8601 com fuso');
 
   if (data.updatedAt !== undefined && !dateValue(data.updatedAt)) {
-    issues.push('updatedAt deve usar o formato AAAA-MM-DD');
+    issues.push('updatedAt deve usar AAAA-MM-DD ou data/hora ISO 8601 com fuso');
   }
 
   if (!CATEGORIES.has(data.category)) {
@@ -506,14 +521,22 @@ function publishCommand(slug) {
     fail('o artigo precisa declarar draft: true ou draft: false');
   }
 
+  const publishedNow = nowUtc();
+
   source = source.replace(/^draft:\s*true\s*$/m, 'draft: false');
-  source = source.replace(/^publishedAt:\s*\d{4}-\d{2}-\d{2}\s*$/m, `publishedAt: ${todayUtc()}`);
-  source = source.replace(/^updatedAt:\s*\d{4}-\d{2}-\d{2}\s*$/m, `updatedAt: ${todayUtc()}`);
+  source = source.replace(
+    /^publishedAt:\s*["']?\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2}))?["']?\s*$/m,
+    `publishedAt: "${publishedNow}"`,
+  );
+  source = source.replace(
+    /^updatedAt:\s*["']?\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2}))?["']?\s*$/m,
+    `updatedAt: "${publishedNow}"`,
+  );
   writeFileSync(filePath, source, 'utf8');
 
   heading('ARTIGO PROMOVIDO PARA PUBLICAÇÃO');
   note(`slug: ${slug}`);
-  note(`data: ${todayUtc()}`);
+  note(`data/hora: ${publishedNow}`);
   note('executando validação completa antes de permitir o versionamento');
 
   try {

@@ -1,8 +1,8 @@
 ---
 title: "Checkout do produto digital: o que revisar no celular antes de enviar tráfego para a oferta"
 description: "Antes de investir em tráfego, percorra o checkout no celular e confira preço, campos, pagamento, confirmação e acesso. Um erro no final desperdiça todo o funil."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:59:45Z"
+updatedAt: "2026-09-21T19:59:45Z"
 category: "produtos-digitais"
 themes:
   - "checkout"

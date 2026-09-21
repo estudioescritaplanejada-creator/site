@@ -1,8 +1,8 @@
 ---
 title: "Gmail agora responde perguntas sobre seus e-mails: quando usar AI Overviews e quando abrir a mensagem original"
 description: "AI Overviews no Gmail pode resumir e localizar informações em mensagens. Veja quando usar o resumo e quando preço, prazo, contrato ou instrução exigem abrir a fonte."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:57:39Z"
+updatedAt: "2026-09-21T19:57:39Z"
 category: "rotina-digital"
 themes:
   - "Gmail"

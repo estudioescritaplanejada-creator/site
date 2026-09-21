@@ -1,8 +1,8 @@
 ---
 title: "Meta One para empresas e criadores: quando vale pagar por recursos extras no Instagram, WhatsApp e Facebook"
 description: "Meta One reúne assinaturas e ferramentas pagas da Meta. Veja como comparar recurso, problema real, frequência de uso e custo anual antes de assinar."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:58:19Z"
+updatedAt: "2026-09-21T19:58:19Z"
 category: "decisoes-digitais"
 themes:
   - "Meta One"

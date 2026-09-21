@@ -1,8 +1,8 @@
 ---
 title: "Gemini conecta Asana, HubSpot, QuickBooks e outras ferramentas via MCP: o que muda no trabalho"
 description: "Gemini no Workspace ganhou conectores MCP para ferramentas externas. Entenda a diferença entre ler, resumir, criar e alterar dados antes de liberar integrações."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:59:04Z"
+updatedAt: "2026-09-21T19:59:04Z"
 category: "ferramentas-e-ia"
 themes:
   - "Gemini"

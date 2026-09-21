@@ -13,7 +13,7 @@ import {
 const articles = sortArticles(
   await getCollection('articles', (article) => isPublished(article)),
 );
-const featured = articles.find((article) => article.data.featured) ?? articles[0];
+const featured = articles[0];
 const remaining = featured
   ? articles.filter((article) => article.id !== featured.id)
   : articles;

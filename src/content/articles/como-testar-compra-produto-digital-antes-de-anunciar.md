@@ -1,8 +1,8 @@
 ---
 title: "Como testar a compra do seu próprio produto digital antes de anunciar"
 description: "Teste a jornada completa do comprador: clique, página, checkout, pagamento, confirmação, e-mail, acesso e suporte. Registre falhas antes de divulgar."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T20:00:06Z"
+updatedAt: "2026-09-21T20:00:06Z"
 category: "produtos-digitais"
 themes:
   - "produto digital"

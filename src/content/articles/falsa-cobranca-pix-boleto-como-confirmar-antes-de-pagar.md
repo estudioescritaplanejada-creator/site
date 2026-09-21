@@ -1,8 +1,8 @@
 ---
 title: "Falsa cobrança com nome conhecido: como conferir Pix, boleto e pedido urgente antes de pagar"
 description: "Golpistas usam nomes e dados reais em cobranças falsas. Veja como conferir obrigação, beneficiário, valor e canal antes de pagar."
-publishedAt: "2026-09-21"
-updatedAt: "2026-09-21"
+publishedAt: "2026-09-21T19:57:00Z"
+updatedAt: "2026-09-21T19:57:00Z"
 category: "protecao-digital"
 themes:
   - "golpes"
