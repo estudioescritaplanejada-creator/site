@@ -552,7 +552,6 @@ async function verifyCommand(baseArg) {
     '/',
     '/guias/',
     '/site-profissional/',
-    '/enquanto/',
     '/rss.xml',
     '/sitemap-index.xml',
     '/robots.txt',
@@ -591,7 +590,6 @@ async function verifyCommand(baseArg) {
     ['/', 'https://www.estudioescritaplanejada.com.br/'],
     ['/guias/', 'https://www.estudioescritaplanejada.com.br/guias/'],
     ['/site-profissional/', 'https://www.estudioescritaplanejada.com.br/site-profissional/'],
-    ['/enquanto/', 'https://www.estudioescritaplanejada.com.br/enquanto/'],
   ];
   for (const [path, officialUrl] of canonicalChecks) {
     const html = await (await fetchChecked(`${base}${path}`)).text();
@@ -601,15 +599,16 @@ async function verifyCommand(baseArg) {
   }
   note('canonicals das rotas principais verificados');
 
-  const legacyRedirect = await fetch(`${base}/enquanto.html`, {
-    redirect: 'manual',
-    signal: AbortSignal.timeout(20_000),
-  });
-  const legacyLocation = legacyRedirect.headers.get('location');
-  if (legacyRedirect.status !== 301 || legacyLocation !== '/enquanto/') {
-    fail(`/enquanto.html deveria retornar 301 para /enquanto/; recebido ${legacyRedirect.status} ${legacyLocation ?? ''}`);
+  for (const path of ['/enquanto/', '/enquanto.html']) {
+    const removedResponse = await fetch(`${base}${path}`, {
+      redirect: 'manual',
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (removedResponse.status !== 404) {
+      fail(`${path} deveria retornar 404 após remoção; recebido ${removedResponse.status}`);
+    }
   }
-  note('redirecionamento legado verificado');
+  note('rotas removidas verificadas');
 
   const missingResponse = await fetch(`${base}/pagina-inexistente-auditoria`, {
     redirect: 'manual',
